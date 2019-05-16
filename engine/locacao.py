@@ -1,5 +1,4 @@
-import io
-import sqlite3
+from data import Banco
 
 
 class Locacao(object):
