@@ -2,11 +2,18 @@ body
 {
         /*background-color: #222930;*/
         background-color: orange;
-        color: #000000
+        color: #000000 ;
+        background-image: url("../images/coolbag.jpg");
+        background-attachment: fixed;
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+        
+        
 }
 h1
 {
-        color: #E9E9E9;
+        color: rgb(20, 8, 8);
         text-align: center;
 }
 .button {
