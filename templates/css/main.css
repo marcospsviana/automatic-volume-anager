@@ -1,15 +1,19 @@
 body
 {
         /*background-color: #222930;*/
-        background-color: orange;
-        color: #000000 ;
-        background-image: url("../images/coolbag.jpg");
+        
+        color: #222930 ;
+        background-color: #FFD004;
         background-attachment: fixed;
         background-size: 100%;
-        background-repeat: no-repeat;
+        
 
         
         
+}
+#background{
+        background-color: #FFD004;
+        background-image: url("../images/coolbag.svg");
 }
 h1
 {
@@ -19,4 +23,46 @@ h1
 .button {
   margin-bottom: 5px;
   text-align: center;
+}
+#button-bottom{
+      position: absolute;
+      top: 80%;
+      left: 50%;
+
+}
+
+#a{
+        position: absolute;
+        top: 30%;
+        left: 10%;
+        height: 200px;
+        width: 220px;
+}
+#b{
+        position: absolute;
+        top: 30%;
+        left: 40%;
+        height: 100px;
+        width: 190px;
+        background-color: green;
+}
+#c{
+        position: absolute;
+        top: 60%;
+        left: 40%;
+        height: 80px;
+        width: 120px;
+        background-color: gray;
+}
+#d{
+        position: absolute;
+        top: 60%;
+        left: 60%;
+        height: 50px;
+        width: 120px;
+        background-color: red;
+}
+#p{
+        position: absolute;
+        left: 20%;
 }
