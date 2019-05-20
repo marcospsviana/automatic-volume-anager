@@ -70,7 +70,7 @@ h1
 #bandeiras{
         top: 10%;
         left: 70%;
-        background-color: #222930;
+        background-color: #FFD004;
 }
 
 #bandeira{
@@ -80,7 +80,9 @@ h1
         
 }
 .ativo{
-        border-bottom-color: aliceblue 2px solid;
+        border: 2px solid rgb(13, 18, 22);
+        
+        
 }
 .inativo{
         -webkit-filter: grayscale(80%);
