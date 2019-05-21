@@ -4,12 +4,34 @@ import _thread
 
 class Io(object):
     def __init__(self):
+        GPIO.setmode(GPIO.BOARD)
+            
+            
+        GPIO.setup( 29, GPIO.OUT)
+        GPIO.setup( 33, GPIO.OUT)
+        GPIO.setup( 35, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
+            
+        GPIO.output(29, 0)
+        GPIO.output(33, 0)
         fechado = False
-        
+        while True:
+            if GPIO.input(35) == 1:
+                while fechado == False:
+                    GPIO.output(33,0)
+                    GPIO.output(29, 1)
+                    time.sleep(0.5)
+                    GPIO.output(29,0)
+                    time.sleep(0.5)
+                    if GPIO.input(35) == 0:
+                        fechado = True
+                        GPIO.output(33,1)
+            time.sleep(0.5)
+            fechado= False
+            
     
-        def set_io(self):
-            ''' definindo os pinos de entrada e saída para comandos
-             e leitura de estados '''
+        '''def set_io(self):
+             definindo os pinos de entrada e saída para comandos
+             e leitura de estados 
             GPIO.setmode(GPIO.BOARD)
             
             
@@ -19,7 +41,8 @@ class Io(object):
             
             GPIO.output(29, 0)
             GPIO.output(33, 0)
-        def ativo():
+        #def ativo():
+            while True:
             if GPIO.input(35) == 1:
                 while fechado == False:
                 
@@ -28,10 +51,11 @@ class Io(object):
                     GPIO.output(29,0)
                     time.sleep(0.5)
                     if fechado == True:
-                        break
+                        fechado = True
+                        GPIO.output(33,1)
                     
         def ocupado():
-            ''' leitura do pino 35 '''
+            leitura do pino 35 
             if GPIO.input(35) == 0:
                 GPIO.output(33, 1)
                 fechado = True
@@ -42,13 +66,13 @@ class Io(object):
         
                 
             
-        set_io(self)
-        ativo()
+        #set_io(self)
+        #ativo()
         #time.sleep(1)
-        ocupado()
+        #ocupado()
         #time.sleep(1)
         #desocupado()
-        #GPIO.cleanup()
+        #GPIO.cleanup()'''
             
 if __name__ == '__main__':
     while True:
