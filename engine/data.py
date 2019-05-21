@@ -1,6 +1,6 @@
 import sqlite3
 
-Class Banco(object):
+class Banco(object):
 	def __init__(self):
 		conn = sqlite3.connect('coolbag.db')
 		c = conn.cursor()
@@ -12,10 +12,17 @@ Class Banco(object):
 		                                                    terminal TEXT)'''
 		         )
 		c.execute( ''' CREATE TABLE IF NOT EXISTS tb_usuario( id_usuario INTEGER PRIMARY KEY AUTOINCREMENT,
-		               nome TEXT, senha TEXT, id_armario INT FOREIGN KEY ) ''')
+		               nome TEXT, senha TEXT, id_armario INT,
+					   FOREIGN KEY(id_armario) REFERENCES tb_armario(id_armario ) )''')
 		               
-		def locar_armario(self):
-			pass
+	def locar_armario(self):
+		pass
 		
-		def liberar_armario(self, armario):
-			pass
+	def liberar_armario(self, armario):
+		pass
+
+	def cadastrar_armario(self):
+		print("cadastrado")
+		
+if __name__ == "__main__":
+	Banco()
