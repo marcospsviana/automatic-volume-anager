@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-import _thread
+from cadastrar_armario import Janela
 
 class Io(object):
     def __init__(self):
@@ -10,9 +10,11 @@ class Io(object):
         GPIO.setup( 29, GPIO.OUT)
         GPIO.setup( 33, GPIO.OUT)
         GPIO.setup( 35, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
+        GPIO.setup( 37, GPIO.IN)
             
         GPIO.output(29, 0)
         GPIO.output(33, 0)
+        
         fechado = False
         while True:
             if GPIO.input(35) == 1:
@@ -27,52 +29,14 @@ class Io(object):
                         GPIO.output(33,1)
             time.sleep(0.5)
             fechado= False
+            if GPIO.input(37) == 1:
+                Janela()
+                
+
+
             
     
-        '''def set_io(self):
-             definindo os pinos de entrada e saída para comandos
-             e leitura de estados 
-            GPIO.setmode(GPIO.BOARD)
-            
-            
-            GPIO.setup( 29, GPIO.OUT)
-            GPIO.setup( 33, GPIO.OUT)
-            GPIO.setup( 35, GPIO.IN)
-            
-            GPIO.output(29, 0)
-            GPIO.output(33, 0)
-        #def ativo():
-            while True:
-            if GPIO.input(35) == 1:
-                while fechado == False:
-                
-                    GPIO.output(29, 1)
-                    time.sleep(0.5)
-                    GPIO.output(29,0)
-                    time.sleep(0.5)
-                    if fechado == True:
-                        fechado = True
-                        GPIO.output(33,1)
-                    
-        def ocupado():
-            leitura do pino 35 
-            if GPIO.input(35) == 0:
-                GPIO.output(33, 1)
-                fechado = True
-            else:
-                GPIO.output(33, 0)
-                fechado = False
-                
         
-                
-            
-        #set_io(self)
-        #ativo()
-        #time.sleep(1)
-        #ocupado()
-        #time.sleep(1)
-        #desocupado()
-        #GPIO.cleanup()'''
             
 if __name__ == '__main__':
     while True:
