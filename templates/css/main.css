@@ -27,14 +27,14 @@ h1
 #button-bottom{
       position: absolute;
       top: 80%;
-      left: 50%;
+      left: 30%;
 
 }
 
 #button-pass{
         position: absolute;
         top: 40%;
-        left: 50%;
+        left: 30%;
   
   }
 
@@ -98,9 +98,6 @@ h1
         
         
 }
-<<<<<<< HEAD
 .inativo{
         filter: grayscale(80%);
 }
-=======
->>>>>>> c39c079904c184491caed6ea7e78231444cc12aa

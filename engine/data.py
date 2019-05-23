@@ -9,10 +9,11 @@ class Banco(object):
 		                                                    classe TEXT,
 		                                                    local  TEXT,
 		                                                    livre BOOLEAN,
+															porta TEXT,
 		                                                    terminal TEXT)'''
 		         )
 		c.execute( ''' CREATE TABLE IF NOT EXISTS tb_usuario( id_usuario INTEGER PRIMARY KEY AUTOINCREMENT,
-		               nome TEXT, senha TEXT, id_armario INT,
+		               nome TEXT, email TEXT, senha TEXT, id_armario INT,
 					   FOREIGN KEY(id_armario) REFERENCES tb_armario(id_armario ) )''')
 		               
 	def locar_armario(self):
