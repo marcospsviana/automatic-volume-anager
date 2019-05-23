@@ -13,13 +13,13 @@ class Banco(object):
 		                                                    terminal TEXT)'''
 		         )
 		c.execute( ''' CREATE TABLE IF NOT EXISTS tb_usuario( id_usuario INTEGER PRIMARY KEY AUTOINCREMENT,
-		               nome TEXT, email TEXT, senha TEXT, id_armario INT,
+		               email TEXT, senha TEXT, id_armario INT,
 					   FOREIGN KEY(id_armario) REFERENCES tb_armario(id_armario ) )''')
 		               
 	def locar_armario(self):
 		pass
 		
-	def liberar_armario(self, armario):
+	def liberar_armario(self):
 		pass
 
 	def cadastrar_armario(self):
