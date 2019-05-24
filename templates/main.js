@@ -1,4 +1,4 @@
-// Modules to control application life and create native browser window
+/*// Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -40,7 +40,8 @@ app.on('ready', createWindow)
 app.on('window-all-closed', function () {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') app.quit()
+  //if (process.platform !== 'darwin')
+   app.quit()
 })
 
 app.on('activate', function () {
@@ -51,3 +52,45 @@ app.on('activate', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+*/
+const electron = require('electron');
+const app = electron.app;
+const BrowserWindow = electron.BrowserWindow;
+let mainWindow;
+
+
+app.on('window-all-closed', function() {
+  app.quit();
+});
+
+
+app.on('ready', function() {
+  var subpy = require('child_process').spawn('python',['./rasp.py']);
+  //var rq = require('request-promise');
+  var mainAddr = 'http://localhost:8000';
+
+  var openWindow = function() {
+    mainWindow = new BrowserWindow({width: 800, height: 400, frame: false });
+    mainWindow.loadURL(mainAddr);
+
+    
+    mainWindow.on('closed', function() {
+      mainWindow = null;
+      subpy.kill('SIGINT');
+    });
+  };
+
+ /* var startUp = function() {
+    rq(mainAddr)
+      .then(function(htmlString) {
+        console.log('server started');
+        openWindow();
+      })
+      .catch(function(err) {
+        startUp();
+      });
+  };
+
+  startUp();*/
+  openWindow();
+});

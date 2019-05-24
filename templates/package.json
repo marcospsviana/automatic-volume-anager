@@ -20,6 +20,11 @@
     "electron": "^5.0.0"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1"
+    "bootstrap": "^4.3.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "request-promise-core": "^1.1.2",
+    "request-promise-native": "^1.0.7",
+    "update": "^0.7.4"
   }
 }
