@@ -2,8 +2,7 @@
 const {app, BrowserWindow} = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+/let mainWindow
 
 function createWindow () {
   // Create the browser window.
@@ -48,7 +47,8 @@ app.on('activate', function () {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) createWindow()
-})
+})/ be closed automatically when the JavaScript object is garbage collected.
+
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
@@ -65,9 +65,9 @@ app.on('window-all-closed', function() {
 
 
 app.on('ready', function() {
-  var subpy = require('child_process').spawn('python',['./rasp.py']);
+  var subpy = require('child_process').spawn('python',['../rasp.py']);
   //var rq = require('request-promise');
-  var mainAddr = 'http://localhost:8000';
+  var mainAddr = 'http://localhost:5000';
 
   var openWindow = function() {
     mainWindow = new BrowserWindow({width: 800, height: 400, frame: false });
@@ -80,17 +80,6 @@ app.on('ready', function() {
     });
   };
 
- /* var startUp = function() {
-    rq(mainAddr)
-      .then(function(htmlString) {
-        console.log('server started');
-        openWindow();
-      })
-      .catch(function(err) {
-        startUp();
-      });
-  };
 
-  startUp();*/
   openWindow();
 });

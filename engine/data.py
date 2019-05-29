@@ -1,13 +1,14 @@
 import mysql.connector as mdb
-import datetime
+from datetime import datetime, timedelta, time
+import time
 import random
 import string
-from random import choice
+from random import choice, sample
 
 class Banco(object):
 	def __init__(self):
 		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
-		self.c = self.conn.cursor()
+		self.c = self.conn.cursor(buffered=True)
 
 
 
@@ -48,44 +49,91 @@ ENGINE=InnoDB
 ''')
 		               
 	def create_user(self, nome, email, telefone):
+		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
+		self.c = self.conn.cursor(buffered=True)
 		self.nome = nome
 		self.email = email
 		self.telefone = telefone
-		consulta = self.c.execute("SELECT id_usuario from tb_usuario where email=%s AND telefone=%s", (self.email, self.telefone))
-		if consulta == none:
-			self.c.execute("INSERT INTO tb_usuario (id_usuario, nome, email, telefone) values (0,%s,%s,%s)",(self.nome, self.email, self.telefone))
+		print('-----dados------')
+		print(self.nome)
+		print(self.email)
+		print(self.telefone)
+		print('----fim dados-----')
+		self.c.execute("SELECT * from tb_usuario where email='%s' AND telefone='%s'" %(self.email, self.telefone,))
+		self.select = self.c.fetchone()
+		print('----------- select --------')
+		print(self.select)
+		if self.select == None:
+			
+			self.c.execute("INSERT INTO tb_usuario (id_usuario, nome, email, telefone) values (0,%s,%s,%s)"%(self.nome, self.email, self.telefone,))
 			self.conn.commit()
-			consulta = self.c.execute("SELECT id_usuario from tb_usuario where email=%s AND telefone=%s", (self.email, self.telefone))
-			return consulta.fetchall()
+			self.c.execute("SELECT * from tb_usuario where email=%s AND telefone=%s"%(self.email, self.telefone,))
+			consulta = self.c.fetchone()
+			return consulta[0]
+			
+			
 		else:
-			return consulta
+			return self.select[0]
+			
 		
-		return consulta.fetchall()
+		
 		
 	
-	def locar_armario(self, armario, nome, email, telefone):
+	def locar_armario(self, armario, nome, email, telefone, tempo_locado):
+		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
+		self.c = self.conn.cursor(buffered=True)
 		self.armario = armario
+		self.nome = nome
 		self.email = email
-		self.hora_locacao = datetime.datetime.now()
+		self.telefone = telefone
+		self.tempo_locado = tempo_locado
+		self.dados_locatario = self.create_user(self.nome, self.email, self.telefone)
+		self.hora_locacao = time.strftime('%Y-%m-%d %H:%M:%S')
+		
+		
+		print('---- data e hora da locacao ------')
+		print(self.hora_locacao)
 		self.loca_armario = self.localisa_armario(self.armario)
 		if self.loca_armario == "nao ha armario disponivel":
+			print('***********')
 			print(self.loca_armario)
+			print('***********')
 		else:
-			print(self.armario)
+			print('loca armario')
+			print(self.loca_armario)
+			print('fimlocaaramario')
 		
 		self.senha = ''
 		self.senha = self.get_passwd()
+		#INSERT INTO tb_locacao (id_locacao, tempo_corrido, data_locacao, tempo_locado,senha,id_armario,id_usuario ) VALUES (null, null,'2019-05-26','5400','e34r',1,1);
+		self.c.execute("INSERT INTO tb_locacao (id_locacao, tempo_corrido, data_locacao, tempo_locado,senha,id_armario,id_usuario ) VALUES (NULL, NULL, '%s', '%s',  '%s', %s,%s)" %(self.hora_locacao, self.tempo_locado, self.senha, self.loca_armario, self.dados_locatario))
+		self.conn.commit()
+		self.c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" %(self.loca_armario,))
 		
+		self.conn.close()
 		
 	
-	def localisa_armario(self, armario):
-		self.armario = armario
-		result = self.busca_armario(self.armario)
-		if result == self.armario:
+	def localisa_armario(self, classe):
+		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
+		self.c = self.conn.cursor(buffered=True)
+		result = ()
+		self.classe = str(classe)
+		
+		self.c.execute("SELECT *  from tb_armario where classe = '%s' and ESTADO = 'LIVRE'"%(self.classe,))
+		result =  self.c.fetchone()
+		print ('-----------localisa-------')
+		print (result[0])
+		print('-----fimlocalisa----')
+		if result != None:
 			return(result[0])
 		else:
 			return "nao ha armario disponivel"
 		
+		self.conn.close()
+
+	def send_passwd(self, passwd):
+		self.passwd = passwd
+			
 
 		
 
@@ -97,6 +145,8 @@ ENGINE=InnoDB
 		
 
 	def cadastrar_armario(self, classe, local, terminal):
+		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
+		self.c = self.conn.cursor(buffered=True)
 		self.classe = classe
 		self.local = local
 		self.terminal = terminal
@@ -105,25 +155,24 @@ ENGINE=InnoDB
 		self.conn.commit()
 		self.conn.close()
 
-	
-	def busca_armario(self, classe):
-		result = ''
-		self.classe = classe
-		
-		self.c.execute("SELECT *  from tb_armario where classe = '" +
-		                self.classe + "' and ESTADO = 'LIVRE'")
-		result =  self.c.fetchall()
-		return result
 		
 	
 	def get_passwd(self):
 		password = []
+		self.pass2 = ''
 		alfabet = list(string.ascii_lowercase)
+		print('---alfabet-----')
+		print(alfabet)
 		for i in range(2):
 			password.append( random.randrange(0,9))
 			password.append(choice(alfabet))
-		passwd = random.shuffle(password)
-		return password
+		passwd = sample(password, len(password))
+		print('===========senha=======')
+		print(passwd)	
+		print('======fimsenha=========')	
+		for i in passwd:
+			self.pass2 += str(i)
+		return self.pass2
 
 
 		

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{  url_for('static', filename='css/main.css')}}">
-    <script type="text/javascript" src="controller.js"></script>
+   
     <title> Bem-vindo ao CoolBag-Safe</title>
   </head>
   <body id="background">
@@ -20,8 +20,8 @@
             </div>
     
  <div class= "button" id="button-bottom">  
-<a href="locar.html"><button type="button" id="controller" class="btn btn-primary btn-lg">Locar Armário</button></a>
-<a href="resgatar.html"><button type="button" id="controller" class="btn btn-secondary btn-lg">Retirar Bagagem</button></a>
+<a href="{{url_for('locar')}}"><button type="button" id="controller" class="btn btn-primary btn-lg">Locar Armário</button></a>
+<a href="{{url_for('locar')}}"><button type="button" id="controller" class="btn btn-secondary btn-lg">Retirar Bagagem</button></a>
 </div> 
     <script>
       // You can also require other files to run in this process

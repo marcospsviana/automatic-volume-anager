@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{  url_for('static', filename='css/main.css')}}">
+    <script type="text/javascript" src="controller.js"></script>
+    <title> Bem-vindo ao CoolBag-Safe</title>
+  </head>
+  <body id="background">
+    <div class="container">
+        
+            <form action="" method="post" novalidate>
+
+                {{ form.hidden_tag() }}
+                <p>
+                  {{ form.nome.label }}<br>
+                  {{ form.nome(size=50)}}
+                </p>
+                <p>
+                    {{ form.email.label }}<br>
+                    {{ form.email(size=80)}}
+                  </p>
+                  <p>
+                      {{ form.telefone.label }}<br>
+                      {{ form.telefone(size=15)}}
+                    </p>
+                <p>
+                    {{ form.dia.label }}
+                    {{ form.dia(size=3) }}
+                
+                
+                    {{ form.hora.label }}
+                    {{ form.hora(size=2) }}
+                
+                    {{ form.minuto.label }}
+                    {{ form.minuto(size=2) }}
+                </p>
+                <p>{{ form.submit() }}</p>
+            </form>
+    
+ <div class= "button" id="button-bottom">  
+<a href="{{url_for('pagamento')}}"><button type="button" id="controller" class="btn btn-primary btn-lg">Confirmar</button></a>
+<a href="resgatar.html"><button type="button" id="controller" class="btn btn-secondary btn-lg">Retirar Bagagem</button></a>
+</div> 
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+      src=" url_for('static', filename='js/bootstrap.min.js')}}"
+    </script>
+    </div>
+  </body>
+</html>
