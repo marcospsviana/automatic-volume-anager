@@ -7,6 +7,16 @@ class FormTempo(FlaskForm):
     hora = IntegerField('Hora',validators=[DataRequired()])
     minuto = IntegerField('minuto',validators=[DataRequired()])
     nome = StringField('Nome', validators=[DataRequired()])
-    email = StringField('E-mail', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired()])
     telefone= StringField('Telefone', validators=[DataRequired()])
     submit = SubmitField('locar')
+
+class RecuperarBagagem(FlaskForm):
+    nome = StringField('Nome', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired()])
+    senha = StringField('Senha', validators=[DataRequired()])
+
+class RecupererBagages(FlaskForm): #récupérer bagages
+    nom = StringField('Nom', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired()])
+    telephone = StringField('Téléphone', validators=[DataRequired()])

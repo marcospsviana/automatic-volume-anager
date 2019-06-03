@@ -141,7 +141,7 @@ ENGINE=InnoDB
 		self.con = self.conn
 		self.armario = armario
 		self.c.execute("ALTER TABLE tb_armario")
-		return(result[0])
+		#return(result[0])
 		
 
 	def cadastrar_armario(self, classe, local, terminal):
