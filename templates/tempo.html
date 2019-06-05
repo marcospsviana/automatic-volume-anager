@@ -6,18 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{  url_for('static', filename='css/main.css')}}">
-    <script type="text/javascript" src="controller.js"></script>
+    <script type="text/javascript" src="{{  url_for('static', filename='js/tempo.js')}}"></script>
     <title> Bem-vindo ao CoolBag-Safe</title>
+    
   </head>
-  <body id="background">
+  <body>
     <div class="container">
         
-            <form action="" method="post" novalidate>
+            <form method="post" action="" >
 
+<<<<<<< HEAD
                 
+=======
+                {{ form.csrf_token }}
+>>>>>>> f7bbb26b7fdedf3e7b6dd6ecb1b5dfc0c67d2a50
                 <p>
                   {{ form.nome.label }}<br>
-                  {{ form.nome(size=50)}}
+                  
+                 {{ form.nome(size=80)}}
+                
                 </p>
                 <p>
                     {{ form.email.label }}<br>
@@ -38,18 +45,37 @@
                     {{ form.minuto.label }}
                     {{ form.minuto(size=2) }}
                 </p>
-                <p>{{ form.submit() }}</p>
+               
+              {{ form.submit }}
+              
+            
             </form>
-    
- <div class= "button" id="button-bottom">  
-<a href="{{url_for('pagamento')}}"><button type="button" id="controller" class="btn btn-primary btn-lg">Confirmar</button></a>
+
+          
+ <!--<div class= "button" id="button-bottom">  
+<a href="{{url_for('pagamento')}}"><button type="submit" id="controller" class="btn btn-primary btn-lg">Confirmar</button></a>
 <a href="resgatar.html"><button type="button" id="controller" class="btn btn-secondary btn-lg">Retirar Bagagem</button></a>
-</div> 
+</div> -->
+
     <script>
       // You can also require other files to run in this process
       require('./renderer.js')
       src=" url_for('static', filename='js/bootstrap.min.js')}}"
     </script>
+    {% if form.submit %}
+    <div id="dados">
+      <h3>
+              dias = {{dias}}<br>
+              horas = {{horas}}<br>
+              minutos = {{minutos}}<br>
+              nome = {{nome}}<br>
+              email = {{email}}<br>
+              total = R$ {{ total }}
+            </h3>
+            </div>     
+              {% endif %}
     </div>
+    
+    
   </body>
 </html>

@@ -1,5 +1,5 @@
-from flask import Flask, render_template, url_for, request, redirect, make_response
-import sys, os
+from flask import Flask, render_template, url_for, request, redirect, flash
+import sys, os, json
 
 from engine.forms import FormTempo
 
@@ -30,39 +30,68 @@ def locar():
 def armarios():
     return render_template('armarios.html')
 
-@app.route('/tempo', methods=['GET', 'POST'])
+@app.route('/tempo', methods=['GET','POST'])
 def tempo():
     from engine.data import Banco
     b = Banco()
-
-    dia = 0
-    hora = 0
-    minuto = 0
     form = FormTempo(request.form)
+
+    dia = dias = hora = horas = minuto = minutos = total = 0
+    nome = ''
+    email = ''
+    telefone = ''
     
-    if request.method == 'POST':
-        dia = form.dia.data
-        hora = form.hora.data
-        minuto = form.minuto.data
-        nome = form.nome.data
-        email = form.email.data
-        telefone = form.telefone.data
-        dia = dia* 24 * 3600
-        hora = hora * 3600
-        minuto = minuto * 60
-        total = (dia+hora+minuto) * 0.15
-
-        datas = {'dia':dia, 'hora':hora, 'minuto': minuto, 'nome': nome, 'total': total}
+    
+    
+    if request.method == "POST":
+        dia = int(request.form.get('dia'))
+        hora = int(request.form.get('hora'))
+        minuto = int(request.form.get('minuto'))
+        nome = request.form.get('nome')
+        email = request.form.get('email')
+        dias = int(dia)
+        horas = int(hora)
+        minutos = int(minuto)
+        telefone = request.form.get('telefone')
+        dia = (int(dia) * 24  )
+        
+        hora = (int(hora) + int(dia)) * 3600
+        minuto = int(minuto) * 60
+        total = ((dia)+(hora)+(minuto)) * (1/3600)
+        total = "%.2f" % total
+        
+        print('Nome: '+ nome )
+        print('Total: ' + str(total) )
+        
+    
         
         
-    return render_template('tempo.html', form=form)
-    return redirect(url_for('pagamento',dia=dia, hora=hora, minuto= minuto, nome= nome, total= total))
+
+        
+    return render_template('tempo.html', form=form, dia=dia, dias=dias, hora=hora, horas=horas, minutos = minutos,minuto=minuto, nome= nome, total= total, email=email, telefone=telefone)
+    
 
 
-@app.route('/pagamento')
+@app.route('/pagamento', methods=['GET', 'POST'])
 def pagamento():
-        return render_template('pagamento.html',dia=dia, hora=hora, minuto= minuto, nome= nome, total= total)
-
+    dia = ''
+    hora = ''
+    minuto = ''
+    nome = ''
+    total =''
+    
+    if request.method == "GET":
+        dia = request.POST.get('dia')
+        hora = request.POST.get('hora')
+        minuto = request.POST.get('minuto')
+        nome = request.POST.get('nome')
+        total = request.POST.get('total')
+        print('total-----')
+        print(total)
+        
+       
+    return render_template('pagamento.html', dia=dia, nome=nome)
+       
         
 
 

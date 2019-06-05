@@ -1,0 +1,11 @@
+{"idiomas":{"frances":{
+                        "nome":"nom",
+                        "bagagem":"bagages",
+                        "email": "email",
+                        "telefone": "telephone",
+                        "recuperar bagagem": "récupérer les bagages"
+                    },
+
+             "portugues":{},
+             "espanhol":{} ,
+             "ingles":{}}}

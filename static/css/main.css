@@ -13,7 +13,7 @@ body
 }
 #background{
         background-color: #FFD004;
-        background-image: url("../images/coolbag.svg");
+        /*background-image: url("../images/coolbag.svg");*/
 }
 h1
 {
@@ -27,7 +27,7 @@ h1
 #button-bottom{
       position: absolute;
       top: 80%;
-      left: 30%;
+      left: 32%;
 
 }
 
@@ -100,4 +100,16 @@ h1
 }
 .inativo{
         filter: grayscale(80%);
+}
+
+#touch{
+        position: absolute;
+        
+        left: 40%;
+        bottom: 30%;
+  
+}
+#hand{
+        width: 200px;
+        height: 282,283x;
 }

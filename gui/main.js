@@ -59,6 +59,7 @@ const BrowserWindow = electron.BrowserWindow;
 let mainWindow;
 
 
+
 app.on('window-all-closed', function() {
   app.quit();
 });
@@ -70,7 +71,7 @@ app.on('ready', function() {
   var mainAddr = 'http://localhost:5000';
 
   var openWindow = function() {
-    mainWindow = new BrowserWindow({width: 800, height: 400, frame: false });
+    mainWindow = new BrowserWindow({width: 1024, height: 600, frame: false });
     mainWindow.loadURL(mainAddr);
 
     
@@ -79,7 +80,9 @@ app.on('ready', function() {
       subpy.kill('SIGINT');
     });
   };
-
+  
+  
 
   openWindow();
+ 
 });
