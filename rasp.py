@@ -26,7 +26,7 @@ def ingles():
 def locar():
     return render_template('locar.html')
 
-@app.route('/armarios')
+@app.route('/armarios', methods=['GET','POST'])
 def armarios():
     return render_template('armarios.html')
 
@@ -35,6 +35,7 @@ def tempo():
     from engine.data import Banco
     b = Banco()
     form = FormTempo(request.form)
+    import requests
 
     dia = dias = hora = horas = minuto = minutos = total = 0
     nome = ''
@@ -49,20 +50,12 @@ def tempo():
         minuto = int(request.form.get('minuto'))
         nome = request.form.get('nome')
         email = request.form.get('email')
-        dias = int(dia)
-        horas = int(hora)
-        minutos = int(minuto)
-        telefone = request.form.get('telefone')
-        dia = (int(dia) * 24  )
         
-        hora = (int(hora) + int(dia)) * 3600
-        minuto = int(minuto) * 60
-        total = ((dia)+(hora)+(minuto)) * (1/3600)
-        total = "%.2f" % total
         
         print('Nome: '+ nome )
         print('Total: ' + str(total) )
         
+
     
         
         
@@ -72,25 +65,28 @@ def tempo():
     
 
 
-@app.route('/pagamento', methods=['GET', 'POST'])
+@app.route('/pagamento', methods=['POST',])
 def pagamento():
-    dia = ''
-    hora = ''
-    minuto = ''
-    nome = ''
-    total =''
-    
-    if request.method == "GET":
-        dia = request.POST.get('dia')
-        hora = request.POST.get('hora')
-        minuto = request.POST.get('minuto')
-        nome = request.POST.get('nome')
-        total = request.POST.get('total')
-        print('total-----')
-        print(total)
+    nome = request.form['nome']
+    dia = request.form['dia']
+    hora = request.form['hora']
+    minuto = request.form['minuto']
+    email = request.form['email']
+    dias = int(dia)
+    horas = int(hora)
+    minutos = int(minuto)
+    telefone = request.form.get('telefone')
+    dia = (int(dia) * 24  )
         
+    hora = (int(hora) + int(dia)) * 3600
+    minuto = int(minuto) * 60
+    total = ((dia)+(hora)+(minuto)) * (1/3600)
+    total = "%.2f" % total
+    print(nome)
+    
+    
        
-    return render_template('pagamento.html', dia=dia, nome=nome)
+    return render_template('pagamento.html', dias=dias, horas=horas, nome=nome,email=email,minutos=minutos)
        
         
 

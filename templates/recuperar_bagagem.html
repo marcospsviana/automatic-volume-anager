@@ -6,15 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{  url_for('static', filename='css/main.css')}}">
-    <script type="text/javascript" src="{{  url_for('static', filename='js/tempo.js')}}"></script>
+   
     <title> Recuperar Bagagem </title>
     
   </head>
-  <body>
+  <body">
     <div class="container">
-        
-            <form method="post" action="" >
+     
+            <form method="post" >
+              <label for="nome">Nome</label>
+              <input type="text" id="nomes">
+              <button type="submit" onsubmit="getDados();">enviar</button>
                 </form>
                 </div>
+                <script type="text/javascript">
+                  function getDados(){
+                    var dia = document.getElementById("nomes").value;
+                    console.log(toString(dia));
+                    return false;
+                  }
+                </script>
+                
   </body>
 </html>

@@ -13,7 +13,7 @@
   <body>
     <div class="container">
         
-            <form method="post" action="" >
+            <form method="post" action="{{url_for('pagamento')}}" >
 
                 {{ form.csrf_token }}
                 <p>
@@ -22,9 +22,9 @@
                  {{ form.nome(size=80)}}
                 
                 </p>
-                <p>
+                <p >
                     {{ form.email.label }}<br>
-                    {{ form.email(size=80)}}
+                  {{ form.email(size=80, id='email') }}
                   </p>
                   <p>
                       {{ form.telefone.label }}<br>
@@ -55,10 +55,10 @@
 
     <script>
       // You can also require other files to run in this process
-      require('./renderer.js')
+      //require('./renderer.js')
       src=" url_for('static', filename='js/bootstrap.min.js')}}"
     </script>
-    {% if form.submit %}
+    <!--{% if form.submit %}
     <div id="dados">
       <h3>
               dias = {{dias}}<br>
@@ -69,9 +69,11 @@
               total = R$ {{ total }}
             </h3>
             </div>     
+            
               {% endif %}
     </div>
-    
+    -->
     
   </body>
+  
 </html>
