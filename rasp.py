@@ -72,22 +72,21 @@ def tempo():
     
 
 
-@app.route('/pagamento', methods=['GET', 'POST'])
+@app.route('/pagamento', methods=['POST',])
 def pagamento():
     dia = ''
     hora = ''
     minuto = ''
     nome = ''
     total =''
-    
-    if request.method == "GET":
-        dia = request.POST.get('dia')
-        hora = request.POST.get('hora')
-        minuto = request.POST.get('minuto')
-        nome = request.POST.get('nome')
-        total = request.POST.get('total')
-        print('total-----')
-        print(total)
+    dia = request.form['dia']
+    hora = request.form['hora']
+    minuto = request.form['minuto']
+    nome = request.form['nome']
+    total = request.form['total']
+    print('total-----')
+    print(nome)
+    print(total)
         
        
     return render_template('pagamento.html', dia=dia, nome=nome)

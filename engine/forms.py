@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import Form, StringField, BooleanField, SubmitField, IntegerField
+from wtforms import Form, StringField, BooleanField, SubmitField, IntegerField, FloatField
 from wtforms.validators import DataRequired
 
 class FormTempo(Form):
@@ -9,6 +9,7 @@ class FormTempo(Form):
     nome = StringField('Nome', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired()])
     telefone= StringField('Telefone', validators=[DataRequired()])
+    total = FloatField()
     submit = SubmitField('locar')
 
 class RecuperarBagagem(FlaskForm):

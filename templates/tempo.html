@@ -13,7 +13,7 @@
   <body>
     <div class="container">
         
-            <form method="post" action="" >
+            <form method="post" action="{{url_for('pagamento')}}" >
 
                 {{ form.csrf_token }}
                 <p>
@@ -40,6 +40,7 @@
                 
                     {{ form.minuto.label }}
                     {{ form.minuto(size=2) }}
+                    {{ form.total }}
                 </p>
                
               {{ form.submit }}
