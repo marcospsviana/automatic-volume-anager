@@ -9,13 +9,22 @@
    
     <title>Armarios</title>
 </head>
-<body onclick="call_controller()"> <h1> CoolBag-Safe</h1>
-    <p id="p">Escolha o tamanho que atenda melhor sua necessidade</p>
-        <div class= "button">  
-                <a href="{{ url_for('tempo')}}"><button type="button" id="A" class="btn btn-primary btn-lg">A</button></a>
+<body onclick="call_controller()"> 
+    <div class="container">
+    <h1> CoolBag-Safe</h1>
+    <p>Escolha o tamanho que atenda melhor sua necessidade</p><br>
+         
+                <a href="{{ url_for('tempo')}}"><button type="button" id="a" class="btn btn-primary btn-lg">A</button></a>
                 <a href="{{ url_for('tempo')}}"><button type="button" id="b" class="btn btn-primary btn-lg">B</button></a>
                 <a href="{{ url_for('tempo')}}"><button type="button" id="c" class="btn btn-primary btn-lg">C</button></a>
                 <a href="{{ url_for('tempo')}}"><button type="button" id="d" class="btn btn-primary btn-lg">D</button></a>
                 </div> 
+            
+            <script>
+                    // You can also require other files to run in this process
+                    //require('./renderer.js')
+                    src=" url_for('static', filename='js/bootstrap.min.js')}}";
+                    
+                  </script>
 </body>
 </html>

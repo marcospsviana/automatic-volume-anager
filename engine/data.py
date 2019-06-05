@@ -7,7 +7,7 @@ from random import choice, sample
 
 class Banco(object):
 	def __init__(self):
-		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
+		self.conn = mdb.connect(user='root', password='m1cr0@t805i',database='coolbag')
 		self.c = self.conn.cursor(buffered=True)
 
 
