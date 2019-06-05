@@ -36,13 +36,8 @@ ENGINE=InnoDB;''')
 	`tempo_locado` TIME NOT NULL DEFAULT '00:00:00',
 	`tempo_corrido` TIME NULL DEFAULT '00:00:00',
 	`senha` TEXT NULL DEFAULT '',
-<<<<<<< HEAD
-	`id_armario` INT(10)  DEFAULT '0',
-	`id_usuario` INT(10)  DEFAULT '0',
-=======
 	`id_armario` INT(10)  DEFAULT 0,
 	`id_usuario` INT(10)  DEFAULT 0,
->>>>>>> f7bbb26b7fdedf3e7b6dd6ecb1b5dfc0c67d2a50
 	INDEX `id_locacao` (`id_locacao`),
 	INDEX `FK__tb_armario` (`id_armario`),
 	INDEX `FK__tb_usuario` (`id_usuario`),
