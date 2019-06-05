@@ -16,9 +16,9 @@ class Banco(object):
 		
 		self.c.execute( '''CREATE TABLE IF NOT EXISTS `tb_armario` (
 	                    `id_armario` INT(30) AUTO_INCREMENT,
-	                    `classe` TINYTEXT NOT NULL DEFAULT '0',
-	                    `local` TINYTEXT NOT NULL DEFAULT '0',
-	                    `terminal` VARCHAR(50) NOT NULL DEFAULT '0',
+	                    `classe` TINYTEXT NOT NULL DEFAULT '',
+	                    `local` TINYTEXT NOT NULL DEFAULT '',
+	                    `terminal` VARCHAR(50) NOT NULL DEFAULT '',
 						`estado` TEXT(7),
 	                    PRIMARY KEY (`id_armario`))ENGINE=InnoDB;'''
 		             )
@@ -35,7 +35,7 @@ ENGINE=InnoDB;''')
 	`data_locacao` DATETIME NOT NULL,
 	`tempo_locado` TIME NOT NULL DEFAULT '00:00:00',
 	`tempo_corrido` TIME NULL DEFAULT '00:00:00',
-	`senha` TEXT NULL DEFAULT '0',
+	`senha` TEXT NULL DEFAULT '',
 	`id_armario` INT(10)  DEFAULT '0',
 	`id_usuario` INT(10)  DEFAULT '0',
 	INDEX `id_locacao` (`id_locacao`),
