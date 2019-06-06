@@ -47,7 +47,7 @@ ENGINE=InnoDB;''')
 ENGINE=InnoDB
 ;
 ''')
-class Usuario(object):		               
+:		               
 	def create_user(self, nome, email, telefone):
 		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
 		self.c = self.conn.cursor(buffered=True)
@@ -78,13 +78,12 @@ class Usuario(object):
 		
 		
 		
-class LocArmario(object):
-	def __init__(self):
+
 		
-		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
-		self.c = self.conn.cursor(buffered=True)	
+			
 	def locar_armario(self, armario, nome, email, telefone, tempo_locado):
-		
+		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
+		self.c = self.conn.cursor(buffered=True)
 		
 		self.armario = armario
 		self.nome = nome
@@ -135,7 +134,7 @@ class LocArmario(object):
 		
 		self.conn.close()
 
-    def get_passwd(self):
+  def get_passwd(self):
 		password = []
 		self.pass2 = ''
 		alfabet = list(string.ascii_lowercase)
@@ -164,13 +163,12 @@ class LocArmario(object):
 		self.c.execute("ALTER TABLE tb_armario")
 		#return(result[0])
 		
-class CadArmario(object):
-	def __init__(self):
-		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
-		self.c = self.conn.cursor(buffered=True)
+
+		
 
 	def cadastrar_armario(self, classe, local, terminal):
-		
+		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
+		self.c = self.conn.cursor(buffered=True)
 		self.classe = classe
 		self.local = local
 		self.terminal = terminal

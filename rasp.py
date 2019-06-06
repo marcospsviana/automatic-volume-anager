@@ -32,7 +32,7 @@ def armarios():
 
 @app.route('/tempo', methods=['GET','POST'])
 def tempo():
-    from engine.data import Banco
+    from data import Banco
     b = Banco()
     form = FormTempo(request.form)
     import requests
