@@ -47,7 +47,7 @@ ENGINE=InnoDB;''')
 ENGINE=InnoDB
 ;
 ''')
-		               
+class Usuario(object):		               
 	def create_user(self, nome, email, telefone):
 		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
 		self.c = self.conn.cursor(buffered=True)
@@ -78,16 +78,20 @@ ENGINE=InnoDB
 		
 		
 		
-	
-	def locar_armario(self, armario, nome, email, telefone, tempo_locado):
+class LocArmario(object):
+	def __init__(self):
+		
 		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
-		self.c = self.conn.cursor(buffered=True)
+		self.c = self.conn.cursor(buffered=True)	
+	def locar_armario(self, armario, nome, email, telefone, tempo_locado):
+		
+		
 		self.armario = armario
 		self.nome = nome
 		self.email = email
 		self.telefone = telefone
 		self.tempo_locado = tempo_locado
-		self.dados_locatario = self.create_user(self.nome, self.email, self.telefone)
+		self.dados_locatario =   self.create_user(self.nome, self.email, self.telefone)
 		self.hora_locacao = time.strftime('%Y-%m-%d %H:%M:%S')
 		
 		
@@ -131,33 +135,7 @@ ENGINE=InnoDB
 		
 		self.conn.close()
 
-	def send_passwd(self, passwd):
-		self.passwd = passwd
-			
-
-		
-
-	def liberar_armario(self, armario):
-		self.con = self.conn
-		self.armario = armario
-		self.c.execute("ALTER TABLE tb_armario")
-		#return(result[0])
-		
-
-	def cadastrar_armario(self, classe, local, terminal):
-		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
-		self.c = self.conn.cursor(buffered=True)
-		self.classe = classe
-		self.local = local
-		self.terminal = terminal
-		self.c.execute("INSERT INTO tb_armario ( id_armario, classe, local, terminal, estado )"+ 
-		                "VALUES (0,%s,%s,%s, 'LIVRE')", (self.classe, self.local, self.terminal))
-		self.conn.commit()
-		self.conn.close()
-
-		
-	
-	def get_passwd(self):
+    def get_passwd(self):
 		password = []
 		self.pass2 = ''
 		alfabet = list(string.ascii_lowercase)
@@ -174,6 +152,36 @@ ENGINE=InnoDB
 			self.pass2 += str(i)
 		return self.pass2
 
+	def send_passwd(self, passwd):
+		self.passwd = passwd
+			
+
+		
+
+	def liberar_armario(self, armario):
+		self.con = self.conn
+		self.armario = armario
+		self.c.execute("ALTER TABLE tb_armario")
+		#return(result[0])
+		
+class CadArmario(object):
+	def __init__(self):
+		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
+		self.c = self.conn.cursor(buffered=True)
+
+	def cadastrar_armario(self, classe, local, terminal):
+		
+		self.classe = classe
+		self.local = local
+		self.terminal = terminal
+		self.c.execute("INSERT INTO tb_armario ( id_armario, classe, local, terminal, estado )"+ 
+		                "VALUES (0,%s,%s,%s, 'LIVRE')", (self.classe, self.local, self.terminal))
+		self.conn.commit()
+		self.conn.close()
+
+		
+	
+	
 
 		
 		

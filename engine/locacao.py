@@ -1,9 +1,8 @@
-#from data import Banco
+from raspcontrol.engine.data import Banco as b
 
-
-
-#banco = Banco()
-
+class Locacao(object):
+    def __init__(self):
+        self.conn = ''
 def recebe(nome):
     nome = nome
     print(nome)

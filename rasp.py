@@ -67,21 +67,6 @@ def tempo():
 
 @app.route('/pagamento', methods=['POST',])
 def pagamento():
-<<<<<<< HEAD
-    dia = ''
-    hora = ''
-    minuto = ''
-    nome = ''
-    total =''
-    dia = request.form['dia']
-    hora = request.form['hora']
-    minuto = request.form['minuto']
-    nome = request.form['nome']
-    total = request.form['total']
-    print('total-----')
-    print(nome)
-    print(total)
-=======
     nome = request.form['nome']
     dia = request.form['dia']
     hora = request.form['hora']
@@ -92,7 +77,6 @@ def pagamento():
     minutos = int(minuto)
     telefone = request.form.get('telefone')
     dia = (int(dia) * 24  )
->>>>>>> c7f45251e4a6f4e3b3b0afc5331954099faa4a46
         
     hora = (int(hora) + int(dia)) * 3600
     minuto = int(minuto) * 60
