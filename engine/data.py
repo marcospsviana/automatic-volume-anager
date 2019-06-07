@@ -47,9 +47,9 @@ ENGINE=InnoDB;''')
 ENGINE=InnoDB
 ;
 ''')
-:		               
+		               
 	def create_user(self, nome, email, telefone):
-		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
+		self.conn = mdb.connect(user='root', password='m1cr0@t805i',database='coolbag')
 		self.c = self.conn.cursor(buffered=True)
 		self.nome = nome
 		self.email = email
@@ -65,15 +65,17 @@ ENGINE=InnoDB
 		print(self.select)
 		if self.select == None:
 			
-			self.c.execute("INSERT INTO tb_usuario (id_usuario, nome, email, telefone) values (0,%s,%s,%s)"%(self.nome, self.email, self.telefone,))
+			self.c.execute("INSERT INTO tb_usuario (id_usuario, nome, email, telefone) values (0,'%s','%s','%s')"%(self.nome, self.email, self.telefone,))
 			self.conn.commit()
-			self.c.execute("SELECT * from tb_usuario where email=%s AND telefone=%s"%(self.email, self.telefone,))
+			self.c.execute("SELECT * from tb_usuario where email='%s' AND telefone='%s'"%(self.email, self.telefone))
 			consulta = self.c.fetchone()
 			return consulta[0]
 			
 			
 		else:
 			return self.select[0]
+		
+		self.con.close()
 			
 		
 		
@@ -81,7 +83,7 @@ ENGINE=InnoDB
 
 		
 			
-	def locar_armario(self, armario, nome, email, telefone, tempo_locado):
+	def locar_armario(self, nome, email, telefone, tempo_locado, armario):
 		self.conn = mdb.connect(user='root', password='microat8051',database='coolbag')
 		self.c = self.conn.cursor(buffered=True)
 		
@@ -91,23 +93,10 @@ ENGINE=InnoDB
 		self.telefone = telefone
 		self.tempo_locado = tempo_locado
 		self.dados_locatario =   self.create_user(self.nome, self.email, self.telefone)
-		self.hora_locacao = time.strftime('%Y-%m-%d %H:%M:%S')
+		self.hora_locacao = hora_locacao
 		
 		
-		print('---- data e hora da locacao ------')
-		print(self.hora_locacao)
-		self.loca_armario = self.localisa_armario(self.armario)
-		if self.loca_armario == "nao ha armario disponivel":
-			print('***********')
-			print(self.loca_armario)
-			print('***********')
-		else:
-			print('loca armario')
-			print(self.loca_armario)
-			print('fimlocaaramario')
 		
-		self.senha = ''
-		self.senha = self.get_passwd()
 		#INSERT INTO tb_locacao (id_locacao, tempo_corrido, data_locacao, tempo_locado,senha,id_armario,id_usuario ) VALUES (null, null,'2019-05-26','5400','e34r',1,1);
 		self.c.execute("INSERT INTO tb_locacao (id_locacao, tempo_corrido, data_locacao, tempo_locado,senha,id_armario,id_usuario ) VALUES (NULL, NULL, '%s', '%s',  '%s', %s,%s)" %(self.hora_locacao, self.tempo_locado, self.senha, self.loca_armario, self.dados_locatario))
 		self.conn.commit()
@@ -133,23 +122,35 @@ ENGINE=InnoDB
 			return "nao ha armario disponivel"
 		
 		self.conn.close()
+	
+	def select_user(self, email, telefone):
+		__email = email
+		__telefone = telefone
+		self.c.execute("SELECT id_usuario from tb_usuario where email='%s' and telefone='%s'" %(__email, __telefone))
+		query = self.c.fetchall()
+		return query
 
-  def get_passwd(self):
-		password = []
-		self.pass2 = ''
-		alfabet = list(string.ascii_lowercase)
-		print('---alfabet-----')
-		print(alfabet)
-		for i in range(2):
-			password.append( random.randrange(0,9))
-			password.append(choice(alfabet))
-		passwd = sample(password, len(password))
-		print('===========senha=======')
-		print(passwd)	
-		print('======fimsenha=========')	
-		for i in passwd:
-			self.pass2 += str(i)
-		return self.pass2
+	def __get_passwd(self):
+        """ gera a senha automaticamente com combinação aleatória de 2 letras e 2 numeros
+        sem ordem predefinida , a ordem dos dígitos também serão aleatórios """
+        __password = []
+        self.__pass2 = ''
+        __alfabet = list(string.ascii_lowercase)
+        print('---alfabet-----')
+        print(__alfabet)
+        for i in range(2):
+            password.append( random.randrange(0,9))
+            password.append(choice(alfabet))
+            
+        passwd = sample(password, len(password))
+        print('===========senha=======')
+        print(passwd)
+        print('======fimsenha=========')
+        for i in passwd:
+            self.pass2 += str(i)
+        return self.pass2
+
+  
 
 	def send_passwd(self, passwd):
 		self.passwd = passwd
