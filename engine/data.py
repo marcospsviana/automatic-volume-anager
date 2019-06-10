@@ -1,5 +1,6 @@
 import mysql.connector as mdb
-from datetime import datetime, timedelta, time
+import datetime
+from datetime import date, timedelta, time
 import time
 import random
 import string
@@ -174,11 +175,15 @@ ENGINE=InnoDB
                        "VALUES (0,%s,%s,%s, 'LIVRE')", (self.classe, self.local, self.terminal))
         self.conn.commit()
         self.conn.close()
-    def query(self,comando):
-        self.c.execute(comando)
-        result = self.c.fetchall()
-        return result
-
+    def resgatar_bagagem(self, senha):
+        self.__data_atual = datetime.datetime.now()
+        #self.__email = email
+        #self.__telefone = telefone
+        self.__senha = senha
+        self.c.execute("SELECT * FROM tb_locacao where senha = '%s'"% (self.__senha) )
+        self.__result = self.c.fetchall()
+        print(self.__result)
+        
 
 if __name__ == "__main__":
     Banco()
