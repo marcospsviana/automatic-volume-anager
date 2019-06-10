@@ -31,7 +31,7 @@ class Locacao(object):
         self.__email = str(email)
         self.__telefone = str(telefone)
         self.__data_locacao = datetime.now()
-        self.__data_limite = self.__data_locacao.day + dia
+        self.__data_limite = self.__tempo_locado.data.fromordianl(date.today().toordinal() +  dia)
         
         
         self.__usr_id = self.__bk.select_user(self.__email, self.__telefone)
