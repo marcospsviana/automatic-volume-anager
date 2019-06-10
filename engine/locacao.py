@@ -1,5 +1,6 @@
 import sys, os
 from .data import Banco
+from datetime import date, datetime
 
 
 class Locacao(object):
@@ -20,18 +21,22 @@ class Locacao(object):
         self.__bk = Banco()
         
     
-    def locacao(self,  nome, email, telefone, total, dia, hora, minuto, armario):
-        self.__tempo_locado = int(dia * 3600 * 24) + int(hora * 3600) + int(minuto * 60)
+    def locacao(self,  nome, email, telefone, dia, hora, minuto, armario):
+        self.__tempo_locado.data = date.today()
+        self.__tempo_locado.dia = int(dia)
+        self.__tempo_locado.dia = int(dia)
+        self.__tempo_locado.dia = int(dia)
         self.__armario = str(armario)
         self.__nome = str(nome)
         self.__email = str(email)
         self.__telefone = str(telefone)
-        self.__data_locacao = time.strftime('%Y-%m-%d %H:%M:%S')
-        self.__senha = ''
-        self.__senha = self.__get_passwd()
+        self.__data_locacao = datetime.now()
+        self.__data_limite = self.__data_locacao.day + dia
+        
+        
         self.__usr_id = self.__bk.select_user(self.__email, self.__telefone)
-        print('---- data e hora da locacao ------')
-        print(self.__hora_locacao)
+        #print('---- data e hora da locacao ------')
+        #print(self.__hora_locacao)
         self.__get_armario = self.__bk.localisa_armario(self.__armario)
         if self.__get_armario == "nao ha armario disponivel":
             return "armario da classe escolhida indisponível"

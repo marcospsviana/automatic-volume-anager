@@ -12,8 +12,25 @@
   </head>
   <body>
     <div class="container">
+      <script>
+         function disableCampo(){
+        var dia = document.getElementById("dia");
+        var hora = document.getElementById("hora");
+        var minuto = document.getElementById("minuto");
+        if (dia != ""){
+            hora.disabled = true;
+            minuto.disabled = true;
+        }
+        else if(hora != ""){
+          dia.disabled = true;
+          minuto.enabled = true;
+        }
+       
         
-            <form method="post" action="{{url_for('pagamento')}}" >
+      }
+      </script>
+        
+            <form method="post" action="{{url_for('pagamento')}}">
 
                 {{ form.csrf_token }}
                 <p>
@@ -32,14 +49,14 @@
                     </p>
                 <p>
                     {{ form.dia.label }}
-                    {{ form.dia(size=3) }}
+                    {{ form.dia(size=3, id='dia', onchange="disableCampo();") }}
                 
                 
                     {{ form.hora.label }}
-                    {{ form.hora(size=2) }}
+                    {{ form.hora(size=2, id='hora', onblur="disableCampo();") }}
                 
                     {{ form.minuto.label }}
-                    {{ form.minuto(size=2) }}
+                    {{ form.minuto(size=2, id='minuto') }}
                     {{ form.total }}
                 </p>
                
@@ -57,7 +74,9 @@
     <script>
       // You can also require other files to run in this process
       //require('./renderer.js')
-      src=" url_for('static', filename='js/bootstrap.min.js')}}"
+      src=" url_for('static', filename='js/bootstrap.min.js')}}";
+     
+      
     </script>
     <!--{% if form.submit %}
     <div id="dados">

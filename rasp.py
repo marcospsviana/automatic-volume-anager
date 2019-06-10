@@ -32,7 +32,7 @@ def armarios():
 
 @app.route('/tempo', methods=['GET','POST'])
 def tempo():
-    from data import Banco
+    from engine.data import Banco
     b = Banco()
     form = FormTempo(request.form)
     import requests
@@ -93,3 +93,4 @@ def pagamento():
 
 if __name__ == '__main__':
     app.run(host='localhost', port=5000, debug=True)
+    
