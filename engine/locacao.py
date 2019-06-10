@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 import sys, os
 from data import Banco
 import datetime

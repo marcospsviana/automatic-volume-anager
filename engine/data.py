@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 import mysql.connector as mdb
 import datetime
 from datetime import date, timedelta, time
@@ -97,10 +98,10 @@ ENGINE=InnoDB
             self.nome, self.email, self.telefone)
         self.data = time.strftime('%Y-%m-%d %H:%M:%S') #data
         self.__senha = self.__get_passwd()
-
+        self.c.execute("select id_usuario from tb_usuario where email = '%s' and telefone = '%s'"%(self.email, self.telefone))
+        self.__id_usuario = self.c.fetchone()
         # INSERT INTO tb_locacao (id_locacao, tempo_corrido, data_locacao, tempo_locado,senha,id_armario,id_usuario ) VALUES (null, null,'2019-05-26','5400','e34r',1,1);
-        self.c.execute("INSERT INTO tb_locacao (id_locacao, tempo_corrido, data_locacao, tempo_locado,senha,id_armario,id_usuario ) VALUES (NULL, NULL, '%s', '%s',  '%s', %s,%s)" % (
-            self.data, self.tempo_locado, self.__senha, self.loca_armario, self.dados_locatario))
+        self.c.execute("INSERT INTO tb_locacao (id_locacao, tempo_corrido, data_locacao, tempo_locado,senha,id_armario,id_usuario ) VALUES (NULL, NULL, '%s', '%s',  '%s', %s,%s)" % (self.data, self.tempo_locado, self.__senha, self.loca_armario, self.__id_usuario))
         self.conn.commit()
         self.c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (
             self.loca_armario,))
@@ -155,7 +156,7 @@ ENGINE=InnoDB
             self.__pass2 += str(i)
         return self.__pass2
 
-    def send_passwd(self, passwd):
+    def __send_passwd(self, passwd):
         pass #self.passwd = passwd
 
     def liberar_armario(self, armario):
@@ -180,6 +181,7 @@ ENGINE=InnoDB
         #self.__email = email
         #self.__telefone = telefone
         self.__senha = senha
+        
         self.c.execute("SELECT * FROM tb_locacao where senha = '%s'"% (self.__senha) )
         self.__result = self.c.fetchall()
         print(self.__result)

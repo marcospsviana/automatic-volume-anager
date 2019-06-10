@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 from tkinter import *
 from tkinter import ttk as t
 from tkinter import messagebox as msg

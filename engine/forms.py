@@ -1,6 +1,9 @@
+# -*- encoding: utf-8 -*-
+
 from flask_wtf import FlaskForm
 from wtforms import Form, StringField, BooleanField, SubmitField, IntegerField, FloatField
 from wtforms.validators import DataRequired
+
 
 class FormTempo(Form):
     dia = IntegerField('Dia',validators=[DataRequired()])
