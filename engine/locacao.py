@@ -22,16 +22,16 @@ class Locacao(object):
         
     
     def locacao(self,  nome, email, telefone, dia, hora, minuto, armario):
-        self.__tempo_locado.data = date.today()
+        self.__data = datetime.datetime.now()
         self.__tempo_locado.dia = int(dia)
-        self.__tempo_locado.dia = int(dia)
-        self.__tempo_locado.dia = int(dia)
+        self.__tempo_locado.hora = int(hora)
+        self.__tempo_locado.minuto = int(minuto)
         self.__armario = str(armario)
         self.__nome = str(nome)
         self.__email = str(email)
         self.__telefone = str(telefone)
         self.__data_locacao = datetime.now()
-        self.__data_limite = self.__tempo_locado.data.fromordianl(date.today().toordinal() +  dia)
+        self.__data_limite = datetime(self.__data.day + int(dia), self.__data.hour + int(hora), self.__data.minute + int(minuto))
         
         
         self.__usr_id = self.__bk.select_user(self.__email, self.__telefone)
