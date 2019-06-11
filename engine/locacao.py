@@ -24,7 +24,7 @@ class Locacao(object):
         
     
     def locacao(self,  nome, email, telefone, dia, hora, minuto, armario):
-        self.__data_locacao = datetime.datetime.now()
+        
         self.__dia = int(dia)
         self.__hora = int(hora)
         self.__minuto = int(minuto)
@@ -32,11 +32,8 @@ class Locacao(object):
         self.__nome = str(nome)
         self.__email = str(email)
         self.__telefone = str(telefone)
-        self.adiciona = date.fromordinal(self.__data_locacao.toordinal() + dia)
-        self.__futuro = datetime.datetime(self.adiciona.year, self.adiciona.month, self.adiciona.day, self.__data_locacao.hour, self.__data_locacao.minute)
-        self.__futuro = self.__futuro + timedelta(hours=self.__hora)
-        self.__futuro = self.__futuro + timedelta(minutes=self.__minuto)
-        self.__data_limite = self.__futuro#datetime.datetime(self.__futuro.year, self.__futuro.month, self.__futuro.day, self.__hora, self.__minuto, 0)
+        #self.adiciona = date.fromordinal(self.__data_locacao.toordinal() + dia)
+       
         
         
         self.__usr_id = self.__bk.select_user(self.__email, self.__telefone)
@@ -47,7 +44,7 @@ class Locacao(object):
             return "armario da classe escolhida indisponível"
         
         else:
-            self.__bk.locar_armario(self.__nome, self.__email, self.__telefone, self.__data_limite, self.__armario)
+            self.__bk.locar_armario(self.__nome, self.__email, self.__telefone, self.__dia, self.__hora, self.__minuto, self.__armario)
             return "armario locado com sucesso"
         
 

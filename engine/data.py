@@ -83,25 +83,33 @@ ENGINE=InnoDB
 
         self.con.close()
 
-    def locar_armario(self, nome, email, telefone, tempo_locado, armario):
+    def locar_armario(self, nome, email, telefone, dia, hora, minuto , armario):
         self.conn = mdb.connect(user='root', password='m1cr0@t805i', database='coolbag')
         self.c = self.conn.cursor(buffered=True)
+        self.__dia = int(dia)
+        self.__hora = int(hora)
+        self.__minuto = int(minuto)
+        self.__armario = str(armario)
+        self.__nome = str(nome)
+        self.__email = str(email)
+        self.__telefone = str(telefone)
+        self.__data_locacao = datetime.datetime.now()
+        self.__futuro = self.__data_locacao#datetime.datetime(self.adiciona.year, self.adiciona.month, self.adiciona.day, self.__data_locacao.hour, self.__data_locacao.minute)
+        self.__futuro = self.__futuro + timedelta(days=self.__dia)# adiciona dias
+        self.__futuro = self.__futuro + timedelta(hours=self.__hora) # adiciona horas ao tempo atual
+        self.__futuro = self.__futuro + timedelta(minutes=self.__minuto) # adiciona minutos
+        self.__data_limite = self.__futuro # registra a data limite para a não cobrança de taxa extra
+        self.__data_limite = self.__data_limite + timedelta(minutes=10)# adiciona 10 minutos de tolerancia
+       
         self.__senha = ''
-        self.data = ''
-        self.loca_armario = 1
-        self.armario = armario
-        self.nome = nome
-        self.email = email
-        self.telefone = telefone
-        self.tempo_locado = tempo_locado
+        
         self.dados_locatario = self.create_user(
             self.nome, self.email, self.telefone)
-        self.data = time.strftime('%Y-%m-%d %H:%M:%S') #data
+        
         self.__senha = self.__get_passwd()
-        self.c.execute("select id_usuario from tb_usuario where email = '%s' and telefone = '%s'"%(self.email, self.telefone))
-        self.__id_usuario = self.c.fetchone()
+        
         # INSERT INTO tb_locacao (id_locacao, tempo_corrido, data_locacao, tempo_locado,senha,id_armario,id_usuario ) VALUES (null, null,'2019-05-26','5400','e34r',1,1);
-        self.c.execute("INSERT INTO tb_locacao (id_locacao, tempo_corrido, data_locacao, tempo_locado,senha,id_armario,id_usuario ) VALUES (NULL, NULL, '%s', '%s',  '%s', %s,%s)" % (self.data, self.tempo_locado, self.__senha, self.loca_armario, self.__id_usuario))
+        self.c.execute("INSERT INTO tb_locacao (id_locacao, tempo_corrido, data_locacao, tempo_locado,senha,id_armario,id_usuario ) VALUES (NULL, NULL, '%s', '%s',  '%s', %s,%s)" % (self.data, self.__data_limite, self.__senha, self.loca_armario, self.dados_locatario))
         self.conn.commit()
         self.c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (
             self.loca_armario,))
@@ -177,7 +185,11 @@ ENGINE=InnoDB
         self.conn.commit()
         self.conn.close()
     def resgatar_bagagem(self, senha):
-        self.__data_atual = datetime.datetime.now()
+        ''' seleciona a locacao conforme a senha fornecida retornando todos os dados:
+        id_locacao , id_usuario, id_armario: type int
+        data_limite : type datetime
+        '''
+        
         #self.__email = email
         #self.__telefone = telefone
         self.__senha = senha
@@ -185,6 +197,38 @@ ENGINE=InnoDB
         self.c.execute("SELECT * FROM tb_locacao where senha = '%s'"% (self.__senha) )
         self.__result = self.c.fetchall()
         print(self.__result)
+        return self.__result
+        self.__cobranca = self.cobranca(self.result[0][2])# envia a data limite para calculo de tempo excedente
+        if self.__cobranca == None:
+            self.liberar_armario
+        else:
+            self.pagamento
+        
+        
+    def cobranca(tempo_locado):
+        self.__taxa = 0.15
+        """ compara duas datas retornando a diferença de tempo entre as duas
+            parametros: data_atual tipo datetime, tempo_locado tipo datetime
+            retorno: diferença tipo datetime.timedelta convertido em minutos e calculado o preço conforme 
+            taxa por minuto cobrado"""
+        self.__data_atual = datetime.datetime.now()
+        #self.__data_atual = (int(self.__data_atual.month)*24*3600, int(self.__data_atual.day), int(self.__data_atual.hour), int(self.__data_atual.minute))
+        
+        self.__tempo_locado = tempo_locado
+        self.__tempo_corrido = self.__data_atual -  self.__tempo_locado
+        if (self.__tempo_corrido.days and self.__tempo_corrido) == 0:
+            return None
+        else:
+            __total_minutos = (self.__tempo_corrido.days * 24 * 60) + (self.__tempo_corrido.seconds / 60) #calculo do total de tempo excedente em minutos
+            __total_minutos = float('{:.2f}'.format(__total_minutos))# formatando o valor para duas casas apos a virgura e convertendo em float
+            __total_minutos = __total_minutos * taxa # preço total do excedente
+            return __total_minutos
+
+    def pagamento(self, valor):
+        pass
+
+
+
         
 
 if __name__ == "__main__":
