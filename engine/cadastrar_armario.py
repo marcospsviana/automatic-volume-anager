@@ -22,21 +22,21 @@ class Janela(object):
         self.container_botoes = t.Frame(master=self.frame_principal)
         self.container_botoes.pack()
         self.bt_a = t.Button(master=self.container_botoes, text="A")
-        self.bt_a["command"] = self.cad_a
+        self.bt_a["command"] = self.cad_armario
         self.bt_a.pack(side=LEFT,pady=2, padx=2)
         self.bt_b = t.Button(master=self.container_botoes, text="B")
-        self.bt_b["command"] = self.cad_b
+        self.bt_b["command"] = self.cad_armario
         self.bt_b.pack(side=LEFT,pady=2, padx=2)
         self.bt_c = t.Button(master=self.container_botoes, text="C")
-        self.bt_c["command"] = self.cad_c
+        self.bt_c["command"] = self.cad_armario
         self.bt_c.pack(side=LEFT,pady=2, padx=2)
         self.bt_d = t.Button(master=self.container_botoes, text="D")
-        self.bt_d["command"] = self.cad_d
+        self.bt_d["command"] = self.cad_armario
         self.bt_d.pack(side=LEFT,pady=2, padx=2)
 
     
 
-    def cad_a(self):
+    def cad_armario(self):
             banco = Banco()
             print("a")
             answer = msg.askokcancel("novo armario","cadastrar novo armário tamanho A?")
@@ -46,35 +46,8 @@ class Janela(object):
             else:
                     root
 
-    def cad_b(self):
-            banco = Banco()
-            print("b")
-            answer = msg.askokcancel("novo armario","cadastrar novo armário tamanho B?")
-            
-            if answer:
-                    banco.cadastrar_armario()
-            else:
-                    root
-
-    def cad_c(self):
-            banco = Banco()
-            print("c")
-            answer = msg.askokcancel("novo armario","cadastrar novo armário tamanho C?")
-            
-            if answer:
-                    banco.cadastrar_armario()
-            else:
-                    root
-
-    def cad_d(self):
-            banco = Banco()
-            print("d")
-            answer = msg.askokcancel("novo armario","cadastrar novo armário tamanho D?")
-            
-            if answer:
-                    banco.cadastrar_armario()
-            else:
-                    root 
+    
+    
 
 root = Tk()
 Janela(root)
