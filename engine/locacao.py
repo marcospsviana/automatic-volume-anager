@@ -32,9 +32,6 @@ class Locacao(object):
         self.__nome = str(nome)
         self.__email = str(email)
         self.__telefone = str(telefone)
-        #self.adiciona = date.fromordinal(self.__data_locacao.toordinal() + dia)
-       
-        
         
         self.__usr_id = self.__bk.select_user(self.__email, self.__telefone)
         #print('---- data e hora da locacao ------')

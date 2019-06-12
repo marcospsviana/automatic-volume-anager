@@ -18,7 +18,17 @@ class Management(object):
         self.__email = email
         self.__telefone = telefone
         usr.create_usr(self.__nome, self.__email, self.__telefone)
+    
+    def cad_armarios(self, classe, local, terminal, nivel, coluna):
         
+        self.__local = local
+        self.__classe = classe
+        self.__terminal = terminal
+        self.__nivel = nivel
+        self.__coluna = coluna
+        
+        
+
 
 
 
