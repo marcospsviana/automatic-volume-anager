@@ -65,6 +65,11 @@ def pagamento():
 
         
 
+@app.route('/monitoramento')
+def monitor():
+        return render_template('monitoramento.html')
+
 
 if __name__ == '__main__':
+    coolbagsafe = '10.15.1.175'
     app.run(host='localhost', port=5000, debug=True)

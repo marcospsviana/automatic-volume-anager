@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-from cadastrar_armario import Janela
+#from cadastrar_armario import Janela
 
 class Io(object):
     def __init__(self):
@@ -30,7 +30,7 @@ class Io(object):
             time.sleep(0.5)
             fechado= False
             if GPIO.input(37) == 1:
-                Janela()
+                print("cadastrar armario?")
                 
 
 
