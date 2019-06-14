@@ -5,44 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
     
     <title>Cadastro de armarios </title>
 </head>
 <body>
     <div class="container">
-            <form>
+      <div id="form">
+            <form action="" method="POST">
                     <div class="form-group">
-                      <label for="classe">CLASSE</label> &MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace; &MediumSpace;&MediumSpace;<label for="exampleInputPassword1">NÍVEL</label><br>
-                     <select name="" id="">
-                         <option value="">A</option>
-                         <option value="">B</option>
-                         <option value="">C</option>
-                         <option value="">D</option>
-                     </select>
-                     
+                      {{form.classe.label }} &MediumSpace;&MediumSpace;&MediumSpace;
+                      &MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;
+                      &MediumSpace;&MediumSpace;&MediumSpace;
+                      {{ form.terminal.label}}<br>
+                     {{form.classe}}
                      &MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;
                       
-                     <select name="nivel" id="">
-                         <option value="">SUPERIOR</option>
-                         <option value="">INFERIOR</option>
-                        
-                     </select>
+                   
+                    {{ form.terminal }}
                     </div>
                     <div class="form-group">
-                      <label for="classe">COLUNA</label> &MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace; &MediumSpace;&MediumSpace;<label for="exampleInputPassword1">NÍVEL</label><br>
-                     <select name="colunas" id="">
-                       {% for i in colunas %}
-                         <option value="">{{ i }}</option>
-                         {% endfor %}
+                      {{ form.coluna.label}} &MediumSpace;&MediumSpace;&MediumSpace;
+                      &MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace; &MediumSpace;&MediumSpace;{{ form.nivel.label}}<br>
+                      {{ form.coluna }}
                         
-                     </select>
                      
+                     &MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace;&MediumSpace; &MediumSpace;&MediumSpace;
+                      {{ form.nivel}}
+                       
+                  
+                  
                     
                     </div>
                   
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
                   </form>
-
+                 
+                </div>
+                {% if flash %}
+                {{ flash }}
+                {% endif %}
     </div>
     
 </body>

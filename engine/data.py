@@ -173,17 +173,17 @@ ENGINE=InnoDB
         self.c.execute("ALTER TABLE tb_armario")
         # return(result[0])
 
-    def cadastrar_armario(self, classe, local, terminal, coluna, nivel):
+    def cadastrar_armario(self, classe, terminal, coluna, nivel):
         self.conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         self.c = self.conn.cursor(buffered=True)
         self.__classe = classe
-        self.__local = local
+        self.__local = 'home'
         self.__terminal = terminal
         self.__coluna = coluna
         self.__nivel = nivel
         self.c.execute("INSERT INTO tb_armario ( id_armario, classe, local, terminal, estado, coluna, nivel )" +
-                       "VALUES (0,'%s','%s','%s', 'LIVRE', '%s', '%s')", (self.__classe, self.__local, self.__terminal, self.__coluna, self.__nivel))
+                       "VALUES (0,%s,%s,%s, 'LIVRE', %s, %s)", (self.__classe, self.__local, self.__terminal, self.__coluna, self.__nivel))
         self.conn.commit()
         self.conn.close()
     def resgatar_bagagem(self, senha):

@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 from flask_wtf import FlaskForm
-from wtforms import Form, StringField, BooleanField, SubmitField, IntegerField, FloatField
+from wtforms import Form, StringField, BooleanField, SubmitField, IntegerField, FloatField, SelectField
 from wtforms.validators import DataRequired
 
 
@@ -24,3 +24,9 @@ class RecupererBagages(FlaskForm): #récupérer bagages
     nom = StringField('Nom', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired()])
     telephone = StringField('Téléphone', validators=[DataRequired()])
+
+class CadArmario(Form):
+    classe = SelectField('CLASSE', choices=[('A','A'),('B','B'),('C','C'),('D','D')])
+    terminal = SelectField('TERMINAL', choices=[('1','1'),('2','2')])
+    coluna = SelectField('COLUNA', choices=[('1','1'),('2','2')])
+    nivel = SelectField('NÍVEL', choices=[('SUPERIOR','SUPERIOR'), ('INFERIOR', 'INFERIOR')])

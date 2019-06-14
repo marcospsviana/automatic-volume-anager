@@ -1,5 +1,8 @@
 from engine.locacao import Locacao as loc
 from engine.usuario import User as usr
+from engine.armario import Armario as arm
+
+
 class Management(object):
     ''' controllers: todos os controles de acesso nesta classe com funcoes de mesmo nome '''
     def locacao(self, nome, email, telefone, total, dia, hora, minuto, armario):
@@ -19,13 +22,13 @@ class Management(object):
         self.__telefone = telefone
         usr.create_usr(self.__nome, self.__email, self.__telefone)
     
-    def cad_armarios(self, classe, local, terminal, coluna, nivel):
+    def cad_armarios(self, classe, terminal, coluna, nivel):
         
-        self.__local = local
-        self.__classe = classe
-        self.__terminal = terminal
-        self.__nivel = nivel
-        self.__coluna = coluna
+        __classe = str(classe)
+        __terminal = str(terminal)
+        __nivel = str(nivel)
+        __coluna = str(coluna)
+        arm.cad_armario(__classe, __terminal, __coluna, __nivel)
         
         
 

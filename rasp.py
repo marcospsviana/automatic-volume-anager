@@ -2,7 +2,8 @@ from flask import Flask, render_template, url_for, request, redirect, flash
 import sys, os, json
 import webview
 
-from engine.forms import FormTempo
+from engine.forms import FormTempo, CadArmario
+from controllers import Management
 
  
 
@@ -68,8 +69,17 @@ def tempo():
     
 @app.route('/cad_armario', methods=['GET', 'POST'])
 def cad_armarios():
-    colunas = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
-    return render_template('cad_armario.html', colunas=colunas)
+    manage = Management()
+    form = CadArmario()
+    message = ''
+    if request.method == 'POST':
+        classe = request.form.get('classe')
+        nivel = request.form.get('nivel')
+        coluna = request.form.get('coluna')
+        terminal = request.form.get('terminal')
+        manage.cad_armarios(classe, terminal, coluna, nivel)
+        message =('armário classe : %s , nível : %s, coluna : %s, terminal : %s, cadastrado com sucesso' %(classe, nivel, coluna, terminal))
+    return render_template('cad_armario.html',form=form, flash=message)
 
 @app.route('/pagamento', methods=['POST',])
 def pagamento():
@@ -103,4 +113,4 @@ def monitor():
 
 if __name__ == '__main__':
     servidor = '10.15.1.175'
-    app.run(host=servidor, port=5000, debug=True)
+    app.run(host='localhost', port=5000, debug=True)
