@@ -102,12 +102,5 @@ def monitor():
 
 
 if __name__ == '__main__':
-<<<<<<< HEAD
     coolbagsafe = '10.15.1.175'
     app.run(host='localhost', port=5000, debug=True)
-=======
-    app.run(host='localhost', port=5000, debug=True)
-    #webview.config.gui = app.run()
-    #webview.create_window("app", "http://localhost:5000", frameless=True)
-    
->>>>>>> 94e0317a9eafbf24d04525c93a0671726f987a55
