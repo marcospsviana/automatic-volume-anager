@@ -44,7 +44,7 @@ def tempo():
     nome = ''
     email = ''
     telefone = ''
-    
+
     
     
     if request.method == "POST":
@@ -66,7 +66,10 @@ def tempo():
         
     return render_template('tempo.html', form=form, dia=dia, dias=dias, hora=hora, horas=horas, minutos = minutos,minuto=minuto, nome= nome, total= total, email=email, telefone=telefone)
     
-
+@app.route('/cad_armario', methods=['GET', 'POST'])
+def cad_armarios():
+    colunas = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    return render_template('cad_armario.html', colunas=colunas)
 
 @app.route('/pagamento', methods=['POST',])
 def pagamento():
