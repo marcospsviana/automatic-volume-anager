@@ -13,7 +13,7 @@ class Banco(object):
         self.data = ''
         self.loca_armario = 0
         self.conn = mdb.connect(
-            user='root', password='m1cr0@t805i', database='coolbag')
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         self.c = self.conn.cursor(buffered=True)
 
         self.c.execute('''CREATE TABLE IF NOT EXISTS `tb_armario` (
