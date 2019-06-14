@@ -52,7 +52,7 @@ ENGINE=InnoDB
 
     def create_user(self, nome, email, telefone):
         self.conn = mdb.connect(
-            user='root', password='m1cr0@t805i', database='coolbag')
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         self.c = self.conn.cursor(buffered=True)
         self.nome = nome
         self.email = email
@@ -84,7 +84,7 @@ ENGINE=InnoDB
         self.con.close()
 
     def locar_armario(self, nome, email, telefone, dia, hora, minuto , armario):
-        self.conn = mdb.connect(user='root', password='m1cr0@t805i', database='coolbag')
+        self.conn = mdb.connect(user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         self.c = self.conn.cursor(buffered=True)
         self.__dia = int(dia)
         self.__hora = int(hora)
@@ -118,7 +118,7 @@ ENGINE=InnoDB
 
     def localisa_armario(self, classe):
         self.conn = mdb.connect(
-            user='root', password='m1cr0@t805i', database='coolbag')
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         self.c = self.conn.cursor(buffered=True)
         result = ()
         self.classe = str(classe)
@@ -175,7 +175,7 @@ ENGINE=InnoDB
 
     def cadastrar_armario(self, classe, local, terminal):
         self.conn = mdb.connect(
-            user='root', password='m1cr0@t805i', database='coolbag')
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         self.c = self.conn.cursor(buffered=True)
         self.classe = classe
         self.local = local
