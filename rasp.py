@@ -102,5 +102,5 @@ def monitor():
 
 
 if __name__ == '__main__':
-    coolbagsafe = '10.15.1.175'
-    app.run(host=coolbagsafe, port=5000, debug=True)
+    servidor = '10.15.1.175'
+    app.run(host=servidor, port=5000, debug=True)
