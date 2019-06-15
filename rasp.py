@@ -81,6 +81,14 @@ def cad_armarios():
         message =('armário classe : %s , nível : %s, coluna : %s, terminal : %s, cadastrado com sucesso' %(classe, nivel, coluna, terminal))
     return render_template('cad_armario.html',form=form, flash=message)
 
+@app.route('/remove_armario', methods=['GET', 'POST'])
+def remove_armario():
+    manage = Management()
+    if request.method == 'POST':
+
+    return render_template('remove.html')
+
+
 @app.route('/pagamento', methods=['POST',])
 def pagamento():
     nome = request.form['nome']

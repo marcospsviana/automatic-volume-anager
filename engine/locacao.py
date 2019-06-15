@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 import sys, os
-from .data import Banco
+from data import Banco
 import datetime
 from datetime import date, timedelta
 
@@ -33,7 +33,7 @@ class Locacao(object):
         self.__email = str(email)
         self.__telefone = str(telefone)
         
-        self.__usr_id = self.__bk.select_user(self.__email, self.__telefone)
+        #self.__usr_id = self.__bk.select_user(self.__email, self.__telefone)
         #print('---- data e hora da locacao ------')
         #print(self.__hora_locacao)
         self.__get_armario = self.__bk.localisa_armario(self.__armario)
