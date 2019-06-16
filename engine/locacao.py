@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 import sys, os
-from data import Banco
+from .data import Banco
 import datetime
 from datetime import date, timedelta
 
@@ -18,30 +18,26 @@ class Locacao(object):
         data_locacao: type datetime, servirá como base de calculo para verificar se houve tempo excedente
         obtendo o tempo total em segundos da diferença de data_atual - data_locacao """
 
-
-    def __init__(self):
-        self.__bk = Banco()
-        
     
-    def locacao(self,  nome, email, telefone, dia, hora, minuto, armario):
+    def locacao( nome, email, telefone, dia, hora, minuto, armario):
+        __bk = Banco()
+        __dia = int(dia)
+        __hora = int(hora)
+        __minuto = int(minuto)
+        __armario = str(armario)
+        __nome = str(nome)
+        __email = str(email)
+        __telefone = str(telefone)
         
-        self.__dia = int(dia)
-        self.__hora = int(hora)
-        self.__minuto = int(minuto)
-        self.__armario = str(armario)
-        self.__nome = str(nome)
-        self.__email = str(email)
-        self.__telefone = str(telefone)
-        
-        #self.__usr_id = self.__bk.select_user(self.__email, self.__telefone)
+        #__usr_id = __bk.select_user(__email, __telefone)
         #print('---- data e hora da locacao ------')
-        #print(self.__hora_locacao)
-        self.__get_armario = self.__bk.localisa_armario(self.__armario)
-        if self.__get_armario == "nao ha armario disponivel":
+        #print(__hora_locacao)
+        __get_armario = __bk.localisa_armario(__armario)
+        if __get_armario == "nao ha armario disponivel" or __get_armario == []:
             return "armario da classe escolhida indisponível"
         
         else:
-            self.__bk.locar_armario(self.__nome, self.__email, self.__telefone, self.__dia, self.__hora, self.__minuto, self.__armario)
+            __bk.locar_armario(__nome, __email, __telefone, __dia, __hora, __minuto, __armario)
             return "armario locado com sucesso"
         
 

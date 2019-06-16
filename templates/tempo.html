@@ -30,7 +30,7 @@
       }
       </script>
         
-            <form method="post" action="{{url_for('pagamento')}}">
+            <form method="post" action="">
 
                 {{ form.csrf_token }}
                 <p>
@@ -49,20 +49,19 @@
                     </p>
                 <p>
                     {{ form.dia.label }}
-                    {{ form.dia(size=3, id='dia', onchange="disableCampo();") }}
+                    {{ form.dia(size=3, id='dia') }}
                 
                 
                     {{ form.hora.label }}
-                    {{ form.hora(size=2, id='hora', onblur="disableCampo();") }}
+                    {{ form.hora(size=2, id='hora') }}
                 
                     {{ form.minuto.label }}
                     {{ form.minuto(size=2, id='minuto') }}
-                    {{ form.total }}
+                    
                 </p>
                
               {{ form.submit }}
               
-            
             </form>
 
           
@@ -93,7 +92,9 @@
               {% endif %}
     </div>
     -->
-    
+    {% if result %}
+    {{ result }}
+    {% endif %}
   </body>
   
 </html>

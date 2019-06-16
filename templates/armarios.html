@@ -14,10 +14,10 @@
     <h1> CoolBag-Safe</h1>
     <p>Escolha o tamanho que atenda melhor sua necessidade</p><br>
          
-                <a href="{{ url_for('tempo')}}"><button type="button" id="a" class="btn btn-primary btn-lg">A</button></a>
-                <a href="{{ url_for('tempo')}}"><button type="button" id="b" class="btn btn-primary btn-lg">B</button></a>
-                <a href="{{ url_for('tempo')}}"><button type="button" id="c" class="btn btn-primary btn-lg">C</button></a>
-                <a href="{{ url_for('tempo')}}"><button type="button" id="d" class="btn btn-primary btn-lg">D</button></a>
+                <a href="{{ url_for('tempo', armario='A')}}"><button type="button" id="a" class="btn btn-primary btn-lg">A</button></a>
+                <a href="{{ url_for('tempo', armario='B')}}"><button type="button" id="b" class="btn btn-primary btn-lg">B</button></a>
+                <a href="{{ url_for('tempo'), armario='C'}}"><button type="button" id="c" class="btn btn-primary btn-lg">C</button></a>
+                <a href="{{ url_for('tempo'), armario='D'}}"><button type="button" id="d" class="btn btn-primary btn-lg">D</button></a>
                 </div> 
             
             <script>
