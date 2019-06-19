@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{  url_for('static', filename='css/main.css')}}">
+   
+    <title>Resgatar Bagagem</title>
+</head>
+<body id="body">
+    <div class="container">
+        <div id="input">
+        <div class="form-group" id="form">
+            
+        <form action="" method="POST" class="form" id="form-resgate">
+                {{ form.csrf_token }}
+                {{ form.nome.label }} <br>
+                {{ form.nome (type='text', id='entryemail')}}
+          {{ form.senha.label }} <br>
+           <div id="entrada">{{ form.senha(type='text', id='entry') }}</div> <br>
+           <div id="button">{{ form.submit(class='botao-submit') }}</div> 
+        </form>
+    </div>
+    <div id="teclado" class="">
+        {%for n in num %}
+        <button  class="botao-numerico" type="button" id="{{n}}" value='{{n}}'  onclick="getPressed(this.value);">{{n}}</button>
+        {% endfor %}
+        <br>
+        {% for a in alfa %}
+        <button  class="botao-alfa" type="button" id="{{a}}" value="{{a}}"  onclick="getPressed(this.value);" >{{a}}</button>
+        {% endfor %}
+        <button  class="botao-alfa" type="button" id="dotcom" value=".com"  onclick="getPressed(this.value);" >.com</button>
+        <button  class="botao-alfa" type="button" id="backspace" value=""  onclick="backspace();" ><strong>&LeftArrow;</strong></button>
+
+    </div>
+    {{result}}
+    </div>
+</div>
+<script >
+        function getPressed(valor){
+            var tcls = document.getElementById("entry").focus();
+            var tcemail = document.getElementById("entryemail");
+            var tc = tcls.value;
+            var tce = tcemail.value;
+            tcemail.value = tce + valor;
+            var tamChar = tc.length;
+            if (tamChar < 4){
+                tcls.value = tc + valor
+            }
+            
+            
+        }
+        function backspace(){
+            let tcls = document.getElementById("entry");
+            tcls.value = null;
+        }
+        </script>
+</body>
+</html>

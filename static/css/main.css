@@ -1,4 +1,8 @@
-body
+#body{
+       
+        color: aliceblue
+}
+.body
 {
         /*background-color: #222930;*/
         
@@ -45,14 +49,14 @@ h1
   
   }
 
-#a{
+#A{
         position: absolute;
         top: 30%;
         left: 25%;
         height: 200px;
         width: 380px;
 }
-#b{
+#B{
         position: absolute;
         top: 63%;
         left: 25%;
@@ -60,7 +64,7 @@ h1
         width: 190px;
         background-color: green;
 }
-#c{
+#C{
         position: absolute;
         top: 63%;
         left: 40%;
@@ -68,7 +72,7 @@ h1
         width: 120px;
         background-color: gray;
 }
-#d{
+#D{
         position: absolute;
         top: 78%;
         left: 40%;
@@ -118,7 +122,76 @@ h1
         padding: 80px;
         margin-left: 50px;
         margin-top: 80px;
-        left: 60%;
+        margin-bottom: 10%;
+        left: 20%;
         top: 60%;
 
+}
+#form-resgate{
+        top: 15%;
+        max-width: 150px;
+        bottom: 30%;
+        left: 15%;
+        position: absolute;
+}
+#teclado{
+        position: absolute;
+        
+        top: 15%;
+        left: 50%;
+        max-width: 450px;
+        background-color: #222930;
+        color: aliceblue
+
+}
+.botao-numerico{
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background-color: firebrick;
+        color: aliceblue;
+        font-size: 20px;
+}
+.botao-alfa{
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background-color: #222930;
+        color: aliceblue;
+        font-size: 20px;
+}
+.botao-submit{
+        /*width: 40px;*/
+        height: 40px;
+        border-radius: 15px;
+        margin-bottom: 15px;
+        background-color: #222930;
+        color: aliceblue
+}
+#entry{
+        border-radius: 11px;
+        height: 40px;
+        font-size: 20px;
+}
+#entryemail{
+        border-radius: 11px;
+        height: 40px;
+        font-size: 20px;
+}
+#input{
+        background-color: #222930;
+        border-radius: 12px;
+        top: 5%;
+        position: relative;
+        padding-bottom: 5%;
+}
+#backspace{
+        width: 65px;
+        background-color: firebrick;
+        font-weight: bolder
+}
+#dotcom{
+        width: 60px;
+        background-color: #222930;
+        color: aliceblue
 }

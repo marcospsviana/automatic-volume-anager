@@ -34,6 +34,19 @@ class Management(object):
     def remove_armarios(self, id_armario):
         __id = id_armario
         result = ''
+
+    @staticmethod
+    def lista_armarios():
+        __classe = []
+        __classe = arm.listar_classes()
+        return __classe
+
+    def liberar_armarios(self, senha, nome):
+        self.__nome = nome
+        self.__senha = senha
+        result = arm.liberar_armario(self.__senha, self.__nome)
+        return result
+
         
         
 

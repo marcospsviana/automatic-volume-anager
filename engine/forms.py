@@ -16,17 +16,16 @@ class FormTempo(Form):
     submit = SubmitField('locar')
 
 class RecuperarBagagem(FlaskForm):
-    nome = StringField('Nome', validators=[DataRequired()])
+    nome = StringField('Telefone ou Email', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired()])
     senha = StringField('Senha', validators=[DataRequired()])
+    submit = SubmitField('Recuperar Bagagem')
 
-class RecupererBagages(FlaskForm): #récupérer bagages
-    nom = StringField('Nom', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired()])
-    telephone = StringField('Téléphone', validators=[DataRequired()])
+
 
 class CadArmario(Form):
     classe = SelectField('CLASSE', choices=[('A','A'),('B','B'),('C','C'),('D','D')])
     terminal = SelectField('TERMINAL', choices=[('1','1'),('2','2')])
     coluna = SelectField('COLUNA', choices=[('1','1'),('2','2')])
     nivel = SelectField('NÍVEL', choices=[('SUPERIOR','SUPERIOR'), ('INFERIOR', 'INFERIOR')])
+

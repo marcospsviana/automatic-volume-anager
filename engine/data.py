@@ -14,11 +14,11 @@ class Banco(object):
     def __init__(self):
         self.data = ''
 
-        self.conn = mdb.connect(
+        self.__conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
-        self.c = self.conn.cursor(buffered=True)
+        self.__c = self.__conn.cursor(buffered=True)
 
-        self.c.execute('''CREATE TABLE IF NOT EXISTS `tb_armario` (
+        self.__c.execute('''CREATE TABLE IF NOT EXISTS `tb_armario` (
 	                    `id_armario` INT(30) AUTO_INCREMENT,
 	                    `classe` TINYTEXT NOT NULL DEFAULT '',
 	                    `local` TINYTEXT NOT NULL DEFAULT '',
@@ -26,7 +26,7 @@ class Banco(object):
                         `estado` TEXT(7),
 	                    PRIMARY KEY (`id_armario`))ENGINE=InnoDB;'''
                        )
-        self.c.execute(''' CREATE TABLE IF NOT EXISTS `tb_usuario` (
+        self.__c.execute(''' CREATE TABLE IF NOT EXISTS `tb_usuario` (
 	`id_usuario` INT(10)  AUTO_INCREMENT,
 	`nome` VARCHAR(50) NULL DEFAULT NULL,
 	`email` VARCHAR(80) NOT NULL,
@@ -34,7 +34,7 @@ class Banco(object):
 	PRIMARY KEY (`id_usuario`)
 )
 ENGINE=InnoDB;''')
-        self.c.execute('''CREATE TABLE IF NOT EXISTS `tb_locacao` (
+        self.__c.execute('''CREATE TABLE IF NOT EXISTS `tb_locacao` (
 	`id_locacao` INT(10)  AUTO_INCREMENT,
 	`data_locacao` DATETIME NOT NULL,
 	`tempo_locado` TIME NOT NULL DEFAULT '00:00:00',
@@ -57,25 +57,24 @@ ENGINE=InnoDB
         self.nome = str(nome)
         self.email = str(email)
         self.telefone = str(telefone)
-        selecao = "SELECT id_usuario from tb_usuario where email= %s AND telefone= %s"
-
-        self.c.execute(selecao, (self.email, self.telefone))
-        self.select = self.c.fetchall()
+        self.__c.execute("SELECT id_usuario from tb_usuario where email= '%s' AND telefone= '%s'" % (self.email, self.telefone))
+        self.select = self.__c.fetchall()
 
         if self.select == [] or self.select == None:
+            consulta = ''
 
-            self.c.execute("INSERT INTO tb_usuario (id_usuario, nome, email, telefone) values (NULL,'%s','%s','%s')" % (
-                self.nome, self.email,  self.telefone))
-            self.conn.commit()
-            self.c.execute(
-                "SELECT id_usuario from tb_usuario where email=%s AND telefone=%s", (self.email, self.telefone,))
-            consulta = self.c.fetchall()
+            self.__c.execute("INSERT INTO tb_usuario (id_usuario, nome, email, telefone) values (null,'%s','%s','%s')" % (self.nome, self.email,  self.telefone))
+            self.__conn.commit()
+            self.__c.execute("SELECT id_usuario from tb_usuario where email='%s' AND telefone='%s'" % (self.email, self.telefone,))
+            consulta = self.__c.fetchall()
+            print("-----CONSULTA ID USUARIO-----")
+            print(consulta)
             return consulta
 
         else:
             return self.select
 
-        self.con.close()
+        self.__con.close()
 
     def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario):
 
@@ -110,19 +109,18 @@ ENGINE=InnoDB
         loca_armario = self.localisa_armario(self.__armario)
         print('======= loca ramario =====')
         print(loca_armario)
-        self.c.execute("SET FOREIGN_KEY_CHECKS = 0;")
+        self.__c.execute("SET FOREIGN_KEY_CHECKS = 0;")
         # se houver armário livre segue com cadastro de locação
         if (loca_armario != []) or (loca_armario != None):
             self.__senha = self.__get_passwd()
-            stmt = ("INSERT INTO `coolbag`.`tb_locacao`(`id_locacao`,`data_locacao`,`tempo_locado`,`tempo_corrido`,`senha`,`id_armario`,`id_usuario`)"
-                    "VALUES('%s','%s','%s','%s','%s','%s','%s')")
+            print("==== id_armario, id_usuario ======")
+            print(loca_armario[0], self.dados_locatario[0])
 
-            self.c.execute(stmt % (0, self.__data_locacao, self.__data_limite,
-                                   0, self.__senha, loca_armario[0], self.dados_locatario))
-            self.c.execute(
-                "UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario[0]))
-            self.conn.commit()
-            self.conn.close()
+            self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(null, '%s','%s',null,'%s',%s,%s)"% (self.__data_locacao, self.__data_limite, self.__senha, loca_armario[0][0], self.dados_locatario[0][0]))
+            self.__conn.commit()
+            self.__c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario[0]))
+            self.__conn.commit()
+            self.__conn.close()
             return "locacao concluida com sucesso"
         else:
             return loca_armario
@@ -130,11 +128,11 @@ ENGINE=InnoDB
     def localisa_armario(self, classe):
 
         result = ()
-        self.classe = str(classe)
+        self.__classe = str(classe)
         # verifica se há armario livre na classe selecionada
-        self.c.execute(
-            "SELECT id_armario  from tb_armario where classe = '%s' and ESTADO = 'LIVRE'" % (self.classe,))
-        result = self.c.fetchall()
+        self.__c.execute(
+            "SELECT id_armario  from tb_armario where classe = '%s' and ESTADO = 'LIVRE'" % (self.__classe,))
+        result = self.__c.fetchall()
         print('-----------localisa-------')
         print(result)
         print('-----fimlocalisa----')
@@ -144,15 +142,17 @@ ENGINE=InnoDB
         else:
             return(result)
 
-        self.conn.close()
+        self.__conn.close()
 
-    def select_user(self, email, telefone):
-        __email = email
-        __telefone = telefone
-        self.c.execute("SELECT id_usuario from tb_usuario where email='%s' and telefone='%s'" % (
-            __email, __telefone))
-        query = self.c.fetchall()
-        return query
+    def select_user(self, email):
+        self.__email = str(email)
+        print(self.__email)
+        query = ''
+        query = self.__c.execute("SELECT * FROM tb_usuario where email = %s or telefone = %s" % (self.__email, self.__email))
+        query = self.__c.fetchone()
+        print("##### id usuario ###")
+        print(query)
+        return query[0]
 
     def __get_passwd(self):
         """ gera a senha automaticamente com combinação aleatória de 2 letras e 2 numeros
@@ -176,37 +176,63 @@ ENGINE=InnoDB
 
     def __send_passwd(self, passwd):
         pass  # self.passwd = passwd
+    
+    def get_locacao(self, nome):
+        result = ''
+        self.__nome = nome
+        self.__c.execute("SELECT id_armario, id_locacao, tempo_locado from tb_locacao where senha = '%s'" % (self.__nome,))
+        self.__result = self.__c.fetchall()
+        print("888888 ---- result")
+        print(self.__result)
+        return self.__result
 
-    def liberar_armario(self, armario):
-        self.con = self.conn
-        self.armario = armario
-        self.c.execute("ALTER TABLE tb_armario ")
-        # return(result[0])
+
+    def liberar_armario(self, senha, nome):
+        id_armario = ''
+        self.__senha = senha
+        self.__nome = nome
+        self.__id_user = self.select_user(nome)
+        self.__locacao = self.get_locacao(self.__senha)
+        if self.__locacao[0][1] < datetime.datetime.now():
+            data =  datetime.datetime.now()
+            tempo_total = data - self.__locacao[0][1]
+            dias_passados = tempo_total.days
+            minutos_passados = tempo_total.seconds / 60
+            valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
+            result = self.cobranca(valor_total) 
+        #id_armario = self.__locacao[0][1]
+        self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
+        self.__conn.commit()
+        self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao[0][0],), multi=True)
+        
+        return self.__c.fetchone()
+        self.__conn.commit()
+        self.__conn.close()
 
     def remover_armario(self, id_armario):
 
         self.__id = id_armario
-        self.c.execute(
+        self.__c.execute(
             "SELECT estado  from tb_armario where id_armario = '%s'" % (self.__id))
-        result = self.c.fetchall()
+        result = self.__c.fetchall()
         if result == 'LIVRE':
-            self.c.execute(
+            self.__c.execute(
                 "DELETE FROM tb_armario where id_armario = %s " % (self.__id))
         else:
             return "não é possível remover armario, verifique se o mesmo não esta"
 
     def cadastrar_armario(self, classe, terminal, coluna, nivel):
 
-        self.c = self.conn.cursor(buffered=True)
+        self.__c = self.__conn.cursor(buffered=True)
         self.__classe = classe
         self.__local = 'home'
         self.__terminal = terminal
         self.__coluna = coluna
         self.__nivel = nivel
-        self.c.execute("INSERT INTO tb_armario ( id_armario, classe, local, terminal, estado, coluna, nivel )" +
+        self.__c.execute("INSERT INTO tb_armario ( id_armario, classe, local, terminal, estado, coluna, nivel )" +
                        "VALUES (0,%s,%s,%s, 'LIVRE', %s, %s)", (self.__classe, self.__local, self.__terminal, self.__coluna, self.__nivel))
-        self.conn.commit()
-        self.conn.close()
+        self.__conn.commit()
+        self.__conn.close()
 
     def resgatar_bagagem(self, senha):
         ''' seleciona a locacao conforme a senha fornecida retornando todos os dados:
@@ -218,13 +244,13 @@ ENGINE=InnoDB
         #self.__telefone = telefone
         self.__senha = senha
 
-        self.c.execute(
+        self.__c.execute(
             "SELECT * FROM tb_locacao where senha = '%s'" % (self.__senha))
-        self.__result = self.c.fetchall()
+        self.__result = self.__c.fetchall()
         print(self.__result[0])
         return self.__result[0]
         # envia a data limite para calculo de tempo excedente
-        self.__cobranca = self.cobranca(self.result[0][2])
+        self.__cobranca = self.__cobranca(self.result[0][2])
         if self.__cobranca == None:
             self.liberar_armario
         else:
@@ -249,11 +275,23 @@ ENGINE=InnoDB
                                24 * 60) + (self.__tempo_corrido.seconds / 60)
             # formatando o valor para duas casas apos a virgura e convertendo em float
             __total_minutos = float('{:.2f}'.format(__total_minutos))
-            __total_minutos = __total_minutos * taxa  # preço total do excedente
-            return __total_minutos
+            __total_preco = __total_minutos * taxa  # preço total do excedente
+            return __total_preco
 
     def pagamento(self, valor):
         pass
+    
+    @staticmethod
+    def listar_classes_armarios():
+
+        __conn = mdb.connect(
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+        __c = __conn.cursor(buffered=True)
+        __classes = []
+        result = ''
+        __c.execute("SELECT classe FROM tb_armario WHERE estado = 'LIVRE'")
+        result = __c.fetchall()
+        return result
 
 
 if __name__ == "__main__":

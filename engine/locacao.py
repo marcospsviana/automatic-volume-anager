@@ -40,6 +40,7 @@ class Locacao(object):
             __bk.locar_armario(__nome, __email, __telefone, __dia, __hora, __minuto, __armario)
             return "armario locado com sucesso"
         
+    
 
 
 

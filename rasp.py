@@ -6,8 +6,9 @@ import sys
 import os
 import json
 import webview
+import string
 
-from engine.forms import FormTempo, CadArmario
+from engine.forms import FormTempo, CadArmario, RecuperarBagagem
 from controllers import Management
 
 
@@ -44,10 +45,14 @@ def locar():
 @app.route('/armarios', methods=['GET', 'POST'])
 def armarios():
     armario = ''
+    classes = ''
+    manager = Management()
+    classes = manager.lista_armarios()
+    print(classes)
     if request.method == 'POST':
         armario = request.form.get('armario')
         print(armario)
-    return render_template('armarios.html', armario = armario)
+    return render_template('armarios.html', armario = armario, classes= classes)
 
 
 @app.route('/tempo', methods=['GET', 'POST'])
@@ -73,8 +78,18 @@ def tempo():
         minuto = int(request.form.get('minuto'))
         nome = request.form.get('nome')
         email = request.form.get('email')
+        telefone = request.form.get('telefone')
         
         result = manager.locacao( nome, email, telefone, dia, hora, minuto, armario )
+        dias = int(dia)
+        horas = int(hora)
+        minutos = int(minuto)
+        telefone = request.form.get('telefone')
+        dia = (int(dia) * 24)
+        hora = (int(hora) + int(dia)) * 3600
+        minuto = int(minuto) * 60
+        total = ((dia)+(hora)+(minuto)) * (1/3600)
+        total = "%.2f" % total
 
         print('Nome: ' + nome)
         print('Total: ' + str(total))
@@ -105,8 +120,9 @@ def remove_armario():
         return render_template('remove.html')
 
 
-@app.route('/pagamento', methods=['POST', ])
+@app.route('/pagamento', methods=['GET','POST'])
 def pagamento():
+    manager = Management()
     nome = request.form['nome']
     dia = request.form['dia']
     hora = request.form['hora']
@@ -123,13 +139,34 @@ def pagamento():
     total = ((dia)+(hora)+(minuto)) * (1/3600)
     total = "%.2f" % total
     print(nome)
+    if request.method == 'POST':
+        result = manager.locacao( nome, email, telefone, dia, hora, minuto, armario )
 
-    return render_template('pagamento.html', dias=dias, horas=horas, nome=nome, email=email, minutos=minutos)
+
+    return render_template('pagamento.html', dias=dias, horas=horas, nome=nome, email=email, minutos=minutos, total= total)
 
 
 @app.route('/monitoramento')
 def monitor():
     return render_template('monitoramento.html')
+
+@app.route('/resgatar_bagagem', methods=['GET', 'POST'])
+def recuparar_bagagem():
+    manage = Management()
+    alfa = list(string.ascii_lowercase)
+    alfa.append('.')
+    alfa.append('@')
+    result = ''
+    num = list(map(lambda x: x, range(10)))
+    form = RecuperarBagagem()
+    if request.method == 'POST':
+        nome = request.form.get('nome')
+        senha = request.form.get('senha')
+        result = manage.liberar_armarios(senha, nome)
+        
+
+
+    return render_template('resgatar_bagagem.html', form=form, alfa=alfa,num=num, result=result)
 
 
 if __name__ == '__main__':
