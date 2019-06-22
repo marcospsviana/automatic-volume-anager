@@ -30,7 +30,7 @@
       }
       </script>
         
-            <form method="post" action="">
+            <form method="POST" action="">
 
                 {{ form.csrf_token }}
                 <p>
@@ -61,7 +61,8 @@
                 </p>
                
               {{ form.submit }}
-              
+              {{ form.confirma.label }}
+              {{ form.confirma }}
             </form>
 
           
@@ -80,9 +81,9 @@
     {% if form.submit %}
     <div id="dados">
       <h3>
-              dias = {{dias}}<br>
-              horas = {{horas}}<br>
-              minutos = {{minutos}}<br>
+              dias = {{dia}}<br>
+              horas = {{hora}}<br>
+              minutos = {{minuto}}<br>
               nome = {{nome}}<br>
               email = {{email}}<br>
               total = R$ {{ total }}

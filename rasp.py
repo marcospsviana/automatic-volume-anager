@@ -10,6 +10,7 @@ import string
 
 from engine.forms import FormTempo, CadArmario, RecuperarBagagem
 from controllers import Management
+from engine.cobranca import Cobranca
 
 
 app = Flask(__name__)
@@ -63,7 +64,7 @@ def tempo():
     form = FormTempo(request.form)
     import requests
 
-    dia = dias = hora = horas = minuto = minutos = total = 0
+    dia = dias = hora = horas = minuto = minutos = total = ''
     nome = ''
     email = ''
     telefone = ''
@@ -73,28 +74,26 @@ def tempo():
     armario = request.args.get('armario')
 
     if request.method == "POST":
-        dia = int(request.form.get('dia'))
-        hora = int(request.form.get('hora'))
-        minuto = int(request.form.get('minuto'))
+        
+        dia = request.form.get('dia')
+        hora = request.form.get('hora')
+        minuto = request.form.get('minuto')
         nome = request.form.get('nome')
         email = request.form.get('email')
         telefone = request.form.get('telefone')
+        confirma = request.form.get('confirma')
         
-        result = manager.locacao( nome, email, telefone, dia, hora, minuto, armario )
-        dias = int(dia)
-        horas = int(hora)
-        minutos = int(minuto)
-        telefone = request.form.get('telefone')
-        dia = (int(dia) * 24)
-        hora = (int(hora) + int(dia)) * 3600
-        minuto = int(minuto) * 60
-        total = ((dia)+(hora)+(minuto)) * (1/3600)
-        total = "%.2f" % total
+        
+        
+        total = manager.calculo(dia, hora, minuto)
+        if confirma == 'sim':
+            result = manager.locacao( nome, email, telefone, dia, hora, minuto, armario )
+            return redirect(url_for('sucesso', dia=dia,  hora=hora, minuto=minuto, nome=nome, total=total, email=email, telefone=telefone, armario=armario, result=result))
 
         print('Nome: ' + nome)
         print('Total: ' + str(total))
 
-    return render_template('tempo.html', form=form, dia=dia, dias=dias, hora=hora, horas=horas, minutos=minutos, minuto=minuto, nome=nome, total=total, email=email, telefone=telefone, armario=armario, result=result)
+    return render_template('tempo.html', form=form, dia=dia,  hora=hora, minuto=minuto, nome=nome, total=total, email=email, telefone=telefone, armario=armario, result=result)
 
 
 @app.route('/cad_armario', methods=['GET', 'POST'])
@@ -122,37 +121,50 @@ def remove_armario():
 
 @app.route('/pagamento', methods=['GET','POST'])
 def pagamento():
-    manager = Management()
-    nome = request.form['nome']
-    dia = request.form['dia']
-    hora = request.form['hora']
-    minuto = request.form['minuto']
-    email = request.form['email']
-    dias = int(dia)
-    horas = int(hora)
-    minutos = int(minuto)
-    telefone = request.form.get('telefone')
-    dia = (int(dia) * 24)
-
-    hora = (int(hora) + int(dia)) * 3600
-    minuto = int(minuto) * 60
-    total = ((dia)+(hora)+(minuto)) * (1/3600)
-    total = "%.2f" % total
-    print(nome)
+    total = ''
+    if request.method == 'GET':
+        #manager = Management()
+        #nome = request.form.get('nome')
+        #dia = request.form.get('dia')
+        #hora = request.form.get('hora')
+        #minuto = request.form.get('minuto')
+        #email = request.form.get('email')
+        #telefone = request.form.get('telefone')
+        #armario = request.form.get('armario')
+        total = request.args.get('total')
+        nome= request.args.get('nome')
+        senha = request.args.get('senha')
     if request.method == 'POST':
-        result = manager.locacao( nome, email, telefone, dia, hora, minuto, armario )
+        return redirect(url_for('finalizar', nome=nome, senha=senha))
+    
 
 
-    return render_template('pagamento.html', dias=dias, horas=horas, nome=nome, email=email, minutos=minutos, total= total)
+    return render_template('pagamento.html', total= total, nome=nome, senha=senha)
 
 
-@app.route('/monitoramento')
-def monitor():
-    return render_template('monitoramento.html')
+@app.route('/sucesso', methods=['GET'])
+def sucesso():
+    nome = ''
+    dia = ''
+    hora = ''
+    minuto = ''
+    email = ''
+    total = ''
+    if request.method == 'GET':
+        nome = request.args.get('nome')
+        dia = request.args.get('dia')
+        hora = request.args.get('hora')
+        minuto = request.args.get('minuto')
+        email = request.args.get('email')
+        total = request.args.get('total')
+
+    return render_template('sucesso.html', dia=dia, hora=hora, nome=nome, email=email, minuto=minuto, total= total)
 
 @app.route('/resgatar_bagagem', methods=['GET', 'POST'])
-def recuparar_bagagem():
+def resgatar_bagagem():
     manage = Management()
+    message = ''
+    total = ''
     alfa = list(string.ascii_lowercase)
     alfa.append('.')
     alfa.append('@')
@@ -164,9 +176,42 @@ def recuparar_bagagem():
         senha = request.form.get('senha')
         result = manage.liberar_armarios(senha, nome)
         
+        if result[0] != 0:
+            message = " há tempo excedente totalizando em: "
+            #result = manage.pagamento(result[1])
+            #pagamentos = manage.pagamento(result)
+            return redirect(url_for('pagamento', total = result, nome=nome, senha=senha))
+
+            
+            
+            
+        else:
+            manage.liberar_armarios(senha, nome)
+            message = 'armario liberado'
+            return message
+
+    
 
 
-    return render_template('resgatar_bagagem.html', form=form, alfa=alfa,num=num, result=result)
+    return render_template('resgatar_bagagem.html', form=form, alfa=alfa,num=num, result=result, message=message)
+
+@app.route('/finalizar', methods=['GET', 'POST'])
+def finalizar():
+    cb = Cobranca()
+    nome = ''
+    senha = ''
+    total = ''
+    result = ''
+    if request.method == "GET":
+        total = request.args.get('total')
+        nome = request.args.get('nome')
+        senha = request.args.get('senha')
+        print('rasp ------ senha ', senha)
+        result = cb.finalizar( nome, senha)
+        print(result)
+
+    
+    return render_template('finalizar.html', result = result)
 
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 from flask_wtf import FlaskForm
-from wtforms import Form, StringField, BooleanField, SubmitField, IntegerField, FloatField, SelectField
+from wtforms import Form, StringField, BooleanField, SubmitField, IntegerField, FloatField, SelectField, RadioField
 from wtforms.validators import DataRequired
 
 
@@ -14,6 +14,7 @@ class FormTempo(Form):
     telefone= StringField('Telefone', validators=[DataRequired()])
     total = FloatField()
     submit = SubmitField('locar')
+    confirma = RadioField('Confirma', choices=[('sim','sim'), ('não','não')])
 
 class RecuperarBagagem(FlaskForm):
     nome = StringField('Telefone ou Email', validators=[DataRequired()])

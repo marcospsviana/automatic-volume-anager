@@ -195,3 +195,10 @@ h1
         background-color: #222930;
         color: aliceblue
 }
+.confirmar{
+        left: 40%;
+        top: 40%;
+        position: absolute;
+        padding: 5%;
+        letter-spacing: .1em
+}

@@ -142,17 +142,18 @@ ENGINE=InnoDB
         else:
             return(result)
 
-        self.__conn.close()
+        
 
     def select_user(self, email):
-        self.__email = str(email)
+        self.__email = email
+        self.__nome = email
         print(self.__email)
         query = ''
-        query = self.__c.execute("SELECT * FROM tb_usuario where email = %s or telefone = %s" % (self.__email, self.__email))
-        query = self.__c.fetchone()
+        self.__c.execute("SELECT id_usuario FROM tb_usuario where email = '"+ self.__nome +"' or telefone = '"+ self.__email +"'")
+        query = self.__c.fetchall()
         print("##### id usuario ###")
         print(query)
-        return query[0]
+        return query
 
     def __get_passwd(self):
         """ gera a senha automaticamente com combinação aleatória de 2 letras e 2 numeros
@@ -177,10 +178,12 @@ ENGINE=InnoDB
     def __send_passwd(self, passwd):
         pass  # self.passwd = passwd
     
-    def get_locacao(self, nome):
+    def get_locacao(self, nome, id_usuario):
+        
         result = ''
         self.__nome = nome
-        self.__c.execute("SELECT id_armario, id_locacao, tempo_locado from tb_locacao where senha = '%s'" % (self.__nome,))
+        self.__id_user = id_usuario
+        self.__c.execute("SELECT id_armario, id_locacao, tempo_locado from tb_locacao where senha = '%s' AND id_usuario = %s" % (self.__nome,self.__id_user,))
         self.__result = self.__c.fetchall()
         print("888888 ---- result")
         print(self.__result)
@@ -189,25 +192,38 @@ ENGINE=InnoDB
 
     def liberar_armario(self, senha, nome):
         id_armario = ''
+        taxa = 0.15
+        hj = datetime.datetime.now()
+        hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
+        hj = hj + datetime.timedelta(minutes=+10)
         self.__senha = senha
         self.__nome = nome
-        self.__id_user = self.select_user(nome)
-        self.__locacao = self.get_locacao(self.__senha)
-        if self.__locacao[0][1] < datetime.datetime.now():
-            data =  datetime.datetime.now()
-            tempo_total = data - self.__locacao[0][1]
+        self.__id_user = self.select_user(self.__nome)
+        self.__locacao = self.get_locacao(self.__senha, self.__id_user[0][0])
+        print('********** dados locacao **************')
+        print(self.__locacao[0][2])
+        if (self.__locacao[0][2]) >= hj:
+            
+            tempo_total = hj - self.__locacao[0][2]
             dias_passados = tempo_total.days
             minutos_passados = tempo_total.seconds / 60
             valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
-            result = self.cobranca(valor_total) 
-        #id_armario = self.__locacao[0][1]
-        self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
-        self.__conn.commit()
-        self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao[0][0],), multi=True)
-        
-        return self.__c.fetchone()
-        self.__conn.commit()
-        self.__conn.close()
+            result = self.cobranca(valor_total,hj)
+             
+            self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
+            self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao[0][0],), multi=True)
+            
+            self.__conn.commit()
+            self.__conn.close()
+            return "armario liberado"
+        else:
+            
+            tempo = hj - self.__locacao[0][2] 
+            tempo = tempo.days + tempo.seconds / 60
+            print('-------> %s'%tempo)
+            result = self.cobranca_excedente(int(tempo))
+            return result
+
 
     def remover_armario(self, id_armario):
 
@@ -254,32 +270,56 @@ ENGINE=InnoDB
         if self.__cobranca == None:
             self.liberar_armario
         else:
-            self.pagamento
+            return ('tempo excedente',self.__cobranca)
 
-    def cobranca(tempo_locado):
-        self.__taxa = 0.15
+    def cobranca(self, total, data_futura):
         """ compara duas datas retornando a diferença de tempo entre as duas
             parametros: data_atual tipo datetime, tempo_locado tipo datetime
             retorno: diferença tipo datetime.timedelta convertido em minutos e calculado o preço conforme 
             taxa por minuto cobrado"""
-        self.__data_atual = datetime.datetime.now()
-        #self.__data_atual = (int(self.__data_atual.month)*24*3600, int(self.__data_atual.day), int(self.__data_atual.hour), int(self.__data_atual.minute))
+        self.__TAXA = 0.15 
+        
+        
+        self.__data_atual = data_futura
+        #self.__data_futura = data_futura
+        
 
-        self.__tempo_locado = tempo_locado
-        self.__tempo_corrido = self.__data_atual - self.__tempo_locado
-        if (self.__tempo_corrido.days and self.__tempo_corrido) == 0:
+        self.__tempo_locado = total
+        #self.__tempo_corrido = self.__data_futura - self.__data_atual
+        '''if (self.__tempo_corrido.days and self.__tempo_corrido) <= 0:
             return None
-        else:
-            # calculo do total de tempo excedente em minutos
-            __total_minutos = (self.__tempo_corrido.days *
-                               24 * 60) + (self.__tempo_corrido.seconds / 60)
-            # formatando o valor para duas casas apos a virgura e convertendo em float
-            __total_minutos = float('{:.2f}'.format(__total_minutos))
-            __total_preco = __total_minutos * taxa  # preço total do excedente
-            return __total_preco
+        else:'''
+        # calculo do total de tempo excedente em minutos
+        #__total_minutos = (self.__tempo_corrido.days * 24 * 60) + (self.__tempo_corrido.seconds / 60)
+        # formatando o valor para duas casas apos a virgura e convertendo em float
+        #__total_minutos = float('{:.2f}'.format(__total_minutos))
+        __total_preco = self.__tempo_locado * self.__TAXA  # preço total do excedente
+        __total_preco = "%.2f"%(__total_preco)
+        #__total_preco = str(__total_preco.replace('.',','))
+        return __total_preco
 
-    def pagamento(self, valor):
-        pass
+    def cobranca_excedente(self, tempo):
+        message = "tempo excedido cobrança de R$ : %s"
+        taxa = 0.15
+        print('22222222222 tempo 222222222222')
+        print(tempo)
+        
+        self.__excedente = float(tempo)
+        total = self.__excedente * taxa
+        total = "%.2f"%total
+        print ('$$$$$$$ total $$$$ %s' % total)
+        return (total )
+    def finalizar(self, nome, senha):
+        self.__nome = nome
+        self.__senha = senha
+        self.__id_user = self.select_user(self.__nome)
+        self.__locacao = self.get_locacao(self.__senha, self.__id_user[0][0])
+        self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
+        self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao[0][0],), multi=True)
+        self.__c.commit()
+        self.__conn.close()
+        return "armario liberado"
+
     
     @staticmethod
     def listar_classes_armarios():

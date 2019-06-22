@@ -1,35 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{  url_for('static', filename='css/main.css')}}">
-    <title> Bem-vindo ao CoolBag-Safe</title>
-  </head>
-  <body id="background">
-    <div class="container">
-      <h3>
-      nome =  {{ nome }} <br>
-      dias =  {{ dias }} <br>
-      horas = {{ horas }} <br>
-      minutos = {{ minutos }} <br>
-      total = R$ {{ total }} <br>
-    </h3>
-    </script>
-            <div class= "button" id="button-bottom">  
-                  
-                    <button type="button" id="controller" class="btn btn-primary btn-lg">Confirmar</button>
-                    
-                    </div> 
-                        <script>
-                          // You can also require other files to run in this process
-                          //require('./renderer.js')
-                          src=" url_for('static', filename='js/bootstrap.min.js')}}";
-                          
-                        </script>
-                        </div>
-                      </body>
-                    </html>
-        
+{% extends 'base.html' %}
+{% block content %}
+<form id="form" action="" method="POST">
+<h3>
+ 
+  total = R$ {{ total }} <br>
+</h3>
+
+<div class="button" id="button-bottom">
+
+  <button type="submit" id="controller" class="btn btn-primary btn-lg" name="confirmar"><a href="{{url_for('finalizar')}}">Confirmar</a></button>
+  {% if submit %}
+  return {{ total }}
+  {% endif %}
+
+</div>
+</form>
+{% endblock %}

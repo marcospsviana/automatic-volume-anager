@@ -40,11 +40,21 @@
 </div>
 <script >
         function getPressed(valor){
-            var tcls = document.getElementById("entry").focus();
+            var tcls = document.getElementById("entry");
             var tcemail = document.getElementById("entryemail");
-            var tc = tcls.value;
+            if (tcls.onfocus){
+            tcemail.disabled = true;
+            }
+            
+            else if (tcemail.click){
+                tcls.value = null;
+            }
             var tce = tcemail.value;
             tcemail.value = tce + valor;
+            
+            var tc = tcls.value;
+            
+            
             var tamChar = tc.length;
             if (tamChar < 4){
                 tcls.value = tc + valor
@@ -53,8 +63,19 @@
             
         }
         function backspace(){
+
             let tcls = document.getElementById("entry");
+            
             tcls.value = null;
+        }
+        function getAlfa(valor){
+            
+            var tcemail = document.getElementById("entryemail");
+            if (tcemail.focus){
+                document.getElementById("entry").readonly = true;
+            }
+            var tce = tcemail.value;
+            tcemail.value = tce + valor;
         }
         </script>
 </body>
