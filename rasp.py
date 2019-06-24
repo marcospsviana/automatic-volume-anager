@@ -11,6 +11,10 @@ import string
 from engine.forms import FormTempo, CadArmario, RecuperarBagagem
 from controllers import Management
 from engine.cobranca import Cobranca
+from engine.locacao import Locacao as loc
+from engine.usuario import User as usr
+from engine.armario import Armario as arm
+
 
 
 app = Flask(__name__)
@@ -121,25 +125,25 @@ def remove_armario():
 
 @app.route('/pagamento', methods=['GET','POST'])
 def pagamento():
+    cb = Cobranca()
     total = ''
     if request.method == 'GET':
-        #manager = Management()
-        #nome = request.form.get('nome')
-        #dia = request.form.get('dia')
-        #hora = request.form.get('hora')
-        #minuto = request.form.get('minuto')
-        #email = request.form.get('email')
-        #telefone = request.form.get('telefone')
-        #armario = request.form.get('armario')
         total = request.args.get('total')
         nome= request.args.get('nome')
         senha = request.args.get('senha')
-    if request.method == 'POST':
-        return redirect(url_for('finalizar', nome=nome, senha=senha))
+        result = cb.finalizar( nome, senha)
+        
+        #return (url_for('finalizar', nome = nome, senha=senha))
+    
+        
+        
+   
+   
+        
     
 
 
-    return render_template('pagamento.html', total= total, nome=nome, senha=senha)
+    return render_template('pagamento.html', total= total, nome=nome, senha=senha, result=result)
 
 
 @app.route('/sucesso', methods=['GET'])
@@ -195,20 +199,17 @@ def resgatar_bagagem():
 
     return render_template('resgatar_bagagem.html', form=form, alfa=alfa,num=num, result=result, message=message)
 
-@app.route('/finalizar', methods=['GET', 'POST'])
-def finalizar():
+
+
+@app.route('/finalizar/<string:result>', methods=['GET', 'POST'])
+def finalizar(result):
     cb = Cobranca()
     nome = ''
     senha = ''
     total = ''
     result = ''
-    if request.method == "GET":
-        total = request.args.get('total')
-        nome = request.args.get('nome')
-        senha = request.args.get('senha')
-        print('rasp ------ senha ', senha)
-        result = cb.finalizar( nome, senha)
-        print(result)
+    if request.method == 'GET':
+        result = request.args.get('result')
 
     
     return render_template('finalizar.html', result = result)

@@ -42,13 +42,8 @@
         function getPressed(valor){
             var tcls = document.getElementById("entry");
             var tcemail = document.getElementById("entryemail");
-            if (tcls.onfocus){
-            tcemail.disabled = true;
-            }
             
-            else if (tcemail.click){
-                tcls.value = null;
-            }
+            
             var tce = tcemail.value;
             tcemail.value = tce + valor;
             
@@ -62,18 +57,15 @@
             
             
         }
-        function backspace(){
-
+        function backspace(valor){
             let tcls = document.getElementById("entry");
-            
-            tcls.value = null;
+            tc = tcls.value;
+            tcls.value = tc - valor;
         }
         function getAlfa(valor){
             
             var tcemail = document.getElementById("entryemail");
-            if (tcemail.focus){
-                document.getElementById("entry").readonly = true;
-            }
+          
             var tce = tcemail.value;
             tcemail.value = tce + valor;
         }

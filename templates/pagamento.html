@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<form id="form" action="" method="POST">
+<form id="form" action="{{url_for('finalizar', result=result)}}" method="POST">
 <h3>
  
   total = R$ {{ total }} <br>
@@ -8,7 +8,7 @@
 
 <div class="button" id="button-bottom">
 
-  <button type="submit" id="controller" class="btn btn-primary btn-lg" name="confirmar"><a href="{{url_for('finalizar')}}">Confirmar</a></button>
+  <button type="submit" id="controller" class="btn btn-success btn-lg" name="confirmar">Confirmar</button>
   {% if submit %}
   return {{ total }}
   {% endif %}

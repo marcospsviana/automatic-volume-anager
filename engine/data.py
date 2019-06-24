@@ -316,7 +316,7 @@ ENGINE=InnoDB
         self.__locacao = self.get_locacao(self.__senha, self.__id_user[0][0])
         self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
         self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao[0][0],), multi=True)
-        self.__c.commit()
+        self.__conn.commit()
         self.__conn.close()
         return "armario liberado"
 
