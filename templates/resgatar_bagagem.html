@@ -9,7 +9,7 @@
    
     <title>Resgatar Bagagem</title>
 </head>
-<body id="body">
+<body id="body" onload="desativa();">
     <div class="container">
         <div id="input">
         <div class="form-group" id="form">
@@ -17,13 +17,15 @@
         <form action="" method="POST" class="form" id="form-resgate">
                 {{ form.csrf_token }}
                 {{ form.nome.label }} <br>
-                {{ form.nome (type='text', id='entryemail')}}
+                {{ form.nome (type='text', id='entryemail', onfocus='ativaEmail();')}}
           {{ form.senha.label }} <br>
-           <div id="entrada">{{ form.senha(type='text', id='entry') }}</div> <br>
+           <div id="entrada">{{ form.senha(type='text', id='entry', onfocus='ativaSenha()') }}</div> <br>
            <div id="button">{{ form.submit(class='botao-submit') }}</div> 
         </form>
     </div>
     <div id="teclado" class="">
+        <div id="entradaEmail">
+        
         {%for n in num %}
         <button  class="botao-numerico" type="button" id="{{n}}" value='{{n}}'  onclick="getPressed(this.value);">{{n}}</button>
         {% endfor %}
@@ -31,43 +33,62 @@
         {% for a in alfa %}
         <button  class="botao-alfa" type="button" id="{{a}}" value="{{a}}"  onclick="getPressed(this.value);" >{{a}}</button>
         {% endfor %}
+        <button  class="botao-alfa" type="button" id="arroba" value="@"  onclick="getPressed(this.value);" >@</button>
         <button  class="botao-alfa" type="button" id="dotcom" value=".com"  onclick="getPressed(this.value);" >.com</button>
         <button  class="botao-alfa" type="button" id="backspace" value=""  onclick="backspace();" ><strong>&LeftArrow;</strong></button>
+        
+    </div>
+        <div id="entradaSenha" >
+        {%for n in num %}
+        <button  class="botao-numerico" type="button" id="{{n}}" value='{{n}}'  onclick="getPass(this.value);">{{n}}</button>
+        {% endfor %}
+        <br>
+        {% for a in alfa %}
+        <button  class="botao-alfa" type="button" id="{{a}}" value="{{a}}"  onclick="getPass(this.value);" >{{a}}</button>
+        {% endfor %}
+       
+        <button  class="botao-alfa" type="button" id="backspace" value=""  onclick="backspace();" ><strong>&LeftArrow;</strong></button>
+    </div>
+
 
     </div>
     {{result}}
     </div>
 </div>
 <script >
-        function getPressed(valor){
-            var tcls = document.getElementById("entry");
-            var tcemail = document.getElementById("entryemail");
+    function desativa(){
+        document.getElementById("entradaSenha").style.display = "none";
+        document.getElementById("entradaEmail").style.display = "none";
+    }
+   
+       function ativaEmail(){
+           document.getElementById("entradaSenha").style.display = "none";
+           document.getElementById("entradaEmail").style.display = "block"
+           
+       }
+       function ativaSenha(){
+           document.getElementById("entradaEmail").style.display = "none";
+           document.getElementById("entradaSenha").style.display = "block";
+       }
+        
+        function  getPressed(valor){
+            var tcls = document.getElementById("entryemail");            
+                
+                var tc = tcls.value;
+                   
             
+                tcls.value = tc + valor
             
-            var tce = tcemail.value;
-            tcemail.value = tce + valor;
-            
-            var tc = tcls.value;
-            
-            
-            var tamChar = tc.length;
+        }
+        function  getPass(valor){
+            var tcls = document.getElementById("entry");            
+                
+                var tc = tcls.value;
+                var tamChar = tc.length;
             if (tamChar < 4){
                 tcls.value = tc + valor
             }
             
-            
-        }
-        function backspace(valor){
-            let tcls = document.getElementById("entry");
-            tc = tcls.value;
-            tcls.value = tc - valor;
-        }
-        function getAlfa(valor){
-            
-            var tcemail = document.getElementById("entryemail");
-          
-            var tce = tcemail.value;
-            tcemail.value = tce + valor;
         }
         </script>
 </body>

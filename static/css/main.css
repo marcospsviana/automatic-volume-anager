@@ -138,8 +138,8 @@ h1
         position: absolute;
         
         top: 15%;
-        left: 50%;
-        max-width: 450px;
+        left: 40%;
+        max-width: 650px;
         background-color: #222930;
         color: aliceblue
 
@@ -165,7 +165,7 @@ h1
         height: 40px;
         border-radius: 15px;
         margin-bottom: 15px;
-        background-color: #222930;
+        background-color: #099432;
         color: aliceblue
 }
 #entry{

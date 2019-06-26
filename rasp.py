@@ -127,6 +127,9 @@ def remove_armario():
 def pagamento():
     cb = Cobranca()
     total = ''
+    token = ''
+    email_count = ''
+
     if request.method == 'GET':
         total = request.args.get('total')
         nome= request.args.get('nome')
@@ -134,8 +137,11 @@ def pagamento():
         result = cb.finalizar( nome, senha)
         
         #return (url_for('finalizar', nome = nome, senha=senha))
+
+    token='361DC825CBBF4F1E9AAFE918338694FD'
+    email_count = 'marcospaulo.silvaviana@gmail.com'
     
-        
+       
         
    
    
@@ -143,7 +149,7 @@ def pagamento():
     
 
 
-    return render_template('pagamento.html', total= total, nome=nome, senha=senha, result=result)
+    return render_template('pagamento.html', total= total, nome=nome, senha=senha, result=result, token=token, email_count=email_count)
 
 
 @app.route('/sucesso', methods=['GET'])
@@ -170,8 +176,7 @@ def resgatar_bagagem():
     message = ''
     total = ''
     alfa = list(string.ascii_lowercase)
-    alfa.append('.')
-    alfa.append('@')
+    
     result = ''
     num = list(map(lambda x: x, range(10)))
     form = RecuperarBagagem()
@@ -197,7 +202,7 @@ def resgatar_bagagem():
     
 
 
-    return render_template('resgatar_bagagem.html', form=form, alfa=alfa,num=num, result=result, message=message)
+    return render_template('resgatar_bagagem.html', form=form, alfa=alfa, num=num, result=result, message=message)
 
 
 

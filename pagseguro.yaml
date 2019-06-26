@@ -1,0 +1,30 @@
+Comprador de teste
+Para testar o checkout com um comprador cadastrado, utilize o e-mail abaixo. Caso sinta a necessidade de fazer um checkout com um usuário não cadastrado, basta informar qualquer e-mail no formato xxxxxxx@sandbox.pagseguro.com.br.
+
+Este comprador de teste só pode ser utilizado para se autenticar no checkout do PagSeguro Sandbox.
+
+Email: c72469555687510986392@sandbox.pagseguro.com.br
+Senha: 5395246309C20100
+Cartão de crédito de testes
+Você pode utilizar o cartão abaixo para fazer seus testes no checkout do Sandbox.
+
+Número: 4111111111111111
+Bandeira: VISA 
+Válido até: 12/2030 
+CVV: 123
+
+token: 361DC825CBBF4F1E9AAFE918338694FD
+envio: https://ws.sandbox.pagseguro.uol.com.br/{{api-endpoint}}?email=c72469555687510986392@sandbox.pagseguro.com.br&token={{token-sandbox}}
+
+Credenciais
+Ao criar sua conta no Sandbox, criamos automaticamente uma Aplicação para você testar as integrações via API. Abaixo estão os dados de acesso.
+
+appID: app5684252164 
+AppKey: C37A4716FFFF5951146C3F91C2239FD4 
+Vendedor de Testes
+Para simular um vendedor de testes no ambiente da Aplicação, utilize as credenciais abaixo:
+
+Vendedor 1
+E-mail: v81316330130744360870@sandbox.pagseguro.com.br 
+Senha: UB7v701996r554PD 
+Chave Pública: PUB924F4D29EE774540B635F09C25D25627 
