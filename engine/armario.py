@@ -6,7 +6,31 @@ from .locacao import Locacao
 
 class Armario(object):
     def __init__(self):
-        __bk = Banco()    
+        __bk = Banco()  
+        TABELA_ENDERECAMENTO =   {
+            "localizacao": '001',
+            "classe":{
+                "A": "01",
+                "B": {"ESQUERDA": "02",
+                "DIREITA": "03"},
+                "C":[
+                    {
+                    "Q1":"04",
+                    "Q2":"05",
+                    "Q3":"06",
+                    "Q4":"07",
+                    }
+                    ],
+                "D":[
+                    {
+
+                    }
+                ]
+            }
+
+        }
+
+        
 
     def cad_armario(classe, terminal, coluna, nivel):
         __bk = Banco()
@@ -18,7 +42,7 @@ class Armario(object):
             __classe, __terminal, __coluna, __nivel)
 
     def remove_armario(id_armario):
-        __bk
+        __bk = Banco()
     
     def seleciona_armario(id_armario):
         

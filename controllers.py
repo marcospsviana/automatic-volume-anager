@@ -5,20 +5,19 @@ from engine.cobranca import Cobranca as cb
 
 
 class Management(object):
-    ''' controllers: todos os controles de acesso nesta classe com funcoes de mesmo nome '''
-    def locacao( self, nome, email, telefone, dia, hora, minuto, armario):
-        ''' Obtem os dados do formulario de incricao de clientes e locacao dos armarios
+    ''' controllers: todos os controles de acesso nesta classe com funcoes de mesmo nome '''\
+    '''def locacao( self, nome, email, telefone, dia, hora, minuto, armario):\
+         Obtem os dados do formulario de incricao de clientes e locacao dos armarios\
             dados:
             nome, email, telefone, armario: string
-            dia, hora, minuto, tempo_locado(total do tempo contratado em segundos): int'''
+            dia, hora, minuto, tempo_locado(total do tempo contratado em segundos): int
         self.__cobranca = ''
         self.__nome, self.__email, self.__telefone, self.__armario = nome, email, telefone, armario
         self.__dia, self.__hora, self.__minuto = dia, hora, minuto
         self.__rec = self.cad_user(self.__nome, self.__email, self.__telefone)
         result = loc.locacao(self.__nome, self.__email, self.__telefone, self.__dia, self.__hora, self.__minuto, self.__armario)
-        
-        
-        return (result, self.__cobranca)
+               
+        return (result, self.__cobranca)'''
 
     def cad_user(self, nome, email, telefone):
         self.__nome = nome
@@ -26,13 +25,13 @@ class Management(object):
         self.__telefone = telefone
         usr.create_usr(self.__nome, self.__email, self.__telefone)
     
-    def cad_armarios(self, classe, terminal, coluna, nivel):
+    '''def cad_armarios(self, classe, terminal, coluna, nivel):
         
         __classe = str(classe)
         __terminal = str(terminal)
         __nivel = str(nivel)
         __coluna = str(coluna)
-        arm.cad_armario(__classe, __terminal, __coluna, __nivel)
+        arm.cad_armario(__classe, __terminal, __coluna, __nivel)'''
 
     def remove_armarios(self, id_armario):
         __id = id_armario
@@ -49,13 +48,13 @@ class Management(object):
         self.__senha = senha
         result = arm.liberar_armario(self.__senha, self.__nome)
         return result
-    def calculo(self, dia, hora, minuto):
+    '''def calculo(self, dia, hora, minuto):
         
         self.__dia = dia
         self.__hora = hora
         self.__minuto = minuto
         self.__cobranca =  cb.cobranca(self, self.__dia, self.__hora, self.__minuto)
-        return self.__cobranca
+        return self.__cobranca'''
 
         
     def pagamento(self, total):

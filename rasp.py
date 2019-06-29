@@ -9,8 +9,7 @@ import webview
 import string
 
 from engine.forms import FormTempo, CadArmario, RecuperarBagagem
-from controllers import Management
-from engine.cobranca import Cobranca
+from engine.cobranca import Cobranca as cb
 from engine.locacao import Locacao as loc
 from engine.usuario import User as usr
 from engine.armario import Armario as arm
@@ -51,8 +50,7 @@ def locar():
 def armarios():
     armario = ''
     classes = ''
-    manager = Management()
-    classes = manager.lista_armarios()
+    classes = arm.listar_classes()
     print(classes)
     if request.method == 'POST':
         armario = request.form.get('armario')
@@ -61,12 +59,8 @@ def armarios():
 
 
 @app.route('/tempo', methods=['GET', 'POST'])
-def tempo():
-    manager = Management()
-    
-    
-    form = FormTempo(request.form)
-    import requests
+def tempo():    
+    form = FormTempo(request.form) 
 
     dia = dias = hora = horas = minuto = minutos = total = ''
     nome = ''
@@ -89,9 +83,9 @@ def tempo():
         
         
         
-        total = manager.calculo(dia, hora, minuto)
+        total = cb.cobranca(dia, hora, minuto)
         if confirma == 'sim':
-            result = manager.locacao( nome, email, telefone, dia, hora, minuto, armario )
+            result = loc.locacao( nome, email, telefone, dia, hora, minuto, armario )
             return redirect(url_for('sucesso', dia=dia,  hora=hora, minuto=minuto, nome=nome, total=total, email=email, telefone=telefone, armario=armario, result=result))
 
         print('Nome: ' + nome)
@@ -102,7 +96,6 @@ def tempo():
 
 @app.route('/cad_armario', methods=['GET', 'POST'])
 def cad_armarios():
-    manage = Management()
     form = CadArmario()
     message = ''
     if request.method == 'POST':
@@ -110,7 +103,7 @@ def cad_armarios():
         nivel = request.form.get('nivel')
         coluna = request.form.get('coluna')
         terminal = request.form.get('terminal')
-        manage.cad_armarios(classe, terminal, coluna, nivel)
+        arm.cad_armario(classe, terminal, coluna, nivel)
         message = ('armário classe : %s , nível : %s, coluna : %s, terminal : %s, cadastrado com sucesso' % (
             classe, nivel, coluna, terminal))
     return render_template('cad_armario.html', form=form, flash=message)
@@ -118,17 +111,17 @@ def cad_armarios():
 
 @app.route('/remove_armario', methods=['GET', 'POST'])
 def remove_armario():
-    manage = Management()
+    
     if request.method == 'POST':
         return render_template('remove.html')
 
 
 @app.route('/pagamento', methods=['GET','POST'])
 def pagamento():
-    cb = Cobranca()
     total = ''
     token = ''
     email_count = ''
+    
 
     if request.method == 'GET':
         total = request.args.get('total')
@@ -137,9 +130,6 @@ def pagamento():
         result = cb.finalizar( nome, senha)
         
         #return (url_for('finalizar', nome = nome, senha=senha))
-
-    token='361DC825CBBF4F1E9AAFE918338694FD'
-    email_count = 'marcospaulo.silvaviana@gmail.com'
     
        
         
@@ -172,7 +162,6 @@ def sucesso():
 
 @app.route('/resgatar_bagagem', methods=['GET', 'POST'])
 def resgatar_bagagem():
-    manage = Management()
     message = ''
     total = ''
     alfa = list(string.ascii_lowercase)
@@ -183,19 +172,17 @@ def resgatar_bagagem():
     if request.method == 'POST':
         nome = request.form.get('nome')
         senha = request.form.get('senha')
-        result = manage.liberar_armarios(senha, nome)
+        result = arm.liberar_armario(senha, nome)
         
         if result[0] != 0:
             message = " há tempo excedente totalizando em: "
-            #result = manage.pagamento(result[1])
-            #pagamentos = manage.pagamento(result)
             return redirect(url_for('pagamento', total = result, nome=nome, senha=senha))
 
             
             
             
         else:
-            manage.liberar_armarios(senha, nome)
+            arm.liberar_armario(senha, nome)
             message = 'armario liberado'
             return message
 

@@ -1,3 +1,4 @@
+USE coolbag;
 -- MySQL dump 10.16  Distrib 10.1.40-MariaDB, for debian-linux-gnu (x86_64)
 --
 -- Host: 127.0.0.1    Database: coolbag
@@ -18,6 +19,7 @@
 --
 -- Table structure for table `tb_armario`
 --
+
 
 DROP TABLE IF EXISTS `tb_armario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
