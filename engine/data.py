@@ -272,66 +272,62 @@ ENGINE=InnoDB
         else:
             return ('tempo excedente',self.__cobranca)
 
-    def cobranca(self, total, data_futura):
+    def cobranca(total, data_futura):
         """ compara duas datas retornando a diferença de tempo entre as duas
             parametros: data_atual tipo datetime, tempo_locado tipo datetime
             retorno: diferença tipo datetime.timedelta convertido em minutos e calculado o preço conforme 
             taxa por minuto cobrado"""
-        self.__TAXA = 0.15 
-        
-        
-        self.__data_atual = data_futura
-        #self.__data_futura = data_futura
-        
+        def __init__(self):
+            self.__TAXA = 0.15 
+            self.__data_atual = data_futura
+            #self.__data_futura = data_futura
+            self.__tempo_locado = total
+            #self.__tempo_corrido = self.__data_futura - self.__data_atual
+            '''if (self.__tempo_corrido.days and self.__tempo_corrido) <= 0:
+                return None
+            else:'''
+            # calculo do total de tempo excedente em minutos
+            #__total_minutos = (self.__tempo_corrido.days * 24 * 60) + (self.__tempo_corrido.seconds / 60)
+            # formatando o valor para duas casas apos a virgura e convertendo em float
+            #__total_minutos = float('{:.2f}'.format(__total_minutos))
+            __total_preco = self.__tempo_locado * self.__TAXA  # preço total do excedente
+            __total_preco = "%.2f"%(__total_preco)
+            #__total_preco = str(__total_preco.replace('.',','))
+            return __total_preco
 
-        self.__tempo_locado = total
-        #self.__tempo_corrido = self.__data_futura - self.__data_atual
-        '''if (self.__tempo_corrido.days and self.__tempo_corrido) <= 0:
-            return None
-        else:'''
-        # calculo do total de tempo excedente em minutos
-        #__total_minutos = (self.__tempo_corrido.days * 24 * 60) + (self.__tempo_corrido.seconds / 60)
-        # formatando o valor para duas casas apos a virgura e convertendo em float
-        #__total_minutos = float('{:.2f}'.format(__total_minutos))
-        __total_preco = self.__tempo_locado * self.__TAXA  # preço total do excedente
-        __total_preco = "%.2f"%(__total_preco)
-        #__total_preco = str(__total_preco.replace('.',','))
-        return __total_preco
+    def cobranca_excedente(tempo):
 
-    def cobranca_excedente(self, tempo):
         message = "tempo excedido cobrança de R$ : %s"
         taxa = 0.15
         print('22222222222 tempo 222222222222')
         print(tempo)
         
-        self.__excedente = float(tempo)
-        total = self.__excedente * taxa
+        __excedente = float(tempo)
+        total = __excedente * taxa
         total = "%.2f"%total
         print ('$$$$$$$ total $$$$ %s' % total)
         return (total )
-    def finalizar(self, nome, senha):
-        self.__nome = nome
-        self.__senha = senha
-        self.__id_user = self.select_user(self.__nome)
-        self.__locacao = self.get_locacao(self.__senha, self.__id_user[0][0])
-        self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
-        self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao[0][0],), multi=True)
-        self.__conn.commit()
-        self.__conn.close()
-        return "armario liberado"
+    def finalizar(nome, senha):
+        def __init__(self):
+            self.__nome = nome
+            self.__senha = senha
+            self.__id_user = self.select_user(self.__nome)
+            self.__locacao = self.get_locacao(self.__senha, self.__id_user[0][0])
+            self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
+            self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao[0][0],), multi=True)
+            self.__conn.commit()
+            self.__conn.close()
+            return "armario liberado"
 
     
     @staticmethod
     def listar_classes_armarios():
-
-        __conn = mdb.connect(
-            user='root', password='m1cr0@t805i', database='coolbag')
-        __c = __conn.cursor(buffered=True)
-        __classes = []
-        result = ''
-        __c.execute("SELECT classe FROM tb_armario WHERE estado = 'LIVRE'")
-        result = __c.fetchall()
-        return result
+        def __init__(self):
+            self.__classes = []
+            result = ''
+            self.__c.execute("SELECT classe FROM tb_armario WHERE estado = 'LIVRE'")
+            result = self.__c.fetchall()
+            return result
 
 
 if __name__ == "__main__":

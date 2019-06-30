@@ -33,13 +33,14 @@ class Armario(object):
         
 
     def cad_armario(classe, terminal, coluna, nivel):
-        __bk = Banco()
-        __classe = classe
-        __terminal = terminal
-        __coluna = coluna
-        __nivel = nivel
-        __bk.cadastrar_armario(
-            __classe, __terminal, __coluna, __nivel)
+        def __init__(self):
+            self.__bk = Banco()
+            self.__classe = classe
+            self.__terminal = terminal
+            self.__coluna = coluna
+            self.__nivel = nivel
+            self.__bk.cadastrar_armario(
+                self.__classe, self.__terminal, self.__coluna, self.__nivel)
 
     def remove_armario(id_armario):
         __bk = Banco()
@@ -50,15 +51,17 @@ class Armario(object):
 
     @staticmethod
     def listar_classes ():
-        __bk = Banco()
-        __classe = []
-        __classe = __bk.listar_classes_armarios()
-        return __classe
+        def __init__(self):
+            self.__bk = Banco()
+            self.__classe = []
+            self.__classe = self.__bk.listar_classes_armarios()
+            return self.__classe
     
     def liberar_armario(senha, nome):
-        __bk = Banco()
-        __senha = senha
-        __nome = nome
-        result = __bk.liberar_armario(__senha, __nome)
-        return result
+         def __init__(self):
+            self.__bk = Banco()
+            self.__senha = senha
+            self.__nome = nome
+            result = self.__bk.liberar_armario(self.__senha, self.__nome)
+            return result
 
