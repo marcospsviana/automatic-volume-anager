@@ -15,7 +15,7 @@ class Banco(object):
         self.data = ''
 
         self.__conn = mdb.connect(
-            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+            user='root', password='m1cr0@t805i', database='coolbag')
         self.__c = self.__conn.cursor(buffered=True)
 
         self.__c.execute('''CREATE TABLE IF NOT EXISTS `tb_armario` (
@@ -325,7 +325,7 @@ ENGINE=InnoDB
     def listar_classes_armarios():
 
         __conn = mdb.connect(
-            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+            user='root', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         __classes = []
         result = ''

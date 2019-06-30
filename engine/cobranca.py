@@ -3,22 +3,22 @@ from .data import Banco
 
 
 class Cobranca(object):
-    def __init__(self):
-        self.__bk = Banco()
-    def cobranca(self, dia, hora, minuto):
-        self.__bk = Banco()
-        self.__result = ''
-        data = datetime.datetime.now()
-        self.__dia = int(dia)
-        self.__hora = int(hora)
-        self.__minuto = int(minuto)
-        self.__total = (int(dia) * 24) + (int(hora) +
-                                            int(dia)) * 3600 + self.__minuto
-        self.__futuro = data + \
-            datetime.timedelta(
-                days=self.__dia, hours=self.__hora, minutes=self.__minuto)
-        self.__result = self.__bk.cobranca(self.__total, self.__futuro)
-        return self.__result
+    
+    def cobranca(dia, hora, minuto):
+        def __init__(self):
+            self.__bk = Banco()
+            self.__result = ''
+            data = datetime.datetime.now()
+            self.__dia = int(dia)
+            self.__hora = int(hora)
+            self.__minuto = int(minuto)
+            self.__total = (int(dia) * 24) + (int(hora) +
+                                                int(dia)) * 3600 + self.__minuto
+            self.__futuro = data + \
+                datetime.timedelta(
+                    days=self.__dia, hours=self.__hora, minutes=self.__minuto)
+            self.__result = self.__bk.cobranca(self.__total, self.__futuro)
+            return self.__result
 
     def pagamento(self, total):
         self.__bk = Banco()
