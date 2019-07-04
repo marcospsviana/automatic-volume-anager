@@ -254,7 +254,11 @@ ENGINE=InnoDB
         ''' seleciona a locacao conforme a senha fornecida retornando todos os dados:
         id_locacao , id_usuario, id_armario: type int
         data_limite : type datetime
+        libera armario após ser confirmado e verificar que não haja saldo devedor
+        saldo devedor calculo: data atual datetime - tempo_locado datetime 
         '''
+        if finalizar == True:
+            pass
 
         #self.__email = email
         #self.__telefone = telefone
@@ -291,8 +295,8 @@ ENGINE=InnoDB
             # formatando o valor para duas casas apos a virgura e convertendo em float
             #__total_minutos = float('{:.2f}'.format(__total_minutos))
             __total_preco = self.__tempo_locado * self.__TAXA  # preço total do excedente
-            __total_preco = "%.2f"%(__total_preco)
-            #__total_preco = str(__total_preco.replace('.',','))
+            __total_preco = "%.2f"%(__total_preco) # formatando para duas casas decimais apos virgula
+            #__total_preco = str(__total_preco.replace('.',',')) #troca ponto por virgula pra formatar em moeda BR
             return __total_preco
 
     def cobranca_excedente(tempo):

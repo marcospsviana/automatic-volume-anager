@@ -7,6 +7,7 @@ import os
 import json
 import webview
 import string
+import datetime
 
 from engine.forms import FormTempo, CadArmario, RecuperarBagagem
 from engine.cobranca import Cobranca as cb
@@ -107,13 +108,32 @@ def cad_armarios():
         message = ('armário classe : %s , nível : %s, coluna : %s, terminal : %s, cadastrado com sucesso' % (
             classe, nivel, coluna, terminal))
     return render_template('cad_armario.html', form=form, flash=message)
+m= 0
 
-
-@app.route('/remove_armario', methods=['GET', 'POST'])
+@app.route('/remove', methods=['GET', 'POST'])
 def remove_armario():
-    
-    if request.method == 'POST':
-        return render_template('remove.html')
+    import time
+    global m
+    for i in range(0,60):
+        i = datetime.datetime.now()
+        i = i.second
+        if i == 59:
+            m = m + 1
+        return'''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="1">
+    <title>Document</title>
+</head>
+<body>
+    <h3>minutos %s segundos %s</h3>
+</body>
+</html>
+'''%(m,i)
+    if m == 1:
+        return redirect('index.html')
 
 
 @app.route('/pagamento', methods=['GET','POST'])
@@ -164,10 +184,10 @@ def sucesso():
 def resgatar_bagagem():
     message = ''
     total = ''
-    alfa = list(string.ascii_lowercase)
+    alfa = list(string.ascii_lowercase) # alfabeto para gerar o teclado
     
     result = ''
-    num = list(map(lambda x: x, range(10)))
+    num = list(map(lambda x: x, range(10))) # números para o teclado numérico
     form = RecuperarBagagem()
     if request.method == 'POST':
         nome = request.form.get('nome')

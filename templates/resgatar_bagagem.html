@@ -20,7 +20,8 @@
                 {{ form.nome (type='text', id='entryemail', onfocus='ativaEmail();')}}
           {{ form.senha.label }} <br>
            <div id="entrada">{{ form.senha(type='text', id='entry', onfocus='ativaSenha()') }}</div> <br>
-           <div id="button">{{ form.submit(class='botao-submit') }}</div> 
+           <div id="button">{{ form.submit(class='botao-submit') }}&MediumSpace;<a href="">{{ form.abrir_armario(class='botao-submit')}}</a>
+        </div>
         </form>
     </div>
     <div id="teclado" class="">

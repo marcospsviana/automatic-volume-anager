@@ -21,6 +21,7 @@ class RecuperarBagagem(FlaskForm):
     email = StringField('Email', validators=[DataRequired()])
     senha = StringField('Senha', validators=[DataRequired()])
     submit = SubmitField('Recuperar Bagagem')
+    abrir_armario = SubmitField('Abrir Armário')
 
 
 
