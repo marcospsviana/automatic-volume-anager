@@ -276,28 +276,29 @@ ENGINE=InnoDB
         else:
             return ('tempo excedente',self.__cobranca)
 
-    def cobranca(total, data_futura):
+    def cobranca(self, total, data_futura):
         """ compara duas datas retornando a diferença de tempo entre as duas
             parametros: data_atual tipo datetime, tempo_locado tipo datetime
             retorno: diferença tipo datetime.timedelta convertido em minutos e calculado o preço conforme 
             taxa por minuto cobrado"""
-        def __init__(self):
-            self.__TAXA = 0.15 
-            self.__data_atual = data_futura
-            #self.__data_futura = data_futura
-            self.__tempo_locado = total
-            #self.__tempo_corrido = self.__data_futura - self.__data_atual
-            '''if (self.__tempo_corrido.days and self.__tempo_corrido) <= 0:
-                return None
-            else:'''
-            # calculo do total de tempo excedente em minutos
-            #__total_minutos = (self.__tempo_corrido.days * 24 * 60) + (self.__tempo_corrido.seconds / 60)
-            # formatando o valor para duas casas apos a virgura e convertendo em float
-            #__total_minutos = float('{:.2f}'.format(__total_minutos))
-            __total_preco = self.__tempo_locado * self.__TAXA  # preço total do excedente
-            __total_preco = "%.2f"%(__total_preco) # formatando para duas casas decimais apos virgula
-            #__total_preco = str(__total_preco.replace('.',',')) #troca ponto por virgula pra formatar em moeda BR
-            return __total_preco
+        
+        self.__TAXA = 0.15 
+        self.__data_atual = data_futura
+        #self.__data_futura = data_futura
+        self.__tempo_locado = total
+        #self.__tempo_corrido = self.__data_futura - self.__data_atual
+        '''if (self.__tempo_corrido.days and self.__tempo_corrido) <= 0:
+            return None
+        else:'''
+        # calculo do total de tempo excedente em minutos
+        #__total_minutos = (self.__tempo_corrido.days * 24 * 60) + (self.__tempo_corrido.seconds / 60)
+        # formatando o valor para duas casas apos a virgura e convertendo em float
+        #__total_minutos = float('{:.2f}'.format(__total_minutos))
+        __total_preco = self.__tempo_locado * self.__TAXA  # preço total do excedente
+        __total_preco = "%.2f"%(__total_preco) # formatando para duas casas decimais apos virgula
+        __total_preco = str(__total_preco.replace('.',',')) #troca ponto por virgula pra formatar em moeda BR
+        print('modulo data')
+        return __total_preco
 
     def cobranca_excedente(tempo):
 
@@ -326,12 +327,15 @@ ENGINE=InnoDB
     
     @staticmethod
     def listar_classes_armarios():
-        def __init__(self):
-            self.__classes = []
-            result = ''
-            self.__c.execute("SELECT classe FROM tb_armario WHERE estado = 'LIVRE'")
-            result = self.__c.fetchall()
-            return result
+        __conn = mdb.connect(
+            user='root', password='m1cr0@t805i', database='coolbag')
+        __c = __conn.cursor(buffered=True)
+        __classes = []
+        result = ''
+        __c.execute("SELECT classe FROM tb_armario WHERE estado = 'LIVRE'")
+        result = __c.fetchall()
+        return result
+        __conn.close()
 
 
 if __name__ == "__main__":

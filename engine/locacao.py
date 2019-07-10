@@ -19,24 +19,25 @@ class Locacao(object):
         obtendo o tempo total em segundos da diferença de data_atual - data_locacao """
 
     
+    @staticmethod
     def locacao( nome, email, telefone, dia, hora, minuto, armario):
-        def __init__(self):
-            self.__bk = Banco()
-            self.__dia = int(dia)
-            self.__hora = int(hora)
-            self.__minuto = int(minuto)
-            self.__armario = str(armario)
-            self.__nome = str(nome)
-            self.__email = str(email)
-            self.__telefone = str(telefone)
-            
-            self.__get_armario = self.__bk.localisa_armario(self.__armario)
-            if self.__get_armario == "nao ha armario disponivel" or self.__get_armario == []:
-                return "armario da classe escolhida indisponível"
-            
-            else:
-                self.__bk.locar_armario(self.__nome, self.__email, self.__telefone, self.__dia, self.__hora, self.__minuto, self.__armario)
-                return "armario locado com sucesso"
+        
+        __bk = Banco()
+        __dia = int(dia)
+        __hora = int(hora)
+        __minuto = int(minuto)
+        __armario = str(armario)
+        __nome = str(nome)
+        __email = str(email)
+        __telefone = str(telefone)
+        
+        __get_armario = __bk.localisa_armario(__armario)
+        if __get_armario == "nao ha armario disponivel" or __get_armario == []:
+            return "armario da classe escolhida indisponível"
+        
+        else:
+            __bk.locar_armario(__nome, __email, __telefone, __dia, __hora, __minuto, __armario)
+            return "armario locado com sucesso"
             
     
 

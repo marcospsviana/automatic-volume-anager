@@ -4,33 +4,8 @@ from .data import Banco
 from .locacao import Locacao
 
 
-class Armario(object):
-    def __init__(self):
-        __bk = Banco()  
-        TABELA_ENDERECAMENTO =   {
-            "localizacao": '001',
-            "classe":{
-                "A": "01",
-                "B": {"ESQUERDA": "02",
-                "DIREITA": "03"},
-                "C":[
-                    {
-                    "Q1":"04",
-                    "Q2":"05",
-                    "Q3":"06",
-                    "Q4":"07",
-                    }
-                    ],
-                "D":[
-                    {
-
-                    }
-                ]
-            }
-
-        }
-
-        
+class Armario:
+   
 
     def cad_armario(classe, terminal, coluna, nivel):
         def __init__(self):
@@ -51,11 +26,10 @@ class Armario(object):
 
     @staticmethod
     def listar_classes ():
-        def __init__(self):
-            self.__bk = Banco()
-            self.__classe = []
-            self.__classe = self.__bk.listar_classes_armarios()
-            return self.__classe
+        __bk = Banco()
+        __classe = []
+        __classe = __bk.listar_classes_armarios()
+        return __classe
     
     def liberar_armario(senha, nome):
          def __init__(self):
