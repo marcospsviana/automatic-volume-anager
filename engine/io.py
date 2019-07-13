@@ -1,8 +1,22 @@
 import RPi.GPIO as GPIO
 import time
+import serial
 #from cadastrar_armario import Janela
+ser = serial.Serial("/dev/ttyUSB0", 9600)
 
-class Io(object):
+GPIO.setmode(GPIO.BOARD)
+
+GPIO.setup(12, GPIO.IN)
+
+message = ''
+while True:
+    message = input('leitura da mensagem : ')
+    if message:
+        ser.write(message)
+    
+
+
+'''class Io(object):
     def __init__(self):
         GPIO.setmode(GPIO.BOARD)
             
@@ -41,3 +55,4 @@ class Io(object):
 if __name__ == '__main__':
     while True:
         Io()
+'''

@@ -4,7 +4,7 @@ void setup()
   for( int i = 0; i = 18; i++;){
     pinMode(listPin[i], OUTPUT);
   }
-  
+  char16_t entrada;
   Serial.begin(9600);
 
 }
@@ -13,9 +13,18 @@ void lerDado(port, dado){
 }
 void loop()
 {
-  digitalWrite(7, LOW);
-  delay(1000); // Wait for 1000 millisecond(s)
-  digitalWrite(7, HIGH);
-  delay(1000); // Wait for 1000 millisecond(s)
+  while (Serial.avaliable() > 0)
+  {
+    entrada = Serial.read();
+    if (entrada == "0101"){
+      digitalWrite(listPin, 1);
+    }
+    else if (entrada == "desliga")
+    {
+      digitalWrite(listPin, 0)
+    }
+    
+  }
+  
   
 }
