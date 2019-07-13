@@ -8,12 +8,16 @@ GPIO.setmode(GPIO.BOARD)
 
 GPIO.setup(12, GPIO.IN)
 
-message = ''
-while True:
-    message = input('leitura da mensagem : ')
-    if message:
-        ser.write(message)
-    
+class Teste:
+    def __init__(self):
+        pass
+
+def message():
+    ser.write(b"0101")
+
+message()
+if __name__ == "__main__":
+    Teste()
 
 
 '''class Io(object):
