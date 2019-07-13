@@ -1,5 +1,6 @@
 {
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
-    "python.pythonPath": "/home/marcos/projeto_coolbag/venv/bin/python"
+    "python.pythonPath": "/home/marcos/projeto_coolbag/venv/bin/python",
+    "C_Cpp.errorSquiggles": "Disabled"
 }

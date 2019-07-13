@@ -7,15 +7,15 @@ from .locacao import Locacao
 class Armario:
    
 
-    def cad_armario(classe, terminal, coluna, nivel):
-        def __init__(self):
-            self.__bk = Banco()
-            self.__classe = classe
-            self.__terminal = terminal
-            self.__coluna = coluna
-            self.__nivel = nivel
-            self.__bk.cadastrar_armario(
-                self.__classe, self.__terminal, self.__coluna, self.__nivel)
+    def cad_armario(self, classe, terminal, coluna, nivel):
+        
+        self.__bk = Banco()
+        self.__classe = classe
+        self.__terminal = terminal
+        self.__coluna = coluna
+        self.__nivel = nivel
+        self.__bk.cadastrar_armario(
+            self.__classe, self.__terminal, self.__coluna, self.__nivel)
 
     def remove_armario(id_armario):
         __bk = Banco()
@@ -31,11 +31,19 @@ class Armario:
         __classe = __bk.listar_classes_armarios()
         return __classe
     
+    @staticmethod
     def liberar_armario(senha, nome):
-         def __init__(self):
-            self.__bk = Banco()
-            self.__senha = senha
-            self.__nome = nome
-            result = self.__bk.liberar_armario(self.__senha, self.__nome)
-            return result
-
+        __bk = Banco()
+        __senha = senha
+        __nome = nome
+        result = __bk.liberar_armario(__senha, __nome)
+        return result
+    
+    @staticmethod
+    def finalizar(nome, senha):
+        result = ''
+        __nome = nome
+        __senha = senha
+        __bk = Banco()
+        result = __bk.finalizar(__nome, __senha)
+        return result

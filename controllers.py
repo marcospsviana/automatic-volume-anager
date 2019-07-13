@@ -44,10 +44,13 @@ class Management(object):
         __classe = arm.listar_classes()
         return __classe
 
-    def liberar_armarios(self, senha, nome):
-        self.__nome = nome
-        self.__senha = senha
-        result = arm.liberar_armario(self.__senha, self.__nome)
+
+    @staticmethod
+    def liberar_armarios(senha, nome):
+        __nome = nome
+        __senha = senha
+        result = arm.liberar_armario(__senha, __nome)
+        print('result controllers --->', result)
         return result
     def calculo(self, dia, hora, minuto):
         

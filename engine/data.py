@@ -74,7 +74,7 @@ ENGINE=InnoDB
         else:
             return self.select
 
-        self.__con.close()
+        self.__conn.close()
 
     def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario):
 
@@ -144,7 +144,11 @@ ENGINE=InnoDB
 
         
 
+    @classmethod
     def select_user(self, email):
+        self.__conn = mdb.connect(
+            user='root', password='m1cr0@t805i', database='coolbag')
+        self.__c = self.__conn.cursor(buffered=True)
         self.__email = email
         self.__nome = email
         print(self.__email)
@@ -154,6 +158,7 @@ ENGINE=InnoDB
         print("##### id usuario ###")
         print(query)
         return query
+        self.__conn.close()
 
     def __get_passwd(self):
         """ gera a senha automaticamente com combinação aleatória de 2 letras e 2 numeros
@@ -178,6 +183,7 @@ ENGINE=InnoDB
     def __send_passwd(self, passwd):
         pass  # self.passwd = passwd
     
+    @classmethod
     def get_locacao(self, nome, id_usuario):
         
         result = ''
@@ -191,6 +197,7 @@ ENGINE=InnoDB
 
 
     def liberar_armario(self, senha, nome):
+        result = ''
         id_armario = ''
         taxa = 0.15
         hj = datetime.datetime.now()
@@ -219,7 +226,7 @@ ENGINE=InnoDB
         else:
             
             tempo = hj - self.__locacao[0][2] 
-            tempo = tempo.days + tempo.seconds / 60
+            tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
             print('-------> %s'%tempo)
             result = self.cobranca_excedente(int(tempo))
             return result
@@ -256,9 +263,9 @@ ENGINE=InnoDB
         data_limite : type datetime
         libera armario após ser confirmado e verificar que não haja saldo devedor
         saldo devedor calculo: data atual datetime - tempo_locado datetime 
-        '''
+        
         if finalizar == True:
-            pass
+            pass'''
 
         #self.__email = email
         #self.__telefone = telefone
@@ -267,6 +274,7 @@ ENGINE=InnoDB
         self.__c.execute(
             "SELECT * FROM tb_locacao where senha = '%s'" % (self.__senha))
         self.__result = self.__c.fetchall()
+        print('resgatar_bagagem result---->', self.__result)
         print(self.__result[0])
         return self.__result[0]
         # envia a data limite para calculo de tempo excedente
@@ -300,6 +308,7 @@ ENGINE=InnoDB
         print('modulo data')
         return __total_preco
 
+    @staticmethod
     def cobranca_excedente(tempo):
 
         message = "tempo excedido cobrança de R$ : %s"
@@ -312,17 +321,18 @@ ENGINE=InnoDB
         total = "%.2f"%total
         print ('$$$$$$$ total $$$$ %s' % total)
         return (total )
-    def finalizar(nome, senha):
-        def __init__(self):
-            self.__nome = nome
-            self.__senha = senha
-            self.__id_user = self.select_user(self.__nome)
-            self.__locacao = self.get_locacao(self.__senha, self.__id_user[0][0])
-            self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
-            self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao[0][0],), multi=True)
-            self.__conn.commit()
-            self.__conn.close()
-            return "armario liberado"
+    @classmethod
+    def finalizar(self, nome, senha):
+        
+        __nome = nome
+        __senha = senha
+        __id_user = self.select_user(__nome)
+        __locacao = self.get_locacao(__senha, __id_user[0][0])
+        self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
+        self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (__locacao[0][0],))
+        self.__conn.commit()
+        self.__conn.close()
+        return "armario liberado"
 
     
     @staticmethod

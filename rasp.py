@@ -151,7 +151,7 @@ def pagamento():
         senha = request.args.get('senha')
         result = arm.finalizar( nome, senha)
         
-        #return (url_for('finalizar', nome = nome, senha=senha))
+    return render_template('finalizar.html', result=result)
     
        
         
@@ -195,8 +195,11 @@ def resgatar_bagagem():
         nome = request.form.get('nome')
         senha = request.form.get('senha')
         result = manager.liberar_armarios(senha, nome)
+        if result != 'armario liberado':
+            result = float(result)
+        print('rasp result ---->', result)
         
-        if result[0] != 0:
+        if result != 'armario liberado' :
             message = " há tempo excedente totalizando em: "
             return redirect(url_for('pagamento', total = result, nome=nome, senha=senha))
 

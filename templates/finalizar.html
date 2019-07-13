@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{{ result }}
 <h3> Armário liberado , você tem 10 minutos até que o mesmo feche automaticamente! </h3>
 <a href="{{url_for('index')}}"><button class="btn btn-primary btn-lg">ok</button></a>
 {% endblock %}

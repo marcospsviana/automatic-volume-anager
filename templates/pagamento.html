@@ -1,16 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<form id="form" action="https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html" method="POST">
+<form id="form" action="" method="POST">
 <h3>
  
   total = R$ {{ total }} <br>
 </h3>
-<input type="hidden" name="token" value="361DC825CBBF4F1E9AAFE918338694FD">
-<input type="hidden" name="email" value="v81316330130744360870@sandbox.pagseguro.com.br">
-<input type="hidden" name="currency" value="BRL">
-<input type="hidden" name="itemAmount1" value="{{total}}">
-<input type="hidden" name="appId" value="app5684252164">
-<input type="hidden" name="appKey" value="C37A4716FFFF5951146C3F91C2239FD4">
+
 <div class="button" id="button-bottom">
 
  <button type="submit" id="controller" class="btn btn-success btn-lg" name="confirmar">Confirmar</button>
