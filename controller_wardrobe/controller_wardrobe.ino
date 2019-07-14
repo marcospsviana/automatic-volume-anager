@@ -43,8 +43,7 @@ void loop() {
     }
       
     if (recebido == "desliga"){
-      digitalWrite(led, LOW);
+      digitalWrite(led, HIGH);
     }
   }
 }
-
