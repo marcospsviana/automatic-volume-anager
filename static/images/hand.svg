@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="200"
+   height="300"
+   viewBox="0 0 52.916665 79.375002"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="hand_touch.svg">
+   sodipodi:docname="hand.svg">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -30,10 +30,11 @@
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1366"
-     inkscape:window-height="715"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1" />
+     inkscape:window-height="682"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     units="px" />
   <style
      id="style20">
 .class1 {
@@ -141,17 +142,18 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(0,-217.62498)">
     <g
        id="g4747"
-       transform="matrix(0.71580083,0,0,0.71580083,282.81531,238.43005)">
+       transform="matrix(0.24298124,0,0,0.25732721,86.617451,290.25903)">
       <g
          transform="translate(43.003413,110.37543)"
          id="g4733">
@@ -257,5 +259,6 @@
   <g
      inkscape:groupmode="layer"
      inkscape:label="Web Slicer"
-     id="webslicer-layer" />
+     id="webslicer-layer"
+     transform="translate(0,-217.62498)" />
 </svg>
