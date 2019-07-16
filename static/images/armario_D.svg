@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="480"
-   height="90"
-   viewBox="0 0 127 23.812501"
+   width="384"
+   height="72"
+   viewBox="0 0 101.6 19.050001"
    version="1.1"
    id="svg4681"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="25.714286"
+     inkscape:cx="-460"
      inkscape:cy="560"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -53,24 +53,24 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-273.18748)">
+     transform="translate(0,-277.94998)">
     <rect
-       style="fill:#d40000;fill-opacity:1;stroke-width:0.09199291"
+       style="fill:#d40000;fill-opacity:1;stroke-width:0.07359433"
        id="rect4608"
-       width="127"
-       height="23.8125"
+       width="101.6"
+       height="19.049999"
        x="1.340332e-07"
-       y="273.18747" />
+       y="277.94998" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25.97514915px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.64937878"
-       x="52.991985"
-       y="294.56171"
+       style="font-style:normal;font-weight:normal;font-size:21.04067802px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.52601695"
+       x="46.672707"
+       y="294.27499"
        id="text4612"><tspan
          sodipodi:role="line"
          id="tspan4610"
-         x="52.991985"
-         y="294.56171"
-         style="fill:#ffffff;stroke-width:0.64937878">D</tspan></text>
+         x="46.672707"
+         y="294.27499"
+         style="fill:#ffffff;stroke-width:0.52601695">D</tspan></text>
   </g>
 </svg>

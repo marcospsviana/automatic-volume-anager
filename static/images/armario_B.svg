@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="480"
-   height="360"
-   viewBox="0 0 127 95.250003"
+   width="384"
+   height="288"
+   viewBox="0 0 101.6 76.200002"
    version="1.1"
    id="svg4573"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="400"
+     inkscape:cx="-85.714286"
      inkscape:cy="560"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -53,24 +53,28 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-201.74998)">
-    <rect
-       style="fill:#008080;fill-opacity:1;stroke-width:0.25818598"
-       id="rect4575"
-       width="127"
-       height="95.25"
-       x="0.75595236"
-       y="202.50594" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:72.80130005px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.82003248"
-       x="37.52774"
-       y="276.58926"
-       id="text4579"><tspan
-         sodipodi:role="line"
-         id="tspan4577"
-         x="37.52774"
+     transform="translate(0,-220.79998)">
+    <g
+       id="g818"
+       transform="matrix(0.8,0,0,0.8,0.15119047,59.551187)">
+      <rect
+         y="202.50594"
+         x="0.75595236"
+         height="95.25"
+         width="127"
+         id="rect4575"
+         style="fill:#008080;fill-opacity:1;stroke-width:0.25818598" />
+      <text
+         id="text4579"
          y="276.58926"
-         style="fill:#ffffff;stroke-width:1.82003248">B</tspan></text>
+         x="37.52774"
+         style="font-style:normal;font-weight:normal;font-size:72.80130005px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.82003248"
+         xml:space="preserve"><tspan
+           style="fill:#ffffff;stroke-width:1.82003248"
+           y="276.58926"
+           x="37.52774"
+           id="tspan4577"
+           sodipodi:role="line">B</tspan></text>
+    </g>
   </g>
 </svg>
