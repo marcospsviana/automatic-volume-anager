@@ -41,8 +41,7 @@ class RaspControl(object):
         self.locar.show()
     def on_show_locacao(self, widget):
         self.locacao.show()
-        self.teclado.show()
-        self.teclado.get_text()
+        
     
     def entry_nome_activate_cb(self, widget):
         self.teclado.show()
