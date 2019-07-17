@@ -20,7 +20,7 @@ class RaspControl(object):
         self.window = builder.get_object("main_window")
         self.window.fullscreen()
         self.locar = builder.get_object("locar_window")
-        self.teclado = builder.get_object("teclado")
+        #self.teclado = builder.get_object("teclado")
         self.locacao = builder.get_object("locacao")
         self.entry_nome = builder.get_object("entry_nome")
         self.entry_nome.connect('focus-in-event', self.focus_in)
@@ -29,9 +29,11 @@ class RaspControl(object):
 
     def focus_out(self, entry, event):
         subprocess.Popen(["pkill", "onboard"]) 
+        #self.teclado.hide()
     
     def focus_in(self, entry, event):
         subprocess.Popen("onboard")
+        #self.teclado.show()
 
     def gtk_widget_destroy(self, widget):
         self.locar.hide()
@@ -61,6 +63,7 @@ class RaspControl(object):
         #locar_window { background-color: #fff}
         #btn_num{ background-color: red}
         #grid_teclado { font-size: 15px}
+        #btn_proximo { font-size: 20px; background-color: #008cc3; color: #fff }
         """
         style_provider = Gtk.CssProvider()
         style_provider.load_from_data(css)
