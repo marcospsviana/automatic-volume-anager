@@ -399,9 +399,13 @@
     </child>
   </object>
   <object class="GtkWindow" id="locacao">
+    <property name="name">janela_locacao</property>
     <property name="can_focus">False</property>
     <property name="resizable">False</property>
-    <property name="gravity">center</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="decorated">False</property>
+    <property name="gravity">static</property>
+    <signal name="destroy" handler="gtk_widget_destroy" object="btn_proximo" swapped="no"/>
     <child>
       <placeholder/>
     </child>
@@ -420,6 +424,7 @@
             <property name="can_focus">False</property>
             <child>
               <object class="GtkLabel">
+                <property name="name">label</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">           Nome    </property>
@@ -439,9 +444,9 @@
                 <property name="margin_right">9</property>
                 <property name="margin_top">7</property>
                 <property name="margin_bottom">5</property>
-                <property name="max_width_chars">39</property>
+                <property name="max_width_chars">80</property>
                 <property name="input_purpose">alpha</property>
-                <signal name="insert-text" handler="entry_nome_activate_cb" object="0" swapped="no"/>
+                <signal name="insert-text" handler="entry_nome_activate_cb" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -463,6 +468,7 @@
             <property name="can_focus">False</property>
             <child>
               <object class="GtkLabel">
+                <property name="name">label</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">           Telefone    </property>
@@ -475,6 +481,7 @@
             </child>
             <child>
               <object class="GtkEntry" id="entry_telefone">
+                <property name="name">entry</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="margin_left">4</property>
@@ -483,7 +490,7 @@
                 <property name="margin_bottom">6</property>
                 <property name="placeholder_text" translatable="yes">somente números </property>
                 <property name="input_purpose">phone</property>
-                <signal name="insert-text" handler="entry_nome_activate_cb" object="teclado" swapped="no"/>
+                <signal name="insert-text" handler="entry_nome_activate_cb" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -504,6 +511,7 @@
             <property name="can_focus">False</property>
             <child>
               <object class="GtkLabel">
+                <property name="name">label</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">           email   </property>
@@ -516,6 +524,7 @@
             </child>
             <child>
               <object class="GtkEntry" id="entry_email">
+                <property name="name">entry</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="margin_left">19</property>
@@ -545,6 +554,7 @@
             <property name="can_focus">False</property>
             <child>
               <object class="GtkLabel">
+                <property name="name">label</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">  	  Total dias   </property>
@@ -556,7 +566,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="entry_dias">
+                <property name="name">entry</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
               </object>
@@ -568,6 +579,7 @@
             </child>
             <child>
               <object class="GtkLabel">
+                <property name="name">label</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">    	Total horas   </property>
@@ -579,7 +591,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="entry_horas">
+                <property name="name">entry</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
               </object>
@@ -591,6 +604,7 @@
             </child>
             <child>
               <object class="GtkLabel">
+                <property name="name">label</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">   Total minutos   </property>
@@ -602,7 +616,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry">
+              <object class="GtkEntry" id="entry_minutos">
+                <property name="name">entry</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="margin_left">5</property>
@@ -631,6 +646,7 @@
             <property name="margin_bottom">20</property>
             <child>
               <object class="GtkLabel">
+                <property name="name">label</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">          Total   R$                </property>
@@ -642,10 +658,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="text_total">
+                <property name="name">label</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">           0,00     </property>
+                <signal name="focus" handler="on_text_total_focus" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -671,8 +689,9 @@
             <property name="spacing">9</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkButton">
+              <object class="GtkButton" id="btn_cancelar">
                 <property name="label" translatable="yes">Cancelar</property>
+                <property name="name">btn_cancelar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -688,8 +707,9 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton">
+              <object class="GtkButton" id="btn_proximo">
                 <property name="label" translatable="yes">Próximo</property>
+                <property name="name">btn_proximo</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -697,6 +717,8 @@
                 <property name="margin_right">25</property>
                 <property name="margin_top">5</property>
                 <property name="margin_bottom">5</property>
+                <signal name="button-press-event" handler="on_btn_proximo_button_press_event" swapped="no"/>
+                <signal name="clicked" handler="on_btn_proximo_button_press_event" object="locacao" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
