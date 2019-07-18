@@ -117,8 +117,8 @@ class RaspControl(object):
         #grid_teclado { font-size: 15px}
         #btn_proximo { font-size: 20px; background-color: #008cc3; color: #fff }
         #btn_cancelar { font-size: 20px; background-color: red; color: #fff }
-        #label { font-size: 20px; }
-        #entry { font-size: 20px;}
+        #label { font-size: 30px; }
+        #entry { font-size: 30px;}
         """
         style_provider = Gtk.CssProvider()
         style_provider.load_from_data(css)
