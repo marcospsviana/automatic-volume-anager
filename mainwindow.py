@@ -1,5 +1,6 @@
 import subprocess
-import gi
+import gi 
+import string
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk
 
@@ -7,6 +8,8 @@ class RaspControl(object):
     def __init__(self):
         self.text = ''
         self.dia = self.hora = self.minuto = 0.0
+        self.alfa = list(string.ascii_lowercase) # alfabeto para gerar o teclado
+        self.num = list(map(lambda x: x, range(10))) # números para o teclado numérico
 
         self.gtk_style()
         builder = Gtk.Builder()
@@ -23,6 +26,13 @@ class RaspControl(object):
         "on_text_total_focus": self.show_total,
         "gtk_main_quit": Gtk.main_quit
         })
+        #adicionando os elementos do teclado
+        for a in self.alfa:
+            self.a = builder.get_object("%s"%a)
+        for n in self.num:
+            self.n = builder.get_object("%s"%n)
+
+            
         self.window = builder.get_object("main_window")
         self.window.fullscreen()
         self.locar = builder.get_object("locar_window")
@@ -56,11 +66,12 @@ class RaspControl(object):
         self.window.show()
 
     def focus_out(self, entry, event):
-        subprocess.Popen(["pkill", "onboard"]) 
-        #self.teclado.hide()
+        #subprocess.Popen(["pkill", "onboard"]) 
+        self.teclado.hide()
     
     def focus_in(self, entry, event):
-        subprocess.Popen("onboard")
+        #subprocess.Popen("onboard")
+        self.teclado.show()
         self.taxa = 0.15
         self.dia = float(self.entry_dias.get_text()) * 50
         self.hora = float(self.entry_horas.get_text()) * 60 * 0.15
@@ -113,12 +124,13 @@ class RaspControl(object):
         #btn_abrir { color: #000000;  font-size: 32px;}
         #btn_encerrar { color: #000000;  font-size: 32px;}
         #locar_window { background-color: #fff}
-        #btn_num{ background-color: red}
+        #btn_num{ background-color: red; font-size: 22px}
         #grid_teclado { font-size: 15px}
         #btn_proximo { font-size: 20px; background-color: #008cc3; color: #fff }
         #btn_cancelar { font-size: 20px; background-color: red; color: #fff }
-        #label { font-size: 30px; }
-        #entry { font-size: 30px;}
+        #label { font-size: 22px; }
+        #entry { font-size: 22px;}
+        #tecla { font-size: 22px;}
         """
         style_provider = Gtk.CssProvider()
         style_provider.load_from_data(css)
