@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
 import subprocess
 import gi 
-import string
+import string, encodings.unicode_escape
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk
+from controllers import Management
 
 class RaspControl(object):
     def __init__(self):
@@ -10,6 +12,11 @@ class RaspControl(object):
         self.value = ''
         self.values = ''
         self.entrada = '1'
+        self.total = 0.0
+        self.armario = ''
+        
+        
+        
         self.dia = self.hora = self.minuto = 0.0
         self.alfa = list(string.ascii_lowercase) # alfabeto para gerar o teclado
         self.num = list(map(lambda x: x, range(10))) # números para o teclado numérico
@@ -20,15 +27,25 @@ class RaspControl(object):
         builder.connect_signals({
         "btn_locar_clicked_cb": self.btn_locar_clicked_cb,
         "on_entry_button_press_event": self.on_entry_button_press_event,
+        "on_entry_nome": self.on_entry_nome,
+        "on_entry_telefone": self.on_entry_telefone,
+        "on_entry_email": self.on_entry_email,
+        "on_entry_dias": self.on_entry_dias,
+        "on_entry_horas": self.on_entry_horas,
+        "on_entry_minutos": self.on_entry_minutos,
         "gtk_widget_destroy": self.gtk_widget_destroy,
         "on_locacao_destroy": self.on_locacao_destroy,
         "on_btn_proximo_button_press_event": self.on_btn_proximo_button_press_event,
         "gtk_widget_show": self.on_show_locacao,
-        "gtk_widget_hide": self.on_hide_cursor,
         "on_onpen": self.abrir,
         "on_text_total_focus": self.show_total,
+        "on_space_clicked": self.on_space_clicked,
+        "on_btn_dialog_confirmar_clicked": self.on_btn_dialog_confirmar_clicked,
+        "on_btn_dialog_cancelar_clicked": self.on_btn_dialog_cancelar_clicked,
+        "on_btn_cancelar_button_press_event": self.on_btn_cancelar_button_press_event,
         "gtk_main_quit": Gtk.main_quit
         })
+        
         #adicionando os elementos do teclado
         for a in self.alfa:
             self.a = builder.get_object("%s"%a)
@@ -36,6 +53,27 @@ class RaspControl(object):
         for n in self.num:
             self.n = builder.get_object("%s"%n)
             self.n.connect("clicked", self.on_entry_button_press_event)
+
+        self.arroba = builder.get_object("arroba")
+        self.dot = builder.get_object("dot")
+        self.under = builder.get_object("under")
+        self.dash = builder.get_object("dash")
+        self.dotCom = builder.get_object("dotCom")
+        self.gmail = builder.get_object("gmail")
+        self.yahoo = builder.get_object("yahoo")
+        self.outlook  = builder.get_object("outlook")
+        self.space = builder.get_object("space")
+        self.dialog = builder.get_object("dialogConfirm")
+        self.btn_A = builder.get_object("btn_A")
+        self.btn_B = builder.get_object("btn_B")
+        self.btn_C = builder.get_object("btn_C")
+        self.btn_Dsup = builder.get_object("btn_DSup")
+        self.btn_Dinf = builder.get_object("btn_DInf")
+        self.btn_A.connect("clicked", self.set_armario_a)
+        self.btn_B.connect("clicked", self.set_armario_b)
+        self.btn_C.connect("clicked", self.set_armario_c)
+        self.btn_Dsup.connect("clicked", self.set_armario_d)
+        self.btn_Dinf.connect("clicked", self.set_armario_d)
 
 
         self.window = builder.get_object("main_window")
@@ -55,6 +93,19 @@ class RaspControl(object):
         self.entry_horas = builder.get_object("entry_horas")
         self.entry_minutos = builder.get_object("entry_minutos")
         self.text_total = builder.get_object("text_total")
+        self.btn_delete = builder.get_object("DELETE")
+
+        ##elementos label dialog
+        self.lbl_nome = builder.get_object("lbl_nome")
+        self.lbl_email = builder.get_object("lbl_email")
+        self.lbl_telefone = builder.get_object("lbl_telefone")
+        self.lbl_dias = builder.get_object("lbl_dias")
+        self.lbl_armario = builder.get_object("lbl_armario")
+        self.lbl_horas = builder.get_object("lbl_horas")
+        self.lbl_minutos = builder.get_object("lbl_minutos")
+        self.lbl_total = builder.get_object("lbl_total")
+        self.btn_dialog_confirmar = builder.get_object("btn_dialog_confirmar")
+        self.btn_dialog_cancelar = builder.get_object("btn_dialog_cancelar")
         
 
         #conectando as entradas aos eventos de teclado
@@ -65,8 +116,34 @@ class RaspControl(object):
         self.entry_horas.connect('button-press-event', self.on_entry_horas)
         self.entry_minutos.connect('button-press-event', self.on_entry_minutos)
         
+        #conectando os botões aos eventos
+        self.btn_delete.connect("clicked", self.on_entry_backspace)
+        self.arroba.connect("clicked", self.on_entry_button_press_event)
+        self.dotCom.connect("clicked", self.on_entry_button_press_event)
+        self.dot.connect("clicked", self.on_entry_button_press_event)
+        self.dash.connect("clicked", self.on_entry_button_press_event)
+        self.under.connect("clicked", self.on_entry_button_press_event)
+        self.yahoo.connect("clicked", self.on_entry_button_press_event)
+        self.gmail.connect("clicked", self.on_entry_button_press_event)
+        self.outlook.connect("clicked", self.on_entry_button_press_event)
+        self.space.connect("clicked", self.on_space_clicked)
+        
+        
         self.window.show()
+
+
+    def set_armario_a(self, event):
+        self.lbl_armario.set_text("A")
+
+    def set_armario_b(self, event):
+        self.lbl_armario.set_text("B")
     
+    def set_armario_c(self, event):
+        self.lbl_armario.set_text("C")
+    
+    def set_armario_d(self, event):
+        self.lbl_armario.set_text("D")
+        
     def on_entry_nome(self, widget, event):
         self.entrada = '1'
         return self.entrada
@@ -92,45 +169,139 @@ class RaspControl(object):
         return self.entrada
 
 
+    def on_space_clicked(self, widget):
+        
+        if self.entrada == '1':
+            self.text_nome = self.entry_nome.get_text()
+            self.text_nome = self.text_nome.replace(self.text_nome, self.text_nome+" ")
+            self.entry_nome.set_text(self.text_nome)
+            self.entry_nome.set_position(0)
     
+    def on_btn_dialog_confirmar_clicked(self, event):
+        self.dialog.hide()
+    
+    def on_btn_dialog_cancelar_clicked(self, event):
+        self.dialog.hide()
+
         
     
 
     def on_entry_button_press_event(self, widget):
         self.widget = widget
+        self.armario = self.lbl_armario.get_label()
+        self.lbl_armario.set_text(self.armario)
         self.value =  self.widget.get_label()
+        if self.entry_horas.get_text() > '23':
+                self.entry_horas.set_text('23')
         if self.entrada == '1':
             
             self.text_nome = self.entry_nome.get_text() + self.value
-            self.entry_nome.set_text(self.text_nome)
-            self.entry_nome.set_position(-1)
+            if self.text_nome.isalpha() or (self.text_nome.isalpha and string.whitespace):
+                self.entry_nome.set_text(self.text_nome)
+                self.lbl_nome.set_text(self.text_nome)
+                self.entry_nome.set_position(-1)
+                
             
         elif self.entrada == '2':
             self.text_email = self.entry_email.get_text() + self.value
             self.entry_email.set_text(self.text_email)
+            self.lbl_email.set_text(self.text_email)
             self.entry_email.set_position(-1)
 
         elif self.entrada == '3':
             self.text_telefone = self.entry_telefone.get_text() + self.value
-            self.entry_telefone.set_text(self.text_telefone)
-            self.entry_telefone.set_position(-1)
+            if self.text_telefone.isnumeric():
+                self.entry_telefone.set_text(self.text_telefone)
+                self.lbl_telefone.set_text(self.text_telefone)
+                self.entry_telefone.set_position(-1)
+                
         
         elif self.entrada == '4':
             self.text_dias = self.entry_dias.get_text() + self.value
-            self.entry_dias.set_text(self.text_dias)
-            self.entry_dias.set_position(-1)
+            if self.entry_horas.get_text() > '23':
+                self.entry_horas.set_text('23')
+            if self.text_dias.isnumeric():
+                self.entry_dias.set_text(self.text_dias)
+                self.lbl_dias.set_text(self.text_dias)
+                self.entry_dias.set_position(-1)
+                self.taxa = 0.15
+                self.dia = self.entry_dias.get_text()
+                print('preço total')
+                self.dia = self.dia + ".0"
+                self.dia = float(self.dia)
+                self.dia = self.dia * 50
+                self.hora = self.entry_horas.get_text()
+                self.hora = self.hora +".0"
+                self.hora = float(self.hora) 
+                self.hora = self.hora * 60 * 0.15
+                self.minuto = self.entry_minutos.get_text()
+                self.minuto = self.minuto + ".0"
+                self.minuto = float(self.minuto) 
+                self.minuto = self.minuto * 0.15
+                self.total =  self.dia + self.hora + self.minuto
+                print(self.total)
+                self.text_total.set_text(str(self.total))
         
         elif self.entrada == '5':
+            if self.entry_horas.get_text() > '23':
+                self.entry_horas.set_text('23')
+            
+    
+            
             self.text_horas = self.entry_horas.get_text() + self.value
-            self.entry_horas.set_text(self.text_horas)
-            self.entry_horas.set_position(-1)
+            
+            
+            if self.text_horas.isnumeric():
+                self.entry_horas.set_text(self.text_horas)
+                self.lbl_horas.set_text(self.text_horas[:2])
+                self.entry_horas.set_position(-1)
+                self.taxa = 0.15
+                self.dia = self.entry_dias.get_text()
+                
+                print('preço total')
+                self.dia = self.dia + ".0"
+                self.dia = float(self.dia)
+                self.dia = self.dia * 50
+                self.hora = self.entry_horas.get_text()
+                self.hora = self.hora +".0"
+                self.hora = float(self.hora)
+                self.hora = self.hora * 60 * 0.15
+                self.minuto = self.entry_minutos.get_text()
+                self.minuto = self.minuto + ".0"
+                self.minuto = float(self.minuto) 
+                self.minuto = self.minuto * 0.15
+                self.total =  self.dia + self.hora + self.minuto
+                print(self.total)
+                self.text_total.set_text(str(self.total))
         
         elif self.entrada == '6':
+            if self.entry_minutos.get_text() > '59':
+                self.entry_minutos.set_text('59')
             self.text_minutos = self.entry_minutos.get_text() + self.value
-            self.entry_minutos.set_text(self.text_minutos)
-            self.entry_minutos.set_position(-1)
+            
+            if self.text_minutos.isnumeric():
+                self.entry_minutos.set_text(self.text_minutos)
+                self.lbl_minutos.set_text(self.text_minutos[:2])
+                self.entry_minutos.set_position(-1)
+                self.taxa = 0.15
+                self.dia = self.entry_dias.get_text()
+                self.dia = self.dia + ".0"
+                self.dia = float(self.dia)
+                self.dia = self.dia * 50
+                self.hora = self.entry_horas.get_text()
+                self.hora = self.hora +".0"
+                self.hora = float(self.hora) 
+                self.hora = self.hora * 60 * 0.15
+                self.minuto = self.entry_minutos.get_text()
+                self.minuto = self.minuto + ".0"
+                self.minuto = float(self.minuto) 
+                self.minuto = self.minuto * 0.15
+                self.total =  self.dia + self.hora + self.minuto
+                print(self.total)
+                self.text_total.set_text(str(self.total))
 
     def on_entry_backspace(self, widget):
+        
         if self.entrada == '1':
             self.texto = ''
             self.texto = self.entry_nome.get_text()
@@ -155,12 +326,50 @@ class RaspControl(object):
             self.texto = self.texto[:-1]
             self.entry_dias.set_text(self.texto)
             self.entry_dias.set_position(-1)
+            self.taxa = 0.15
+            self.dia = self.entry_dias.get_text()
+            print('preço total')
+            self.dia = self.dia + ".0"
+            self.dia = float(self.dia)
+            self.dia = self.dia * 50
+            self.hora = self.entry_horas.get_text()
+            self.hora = self.hora +".0"
+            self.hora = float(self.hora) 
+            self.hora = self.hora * 60 * 0.15
+            self.minuto = self.entry_minutos.get_text()
+            self.minuto = self.minuto + ".0"
+            self.minuto = float(self.minuto) 
+            self.minuto = self.minuto * 0.15
+            self.total =  self.dia + self.hora + self.minuto
+            print(self.total)
+            self.text_total.set_text(str(self.total))
         elif self.entrada == '5':
+            if self.entry_horas.get_text() > '23':
+                self.entry_horas.set_text('23')
             self.texto = ''
             self.texto = self.entry_horas.get_text()
             self.texto = self.texto[:-1]
             self.entry_horas.set_text(self.texto)
             self.entry_horas.set_position(-1)
+            self.taxa = 0.15
+            self.dia = self.entry_dias.get_text()
+            print('preço total')
+            self.dia = self.dia + ".0"
+            self.dia = float(self.dia)
+            self.dia = self.dia * 50
+            self.hora = self.entry_horas.get_text()
+            self.hora = self.hora +".0"
+            self.hora = float(self.hora) 
+            self.hora = self.hora * 60 * 0.15
+            self.minuto = self.entry_minutos.get_text()
+            self.minuto = self.minuto + ".0"
+            self.minuto = float(self.minuto) 
+            self.minuto = self.minuto * 0.15
+            self.total =  self.dia + self.hora + self.minuto
+            print(self.total)
+            self.text_total.set_text(str(self.total))
+            
+            
         
         elif self.entrada == '6':
             self.texto = ''
@@ -168,46 +377,74 @@ class RaspControl(object):
             self.texto = self.texto[:-1]
             self.entry_minutos.set_text(self.texto)
             self.entry_minutos.set_position(-1)
-         
-        
-       
-        
-        '''self.entry_telefone.do_insert_at_cursor
-        self.entry_telefone.set_text(self.value)
-        self.taxa = 0.15
-        self.dia = float(self.entry_dias.get_text()) * 50
-        self.hora = float(self.entry_horas.get_text()) * 60 * 0.15
-        self.minuto = float(self.entry_minutos.get_text()) * 0.15
-        self.text =  str(self.dia + self.hora + self.minuto)
-        self.text_total.set_text(str(self.text))'''
-        
-        #self.value = self.entry.get_text()
-        print(self.value)
-        return self.value
-   
-
-    def gtk_widget_destroy(self, widget):
-        self.locar.hide()
-        
+            self.taxa = 0.15
+            self.dia = self.entry_dias.get_text()
+            print('preço total')
+            self.dia = self.dia + ".0"
+            self.dia = float(self.dia)
+            self.dia = self.dia * 50
+            self.hora = self.entry_horas.get_text()
+            self.hora = self.hora +".0"
+            self.hora = float(self.hora) 
+            self.hora = self.hora * 60 * 0.15
+            self.minuto = self.entry_minutos.get_text()
+            self.minuto = self.minuto + ".0"
+            self.minuto = float(self.minuto)
+            self.minuto = self.minuto * 0.15
+            self.total =  self.dia + self.hora + self.minuto
+            print(self.total)
+            self.text_total.set_text(str(self.total))
     
-    def btn_locar_clicked_cb(self, widget):
-        self.locar.fullscreen()
-        self.locar.show()
-    # ====== janela locacao =======
-    def on_show_locacao(self, widget):
-        self.locacao.show()
-    def on_locacao_destroy(self, widget):
-        self.locacao.hide()
-    def on_btn_proximo_button_press_event(self, widget):
-        self.text_total.set_text("0,00")
-        
-        self.locacao.hide()
+
+    def on_btn_cancelar_button_press_event(self, widget, event):
+        self.lbl_armario.set_text('')
+        self.lbl_dias.set_text('')
+        self.lbl_email.set_text('')
+        self.lbl_horas.set_text('')
+        self.lbl_nome.set_text('')
+        self.lbl_total.set_text('')
+        self.lbl_minutos.set_text('')
+        self.lbl_telefone.set_text('')
         self.entry_dias.set_text('')
         self.entry_email.set_text('')
         self.entry_horas.set_text('')
         self.entry_minutos.set_text('')
         self.entry_nome.set_text('')
         self.entry_telefone.set_text('')
+        self.entry_dias.set_text('')
+        self.entry_email.set_text('')
+        self.entry_horas.set_text('')
+        self.entry_minutos.set_text('')
+        self.entry_nome.set_text('')
+        self.entry_telefone.set_text('')
+        self.locacao.hide()           
+            
+   
+
+    def gtk_widget_destroy(self, widget):
+        self.locar.hide()
+       
+    
+    def btn_locar_clicked_cb(self, widget):
+
+        self.locar.fullscreen()
+        self.locar.show()
+    # ====== janela locacao =======
+    def on_show_locacao(self, widget):
+        self.locacao.show()
+    def on_locacao_destroy(self, widget, event):
+        self.locacao.hide()
+    def on_btn_proximo_button_press_event(self, widget):
+        self.text_total.set_text("0,00")
+        
+        #self.locacao.hide()
+        self.entry_dias.set_text('')
+        self.entry_email.set_text('')
+        self.entry_horas.set_text('')
+        self.entry_minutos.set_text('')
+        self.entry_nome.set_text('')
+        self.entry_telefone.set_text('')
+        self.dialog.show()
 
 
     def show_total(self):
@@ -215,12 +452,6 @@ class RaspControl(object):
         self.text_total.set_text( "ola")
         
     
-    '''def entry_nome_activate_cb(self, widget):
-        self.teclado.show()'''
-        
-
-    def on_hide_cursor(self, widget):
-        self.teclado.hide()    
         
     def abrir(self, widget):
         pass
@@ -230,13 +461,14 @@ class RaspControl(object):
         #btn_locar { color: #000000;  font-size: 32px;}
         #btn_abrir { color: #000000;  font-size: 32px;}
         #btn_encerrar { color: #000000;  font-size: 32px;}
-        #locar_window { background-color: #fff}
+        
         #btn_num{ background-color: red; font-size: 22px}
         #grid_teclado { font-size: 15px}
         #btn_proximo { font-size: 20px; background-color: #008cc3; color: #fff }
         #btn_cancelar { font-size: 20px; background-color: red; color: #fff }
         #label { font-size: 22px; }
-        #entry { font-size: 22px;}
+        #entry { font-size: 22px; color: #000000}
+       
         #tecla { font-size: 22px;}
         """
         style_provider = Gtk.CssProvider()
@@ -247,9 +479,12 @@ class RaspControl(object):
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         )
     
+    def dialog(self):
+        pass
+   
 
-
-
+    
 if __name__ == "__main__":
     app = RaspControl()
+
     Gtk.main()

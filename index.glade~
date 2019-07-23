@@ -2,6 +2,357 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+  <object class="GtkDialog" id="dialogConfirm">
+    <property name="can_focus">False</property>
+    <property name="default_width">500</property>
+    <property name="default_height">300</property>
+    <property name="type_hint">dialog</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="btn_dialog_cancelar">
+                <property name="label" translatable="yes">Cancelar</property>
+                <property name="name">btn_cancelar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btn_dialog_cancelar_clicked" object="dialogConfirm" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_dialog_confirmar">
+                <property name="label" translatable="yes">Confirmar</property>
+                <property name="name">btn_confirmar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="has_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btn_dialog_confirmar_clicked" object="dialogConfirm" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkGrid">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">start</property>
+                <property name="margin_left">15</property>
+                <property name="margin_right">20</property>
+                <child>
+                  <object class="GtkLabel" id="lbl_titulo_nome">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin_left">15</property>
+                    <property name="margin_right">5</property>
+                    <property name="margin_top">15</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="hexpand">True</property>
+                    <property name="label" translatable="yes">  Nome :   </property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_nome">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_left">5</property>
+                    <property name="margin_right">20</property>
+                    <property name="margin_top">15</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="hexpand">True</property>
+                    <property name="label" translatable="yes">  </property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_titulo_email">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin_left">15</property>
+                    <property name="margin_right">5</property>
+                    <property name="margin_top">10</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="label" translatable="yes">  Email :</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_email">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_left">5</property>
+                    <property name="margin_right">20</property>
+                    <property name="margin_top">10</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="hexpand">True</property>
+                    <property name="label" translatable="yes">  </property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkGrid">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">start</property>
+                <property name="margin_left">15</property>
+                <property name="margin_right">20</property>
+                <child>
+                  <object class="GtkLabel" id="lbl_titulo_telefone">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin_left">15</property>
+                    <property name="margin_right">5</property>
+                    <property name="margin_top">10</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="hexpand">True</property>
+                    <property name="label" translatable="yes"> Telefone :</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_telefone">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes"> </property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_titulo_dias">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin_left">15</property>
+                    <property name="margin_right">5</property>
+                    <property name="margin_top">10</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="label" translatable="yes">  Dias :</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_dias">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes"> </property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_titulo_horas">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin_left">15</property>
+                    <property name="margin_right">5</property>
+                    <property name="margin_top">10</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="label" translatable="yes"> Horas :</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_horas">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_titulo_minutos">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin_left">5</property>
+                    <property name="margin_right">20</property>
+                    <property name="margin_top">10</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="label" translatable="yes"> Minutos :  </property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_minutos">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="top_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_titulo_armario">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Armário :  </property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_armario">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkGrid">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_left">15</property>
+                <property name="margin_right">20</property>
+                <child>
+                  <object class="GtkLabel" id="lbl_titulo_total">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin_left">15</property>
+                    <property name="margin_right">10</property>
+                    <property name="margin_top">10</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="hexpand">False</property>
+                    <property name="label" translatable="yes"> Total :</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_total">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="GtkImage" id="img_br_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -21,15 +372,6 @@
     <property name="margin_right">2</property>
     <property name="margin_top">2</property>
     <property name="pixbuf">static/images/armario_B.svg</property>
-  </object>
-  <object class="GtkImage" id="img_btn_armarioC">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="halign">center</property>
-    <property name="valign">center</property>
-    <property name="margin_right">17</property>
-    <property name="margin_top">28</property>
-    <property name="pixbuf">static/images/armario_C.svg</property>
   </object>
   <object class="GtkImage" id="img_btn_armarioDInf">
     <property name="visible">True</property>
@@ -85,9 +427,21 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="margin_right">27</property>
-                    <property name="image">img_btn_armarioC</property>
                     <property name="relief">none</property>
                     <property name="always_show_image">True</property>
+                    <signal name="clicked" handler="gtk_widget_destroy" swapped="no"/>
+                    <signal name="clicked" handler="gtk_widget_show" swapped="no"/>
+                    <child>
+                      <object class="GtkImage" id="img_btn_armarioC">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="halign">center</property>
+                        <property name="valign">center</property>
+                        <property name="margin_right">17</property>
+                        <property name="margin_top">28</property>
+                        <property name="pixbuf">static/images/armario_C.svg</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -109,6 +463,8 @@
                         <property name="image">img_btn_armarioDSup</property>
                         <property name="relief">none</property>
                         <property name="always_show_image">True</property>
+                        <signal name="clicked" handler="gtk_widget_destroy" swapped="no"/>
+                        <signal name="clicked" handler="gtk_widget_show" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">True</property>
@@ -125,6 +481,8 @@
                         <property name="image">img_btn_armarioDInf</property>
                         <property name="relief">none</property>
                         <property name="always_show_image">True</property>
+                        <signal name="clicked" handler="gtk_widget_destroy" swapped="no"/>
+                        <signal name="clicked" handler="gtk_widget_show" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">True</property>
@@ -182,6 +540,8 @@
             <property name="image">img_btn_armarioA</property>
             <property name="relief">none</property>
             <property name="always_show_image">True</property>
+            <signal name="clicked" handler="gtk_widget_destroy" swapped="no"/>
+            <signal name="clicked" handler="gtk_widget_show" swapped="no"/>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -422,7 +782,8 @@
         <child>
           <object class="GtkBox">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can_focus">True</property>
+            <property name="has_focus">True</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label</property>
@@ -441,12 +802,21 @@
                 <property name="name">entry</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="double_buffered">False</property>
                 <property name="margin_left">17</property>
                 <property name="margin_right">9</property>
                 <property name="margin_top">7</property>
                 <property name="margin_bottom">5</property>
+                <property name="activates_default">True</property>
                 <property name="max_width_chars">80</property>
+                <property name="shadow_type">etched-in</property>
+                <property name="primary_icon_activatable">False</property>
+                <property name="secondary_icon_activatable">False</property>
+                <property name="primary_icon_sensitive">False</property>
+                <property name="secondary_icon_sensitive">False</property>
                 <property name="input_purpose">alpha</property>
+                <property name="populate_all">True</property>
+                <signal name="button-press-event" handler="on_entry_nome" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -484,6 +854,8 @@
                 <property name="name">entry</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="is_focus">True</property>
+                <property name="double_buffered">False</property>
                 <property name="margin_left">19</property>
                 <property name="margin_right">10</property>
                 <property name="margin_top">6</property>
@@ -491,6 +863,7 @@
                 <property name="placeholder_text" translatable="yes">seu melhor email aqui</property>
                 <property name="input_purpose">email</property>
                 <property name="input_hints">GTK_INPUT_HINT_NO_SPELLCHECK | GTK_INPUT_HINT_LOWERCASE | GTK_INPUT_HINT_NONE</property>
+                <signal name="button-press-event" handler="on_entry_email" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -527,12 +900,15 @@
                 <property name="name">entry</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="is_focus">True</property>
+                <property name="double_buffered">False</property>
                 <property name="margin_left">4</property>
                 <property name="margin_right">10</property>
                 <property name="margin_top">6</property>
                 <property name="margin_bottom">6</property>
                 <property name="placeholder_text" translatable="yes">somente números </property>
                 <property name="input_purpose">phone</property>
+                <signal name="button-press-event" handler="on_entry_telefone" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -569,6 +945,10 @@
                 <property name="name">entry</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="is_focus">True</property>
+                <property name="double_buffered">False</property>
+                <property name="input_purpose">number</property>
+                <signal name="button-press-event" handler="on_entry_dias" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -594,6 +974,11 @@
                 <property name="name">entry</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="is_focus">True</property>
+                <property name="double_buffered">False</property>
+                <property name="max_length">2</property>
+                <property name="input_purpose">number</property>
+                <signal name="button-press-event" handler="on_entry_horas" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -619,8 +1004,13 @@
                 <property name="name">entry</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="has_focus">True</property>
+                <property name="double_buffered">False</property>
                 <property name="margin_left">5</property>
                 <property name="margin_right">10</property>
+                <property name="max_length">2</property>
+                <property name="input_purpose">number</property>
+                <signal name="button-press-event" handler="on_entry_minutos" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -698,6 +1088,7 @@
                 <property name="margin_right">25</property>
                 <property name="margin_top">5</property>
                 <property name="margin_bottom">5</property>
+                <signal name="clicked" handler="gtk_widget_hide" object="locacao" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1305,15 +1696,15 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="outlook">
-                <property name="label" translatable="yes">@outlook</property>
+              <object class="GtkButton" id="yahoo">
+                <property name="label" translatable="yes">@yahoo</property>
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
-                <property name="left_attach">3</property>
+                <property name="left_attach">7</property>
                 <property name="top_attach">4</property>
               </packing>
             </child>
@@ -1326,13 +1717,13 @@
                 <property name="receives_default">True</property>
               </object>
               <packing>
-                <property name="left_attach">4</property>
+                <property name="left_attach">6</property>
                 <property name="top_attach">4</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="yahoo">
-                <property name="label" translatable="yes">@yahoo</property>
+              <object class="GtkButton" id="outlook">
+                <property name="label" translatable="yes">@outlook</property>
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -1344,10 +1735,19 @@
               </packing>
             </child>
             <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
+              <object class="GtkButton" id="space">
+                <property name="name">btn_space</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_space_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="left_attach">3</property>
+                <property name="top_attach">4</property>
+                <property name="width">2</property>
+              </packing>
             </child>
             <child>
               <placeholder/>
