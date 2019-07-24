@@ -338,14 +338,30 @@ ENGINE=InnoDB
     @staticmethod
     def listar_classes_armarios():
         __conn = mdb.connect(
-            user='root', password='m1cr0@t805i', database='coolbag')
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         __classes = []
         result = ''
         __c.execute("SELECT classe FROM tb_armario WHERE estado = 'LIVRE'")
         result = __c.fetchall()
+        print('result listar classes data', result)
         return result
         __conn.close()
+    
+    def seleciona_classe(self, classe):
+        self.classe = classe
+        print('classe recebida data', self.classe)
+        __conn = mdb.connect(
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+        __c = __conn.cursor(buffered=True)
+        __classes = []
+        result = ''
+        __c.execute("select classe from tb_armario where estado = 'LIVRE' and classe = '%s'"%self.classe)
+        result = __c.fetchall()
+        print('result data classe', result)
+        return result
+        __conn.close()
+
 
 
 if __name__ == "__main__":

@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 import subprocess
-import gi 
+import gi, gobject
+import numpy as np
 import string, encodings.unicode_escape
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk
 from controllers import Management
+
 
 class RaspControl(object):
     def __init__(self):
@@ -14,17 +16,19 @@ class RaspControl(object):
         self.entrada = '1'
         self.total = 0.0
         self.armario = ''
-        
-        
-        
+        self.lbl_armario = ''
         self.dia = self.hora = self.minuto = 0.0
         self.alfa = list(string.ascii_lowercase) # alfabeto para gerar o teclado
         self.num = list(map(lambda x: x, range(10))) # números para o teclado numérico
-
+        #folha de estilo das interfaces
         self.gtk_style()
         builder = Gtk.Builder()
         builder.add_from_file("index.glade")
         builder.connect_signals({
+        "on_btn_A_clicked": self.on_btn_A_clicked,
+        "on_btn_B_clicked": self.on_btn_B_clicked,
+        "on_btn_C_clicked": self.on_btn_C_clicked,
+        "on_btn_D_clicked": self.on_btn_B_clicked,
         "btn_locar_clicked_cb": self.btn_locar_clicked_cb,
         "on_entry_button_press_event": self.on_entry_button_press_event,
         "on_entry_nome": self.on_entry_nome,
@@ -36,17 +40,16 @@ class RaspControl(object):
         "gtk_widget_destroy": self.gtk_widget_destroy,
         "on_locacao_destroy": self.on_locacao_destroy,
         "on_btn_proximo_button_press_event": self.on_btn_proximo_button_press_event,
-        "gtk_widget_show": self.on_show_locacao,
         "on_onpen": self.abrir,
-        "on_text_total_focus": self.show_total,
         "on_space_clicked": self.on_space_clicked,
         "on_btn_dialog_confirmar_clicked": self.on_btn_dialog_confirmar_clicked,
         "on_btn_dialog_cancelar_clicked": self.on_btn_dialog_cancelar_clicked,
+        #"gtk_widget_show": self.on_show_locacao,
         "on_btn_cancelar_button_press_event": self.on_btn_cancelar_button_press_event,
         "gtk_main_quit": Gtk.main_quit
         })
         
-        #adicionando os elementos do teclado
+        #adicionando os elementos do teclado =======================
         for a in self.alfa:
             self.a = builder.get_object("%s"%a)
             self.a.connect("clicked", self.on_entry_button_press_event)
@@ -63,22 +66,37 @@ class RaspControl(object):
         self.yahoo = builder.get_object("yahoo")
         self.outlook  = builder.get_object("outlook")
         self.space = builder.get_object("space")
+        #========== fim elementos do teclado
+
+        #========= dialog escolha ==============
+        self.dialog_escolha = builder.get_object('dialog_escolha')
+        self.lbl_a = builder.get_object('lbl_a')
+        self.lbl_b = builder.get_object('lbl_b')
+        self.lbl_c = builder.get_object('lbl_c')
+        self.lbl_d = builder.get_object('lbl_d')
+        self.btn_escolha_cancela = builder.get_object('btn_escolha_cancela')
+        self.btn_escolha_ok = builder.get_object('btn_escolha_ok')
+        self.btn_escolha_ok.connect("clicked", self.on_btn_escolha_ok_destroy)
+
+        # ========= dialog confirma ============
         self.dialog = builder.get_object("dialogConfirm")
+        # ============= tela locar e botoes de escolha de armarios
+        self.locar = builder.get_object("locar_window")
         self.btn_A = builder.get_object("btn_A")
         self.btn_B = builder.get_object("btn_B")
         self.btn_C = builder.get_object("btn_C")
         self.btn_Dsup = builder.get_object("btn_DSup")
         self.btn_Dinf = builder.get_object("btn_DInf")
-        self.btn_A.connect("clicked", self.set_armario_a)
-        self.btn_B.connect("clicked", self.set_armario_b)
-        self.btn_C.connect("clicked", self.set_armario_c)
-        self.btn_Dsup.connect("clicked", self.set_armario_d)
-        self.btn_Dinf.connect("clicked", self.set_armario_d)
-
-
+        self.btn_A.connect_object("clicked",self.on_show_locacao, self.on_btn_A_clicked)
+        self.btn_B.connect_object("clicked",self.on_show_locacao, self.on_btn_B_clicked)
+        self.btn_C.connect_object("clicked",self.on_show_locacao, self.on_btn_C_clicked)
+        self.btn_Dsup.connect_object("clicked",self.on_show_locacao, self.on_btn_D_clicked)
+        self.btn_Dinf.connect_object("clicked",self.on_show_locacao, self.on_btn_D_clicked)
+        # ============ fim tela locar =======================
+        
         self.window = builder.get_object("main_window")
         self.window.fullscreen()
-        self.locar = builder.get_object("locar_window")
+        
         self.teclado = builder.get_object("teclado")
         self.grid_teclado = builder.get_object("grid_teclado1")
         #elementos janela locacao
@@ -128,21 +146,32 @@ class RaspControl(object):
         self.outlook.connect("clicked", self.on_entry_button_press_event)
         self.space.connect("clicked", self.on_space_clicked)
         
-        
+        # ==== exibe janela principal com todos os elementos =================
         self.window.show()
+    def on_btn_escolha_ok_destroy(self, event):
+        self.dialog_escolha.hide()
 
 
-    def set_armario_a(self, event):
+    def on_btn_A_clicked(self, event):
         self.lbl_armario.set_text("A")
+        print('setado lbl_armario para A')
+        return self.lbl_armario
 
-    def set_armario_b(self, event):
+
+    def on_btn_B_clicked(self, event):
         self.lbl_armario.set_text("B")
+        print('setado lbl_armario para B')
+        return self.lbl_armario
     
-    def set_armario_c(self, event):
+    def on_btn_C_clicked(self, event):
         self.lbl_armario.set_text("C")
+        print('setado lbl_armario para C') 
+        return self.lbl_armario
     
-    def set_armario_d(self, event):
+    def on_btn_D_clicked(self, event):
         self.lbl_armario.set_text("D")
+        print('setado lbl_armario para D')
+        return self.lbl_armario
         
     def on_entry_nome(self, widget, event):
         self.entrada = '1'
@@ -178,10 +207,25 @@ class RaspControl(object):
             self.entry_nome.set_position(0)
     
     def on_btn_dialog_confirmar_clicked(self, event):
-        self.dialog.hide()
+        manager = Management()
+        self.nome = self.lbl_nome.get_label()
+        self.email = self.lbl_email.get_label()
+        self.telefone = self.lbl_telefone.get_label()
+        self.dias = self.lbl_dias.get_label()
+        self.horas = self.lbl_horas.get_label()
+        self.minutos = self.lbl_minutos.get_label()
+        self.armario = self.lbl_armario.get_label()
+        self.total = self.lbl_total.get_label()
+        
+        result = manager.locacao(self.nome, self.email, self.telefone, self.dias, self.horas, self.minutos, self.armario )
+        print("result on_btn_confirmar", result)
+        
+        if result[0] == "armario locado com sucesso":
+            self.dialog.hide()
+            self.locacao.hide()
     
     def on_btn_dialog_cancelar_clicked(self, event):
-        self.dialog.hide()
+        self.dialog_escolha.hide()
 
         
     
@@ -191,8 +235,7 @@ class RaspControl(object):
         self.armario = self.lbl_armario.get_label()
         self.lbl_armario.set_text(self.armario)
         self.value =  self.widget.get_label()
-        if self.entry_horas.get_text() > '23':
-                self.entry_horas.set_text('23')
+        
         if self.entrada == '1':
             
             self.text_nome = self.entry_nome.get_text() + self.value
@@ -218,8 +261,6 @@ class RaspControl(object):
         
         elif self.entrada == '4':
             self.text_dias = self.entry_dias.get_text() + self.value
-            if self.entry_horas.get_text() > '23':
-                self.entry_horas.set_text('23')
             if self.text_dias.isnumeric():
                 self.entry_dias.set_text(self.text_dias)
                 self.lbl_dias.set_text(self.text_dias)
@@ -344,8 +385,6 @@ class RaspControl(object):
             print(self.total)
             self.text_total.set_text(str(self.total))
         elif self.entrada == '5':
-            if self.entry_horas.get_text() > '23':
-                self.entry_horas.set_text('23')
             self.texto = ''
             self.texto = self.entry_horas.get_text()
             self.texto = self.texto[:-1]
@@ -427,11 +466,33 @@ class RaspControl(object):
     
     def btn_locar_clicked_cb(self, widget):
 
-        self.locar.fullscreen()
+        #self.locar.fullscreen()
         self.locar.show()
     # ====== janela locacao =======
     def on_show_locacao(self, widget):
-        self.locacao.show()
+        manager = Management()
+        self.armario = self.lbl_armario.get_label()
+        print('self.armario main', self.armario)
+        classe = manager.select_armario(self.armario)
+        print('classe selecionada' ,classe)
+        
+        listar = manager.lista_armarios()
+        if "A" in np.array(listar):
+            self.lbl_a.set_text("A")
+        if "B" in np.array(listar):
+            self.lbl_b.set_text("B")
+        if "C" in np.array(listar):
+            self.lbl_c.set_text("C")
+        if "D" in np.array(listar):
+            self.lbl_b.set_text("D")
+        if self.armario in np.array(classe):
+            self.locacao.show()
+        else:
+            self.dialog_escolha.show()
+        print('listar classes mainwindow', listar)
+        
+        
+    
     def on_locacao_destroy(self, widget, event):
         self.locacao.hide()
     def on_btn_proximo_button_press_event(self, widget):
@@ -445,13 +506,6 @@ class RaspControl(object):
         self.entry_nome.set_text('')
         self.entry_telefone.set_text('')
         self.dialog.show()
-
-
-    def show_total(self):
-        print('ta indo')
-        self.text_total.set_text( "ola")
-        
-    
         
     def abrir(self, widget):
         pass

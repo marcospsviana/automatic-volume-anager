@@ -23,13 +23,21 @@ class Armario:
     def seleciona_armario(id_armario):
         
         __id_armario = id_armario
+    
+    @staticmethod
+    def seleciona_classe(classe):
+        __bk = Banco()
+        classe = classe
+        __classe = __bk.seleciona_classe(classe)
+        return __classe
 
     @staticmethod
     def listar_classes ():
         __bk = Banco()
-        __classe = []
-        __classe = __bk.listar_classes_armarios()
-        return __classe
+        classe = []
+        classe = __bk.listar_classes_armarios()
+        print('listar classe armario armario.py', classe)
+        return classe
     
     @staticmethod
     def liberar_armario(senha, nome):

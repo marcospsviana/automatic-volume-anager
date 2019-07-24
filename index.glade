@@ -4,9 +4,12 @@
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkDialog" id="dialogConfirm">
     <property name="can_focus">False</property>
+    <property name="modal">True</property>
+    <property name="window_position">center</property>
     <property name="default_width">500</property>
     <property name="default_height">300</property>
     <property name="type_hint">dialog</property>
+    <property name="decorated">False</property>
     <child>
       <placeholder/>
     </child>
@@ -353,17 +356,191 @@
       </object>
     </child>
   </object>
+  <object class="GtkDialog" id="dialog_escolha">
+    <property name="can_focus">False</property>
+    <property name="type_hint">dialog</property>
+    <property name="decorated">False</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="btn_escolha_cancela">
+                <property name="label" translatable="yes">Cancelar</property>
+                <property name="name">btn</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_escolha_ok">
+                <property name="label" translatable="yes">Ok</property>
+                <property name="name">btn</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="destroy" handler="on_btn_escolha_ok_destroy" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="name">label</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">   Infelizmente não há tamanho de armário disponível
+de sua escolha, por favor, escolha outro tamanho. 
+   Os tamanhos disponíveis estão listados abaixo:</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkLabel" id="lbl_a">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_left">10</property>
+                    <property name="margin_right">10</property>
+                    <property name="margin_top">10</property>
+                    <property name="margin_bottom">10</property>
+                    <property name="hexpand">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_b">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_left">10</property>
+                    <property name="margin_right">10</property>
+                    <property name="margin_top">10</property>
+                    <property name="margin_bottom">10</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_c">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_left">10</property>
+                    <property name="margin_right">10</property>
+                    <property name="margin_top">10</property>
+                    <property name="margin_bottom">10</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_d">
+                    <property name="name">label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_left">10</property>
+                    <property name="margin_right">10</property>
+                    <property name="margin_top">10</property>
+                    <property name="margin_bottom">10</property>
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">3</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="name">label</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">  Pedimos desculpas pelo inconveniente. Por favor, 
+aperte  **OK ** para escolher um outro tamanho de armário
+ou cancelar para sair.</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="GtkImage" id="img_br_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="hexpand">True</property>
     <property name="vexpand">True</property>
     <property name="pixbuf">static/images/brasilpq.svg</property>
-  </object>
-  <object class="GtkImage" id="img_btn_armarioA">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">static/images/armario_A.svg</property>
   </object>
   <object class="GtkImage" id="img_btn_armarioB">
     <property name="visible">True</property>
@@ -394,10 +571,11 @@
     <property name="valign">center</property>
     <property name="type">popup</property>
     <property name="resizable">False</property>
-    <property name="default_width">960</property>
-    <property name="default_height">720</property>
+    <property name="modal">True</property>
+    <property name="window_position">center</property>
     <property name="destroy_with_parent">True</property>
     <property name="skip_pager_hint">True</property>
+    <property name="decorated">False</property>
     <property name="gravity">center</property>
     <signal name="destroy" handler="gtk_widget_destroy" swapped="no"/>
     <child>
@@ -431,6 +609,7 @@
                     <property name="always_show_image">True</property>
                     <signal name="clicked" handler="gtk_widget_destroy" swapped="no"/>
                     <signal name="clicked" handler="gtk_widget_show" swapped="no"/>
+                    <signal name="clicked" handler="on_btn_C_clicked" swapped="no"/>
                     <child>
                       <object class="GtkImage" id="img_btn_armarioC">
                         <property name="visible">True</property>
@@ -465,6 +644,7 @@
                         <property name="always_show_image">True</property>
                         <signal name="clicked" handler="gtk_widget_destroy" swapped="no"/>
                         <signal name="clicked" handler="gtk_widget_show" swapped="no"/>
+                        <signal name="clicked" handler="on_btn_D_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">True</property>
@@ -483,6 +663,7 @@
                         <property name="always_show_image">True</property>
                         <signal name="clicked" handler="gtk_widget_destroy" swapped="no"/>
                         <signal name="clicked" handler="gtk_widget_show" swapped="no"/>
+                        <signal name="clicked" handler="on_btn_D_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">True</property>
@@ -516,8 +697,9 @@
                 <property name="image">img_btn_armarioB</property>
                 <property name="relief">none</property>
                 <property name="always_show_image">True</property>
-                <signal name="clicked" handler="gtk_widget_destroy" object="locar_window" swapped="no"/>
-                <signal name="clicked" handler="gtk_widget_show" object="locacao" swapped="no"/>
+                <signal name="clicked" handler="gtk_widget_destroy" swapped="no"/>
+                <signal name="clicked" handler="gtk_widget_show" swapped="no"/>
+                <signal name="clicked" handler="on_btn_B_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -537,11 +719,18 @@
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="margin_right">1</property>
-            <property name="image">img_btn_armarioA</property>
             <property name="relief">none</property>
             <property name="always_show_image">True</property>
             <signal name="clicked" handler="gtk_widget_destroy" swapped="no"/>
             <signal name="clicked" handler="gtk_widget_show" swapped="no"/>
+            <signal name="clicked" handler="on_btn_A_clicked" swapped="no"/>
+            <child>
+              <object class="GtkImage" id="img_btn_armarioA">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="pixbuf">static/images/armario_A.svg</property>
+              </object>
+            </child>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -569,6 +758,7 @@
   </object>
   <object class="GtkWindow" id="main_window">
     <property name="can_focus">False</property>
+    <property name="window_position">center</property>
     <property name="default_width">960</property>
     <property name="default_height">720</property>
     <property name="decorated">False</property>
@@ -762,6 +952,7 @@
     <property name="name">janela_locacao</property>
     <property name="can_focus">False</property>
     <property name="resizable">False</property>
+    <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
@@ -1052,7 +1243,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">           0,00     </property>
-                <signal name="focus" handler="on_text_total_focus" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>

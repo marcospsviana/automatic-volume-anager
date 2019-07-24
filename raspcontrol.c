@@ -2,7 +2,7 @@
  
 int main(){
 
-	system.exec("npm start")
+	system.exec("python3 -m mainwindow.py");
 
 return 0;
 }
