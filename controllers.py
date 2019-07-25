@@ -71,6 +71,15 @@ class Management(object):
         self.__total  = total
         result = cb.pagamento(self, self.__total)
         return result
+    
+    def abre_armario(self, senha, nome):
+        result = ''
+        __nome = nome
+        __senha = senha
+        
+        result = arm.abrir_armario(__senha, __nome)
+        print("result controllers--->", result)
+        return result
 
         
         

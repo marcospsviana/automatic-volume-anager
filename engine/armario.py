@@ -55,3 +55,12 @@ class Armario:
         __bk = Banco()
         result = __bk.finalizar(__nome, __senha)
         return result
+    
+    @staticmethod
+    def abrir_armario(senha, nome):
+        result = ''
+        __nome = nome
+        __senha = senha
+        __bk = Banco()
+        result = __bk.abrir_armario(__senha, __nome)
+        return result

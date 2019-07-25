@@ -144,21 +144,21 @@ ENGINE=InnoDB
 
         
 
-    @classmethod
-    def select_user(self, email):
-        self.__conn = mdb.connect(
+    @staticmethod
+    def select_user(email):
+        __conn = mdb.connect(
             user='root', password='m1cr0@t805i', database='coolbag')
-        self.__c = self.__conn.cursor(buffered=True)
-        self.__email = email
-        self.__nome = email
-        print(self.__email)
+        __c = __conn.cursor(buffered=True)
+        __email = email
+        __nome = email
+        print(__email)
         query = ''
-        self.__c.execute("SELECT id_usuario FROM tb_usuario where email = '"+ self.__nome +"' or telefone = '"+ self.__email +"'")
-        query = self.__c.fetchall()
+        __c.execute("SELECT id_usuario FROM tb_usuario where email = '"+ __nome +"' or telefone = '"+ __email +"'")
+        query = __c.fetchall()
         print("##### id usuario ###")
         print(query)
         return query
-        self.__conn.close()
+        __conn.close()
 
     def __get_passwd(self):
         """ gera a senha automaticamente com combinação aleatória de 2 letras e 2 numeros
@@ -183,17 +183,21 @@ ENGINE=InnoDB
     def __send_passwd(self, passwd):
         pass  # self.passwd = passwd
     
-    @classmethod
-    def get_locacao(self, nome, id_usuario):
-        
+    
+    @staticmethod
+    def get_locacao(nome, id_usuario):
+        __conn = mdb.connect(
+            user='root', password='m1cr0@t805i', database='coolbag')
+        __c = __conn.cursor(buffered=True)
         result = ''
-        self.__nome = nome
-        self.__id_user = id_usuario
-        self.__c.execute("SELECT id_armario, id_locacao, tempo_locado from tb_locacao where senha = '%s' AND id_usuario = %s" % (self.__nome,self.__id_user,))
-        self.__result = self.__c.fetchall()
+        __nome = nome
+        __id_user = id_usuario
+        __c.execute("SELECT id_armario, id_locacao, tempo_locado from tb_locacao where senha = '%s' AND id_usuario = %s" % (__nome,__id_user,))
+        __result = __c.fetchall()
         print("888888 ---- result")
-        print(self.__result)
-        return self.__result
+        print(__result)
+        return __result
+        __conn.close()
 
 
     def liberar_armario(self, senha, nome):
@@ -284,6 +288,7 @@ ENGINE=InnoDB
         else:
             return ('tempo excedente',self.__cobranca)
 
+    @classmethod
     def cobranca(self, total, data_futura):
         """ compara duas datas retornando a diferença de tempo entre as duas
             parametros: data_atual tipo datetime, tempo_locado tipo datetime
@@ -361,6 +366,43 @@ ENGINE=InnoDB
         print('result data classe', result)
         return result
         __conn.close()
+    
+    @classmethod
+    def abrir_armario(self,senha, nome):
+        print('senha data', senha, nome)
+        result = ''
+        id_armario = ''
+        taxa = 0.15
+        hj = datetime.datetime.now()
+        hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
+        hj = hj + datetime.timedelta(minutes=+10)
+        self.__senha = senha
+        self.__nome = nome
+        self.__id_user = self.select_user(self.__nome)
+        self.__locacao = self.get_locacao(self.__senha, self.__id_user[0][0])
+        print('********** dados locacao **************')
+        print(self.__locacao[0][2])
+        if (self.__locacao[0][2]) >= hj:
+            
+            tempo_total = hj - self.__locacao[0][2]
+            dias_passados = tempo_total.days
+            minutos_passados = tempo_total.seconds / 60
+            valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
+            result = self.cobranca(valor_total,hj)
+             
+            self.__c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
+            
+            
+            self.__conn.commit()
+            self.__conn.close()
+            return "armario liberado"
+        else:
+            
+            tempo = hj - self.__locacao[0][2] 
+            tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
+            print('-------> %s'%tempo)
+            result = self.cobranca_excedente(int(tempo))
+            return result
 
 
 
