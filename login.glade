@@ -24,7 +24,7 @@
             </child>
             <child>
               <object class="GtkButton" id="btn_cobranca_ok">
-                <property name="label" translatable="yes">button</property>
+                <property name="label" translatable="yes">       Pagmamento     </property>
                 <property name="name">btn</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -106,7 +106,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkEntry" id="entry_nome_login">
+          <object class="GtkEntry" id="entry_nome">
             <property name="name">entry</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>

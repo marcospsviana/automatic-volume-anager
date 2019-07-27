@@ -80,6 +80,15 @@ class Management(object):
         result = arm.abrir_armario(__senha, __nome)
         print("result controllers--->", result)
         return result
+    def finalizar(self, senha, nome):
+        result = ''
+        __nome = nome
+        __senha = senha
+        print('nome e senha de controllers', __senha, __nome)
+        result = arm.finalizar(__senha, __nome)
+        print("finalizar controllers--->", result)
+        return result
+
 
         
         

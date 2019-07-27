@@ -5,19 +5,18 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk
 from controllers import Management
 
-class Login(Gtk.Window):
+class Encerrar(object):
     def __init__(self):
-    
-        builder = Gtk.Builder()
-        builder.add_from_file("login.glade")
         self.manager = Management()
         self.value = ''
         self.entrada = ''
+        builder = Gtk.Builder()
+        builder.add_from_file("encerrar.glade")
         self.alfa = list(string.ascii_lowercase) # alfabeto para gerar o teclado
         self.num = list(map(lambda x: x, range(10))) # números para o teclado numérico
         builder.connect_signals(
             {
-                "on_window_login_destroy": self.on_window_login_destroy,
+                "on_window_login_encerrar_destroy": self.on_window_login_encerrar_destroy,
                 "on_ENTER_clicked": self.on_ENTER_clicked,
                 "on_entry_nome": self.on_entry_nome,
                 "on_entry_senha": self.on_entry_senha,
@@ -25,7 +24,7 @@ class Login(Gtk.Window):
                 "gtk_widget_destroy" : self.gtk_widget_destroy
             }
         )
-        self.window_login = builder.get_object("window_login")
+        self.window_login_encerrar = builder.get_object("window_login_encerrar")
         # adicionando elementos da janela
         self.entry_nome = builder.get_object("entry_nome")
         self.entry_senha = builder.get_object('entry_senha')
@@ -71,7 +70,7 @@ class Login(Gtk.Window):
         
         
 
-        self.window_login.show()
+        self.window_login_encerrar.show()
         
     def on_ENTER_clicked(self, widget):
         self.window_time.show()
@@ -87,15 +86,16 @@ class Login(Gtk.Window):
         self.message = ''
         nome = self.entry_nome.get_text()
         senha = self.entry_senha.get_text()
-        result = self.manager.abre_armario(senha, nome)
+        print('nome e senha de encerrar', senha, nome)
+        result = self.manager.finalizar(senha, nome)
         print('result login', result)
         if result == 'armario liberado':
-            self.window_login.hide()
+            self.window_login_encerrar.hide()
             self.entry_nome.set_text('')
             self.entry_senha.set_text('')
             print('abrir')
         else:
-            self.window_login.close()
+            self.window_login_encerrar.close()
 
             print('ok fechou')
             self.message = str(result)
@@ -150,10 +150,11 @@ class Login(Gtk.Window):
     def gtk_widget_destroy(self, widget):
         self.entry_senha.set_text('')
         self.entry_nome.set_text('')
-        self.on_window_login_destroy
+        self.on_window_login_encerrar_destroy
         self.dialog_cobranca.destroy()
-    def on_window_login_destroy(self, widget):
-        self.window_login.close()
+    def on_window_login_encerrar_destroy(self, widget):
+        self.window_login_encerrar.close()
 
 if __name__ == "__main__":
-    Login()
+    Encerrar()
+    

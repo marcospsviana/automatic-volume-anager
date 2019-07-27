@@ -6,6 +6,8 @@ import string, encodings.unicode_escape
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk
 from controllers import Management
+from login import Login
+from encerrar import Encerrar
 
 
 class RaspControl(object):
@@ -26,6 +28,7 @@ class RaspControl(object):
         self.builder = Gtk.Builder()
         self.builder.add_from_file("index.glade")
         self.builder.connect_signals({
+        "on_btn_encerrar_clicked": self.on_btn_encerrar_clicked,
         "on_btn_login_clicked": self.on_btn_login_clicked,
         "on_btn_campo_branco_clicked": self.on_btn_campo_branco_clicked,
         "on_btn_A_clicked": self.on_btn_A_clicked,
@@ -100,7 +103,7 @@ class RaspControl(object):
         # ========= dialog confirma ============
         self.dialog = self.builder.get_object("dialogConfirm")
         #===== tela de login =======================
-        self.window_login = self.builder.get_object("window_login")
+        #self.window_login = self.builder.get_object("window_login")
         # ============= tela locar e botoes de escolha de armarios
         self.locar = self.builder.get_object("locar_window")
         self.btn_A = self.builder.get_object("btn_A")
@@ -176,6 +179,12 @@ class RaspControl(object):
         #self.btn_campo_branco.connect("clicked", self.on_btn_campo_clicked)
         # ==== exibe janela principal com todos os elementos =================
         self.window.show()
+    
+    def on_btn_encerrar_clicked(self, event):
+        Encerrar()
+    
+
+
     def btn_cobranca_ok_clicked(self, event):
         self.dialog_cobranca.hide()
         self.entry_nome_login.set_text('')
@@ -206,8 +215,8 @@ class RaspControl(object):
         self.locacao.show()
 
     def btn_abrir_clicked_cb(self, widget):
-        
-        self.window_login.show()
+        Login()
+        #self.window_login.show()
         
         
 

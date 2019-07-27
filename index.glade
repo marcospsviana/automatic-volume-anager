@@ -1057,6 +1057,7 @@ ou cancelar para sair.</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
                 <property name="relief">half</property>
+                <signal name="clicked" handler="on_btn_encerrar_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">2</property>

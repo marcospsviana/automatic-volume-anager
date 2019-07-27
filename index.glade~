@@ -2085,6 +2085,7 @@ ou cancelar para sair.</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="skip_pager_hint">True</property>
+    <property name="decorated">False</property>
     <signal name="destroy-event" handler="gtk_widget_destroy" swapped="no"/>
     <child>
       <placeholder/>

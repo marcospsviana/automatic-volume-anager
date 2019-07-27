@@ -48,12 +48,13 @@ class Armario:
         return result
     
     @staticmethod
-    def finalizar(nome, senha):
+    def finalizar(senha, nome):
         result = ''
         __nome = nome
         __senha = senha
+        print('nome e senha de arm', __senha, __nome)
         __bk = Banco()
-        result = __bk.finalizar(__nome, __senha)
+        result = __bk.finalizar( __senha, __nome)
         return result
     
     @staticmethod

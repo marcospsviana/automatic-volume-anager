@@ -151,10 +151,10 @@ ENGINE=InnoDB
         __c = __conn.cursor(buffered=True)
         __email = email
         __nome = email
-        print(__email)
+        print("nome ou mail select user",__email)
         query = ''
         __c.execute("SELECT id_usuario FROM tb_usuario where email = '"+ __nome +"' or telefone = '"+ __email +"'")
-        query = __c.fetchall()
+        query = __c.fetchone()
         print("##### id usuario ###")
         print(query)
         return query
@@ -185,14 +185,16 @@ ENGINE=InnoDB
     
     
     @staticmethod
-    def get_locacao(nome, id_usuario):
+    def get_locacao(senha, id_usuario):
         __conn = mdb.connect(
             user='root', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         result = ''
-        __nome = nome
+        __senha = senha
+        print('---senha---',__senha)
         __id_user = id_usuario
-        __c.execute("SELECT id_armario, id_locacao, tempo_locado from tb_locacao where senha = '%s' AND id_usuario = %s" % (__nome,__id_user,))
+        print('*** id usuario *** ', __id_user)
+        __c.execute("SELECT id_armario, id_locacao, tempo_locado from tb_locacao where senha = '%s' AND id_usuario = %s" % (__senha,__id_user,))
         __result = __c.fetchall()
         print("888888 ---- result")
         print(__result)
@@ -209,8 +211,9 @@ ENGINE=InnoDB
         hj = hj + datetime.timedelta(minutes=+10)
         self.__senha = senha
         self.__nome = nome
+        print('nome e senha de data', __senha, __nome)
         self.__id_user = self.select_user(self.__nome)
-        self.__locacao = self.get_locacao(self.__senha, self.__id_user[0][0])
+        self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
         print('********** dados locacao **************')
         print(self.__locacao[0][2])
         if (self.__locacao[0][2]) >= hj:
@@ -326,18 +329,42 @@ ENGINE=InnoDB
         total = "%.2f"%total
         print ('$$$$$$$ total $$$$ %s' % total)
         return (total )
-    @classmethod
-    def finalizar(self, nome, senha):
+    
+    def finalizar(self,senha, nome):
         
-        __nome = nome
-        __senha = senha
-        __id_user = self.select_user(__nome)
-        __locacao = self.get_locacao(__senha, __id_user[0][0])
-        self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
-        self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (__locacao[0][0],))
-        self.__conn.commit()
-        self.__conn.close()
-        return "armario liberado"
+        result = ''
+        id_armario = ''
+        taxa = 0.15
+        hj = datetime.datetime.now()
+        hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
+        hj = hj + datetime.timedelta(minutes=+10)
+        
+        self.__senha = senha
+        self.__nome = nome
+        print('senha e nome finalizar', self.__senha, self.__nome)
+        self.__id_user = self.select_user(self.__nome)
+        self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
+        if (self.__locacao[0][2]) >= hj:
+            
+            tempo_total = hj - self.__locacao[0][2]
+            dias_passados = tempo_total.days
+            minutos_passados = tempo_total.seconds / 60
+            valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
+            result = self.cobranca(valor_total,hj)
+             
+            self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
+            self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (self.__locacao[0][0],))
+            self.__conn.commit()
+            self.__conn.close()
+            return "armario liberado"
+        else:
+            
+            tempo = hj - self.__locacao[0][2] 
+            tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
+            print('-------> %s'%tempo)
+            result = self.cobranca_excedente(int(tempo))
+            return result
+        
 
     
     @staticmethod
@@ -379,7 +406,7 @@ ENGINE=InnoDB
         self.__senha = senha
         self.__nome = nome
         self.__id_user = self.select_user(self.__nome)
-        self.__locacao = self.get_locacao(self.__senha, self.__id_user[0][0])
+        self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
         print('********** dados locacao **************')
         print(self.__locacao[0][2])
         if (self.__locacao[0][2]) >= hj:
