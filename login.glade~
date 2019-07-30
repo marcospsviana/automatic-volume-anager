@@ -24,7 +24,7 @@
             </child>
             <child>
               <object class="GtkButton" id="btn_cobranca_ok">
-                <property name="label" translatable="yes">button</property>
+                <property name="label" translatable="yes">       Pagmamento     </property>
                 <property name="name">btn</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -232,6 +232,7 @@
                 <property name="name">btn_num</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -245,6 +246,7 @@
                 <property name="name">btn_num</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -258,6 +260,7 @@
                 <property name="name">btn_num</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -271,6 +274,7 @@
                 <property name="name">btn_num</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -284,6 +288,7 @@
                 <property name="name">btn_num</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -297,6 +302,7 @@
                 <property name="name">btn_num</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -310,6 +316,7 @@
                 <property name="name">btn_num</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -323,6 +330,7 @@
                 <property name="name">btn_num</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -336,6 +344,7 @@
                 <property name="name">btn_num</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -349,6 +358,7 @@
                 <property name="name">btn_num</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -362,6 +372,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -375,6 +386,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -388,6 +400,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -401,6 +414,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -414,6 +428,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -427,6 +442,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -440,6 +456,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -453,6 +470,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -466,6 +484,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -479,6 +498,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -492,6 +512,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -505,6 +526,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -518,6 +540,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -531,6 +554,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -544,6 +568,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -557,6 +582,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -570,6 +596,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -583,6 +610,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -596,6 +624,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -609,6 +638,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
                 <signal name="clicked" handler="on_ENTER_clicked" object="time" swapped="no"/>
               </object>
@@ -623,6 +653,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -636,6 +667,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -649,6 +681,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -662,6 +695,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -675,6 +709,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -688,6 +723,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -701,6 +737,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -714,6 +751,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -727,6 +765,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -740,6 +779,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -753,6 +793,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -766,6 +807,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -779,6 +821,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -791,7 +834,8 @@
                 <property name="label" translatable="yes">@yahoo</property>
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -804,7 +848,8 @@
                 <property name="label" translatable="yes">@gmail</property>
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -818,6 +863,7 @@
                 <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -830,6 +876,7 @@
                 <property name="name">btn_space</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
                 <property name="use_stock">True</property>
               </object>
