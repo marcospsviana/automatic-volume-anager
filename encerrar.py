@@ -1,4 +1,5 @@
 import gi 
+import pangocffi
 import string
 import time
 gi.require_version('Gtk', '3.0')
@@ -10,6 +11,7 @@ class Encerrar(object):
         self.manager = Management()
         self.value = ''
         self.entrada = ''
+        self.gtk_style()
         self.num = False
         builder = Gtk.Builder()
         builder.add_from_file("encerrar.glade")
@@ -35,6 +37,9 @@ class Encerrar(object):
         #adicionando os elementos do teclado =======================
         #for a in self.alfa:
         self.a = builder.get_object("a")
+        #pangoFont = pangocffi.FontDescription("Tahoma 5.4")
+        #a.modify_font(pangoFont)
+        #self.a.get_child().Gtk.Label.set_markup("<style: font-family:monospace; font-size: 30>%s</style>"%(self.a))
         self.a.connect("clicked", self.on_entry_button_press_event)
         self.b = builder.get_object("b")
         self.b.connect("clicked", self.on_entry_button_press_event)

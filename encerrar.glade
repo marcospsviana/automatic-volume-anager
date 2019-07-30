@@ -270,6 +270,9 @@
                 <property name="can_focus">False</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <style>
+                  <class name="font-size: 32px;"/>
+                </style>
               </object>
               <packing>
                 <property name="left_attach">0</property>
