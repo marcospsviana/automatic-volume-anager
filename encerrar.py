@@ -93,7 +93,7 @@ class Encerrar(object):
         self.z.connect("clicked", self.on_entry_button_press_event)
         '''for n in self.num:
             self.n = builder.get_object("%s"%n)
-            self.n.connect("clicked", self.on_entry_button_press_event)'''
+            self.n.connect("clicked", self.on_entry_button_press_event)
 
         self.arroba = builder.get_object("arroba")
         self.dot = builder.get_object("dot")
@@ -102,7 +102,7 @@ class Encerrar(object):
         self.dotCom = builder.get_object("dotCom")
         self.gmail = builder.get_object("gmail")
         self.yahoo = builder.get_object("yahoo")
-        self.outlook  = builder.get_object("outlook")
+        self.outlook  = builder.get_object("outlook")'''
         self.space = builder.get_object("space")
         self.btn_delete = builder.get_object("DELETE")
         self.btn_login = builder.get_object("btn_login")
@@ -117,14 +117,14 @@ class Encerrar(object):
         #========== fim elementos do teclado =====================
         #conectando os botões aos eventos ========================
         self.btn_delete.connect("clicked", self.on_entry_backspace)
-        self.arroba.connect("clicked", self.on_entry_button_press_event)
+        '''self.arroba.connect("clicked", self.on_entry_button_press_event)
         self.dotCom.connect("clicked", self.on_entry_button_press_event)
         self.dot.connect("clicked", self.on_entry_button_press_event)
         self.dash.connect("clicked", self.on_entry_button_press_event)
         self.under.connect("clicked", self.on_entry_button_press_event)
         self.yahoo.connect("clicked", self.on_entry_button_press_event)
         self.gmail.connect("clicked", self.on_entry_button_press_event)
-        self.outlook.connect("clicked", self.on_entry_button_press_event)
+        self.outlook.connect("clicked", self.on_entry_button_press_event)'''
         #self.btn_login.connect("clicked", self.on_btn_login_clicked)
         
         
@@ -143,6 +143,23 @@ class Encerrar(object):
             self.h.set_label('h')
             self.i.set_label('i')
             self.j.set_label('j')
+            self.k.set_label('k')
+            self.l.set_label('l')
+            self.m.set_label('m')
+            self.n.set_label('n')
+            self.o.set_label('o')
+            self.p.set_label('p')
+            self.q.set_label('q')
+            self.r.set_label('r')
+            self.s.set_visible(True)
+            self.t.set_visible(True)
+            self.u.set_visible(True)
+            self.v.set_visible(True)
+            self.w.set_visible(True)
+            self.x.set_visible(True)
+            self.y.set_visible(True)
+            self.z.set_visible(True)
+            
             self.btn_num.set_label('123..')
         else:
             self.num = False
@@ -156,6 +173,22 @@ class Encerrar(object):
             self.h.set_label('7')
             self.i.set_label('8')
             self.j.set_label('9')
+            self.k.set_label('@')
+            self.l.set_label('_')
+            self.m.set_label('-')
+            self.n.set_label('.')
+            self.o.set_label('.com')
+            self.p.set_label('@gmail')
+            self.q.set_label('@outlook')
+            self.r.set_label('@yahoo')
+            self.s.set_visible(False)
+            self.t.set_visible(False)
+            self.u.set_visible(False)
+            self.v.set_visible(False)
+            self.w.set_visible(False)
+            self.x.set_visible(False)
+            self.y.set_visible(False)
+            self.z.set_visible(False)
             self.btn_num.set_label('abc..')
             
         
