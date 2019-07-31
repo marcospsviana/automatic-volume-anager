@@ -7,6 +7,7 @@ from .locacao import Locacao
 class Armario:
    
 
+    @classmethod
     def cad_armario(self, classe, terminal, coluna, nivel):
         
         self.__bk = Banco()
@@ -14,8 +15,9 @@ class Armario:
         self.__terminal = terminal
         self.__coluna = coluna
         self.__nivel = nivel
-        self.__bk.cadastrar_armario(
+        result = self.__bk.cadastrar_armario(
             self.__classe, self.__terminal, self.__coluna, self.__nivel)
+        return result
 
     def remove_armario(id_armario):
         __bk = Banco()

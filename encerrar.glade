@@ -60,6 +60,7 @@
     </child>
   </object>
   <object class="GtkWindow" id="window_login_encerrar">
+    <property name="name">window</property>
     <property name="can_focus">False</property>
     <property name="window_position">center-always</property>
     <property name="default_width">400</property>
@@ -83,10 +84,10 @@
             <property name="column_spacing">6</property>
             <child>
               <object class="GtkLabel" id="lbl_titulo_email_telefone">
-                <property name="name">label</property>
+                <property name="name">label_telefone</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_top">15</property>
+                <property name="margin_top">10</property>
                 <property name="label" translatable="yes">   Email ou Telefone  </property>
               </object>
               <packing>
@@ -108,9 +109,11 @@
             <property name="can_focus">True</property>
             <property name="margin_left">20</property>
             <property name="margin_right">20</property>
-            <property name="margin_top">15</property>
-            <property name="margin_bottom">5</property>
-            <property name="hexpand">True</property>
+            <property name="hexpand">False</property>
+            <property name="vexpand">True</property>
+            <style>
+              <class name="font-size: 16px;"/>
+            </style>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -126,10 +129,10 @@
             <property name="column_spacing">6</property>
             <child>
               <object class="GtkLabel" id="lbl_titulo_senha">
-                <property name="name">label</property>
+                <property name="name">label_senha</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_top">15</property>
+                <property name="margin_top">10</property>
                 <property name="label" translatable="yes">   Senha </property>
               </object>
               <packing>
@@ -151,11 +154,12 @@
             <property name="can_focus">True</property>
             <property name="margin_left">20</property>
             <property name="margin_right">20</property>
-            <property name="margin_top">10</property>
-            <property name="margin_bottom">10</property>
             <property name="visibility">False</property>
             <property name="invisible_char">•</property>
             <property name="input_purpose">password</property>
+            <style>
+              <class name="font-size: 16px;"/>
+            </style>
           </object>
           <packing>
             <property name="expand">False</property>

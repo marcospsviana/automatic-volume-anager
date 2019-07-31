@@ -32,7 +32,8 @@ class Management(object):
         __terminal = str(terminal)
         __nivel = str(nivel)
         __coluna = str(coluna)
-        arm.cad_armario(__classe, __terminal, __coluna, __nivel)
+        result = arm.cad_armario(__classe, __terminal, __coluna, __nivel)
+        return result
 
     def remove_armarios(self, id_armario):
         __id = id_armario

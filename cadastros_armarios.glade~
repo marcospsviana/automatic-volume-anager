@@ -157,7 +157,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <items>
-                  <item translatable="yes">OTHON PALACE HOTEL</item>
+                  <item id="terminal_othon" translatable="yes">OTHON PALACE HOTEL</item>
                 </items>
               </object>
               <packing>

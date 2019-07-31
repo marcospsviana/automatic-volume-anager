@@ -259,10 +259,12 @@ ENGINE=InnoDB
         self.__terminal = terminal
         self.__coluna = coluna
         self.__nivel = nivel
-        self.__c.execute("INSERT INTO tb_armario ( id_armario, classe, local, terminal, estado, coluna, nivel )" +
-                       "VALUES (0,%s,%s,%s, 'LIVRE', %s, %s)", (self.__classe, self.__local, self.__terminal, self.__coluna, self.__nivel))
+        self.__c.execute("INSERT INTO tb_armario ( id_armario, classe, terminal, local, estado, nivel )" +
+                       "VALUES (0,%s,%s,%s, 'LIVRE', %s)", (self.__classe, self.__terminal, self.__coluna, self.__nivel))
+        result = self.__c.fetchone()
         self.__conn.commit()
         self.__conn.close()
+        return (self.__classe, self.__coluna, self.__nivel, self.__terminal, "cadastrado com sucesso")
 
     def resgatar_bagagem(self, senha):
         ''' seleciona a locacao conforme a senha fornecida retornando todos os dados:

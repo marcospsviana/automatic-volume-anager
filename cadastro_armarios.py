@@ -20,6 +20,7 @@ class MainWindowCad():
         self.combo_nivel = builder.get_object("combobox_nivel")
         self.combo_terminal = builder.get_object("combobox_terminal")
         self.btn_cadastrar = builder.get_object("btn_cadastrar_armario")
+        self.lbl_resultado  = builder.get_object("lbl_resultado")
         self.btn_cadastrar.connect("clicked", self.on_btn_cadastrar_armario_button_press_event)
         self.window_cad.show()
 
@@ -35,7 +36,8 @@ class MainWindowCad():
         print(self.classe, self.nivel, self.coluna, self.terminal)
         manager = Management()
         result = manager.cad_armarios( self.classe, self.terminal, self.coluna, self.nivel)
-        self.lbl_resultado.set_text(result)
+        print("reuslt cad armarios", result)
+        self.lbl_resultado.set_text(str(result))
 
 
         
