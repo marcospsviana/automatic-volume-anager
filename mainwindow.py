@@ -22,14 +22,14 @@ class RaspControl(object):
         self.lbl_armario = ''
         self.dia = self.hora = self.minuto = 0.0
         self.alfa = list(string.ascii_lowercase) # alfabeto para gerar o teclado
-        self.num = list(map(lambda x: x, range(10))) # números para o teclado numérico
+        self.num = False
         #folha de estilo das interfaces
         self.gtk_style()
         self.builder = Gtk.Builder()
         self.builder.add_from_file("ui/index.glade")
         self.builder.connect_signals({
         "on_btn_encerrar_clicked": self.on_btn_encerrar_clicked,
-        "on_btn_login_clicked": self.on_btn_login_clicked,
+        #"on_btn_login_clicked": self.on_btn_login_clicked,
         "on_btn_campo_branco_clicked": self.on_btn_campo_branco_clicked,
         "on_btn_A_clicked": self.on_btn_A_clicked,
         "on_btn_B_clicked": self.on_btn_B_clicked,
@@ -51,39 +51,68 @@ class RaspControl(object):
         "on_btn_dialog_confirmar_clicked": self.on_btn_dialog_confirmar_clicked,
         "on_btn_dialog_cancelar_clicked": self.on_btn_dialog_cancelar_clicked,
         "btn_abrir_clicked_cb": self.btn_abrir_clicked_cb,
-        "on_btn_login_clicked": self.on_btn_login_clicked,
-        #"gtk_widget_show": self.on_show_locacao,
+        #"on_btn_login_clicked": self.on_btn_login_clicked,
+        "on_num_button_press_event": self.on_num_button_press_event,
         "on_btn_cancelar_button_press_event": self.on_btn_cancelar_button_press_event,
         "gtk_main_quit": Gtk.main_quit
         })
         
         #adicionando os elementos do teclado =======================
-        for a in self.alfa:
-            self.a = self.builder.get_object("%s"%a)
-            self.a.connect("clicked", self.on_entry_button_press_event)
-        for n in self.num:
-            self.n = self.builder.get_object("%s"%n)
-            self.n.connect("clicked", self.on_entry_button_press_event)
-
-        self.arroba = self.builder.get_object("arroba")
-        self.dot = self.builder.get_object("dot")
-        self.under = self.builder.get_object("under")
-        self.dash = self.builder.get_object("dash")
-        self.dotCom = self.builder.get_object("dotCom")
-        self.gmail = self.builder.get_object("gmail")
-        self.yahoo = self.builder.get_object("yahoo")
-        self.outlook  = self.builder.get_object("outlook")
+        self.a = self.builder.get_object("a")
+        self.a.connect("clicked", self.on_entry_button_press_event)
+        self.b = self.builder.get_object("b")
+        self.b.connect("clicked", self.on_entry_button_press_event)
+        self.c = self.builder.get_object("c")
+        self.c.connect("clicked", self.on_entry_button_press_event)
+        self.d = self.builder.get_object("d")
+        self.d.connect("clicked", self.on_entry_button_press_event)
+        self.e = self.builder.get_object("e")
+        self.e.connect("clicked", self.on_entry_button_press_event)
+        self.f = self.builder.get_object("f")
+        self.f.connect("clicked", self.on_entry_button_press_event)
+        self.g = self.builder.get_object("g")
+        self.g.connect("clicked", self.on_entry_button_press_event)
+        self.h = self.builder.get_object("h")
+        self.h.connect("clicked", self.on_entry_button_press_event)
+        self.i = self.builder.get_object("i")
+        self.i.connect("clicked", self.on_entry_button_press_event)
+        self.j = self.builder.get_object("j")
+        self.j.connect("clicked", self.on_entry_button_press_event)
+        self.k = self.builder.get_object("k")
+        self.k.connect("clicked", self.on_entry_button_press_event)
+        self.l = self.builder.get_object("l")
+        self.l.connect("clicked", self.on_entry_button_press_event)
+        self.m = self.builder.get_object("m")
+        self.m.connect("clicked", self.on_entry_button_press_event)
+        self.n = self.builder.get_object("n")
+        self.n.connect("clicked", self.on_entry_button_press_event)
+        self.o = self.builder.get_object("o")
+        self.o.connect("clicked", self.on_entry_button_press_event)
+        self.p = self.builder.get_object("p")
+        self.p.connect("clicked", self.on_entry_button_press_event)
+        self.q = self.builder.get_object("q")
+        self.q.connect("clicked", self.on_entry_button_press_event)
+        self.r = self.builder.get_object("r")
+        self.r.connect("clicked", self.on_entry_button_press_event)
+        self.s = self.builder.get_object("s")
+        self.s.connect("clicked", self.on_entry_button_press_event)
+        self.t = self.builder.get_object("t")
+        self.t.connect("clicked", self.on_entry_button_press_event)
+        self.u = self.builder.get_object("u")
+        self.u.connect("clicked", self.on_entry_button_press_event)
+        self.v = self.builder.get_object("v")
+        self.v.connect("clicked", self.on_entry_button_press_event)
+        self.w = self.builder.get_object("w")
+        self.w.connect("clicked", self.on_entry_button_press_event)
+        self.x = self.builder.get_object("x")
+        self.x.connect("clicked", self.on_entry_button_press_event)
+        self.y = self.builder.get_object("y")
+        self.y.connect("clicked", self.on_entry_button_press_event)
+        self.z = self.builder.get_object("z")
+        self.z.connect("clicked", self.on_entry_button_press_event)
         self.space = self.builder.get_object("space")
         #========== fim elementos do teclado 
-        #========== elementos teclado login
-        for a in self.alfa:
-            a = a+'1'
-            self.a = self.builder.get_object("%s"%a)
-            self.a.connect("clicked", self.on_entry_button_press_event)
-        for n in self.num:
-            n = n + 10
-            self.n = self.builder.get_object("%s"%n)
-            self.n.connect("clicked", self.on_entry_button_press_event)
+        
         
         #=========== dialog cobranca ===========
         self.btn_cobranca_ok = self.builder.get_object("btn_cobranca_ok")
@@ -103,7 +132,7 @@ class RaspControl(object):
         # ========= dialog confirma ============
         self.dialog = self.builder.get_object("dialogConfirm")
         #===== tela de login =======================
-        #self.window_login = self.builder.get_object("window_login")
+        
         # ============= tela locar e botoes de escolha de armarios
         self.locar = self.builder.get_object("locar_window")
         self.btn_A = self.builder.get_object("btn_A")
@@ -122,7 +151,7 @@ class RaspControl(object):
         self.window.fullscreen()
         
         self.teclado = self.builder.get_object("teclado")
-        self.grid_teclado = self.builder.get_object("grid_teclado1")
+        self.grid_teclado = self.builder.get_object("grid_teclado")
         #elementos janela locacao
         self.locacao = self.builder.get_object("locacao") #janela
         self.btn_cancelar = self.builder.get_object("btn_cancelar")
@@ -156,6 +185,7 @@ class RaspControl(object):
         self.entry_senha = self.builder.get_object("entry_senha")
         self.dialog_cobranca = self.builder.get_object("dialog_cobranca")
         self.lbl_message = self.builder.get_object("lbl_message")
+        self.btn_num = self.builder.get_object("num")
 
         #conectando as entradas aos eventos de teclado
         self.entry_nome.connect('button-press-event', self.on_entry_nome)
@@ -167,18 +197,72 @@ class RaspControl(object):
         
         #conectando os botões aos eventos
         self.btn_delete.connect("clicked", self.on_entry_backspace)
-        self.arroba.connect("clicked", self.on_entry_button_press_event)
-        self.dotCom.connect("clicked", self.on_entry_button_press_event)
-        self.dot.connect("clicked", self.on_entry_button_press_event)
-        self.dash.connect("clicked", self.on_entry_button_press_event)
-        self.under.connect("clicked", self.on_entry_button_press_event)
-        self.yahoo.connect("clicked", self.on_entry_button_press_event)
-        self.gmail.connect("clicked", self.on_entry_button_press_event)
-        self.outlook.connect("clicked", self.on_entry_button_press_event)
+        
         self.space.connect("clicked", self.on_space_clicked)
         #self.btn_campo_branco.connect("clicked", self.on_btn_campo_clicked)
         # ==== exibe janela principal com todos os elementos =================
         self.window.show()
+    
+    def on_num_button_press_event(self, widget, event):
+        if self.num == False:
+            self.num = True
+            self.a.set_label('a')
+            self.b.set_label('b')
+            self.c.set_label('c')
+            self.d.set_label('d')
+            self.e.set_label('e')
+            self.f.set_label('f')
+            self.g.set_label('g')
+            self.h.set_label('h')
+            self.i.set_label('i')
+            self.j.set_label('j')
+            self.k.set_label('k')
+            self.l.set_label('l')
+            self.m.set_label('m')
+            self.n.set_label('n')
+            self.o.set_label('o')
+            self.p.set_label('p')
+            self.q.set_label('q')
+            self.r.set_label('r')
+            self.s.set_visible(True)
+            self.t.set_visible(True)
+            self.u.set_visible(True)
+            self.v.set_visible(True)
+            self.w.set_visible(True)
+            self.x.set_visible(True)
+            self.y.set_visible(True)
+            self.z.set_visible(True)
+            
+            self.btn_num.set_label('123..')
+        else:
+            self.num = False
+            self.a.set_label('0')
+            self.b.set_label('1')
+            self.c.set_label('2')
+            self.d.set_label('3')
+            self.e.set_label('4')
+            self.f.set_label('5')
+            self.g.set_label('6')
+            self.h.set_label('7')
+            self.i.set_label('8')
+            self.j.set_label('9')
+            self.k.set_label('@')
+            self.l.set_label('_')
+            self.m.set_label('-')
+            self.n.set_label('.')
+            self.o.set_label('.com')
+            self.p.set_label('@gmail')
+            self.q.set_label('@outlook')
+            self.r.set_label('@yahoo')
+            self.s.set_visible(False)
+            self.t.set_visible(False)
+            self.u.set_visible(False)
+            self.v.set_visible(False)
+            self.w.set_visible(False)
+            self.x.set_visible(False)
+            self.y.set_visible(False)
+            self.z.set_visible(False)
+            self.btn_num.set_label('abc..')
     
     def on_btn_encerrar_clicked(self, event):
         Encerrar()
@@ -189,26 +273,7 @@ class RaspControl(object):
         self.dialog_cobranca.hide()
         self.entry_nome_login.set_text('')
         self.entry_senha.set_text('')
-        #self.window_login.hide()
-    def on_btn_login_clicked(self, event):
-        self.message = ''
-        nome = self.entry_nome_login.get_text()
-        senha = self.entry_senha.get_text()
-        result = self.manager.abre_armario(senha, nome)
-        print('result login', result)
-        if result == 'armario liberado':
-            self.window_login.hide()
-            self.entry_nome.set_text('')
-            self.entry_senha.set_text('')
-            print('abrir')
-        else:
-            self.window_login.hide()
-
-            print('ok fechou')
-            self.message = str(result)
-            self.lbl_message.set_text(self.message)
-            self.dialog_cobranca.show()
-            result = ''
+        
 
     def on_btn_campo_branco_clicked(self, widget):
         self.dialog_campo_em_branco.hide()
@@ -569,7 +634,7 @@ class RaspControl(object):
 
     def gtk_widget_destroy(self, widget):
         self.locar.hide()
-        self.window_login(self.builder, None)
+        #self.window_login(self.builder, None)
        
     
     def btn_locar_clicked_cb(self, widget):

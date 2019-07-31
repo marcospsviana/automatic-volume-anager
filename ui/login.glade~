@@ -71,7 +71,6 @@
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
     <property name="destroy_with_parent">True</property>
-    <property name="decorated">False</property>
     <property name="gravity">center</property>
     <signal name="destroy" handler="on_window_login_destroy" swapped="no"/>
     <child>

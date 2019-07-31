@@ -37,9 +37,6 @@ class Encerrar(object):
         #adicionando os elementos do teclado =======================
         #for a in self.alfa:
         self.a = builder.get_object("a")
-        #pangoFont = pangocffi.FontDescription("Tahoma 5.4")
-        #a.modify_font(pangoFont)
-        #self.a.get_child().Gtk.Label.set_markup("<style: font-family:monospace; font-size: 30>%s</style>"%(self.a))
         self.a.connect("clicked", self.on_entry_button_press_event)
         self.b = builder.get_object("b")
         self.b.connect("clicked", self.on_entry_button_press_event)
@@ -237,8 +234,7 @@ class Encerrar(object):
 
 
     def on_entry_button_press_event(self, widget):
-        self.widget = widget
-        self.value =  self.widget.get_label()
+        self.value = widget.get_label()
         
         if self.entrada == '7':
             
@@ -287,6 +283,7 @@ class Encerrar(object):
         #lbl_time { font-size: 52px }       
         #label_telefone { color: #fff }
         #label_senha { color: #fff }
+        #entry { font-size: 32px}
         """
         style_provider = Gtk.CssProvider()
         style_provider.load_from_data(css)
