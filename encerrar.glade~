@@ -63,8 +63,8 @@
     <property name="name">window</property>
     <property name="can_focus">False</property>
     <property name="window_position">center-always</property>
-    <property name="default_width">400</property>
-    <property name="default_height">800</property>
+    <property name="default_width">600</property>
+    <property name="default_height">1024</property>
     <property name="gravity">center</property>
     <signal name="destroy" handler="on_window_login_encerrar_destroy" swapped="no"/>
     <child>
@@ -84,7 +84,7 @@
             <property name="column_spacing">6</property>
             <child>
               <object class="GtkLabel" id="lbl_titulo_email_telefone">
-                <property name="name">label</property>
+                <property name="name">label_telefone</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_top">10</property>
@@ -129,7 +129,7 @@
             <property name="column_spacing">6</property>
             <child>
               <object class="GtkLabel" id="lbl_titulo_senha">
-                <property name="name">label</property>
+                <property name="name">label_senha</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_top">10</property>

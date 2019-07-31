@@ -126,9 +126,8 @@ class Encerrar(object):
         self.gmail.connect("clicked", self.on_entry_button_press_event)
         self.outlook.connect("clicked", self.on_entry_button_press_event)'''
         #self.btn_login.connect("clicked", self.on_btn_login_clicked)
-        
-        
 
+        self.window_login_encerrar.fullscreen()
         self.window_login_encerrar.show()
     def on_num_button_press_event(self, widget, event):
         if self.num == False:
