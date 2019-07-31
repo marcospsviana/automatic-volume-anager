@@ -26,7 +26,7 @@ class RaspControl(object):
         #folha de estilo das interfaces
         self.gtk_style()
         self.builder = Gtk.Builder()
-        self.builder.add_from_file("index.glade")
+        self.builder.add_from_file("ui/index.glade")
         self.builder.connect_signals({
         "on_btn_encerrar_clicked": self.on_btn_encerrar_clicked,
         "on_btn_login_clicked": self.on_btn_login_clicked,

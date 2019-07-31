@@ -14,7 +14,7 @@ class Encerrar(object):
         self.gtk_style()
         self.num = False
         builder = Gtk.Builder()
-        builder.add_from_file("encerrar.glade")
+        builder.add_from_file("ui/encerrar.glade")
         self.alfa = list(string.ascii_lowercase) # alfabeto para gerar o teclado
         self.num = list(map(lambda x: x, range(10))) # números para o teclado numérico
         builder.connect_signals(

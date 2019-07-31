@@ -6,7 +6,7 @@ from controllers import Management
 class MainWindowCad():
     def __init__(self, *args, **kwargs):
         builder = Gtk.Builder()
-        builder.add_from_file("cadastros_armarios.glade")
+        builder.add_from_file("ui/cadastros_armarios.glade")
         builder.connect_signals(
             {
                 "gtk_main_quit": Gtk.main_quit,

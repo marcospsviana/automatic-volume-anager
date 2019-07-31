@@ -663,7 +663,7 @@ ou cancelar para sair.</property>
     <property name="can_focus">False</property>
     <property name="hexpand">True</property>
     <property name="vexpand">True</property>
-    <property name="pixbuf">static/images/brasilpq.svg</property>
+    <property name="pixbuf">../static/images/brasilpq.svg</property>
   </object>
   <object class="GtkImage" id="img_btn_armarioB">
     <property name="visible">True</property>
@@ -671,14 +671,14 @@ ou cancelar para sair.</property>
     <property name="margin_left">23</property>
     <property name="margin_right">2</property>
     <property name="margin_top">2</property>
-    <property name="pixbuf">static/images/armario_B.svg</property>
+    <property name="pixbuf">../static/images/armario_B.svg</property>
   </object>
   <object class="GtkImage" id="img_btn_armarioDInf">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="halign">center</property>
     <property name="valign">center</property>
-    <property name="pixbuf">static/images/armario_D.svg</property>
+    <property name="pixbuf">../static/images/armario_D.svg</property>
   </object>
   <object class="GtkImage" id="img_btn_armarioDSup">
     <property name="visible">True</property>
@@ -686,7 +686,7 @@ ou cancelar para sair.</property>
     <property name="halign">center</property>
     <property name="valign">center</property>
     <property name="margin_right">5</property>
-    <property name="pixbuf">static/images/armario_D.svg</property>
+    <property name="pixbuf">../static/images/armario_D.svg</property>
   </object>
   <object class="GtkWindow" id="locar_window">
     <property name="can_focus">False</property>
@@ -867,17 +867,17 @@ ou cancelar para sair.</property>
   <object class="GtkImage" id="img_eng_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">static/images/reinounido.svg</property>
+    <property name="pixbuf">../static/images/reinounido.svg</property>
   </object>
   <object class="GtkImage" id="img_esp_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">static/images/espanha.svg</property>
+    <property name="pixbuf">../static/images/espanha.svg</property>
   </object>
   <object class="GtkImage" id="img_fr_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">static/images/franca.svg</property>
+    <property name="pixbuf">../static/images/franca.svg</property>
   </object>
   <object class="GtkWindow" id="main_window">
     <property name="can_focus">False</property>
@@ -979,7 +979,7 @@ ou cancelar para sair.</property>
               <object class="GtkImage" id="img_touc">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">static/images/hand.svg</property>
+                <property name="pixbuf">../static/images/hand.svg</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>

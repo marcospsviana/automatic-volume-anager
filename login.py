@@ -9,7 +9,7 @@ class Login(Gtk.Window):
     def __init__(self):
     
         builder = Gtk.Builder()
-        builder.add_from_file("login.glade")
+        builder.add_from_file("ui/login.glade")
         self.manager = Management()
         self.value = ''
         self.entrada = ''
