@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import sys, os
 import subprocess
 import gi, gobject
 import numpy as np
@@ -26,7 +27,7 @@ class RaspControl(object):
         #folha de estilo das interfaces
         self.gtk_style()
         self.builder = Gtk.Builder()
-        self.builder.add_from_file("ui/index.glade")
+        self.builder.add_from_file("/ui/index.glade")
         self.builder.connect_signals({
         "on_btn_encerrar_clicked": self.on_btn_encerrar_clicked,
         #"on_btn_login_clicked": self.on_btn_login_clicked,
@@ -705,6 +706,8 @@ class RaspControl(object):
         #entry { font-size: 22px; color: #000000}
         #lbl_time { font-size: 52px }       
         #tecla { font-size: 22px;}
+        #window { background-color: #000; color: #fff;}
+        #entry { font-size: 32px}
         """
         style_provider = Gtk.CssProvider()
         style_provider.load_from_data(css)
