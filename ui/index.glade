@@ -884,7 +884,7 @@ ou cancelar para sair.</property>
     <property name="resizable">False</property>
     <property name="window_position">center</property>
     <property name="default_width">1024</property>
-    <property name="default_height">600</property>
+    <property name="default_height">800</property>
     <property name="decorated">False</property>
     <child>
       <placeholder/>

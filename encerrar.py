@@ -20,7 +20,7 @@ class Encerrar(object):
         builder.connect_signals(
             {
                 "on_window_login_encerrar_destroy": self.on_window_login_encerrar_destroy,
-                "on_ENTER_clicked": self.on_ENTER_clicked,
+                "on_CANCELAR_clicked": self.on_CANCELAR_clicked,
                 "on_entry_nome": self.on_entry_nome,
                 "on_entry_senha": self.on_entry_senha,
                 "on_btn_login_clicked": self.on_btn_login_clicked,
@@ -189,12 +189,8 @@ class Encerrar(object):
             
         
         
-    def on_ENTER_clicked(self, widget):
-        self.window_time.show()
-        j = 10
-        for i in range(0,5):
-            self.lbl_time.set_text(str(j-i))
-            time.sleep(1)
+    def on_CANCELAR_clicked(self, event):
+        self.window_login_encerrar.hide()
             
         
             
