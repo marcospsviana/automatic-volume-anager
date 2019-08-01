@@ -1077,6 +1077,10 @@ ou cancelar para sair.</property>
   <object class="GtkWindow" id="locacao">
     <property name="name">window</property>
     <property name="can_focus">False</property>
+    <property name="halign">center</property>
+    <property name="valign">center</property>
+    <property name="margin_left">10</property>
+    <property name="margin_right">10</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
@@ -1268,7 +1272,6 @@ ou cancelar para sair.</property>
                 <property name="can_focus">False</property>
                 <property name="is_focus">True</property>
                 <property name="double_buffered">False</property>
-                <property name="margin_left">4</property>
                 <property name="placeholder_text" translatable="yes">SOMENTE NÚMEROS</property>
                 <property name="input_purpose">number</property>
                 <signal name="button-press-event" handler="on_entry_dias" swapped="no"/>
