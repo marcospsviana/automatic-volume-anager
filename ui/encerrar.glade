@@ -113,6 +113,7 @@
             <property name="can_focus">True</property>
             <property name="margin_left">20</property>
             <property name="margin_right">20</property>
+            <property name="vexpand">True</property>
             <style>
               <class name="font-size: 16px;"/>
             </style>
@@ -159,6 +160,7 @@
             <property name="can_focus">True</property>
             <property name="margin_left">20</property>
             <property name="margin_right">20</property>
+            <property name="vexpand">True</property>
             <property name="visibility">False</property>
             <property name="invisible_char">•</property>
             <property name="input_purpose">password</property>

@@ -1,5 +1,4 @@
-import gi 
-import pangocffi
+import gi
 import string
 import time
 gi.require_version('Gtk', '3.0')
@@ -114,14 +113,7 @@ class Encerrar(object):
         #========== fim elementos do teclado =====================
         #conectando os botões aos eventos ========================
         self.btn_delete.connect("clicked", self.on_entry_backspace)
-        '''self.arroba.connect("clicked", self.on_entry_button_press_event)
-        self.dotCom.connect("clicked", self.on_entry_button_press_event)
-        self.dot.connect("clicked", self.on_entry_button_press_event)
-        self.dash.connect("clicked", self.on_entry_button_press_event)
-        self.under.connect("clicked", self.on_entry_button_press_event)
-        self.yahoo.connect("clicked", self.on_entry_button_press_event)
-        self.gmail.connect("clicked", self.on_entry_button_press_event)
-        self.outlook.connect("clicked", self.on_entry_button_press_event)'''
+        
         #self.btn_login.connect("clicked", self.on_btn_login_clicked)
 
         self.window_login_encerrar.fullscreen()

@@ -1,21 +1,51 @@
 #include <Servo.h>
 
-#define servo0 A0
-#define servo1 A1
-#define servo2 A2
-#define servo3 A3
-#define servo4 A4
-#define servo5 0
-#define servo6 1
-#define servo7 2
-#define servo8 3
-#define servo9 4
-#define servo10 5
-#define servo11 6
+Servo servo;
+Servo servo1;
+Servo servo2;
+Servo servo3;
+Servo servo4;
+Servo servo5;
+Servo servo6;
+Servo servo7;
+Servo servo8;
+Servo servo9;
+Servo servo10;
+Servo servo11;
 
-Servo servoOut;
+int pos = 0;
 
 void setup(){
     Serial.begin(9600);
-    pinMode(servoOut, OUTPUT);
+    servo.atach(A0);
+    servo1.atach(A1);
+    servo2.atach(A2);
+    servo3.atach(A3);
+    servo4.atach(A4);
+    servo5.atach(0);
+    servo6.atach(1);
+    servo7.atach(2);
+    servo8.atach(3);
+    servo9.atach(4);
+    servo10.atach(5);
+    servo11.atach(6);
+
+}
+void controle(comando, servoport){
+if (comando == 'abrir'){
+    for(pos = 0; pos <= 180; pos += 1;){
+        servoport.write(pos);
+        delay(15);
+    }
+else if (commando == "fechar"){
+    for(pos = 0; pos >= 0; pos -= 1;){
+        servoport.write(pos);
+        delay(15);
+    }
+}
+
+}
+}
+void loop(){
+
 }
