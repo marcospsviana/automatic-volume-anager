@@ -1077,12 +1077,12 @@ ou cancelar para sair.</property>
     <property name="name">window</property>
     <property name="can_focus">False</property>
     <property name="receives_default">True</property>
-    <property name="halign">start</property>
-    <property name="valign">start</property>
+    <property name="halign">center</property>
+    <property name="valign">center</property>
     <property name="resizable">False</property>
     <property name="window_position">center-always</property>
     <property name="default_width">800</property>
-    <property name="default_height">600</property>
+    <property name="default_height">468</property>
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
