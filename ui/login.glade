@@ -69,7 +69,7 @@
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
-    <property name="default_height">600</property>
+    <property name="default_height">768</property>
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
