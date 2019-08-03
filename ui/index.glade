@@ -1080,7 +1080,7 @@ ou cancelar para sair.</property>
     <property name="valign">start</property>
     <property name="resizable">False</property>
     <property name="window_position">center</property>
-    <property name="default_width">800</property>
+    <property name="default_width">1024</property>
     <property name="default_height">600</property>
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
@@ -1092,10 +1092,12 @@ ou cancelar para sair.</property>
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="halign">center</property>
         <property name="margin_left">10</property>
         <property name="margin_right">10</property>
         <property name="margin_top">10</property>
         <property name="margin_bottom">10</property>
+        <property name="resize_mode">queue</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
