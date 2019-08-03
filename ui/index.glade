@@ -1077,11 +1077,8 @@ ou cancelar para sair.</property>
     <property name="name">window</property>
     <property name="can_focus">False</property>
     <property name="halign">start</property>
-    <property name="valign">start</property>
     <property name="resizable">False</property>
     <property name="window_position">center</property>
-    <property name="default_width">1024</property>
-    <property name="default_height">600</property>
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <signal name="destroy" handler="gtk_widget_destroy" object="btn_proximo" swapped="no"/>
@@ -1092,7 +1089,7 @@ ou cancelar para sair.</property>
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="halign">center</property>
+        <property name="halign">start</property>
         <property name="margin_left">10</property>
         <property name="margin_right">10</property>
         <property name="margin_top">10</property>
@@ -1104,6 +1101,7 @@ ou cancelar para sair.</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="has_focus">True</property>
+            <property name="halign">center</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
@@ -1159,6 +1157,7 @@ ou cancelar para sair.</property>
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">center</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
@@ -1207,6 +1206,7 @@ ou cancelar para sair.</property>
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="valign">center</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
@@ -1254,6 +1254,7 @@ ou cancelar para sair.</property>
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">center</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
@@ -1361,6 +1362,7 @@ ou cancelar para sair.</property>
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">center</property>
             <property name="margin_top">20</property>
             <property name="margin_bottom">20</property>
             <child>
