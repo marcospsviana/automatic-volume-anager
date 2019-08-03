@@ -1078,9 +1078,10 @@ ou cancelar para sair.</property>
     <property name="can_focus">False</property>
     <property name="halign">start</property>
     <property name="valign">start</property>
+    <property name="resizable">False</property>
     <property name="window_position">center</property>
-    <property name="default_width">960</property>
-    <property name="default_height">768</property>
+    <property name="default_width">800</property>
+    <property name="default_height">600</property>
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <signal name="destroy" handler="gtk_widget_destroy" object="btn_proximo" swapped="no"/>
