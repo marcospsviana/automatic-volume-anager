@@ -1082,12 +1082,11 @@ ou cancelar para sair.</property>
     <property name="margin_bottom">5</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>
-    <property name="window_position">center-always</property>
+    <property name="window_position">center</property>
     <property name="default_width">1024</property>
     <property name="default_height">800</property>
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
-    <property name="gravity">center</property>
     <signal name="destroy" handler="gtk_widget_destroy" object="btn_proximo" swapped="no"/>
     <child>
       <placeholder/>
