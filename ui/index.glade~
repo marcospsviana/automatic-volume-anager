@@ -1076,9 +1076,10 @@ ou cancelar para sair.</property>
   <object class="GtkWindow" id="locacao">
     <property name="name">window</property>
     <property name="can_focus">False</property>
-    <property name="margin_left">10</property>
-    <property name="margin_right">10</property>
-    <property name="margin_bottom">5</property>
+    <property name="halign">start</property>
+    <property name="valign">start</property>
+    <property name="margin_right">44</property>
+    <property name="margin_bottom">16</property>
     <property name="resizable">False</property>
     <property name="window_position">center</property>
     <property name="default_width">1024</property>
