@@ -693,6 +693,7 @@ class RaspControl(object):
     
     def gtk_style(self):
         css = b"""
+        
         @import url("static/css/gtk.css");
         """
         style_provider = Gtk.CssProvider()

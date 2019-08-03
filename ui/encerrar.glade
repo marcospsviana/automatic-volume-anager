@@ -207,7 +207,7 @@
             <child>
               <object class="GtkButton" id="CANCELAR">
                 <property name="label" translatable="yes">CANCELAR</property>
-                <property name="name">btn_space</property>
+                <property name="name">btn_cancelar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
@@ -502,7 +502,7 @@
             <child>
               <object class="GtkButton" id="DELETE">
                 <property name="label" translatable="yes">DELETE</property>
-                <property name="name">tecla</property>
+                <property name="name">btn_delete</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -515,7 +515,7 @@
             <child>
               <object class="GtkButton" id="confirma">
                 <property name="label" translatable="yes">Confirma</property>
-                <property name="name">tecla</property>
+                <property name="name">btn_confirmar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>

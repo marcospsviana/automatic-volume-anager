@@ -1,4 +1,35 @@
-button, entry {
-	font: 27px "Noto Sans";
-	color: #39373A;
+*{
+	font: 32px "Noto Sans";
+}
+button{
+	font: 27px "arial";
+	color: rgb(9, 19, 41);
+	border-radius: 10px;
+}
+entry{
+	
+	border-radius: 5px;
+}
+dialog{
+	background-color: darkcyan
+}
+
+#btn_confirmar{
+	background-color: blue;
+	color: #d6e6ee
+}
+#btn_num{ background-color: red; font-size: 22px}
+
+#btn_proximo { background-color: #008cc3; color: #fff }
+#btn_cancelar {  background-color: red; color: #fff }
+
+#window { background-color: darkcyan}
+#lbl_time { font-size: 52px }       
+#label_telefone { color: #fff;}
+#label_nome { color: #fff;}
+#label_senha { color: #fff }
+#entry { font-size: 32px}
+#btn_delete{
+	background-color: darkorange;
+	color: #fff;
 }

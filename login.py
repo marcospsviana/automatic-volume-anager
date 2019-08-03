@@ -7,7 +7,7 @@ from controllers import Management
 
 class Login(Gtk.Window):
     def __init__(self):
-        self.gtk_style()    
+        #self.gtk_style()    
         builder = Gtk.Builder()
         builder.add_from_file("ui/login.glade")
         self.manager = Management()
@@ -262,7 +262,7 @@ class Login(Gtk.Window):
     def on_window_login_destroy(self, widget):
         self.window_login.close()
 
-    def gtk_style(self):
+    '''def gtk_style(self):
         css = b"""
         *{ font-size: 27px;}        
         #grid_teclado { font-size: 15px}
@@ -280,7 +280,7 @@ class Login(Gtk.Window):
             Gdk.Screen.get_default(),
             style_provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-        )
+        )'''
 
 if __name__ == "__main__":
     Login()

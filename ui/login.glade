@@ -91,7 +91,7 @@
             <property name="column_spacing">6</property>
             <child>
               <object class="GtkLabel" id="lbl_titulo_email_telefone">
-                <property name="name">label</property>
+                <property name="name">label_nome</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_left">15</property>
@@ -139,7 +139,7 @@
             <property name="column_spacing">6</property>
             <child>
               <object class="GtkLabel" id="lbl_titulo_senha">
-                <property name="name">label</property>
+                <property name="name">label_nome</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_left">15</property>
@@ -213,7 +213,7 @@
             <child>
               <object class="GtkButton" id="cancela">
                 <property name="label" translatable="yes">CANCELAR</property>
-                <property name="name">btn_space</property>
+                <property name="name">btn_cancelar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
@@ -508,7 +508,7 @@
             <child>
               <object class="GtkButton" id="DELETE">
                 <property name="label" translatable="yes">DELETE</property>
-                <property name="name">tecla</property>
+                <property name="name">btn_delete</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -521,7 +521,7 @@
             <child>
               <object class="GtkButton" id="btn_login">
                 <property name="label" translatable="yes">CONFIRMA</property>
-                <property name="name">tecla</property>
+                <property name="name">btn_confirmar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>

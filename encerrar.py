@@ -10,7 +10,7 @@ class Encerrar(object):
         self.manager = Management()
         self.value = ''
         self.entrada = ''
-        self.gtk_style()
+        #self.gtk_style()
         self.num = False
         builder = Gtk.Builder()
         builder.add_from_file("ui/encerrar.glade")
@@ -87,18 +87,7 @@ class Encerrar(object):
         self.y.connect("clicked", self.on_entry_button_press_event)
         self.z = builder.get_object("z")
         self.z.connect("clicked", self.on_entry_button_press_event)
-        '''for n in self.num:
-            self.n = builder.get_object("%s"%n)
-            self.n.connect("clicked", self.on_entry_button_press_event)
-
-        self.arroba = builder.get_object("arroba")
-        self.dot = builder.get_object("dot")
-        self.under = builder.get_object("under")
-        self.dash = builder.get_object("dash")
-        self.dotCom = builder.get_object("dotCom")
-        self.gmail = builder.get_object("gmail")
-        self.yahoo = builder.get_object("yahoo")
-        self.outlook  = builder.get_object("outlook")'''
+       
         self.space = builder.get_object("space")
         self.btn_delete = builder.get_object("DELETE")
         self.btn_login = builder.get_object("btn_login")
@@ -259,7 +248,7 @@ class Encerrar(object):
     def on_window_login_encerrar_destroy(self, widget):
         self.window_login_encerrar.close()
     
-    def gtk_style(self):
+    '''def gtk_style(self):
         css = b"""
         *{ font-size: 27px;}        
         #btn_num{ background-color: red; font-size: 22px}
@@ -279,7 +268,7 @@ class Encerrar(object):
             Gdk.Screen.get_default(),
             style_provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-        )
+        )'''
 
 if __name__ == "__main__":
     Encerrar()

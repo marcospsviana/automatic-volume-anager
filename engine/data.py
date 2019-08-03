@@ -23,6 +23,7 @@ class Banco(object):
 	                    `classe` TINYTEXT NOT NULL DEFAULT '',
 	                    `local` TINYTEXT NOT NULL DEFAULT '',
 	                    `terminal` VARCHAR(50) NOT NULL DEFAULT '',
+                        `nivel` TINYTEXT NOT NULL DEFAULT '',
                         `estado` TEXT(7),
 	                    PRIMARY KEY (`id_armario`))ENGINE=InnoDB;'''
                        )

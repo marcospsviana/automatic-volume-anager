@@ -113,6 +113,7 @@
             <property name="can_focus">True</property>
             <property name="margin_left">20</property>
             <property name="margin_right">20</property>
+            <property name="vexpand">True</property>
             <style>
               <class name="font-size: 16px;"/>
             </style>
@@ -159,6 +160,7 @@
             <property name="can_focus">True</property>
             <property name="margin_left">20</property>
             <property name="margin_right">20</property>
+            <property name="vexpand">True</property>
             <property name="visibility">False</property>
             <property name="invisible_char">•</property>
             <property name="input_purpose">password</property>
@@ -205,7 +207,7 @@
             <child>
               <object class="GtkButton" id="CANCELAR">
                 <property name="label" translatable="yes">CANCELAR</property>
-                <property name="name">btn_space</property>
+                <property name="name">btn_cancelar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
@@ -500,7 +502,7 @@
             <child>
               <object class="GtkButton" id="DELETE">
                 <property name="label" translatable="yes">DELETE</property>
-                <property name="name">tecla</property>
+                <property name="name">btn_delete</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
