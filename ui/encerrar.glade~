@@ -64,7 +64,7 @@
     <property name="can_focus">False</property>
     <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
-    <property name="default_height">800</property>
+    <property name="default_height">600</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
     <signal name="destroy" handler="on_window_login_encerrar_destroy" swapped="no"/>
@@ -75,6 +75,7 @@
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="vexpand">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">4</property>
         <child>
@@ -114,9 +115,6 @@
             <property name="margin_left">20</property>
             <property name="margin_right">20</property>
             <property name="vexpand">True</property>
-            <style>
-              <class name="font-size: 16px;"/>
-            </style>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -515,7 +513,7 @@
             <child>
               <object class="GtkButton" id="confirma">
                 <property name="label" translatable="yes">Confirma</property>
-                <property name="name">tecla</property>
+                <property name="name">btn_confirmar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
