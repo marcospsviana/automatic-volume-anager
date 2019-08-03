@@ -8,6 +8,7 @@ from controllers import Management
 class Login(Gtk.Window):
     def __init__(self):
         #self.gtk_style()    
+        self.screen = Gdk.Screen.get_default()
         builder = Gtk.Builder()
         builder.add_from_file("ui/login.glade")
         self.manager = Management()
@@ -112,7 +113,7 @@ class Login(Gtk.Window):
         self.btn_delete.connect("clicked", self.on_entry_backspace)
         #conectando os botões aos eventos ========================
         self.btn_delete.connect("clicked", self.on_entry_backspace)
-        #self.window_login.fullscreen()
+        self.window_login.set_resolution()
         self.window_login.show()
     
     def on_cancela_clicked(self, event):
