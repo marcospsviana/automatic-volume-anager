@@ -8,6 +8,7 @@ from gi.repository import Gtk, Gdk
 from controllers import Management
 from login import Login
 from encerrar import Encerrar
+from locacao import Locacao
 
 
 class RaspControl(object):
@@ -125,7 +126,8 @@ class RaspControl(object):
         self.lbl_b = self.builder.get_object('lbl_b')
         self.lbl_c = self.builder.get_object('lbl_c')
         self.lbl_d = self.builder.get_object('lbl_d')
-        self.btn_escolha_cancela = self.builder.get_object('btn_escolha_cancela')
+        self.label_message_escolha = self.builder.get_object("label_message_escolha")
+        #self.btn_escolha_cancela = self.builder.get_object('btn_escolha_cancela')
         self.btn_escolha_ok = self.builder.get_object('btn_escolha_ok')
         self.btn_escolha_ok.connect("clicked", self.on_btn_escolha_ok_destroy)
 
@@ -135,6 +137,7 @@ class RaspControl(object):
         
         # ============= tela locar e botoes de escolha de armarios
         self.locar = self.builder.get_object("locar_window")
+        self.locar.fullscreen()
         self.btn_A = self.builder.get_object("btn_A")
         self.btn_B = self.builder.get_object("btn_B")
         self.btn_C = self.builder.get_object("btn_C")
@@ -154,6 +157,7 @@ class RaspControl(object):
         self.grid_teclado = self.builder.get_object("grid_teclado")
         #elementos janela locacao
         self.locacao = self.builder.get_object("locacao") #janela
+        self.locacao.fullscreen()
         self.btn_cancelar = self.builder.get_object("btn_cancelar")
         self.btn_proximo = self.builder.get_object("btn_proximo")
         ## adicionando os elementos do form locacao com cadastro
@@ -638,8 +642,9 @@ class RaspControl(object):
        
     
     def btn_locar_clicked_cb(self, widget):
+        #Locacao().locar_window
 
-        #self.locar.fullscreen()
+        
         self.locar.show()
     # ====== janela locacao =======
     def on_show_locacao(self, widget):

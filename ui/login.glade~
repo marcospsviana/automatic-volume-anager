@@ -66,11 +66,11 @@
     <property name="name">window</property>
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="modal">True</property>
+    <property name="halign">center</property>
+    <property name="valign">center</property>
     <property name="window_position">center-always</property>
-    <property name="default_width">960</property>
-    <property name="default_height">768</property>
-    <property name="destroy_with_parent">True</property>
+    <property name="default_width">1024</property>
+    <property name="default_height">600</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
     <signal name="destroy" handler="on_window_login_destroy" swapped="no"/>
@@ -81,6 +81,8 @@
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="hexpand">True</property>
+        <property name="vexpand">True</property>
         <property name="orientation">vertical</property>
         <property name="spacing">4</property>
         <child>

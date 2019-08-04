@@ -1,6 +1,6 @@
-*{
+/*{
 	font: 32px "Noto Sans";
-}
+}*/
 button{
 	font: 27px "arial";
 	color: rgb(9, 19, 41);
@@ -11,7 +11,8 @@ entry{
 	border-radius: 5px;
 }
 dialog{
-	background-color: darkcyan
+	background-color: darkcyan;
+	font: 32px "Noto Sans";
 }
 
 #btn_confirmar{
@@ -23,7 +24,14 @@ dialog{
 #btn_proximo { background-color: #008cc3; color: #fff }
 #btn_cancelar {  background-color: red; color: #fff }
 
-#window { background-color: darkcyan}
+#window { background-color: darkcyan;
+	font: 32px "Noto Sans";
+}
+#window_locacao { 
+	background-color: darkcyan;
+	font: 22px "Noto Sans";
+}
+
 #lbl_time { font-size: 52px }       
 #label_telefone { color: #fff;}
 #label_nome { color: #fff;}
