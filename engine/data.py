@@ -8,6 +8,7 @@ import time
 import random
 import string
 from random import choice, sample
+from io import Io
 
 
 class Banco(object):
@@ -19,13 +20,15 @@ class Banco(object):
         self.__c = self.__conn.cursor(buffered=True)
 
         self.__c.execute('''CREATE TABLE IF NOT EXISTS `tb_armario` (
-	                    `id_armario` INT(30) AUTO_INCREMENT,
-	                    `classe` TINYTEXT NOT NULL DEFAULT '',
-	                    `local` TINYTEXT NOT NULL DEFAULT '',
-	                    `terminal` VARCHAR(50) NOT NULL DEFAULT '',
-                        `nivel` TINYTEXT NOT NULL DEFAULT '',
-                        `estado` TEXT(7),
-	                    PRIMARY KEY (`id_armario`))ENGINE=InnoDB;'''
+        `id_armario` int(30) NOT NULL AUTO_INCREMENT,
+        `classe` tinytext COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+        `local` tinytext COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+        `terminal` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+        `estado` tinytext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+        `nivel` tinytext COLLATE utf8mb4_unicode_ci DEFAULT '',
+        `porta` tinytext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+        PRIMARY KEY (`id_armario`)
+        ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;'''
                        )
         self.__c.execute(''' CREATE TABLE IF NOT EXISTS `tb_usuario` (
 	`id_usuario` INT(10)  AUTO_INCREMENT,
@@ -78,7 +81,7 @@ ENGINE=InnoDB
         self.__conn.close()
 
     def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario):
-
+        self.io = Io()
         self.__dia = int(dia)
         self.__hora = int(hora)
         self.__minuto = int(minuto)
@@ -110,12 +113,15 @@ ENGINE=InnoDB
         loca_armario = self.localisa_armario(self.__armario)
         print('======= loca ramario =====')
         print(loca_armario)
-        self.__c.execute("SET FOREIGN_KEY_CHECKS = 0;")
+        #self.__c.execute("SET FOREIGN_KEY_CHECKS = 0;")
         # se houver armário livre segue com cadastro de locação
         if (loca_armario != []) or (loca_armario != None):
             self.__senha = self.__get_passwd()
             print("==== id_armario, id_usuario ======")
             print(loca_armario[0], self.dados_locatario[0])
+            port = self.select_port(loca_armario[0])
+            self.io.exec_port(port, "abrir")
+            
 
             self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(null, '%s','%s',null,'%s',%s,%s)"% (self.__data_locacao, self.__data_limite, self.__senha, loca_armario[0][0], self.dados_locatario[0][0]))
             self.__conn.commit()
@@ -125,6 +131,12 @@ ENGINE=InnoDB
             return "locacao concluida com sucesso"
         else:
             return loca_armario
+    def select_port(self, armario):
+        __armario = armario
+        self.__c.execute("SELECT porta FROM coolbag.tb_armario where classe= '%s'"%(__armario))
+        self.retorno_porta = self.__c.fetchall()
+        return self.retorno_porta
+
 
     def localisa_armario(self, classe):
 

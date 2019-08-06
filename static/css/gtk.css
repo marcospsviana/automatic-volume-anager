@@ -2,7 +2,7 @@
 	font: 32px "Noto Sans";
 }*/
 button{
-	font: 27px "arial";
+	font: 32px "arial";
 	color: rgb(9, 19, 41);
 	border-radius: 10px;
 }
@@ -40,4 +40,9 @@ dialog{
 #btn_delete{
 	background-color: darkorange;
 	color: #fff;
+}
+#teclaa{
+	font: 42px "arial";
+	color: rgb(9, 19, 41);
+	border-radius: 10px;
 }

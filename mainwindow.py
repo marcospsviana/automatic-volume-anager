@@ -8,7 +8,7 @@ from gi.repository import Gtk, Gdk
 from controllers import Management
 from login import Login
 from encerrar import Encerrar
-from locacao import Locacao
+#from locacao import Locacao
 
 
 class RaspControl(object):
