@@ -25,7 +25,7 @@ dialog{
 #btn_cancelar {  background-color: red; color: #fff }
 
 #window { background-color: darkcyan;
-	font: 32px "Noto Sans";
+	/*font: 32px "Noto Sans";*/
 }
 #window_locacao { 
 	background-color: darkcyan;
