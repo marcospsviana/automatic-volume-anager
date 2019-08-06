@@ -3,7 +3,7 @@ import time
 import serial
 
 
-class Io(object):
+class Ports(object):
     def __init__(self):
         PORT_A0 = "servo_A0"
         PORT_A1 = "servo_A1"
@@ -75,7 +75,7 @@ GPIO.setup(12, GPIO.IN)
 
 
 if __name__ == "__main__":
-    Io()
+    Ports()
 
 
 '''class Io(object):

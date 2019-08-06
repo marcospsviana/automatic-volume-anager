@@ -8,7 +8,7 @@ import time
 import random
 import string
 from random import choice, sample
-from io import Io
+from io import Ports
 
 
 class Banco(object):
@@ -81,7 +81,7 @@ ENGINE=InnoDB
         self.__conn.close()
 
     def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario):
-        self.io = Io()
+        self.port = Ports()
         self.__dia = int(dia)
         self.__hora = int(hora)
         self.__minuto = int(minuto)
@@ -120,7 +120,7 @@ ENGINE=InnoDB
             print("==== id_armario, id_usuario ======")
             print(loca_armario[0], self.dados_locatario[0])
             port = self.select_port(loca_armario[0])
-            self.io.exec_port(port, "abrir")
+            self.port.exec_port(port, "abrir")
             
 
             self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(null, '%s','%s',null,'%s',%s,%s)"% (self.__data_locacao, self.__data_limite, self.__senha, loca_armario[0][0], self.dados_locatario[0][0]))
