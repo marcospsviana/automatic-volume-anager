@@ -2,12 +2,12 @@
 	font: 32px "Noto Sans";
 }*/
 button{
-	font: 27px "arial";
+	/*font: 27px "arial";*/
 	color: rgb(9, 19, 41);
 	border-radius: 10px;
 }
 entry{
-	
+	font: 27px "Noto Sans";
 	border-radius: 5px;
 }
 dialog{
@@ -36,13 +36,7 @@ dialog{
 #label_telefone { color: #fff;}
 #label_nome { color: #fff;}
 #label_senha { color: #fff }
-#entry { font-size: 32px}
 #btn_delete{
 	background-color: darkorange;
 	color: #fff;
-}
-#teclaa{
-	font: 42px "arial";
-	color: rgb(9, 19, 41);
-	border-radius: 10px;
 }

@@ -1843,16 +1843,13 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
             <child>
               <object class="GtkButton" id="a">
                 <property name="label" translatable="yes">a</property>
-                <property name="name">teclaa</property>
+                <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
                 <property name="valign">center</property>
                 <property name="vexpand">False</property>
-                <style>
-                  <class name="font-size: 32px;"/>
-                </style>
               </object>
               <packing>
                 <property name="left_attach">0</property>
