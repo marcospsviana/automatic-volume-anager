@@ -8,7 +8,7 @@ import time
 import random
 import string
 from random import choice, sample
-from .io import Ports
+#from .io import Ports
 
 
 class Banco(object):
@@ -148,13 +148,13 @@ ENGINE=InnoDB
             "SELECT id_armario  from tb_armario where classe = '%s' and ESTADO = 'LIVRE' ORDER BY id_armario" % (self.__classe,))
         result = self.__c.fetchall()
         print('-----------localisa-------')
-        print(result)
+        print(result[0])
         print('-----fimlocalisa----')
         if (result == []) or (result == None) or (result == 0):
             return "nao ha armario disponivel"
 
         else:
-            return(result)
+            return(result[0])
 
         
 
