@@ -67,9 +67,14 @@ class Ports(object):
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(12, GPIO.IN)
 
-    def exec_port(port, command):
-        __exec = port + command
+        
+    def exec_port(self, port, command):
+        self.port = str(port)
+        self.command =str(command)
+        __exec = self.port + self.command
         ser.write(str(__exec))
+        time.sleep(10000)
+        ser.write(self.port + "fechar")
 
 
 if __name__ == "__main__":

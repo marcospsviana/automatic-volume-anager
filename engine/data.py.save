@@ -8,7 +8,7 @@ import time
 import random
 import string
 from random import choice, sample
-from .io import Ports
+#from .io import Ports
 
 
 class Banco(object):
@@ -120,8 +120,7 @@ ENGINE=InnoDB
             print("==== id_armario, id_usuario ======")
             print(loca_armario[0], self.dados_locatario[0])
             port = self.select_port(loca_armario[0])
-            print(port)
-            self.port.exec_port(str(port[0]), "abrir")
+            self.port.exec_port(port, "abrir")
             
 
             self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(null, '%s','%s',null,'%s',%s,%s)"% (self.__data_locacao, self.__data_limite, self.__senha, loca_armario[0][0], self.dados_locatario[0][0]))
@@ -169,7 +168,7 @@ ENGINE=InnoDB
         query = ''
         __c.execute("SELECT id_usuario FROM tb_usuario where email = '"+ __nome +"' or telefone = '"+ __email +"'")
         query = __c.fetchone()
-        print("##### id usuario ###")
+        print("##### id usuario ### ")
         print(query)
         return query
         __conn.close()
@@ -182,7 +181,7 @@ ENGINE=InnoDB
         __alfabet = list(string.ascii_lowercase)
         print('---alfabet-----')
         print(__alfabet)
-        for i in range(2):
+        for i in range(2): 
             __password.append(random.randrange(0, 9))
             __password.append(choice(__alfabet))
 
@@ -240,7 +239,7 @@ ENGINE=InnoDB
              
             self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
             self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao[0][0],), multi=True)
-            port = self.select_port(self.__locacao[0][0])
+            port = self.select_port(self.__locacao[0])
             self.port.exec_port(port, "abrir")
             self.__conn.commit()
             self.__conn.close()
@@ -291,7 +290,7 @@ ENGINE=InnoDB
         if finalizar == True:
             pass'''
 
-        #self.__email = email
+        self.__email = email
         #self.__telefone = telefone
         self.__senha = senha
 
@@ -371,8 +370,8 @@ ENGINE=InnoDB
              
             self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
             self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (self.__locacao[0][0],))
-            port = self.select_port(self.__locacao[0])
-            self.port.exec_port(port, "abrir")
+            #port = self.select_port(self.__locacao[0])
+            #self.port.exec_port(port, "abrir")
             self.__conn.commit()
             self.__conn.close()
             return "armario liberado"
@@ -438,8 +437,8 @@ ENGINE=InnoDB
              
             self.__c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
             
-            port = self.select_port(loca_armario[0][0])
-            self.port.exec_port(port, "abrir")
+            #port = self.select_port(loca_armario[0])
+            #self.port.exec_port(port, "abrir")
             self.__conn.commit()
             self.__conn.close()
             return "armario liberado"
