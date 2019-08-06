@@ -8,7 +8,7 @@ import time
 import random
 import string
 from random import choice, sample
-from io import Ports
+from .io import Ports
 
 
 class Banco(object):
