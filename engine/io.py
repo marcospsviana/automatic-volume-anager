@@ -63,11 +63,9 @@ class Ports(object):
         PORT_50 = "servo_50"
         PORT_51 = "servo_51"
 
-ser = serial.Serial("/dev/ttyUSB0", 9600)
-
-GPIO.setmode(GPIO.BOARD)
-
-GPIO.setup(12, GPIO.IN)
+        ser = serial.Serial("/dev/ttyUSB0", 9600)
+        GPIO.setmode(GPIO.BOARD)
+        GPIO.setup(12, GPIO.IN)
 
     def exec_port(port, command):
         __exec = port + command
