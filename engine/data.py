@@ -1,4 +1,5 @@
-# -*- encoding: utf-8 -*-
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 
 
 import mysql.connector as mdb
@@ -8,7 +9,7 @@ import time
 import random
 import string
 from random import choice, sample
-#from .io import Ports
+from .portas import Portas
 
 
 class Banco(object):
@@ -81,7 +82,7 @@ ENGINE=InnoDB
         self.__conn.close()
 
     def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario):
-        self.port = Ports()
+        self.port = Portas()
         self.__dia = int(dia)
         self.__hora = int(hora)
         self.__minuto = int(minuto)
@@ -109,6 +110,7 @@ ENGINE=InnoDB
 
         self.dados_locatario = self.create_user(
             self.__nome, self.__email, self.__telefone)
+        print("dados locatario data.py locacao===>", self.dados_locatario[0][0])
         # seleciona um armario com a classe indicada e recebe seu id
         loca_armario = self.localisa_armario(self.__armario)
         print('======= loca ramario =====')
@@ -121,10 +123,10 @@ ENGINE=InnoDB
             print(loca_armario[0], self.dados_locatario[0])
             port = self.select_port(loca_armario[0])
             print(port)
-            self.port.exec_port(str(port[0]), "abrir")
+            self.port.exec_port(str(port[0][0]), "abre")
             
 
-            self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(null, '%s','%s',null,'%s',%s,%s)"% (self.__data_locacao, self.__data_limite, self.__senha, loca_armario[0][0], self.dados_locatario[0][0]))
+            self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(null, '%s','%s',null,'%s',%s,%s)"% (self.__data_locacao, self.__data_limite, self.__senha, loca_armario[0], self.dados_locatario[0][0]))
             self.__conn.commit()
             self.__c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario[0]))
             self.__conn.commit()
@@ -134,7 +136,7 @@ ENGINE=InnoDB
             return loca_armario
     def select_port(self, armario):
         __armario = armario
-        self.__c.execute("SELECT porta FROM coolbag.tb_armario where classe= '%s'"%(__armario))
+        self.__c.execute("SELECT porta FROM coolbag.tb_armario where id_armario = %s"%(__armario))
         self.retorno_porta = self.__c.fetchall()
         return self.retorno_porta
 
@@ -217,6 +219,7 @@ ENGINE=InnoDB
 
 
     def liberar_armario(self, senha, nome):
+        
         result = ''
         id_armario = ''
         taxa = 0.15

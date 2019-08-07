@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*- 
 import sys, os
 import subprocess
 import gi, gobject
@@ -197,8 +199,7 @@ class RaspControl(object):
         self.entry_email.connect('button-press-event', self.on_entry_email)
         self.entry_dias.connect('button-press-event', self.on_entry_dias)
         self.entry_horas.connect('button-press-event', self.on_entry_horas)
-        self.entry_minutos.connect('button-press-event', self.on_entry_minutos)
-        
+        self.entry_minutos.connect('button-press-event', self.on_entry_minutos) 
         #conectando os botões aos eventos
         self.btn_delete.connect("clicked", self.on_entry_backspace)
         

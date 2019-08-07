@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
 from engine.locacao import Locacao as loc
 from engine.usuario import User as usr
 from engine.armario import Armario as arm

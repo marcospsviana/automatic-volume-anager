@@ -3,7 +3,7 @@ import time
 import serial
 
 
-class Ports(object):
+class Portas(object):
     def __init__(self):
         PORT_A0 = "servo_A0"
         PORT_A1 = "servo_A1"
@@ -63,18 +63,24 @@ class Ports(object):
         PORT_50 = "servo_50"
         PORT_51 = "servo_51"
 
-        ser = serial.Serial("/dev/ttyUSB0", 9600)
+        self.serial = serial.Serial("/dev/ttyS0", 9600)
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(12, GPIO.IN)
 
         
     def exec_port(self, port, command):
         self.port = str(port)
+        print(self.port)
         self.command =str(command)
-        __exec = self.port + self.command
-        ser.write(str(__exec))
-        time.sleep(10000)
-        ser.write(self.port + "fechar")
+        print(self.command)
+        __exec = self.port + ":" + self.command+ "\n"
+        print(__exec)
+        __exec = b'%b'%(__exec.encode('utf-8'))
+        self.serial.write(__exec)
+        time.sleep(30)
+        self.port = b'%b'%(self.port.encode('utf-8'))
+        comando = self.port + b":fecha\n" 
+        self.serial.write(comando)
 
 
 if __name__ == "__main__":
