@@ -7,7 +7,7 @@ button{
 	border-radius: 10px;
 }
 entry{
-	font: 27px "Noto Sans";
+	font: 42px "Noto Sans";
 	border-radius: 5px;
 }
 dialog{
@@ -41,6 +41,6 @@ dialog{
 	color: #fff;
 }
 #tecla{
-	font: 42px "Noto Sans";
+	font: 52px "Noto Sans";
 	
 }
