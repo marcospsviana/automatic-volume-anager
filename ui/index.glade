@@ -1362,7 +1362,7 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
             <property name="hexpand">True</property>
             <child>
               <object class="GtkLabel">
-                <property name="name">label_nome</property>
+                <property name="name">label_total</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_left">10</property>
@@ -1376,7 +1376,7 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
             </child>
             <child>
               <object class="GtkLabel" id="text_total">
-                <property name="name">label_nome</property>
+                <property name="name">label_total</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">           0,00     </property>

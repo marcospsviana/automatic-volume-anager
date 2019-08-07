@@ -52,7 +52,7 @@ dialog{
 	font: 30px "Noto Sans";
 	
 }
-#btn_locar, #btn_encerrar, #btn_abrir{
+#btn_locar, #btn_encerrar, #btn_abrir, #label_total{
 	font: 36px "Noto Sans";
 	color: #fff;
 	font-stretch: condensed;
