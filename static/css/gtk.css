@@ -44,3 +44,15 @@ dialog{
 	font: 30px "Noto Sans";
 	
 }
+#btn_locar, #btn_encerrar, #btn_abrir{
+	font: 46px "Noto Sans" bold;
+}
+#btn_locar{
+	background: #008cc3;
+}
+#btn_encerrar{
+	background: red;
+}
+#btn_abrir{
+	background: limegreen;
+}

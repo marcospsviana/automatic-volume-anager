@@ -1388,7 +1388,7 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="tecla">
+              <object class="GtkButton" id="btn_cancelar">
                 <property name="label" translatable="yes">Cancelar</property>
                 <property name="name">btn_cancelar</property>
                 <property name="visible">True</property>
@@ -1406,7 +1406,7 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="tecl">
+              <object class="GtkButton" id="btn_proximo">
                 <property name="label" translatable="yes">Próximo</property>
                 <property name="name">btn_proximo</property>
                 <property name="visible">True</property>
@@ -1860,6 +1860,7 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -1873,6 +1874,7 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
                 <property name="use_stock">True</property>
               </object>
               <packing>
