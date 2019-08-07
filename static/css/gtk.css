@@ -45,7 +45,7 @@ dialog{
 	
 }
 #btn_locar, #btn_encerrar, #btn_abrir{
-	font: 46px "Noto Sans" bold;
+	font: 46px "Noto Sans";
 }
 #btn_locar{
 	background: #008cc3;
