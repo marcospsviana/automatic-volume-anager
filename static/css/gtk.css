@@ -22,7 +22,7 @@ dialog{
 #btn_num{ background-color: red; font-size: 22px}
 
 #btn_proximo { 
-	font: 32px "Noto Sans";
+	font: 42px "Noto Sans";
 	background: #008cc3; 
 	color: #fff }
 #btn_cancelar {  
@@ -58,11 +58,11 @@ dialog{
 	font-stretch: condensed;
 }
 #btn_locar{
-	background: #008a4a;
+	background: #008cc3;
 }
 #btn_encerrar{
 	background: red;
 }
 #btn_abrir{
-	background: #008a4a
+	background: #008cc3
 }
