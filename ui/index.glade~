@@ -1357,10 +1357,9 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">baseline</property>
             <property name="margin_top">20</property>
             <property name="margin_bottom">20</property>
-            <property name="hexpand">True</property>
-            <property name="vexpand">True</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
@@ -1389,15 +1388,15 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btn_cancelar">
+              <object class="GtkButton" id="tecla">
                 <property name="label" translatable="yes">Cancelar</property>
                 <property name="name">btn_cancelar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
                 <property name="margin_left">40</property>
                 <property name="margin_right">20</property>
-                <property name="hexpand">True</property>
                 <signal name="button-press-event" handler="on_btn_cancelar_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1407,16 +1406,15 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btn_proximo">
+              <object class="GtkButton" id="tecl">
                 <property name="label" translatable="yes">Próximo</property>
                 <property name="name">btn_proximo</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
                 <property name="margin_left">20</property>
                 <property name="margin_right">20</property>
-                <property name="hexpand">True</property>
-                <property name="vexpand">True</property>
                 <signal name="button-press-event" handler="on_btn_proximo_button_press_event" swapped="no"/>
                 <signal name="clicked" handler="on_btn_proximo_button_press_event" object="locacao" swapped="no"/>
               </object>

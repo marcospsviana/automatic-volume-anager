@@ -1463,21 +1463,6 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="space">
-                <property name="name">btn_space</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="focus_on_click">False</property>
-                <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
-                <property name="use_stock">True</property>
-              </object>
-              <packing>
-                <property name="left_attach">3</property>
-                <property name="top_attach">4</property>
-              </packing>
-            </child>
-            <child>
               <object class="GtkButton" id="z">
                 <property name="label" translatable="yes">z</property>
                 <property name="name">tecla</property>
@@ -1779,20 +1764,6 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="DELETE">
-                <property name="label" translatable="yes">DELETE</property>
-                <property name="name">btn_delete</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
-              </object>
-              <packing>
-                <property name="left_attach">4</property>
-                <property name="top_attach">4</property>
-              </packing>
-            </child>
-            <child>
               <object class="GtkButton" id="f">
                 <property name="label" translatable="yes">f</property>
                 <property name="name">tecla</property>
@@ -1883,7 +1854,32 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
               </packing>
             </child>
             <child>
-              <placeholder/>
+              <object class="GtkButton" id="DELETE">
+                <property name="label" translatable="yes">DELETE</property>
+                <property name="name">btn_delete</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">3</property>
+                <property name="top_attach">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="space">
+                <property name="name">btn_space</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">4</property>
+                <property name="top_attach">4</property>
+                <property name="width">2</property>
+              </packing>
             </child>
           </object>
           <packing>
