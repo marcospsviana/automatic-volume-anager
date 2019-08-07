@@ -638,15 +638,13 @@ ou cancelar para sair.</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btn_cancelar">
+              <object class="GtkButton" id="tecl">
                 <property name="label" translatable="yes">Cancelar</property>
                 <property name="name">btn_cancelar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
-                <property name="valign">center</property>
-                <property name="hexpand">True</property>
-                <property name="vexpand">True</property>
+                <property name="halign">baseline</property>
                 <signal name="button-press-event" handler="on_btn_cancelar_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -656,15 +654,13 @@ ou cancelar para sair.</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btn_proximo">
+              <object class="GtkButton" id="tecla">
                 <property name="label" translatable="yes">Próximo</property>
                 <property name="name">btn_proximo</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
-                <property name="valign">center</property>
-                <property name="hexpand">True</property>
-                <property name="vexpand">True</property>
+                <property name="halign">baseline</property>
                 <signal name="button-press-event" handler="on_btn_proximo_button_press_event" swapped="no"/>
               </object>
               <packing>
