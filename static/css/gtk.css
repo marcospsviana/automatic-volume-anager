@@ -35,7 +35,7 @@ dialog{
 #lbl_time { font-size: 52px }       
 #label_telefone { color: #fff;}
 #label_nome { 
-	font: 27px "Noto Sans";
+	font: 22px "Noto Sans";
 	color: #fff;}
 #label_senha { color: #fff }
 #btn_delete{
@@ -58,5 +58,5 @@ dialog{
 	background: red;
 }
 #btn_abrir{
-	background: limegreen;
+	background: #008a01
 }
