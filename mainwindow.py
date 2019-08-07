@@ -234,6 +234,7 @@ class RaspControl(object):
             self.t.set_label('t')
             self.u.set_label('u')
             self.v.set_label('v')
+            self.y.set_label('y')
             self.e.set_visible(True)
             self.f.set_visible(True)
             self.k.set_visible(True)

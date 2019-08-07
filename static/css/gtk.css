@@ -37,8 +37,7 @@ dialog{
 #label_nome { color: #fff;}
 #label_senha { color: #fff }
 #btn_delete{
-	background-color: darkorange;
-	color: #fff;
+	background: darkorange;
 }
 #tecla{
 	font: 30px "Noto Sans";
