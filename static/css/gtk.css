@@ -21,8 +21,8 @@ dialog{
 }
 #btn_num{ background-color: red; font-size: 22px}
 
-#btn_proximo { background-color: #008cc3; color: #fff }
-#btn_cancelar {  background-color: red; color: #fff }
+#btn_proximo { background: #008cc3; color: #fff }
+#btn_cancelar {  background: red; color: #fff }
 
 #window { background-color: darkcyan;
 	/*font: 32px "Noto Sans";*/
@@ -38,6 +38,7 @@ dialog{
 #label_senha { color: #fff }
 #btn_delete{
 	background: darkorange;
+	font-weight: bold;
 }
 #tecla{
 	font: 30px "Noto Sans";
