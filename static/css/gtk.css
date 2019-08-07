@@ -34,7 +34,9 @@ dialog{
 
 #lbl_time { font-size: 52px }       
 #label_telefone { color: #fff;}
-#label_nome { color: #fff;}
+#label_nome { 
+	font: 27px "Noto Sans";
+	color: #fff;}
 #label_senha { color: #fff }
 #btn_delete{
 	background: darkorange;
@@ -45,7 +47,9 @@ dialog{
 	
 }
 #btn_locar, #btn_encerrar, #btn_abrir{
-	font: 46px "Noto Sans";
+	font: 36px "Noto Sans";
+	color: #fff;
+	font-stretch: condensed;
 }
 #btn_locar{
 	background: #008cc3;
