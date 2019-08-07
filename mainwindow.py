@@ -229,14 +229,16 @@ class RaspControl(object):
             self.p.set_label('p')
             self.q.set_label('q')
             self.r.set_label('r')
-            self.s.set_visible(True)
-            self.t.set_visible(True)
-            self.u.set_visible(True)
-            self.v.set_visible(True)
+            self.z.set_label('z')
+            self.e.set_visible(True)
+            self.f.set_visible(True)
+            self.k.set_visible(True)
+            self.l.set_visible(True)
             self.w.set_visible(True)
             self.x.set_visible(True)
-            self.y.set_visible(True)
-            self.z.set_visible(True)
+            self.q.set_visible(True)
+            #self.z.set_visible(True)
+            self.space.set_visible(True)
             
             self.btn_num.set_label('123..')
         else:
@@ -267,6 +269,7 @@ class RaspControl(object):
             self.x.set_visible(False)
             self.q.set_visible(False)
             self.r.set_visible(False)
+            self.space.set_visible(False)
             self.btn_num.set_label('abc..')
     
     def on_btn_encerrar_clicked(self, event):
