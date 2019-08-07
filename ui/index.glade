@@ -1388,9 +1388,9 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="tecla">
+              <object class="GtkButton" id="btn_cancelar">
                 <property name="label" translatable="yes">Cancelar</property>
-                <property name="name">btn_cancelar</property>
+                <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
@@ -1400,15 +1400,15 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
                 <signal name="button-press-event" handler="on_btn_cancelar_button_press_event" swapped="no"/>
               </object>
               <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
                 <property name="position">2</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="tecl">
+              <object class="GtkButton" id="btn_proximo">
                 <property name="label" translatable="yes">Próximo</property>
-                <property name="name">btn_proximo</property>
+                <property name="name">tecla</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
@@ -1419,8 +1419,8 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
                 <signal name="clicked" handler="on_btn_proximo_button_press_event" object="locacao" swapped="no"/>
               </object>
               <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
                 <property name="position">3</property>
               </packing>
             </child>
