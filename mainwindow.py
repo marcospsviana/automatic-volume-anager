@@ -245,28 +245,28 @@ class RaspControl(object):
             self.b.set_label('1')
             self.c.set_label('2')
             self.d.set_label('3')
-            self.e.set_label('4')
-            self.f.set_label('5')
-            self.g.set_label('6')
-            self.h.set_label('7')
-            self.i.set_label('8')
-            self.j.set_label('9')
-            self.k.set_label('@')
-            self.l.set_label('_')
-            self.m.set_label('-')
-            self.n.set_label('.')
-            self.o.set_label('.com')
-            self.p.set_label('@gmail')
-            self.q.set_label('@outlook')
-            self.r.set_label('@yahoo')
-            self.s.set_visible(False)
-            self.t.set_visible(False)
-            self.u.set_visible(False)
-            self.v.set_visible(False)
+            self.g.set_label('4')#g
+            self.h.set_label('5')#h
+            self.i.set_label('6')#i
+            self.j.set_label('7')#j
+            self.m.set_label('8')#m
+            self.n.set_label('9')#n
+            self.o.set_label('@')#o
+            self.p.set_label('_')#p
+            self.s.set_label('-')#s
+            self.t.set_label('.')#t
+            self.u.set_label('.com')#u
+            self.v.set_label('@gmail')#v
+            self.y.set_label('@outlook')#y
+            self.z.set_label('@yahoo')#z
+            self.e.set_visible(False)
+            self.f.set_visible(False)
+            self.k.set_visible(False)
+            self.l.set_visible(False)
             self.w.set_visible(False)
             self.x.set_visible(False)
-            self.y.set_visible(False)
-            self.z.set_visible(False)
+            self.q.set_visible(False)
+            self.r.set_visible(False)
             self.btn_num.set_label('abc..')
     
     def on_btn_encerrar_clicked(self, event):
