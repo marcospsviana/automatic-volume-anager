@@ -77,7 +77,7 @@ class Portas(object):
         print(__exec)
         __exec = b'%b'%(__exec.encode('utf-8'))
         self.serial.write(__exec)
-        time.sleep(30)
+        time.sleep(15)
         self.port = b'%b'%(self.port.encode('utf-8'))
         comando = self.port + b":fecha\n" 
         self.serial.write(comando)
