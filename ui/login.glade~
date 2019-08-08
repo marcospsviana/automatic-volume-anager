@@ -118,6 +118,7 @@
             <property name="name">entry</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">baseline</property>
             <property name="margin_left">20</property>
             <property name="margin_right">15</property>
             <property name="margin_top">15</property>
@@ -166,6 +167,7 @@
             <property name="name">entry</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">baseline</property>
             <property name="margin_left">20</property>
             <property name="margin_right">15</property>
             <property name="margin_top">10</property>
@@ -203,6 +205,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
                 <signal name="button-press-event" handler="on_num_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -218,6 +221,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
                 <signal name="clicked" handler="on_cancela_clicked" swapped="no"/>
               </object>
               <packing>
@@ -233,6 +237,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -247,6 +252,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -261,6 +267,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">5</property>
@@ -275,6 +282,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">4</property>
@@ -289,6 +297,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -303,6 +312,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -317,6 +327,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -331,6 +342,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -345,6 +357,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">5</property>
@@ -359,6 +372,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">4</property>
@@ -373,6 +387,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -387,6 +402,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -401,6 +417,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -415,6 +432,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -429,6 +447,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">5</property>
@@ -443,6 +462,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">4</property>
@@ -457,6 +477,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -471,6 +492,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -485,6 +507,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -499,6 +522,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -512,6 +536,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">4</property>
@@ -525,6 +550,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
                 <signal name="clicked" handler="on_btn_login_clicked" swapped="no"/>
               </object>
               <packing>
@@ -540,6 +566,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">5</property>
@@ -554,6 +581,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">4</property>
@@ -568,6 +596,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -582,6 +611,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -596,6 +626,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -610,6 +641,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>

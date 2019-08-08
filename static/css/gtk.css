@@ -52,6 +52,10 @@ dialog{
 	font: 30px "Noto Sans";
 	
 }
+#tecla_login{
+	font: 25px "Noto Sans";
+	font-stretch: condensed;
+}
 #btn_locar, #btn_encerrar, #btn_abrir, #label_total{
 	font: 36px "Noto Sans";
 	color: #fff;
