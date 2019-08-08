@@ -186,7 +186,7 @@
             <property name="hexpand">True</property>
             <property name="vexpand">True</property>
             <property name="row_spacing">9</property>
-            <property name="column_spacing">6</property>
+            <property name="column_spacing">4</property>
             <property name="row_homogeneous">True</property>
             <property name="column_homogeneous">True</property>
             <child>
