@@ -121,17 +121,14 @@ ENGINE=InnoDB
             self.__senha = self.__get_passwd()
             print("==== id_armario, id_usuario ======")
             print(loca_armario[0], self.dados_locatario[0])
-            port = self.select_port(loca_armario[0])
-            print(port)
-            self.port.exec_port(str(port[0][0]), "abre")
-            
-
             self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(null, '%s','%s',null,'%s',%s,%s)"% (self.__data_locacao, self.__data_limite, self.__senha, loca_armario[0], self.dados_locatario[0][0]))
             self.__conn.commit()
             self.__c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario[0]))
             self.__conn.commit()
             self.__conn.close()
             return "locacao concluida com sucesso"
+            port = self.select_port(loca_armario[0])
+            self.port.exec_port(str(port[0][0]), "abre")
         else:
             return loca_armario
     def select_port(self, armario):
@@ -243,11 +240,11 @@ ENGINE=InnoDB
              
             self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
             self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao[0][0],), multi=True)
-            port = self.select_port(self.__locacao[0][0])
-            self.port.exec_port(port, "abrir")
             self.__conn.commit()
             self.__conn.close()
             return "armario liberado"
+            port = self.select_port(self.__locacao[0][0])
+            self.port.exec_port(port[0], "abre")
         else:
             
             tempo = hj - self.__locacao[0][2] 
@@ -374,11 +371,11 @@ ENGINE=InnoDB
              
             self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
             self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (self.__locacao[0][0],))
-            port = self.select_port(self.__locacao[0])
-            self.port.exec_port(port, "abrir")
             self.__conn.commit()
             self.__conn.close()
             return "armario liberado"
+            port = self.select_port(self.__locacao[0][0])
+            self.port.exec_port(port[0], "abre")
         else:
             
             tempo = hj - self.__locacao[0][2] 
@@ -440,12 +437,11 @@ ENGINE=InnoDB
             result = self.cobranca(valor_total,hj)
              
             self.__c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
-            
-            port = self.select_port(loca_armario[0][0])
-            self.port.exec_port(port, "abrir")
             self.__conn.commit()
             self.__conn.close()
             return "armario liberado"
+            port = self.select_port(loca_armario[0][0])
+            self.port.exec_port(port, "abre")
         else:
             
             tempo = hj - self.__locacao[0][2] 
