@@ -161,7 +161,6 @@
                 <property name="margin_top">10</property>
                 <property name="margin_bottom">10</property>
                 <property name="hexpand">True</property>
-                <property name="vexpand">True</property>
                 <property name="visibility">False</property>
                 <property name="invisible_char">●</property>
                 <property name="placeholder_text" translatable="yes">TOQUE AQUI PARA ATIVAR ESTE CAMPO</property>
@@ -185,8 +184,11 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
+            <property name="margin_left">5</property>
+            <property name="margin_right">5</property>
             <property name="margin_top">5</property>
             <property name="margin_bottom">5</property>
+            <property name="hexpand">True</property>
             <property name="vexpand">True</property>
             <property name="row_spacing">9</property>
             <property name="column_spacing">6</property>
