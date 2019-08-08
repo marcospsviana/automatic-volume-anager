@@ -79,7 +79,7 @@
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="hexpand">True</property>
+        <property name="halign">baseline</property>
         <property name="vexpand">True</property>
         <property name="orientation">vertical</property>
         <property name="spacing">4</property>
@@ -120,7 +120,7 @@
             <property name="can_focus">False</property>
             <property name="halign">baseline</property>
             <property name="margin_left">20</property>
-            <property name="margin_right">15</property>
+            <property name="margin_right">35</property>
             <property name="margin_top">15</property>
             <property name="margin_bottom">5</property>
             <property name="vexpand">True</property>
@@ -169,7 +169,7 @@
             <property name="can_focus">False</property>
             <property name="halign">baseline</property>
             <property name="margin_left">20</property>
-            <property name="margin_right">15</property>
+            <property name="margin_right">35</property>
             <property name="margin_top">10</property>
             <property name="margin_bottom">10</property>
             <property name="vexpand">True</property>
@@ -205,27 +205,11 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
                 <signal name="button-press-event" handler="on_num_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">0</property>
-                <property name="top_attach">4</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="cancela">
-                <property name="label" translatable="yes">CANCELAR</property>
-                <property name="name">btn_cancelar</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="focus_on_click">False</property>
-                <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
-                <signal name="clicked" handler="on_cancela_clicked" swapped="no"/>
-              </object>
-              <packing>
-                <property name="left_attach">3</property>
                 <property name="top_attach">4</property>
               </packing>
             </child>
@@ -237,7 +221,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -252,7 +236,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -267,7 +251,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">5</property>
@@ -282,7 +266,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">4</property>
@@ -297,7 +281,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -312,7 +296,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -327,7 +311,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -342,7 +326,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -357,7 +341,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">5</property>
@@ -372,7 +356,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">4</property>
@@ -387,7 +371,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -402,7 +386,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -417,7 +401,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -432,7 +416,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -447,7 +431,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">5</property>
@@ -462,7 +446,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">4</property>
@@ -477,7 +461,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -492,7 +476,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -507,7 +491,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -522,7 +506,7 @@
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -530,17 +514,93 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="DELETE">
-                <property name="label" translatable="yes">DELETE</property>
-                <property name="name">btn_delete</property>
+              <object class="GtkButton" id="f">
+                <property name="label" translatable="yes">f</property>
+                <property name="name">tecla_login</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
+              </object>
+              <packing>
+                <property name="left_attach">5</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="e">
+                <property name="label" translatable="yes">e</property>
+                <property name="name">tecla_login</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
+                <property name="receives_default">True</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="left_attach">4</property>
-                <property name="top_attach">4</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="d">
+                <property name="label" translatable="yes">d</property>
+                <property name="name">tecla_login</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
+                <property name="receives_default">True</property>
+                <property name="halign">start</property>
+              </object>
+              <packing>
+                <property name="left_attach">3</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="c">
+                <property name="label" translatable="yes">c</property>
+                <property name="name">tecla_login</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
+                <property name="receives_default">True</property>
+                <property name="halign">start</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="b">
+                <property name="label" translatable="yes">b</property>
+                <property name="name">tecla_login</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
+                <property name="receives_default">True</property>
+                <property name="halign">start</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="a">
+                <property name="label" translatable="yes">a</property>
+                <property name="name">tecla_login</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
+                <property name="receives_default">True</property>
+                <property name="halign">start</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
               </packing>
             </child>
             <child>
@@ -559,93 +619,33 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="f">
-                <property name="label" translatable="yes">f</property>
-                <property name="name">tecla_login</property>
+              <object class="GtkButton" id="DELETE">
+                <property name="label" translatable="yes">DELETE</property>
+                <property name="name">btn_delete</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="focus_on_click">False</property>
-                <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
-              </object>
-              <packing>
-                <property name="left_attach">5</property>
-                <property name="top_attach">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="e">
-                <property name="label" translatable="yes">e</property>
-                <property name="name">tecla_login</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
                 <property name="halign">baseline</property>
               </object>
               <packing>
                 <property name="left_attach">4</property>
-                <property name="top_attach">0</property>
+                <property name="top_attach">4</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="d">
-                <property name="label" translatable="yes">d</property>
-                <property name="name">tecla_login</property>
+              <object class="GtkButton" id="cancela">
+                <property name="label" translatable="yes">CANCELAR</property>
+                <property name="name">btn_cancelar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
+                <signal name="clicked" handler="on_cancela_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">3</property>
-                <property name="top_attach">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="c">
-                <property name="label" translatable="yes">c</property>
-                <property name="name">tecla_login</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="focus_on_click">False</property>
-                <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
-              </object>
-              <packing>
-                <property name="left_attach">2</property>
-                <property name="top_attach">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="b">
-                <property name="label" translatable="yes">b</property>
-                <property name="name">tecla_login</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="focus_on_click">False</property>
-                <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="a">
-                <property name="label" translatable="yes">a</property>
-                <property name="name">tecla_login</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="focus_on_click">False</property>
-                <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">0</property>
+                <property name="top_attach">4</property>
               </packing>
             </child>
           </object>
