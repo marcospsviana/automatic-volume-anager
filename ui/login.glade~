@@ -87,6 +87,7 @@
           <object class="GtkGrid">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">start</property>
             <property name="row_spacing">5</property>
             <property name="column_spacing">6</property>
             <child>
@@ -94,6 +95,7 @@
                 <property name="name">label_nome</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="margin_left">15</property>
                 <property name="margin_top">15</property>
                 <property name="label" translatable="yes">   Email ou Telefone  </property>
@@ -106,10 +108,13 @@
                 <property name="top_attach">0</property>
               </packing>
             </child>
+            <child>
+              <placeholder/>
+            </child>
           </object>
           <packing>
             <property name="expand">False</property>
-            <property name="fill">True</property>
+            <property name="fill">False</property>
             <property name="position">0</property>
           </packing>
         </child>
@@ -136,6 +141,7 @@
           <object class="GtkGrid">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">start</property>
             <property name="row_spacing">5</property>
             <property name="column_spacing">6</property>
             <child>
@@ -154,6 +160,9 @@
                 <property name="left_attach">0</property>
                 <property name="top_attach">0</property>
               </packing>
+            </child>
+            <child>
+              <placeholder/>
             </child>
           </object>
           <packing>
