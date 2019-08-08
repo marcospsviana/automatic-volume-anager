@@ -82,6 +82,7 @@
         <property name="halign">baseline</property>
         <property name="vexpand">True</property>
         <property name="orientation">vertical</property>
+        <property name="spacing">5</property>
         <child>
           <object class="GtkBox">
             <property name="visible">True</property>
@@ -187,7 +188,7 @@
               <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="spacing">2</property>
+                <property name="spacing">1</property>
                 <property name="homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="a">
@@ -197,6 +198,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -212,6 +214,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -227,6 +230,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -242,6 +246,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -257,26 +262,12 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">4</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="f">
-                    <property name="label" translatable="yes">f</property>
-                    <property name="name">tecla_login</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">5</property>
                   </packing>
                 </child>
               </object>
@@ -290,8 +281,24 @@
               <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="spacing">3</property>
+                <property name="spacing">1</property>
                 <property name="homogeneous">True</property>
+                <child>
+                  <object class="GtkButton" id="f">
+                    <property name="label" translatable="yes">f</property>
+                    <property name="name">tecla_login</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
                 <child>
                   <object class="GtkButton" id="g">
                     <property name="label" translatable="yes">g</property>
@@ -300,11 +307,12 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">0</property>
+                    <property name="position">1</property>
                   </packing>
                 </child>
                 <child>
@@ -315,11 +323,12 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">1</property>
+                    <property name="position">2</property>
                   </packing>
                 </child>
                 <child>
@@ -330,11 +339,12 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">2</property>
+                    <property name="position">3</property>
                   </packing>
                 </child>
                 <child>
@@ -345,41 +355,12 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">3</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="k">
-                    <property name="label" translatable="yes">k</property>
-                    <property name="name">tecla_login</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
-                    <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">4</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="l">
-                    <property name="label" translatable="yes">l</property>
-                    <property name="name">tecla_login</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">5</property>
                   </packing>
                 </child>
               </object>
@@ -393,8 +374,40 @@
               <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="spacing">3</property>
+                <property name="spacing">1</property>
                 <property name="homogeneous">True</property>
+                <child>
+                  <object class="GtkButton" id="k">
+                    <property name="label" translatable="yes">k</property>
+                    <property name="name">tecla_login</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="l">
+                    <property name="label" translatable="yes">l</property>
+                    <property name="name">tecla_login</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
                 <child>
                   <object class="GtkButton" id="m">
                     <property name="label" translatable="yes">m</property>
@@ -403,11 +416,12 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">0</property>
+                    <property name="position">2</property>
                   </packing>
                 </child>
                 <child>
@@ -418,11 +432,12 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">1</property>
+                    <property name="position">3</property>
                   </packing>
                 </child>
                 <child>
@@ -433,56 +448,12 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="p">
-                    <property name="label" translatable="yes">p</property>
-                    <property name="name">tecla_login</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">3</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="q">
-                    <property name="label" translatable="yes">q</property>
-                    <property name="name">tecla_login</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
-                    <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">4</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="r">
-                    <property name="label" translatable="yes">r</property>
-                    <property name="name">tecla_login</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">5</property>
                   </packing>
                 </child>
               </object>
@@ -496,8 +467,56 @@
               <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="spacing">3</property>
+                <property name="spacing">1</property>
                 <property name="homogeneous">True</property>
+                <child>
+                  <object class="GtkButton" id="p">
+                    <property name="label" translatable="yes">p</property>
+                    <property name="name">tecla_login</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="q">
+                    <property name="label" translatable="yes">q</property>
+                    <property name="name">tecla_login</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="r">
+                    <property name="label" translatable="yes">r</property>
+                    <property name="name">tecla_login</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
                 <child>
                   <object class="GtkButton" id="s">
                     <property name="label" translatable="yes">s</property>
@@ -506,11 +525,12 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">0</property>
+                    <property name="position">3</property>
                   </packing>
                 </child>
                 <child>
@@ -521,71 +541,12 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="u">
-                    <property name="label" translatable="yes">u</property>
-                    <property name="name">tecla_login</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="v">
-                    <property name="label" translatable="yes">v</property>
-                    <property name="name">tecla_login</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">3</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="w">
-                    <property name="label" translatable="yes">w</property>
-                    <property name="name">tecla_login</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
-                    <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">4</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="x">
-                    <property name="label" translatable="yes">x</property>
-                    <property name="name">tecla_login</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">5</property>
                   </packing>
                 </child>
               </object>
@@ -599,22 +560,70 @@
               <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="spacing">3</property>
+                <property name="spacing">1</property>
                 <property name="homogeneous">True</property>
                 <child>
-                  <object class="GtkButton" id="num">
-                    <property name="label" translatable="yes">123...</property>
+                  <object class="GtkButton" id="u">
+                    <property name="label" translatable="yes">u</property>
                     <property name="name">tecla_login</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
-                    <signal name="button-press-event" handler="on_num_button_press_event" swapped="no"/>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="v">
+                    <property name="label" translatable="yes">v</property>
+                    <property name="name">tecla_login</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="w">
+                    <property name="label" translatable="yes">w</property>
+                    <property name="name">tecla_login</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="x">
+                    <property name="label" translatable="yes">x</property>
+                    <property name="name">tecla_login</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">3</property>
                   </packing>
                 </child>
                 <child>
@@ -625,13 +634,27 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">1</property>
+                    <property name="position">4</property>
                   </packing>
                 </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="spacing">1</property>
+                <property name="homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="z">
                     <property name="label" translatable="yes">z</property>
@@ -640,11 +663,29 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">2</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="num">
+                    <property name="label" translatable="yes">123...</property>
+                    <property name="name">tecla_login</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
+                    <signal name="button-press-event" handler="on_num_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
                   </packing>
                 </child>
                 <child>
@@ -655,12 +696,13 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                     <signal name="clicked" handler="on_cancela_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">3</property>
+                    <property name="position">2</property>
                   </packing>
                 </child>
                 <child>
@@ -670,11 +712,12 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">4</property>
+                    <property name="position">3</property>
                   </packing>
                 </child>
                 <child>
@@ -684,19 +727,20 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                     <signal name="clicked" handler="on_btn_login_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">5</property>
+                    <property name="position">4</property>
                   </packing>
                 </child>
               </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">4</property>
+                <property name="position">5</property>
               </packing>
             </child>
           </object>

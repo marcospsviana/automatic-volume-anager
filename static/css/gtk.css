@@ -29,6 +29,10 @@ dialog{
 	font: 32px "Noto Sans";
 	background: red; 
 	color: #fff }
+#btn_confirmar{  
+		font: 32px "Noto Sans";
+		background: #008cc3; 
+		color: #fff }
 
 #window { background-color: darkcyan;
 	/*font: 32px "Noto Sans";*/
@@ -45,6 +49,7 @@ dialog{
 	color: #fff;}
 #label_senha { color: #fff }
 #btn_delete{
+	font: 32px "Noto Sans";
 	background: darkorange;
 	font-weight: bold;
 }

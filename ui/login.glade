@@ -179,6 +179,9 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">baseline</property>
+            <property name="margin_left">10</property>
+            <property name="margin_right">10</property>
             <property name="hexpand">True</property>
             <property name="vexpand">False</property>
             <property name="orientation">vertical</property>
@@ -198,6 +201,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -213,6 +217,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -228,6 +233,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -243,6 +249,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -258,6 +265,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -286,6 +294,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -301,6 +310,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -316,6 +326,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -331,6 +342,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -346,6 +358,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -374,6 +387,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -389,6 +403,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -404,6 +419,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -419,6 +435,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -434,6 +451,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -462,6 +480,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -477,6 +496,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -492,6 +512,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -507,6 +528,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -522,6 +544,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -550,6 +573,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -565,6 +589,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -580,6 +605,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -595,6 +621,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -610,6 +637,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -638,6 +666,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -653,6 +682,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                     <signal name="button-press-event" handler="on_num_button_press_event" swapped="no"/>
                   </object>
                   <packing>
@@ -669,6 +699,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                     <signal name="clicked" handler="on_cancela_clicked" swapped="no"/>
                   </object>
                   <packing>
@@ -684,6 +715,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -698,6 +730,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">baseline</property>
                     <signal name="clicked" handler="on_btn_login_clicked" swapped="no"/>
                   </object>
                   <packing>
