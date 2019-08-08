@@ -58,11 +58,19 @@ ENGINE=InnoDB
 ''')
 
     def create_user(self, nome, email, telefone):
+        """ verifica se existe um usuario já cadastrado atraves de busa pelo email
+        ou telefone, caso haja , compara o email obtido do banco com o fornecido e o telefone
+        obtido com o fornecido , havendo discrepancia ele atualiza o registro. Caso não haver 
+        registro algum é feito um novo registro.
+        Dados: str: nome
+        str: telefone
+        str: email
+        return: id_usuario  """
 
         self.nome = str(nome)
         self.email = str(email)
         self.telefone = str(telefone)
-        self.__c.execute("SELECT id_usuario from tb_usuario where email= '%s' AND telefone= '%s'" % (self.email, self.telefone))
+        self.__c.execute("SELECT * from tb_usuario where email= '%s' OR telefone= '%s'" % (self.email, self.telefone))
         self.select = self.__c.fetchall()
 
         if self.select == [] or self.select == None:
@@ -76,8 +84,18 @@ ENGINE=InnoDB
             print(consulta)
             return consulta
 
+        elif self.select[0][2] != self.email and self.select[0][3] == self.telefone:
+            self.__c.execute("UPDATE tb_usuario SET email = '%s' WHERE id_usuario = %s"%(self.email, self.select[0][0]))
+            self.__conn.commit()
+            
+            return self.select[0][0]# id_usuario
+        elif self.select[0][2] == self.email and self.select[0][3] != self.telefone:
+            self.__c.execute("UPDATE tb_usuario SET telefone = '%s' WHERE id_usuario = %s"%(self.telefone, self.select[0][0]))
+            self.__conn.commit()
+            return self.select[0][0]
         else:
-            return self.select
+            return self.select[0][0]
+            
 
         self.__conn.close()
 
