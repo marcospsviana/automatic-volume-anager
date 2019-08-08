@@ -9,7 +9,7 @@ import time
 import random
 import string
 from random import choice, sample
-from .portas import Portas
+#from .portas import Portas
 
 
 class Banco(object):
