@@ -5,7 +5,6 @@ from flask import Flask, render_template, url_for, request, redirect, flash
 import sys
 import os
 import json
-import webview
 import string
 import datetime
 from controllers import Management
@@ -230,6 +229,12 @@ def finalizar(result):
 
     
     return render_template('finalizar.html', result = result)
+@app.route('/listagem')
+def listagem():
+    armario = ''
+    data_limite = ''
+    tempo_total = ''
+    return "listagem"
 
 
 if __name__ == '__main__':

@@ -27,7 +27,7 @@ class Encerrar(object):
                 "gtk_widget_destroy" : self.gtk_widget_destroy
             }
         )
-        self.window_login_encerrar = builder.get_object("window_login_encerrar")
+        self.window_login_encerrar = builder.get_object("window_login_encerra")
         # adicionando elementos da janela
         self.entry_nome = builder.get_object("entry_nome")
         self.entry_senha = builder.get_object('entry_senha')
