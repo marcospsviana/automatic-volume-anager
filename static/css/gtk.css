@@ -65,7 +65,12 @@ dialog{
 #tecla_alfa{
 	background: rgb(9, 19, 41);
 	color: #d6e6ee;
-	font: 1em sans-serif;
+	font: 2em sans-serif;
+}
+#tecla_backspace{
+	background: rgb(9, 19, 41);
+	color: #d6e6ee;
+	font: 2.7em sans-serif;
 }
 #tecla_login{
 	font: 30px "Noto Sans";

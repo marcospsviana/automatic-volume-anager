@@ -501,7 +501,7 @@
                 <child>
                   <object class="GtkButton" id="BACKSPACE">
                     <property name="label" translatable="yes">&lt; BACKSPACE</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_backspace</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -654,19 +654,6 @@
                   </object>
                   <packing>
                     <property name="left_attach">9</property>
-                    <property name="top_attach">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton">
-                    <property name="label" translatable="yes">@outlook.com</property>
-                    <property name="name">tecla_alfa</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">10</property>
                     <property name="top_attach">0</property>
                   </packing>
                 </child>
@@ -975,7 +962,17 @@
                   </packing>
                 </child>
                 <child>
-                  <placeholder/>
+                  <object class="GtkButton">
+                    <property name="label" translatable="yes">@outlook.com</property>
+                    <property name="name">tecla_alfa</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">8</property>
+                    <property name="top_attach">0</property>
+                  </packing>
                 </child>
               </object>
               <packing>
