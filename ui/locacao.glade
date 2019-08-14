@@ -8,6 +8,7 @@
     <property name="receives_default">True</property>
     <property name="halign">center</property>
     <property name="valign">center</property>
+    <property name="margin_bottom">20</property>
     <property name="hexpand">False</property>
     <property name="vexpand">False</property>
     <property name="window_position">center-always</property>
