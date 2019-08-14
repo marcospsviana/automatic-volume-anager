@@ -46,7 +46,7 @@ dialog{
 #label_telefone { color: #fff;}
 #label_nome { 
 	font: 22px "Noto Sans";
-	color: #fff;}
+	color: rgb(9, 19, 41);}
 #label_senha { color: #fff }
 #btn_delete{
 	font: 32px "Noto Sans";
@@ -61,6 +61,11 @@ dialog{
 	background: rgb(9, 19, 41);
 	color: #d6e6ee;
 	font: 3em sans-serif;
+}
+#tecla_alfa{
+	background: rgb(9, 19, 41);
+	color: #d6e6ee;
+	font: 2em sans-serif;
 }
 #tecla_login{
 	font: 30px "Noto Sans";
