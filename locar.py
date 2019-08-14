@@ -7,7 +7,7 @@ class Locar(object):
         builder = Gtk.Builder()
         builder.add_from_file("ui/locacao.glade")
         self.window_locacao = builder.get_object("locacao_window")
-        self.window_locacao.fullscreen(True)
+        self.window_locacao.fullscreen()
         self.window_locacao.show()
 
 if __name__ == "__main__":
