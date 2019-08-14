@@ -28,6 +28,7 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">start</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
@@ -84,6 +85,7 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">start</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
@@ -131,11 +133,13 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">start</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="label" translatable="yes">Telefone</property>
               </object>
               <packing>
@@ -177,11 +181,14 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">start</property>
+            <property name="margin_right">25</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="label" translatable="yes">Total dias</property>
               </object>
               <packing>
@@ -198,6 +205,7 @@
                 <property name="can_focus">True</property>
                 <property name="has_focus">True</property>
                 <property name="double_buffered">False</property>
+                <property name="halign">start</property>
                 <property name="placeholder_text" translatable="yes">SOMENTE NÚMEROS</property>
                 <property name="input_purpose">number</property>
                 <signal name="button-press-event" handler="on_entry_dias" swapped="no"/>
@@ -213,6 +221,7 @@
                 <property name="name">label_nome</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="label" translatable="yes">    	Total horas   </property>
               </object>
               <packing>
@@ -228,6 +237,7 @@
                 <property name="can_focus">True</property>
                 <property name="has_focus">True</property>
                 <property name="double_buffered">False</property>
+                <property name="halign">start</property>
                 <property name="max_length">2</property>
                 <property name="placeholder_text" translatable="yes">SOMENTE NÚMEROS</property>
                 <property name="input_purpose">number</property>

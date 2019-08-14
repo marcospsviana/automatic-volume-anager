@@ -28,7 +28,7 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">start</property>
+            <property name="halign">baseline</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
@@ -85,7 +85,7 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">start</property>
+            <property name="halign">baseline</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
@@ -133,7 +133,7 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">start</property>
+            <property name="halign">baseline</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
@@ -182,6 +182,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">start</property>
+            <property name="margin_right">25</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
