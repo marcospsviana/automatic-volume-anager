@@ -10,7 +10,7 @@ from gi.repository import Gtk, Gdk
 from controllers import Management
 from login import Login
 from encerrar import Encerrar
-#from locacao import Locacao
+from locar import Locar
 
 
 class RaspControl(object):
@@ -278,7 +278,9 @@ class RaspControl(object):
             self.btn_num.set_label('abc..')
     
     def on_btn_encerrar_clicked(self, event):
-        Encerrar()
+        #Encerrar()
+        Locar()
+
     
 
 

@@ -85,14 +85,14 @@ ENGINE=InnoDB
             return consulta
 
         elif self.select[0][2] != self.email and self.select[0][3] == self.telefone:
-            self.__c.execute("UPDATE tb_usuario SET email = '%s' WHERE id_usuario = %s"%(self.email, self.select[0][0]))
-            self.__conn.commit()
-            
-            return self.select[0][0]# id_usuario
+                self.__c.execute("UPDATE tb_usuario SET email = '%s' WHERE id_usuario = %s"%(self.email, self.select[0][0]))
+                self.__conn.commit()
+                
+                return self.select[0][0]# id_usuario
         elif self.select[0][2] == self.email and self.select[0][3] != self.telefone:
-            self.__c.execute("UPDATE tb_usuario SET telefone = '%s' WHERE id_usuario = %s"%(self.telefone, self.select[0][0]))
-            self.__conn.commit()
-            return self.select[0][0]
+                self.__c.execute("UPDATE tb_usuario SET telefone = '%s' WHERE id_usuario = %s"%(self.telefone, self.select[0][0]))
+                self.__conn.commit()
+                return self.select[0][0]
         else:
             return self.select[0][0]
             
@@ -100,7 +100,7 @@ ENGINE=InnoDB
         self.__conn.close()
 
     def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario):
-        self.port = Portas()
+        #self.port = Portas()
         self.__dia = int(dia)
         self.__hora = int(hora)
         self.__minuto = int(minuto)
@@ -128,7 +128,7 @@ ENGINE=InnoDB
 
         self.dados_locatario = self.create_user(
             self.__nome, self.__email, self.__telefone)
-        print("dados locatario data.py locacao===>", self.dados_locatario[0][0])
+        print("dados locatario data.py locacao===>", self.dados_locatario)
         # seleciona um armario com a classe indicada e recebe seu id
         loca_armario = self.localisa_armario(self.__armario)
         print('======= loca ramario =====')
@@ -138,14 +138,14 @@ ENGINE=InnoDB
         if (loca_armario != []) or (loca_armario != None):
             self.__senha = self.__get_passwd()
             print("==== id_armario, id_usuario ======")
-            print(loca_armario[0], self.dados_locatario[0])
-            self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(null, '%s','%s',null,'%s',%s,%s)"% (self.__data_locacao, self.__data_limite, self.__senha, loca_armario[0], self.dados_locatario[0][0]))
+            #print(loca_armario[0], self.dados_locatario[0])
+            self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(null, '%s','%s',null,'%s',%s,%s)"% (self.__data_locacao, self.__data_limite, self.__senha, loca_armario[0], self.dados_locatario))
             self.__conn.commit()
             self.__c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario[0]))
             self.__conn.commit()
             self.__conn.close()
             return "locacao concluida com sucesso"
-            port = self.select_port(loca_armario[0])
+            ##port = self.select_port(loca_armario[0])
             self.port.exec_port(str(port[0][0]), "abre")
         else:
             return loca_armario

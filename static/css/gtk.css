@@ -34,11 +34,11 @@ dialog{
 		background: #008cc3; 
 		color: #fff }
 
-#window { background-color: darkcyan;
+#window { background-color: #ffe100;
 	/*font: 32px "Noto Sans";*/
 }
 #window_locacao { 
-	background-color: darkcyan;
+	background-color: #ffe100;
 	font: 22px "Noto Sans";
 }
 
@@ -57,20 +57,25 @@ dialog{
 	font: 30px "Noto Sans";
 	
 }
+#tecla_num{
+	background-color: rgb(9, 19, 41);
+	color: #d6e6ee;
+	font: 4em sans-serif;
+}
 #tecla_login{
 	font: 30px "Noto Sans";
 	
 }
 #btn_locar, #btn_encerrar, #btn_abrir, #label_total{
 	font: 36px "Noto Sans";
-	color: #fff;
+	color: #000000;
 	font-stretch: condensed;
 }
 #btn_locar{
 	background: #008cc3;
 }
 #btn_encerrar{
-	background: red;
+	background: rgb(255, 94, 0);
 }
 #btn_abrir{
 	background: #008cc3

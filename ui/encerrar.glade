@@ -1400,6 +1400,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <signal name="button-press-event" handler="on_num_button_press_event" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -1415,6 +1416,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_CANCELAR_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -1443,6 +1445,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <signal name="clicked" handler="on_btn_login_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
