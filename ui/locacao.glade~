@@ -356,6 +356,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
+                <property name="column_spacing">1</property>
                 <child>
                   <object class="GtkButton" id="1">
                     <property name="label" translatable="yes">1</property>
@@ -498,6 +499,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
+                <property name="column_spacing">1</property>
                 <child>
                   <object class="GtkButton" id="q">
                     <property name="label" translatable="yes">q</property>
@@ -640,6 +642,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
+                <property name="column_spacing">1</property>
                 <child>
                   <object class="GtkButton" id="a">
                     <property name="label" translatable="yes">a</property>
@@ -769,6 +772,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
+                <property name="column_spacing">1</property>
                 <child>
                   <object class="GtkButton" id="z">
                     <property name="label" translatable="yes">z</property>
@@ -872,6 +876,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
+                <property name="column_spacing">1</property>
                 <child>
                   <object class="GtkButton">
                     <property name="label" translatable="yes">@gmail.com</property>

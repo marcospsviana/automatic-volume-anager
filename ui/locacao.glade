@@ -6,6 +6,8 @@
     <property name="name">window</property>
     <property name="can_focus">False</property>
     <property name="receives_default">True</property>
+    <property name="halign">center</property>
+    <property name="valign">center</property>
     <property name="hexpand">False</property>
     <property name="vexpand">False</property>
     <property name="window_position">center-always</property>
@@ -20,6 +22,8 @@
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
@@ -47,6 +51,8 @@
                 <property name="has_focus">True</property>
                 <property name="is_focus">True</property>
                 <property name="double_buffered">False</property>
+                <property name="margin_left">17</property>
+                <property name="margin_right">10</property>
                 <property name="margin_top">7</property>
                 <property name="margin_bottom">5</property>
                 <property name="activates_default">True</property>
@@ -100,6 +106,8 @@
                 <property name="can_focus">True</property>
                 <property name="has_focus">True</property>
                 <property name="double_buffered">False</property>
+                <property name="margin_left">20</property>
+                <property name="margin_right">10</property>
                 <property name="margin_top">6</property>
                 <property name="margin_bottom">6</property>
                 <property name="placeholder_text" translatable="yes">TOQUE PARA ATIVAR ( SEU MELHOR EMAIL AQUI)</property>
@@ -145,6 +153,8 @@
                 <property name="can_focus">True</property>
                 <property name="has_focus">True</property>
                 <property name="double_buffered">False</property>
+                <property name="margin_left">4</property>
+                <property name="margin_right">10</property>
                 <property name="margin_top">6</property>
                 <property name="margin_bottom">6</property>
                 <property name="placeholder_text" translatable="yes">TOQUE PARA ATIVAR ( SOMENTE NÚMEROS)</property>
@@ -252,6 +262,7 @@
                 <property name="has_focus">True</property>
                 <property name="double_buffered">False</property>
                 <property name="halign">start</property>
+                <property name="margin_right">10</property>
                 <property name="max_length">2</property>
                 <property name="placeholder_text" translatable="yes">SOMENTE NÚMEROS</property>
                 <property name="input_purpose">number</property>
