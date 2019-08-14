@@ -963,13 +963,13 @@
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
-                <property name="margin_left">29</property>
+                <property name="margin_left">36</property>
                 <property name="margin_right">86</property>
                 <property name="row_spacing">1</property>
                 <property name="column_spacing">2</property>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">         </property>
+                    <property name="label" translatable="yes">                          </property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
