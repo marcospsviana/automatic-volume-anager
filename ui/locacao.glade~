@@ -6,8 +6,6 @@
     <property name="name">window</property>
     <property name="can_focus">False</property>
     <property name="receives_default">True</property>
-    <property name="halign">center</property>
-    <property name="valign">center</property>
     <property name="margin_right">21</property>
     <property name="margin_bottom">20</property>
     <property name="hexpand">False</property>
@@ -25,7 +23,6 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="halign">center</property>
-        <property name="valign">center</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
@@ -1001,7 +998,7 @@
                 </child>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">.</property>
+                    <property name="label" translatable="yes">@</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
