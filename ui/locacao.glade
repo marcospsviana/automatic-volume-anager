@@ -969,7 +969,7 @@
                 <property name="column_spacing">2</property>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">                                         </property>
+                    <property name="label" translatable="yes">         </property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
