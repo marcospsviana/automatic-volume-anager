@@ -58,9 +58,9 @@ dialog{
 	
 }
 #tecla_num{
-	background-color: rgb(9, 19, 41);
+	background: rgb(9, 19, 41);
 	color: #d6e6ee;
-	font: 4em sans-serif;
+	font: 3em sans-serif;
 }
 #tecla_login{
 	font: 30px "Noto Sans";
