@@ -363,6 +363,8 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkGrid">
@@ -1022,7 +1024,7 @@
                     <property name="valign">center</property>
                   </object>
                   <packing>
-                    <property name="left_attach">7</property>
+                    <property name="left_attach">6</property>
                     <property name="top_attach">0</property>
                   </packing>
                 </child>
@@ -1069,7 +1071,7 @@
                   <packing>
                     <property name="left_attach">2</property>
                     <property name="top_attach">0</property>
-                    <property name="width">3</property>
+                    <property name="width">2</property>
                   </packing>
                 </child>
                 <child>
@@ -1083,7 +1085,7 @@
                     <property name="valign">center</property>
                   </object>
                   <packing>
-                    <property name="left_attach">6</property>
+                    <property name="left_attach">5</property>
                     <property name="top_attach">0</property>
                   </packing>
                 </child>
@@ -1098,7 +1100,7 @@
                     <property name="valign">center</property>
                   </object>
                   <packing>
-                    <property name="left_attach">5</property>
+                    <property name="left_attach">4</property>
                     <property name="top_attach">0</property>
                   </packing>
                 </child>
