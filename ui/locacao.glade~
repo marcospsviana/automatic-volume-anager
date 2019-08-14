@@ -2,10 +2,19 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+  <object class="GtkImage" id="backspace">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="halign">center</property>
+    <property name="valign">center</property>
+    <property name="pixbuf">../static/images/backspace.svg</property>
+  </object>
   <object class="GtkWindow" id="locacao_window">
     <property name="name">window</property>
     <property name="can_focus">False</property>
     <property name="receives_default">True</property>
+    <property name="halign">center</property>
+    <property name="valign">center</property>
     <property name="hexpand">False</property>
     <property name="vexpand">False</property>
     <property name="window_position">center-always</property>
@@ -20,6 +29,8 @@
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
@@ -47,6 +58,8 @@
                 <property name="has_focus">True</property>
                 <property name="is_focus">True</property>
                 <property name="double_buffered">False</property>
+                <property name="margin_left">17</property>
+                <property name="margin_right">10</property>
                 <property name="margin_top">7</property>
                 <property name="margin_bottom">5</property>
                 <property name="activates_default">True</property>
@@ -100,6 +113,8 @@
                 <property name="can_focus">True</property>
                 <property name="has_focus">True</property>
                 <property name="double_buffered">False</property>
+                <property name="margin_left">20</property>
+                <property name="margin_right">10</property>
                 <property name="margin_top">6</property>
                 <property name="margin_bottom">6</property>
                 <property name="placeholder_text" translatable="yes">TOQUE PARA ATIVAR ( SEU MELHOR EMAIL AQUI)</property>
@@ -145,6 +160,8 @@
                 <property name="can_focus">True</property>
                 <property name="has_focus">True</property>
                 <property name="double_buffered">False</property>
+                <property name="margin_left">4</property>
+                <property name="margin_right">10</property>
                 <property name="margin_top">6</property>
                 <property name="margin_bottom">6</property>
                 <property name="placeholder_text" translatable="yes">TOQUE PARA ATIVAR ( SOMENTE NÚMEROS)</property>
@@ -252,6 +269,7 @@
                 <property name="has_focus">True</property>
                 <property name="double_buffered">False</property>
                 <property name="halign">start</property>
+                <property name="margin_right">10</property>
                 <property name="max_length">2</property>
                 <property name="placeholder_text" translatable="yes">SOMENTE NÚMEROS</property>
                 <property name="input_purpose">number</property>
@@ -760,6 +778,22 @@
                     <property name="top_attach">0</property>
                   </packing>
                 </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="label" translatable="yes">
+</property>
+                    <property name="name">tecla_num</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="image">backspace</property>
+                    <property name="always_show_image">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">9</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -879,19 +913,6 @@
                 <property name="column_spacing">1</property>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">@gmail.com</property>
-                    <property name="name">tecla_alfa</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton">
                     <property name="label" translatable="yes">@yahoo.com</property>
                     <property name="name">tecla_alfa</property>
                     <property name="visible">True</property>
@@ -978,6 +999,19 @@
                   </object>
                   <packing>
                     <property name="left_attach">7</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="label" translatable="yes">@gmail.com</property>
+                    <property name="name">tecla_alfa</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
                     <property name="top_attach">0</property>
                   </packing>
                 </child>
