@@ -963,7 +963,10 @@
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
-                <property name="column_spacing">1</property>
+                <property name="margin_left">105</property>
+                <property name="margin_right">67</property>
+                <property name="row_spacing">1</property>
+                <property name="column_spacing">2</property>
                 <child>
                   <object class="GtkButton">
                     <property name="label" translatable="yes">                                         </property>
@@ -1014,6 +1017,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">False</property>
+                <property name="padding">2</property>
                 <property name="position">4</property>
               </packing>
             </child>
