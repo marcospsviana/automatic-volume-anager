@@ -368,6 +368,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
+                <property name="valign">center</property>
                 <property name="column_spacing">1</property>
                 <child>
                   <object class="GtkButton" id="1">
@@ -546,6 +547,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
+                <property name="valign">center</property>
                 <property name="column_spacing">1</property>
                 <child>
                   <object class="GtkButton" id="q">
@@ -709,6 +711,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
+                <property name="valign">center</property>
                 <property name="column_spacing">1</property>
                 <child>
                   <object class="GtkButton" id="a">
@@ -886,6 +889,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
+                <property name="valign">center</property>
                 <property name="column_spacing">1</property>
                 <child>
                   <object class="GtkButton" id="m">
@@ -1034,6 +1038,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
+                <property name="valign">center</property>
                 <property name="column_spacing">1</property>
                 <property name="row_homogeneous">True</property>
                 <property name="column_homogeneous">True</property>
@@ -1089,6 +1094,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">center</property>
                     <property name="valign">center</property>
                   </object>
                   <packing>
