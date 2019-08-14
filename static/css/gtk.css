@@ -6,7 +6,7 @@ button{
 	color: rgb(9, 19, 41);
 	border-radius: 10px;
 }
-entry{
+#entry{
 	font: 2em sans-serif;
 	border-radius: 5px;
 }
@@ -45,7 +45,7 @@ dialog{
 #lbl_time { font-size: 52px }       
 #label_telefone { color: #fff;}
 #label_nome { 
-	font: 1.7em sans-serif;
+	font: 1.5em sans-serif;
 	color: rgb(9, 19, 41);}
 #label_senha { color: #fff }
 #btn_delete{
