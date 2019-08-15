@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e7946173-dfc5-4e44-8639-b80727dfe931" name="Default Changelist" comment="" />
+    <list default="true" id="e7946173-dfc5-4e44-8639-b80727dfe931" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/ui/locacao.glade" beforeDir="false" afterPath="$PROJECT_DIR$/ui/locacao.glade" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

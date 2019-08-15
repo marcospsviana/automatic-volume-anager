@@ -51,7 +51,7 @@
                 <property name="has_focus">True</property>
                 <property name="is_focus">True</property>
                 <property name="double_buffered">False</property>
-                <property name="halign">baseline</property>
+                <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="margin_left">17</property>
                 <property name="margin_right">10</property>
