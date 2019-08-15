@@ -663,6 +663,11 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/retirar.svg</property>
   </object>
+  <object class="GtkImage" id="image2">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../static/images/alugar.svg</property>
+  </object>
   <object class="GtkImage" id="img_br_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -983,6 +988,30 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
             <child>
               <placeholder/>
             </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -1000,7 +1029,6 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
             <property name="column_homogeneous">True</property>
             <child>
               <object class="GtkButton" id="btn_locar">
-                <property name="label" translatable="yes">Locar Armário</property>
                 <property name="name">btn_locar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1011,7 +1039,9 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
                 <property name="margin_bottom">5</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
-                <property name="relief">half</property>
+                <property name="image">image2</property>
+                <property name="relief">none</property>
+                <property name="always_show_image">True</property>
                 <signal name="clicked" handler="btn_locar_clicked_cb" object="locar_window" swapped="no"/>
               </object>
               <packing>
@@ -1050,8 +1080,9 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
                 <property name="margin_right">5</property>
                 <property name="margin_top">5</property>
                 <property name="margin_bottom">5</property>
+                <property name="border_width">0</property>
                 <property name="image">image1</property>
-                <property name="relief">half</property>
+                <property name="relief">none</property>
                 <property name="image_position">right</property>
                 <property name="always_show_image">True</property>
                 <signal name="clicked" handler="btn_abrir_clicked_cb" swapped="no"/>

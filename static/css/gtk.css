@@ -62,9 +62,14 @@ dialog{
 	
 }
 #tecla_num{
-	background: rgb(9, 19, 41);
-	color: #d6e6ee;
+	background: #ffe100;
+	border: rgb(9, 19, 41) solid 1px;
+	color: #000;
 	font: 3.2em sans-serif;
+}
+#tecla_num:focus{
+background: rgb(9, 19, 41);
+color: #fff;
 }
 #tecla_alfa{
 	background: rgb(9, 19, 41);
@@ -86,7 +91,7 @@ dialog{
 	font-stretch: condensed;
 }
 #btn_locar{
-	background: #008cc3;
+	background: url("../static/images/alugar.svg")
 }
 #btn_encerrar{
 	background: rgb(255, 94, 0);
