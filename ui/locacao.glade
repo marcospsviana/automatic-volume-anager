@@ -51,12 +51,14 @@
                 <property name="has_focus">True</property>
                 <property name="is_focus">True</property>
                 <property name="double_buffered">False</property>
+                <property name="halign">start</property>
                 <property name="valign">center</property>
                 <property name="margin_left">17</property>
                 <property name="margin_right">25</property>
                 <property name="margin_top">7</property>
                 <property name="margin_bottom">5</property>
                 <property name="hexpand">True</property>
+                <property name="vexpand">False</property>
                 <property name="activates_default">True</property>
                 <property name="max_width_chars">0</property>
                 <property name="shadow_type">etched-in</property>
@@ -296,21 +298,22 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">start</property>
-            <property name="margin_top">20</property>
-            <property name="margin_bottom">20</property>
+            <property name="valign">center</property>
+            <property name="margin_top">10</property>
+            <property name="margin_bottom">10</property>
             <property name="hexpand">False</property>
             <property name="vexpand">False</property>
-            <property name="spacing">13</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="label" translatable="yes">Total   R$</property>
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">True</property>
+                <property name="fill">False</property>
                 <property name="padding">10</property>
                 <property name="position">0</property>
               </packing>
@@ -320,11 +323,12 @@
                 <property name="name">label_nome</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="label" translatable="yes">           0,00     </property>
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">True</property>
+                <property name="fill">False</property>
                 <property name="position">1</property>
               </packing>
             </child>
@@ -335,13 +339,13 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
                 <signal name="button-press-event" handler="on_btn_cancelar_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="padding">76</property>
+                <property name="fill">False</property>
+                <property name="padding">30</property>
                 <property name="position">2</property>
               </packing>
             </child>
@@ -352,12 +356,12 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
                 <signal name="button-press-event" handler="on_btn_proximo_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">True</property>
+                <property name="fill">False</property>
                 <property name="position">3</property>
               </packing>
             </child>

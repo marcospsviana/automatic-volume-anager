@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7946173-dfc5-4e44-8639-b80727dfe931" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/static/css/gtk.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/gtk.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/locacao.glade" beforeDir="false" afterPath="$PROJECT_DIR$/ui/locacao.glade" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
