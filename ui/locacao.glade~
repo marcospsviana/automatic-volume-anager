@@ -227,7 +227,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>
-                <property name="label" translatable="yes">    	Total horas   </property>
+                <property name="label" translatable="yes">Total horas   </property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -259,7 +259,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>
-                <property name="label" translatable="yes">   Total minutos   </property>
+                <property name="label" translatable="yes">Total minutos   </property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -313,7 +313,7 @@
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">True</property>
+                <property name="fill">False</property>
                 <property name="padding">10</property>
                 <property name="position">0</property>
               </packing>
@@ -328,7 +328,7 @@
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">True</property>
+                <property name="fill">False</property>
                 <property name="position">1</property>
               </packing>
             </child>
@@ -344,8 +344,8 @@
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="padding">76</property>
+                <property name="fill">False</property>
+                <property name="padding">30</property>
                 <property name="position">2</property>
               </packing>
             </child>
@@ -361,7 +361,7 @@
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">True</property>
+                <property name="fill">False</property>
                 <property name="position">3</property>
               </packing>
             </child>
