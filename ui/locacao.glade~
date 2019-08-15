@@ -13,6 +13,7 @@
     <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
+    <property name="accept_focus">False</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
     <child>
@@ -387,6 +388,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="valign">center</property>
                   </object>

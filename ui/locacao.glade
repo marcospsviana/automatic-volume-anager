@@ -10,10 +10,10 @@
     <property name="margin_bottom">20</property>
     <property name="hexpand">False</property>
     <property name="vexpand">False</property>
+    <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
-    <property name="accept_focus">False</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
     <child>
