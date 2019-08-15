@@ -22,17 +22,21 @@ dialog{
 #btn_num{ background-color: red; font-size: 22px}
 
 #btn_proximo { 
-	font: 42px "Noto Sans";
-	background: #008cc3; 
-	color: #fff }
+	font: 2.5em sans-serif;
+		background: rgb(9, 19, 41);
+	    color: #d6e6ee;
+	    }
 #btn_cancelar {  
-	font: 32px "Noto Sans";
-	background: red; 
-	color: #fff }
+	font: 2.5em sans-serif;
+		background: rgb(9, 19, 41);
+	    color: #d6e6ee;
+	     }
 #btn_confirmar{  
-		font: 32px "Noto Sans";
-		background: #008cc3; 
-		color: #fff }
+		font: 2.5em sans-serif;
+		background: rgb(9, 19, 41);
+	    color: #d6e6ee;
+
+		 }
 
 #window { background-color: #ffe100;
 	/*font: 32px "Noto Sans";*/

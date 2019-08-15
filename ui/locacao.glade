@@ -163,15 +163,15 @@
                 <property name="double_buffered">False</property>
                 <property name="margin_left">4</property>
                 <property name="margin_right">10</property>
-                <property name="margin_top">6</property>
-                <property name="margin_bottom">6</property>
+                <property name="margin_top">7</property>
+                <property name="margin_bottom">5</property>
                 <property name="max_length">22</property>
                 <property name="placeholder_text" translatable="yes">TOQUE PARA ATIVAR ( SOMENTE NÚMEROS)</property>
                 <property name="input_purpose">phone</property>
                 <signal name="button-press-event" handler="on_entry_telefone" swapped="no"/>
               </object>
               <packing>
-                <property name="expand">True</property>
+                <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="position">1</property>
               </packing>
@@ -199,12 +199,14 @@
                 <property name="can_focus">True</property>
                 <property name="double_buffered">False</property>
                 <property name="margin_right">25</property>
+                <property name="margin_top">7</property>
+                <property name="margin_bottom">5</property>
                 <property name="placeholder_text" translatable="yes">SOMENTE NÚMEROS</property>
                 <property name="input_purpose">number</property>
                 <signal name="button-press-event" handler="on_entry_dias" swapped="no"/>
               </object>
               <packing>
-                <property name="expand">True</property>
+                <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="position">3</property>
               </packing>
@@ -220,6 +222,7 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">start</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
@@ -241,6 +244,8 @@
                 <property name="can_focus">True</property>
                 <property name="double_buffered">False</property>
                 <property name="halign">start</property>
+                <property name="margin_top">7</property>
+                <property name="margin_bottom">5</property>
                 <property name="max_length">2</property>
                 <property name="placeholder_text" translatable="yes">SOMENTE NÚMEROS</property>
                 <property name="input_purpose">number</property>
@@ -274,6 +279,8 @@
                 <property name="double_buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin_right">25</property>
+                <property name="margin_top">7</property>
+                <property name="margin_bottom">5</property>
                 <property name="max_length">2</property>
                 <property name="placeholder_text" translatable="yes">SOMENTE NÚMEROS</property>
                 <property name="input_purpose">number</property>
@@ -296,11 +303,13 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="margin_top">20</property>
-            <property name="margin_bottom">20</property>
-            <property name="hexpand">True</property>
-            <property name="vexpand">True</property>
-            <property name="spacing">13</property>
+            <property name="halign">start</property>
+            <property name="margin_left">5</property>
+            <property name="margin_top">10</property>
+            <property name="margin_bottom">10</property>
+            <property name="hexpand">False</property>
+            <property name="vexpand">False</property>
+            <property name="spacing">1</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
@@ -352,7 +361,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
                 <signal name="button-press-event" handler="on_btn_proximo_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -364,7 +373,7 @@
           </object>
           <packing>
             <property name="expand">False</property>
-            <property name="fill">False</property>
+            <property name="fill">True</property>
             <property name="position">4</property>
           </packing>
         </child>

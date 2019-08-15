@@ -10,10 +10,10 @@
     <property name="margin_bottom">20</property>
     <property name="hexpand">False</property>
     <property name="vexpand">False</property>
+    <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
-    <property name="accept_focus">False</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
     <child>
@@ -220,6 +220,7 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">start</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
@@ -296,11 +297,13 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="margin_top">20</property>
-            <property name="margin_bottom">20</property>
-            <property name="hexpand">True</property>
-            <property name="vexpand">True</property>
-            <property name="spacing">13</property>
+            <property name="halign">start</property>
+            <property name="margin_left">5</property>
+            <property name="margin_top">10</property>
+            <property name="margin_bottom">10</property>
+            <property name="hexpand">False</property>
+            <property name="vexpand">False</property>
+            <property name="spacing">1</property>
             <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
@@ -352,7 +355,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">baseline</property>
+                <property name="halign">start</property>
                 <signal name="button-press-event" handler="on_btn_proximo_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -364,7 +367,7 @@
           </object>
           <packing>
             <property name="expand">False</property>
-            <property name="fill">False</property>
+            <property name="fill">True</property>
             <property name="position">4</property>
           </packing>
         </child>
