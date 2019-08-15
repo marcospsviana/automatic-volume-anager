@@ -51,10 +51,13 @@
                 <property name="has_focus">True</property>
                 <property name="is_focus">True</property>
                 <property name="double_buffered">False</property>
+                <property name="halign">baseline</property>
+                <property name="valign">center</property>
                 <property name="margin_left">17</property>
                 <property name="margin_right">10</property>
                 <property name="margin_top">7</property>
                 <property name="margin_bottom">5</property>
+                <property name="hexpand">True</property>
                 <property name="activates_default">True</property>
                 <property name="max_width_chars">0</property>
                 <property name="shadow_type">etched-in</property>
@@ -107,10 +110,12 @@
                 <property name="can_focus">True</property>
                 <property name="has_focus">True</property>
                 <property name="double_buffered">False</property>
+                <property name="halign">center</property>
                 <property name="margin_left">20</property>
                 <property name="margin_right">10</property>
                 <property name="margin_top">6</property>
                 <property name="margin_bottom">6</property>
+                <property name="hexpand">True</property>
                 <property name="placeholder_text" translatable="yes">TOQUE PARA ATIVAR ( SEU MELHOR EMAIL AQUI)</property>
                 <property name="input_purpose">email</property>
                 <property name="input_hints">GTK_INPUT_HINT_NO_SPELLCHECK | GTK_INPUT_HINT_LOWERCASE | GTK_INPUT_HINT_NONE</property>
@@ -156,10 +161,12 @@
                 <property name="can_focus">True</property>
                 <property name="has_focus">True</property>
                 <property name="double_buffered">False</property>
+                <property name="halign">start</property>
                 <property name="margin_left">4</property>
                 <property name="margin_right">10</property>
                 <property name="margin_top">6</property>
                 <property name="margin_bottom">6</property>
+                <property name="max_length">22</property>
                 <property name="placeholder_text" translatable="yes">TOQUE PARA ATIVAR ( SOMENTE NÚMEROS)</property>
                 <property name="input_purpose">phone</property>
                 <signal name="button-press-event" handler="on_entry_telefone" swapped="no"/>
@@ -168,6 +175,39 @@
                 <property name="expand">True</property>
                 <property name="fill">True</property>
                 <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="name">label_nome</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">start</property>
+                <property name="label" translatable="yes">Total dias</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="padding">10</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_dias">
+                <property name="name">entry</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="double_buffered">False</property>
+                <property name="halign">start</property>
+                <property name="margin_right">15</property>
+                <property name="placeholder_text" translatable="yes">SOMENTE NÚMEROS</property>
+                <property name="input_purpose">number</property>
+                <signal name="button-press-event" handler="on_entry_dias" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">3</property>
               </packing>
             </child>
           </object>
@@ -184,31 +224,47 @@
             <property name="halign">start</property>
             <property name="margin_right">25</property>
             <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
               <object class="GtkLabel">
                 <property name="name">label_nome</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>
-                <property name="label" translatable="yes">Total dias</property>
+                <property name="label" translatable="yes">    	Total horas   </property>
               </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="padding">10</property>
                 <property name="position">0</property>
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="entry_dias">
+              <object class="GtkEntry" id="entry_horas">
                 <property name="name">entry</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="has_focus">True</property>
                 <property name="double_buffered">False</property>
                 <property name="halign">start</property>
+                <property name="max_length">2</property>
                 <property name="placeholder_text" translatable="yes">SOMENTE NÚMEROS</property>
                 <property name="input_purpose">number</property>
-                <signal name="button-press-event" handler="on_entry_dias" swapped="no"/>
+                <signal name="button-press-event" handler="on_entry_horas" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -222,7 +278,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>
-                <property name="label" translatable="yes">    	Total horas   </property>
+                <property name="label" translatable="yes">   Total minutos   </property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -231,47 +287,13 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="entry_horas">
-                <property name="name">entry</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="has_focus">True</property>
-                <property name="double_buffered">False</property>
-                <property name="halign">start</property>
-                <property name="max_length">2</property>
-                <property name="placeholder_text" translatable="yes">SOMENTE NÚMEROS</property>
-                <property name="input_purpose">number</property>
-                <signal name="button-press-event" handler="on_entry_horas" swapped="no"/>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">3</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel">
-                <property name="name">label_nome</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">start</property>
-                <property name="label" translatable="yes">   Total minutos   </property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">4</property>
-              </packing>
-            </child>
-            <child>
               <object class="GtkEntry" id="entry_minutos">
                 <property name="name">entry</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="has_focus">True</property>
                 <property name="double_buffered">False</property>
                 <property name="halign">start</property>
-                <property name="margin_right">10</property>
+                <property name="margin_right">15</property>
                 <property name="max_length">2</property>
                 <property name="placeholder_text" translatable="yes">SOMENTE NÚMEROS</property>
                 <property name="input_purpose">number</property>
@@ -280,14 +302,14 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">5</property>
+                <property name="position">3</property>
               </packing>
             </child>
           </object>
           <packing>
             <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">3</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
           </packing>
         </child>
         <child>
@@ -363,22 +385,22 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">False</property>
-            <property name="position">4</property>
+            <property name="position">5</property>
           </packing>
         </child>
         <child>
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="halign">start</property>
+                <property name="halign">center</property>
                 <property name="valign">center</property>
-                <property name="margin_left">40</property>
                 <property name="column_spacing">1</property>
                 <child>
                   <object class="GtkButton" id="1">
@@ -530,9 +552,8 @@
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="halign">start</property>
+                <property name="halign">center</property>
                 <property name="valign">center</property>
-                <property name="margin_left">40</property>
                 <property name="column_spacing">1</property>
                 <child>
                   <object class="GtkButton" id="q">
@@ -693,9 +714,8 @@
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="halign">start</property>
+                <property name="halign">center</property>
                 <property name="valign">center</property>
-                <property name="margin_left">50</property>
                 <property name="column_spacing">1</property>
                 <child>
                   <object class="GtkButton" id="a">
@@ -842,9 +862,8 @@
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="halign">start</property>
+                <property name="halign">center</property>
                 <property name="valign">center</property>
-                <property name="margin_left">80</property>
                 <property name="column_spacing">1</property>
                 <child>
                   <object class="GtkButton" id="m">
@@ -962,9 +981,8 @@
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="halign">start</property>
+                <property name="halign">center</property>
                 <property name="valign">center</property>
-                <property name="margin_left">85</property>
                 <property name="margin_right">86</property>
                 <property name="row_spacing">1</property>
                 <property name="column_spacing">2</property>
@@ -1026,7 +1044,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">5</property>
+            <property name="position">6</property>
           </packing>
         </child>
       </object>
