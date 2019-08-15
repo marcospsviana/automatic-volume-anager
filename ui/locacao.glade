@@ -370,14 +370,13 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">start</property>
             <property name="valign">center</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="halign">center</property>
+                <property name="halign">start</property>
                 <property name="valign">center</property>
                 <property name="column_spacing">1</property>
                 <child>
@@ -387,7 +386,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="receives_default">True</property>
-                    <property name="halign">center</property>
                     <property name="valign">center</property>
                   </object>
                   <packing>
@@ -402,7 +400,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="halign">center</property>
                     <property name="valign">center</property>
                   </object>
                   <packing>
@@ -417,7 +414,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="halign">center</property>
                     <property name="valign">center</property>
                   </object>
                   <packing>
@@ -432,7 +428,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="halign">center</property>
                     <property name="valign">center</property>
                   </object>
                   <packing>
@@ -447,7 +442,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="halign">center</property>
                   </object>
                   <packing>
                     <property name="left_attach">4</property>
@@ -461,7 +455,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="halign">center</property>
                     <property name="valign">center</property>
                   </object>
                   <packing>
@@ -476,7 +469,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="halign">center</property>
                     <property name="valign">center</property>
                   </object>
                   <packing>
@@ -491,7 +483,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="halign">center</property>
                     <property name="valign">center</property>
                   </object>
                   <packing>
@@ -506,7 +497,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="halign">center</property>
                     <property name="valign">center</property>
                   </object>
                   <packing>
@@ -521,7 +511,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="halign">center</property>
                     <property name="valign">center</property>
                   </object>
                   <packing>
@@ -540,7 +529,7 @@
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="halign">center</property>
+                <property name="halign">start</property>
                 <property name="valign">center</property>
                 <property name="column_spacing">1</property>
                 <child>
@@ -550,7 +539,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="halign">center</property>
                     <property name="valign">center</property>
                   </object>
                   <packing>
@@ -565,7 +553,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="halign">center</property>
                     <property name="valign">center</property>
                   </object>
                   <packing>
@@ -704,7 +691,7 @@
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="halign">center</property>
+                <property name="halign">start</property>
                 <property name="valign">center</property>
                 <property name="column_spacing">1</property>
                 <child>
@@ -852,7 +839,7 @@
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="halign">center</property>
+                <property name="halign">start</property>
                 <property name="valign">center</property>
                 <property name="column_spacing">1</property>
                 <child>
@@ -971,9 +958,9 @@
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="halign">center</property>
+                <property name="halign">start</property>
                 <property name="valign">center</property>
-                <property name="margin_left">36</property>
+                <property name="margin_left">46</property>
                 <property name="margin_right">86</property>
                 <property name="row_spacing">1</property>
                 <property name="column_spacing">2</property>

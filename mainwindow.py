@@ -1,10 +1,13 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*- 
+
+
 import sys, os
-import subprocess
-import gi, gobject
+
+import gi
 import numpy as np
-import string, encodings.unicode_escape
+import string
+import encodings.unicode_escape
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk
 from controllers import Management
@@ -31,36 +34,36 @@ class RaspControl(object):
         self.builder = Gtk.Builder()
         self.builder.add_from_file("ui/index.glade")
         self.builder.connect_signals({
-        "on_btn_encerrar_clicked": self.on_btn_encerrar_clicked,
-        #"on_btn_login_clicked": self.on_btn_login_clicked,
-        "on_btn_campo_branco_clicked": self.on_btn_campo_branco_clicked,
-        "on_btn_A_clicked": self.on_btn_A_clicked,
-        "on_btn_B_clicked": self.on_btn_B_clicked,
-        "on_btn_C_clicked": self.on_btn_C_clicked,
-        "on_btn_D_clicked": self.on_btn_D_clicked,
-        "btn_locar_clicked_cb": self.btn_locar_clicked_cb,
-        "on_entry_button_press_event": self.on_entry_button_press_event,
-        "on_entry_nome": self.on_entry_nome,
-        "on_entry_telefone": self.on_entry_telefone,
-        "on_entry_email": self.on_entry_email,
-        "on_entry_dias": self.on_entry_dias,
-        "on_entry_horas": self.on_entry_horas,
-        "on_entry_minutos": self.on_entry_minutos,
-        "gtk_widget_destroy": self.gtk_widget_destroy,
-        "on_locacao_destroy": self.on_locacao_destroy,
-        "on_btn_proximo_button_press_event": self.on_btn_proximo_button_press_event,
-        "on_onpen": self.abrir,
-        "on_space_clicked": self.on_space_clicked,
-        "on_btn_dialog_confirmar_clicked": self.on_btn_dialog_confirmar_clicked,
-        "on_btn_dialog_cancelar_clicked": self.on_btn_dialog_cancelar_clicked,
-        "btn_abrir_clicked_cb": self.btn_abrir_clicked_cb,
-        #"on_btn_login_clicked": self.on_btn_login_clicked,
-        "on_num_button_press_event": self.on_num_button_press_event,
-        "on_btn_cancelar_button_press_event": self.on_btn_cancelar_button_press_event,
-        "gtk_main_quit": Gtk.main_quit
+                "on_btn_encerrar_clicked": self.on_btn_encerrar_clicked,
+                #"on_btn_login_clicked": self.on_btn_login_clicked,
+                "on_btn_campo_branco_clicked": self.on_btn_campo_branco_clicked,
+                "on_btn_A_clicked": self.on_btn_A_clicked,
+                "on_btn_B_clicked": self.on_btn_B_clicked,
+                "on_btn_C_clicked": self.on_btn_C_clicked,
+                "on_btn_D_clicked": self.on_btn_D_clicked,
+                "btn_locar_clicked_cb": self.btn_locar_clicked_cb,
+                "on_entry_button_press_event": self.on_entry_button_press_event,
+                "on_entry_nome": self.on_entry_nome,
+                "on_entry_telefone": self.on_entry_telefone,
+                "on_entry_email": self.on_entry_email,
+                "on_entry_dias": self.on_entry_dias,
+                "on_entry_horas": self.on_entry_horas,
+                "on_entry_minutos": self.on_entry_minutos,
+                "gtk_widget_destroy": self.gtk_widget_destroy,
+                "on_locacao_destroy": self.on_locacao_destroy,
+                "on_btn_proximo_button_press_event": self.on_btn_proximo_button_press_event,
+                "on_onpen": self.abrir,
+                "on_space_clicked": self.on_space_clicked,
+                "on_btn_dialog_confirmar_clicked": self.on_btn_dialog_confirmar_clicked,
+                "on_btn_dialog_cancelar_clicked": self.on_btn_dialog_cancelar_clicked,
+                "btn_abrir_clicked_cb": self.btn_abrir_clicked_cb,
+                #"on_btn_login_clicked": self.on_btn_login_clicked,
+                "on_num_button_press_event": self.on_num_button_press_event,
+                "on_btn_cancelar_button_press_event": self.on_btn_cancelar_button_press_event,
+                "gtk_main_quit": Gtk.main_quit
         })
         
-        #adicionando os elementos do teclado =======================
+        '''adicionando os elementos do teclado ======================='''
         self.a = self.builder.get_object("a")
         self.a.connect("clicked", self.on_entry_button_press_event)
         self.b = self.builder.get_object("b")
@@ -114,7 +117,7 @@ class RaspControl(object):
         self.z = self.builder.get_object("z")
         self.z.connect("clicked", self.on_entry_button_press_event)
         self.space = self.builder.get_object("space")
-        #========== fim elementos do teclado 
+        """========== fim elementos do teclado  """
         
         
         #=========== dialog cobranca ===========
