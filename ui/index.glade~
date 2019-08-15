@@ -976,15 +976,7 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
             <property name="row_homogeneous">True</property>
             <property name="column_homogeneous">True</property>
             <child>
-              <object class="GtkImage" id="img_touc">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="pixbuf">../static/images/hand.svg</property>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">0</property>
-              </packing>
+              <placeholder/>
             </child>
           </object>
           <packing>
@@ -1023,27 +1015,6 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btn_abrir">
-                <property name="label" translatable="yes">Abrir Armário</property>
-                <property name="name">btn_abrir</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="margin_left">5</property>
-                <property name="margin_right">5</property>
-                <property name="margin_top">5</property>
-                <property name="margin_bottom">5</property>
-                <property name="hexpand">True</property>
-                <property name="vexpand">True</property>
-                <property name="relief">half</property>
-                <signal name="clicked" handler="btn_abrir_clicked_cb" swapped="no"/>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">0</property>
-              </packing>
-            </child>
-            <child>
               <object class="GtkButton" id="btn_encerrar">
                 <property name="label" translatable="yes">Encerrar Locação</property>
                 <property name="name">btn_encerrar</property>
@@ -1059,6 +1030,28 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_abrir">
+                <property name="name">btn_abrir</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="margin_left">5</property>
+                <property name="margin_right">5</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">5</property>
+                <property name="relief">half</property>
+                <property name="image_position">right</property>
+                <property name="always_show_image">True</property>
+                <signal name="clicked" handler="btn_abrir_clicked_cb" swapped="no"/>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
                 <property name="top_attach">0</property>
               </packing>
             </child>
@@ -1362,7 +1355,7 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
             <property name="hexpand">True</property>
             <child>
               <object class="GtkLabel">
-                <property name="name">label_nome</property>
+                <property name="name">label_total</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_left">10</property>

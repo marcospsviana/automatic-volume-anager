@@ -92,5 +92,5 @@ dialog{
 	background: rgb(255, 94, 0);
 }
 #btn_abrir{
-	background: #008cc3
+	background: url("../static/images/retirar.svg")
 }
