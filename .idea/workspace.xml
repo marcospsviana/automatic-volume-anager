@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e7946173-dfc5-4e44-8639-b80727dfe931" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/static/css/gtk.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/gtk.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/locacao.glade" beforeDir="false" afterPath="$PROJECT_DIR$/ui/locacao.glade" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +37,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/css/gtk.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="88">
               <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
             </state>
           </provider>
@@ -173,7 +174,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/gtk.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="88">
           <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
         </state>
       </provider>
