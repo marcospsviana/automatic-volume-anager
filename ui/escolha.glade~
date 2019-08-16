@@ -8,6 +8,7 @@
     <property name="pixbuf">../static/images/inicio_reserva.svg</property>
   </object>
   <object class="GtkWindow" id="window_select">
+    <property name="name">window</property>
     <property name="can_focus">False</property>
     <property name="default_width">1024</property>
     <property name="default_height">600</property>

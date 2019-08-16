@@ -112,6 +112,7 @@
                 <property name="halign">start</property>
                 <property name="valign">center</property>
                 <property name="image">image_reserva</property>
+                <property name="relief">none</property>
                 <property name="always_show_image">True</property>
               </object>
               <packing>
