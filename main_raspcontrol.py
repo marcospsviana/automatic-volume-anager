@@ -14,7 +14,7 @@ from controllers import Management
 from login import Login
 from encerrar import Encerrar
 from locar import Locar
-
+from select_cabinet import SelectCabinet
 
 class RaspControl(object):
     def __init__(self):
@@ -29,7 +29,7 @@ class RaspControl(object):
 
 
     def on_btn_principal_clicked(self, event):
-        print("ok")
+        SelectCabinet()
 
 if __name__ == "__main__":
     app = RaspControl()
