@@ -22,13 +22,13 @@ class RaspControl(object):
         self.builder.add_from_file("ui/coolbag_safe.glade")
         self.builder.connect_signals({
             "gtk_main_quit": Gtk.main_quit,
-            "on_principal_image_button_press_event": self.on_principal_image_button_press_event,
+            "on_btn_principal_clicked": self.on_btn_principal_clicked,
         })
         self.main_window = self.builder.get_object("mainwindow")
         self.main_window.show()
 
 
-    def on_principal_image_button_press_event(self, event):
+    def on_btn_principal_clicked(self, event):
         print("ok")
 
 if __name__ == "__main__":
