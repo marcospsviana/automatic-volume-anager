@@ -13,6 +13,7 @@ class SelectCabinet(object):
             }
         )
         self.select_cabinet = self.build.get_object("window_select")
+        self.select_cabinet.fullscreen()
         self.select_cabinet.show()
 
     def on_box_iniciar_reserva_touch_event(self, event):
