@@ -109,3 +109,10 @@ color: #fff;
 #btn_abrir{
 	background: url("../static/images/retirar.svg")
 }
+#btn_reservar{
+	background: url("../static/images/inicio_reserva.svg") ;
+	background-repeat: no-repeat;
+}
+#label_data, #label_hora{
+	font: 2em sans-serif;
+}

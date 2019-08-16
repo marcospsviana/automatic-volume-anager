@@ -3,11 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="e7946173-dfc5-4e44-8639-b80727dfe931" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/select_cabinet.py" beforeDir="false" afterPath="$PROJECT_DIR$/select_cabinet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/gtk.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/gtk.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/alugar.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/alugar.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/brasilpq.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/brasilpq.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/retirar.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/retirar.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/locacao.glade" beforeDir="false" afterPath="$PROJECT_DIR$/ui/locacao.glade" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/cadeadosvg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/cadeadosvg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/cartao.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/cartao.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/inicio_reserva.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/inicio_reserva.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/precosmedidas.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/precosmedidas.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/escolha.glade" beforeDir="false" afterPath="$PROJECT_DIR$/ui/escolha.glade" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +73,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -94,6 +95,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">

@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="-370.3986"
-     inkscape:cy="126.40393"
+     inkscape:zoom="0.7"
+     inkscape:cx="-164.74728"
+     inkscape:cy="257.26093"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -45,7 +45,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -55,7 +55,7 @@
      id="layer1"
      transform="translate(-73.423861,-32.613818)">
     <g
-       id="g9381">
+       id="g23074">
       <rect
          y="33.275276"
          x="74.08532"
@@ -75,45 +75,45 @@
       <text
          transform="scale(0.99550054,1.0045198)"
          id="text9288"
-         y="102.56164"
-         x="92.857231"
+         y="100.98127"
+         x="93.388786"
          style="font-style:normal;font-weight:normal;font-size:7.80571985px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458326"
          xml:space="preserve"><tspan
            style="stroke-width:0.26458326"
-           y="104.78529"
-           x="92.857231"
+           y="103.20493"
+           x="93.388786"
            id="tspan9286"
            sodipodi:role="line" /><tspan
            id="tspan9290"
            style="stroke-width:0.26458326"
-           y="104.78529"
-           x="92.857231"
+           y="103.20493"
+           x="93.388786"
            sodipodi:role="line">INICIAR </tspan><tspan
            id="tspan9294"
            style="stroke-width:0.26458326"
-           y="104.78529"
-           x="92.857231"
+           y="103.20493"
+           x="93.388786"
            sodipodi:role="line">               </tspan></text>
       <text
          transform="scale(0.99550054,1.0045198)"
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:7.80571985px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458326"
-         x="91.163399"
-         y="109.40887"
+         x="91.694954"
+         y="107.82851"
          id="text9306"><tspan
            sodipodi:role="line"
            id="tspan9300"
-           x="91.163399"
-           y="111.63252"
+           x="91.694954"
+           y="110.05216"
            style="stroke-width:0.26458326" /><tspan
            sodipodi:role="line"
-           x="91.163399"
-           y="111.63252"
+           x="91.694954"
+           y="110.05216"
            style="stroke-width:0.26458326"
            id="tspan9302">RESERVA </tspan><tspan
            sodipodi:role="line"
-           x="91.163399"
-           y="111.63252"
+           x="91.694954"
+           y="110.05216"
            style="stroke-width:0.26458326"
            id="tspan9304">               </tspan></text>
     </g>
