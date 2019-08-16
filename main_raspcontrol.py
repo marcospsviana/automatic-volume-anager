@@ -3,7 +3,7 @@
 
 
 import sys, os
-
+import datetime
 import gi
 import numpy as np
 import string
@@ -30,6 +30,19 @@ class RaspControl(object):
 
     def on_btn_principal_clicked(self, event):
         SelectCabinet()
+    
+    def gtk_style(self):
+        css = b"""
+        
+        @import url("static/css/gtk.css");
+        """
+        style_provider = Gtk.CssProvider()
+        style_provider.load_from_data(css)
+        Gtk.StyleContext.add_provider_for_screen(
+            Gdk.Screen.get_default(),
+            style_provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        )
 
 if __name__ == "__main__":
     app = RaspControl()

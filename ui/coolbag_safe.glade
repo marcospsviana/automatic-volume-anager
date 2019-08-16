@@ -8,6 +8,7 @@
     <property name="pixbuf">../static/images/coolbag_inicial.svg</property>
   </object>
   <object class="GtkWindow" id="mainwindow">
+    <property name="name">window</property>
     <property name="can_focus">False</property>
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
