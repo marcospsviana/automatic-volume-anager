@@ -18,6 +18,7 @@ from select_cabinet import SelectCabinet
 
 class RaspControl(object):
     def __init__(self):
+        self.gtk_style()
         self.builder = Gtk.Builder()
         self.builder.add_from_file("ui/coolbag_safe.glade")
         self.builder.connect_signals({
