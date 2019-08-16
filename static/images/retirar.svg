@@ -219,15 +219,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="90.896299"
-     inkscape:cy="86.79062"
+     inkscape:zoom="0.7"
+     inkscape:cx="-177.5547"
+     inkscape:cy="118.76837"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:window-width="1366"
-     inkscape:window-height="728"
+     inkscape:window-height="674"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1" />
@@ -239,7 +239,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -328,27 +328,30 @@
        y="0"
        width="100%"
        height="100%" />
-    <g
-       id="g11706"
-       transform="matrix(1.3223682,0,0,1.3223682,-20.554464,-44.358064)">
-      <use
-         height="100%"
-         width="100%"
-         y="0"
-         x="0"
-         xlink:href="#BaggageLockers"
-         style="fill:#aa0000;fill-opacity:1;stroke:#aa0000;stroke-opacity:1"
-         transform="matrix(2.4216962,0,0,2.4216962,50.334967,107.60795)"
-         id="use10197" />
-      <use
-         height="100%"
-         width="100%"
-         y="0"
-         x="0"
-         xlink:href="#RightArrow"
-         style="fill:#aa0000;stroke:#000000"
-         transform="translate(86.01902,125.13102)"
-         id="use11690" />
-    </g>
+    <use
+       id="use10197"
+       transform="matrix(3.2023635,0,0,3.2023635,46.006935,97.939436)"
+       style="fill:#aa0000;fill-opacity:1;stroke:#aa0000;stroke-opacity:1"
+       xlink:href="#BaggageLockers"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%" />
+    <use
+       id="use11690"
+       transform="matrix(1.3223682,0,0,1.3223682,90.019351,121.11122)"
+       style="fill:#aa0000;stroke:#000000"
+       xlink:href="#RightArrow"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%" />
+    <rect
+       style="fill:#ffe100;fill-opacity:1;stroke:none;stroke-width:2.33099985;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect9467"
+       width="61.226097"
+       height="17.682035"
+       x="49.191284"
+       y="99.96505" />
   </g>
 </svg>
