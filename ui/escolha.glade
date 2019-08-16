@@ -2,7 +2,7 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <object class="GtkWindow">
+  <object class="GtkWindow" id="window_select">
     <property name="can_focus">False</property>
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
@@ -81,7 +81,7 @@
                 <property name="above_child">True</property>
                 <signal name="touch-event" handler="on_box_iniciar_reserva_touch_event" swapped="no"/>
                 <child>
-                  <object class="GtkBox">
+                  <object class="GtkBox" id="box_iniciar_reserv">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="orientation">vertical</property>
