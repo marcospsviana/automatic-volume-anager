@@ -2,6 +2,11 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+  <object class="GtkImage" id="image_reserva">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../static/images/inicio_reserva.svg</property>
+  </object>
   <object class="GtkWindow" id="window_select">
     <property name="can_focus">False</property>
     <property name="default_width">1024</property>
@@ -75,53 +80,18 @@
             <property name="spacing">5</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkEventBox" id="box_iniciar_reserva">
+              <object class="GtkButton">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="above_child">True</property>
-                <signal name="touch-event" handler="on_box_iniciar_reserva_touch_event" swapped="no"/>
-                <child>
-                  <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="orientation">vertical</property>
-                    <property name="spacing">6</property>
-                    <property name="baseline_position">top</property>
-                    <child>
-                      <object class="GtkImage" id="img_cofre">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="margin_left">10</property>
-                        <property name="margin_right">10</property>
-                        <property name="margin_top">10</property>
-                        <property name="margin_bottom">10</property>
-                        <property name="pixbuf">../static/images/cofre.svg</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkLabel" id="label_iniciarreserva">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label" translatable="yes"> INICIAR
-RESERVA</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
-                  </object>
-                </child>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="image">image_reserva</property>
+                <property name="always_show_image">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">True</property>
+                <property name="fill">False</property>
                 <property name="position">0</property>
               </packing>
             </child>
