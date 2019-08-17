@@ -12,7 +12,7 @@ class SelectCabinet(object):
         self.build.connect_signals(
             {
                 "gtk_main_quit": Gtk.main_quit,
-                "on_box_iniciar_reserva_touch_event": self.on_box_iniciar_reserva_touch_event,
+                "on_reservar_button_press_event": self.on_reservar_button_press_event,
             }
         )
         self.select_cabinet = self.build.get_object("window_select")
@@ -27,7 +27,7 @@ class SelectCabinet(object):
         self.select_cabinet.show()
         
 
-    def on_box_iniciar_reserva_touch_event(self, event):
+    def on_reservar_button_press_event(self, event):
         print("reservar")
     def hora_certa(self):
         self.data = datetime.today()
