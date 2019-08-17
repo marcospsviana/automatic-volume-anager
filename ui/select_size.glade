@@ -29,6 +29,11 @@
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/mochilasx2.svg</property>
   </object>
+  <object class="GtkImage" id="image_usa_flag">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../static/images/usa.svg</property>
+  </object>
   <object class="GtkWindow" id="window_select_size">
     <property name="can_focus">False</property>
     <child>
@@ -386,10 +391,5 @@
         </child>
       </object>
     </child>
-  </object>
-  <object class="GtkImage" id="image_usa_flag">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/usa.svg</property>
   </object>
 </interface>

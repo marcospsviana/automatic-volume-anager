@@ -175,6 +175,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="image">image_diaria</property>
+                <property name="relief">none</property>
                 <property name="image_position">top</property>
                 <property name="always_show_image">True</property>
               </object>
