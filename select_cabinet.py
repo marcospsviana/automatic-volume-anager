@@ -6,7 +6,7 @@ import time
 
 class SelectCabinet(object):
     def __init__(self):
-        
+        self.condicao = True
         self.build = Gtk.Builder()
         self.build.add_from_file("ui/escolha.glade")
         self.build.connect_signals(
@@ -19,8 +19,10 @@ class SelectCabinet(object):
         self.btn_reservar = self.build.get_object("btn_reservar")
         self.label_horario = self.build.get_object("label_horario")
         self.label_data = self.build.get_object("label_data")
-        self.hora_certa()
-        
+        while self.condicao:
+            self.hora_certa()
+            self.condicao = False
+       
         self.select_cabinet.fullscreen()
         self.select_cabinet.show()
         
@@ -29,7 +31,7 @@ class SelectCabinet(object):
         print("reservar")
     def hora_certa(self):
         self.data = datetime.today()
-        self.label_data.set_text(str(self.data.month) + "/"+ str(self.data.month))
+        self.label_data.set_text(str(self.data.day) + "/"+ str(self.data.month))
         self.label_horario.set_text(str(self.data.hour)+":"+str(self.data.minute)+":"+str(self.data.second))
     
      
@@ -39,6 +41,6 @@ if __name__ == "__main__":
     
     app = SelectCabinet()
     
-    
+    self.condicao = True
     Gtk.main(hora_certa())
     
