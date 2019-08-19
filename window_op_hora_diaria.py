@@ -2,6 +2,7 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk
 from datetime import datetime, date
+from cadastro_usuarios import CadastroUsuarios
 
 class OpcaoHoraDiaria(object):
     def __init__(self):
@@ -132,11 +133,12 @@ class OpcaoHoraDiaria(object):
         self.window_hora_diaria.show()
     
     def on_btn_loc_hora_button_press_event(self, widget, event):
-        pass
+        tempo_locacao = "horas"
+        CadastroUsuarios(tempo_locacao)
     
     def on_btn_loc_diaria_button_press_event(self, widget, event):
-        pass
-
+        tempo_locacao = "diaria"
+        CadastroUsuarios(tempo_locacao)
 
 if __name__ == "__main__":
     app = OpcaoHoraDiaria()

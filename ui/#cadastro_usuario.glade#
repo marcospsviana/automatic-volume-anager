@@ -190,6 +190,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="button-press-event" handler="on_btn_limbar_nome_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -247,6 +248,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="button-press-event" handler="on_btn_limbar_email_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -297,10 +299,11 @@
             </child>
             <child>
               <object class="GtkEntry" id="entry_celular">
-                <property name="name">entry_email</property>
+                <property name="name">entry_celular</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
+                <signal name="button-press-event" handler="on_entry_celular_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -315,6 +318,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="button-press-event" handler="on_btn_limbar_celular_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -358,6 +362,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="halign">start</property>
+                <signal name="button-press-event" handler="on_entry_quantidade_diaria_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -372,6 +377,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="button-press-event" handler="on_btn_limpar_quantidade_diaria_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -397,6 +403,7 @@
                 <property name="name">entry_quantidade_horas</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <signal name="button-press-event" handler="on_entry_quantidade_horas_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -411,6 +418,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="button-press-event" handler="on_btn_limpar_horas_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -436,6 +444,7 @@
                 <property name="name">entry_minutos</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <signal name="button-press-event" handler="on_entry_minutos_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -450,6 +459,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="button-press-event" handler="on_btn_limpar_minutos_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>

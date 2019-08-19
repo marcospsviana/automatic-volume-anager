@@ -175,6 +175,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
+                <signal name="button-press-event" handler="on_entry_nome_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -231,6 +232,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
+                <signal name="button-press-event" handler="on_entry_email_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -294,8 +296,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="entry_email1">
-                <property name="name">entry_email</property>
+              <object class="GtkEntry" id="entry_celular">
+                <property name="name">entry_celular</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
@@ -508,6 +510,7 @@
                 <property name="margin_left">19</property>
                 <property name="margin_right">21</property>
                 <property name="hexpand">True</property>
+                <signal name="button-press-event" handler="on_btn_confirmar_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -522,6 +525,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="button-press-event" handler="on_btn_retornar_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
