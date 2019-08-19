@@ -17,6 +17,11 @@
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/lochora.svg</property>
   </object>
+  <object class="GtkImage" id="image_usa_flag">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../static/images/usa.svg</property>
+  </object>
   <object class="GtkWindow" id="window_op_hora_diaria">
     <property name="name">window</property>
     <property name="can_focus">False</property>
@@ -161,6 +166,7 @@
                 <property name="relief">none</property>
                 <property name="image_position">top</property>
                 <property name="always_show_image">True</property>
+                <signal name="button-press-event" handler="on_btn_loc_hora_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -250,10 +256,5 @@
         </child>
       </object>
     </child>
-  </object>
-  <object class="GtkImage" id="image_usa_flag">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/usa.svg</property>
   </object>
 </interface>

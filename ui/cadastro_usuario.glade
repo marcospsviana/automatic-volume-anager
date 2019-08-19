@@ -2,18 +2,6 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <object class="GtkImage" id="abrir_cofre">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/cadeadosvg.svg</property>
-    <signal name="button-press-event" handler="on_abrir_cofre_button_press_event" swapped="no"/>
-  </object>
-  <object class="GtkImage" id="concluir_reserva">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/cartao.svg</property>
-    <signal name="button-press-event" handler="on_concluir_reserva_button_press_event" swapped="no"/>
-  </object>
   <object class="GtkImage" id="image_br_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -24,23 +12,11 @@
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/usa.svg</property>
   </object>
-  <object class="GtkImage" id="precosemedidas">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/precosmedidas.svg</property>
-    <signal name="button-press-event" handler="on_precosemedidas_button_press_event" swapped="no"/>
-  </object>
-  <object class="GtkImage" id="reservar">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/inicio_reserva.svg</property>
-  </object>
-  <object class="GtkWindow" id="window_select">
-    <property name="name">window</property>
+  <object class="GtkListStore" id="liststore_flags"/>
+  <object class="GtkWindow">
     <property name="can_focus">False</property>
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
-    <property name="decorated">False</property>
     <child>
       <placeholder/>
     </child>
@@ -55,10 +31,9 @@
             <property name="can_focus">False</property>
             <child>
               <object class="GtkLabel" id="label_horario">
-                <property name="name">label_horario</property>
+                <property name="name">label_hora</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_left">15</property>
                 <property name="label" translatable="yes"> </property>
               </object>
               <packing>
@@ -72,7 +47,6 @@
                 <property name="name">label_data</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_left">15</property>
                 <property name="label" translatable="yes">    </property>
               </object>
               <packing>
@@ -158,12 +132,49 @@
           </packing>
         </child>
         <child>
-          <object class="GtkFixed">
+          <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="margin_top">40</property>
-            <property name="hexpand">True</property>
-            <property name="vexpand">False</property>
+            <property name="halign">center</property>
+            <child>
+              <object class="GtkLabel" id="label_nome">
+                <property name="name">label_nome</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">NOME</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_nome">
+                <property name="name">entry_nome</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_limbar_nome">
+                <property name="label" translatable="yes">LIMPAR</property>
+                <property name="name">btn_limpar_nome</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -176,83 +187,104 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="spacing">5</property>
-            <property name="homogeneous">True</property>
             <child>
-              <object class="GtkButton" id="btn_reservar">
-                <property name="name">btn_reservar</property>
+              <object class="GtkLabel" id="label_email">
+                <property name="name">label_email</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="focus_on_click">False</property>
-                <property name="receives_default">True</property>
-                <property name="halign">start</property>
-                <property name="valign">center</property>
-                <property name="image">reservar</property>
-                <property name="relief">none</property>
-                <property name="image_position">top</property>
-                <property name="always_show_image">True</property>
-                <signal name="button-press-event" handler="on_reservar_button_press_event" swapped="no"/>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">NOME</property>
               </object>
               <packing>
-                <property name="expand">True</property>
+                <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="position">0</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btn_abrir">
-                <property name="name">btn_abrir</property>
+              <object class="GtkEntry" id="entry_email">
+                <property name="name">entry_email</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="focus_on_click">False</property>
-                <property name="receives_default">True</property>
-                <property name="halign">start</property>
-                <property name="valign">center</property>
-                <property name="image">abrir_cofre</property>
-                <property name="relief">none</property>
-                <property name="always_show_image">True</property>
               </object>
               <packing>
-                <property name="expand">True</property>
+                <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="position">1</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btn_concluir">
-                <property name="name">btn_concuir</property>
+              <object class="GtkButton" id="btn_limbar_email">
+                <property name="label" translatable="yes">LIMPAR</property>
+                <property name="name">btn_limpar_email</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">start</property>
-                <property name="valign">center</property>
-                <property name="image">concluir_reserva</property>
-                <property name="relief">none</property>
-                <property name="always_show_image">True</property>
               </object>
               <packing>
-                <property name="expand">True</property>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <child>
+              <object class="GtkLabel" id="label_celular">
+                <property name="name">label_email</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">CELULAR</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkComboBox">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="model">liststore_flags</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_email1">
+                <property name="name">entry_email</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="position">2</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btn_medidas">
-                <property name="name">btn_medidas</property>
+              <object class="GtkButton" id="btn_limbar_celular">
+                <property name="label" translatable="yes">LIMPAR</property>
+                <property name="name">btn_limpar_email</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
-                <property name="halign">start</property>
-                <property name="valign">center</property>
-                <property name="image">precosemedidas</property>
-                <property name="relief">none</property>
-                <property name="always_show_image">True</property>
               </object>
               <packing>
-                <property name="expand">True</property>
+                <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="position">3</property>
               </packing>
@@ -260,9 +292,18 @@
           </object>
           <packing>
             <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">2</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
           </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
         </child>
       </object>
     </child>

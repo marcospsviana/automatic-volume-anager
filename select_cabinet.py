@@ -15,6 +15,9 @@ class SelectCabinet(object):
             {
                 "gtk_main_quit": Gtk.main_quit,
                 "on_reservar_button_press_event": self.on_reservar_button_press_event,
+                "on_abrir_cofre_button_press_event": self.on_abrir_cofre_button_press_event,
+                "on_concluir_reserva_button_press_event": self.on_concluir_reserva_button_press_event,
+                "on_precosemedidas_button_press_event": self.on_precosemedidas_button_press_event,
             }
         )
         self.select_cabinet = self.build.get_object("window_select")
@@ -28,7 +31,8 @@ class SelectCabinet(object):
         self.select_cabinet.show()
         
 
-    def on_reservar_button_press_event(self, event):
+    def on_reservar_button_press_event(self, widget, event):
+        self.select_cabinet.hide()
         OpcaoHoraDiaria()
     
     def hora_certa(self):
@@ -36,12 +40,19 @@ class SelectCabinet(object):
         self.label_data.set_text(str(dia.day) + "/"+ str(dia.month))
         self.label_horario.set_text(str(dia.hour)+":"+str(dia.minute)+":"+str(dia.second))
         return (self.label_data, self.label_horario)
-        
     
+    def on_abrir_cofre_button_press_event(self, widget, event):
+        pass
+    
+    def on_concluir_reserva_button_press_event(self, widget, event):
+        pass
+    def on_precosemedidas_button_press_event(self, widget, event):
+        pass
+
      
 
 
 if __name__ == "__main__":
     app = SelectCabinet()
-    Gtk.main(hora_certa())
+    Gtk.main()
     

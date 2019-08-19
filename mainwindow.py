@@ -722,9 +722,7 @@ class RaspControl(object):
             style_provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         )
-    
-    def dialog(self):
-        pass
+
    
 
     

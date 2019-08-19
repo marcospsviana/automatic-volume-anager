@@ -6,13 +6,11 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/cadeadosvg.svg</property>
-    <signal name="button-press-event" handler="on_abrir_cofre_button_press_event" swapped="no"/>
   </object>
   <object class="GtkImage" id="concluir_reserva">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/cartao.svg</property>
-    <signal name="button-press-event" handler="on_concluir_reserva_button_press_event" swapped="no"/>
   </object>
   <object class="GtkImage" id="image_br_flag">
     <property name="visible">True</property>
@@ -28,13 +26,11 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/precosmedidas.svg</property>
-    <signal name="button-press-event" handler="on_precosemedidas_button_press_event" swapped="no"/>
   </object>
   <object class="GtkImage" id="reservar">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/inicio_reserva.svg</property>
-    <signal name="button-press-event" handler="on_reservar_button_press_event" swapped="no"/>
   </object>
   <object class="GtkWindow" id="window_select">
     <property name="name">window</property>
@@ -56,7 +52,7 @@
             <property name="can_focus">False</property>
             <child>
               <object class="GtkLabel" id="label_horario">
-                <property name="name">label_hora</property>
+                <property name="name">label_horario</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_left">15</property>
@@ -193,6 +189,7 @@
                 <property name="relief">none</property>
                 <property name="image_position">top</property>
                 <property name="always_show_image">True</property>
+                <signal name="button-press-event" handler="on_reservar_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -212,6 +209,7 @@
                 <property name="image">abrir_cofre</property>
                 <property name="relief">none</property>
                 <property name="always_show_image">True</property>
+                <signal name="button-press-event" handler="on_abrir_cofre_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -231,6 +229,7 @@
                 <property name="image">concluir_reserva</property>
                 <property name="relief">none</property>
                 <property name="always_show_image">True</property>
+                <signal name="button-press-event" handler="on_concluir_reserva_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -250,6 +249,7 @@
                 <property name="image">precosemedidas</property>
                 <property name="relief">none</property>
                 <property name="always_show_image">True</property>
+                <signal name="button-press-event" handler="on_precosemedidas_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>

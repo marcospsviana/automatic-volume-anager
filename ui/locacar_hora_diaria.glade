@@ -166,7 +166,7 @@
                 <property name="relief">none</property>
                 <property name="image_position">top</property>
                 <property name="always_show_image">True</property>
-                <signal name="clicked" handler="on_btn_loc_hora_clicked" swapped="no"/>
+                <signal name="button-press-event" handler="on_btn_loc_hora_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -184,6 +184,7 @@
                 <property name="relief">none</property>
                 <property name="image_position">top</property>
                 <property name="always_show_image">True</property>
+                <signal name="button-press-event" handler="on_btn_loc_diaria_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
