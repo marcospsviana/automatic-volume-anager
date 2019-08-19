@@ -297,7 +297,7 @@
             </child>
             <child>
               <object class="GtkEntry" id="entry_celular">
-                <property name="name">entry_email</property>
+                <property name="name">entry_celular</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
