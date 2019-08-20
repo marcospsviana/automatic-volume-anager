@@ -74,48 +74,50 @@ class CadastroUsuarios(Gtk.Window):
 
         self.window_cadastro_usuario.show()
 
-        def on_btn_confirmar_button_press_event(self, widget, event):
-            __nome = self.entry_nome.get_text()
-            __email = self.entry_email.get_text()
-            __telefone = self.entry_telefone.get_text()
-        
-        def on_btn_retornar_button_press_event(self, widget, event):
-            pass
-        
-        def on_entry_nome_button_press_event(self, widget, event):
-            pass
-        
-        def on_entry_email_button_press_event(self, widget, event):
-            pass
-        
-        def on_entry_celular_button_press_event(self, widget, event):
-            pass
-        
-        def on_entry_quantidade_diaria_button_press_event(self, widget, event):
-            pass
-        
-        def on_entry_quantidade_horas_button_press_event(self, widget, event):
-            pass
+    def on_btn_confirmar_button_press_event(self, widget, event):
+        __nome = self.entry_nome.get_text()
+        __email = self.entry_email.get_text()
+        __telefone = self.entry_telefone.get_text()
+    
+    def on_btn_retornar_button_press_event(self, widget, event):
+        pass
+    
+    def on_entry_nome_button_press_event(self, widget, event):
+        pass
+    
+    def on_entry_email_button_press_event(self, widget, event):
+        pass
+    
+    def on_entry_celular_button_press_event(self, widget, event):
+        pass
+    
+    def on_entry_quantidade_diaria_button_press_event(self, widget, event):
+        pass
+    
+    def on_entry_quantidade_horas_button_press_event(self, widget, event):
+        pass
 
-        def on_entry_minutos_button_press_event(self, widget, event):
-            pass
+    def on_entry_minutos_button_press_event(self, widget, event):
+        pass
+    
+    def on_btn_limbar_nome_button_press_event(self, widget, event):
+        pass
+    
+    def on_btn_limbar_email_button_press_event(self, widget, event):
+        pass
+    
+    def on_btn_limbar_celular_button_press_event(self, widget, event):
+        pass
+    
+    def on_btn_limpar_quantidade_diaria_button_press_event(self, widget, event):
+        pass
+    
+    def on_btn_limpar_horas_button_press_event(self, widget, event):
+        pass
+    
         
-        def on_btn_limbar_nome_button_press_event(self, widget, event):
-            pass
-        
-        def on_btn_limbar_email_button_press_event(self, widget, event):
-            pass
-        
-        def on_btn_limbar_celular_button_press_event(self, widget, event):
-            pass
-        
-        def on_btn_limpar_quantidade_diaria_button_press_event(self, widget, event):
-            pass
-        
-        def on_btn_limpar_horas_button_press_event(self, widget, event):
-            pass
 
-        def
+        
 
 if __name__ == "__main__":
     CadastroUsuarios()
