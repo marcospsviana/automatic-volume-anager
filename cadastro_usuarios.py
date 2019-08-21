@@ -2,6 +2,7 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk
 from datetime import datetime, date
+from controllers import Management
 
 class CadastroUsuarios(object):
     def __init__(self, *args):
@@ -24,6 +25,7 @@ class CadastroUsuarios(object):
             "on_btn_limpar_celular_button_press_event": self.on_btn_limpar_celular_button_press_event,
             "on_btn_limpar_quantidade_diaria_button_press_event": self.on_btn_limpar_quantidade_diaria_button_press_event,
             "on_btn_limpar_horas_button_press_event": self.on_btn_limpar_horas_button_press_event,
+            "on_btn_limpar_minutos_button_press_event": self.on_btn_limpar_minutos_button_press_event,
             "on_btn_retornar_entrada_dados_button_press_event": self.on_btn_retornar_entrada_dados_button_press_event,
             "on_entry_entrada_dados_button_press_event": self.on_entry_entrada_dados_button_press_event,
             "on_btn_confirmar_entrada_dados_button_press_event": self.on_btn_confirmar_entrada_dados_button_press_event,
@@ -70,12 +72,19 @@ class CadastroUsuarios(object):
         self.btn_limpar_nome = self.builder.get_object("btn_limpar_nome")
         self.btn_limpar_nome.connect("button_press_event", self.on_btn_limpar_nome_button_press_event)
         self.btn_limpar_email = self.builder.get_object("btn_limpar_email")
-        self.btn_limpar_telefone = self.builder.get_object("btn_limpar_telefone")
+        self.btn_limpar_email.connect("button_press_event", self.on_btn_limpar_email_button_press_event)
+        self.btn_limpar_celular = self.builder.get_object("btn_limpar_celular")
+        self.btn_limpar_celular.connect("button_press_event", self.on_btn_limpar_celular_button_press_event)
         self.btn_limpar_quantidade_diaria = self.builder.get_object("btn_limpar_quantidade_diaria")
+        self.btn_limpar_quantidade_diaria.connect("button_press_event", self.on_btn_limpar_quantidade_diaria_button_press_event)
         self.btn_limpar_horas = self.builder.get_object("btn_limpar_horas")
+        self.btn_limpar_horas.connect("button_press_event", self.on_btn_limpar_horas_button_press_event)
         self.btn_limpar_minutos = self.builder.get_object("btn_limpar_minutos")
+        self.btn_limpar_minutos.connect("button_press_event", self.on_btn_limpar_minutos_button_press_event)
         self.btn_confirmar = self.builder.get_object("btn_confirmar")
+        self.btn_confirmar.connect("button_press_event", self.on_btn_confirmar_button_press_event)
         self.btn_retornar = self.builder.get_object("btn_retornar")
+        self.btn_retornar.connect("button_press_event", self.on_btn_retornar_button_press_event)
 
         " ----------- BOTOES ENTRADA_DADOS --------------- "
         self.btn_confirmar_entrada_dados = self.builder.get_object("btn_confirmar_entrada_dados")
@@ -160,13 +169,16 @@ class CadastroUsuarios(object):
         self.window_cadastro_usuario.show()
 
     def on_btn_confirmar_button_press_event(self, widget, event):
+        manager = Management()
         __nome = self.entry_nome.get_text()
         __email = self.entry_email.get_text()
         __telefone = self.entry_celular.get_text()
         __quantidade_diaria = self.entry_quantidade_diaria.get_text()
         __quantidade_horas = self.entry_quantidade_horas.get_text()
         __quantidade_minutos = self.entry_minutos.get_text()
-    
+        #result =  manager.locacao(__nome, __email, __telefone, __quantidade_diaria, __quantidade_horas, __quantidade_minutos)
+        #return result
+
     def on_btn_retornar_button_press_event(self, widget, event):
         self.window_cadastro_usuario.hide()
     
@@ -210,15 +222,20 @@ class CadastroUsuarios(object):
         self.entry_email.set_position(0)
     
     def on_btn_limpar_celular_button_press_event(self, widget, event):
-        self.entry_celular.activate
         self.entry_celular.set_text("")
         self.entry_celular.set_position(0)
     
     def on_btn_limpar_quantidade_diaria_button_press_event(self, widget, event):
-        pass
+        self.entry_quantidade_diaria.set_text("")
+        self.entry_quantidade_diaria.set_position(0)
     
     def on_btn_limpar_horas_button_press_event(self, widget, event):
-        pass
+        self.entry_quantidade_horas.set_text("")
+        self.entry_quantidade_horas.set_position(0)
+    
+    def on_btn_limpar_minutos_button_press_event(self, widget, event):
+        self.entry_minutos.set_text("")
+        self.entry_minutos.set_position(0)
     
     def on_btn_retornar_entrada_dados_button_press_event(self, widget, event):
         self.entry_entrada_dados.set_text("")
@@ -243,6 +260,7 @@ class CadastroUsuarios(object):
         elif self.label_entrada_dados.get_text() == "CELULAR":
             self.entry_celular.set_text(self.text_entrada)
             self.entry_celular.set_position(-1)
+            self.entry_celular.activate
 
         self.entry_entrada_dados.set_text("")
         self.window_entrada_dados.hide()
