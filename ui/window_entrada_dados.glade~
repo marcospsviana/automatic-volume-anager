@@ -18,8 +18,11 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="margin_left">20</property>
+            <property name="margin_right">20</property>
             <property name="margin_top">30</property>
             <property name="margin_bottom">20</property>
+            <property name="spacing">15</property>
             <child>
               <object class="GtkLabel" id="label_entrada_dados">
                 <property name="name">label_entrada_dados</property>
