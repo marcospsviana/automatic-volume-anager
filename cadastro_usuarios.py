@@ -4,8 +4,9 @@ from gi.repository import Gtk, Gdk
 from datetime import datetime, date
 
 class CadastroUsuarios(object):
-    def __init__(self, tempo_locacao):
-        self.tempo_locacao = tempo_locacao
+    def __init__(self, *args):
+        self.tempo_locacao = args
+        print(self.tempo_locacao)
         self.entry = ""
         self.builder = Gtk.Builder()
         self.builder.connect_signals({
@@ -23,8 +24,9 @@ class CadastroUsuarios(object):
             "on_btn_limpar_celular_button_press_event": self.on_btn_limpar_celular_button_press_event,
             "on_btn_limpar_quantidade_diaria_button_press_event": self.on_btn_limpar_quantidade_diaria_button_press_event,
             "on_btn_limpar_horas_button_press_event": self.on_btn_limpar_horas_button_press_event,
-            "on_btn_retornar_entrada_dados_button_release_event": self.on_btn_retornar_entrada_dados_button_release_event,
+            "on_btn_retornar_entrada_dados_button_press_event": self.on_btn_retornar_entrada_dados_button_press_event,
             "on_entry_entrada_dados_button_press_event": self.on_entry_entrada_dados_button_press_event,
+            "on_btn_confirmar_entrada_dados_button_press_event": self.on_btn_confirmar_entrada_dados_button_press_event,
         })
         self.builder.add_from_file("ui/cadastro_usuario.glade")
         self.window_cadastro_usuario = self.builder.get_object("window_cadastro_usuario")
@@ -77,14 +79,15 @@ class CadastroUsuarios(object):
 
         " ----------- BOTOES ENTRADA_DADOS --------------- "
         self.btn_confirmar_entrada_dados = self.builder.get_object("btn_confirmar_entrada_dados")
+        self.btn_confirmar_entrada_dados.connect("button_press_event", self.on_btn_confirmar_entrada_dados_button_press_event)
         self.btn_retornar_entrada_dados = self.builder.get_object("btn_retornar_entrada_dados")
-        self.btn_retornar_entrada_dados.connect("button_press_event", self.on_btn_retornar_entrada_dados_button_release_event)
+        self.btn_retornar_entrada_dados.connect("button_press_event", self.on_btn_retornar_entrada_dados_button_press_event)
 
         """ ================FIM BOTOES==================== """
         """ ===================GRIDS====================== """
         self.grid_numbers = self.builder.get_object("grid_numbers")
 
-         '''adicionando os elementos do teclado ======================='''
+        """ ========== adicionando os elementos do teclado ======================= """
         self.a = self.builder.get_object("a")
         self.a.connect("clicked", self.on_entry_entrada_dados_button_press_event)
         self.b = self.builder.get_object("b")
@@ -140,14 +143,14 @@ class CadastroUsuarios(object):
         self.space = self.builder.get_object("space")
         """========== fim elementos do teclado  """
 
-        if self.tempo_locacao == "diaria":
+        if self.tempo_locacao == ("diaria",):
             self.label_quantidade_horas.hide()
             self.label_quantidade_minutos.hide()
             self.entry_minutos.hide()
             self.entry_quantidade_horas.hide()
             self.btn_limpar_horas.hide()
             self.btn_limpar_minutos.hide()
-        elif self.tempo_locacao == "horas":
+        elif self.tempo_locacao == ("horas",):
             self.label_quantidade_diaria.hide()
             self.entry_quantidade_diaria.hide()
             self.btn_limpar_quantidade_diaria.hide()
@@ -159,20 +162,19 @@ class CadastroUsuarios(object):
     def on_btn_confirmar_button_press_event(self, widget, event):
         __nome = self.entry_nome.get_text()
         __email = self.entry_email.get_text()
-        __telefone = self.entry_telefone.get_text()
+        __telefone = self.entry_celular.get_text()
         __quantidade_diaria = self.entry_quantidade_diaria.get_text()
         __quantidade_horas = self.entry_quantidade_horas.get_text()
         __quantidade_minutos = self.entry_minutos.get_text()
     
     def on_btn_retornar_button_press_event(self, widget, event):
-        pass
+        self.window_cadastro_usuario.hide()
     
     def on_entry_nome_button_press_event(self, widget, event):
         self.entry = "1" #setando entrada para mudar o estado da janela de entrada de dados
         self.label_entrada_dados.set_text("NOME")
-        self.grid_numbers.visible(False)
         self.window_entrada_dados.show()
-        return self.entry
+        return (self.entry, self.label_entrada_dados)
     
     def on_entry_email_button_press_event(self, widget, event):
         self.entry = "2"
@@ -214,12 +216,25 @@ class CadastroUsuarios(object):
     def on_btn_limpar_horas_button_press_event(self, widget, event):
         pass
     
-    def on_btn_retornar_entrada_dados_button_release_event(self, widget, event):
+    def on_btn_retornar_entrada_dados_button_press_event(self, widget, event):
         self.entry_entrada_dados.set_text("")
         self.window_entrada_dados.hide()
     
-    def on_entry_entrada_dados_button_press_event(self, widget, event):
-        pass
+    def on_entry_entrada_dados_button_press_event(self, widget):
+        self.widget = widget
+        self.value = self.widget.get_label()
+        self.text_entrada = self.entry_entrada_dados.get_text() + self.value
+        self.entry_entrada_dados.set_text(self.text_entrada)
+        self.entry_entrada_dados.set_position(-1)
+        
+    def on_btn_confirmar_entrada_dados_button_press_event(self, widget, event):
+        self.text_entrada = self.entry_entrada_dados.get_text()
+        print(self.label_entrada_dados.get_text())
+        if self.label_entrada_dados.get_text() == "NOME":
+            self.entry_nome.set_text(self.text_entrada)
+            self.entry_nome.set_position(-1)
+        self.window_entrada_dados.hide()
+
 
 if __name__ == "__main__":
     app = CadastroUsuarios()

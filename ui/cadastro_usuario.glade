@@ -1381,6 +1381,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="hexpand">True</property>
+                <signal name="button-press-event" handler="on_btn_confirmar_entrada_dados_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1395,7 +1396,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <signal name="button-press-event" handler="on_btn_retornar_entrada_dados_button_release_event" swapped="no"/>
+                <signal name="button-press-event" handler="on_btn_retornar_entrada_dados_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
