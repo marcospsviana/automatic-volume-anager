@@ -174,7 +174,7 @@
                 <property name="name">entry_nome</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="has_focus">True</property>
+                <property name="can_default">True</property>
                 <property name="hexpand">True</property>
                 <signal name="button-press-event" handler="on_entry_nome_button_press_event" swapped="no"/>
               </object>
@@ -190,7 +190,7 @@
                 <property name="name">btn_limpar_nome</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="receives_default">True</property>
+                <property name="receives_default">False</property>
                 <signal name="button-press-event" handler="on_btn_limbar_nome_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -233,6 +233,7 @@
                 <property name="name">entry_email</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="can_default">True</property>
                 <property name="hexpand">True</property>
                 <signal name="button-press-event" handler="on_entry_email_button_press_event" swapped="no"/>
               </object>
@@ -248,7 +249,7 @@
                 <property name="name">btn_limpar_email</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="receives_default">True</property>
+                <property name="receives_default">False</property>
                 <signal name="button-press-event" handler="on_btn_limbar_email_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -303,6 +304,7 @@
                 <property name="name">entry_celular</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="can_default">True</property>
                 <property name="hexpand">True</property>
                 <signal name="button-press-event" handler="on_entry_celular_button_press_event" swapped="no"/>
               </object>
@@ -318,7 +320,7 @@
                 <property name="name">btn_limpar_celular</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="receives_default">True</property>
+                <property name="receives_default">False</property>
                 <signal name="button-press-event" handler="on_btn_limbar_celular_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1381,6 +1383,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="hexpand">True</property>
+                <signal name="button-press-event" handler="on_btn_confirmar_entrada_dados_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1395,7 +1398,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <signal name="button-press-event" handler="on_btn_retornar_entrada_dados_button_release_event" swapped="no"/>
+                <signal name="button-press-event" handler="on_btn_retornar_entrada_dados_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>

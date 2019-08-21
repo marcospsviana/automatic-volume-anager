@@ -185,6 +185,7 @@ class CadastroUsuarios(object):
     def on_entry_celular_button_press_event(self, widget, event):
         self.entry = "3"
         self.label_entrada_dados.set_text("CELULAR")
+        
         self.window_entrada_dados.show()
         return self.entry
     
@@ -205,10 +206,13 @@ class CadastroUsuarios(object):
         self.entry_nome.set_position(0)
     
     def on_btn_limpar_email_button_press_event(self, widget, event):
-        pass
+        self.entry_email.set_text("")
+        self.entry_email.set_position(0)
     
     def on_btn_limpar_celular_button_press_event(self, widget, event):
-        pass
+        self.entry_celular.activate
+        self.entry_celular.set_text("")
+        self.entry_celular.set_position(0)
     
     def on_btn_limpar_quantidade_diaria_button_press_event(self, widget, event):
         pass
@@ -233,6 +237,14 @@ class CadastroUsuarios(object):
         if self.label_entrada_dados.get_text() == "NOME":
             self.entry_nome.set_text(self.text_entrada)
             self.entry_nome.set_position(-1)
+        elif self.label_entrada_dados.get_text() == "EMAIL":
+            self.entry_email.set_text(self.text_entrada)
+            self.entry_email.set_position(-1)
+        elif self.label_entrada_dados.get_text() == "CELULAR":
+            self.entry_celular.set_text(self.text_entrada)
+            self.entry_celular.set_position(-1)
+
+        self.entry_entrada_dados.set_text("")
         self.window_entrada_dados.hide()
 
 
