@@ -116,7 +116,7 @@ class CadastroUsuarios(object):
         self.btn_sete.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
         self.btn_oito = self.builder.get_object("btn_oito")
         self.btn_oito.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
-        self.btn_nove = self.builder.get_object("btn_nove)
+        self.btn_nove = self.builder.get_object("btn_nove")
         self.btn_nove.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
         self.btn_zero = self.builder.get_object("btn_zero")
         self.btn_zero.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
