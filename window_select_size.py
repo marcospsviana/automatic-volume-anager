@@ -4,8 +4,8 @@ from gi.repository import Gtk, Gdk, GLib
 from window_op_hora_diaria import OpcaoHoraDiaria
 
 class SelectSize(object):
-    def __init__(self, *args):
-        self.locacao = args
+    def __init__(self):
+        #self.locacao = args
         self.classe = ""
         self.builder = Gtk.Builder()
         self.builder.add_from_file("ui/select_size.glade")
@@ -34,7 +34,7 @@ class SelectSize(object):
         self.btn_retornar = self.builder.get_object("btn_retornar")
         self.btn_retornar.connect("button_press_event", self.on_btn_retornar_button_press_event)
         self.btn_confirmar = self.builder.get_object("btn_confirmar")
-        self.btn_confirmar.connect("button_press_event", self.on_btn_confirmar_button_press_event)
+        #self.btn_confirmar.connect("button_press_event", self.on_btn_confirmar_button_press_event)
         # ============= FIM BOTOES ==================
 
         #============== LABELS ======================
@@ -44,13 +44,12 @@ class SelectSize(object):
         self.label_cameraenotebook = self.builder.get_object("label_cameraenotebook")
         # ============== FIM LABELS ================
 
-        self.window_select_size.fullscreen()
+        
         self.window_select_size.show()
     
        
     def on_btn_malasx4_toggled(self, widget):
-        self.widget = widget
-        print(self.widget.get_active())
+        
         if self.btn_malasx4.get_active():
             self.classe = "A"
             
@@ -58,7 +57,7 @@ class SelectSize(object):
             self.classe = ""
         
         
-        return self.classe
+        
     
     def on_btn_malasx2_toggled(self, widget):
         if self.btn_malasx2.get_active():
@@ -67,7 +66,7 @@ class SelectSize(object):
         else:
             self.classe =""
 
-        return self.classe
+        
     
     def on_btn_mochilasx2_toggled(self, widget):
         if self.btn_mochilasx2.get_active():
@@ -75,7 +74,7 @@ class SelectSize(object):
             print(self.classe)
         else:
             self.classe =""
-        return self.classe
+        
 
     def on_btn_cameraenotebook_toggled(self, widget):
         if self.btn_cameraenotebook.get_active():
@@ -83,13 +82,15 @@ class SelectSize(object):
             print(self.classe)
         else:
             self.classe =""
-        return self.classe
+        
     
     def on_btn_confirmar_button_press_event(self, widget, event):
         if self.classe == "":
             print ("É necessário escolher um tamanho de armário")
         else:
             print("classe selecionada",self.classe)
+            OpcaoHoraDiaria(self.classe)
+            self.window_select_size.hide()
     
     def on_btn_retornar_button_press_event(self, widget, event):
         self.window_select_size.hide()

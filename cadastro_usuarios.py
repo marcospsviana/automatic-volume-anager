@@ -6,7 +6,10 @@ from controllers import Management
 
 class CadastroUsuarios(object):
     def __init__(self, *args):
-        self.tempo_locacao = args
+        teste = args
+        print(teste)
+        self.tempo_locacao = args[0]
+        self.classe = args[1]
         print(self.tempo_locacao)
         self.entry = ""
         self.builder = Gtk.Builder()
@@ -97,6 +100,26 @@ class CadastroUsuarios(object):
         self.grid_numbers = self.builder.get_object("grid_numbers")
 
         """ ========== adicionando os elementos do teclado ======================= """
+        self.num_1 = self.builder.get_object("num_1")
+        self.num_1.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.num_2 = self.builder.get_object("num_2")
+        self.num_2.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.num_3 = self.builder.get_object("num_3")
+        self.num_3.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.num_4 = self.builder.get_object("num_4")
+        self.num_4.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.num_5 = self.builder.get_object("num_5")
+        self.num_5.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.num_6 = self.builder.get_object("num_6")
+        self.num_6.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.num_7 = self.builder.get_object("num_7")
+        self.num_7.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.num_8 = self.builder.get_object("num_8")
+        self.num_8.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.num_9 = self.builder.get_object("num_9")
+        self.num_9.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.num_0 = self.builder.get_object("num_0")
+        self.num_0.connect("clicked", self.on_entry_entrada_dados_button_press_event)
         self.a = self.builder.get_object("a")
         self.a.connect("clicked", self.on_entry_entrada_dados_button_press_event)
         self.b = self.builder.get_object("b")
@@ -149,17 +172,24 @@ class CadastroUsuarios(object):
         self.y.connect("clicked", self.on_entry_entrada_dados_button_press_event)
         self.z = self.builder.get_object("z")
         self.z.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.space = self.builder.get_object("space")
+        self.btn_espaco = self.builder.get_object("btn_espaco")
+        self.btn_espaco.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.btn_gmail = self.builder.get_object("btn_gmail")
+        self.btn_gmail.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.btn_outlook = self.builder.get_object("btn_outlook")
+        self.btn_outlook.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.btn_yahoo = self.builder.get_object("btn_yahoo")
+        self.btn_yahoo.connect("clicked", self.on_entry_entrada_dados_button_press_event)
         """========== fim elementos do teclado  """
 
-        if self.tempo_locacao == ("diaria",):
+        if self.tempo_locacao == "diaria":
             self.label_quantidade_horas.hide()
             self.label_quantidade_minutos.hide()
             self.entry_minutos.hide()
             self.entry_quantidade_horas.hide()
             self.btn_limpar_horas.hide()
             self.btn_limpar_minutos.hide()
-        elif self.tempo_locacao == ("horas",):
+        elif self.tempo_locacao == "horas":
             self.label_quantidade_diaria.hide()
             self.entry_quantidade_diaria.hide()
             self.btn_limpar_quantidade_diaria.hide()
@@ -169,6 +199,11 @@ class CadastroUsuarios(object):
         self.window_cadastro_usuario.show()
 
     def on_btn_confirmar_button_press_event(self, widget, event):
+        if self.tempo_locacao == "horas":
+            self.entry_quantidade_diaria.set_text("0")
+        elif self.tempo_locacao == "diaria":
+            self.entry_quantidade_horas.set_text("0")
+            self.entry_minutos.set_text("0")
         manager = Management()
         __nome = self.entry_nome.get_text()
         __email = self.entry_email.get_text()
@@ -176,6 +211,7 @@ class CadastroUsuarios(object):
         __quantidade_diaria = self.entry_quantidade_diaria.get_text()
         __quantidade_horas = self.entry_quantidade_horas.get_text()
         __quantidade_minutos = self.entry_minutos.get_text()
+        print("locacao", __quantidade_diaria, __quantidade_horas, __quantidade_minutos)
         #result =  manager.locacao(__nome, __email, __telefone, __quantidade_diaria, __quantidade_horas, __quantidade_minutos)
         #return result
 

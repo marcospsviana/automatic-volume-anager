@@ -5,7 +5,8 @@ from datetime import datetime, date
 from cadastro_usuarios import CadastroUsuarios
 
 class OpcaoHoraDiaria(object):
-    def __init__(self):
+    def __init__(self, *args):
+        self.classe = args
         self.build = Gtk.Builder()
         self.build.add_from_file("ui/locacar_hora_diaria.glade")
         self.window_hora_diaria = self.build.get_object("window_op_hora_diaria")
@@ -134,11 +135,11 @@ class OpcaoHoraDiaria(object):
     
     def on_btn_loc_hora_button_press_event(self, widget, event):
         tempo_locacao = "horas"
-        CadastroUsuarios(tempo_locacao)
+        CadastroUsuarios(tempo_locacao, self.classe)
     
     def on_btn_loc_diaria_button_press_event(self, widget, event):
         tempo_locacao = "diaria"
-        CadastroUsuarios(tempo_locacao)
+        CadastroUsuarios(tempo_locacao, self.classe)
 
 if __name__ == "__main__":
     app = OpcaoHoraDiaria()

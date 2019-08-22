@@ -15,7 +15,10 @@
   <object class="GtkListStore" id="liststore_flags"/>
   <object class="GtkWindow" id="window_cadastro_usuario">
     <property name="name">window</property>
+    <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="halign">baseline</property>
+    <property name="resizable">False</property>
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
     <child>
@@ -25,6 +28,11 @@
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="halign">center</property>
+        <property name="margin_left">40</property>
+        <property name="margin_right">40</property>
+        <property name="margin_top">10</property>
+        <property name="margin_bottom">10</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
@@ -621,6 +629,7 @@
               <object class="GtkGrid" id="grid_numbers">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">center</property>
                 <property name="column_spacing">2</property>
                 <child>
                   <object class="GtkButton" id="num_1">
@@ -1199,10 +1208,11 @@
                 <child>
                   <object class="GtkButton" id="btn_gmail">
                     <property name="label" translatable="yes">@gmail.com</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_alfa</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">center</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -1212,10 +1222,11 @@
                 <child>
                   <object class="GtkButton" id="btn_outlook">
                     <property name="label" translatable="yes">@outlook.com</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_alfa</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">center</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -1225,10 +1236,11 @@
                 <child>
                   <object class="GtkButton" id="btn_yahoo">
                     <property name="label" translatable="yes">@yahoo.com</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_alfa</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">center</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -1238,88 +1250,78 @@
                 <child>
                   <object class="GtkButton" id="btn_dot_com">
                     <property name="label" translatable="yes">.com</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_alfa</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">center</property>
                   </object>
                   <packing>
                     <property name="left_attach">3</property>
                     <property name="top_attach">0</property>
                   </packing>
                 </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">center</property>
+                <property name="baseline_position">top</property>
                 <child>
                   <object class="GtkButton" id="btn_dot">
                     <property name="label" translatable="yes">.</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_alfa</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">center</property>
                   </object>
                   <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">1</property>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
                   </packing>
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_under">
                     <property name="label" translatable="yes">_</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_alfa</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">center</property>
                   </object>
                   <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">1</property>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
                   </packing>
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_dash">
                     <property name="label" translatable="yes">-</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_alfa</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">center</property>
                   </object>
                   <packing>
-                    <property name="left_attach">2</property>
-                    <property name="top_attach">1</property>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">2</property>
                   </packing>
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_arroba">
                     <property name="label" translatable="yes">@</property>
-                    <property name="name">tecla_num</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <property name="halign">center</property>
-                    <property name="valign">center</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">3</property>
-                    <property name="top_attach">1</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">4</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkGrid">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">center</property>
-                <property name="valign">center</property>
-                <property name="row_spacing">1</property>
-                <property name="column_spacing">3</property>
-                <child>
-                  <object class="GtkButton" id="btn_espaco">
-                    <property name="label" translatable="yes">                        </property>
                     <property name="name">tecla_alfa</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
@@ -1328,10 +1330,25 @@
                     <property name="valign">center</property>
                   </object>
                   <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">0</property>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">3</property>
                   </packing>
                 </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">5</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkGrid">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="valign">center</property>
+                <property name="row_spacing">1</property>
+                <property name="column_spacing">3</property>
                 <child>
                   <object class="GtkButton" id="BACKSPACE">
                     <property name="label" translatable="yes">&lt; backspace</property>
@@ -1349,14 +1366,28 @@
                   </packing>
                 </child>
                 <child>
-                  <placeholder/>
+                  <object class="GtkButton" id="btn_espaco">
+                    <property name="label" translatable="yes"> </property>
+                    <property name="name">tecla_alfa</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="margin_left">49</property>
+                    <property name="margin_right">29</property>
+                    <property name="hexpand">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                    <property name="width">2</property>
+                  </packing>
                 </child>
               </object>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
                 <property name="padding">2</property>
-                <property name="position">5</property>
+                <property name="position">6</property>
               </packing>
             </child>
           </object>
