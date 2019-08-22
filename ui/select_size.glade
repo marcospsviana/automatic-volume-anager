@@ -35,6 +35,7 @@
     <property name="pixbuf">../static/images/usa.svg</property>
   </object>
   <object class="GtkWindow" id="window_select_size">
+    <property name="name">window</property>
     <property name="can_focus">False</property>
     <child>
       <placeholder/>
@@ -178,6 +179,7 @@
                     <property name="receives_default">True</property>
                     <property name="image">image_malasx4</property>
                     <property name="relief">none</property>
+                    <property name="use_underline">True</property>
                     <property name="always_show_image">True</property>
                     <signal name="toggled" handler="on_btn_malasx4_toggled" swapped="no"/>
                   </object>
@@ -223,6 +225,8 @@
                     <property name="receives_default">True</property>
                     <property name="image">image_malax2</property>
                     <property name="relief">none</property>
+                    <property name="use_underline">True</property>
+                    <property name="always_show_image">True</property>
                     <signal name="toggled" handler="on_btn_malasx2_toggled" swapped="no"/>
                   </object>
                   <packing>
@@ -267,6 +271,7 @@
                     <property name="receives_default">True</property>
                     <property name="image">image_mochilasx2</property>
                     <property name="relief">none</property>
+                    <property name="use_underline">True</property>
                     <property name="always_show_image">True</property>
                     <signal name="toggled" handler="on_btn_mochilasx2_toggled" swapped="no"/>
                   </object>
@@ -301,6 +306,7 @@
                     <property name="receives_default">True</property>
                     <property name="image">image_cameraenotebook</property>
                     <property name="relief">none</property>
+                    <property name="use_underline">True</property>
                     <property name="always_show_image">True</property>
                     <signal name="toggled" handler="on_btn_cameraenotebook_toggled" swapped="no"/>
                   </object>

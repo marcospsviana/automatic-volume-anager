@@ -49,27 +49,28 @@ class SelectSize(object):
     
        
     def on_btn_malasx4_toggled(self, widget):
-        if self.classe == "" and self.btn_malasx4.toggled:
+        self.widget = widget
+        print(self.widget.get_active())
+        if self.btn_malasx4.get_active():
             self.classe = "A"
             
-        elif self.classe == "A":
+        else:
             self.classe = ""
         
         
         return self.classe
     
     def on_btn_malasx2_toggled(self, widget):
-        if self.btn_malasx2.toggled:
+        if self.btn_malasx2.get_active():
             self.classe = "B"
             print(self.classe)
         else:
-            self.btn_malasx2.toggled = False
             self.classe =""
 
         return self.classe
     
     def on_btn_mochilasx2_toggled(self, widget):
-        if self.btn_mochilasx2.toggled:
+        if self.btn_mochilasx2.get_active():
             self.classe = "C"
             print(self.classe)
         else:
@@ -77,7 +78,7 @@ class SelectSize(object):
         return self.classe
 
     def on_btn_cameraenotebook_toggled(self, widget):
-        if self.btn_cameraenotebook.toggled:
+        if self.btn_cameraenotebook.get_active():
             self.classe = "D"
             print(self.classe)
         else:
