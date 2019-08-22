@@ -193,9 +193,8 @@ class CadastroUsuarios(object):
             self.label_quantidade_diaria.hide()
             self.entry_quantidade_diaria.hide()
             self.btn_limpar_quantidade_diaria.hide()
-        
 
-
+        self.window_cadastro_usuario.set_default_size(1024,600)
         self.window_cadastro_usuario.show()
 
     def on_btn_confirmar_button_press_event(self, widget, event):

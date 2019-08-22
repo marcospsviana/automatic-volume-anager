@@ -17,10 +17,12 @@
     <property name="name">window</property>
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="halign">baseline</property>
-    <property name="resizable">False</property>
+    <property name="modal">True</property>
+    <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="gravity">center</property>
     <child>
       <placeholder/>
     </child>
@@ -28,9 +30,10 @@
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="can_default">True</property>
         <property name="halign">center</property>
-        <property name="margin_left">40</property>
-        <property name="margin_right">40</property>
+        <property name="margin_left">20</property>
+        <property name="margin_right">20</property>
         <property name="margin_top">10</property>
         <property name="margin_bottom">10</property>
         <property name="orientation">vertical</property>
@@ -73,17 +76,6 @@
                 <property name="expand">True</property>
                 <property name="fill">True</property>
                 <property name="position">2</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkFixed">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">3</property>
               </packing>
             </child>
             <child>
@@ -144,13 +136,14 @@
           <object class="GtkFixed">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">center</property>
             <property name="margin_top">40</property>
             <property name="margin_bottom">40</property>
-            <property name="hexpand">True</property>
+            <property name="hexpand">False</property>
           </object>
           <packing>
             <property name="expand">False</property>
-            <property name="fill">True</property>
+            <property name="fill">False</property>
             <property name="position">1</property>
           </packing>
         </child>
@@ -565,9 +558,11 @@
     <property name="name">window</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
+    <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
     <property name="destroy_with_parent">True</property>
+    <property name="gravity">center</property>
     <child>
       <placeholder/>
     </child>
