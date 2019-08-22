@@ -1,18 +1,20 @@
 import gi
 gi.require_versions({'Gtk': '3.0', 'GLib': '2.0', 'Gio': '2.0'})
 from gi.repository import Gtk, Gdk, GLib
+from window_op_hora_diaria import OpcaoHoraDiaria
 
 class SelectSize(object):
     def __init__(self, *args):
-        self.locacao = args[0]
+        self.locacao = args
+        self.classe = ""
         self.builder = Gtk.Builder()
         self.builder.add_from_file("ui/select_size.glade")
         self.builder.connect_signals({
             "gtk_main_quit": Gtk.main_quit,
-            "on_btn_malasx4_button_press_event": self.on_btn_malasx4_button_press_event,
-            "on_btn_malax2_button_press_event": self.on_btn_malax2_button_press_event,
-            "on_btn_mochilasx2_button_press_event": self.on_btn_mochilasx2_button_press_event,
-            "on_btn_cameraenotebook_button_press_event": self.on_btn_cameraenotebook_button_press_event,
+            "on_btn_malasx4_toggled": self.on_btn_malasx4_toggled,
+            "on_btn_malasx2_toggled": self.on_btn_malasx2_toggled,
+            "on_btn_mochilasx2_toggled": self.on_btn_mochilasx2_toggled,
+            "on_btn_cameraenotebook_toggled": self.on_btn_cameraenotebook_toggled,
             "on_btn_confirmar_button_press_event": self.on_btn_confirmar_button_press_event,
             "on_btn_tamanhos_tarifas_button_press_event": self.on_btn_tamanhos_tarifas_button_press_event,
             "on_btn_retornar_button_press_event": self.on_btn_retornar_button_press_event,
@@ -22,15 +24,17 @@ class SelectSize(object):
 
         # =============== BOTOES ====================
         self.btn_malasx4 = self.builder.get_object("btn_malasx4")
-        self.btn_malasx4.connect("button_press_event", self.on_btn_malasx4_button_press_event)
+        self.btn_malasx4.connect("toggled", self.on_btn_malasx4_toggled)
         self.btn_malasx2 = self.builder.get_object("btn_malasx2")
-        self.btn_malasx2.connect("button_press_event", self.on_btn_malax2_button_press_event)
+        self.btn_malasx2.connect("toggled", self.on_btn_malasx2_toggled)
         self.btn_mochilasx2 = self.builder.get_object("btn_mochilasx2")
-        self.btn_mochilasx2.connect("button_press_event", self.on_btn_mochilasx2_button_press_event)
+        self.btn_mochilasx2.connect("toggled", self.on_btn_mochilasx2_toggled)
         self.btn_cameraenotebook = self.builder.get_object("btn_cameraenotebook")
-        self.btn_cameraenotebook.connect("button_press_event", self.on_btn_cameraenotebook_button_press_event)
+        self.btn_cameraenotebook.connect("toggled", self.on_btn_cameraenotebook_toggled)
         self.btn_retornar = self.builder.get_object("btn_retornar")
         self.btn_retornar.connect("button_press_event", self.on_btn_retornar_button_press_event)
+        self.btn_confirmar = self.builder.get_object("btn_confirmar")
+        self.btn_confirmar.connect("button_press_event", self.on_btn_confirmar_button_press_event)
         # ============= FIM BOTOES ==================
 
         #============== LABELS ======================
@@ -39,26 +43,59 @@ class SelectSize(object):
         self.label_mochilasx2 = self.builder.get_object("label_mochilasx2")
         self.label_cameraenotebook = self.builder.get_object("label_cameraenotebook")
         # ============== FIM LABELS ================
+
+        self.window_select_size.fullscreen()
+        self.window_select_size.show()
     
        
-    def on_btn_malasx4_button_press_event(self, widget, event):
-        pass
+    def on_btn_malasx4_toggled(self, widget):
+        if self.classe == "" and self.btn_malasx4.toggled:
+            self.classe = "A"
+            
+        elif self.classe == "A":
+            self.classe = ""
+        
+        
+        return self.classe
     
-    def on_btn_malax2_button_press_event(self, widget, event):
-        pass
+    def on_btn_malasx2_toggled(self, widget):
+        if self.btn_malasx2.toggled:
+            self.classe = "B"
+            print(self.classe)
+        else:
+            self.btn_malasx2.toggled = False
+            self.classe =""
+
+        return self.classe
     
-    def on_btn_mochilasx2_button_press_event(self, widget, event):
-        pass
+    def on_btn_mochilasx2_toggled(self, widget):
+        if self.btn_mochilasx2.toggled:
+            self.classe = "C"
+            print(self.classe)
+        else:
+            self.classe =""
+        return self.classe
 
-    def on_btn_cameraenotebook_button_press_event(self, widget, event):
-        pass
-
+    def on_btn_cameraenotebook_toggled(self, widget):
+        if self.btn_cameraenotebook.toggled:
+            self.classe = "D"
+            print(self.classe)
+        else:
+            self.classe =""
+        return self.classe
+    
     def on_btn_confirmar_button_press_event(self, widget, event):
-        pass
+        if self.classe == "":
+            print ("É necessário escolher um tamanho de armário")
+        else:
+            print("classe selecionada",self.classe)
     
     def on_btn_retornar_button_press_event(self, widget, event):
-        pass
+        self.window_select_size.hide()
     
     def on_btn_tamanhos_tarifas_button_press_event(self, widget, event):
         pass
 
+if __name__ == "__main__":
+    app = SelectSize()
+    Gtk.main()

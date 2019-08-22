@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 import time
 from gi.repository import GLib 
 
-from window_op_hora_diaria import OpcaoHoraDiaria
+from window_select_size import SelectSize
 
 class SelectCabinet(object):
     def __init__(self):
@@ -32,8 +32,9 @@ class SelectCabinet(object):
         
 
     def on_reservar_button_press_event(self, widget, event):
+        SelectSize()
         self.select_cabinet.hide()
-        OpcaoHoraDiaria()
+        
     
     def hora_certa(self):
         dia = datetime.now()

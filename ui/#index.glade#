@@ -1070,6 +1070,7 @@ aperte  **OK ** para escolher um outro tamanho de armário.</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="image">image1</property>
+                <property name="relief">none</property>
                 <property name="always_show_image">True</property>
               </object>
               <packing>

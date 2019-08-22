@@ -171,14 +171,15 @@
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkButton" id="btn_malasx4">
+                  <object class="GtkToggleButton" id="btn_malasx4">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="image">image_malasx4</property>
                     <property name="relief">none</property>
                     <property name="always_show_image">True</property>
-                    <signal name="button-press-event" handler="on_btn_malasx4_button_press_event" swapped="no"/>
+                    <signal name="toggled" handler="on_btn_malasx4_toggled" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -187,7 +188,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="label_malasx4">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">IDEAL PARA</property>
@@ -215,13 +216,14 @@
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkButton" id="btn_malax2">
+                  <object class="GtkToggleButton" id="btn_malasx2">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="image">image_malax2</property>
-                    <property name="always_show_image">True</property>
-                    <signal name="button-press-event" handler="on_btn_malax2_button_press_event" swapped="no"/>
+                    <property name="relief">none</property>
+                    <signal name="toggled" handler="on_btn_malasx2_toggled" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -230,7 +232,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="label_malasx2">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">IDEAL PARA</property>
@@ -258,13 +260,15 @@
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkButton" id="btn_mochilasx2">
+                  <object class="GtkToggleButton" id="btn_mochilasx2">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="image">image_mochilasx2</property>
+                    <property name="relief">none</property>
                     <property name="always_show_image">True</property>
-                    <signal name="button-press-event" handler="on_btn_mochilasx2_button_press_event" swapped="no"/>
+                    <signal name="toggled" handler="on_btn_mochilasx2_toggled" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -273,7 +277,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="label_mochilasx2">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="margin_bottom">46</property>
@@ -290,11 +294,13 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="btn_cameraenotebook">
+                  <object class="GtkToggleButton" id="btn_cameraenotebook">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="image">image_cameraenotebook</property>
+                    <property name="relief">none</property>
                     <property name="always_show_image">True</property>
                     <signal name="button-press-event" handler="on_btn_cameraenotebook_button_press_event" swapped="no"/>
                   </object>
@@ -305,7 +311,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="label_cameraenotebook">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">IDEAL PARA</property>

@@ -62,7 +62,7 @@ dialog{
 	
 }
 #tecla_num{
-	background: #ffe100;
+	background: #FDCF03;
 	border: rgb(9, 19, 41) solid 1px;
 	color: #000;
 	font: 3.2em sans-serif;
@@ -72,7 +72,7 @@ background: rgb(9, 19, 41);
 color: #fff;
 }
 #tecla_alfa{
-	background: #ffe100;
+	background: #FDCF03;
 	border: rgb(9, 19, 41) solid 1px;
 	color: #000;
 	font: 2.3em sans-serif;
@@ -82,7 +82,7 @@ background: rgb(9, 19, 41);
 color: #fff;
 }
 #tecla_backspace{
-	background: #ffe100;
+	background: #FDCF03;
 	border: rgb(9, 19, 41) solid 1px;
 	color: #000;
 	font: 2em sans-serif;
