@@ -194,7 +194,7 @@ class CadastroUsuarios(object):
             self.entry_quantidade_diaria.hide()
             self.btn_limpar_quantidade_diaria.hide()
 
-        self.window_cadastro_usuario.unfullscreen()
+        
         self.window_cadastro_usuario.show()
 
     def on_btn_confirmar_button_press_event(self, widget, event):
