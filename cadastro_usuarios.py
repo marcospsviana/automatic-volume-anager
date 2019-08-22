@@ -101,15 +101,25 @@ class CadastroUsuarios(object):
         """ ================FIM BOTOES==================== """
         " ----------- BOTOES TELA ENTRADA NUMEROS --------- "
         self.btn_um = self.builder.get_object("btn_um")
-        self.btn_um = self.builder.get_object("btn_um")
-        self.btn_um = self.builder.get_object("btn_um")
-        self.btn_um = self.builder.get_object("btn_um")
-        self.btn_um = self.builder.get_object("btn_um")
-        self.btn_um = self.builder.get_object("btn_um")
-        self.btn_um = self.builder.get_object("btn_um")
-        self.btn_um = self.builder.get_object("btn_um")
-        self.btn_um = self.builder.get_object("btn_um")
-        self.btn_um = self.builder.get_object("btn_um")
+        self.btn_um.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
+        self.btn_dois = self.builder.get_object("btn_dois")
+        self.btn_dois.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
+        self.btn_tres = self.builder.get_object("btn_tres")
+        self.btn_tres.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
+        self.btn_quatro = self.builder.get_object("btn_quatro")
+        self.btn_quatro.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
+        self.btn_cinco = self.builder.get_object("btn_cinco")
+        self.btn_cinco.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
+        self.btn_seis = self.builder.get_object("btn_seis")
+        self.btn_seis.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
+        self.btn_sete = self.builder.get_object("btn_sete")
+        self.btn_sete.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
+        self.btn_oito = self.builder.get_object("btn_oito")
+        self.btn_oito.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
+        self.btn_nove = self.builder.get_object("btn_nove)
+        self.btn_nove.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
+        self.btn_zero = self.builder.get_object("btn_zero")
+        self.btn_zero.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
         """ ===================GRIDS====================== """
         self.grid_numbers = self.builder.get_object("grid_numbers")
 
@@ -320,8 +330,12 @@ class CadastroUsuarios(object):
     def on_btn_retornar_entrada_numeros_button_press_event(self, widget, event):
         pass
     
-    def on_entry_entrada_numeros_button_press_event(self, widget, event):
-        pass
+    def on_entry_entrada_numeros_button_press_event(self, widget):
+        self.widget = widget
+        self.value = self.widget.get_label()
+        self.text_entrada = self.entry_entrada_dados.get_text() + self.value
+        self.entry_entrada_dados.set_text(self.text_entrada)
+        self.entry_entrada_dados.set_position(-1)
 
 
 if __name__ == "__main__":
