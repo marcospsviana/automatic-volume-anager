@@ -15,10 +15,10 @@
   <object class="GtkListStore" id="liststore_flags"/>
   <object class="GtkWindow" id="window_cadastro_usuario">
     <property name="name">window</property>
+    <property name="width_request">-1</property>
+    <property name="height_request">-1</property>
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="halign">center</property>
-    <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
@@ -33,7 +33,6 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="can_default">True</property>
-        <property name="halign">center</property>
         <property name="margin_left">20</property>
         <property name="margin_right">20</property>
         <property name="margin_top">10</property>
@@ -73,6 +72,7 @@
               <object class="GtkFixed">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -175,9 +175,10 @@
             <child>
               <object class="GtkEntry" id="entry_nome">
                 <property name="name">entry_nome</property>
+                <property name="width_request">500</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="hexpand">True</property>
+                <property name="hexpand">False</property>
                 <signal name="button-press-event" handler="on_entry_nome_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -233,9 +234,10 @@
             <child>
               <object class="GtkEntry" id="entry_email">
                 <property name="name">entry_email</property>
+                <property name="width_request">500</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="hexpand">True</property>
+                <property name="hexpand">False</property>
                 <signal name="button-press-event" handler="on_entry_email_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -303,9 +305,10 @@
             <child>
               <object class="GtkEntry" id="entry_celular">
                 <property name="name">entry_celular</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="hexpand">True</property>
+                <property name="hexpand">False</property>
                 <signal name="button-press-event" handler="on_entry_celular_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -340,6 +343,7 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">start</property>
             <property name="margin_left">20</property>
             <property name="margin_right">20</property>
             <property name="margin_top">15</property>
@@ -362,9 +366,11 @@
             <child>
               <object class="GtkEntry" id="entry_quantidade_diaria">
                 <property name="name">entry_quantidade_diaria</property>
+                <property name="width_request">-1</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="halign">start</property>
+                <property name="valign">center</property>
                 <signal name="button-press-event" handler="on_entry_quantidade_diaria_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -404,8 +410,10 @@
             <child>
               <object class="GtkEntry" id="entry_quantidade_horas">
                 <property name="name">entry_quantidade_horas</property>
+                <property name="width_request">20</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="valign">center</property>
                 <signal name="button-press-event" handler="on_entry_quantidade_horas_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -447,6 +455,7 @@
                 <property name="name">entry_minutos</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="valign">center</property>
                 <signal name="button-press-event" handler="on_entry_minutos_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -471,17 +480,34 @@
               </packing>
             </child>
             <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="spacing">2</property>
+            <child>
               <object class="GtkLabel" id="label_valor_da_locacao">
                 <property name="name">label_valor_da_locacao</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_left">10</property>
                 <property name="label" translatable="yes">VALOR DA LOCAÇÃO R$</property>
               </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">9</property>
+                <property name="position">0</property>
               </packing>
             </child>
             <child>
@@ -489,18 +515,19 @@
                 <property name="name">label_total</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="width_chars">1</property>
               </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">10</property>
+                <property name="position">1</property>
               </packing>
             </child>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">5</property>
+            <property name="position">6</property>
           </packing>
         </child>
         <child>
@@ -550,7 +577,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">6</property>
+            <property name="position">7</property>
           </packing>
         </child>
       </object>
