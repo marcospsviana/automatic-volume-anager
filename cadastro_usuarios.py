@@ -32,6 +32,9 @@ class CadastroUsuarios(object):
             "on_btn_retornar_entrada_dados_button_press_event": self.on_btn_retornar_entrada_dados_button_press_event,
             "on_entry_entrada_dados_button_press_event": self.on_entry_entrada_dados_button_press_event,
             "on_btn_confirmar_entrada_dados_button_press_event": self.on_btn_confirmar_entrada_dados_button_press_event,
+            "on_btn_confirmar_entrada_numero_button_press_event": self.on_btn_confirmar_entrada_numero_button_press_event,
+            "on_btn_retornar_entrada_numeros_button_press_event": self.on_btn_retornar_entrada_numeros_button_press_event,
+            "on_entry_entrada_numeros_button_press_event": self.on_entry_entrada_numeros_button_press_event,
         })
         self.builder.add_from_file("ui/cadastro_usuario.glade")
         self.window_cadastro_usuario = self.builder.get_object("window_cadastro_usuario")
@@ -96,6 +99,17 @@ class CadastroUsuarios(object):
         self.btn_retornar_entrada_dados.connect("button_press_event", self.on_btn_retornar_entrada_dados_button_press_event)
 
         """ ================FIM BOTOES==================== """
+        " ----------- BOTOES TELA ENTRADA NUMEROS --------- "
+        self.btn_um = self.builder.get_object("btn_um")
+        self.btn_um = self.builder.get_object("btn_um")
+        self.btn_um = self.builder.get_object("btn_um")
+        self.btn_um = self.builder.get_object("btn_um")
+        self.btn_um = self.builder.get_object("btn_um")
+        self.btn_um = self.builder.get_object("btn_um")
+        self.btn_um = self.builder.get_object("btn_um")
+        self.btn_um = self.builder.get_object("btn_um")
+        self.btn_um = self.builder.get_object("btn_um")
+        self.btn_um = self.builder.get_object("btn_um")
         """ ===================GRIDS====================== """
         self.grid_numbers = self.builder.get_object("grid_numbers")
 
@@ -299,6 +313,15 @@ class CadastroUsuarios(object):
 
         self.entry_entrada_dados.set_text("")
         self.window_entrada_dados.hide()
+    
+    def on_btn_confirmar_entrada_numero_button_press_event(self, widget, event):
+        pass
+    
+    def on_btn_retornar_entrada_numeros_button_press_event(self, widget, event):
+        pass
+    
+    def on_entry_entrada_numeros_button_press_event(self, widget, event):
+        pass
 
 
 if __name__ == "__main__":
