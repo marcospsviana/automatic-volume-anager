@@ -44,7 +44,7 @@ class SelectSize(object):
         self.label_cameraenotebook = self.builder.get_object("label_cameraenotebook")
         # ============== FIM LABELS ================
 
-        
+        self.window_select_size.fullscreen()
         self.window_select_size.show()
     
        

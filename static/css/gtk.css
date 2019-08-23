@@ -60,7 +60,8 @@ dialog{
 #label_quantidade_horas,
 #label_quantidade_minutos,
 #label_valor_da_locacao,
-#label_total { 
+#label_total,
+#label_entrada_dados { 
 	font: 1.5em sans-serif;
 	color: rgb(9, 19, 41);}
 #label_senha { color: #fff }

@@ -37,7 +37,6 @@
   <object class="GtkWindow" id="window_select_size">
     <property name="name">window</property>
     <property name="can_focus">False</property>
-    <property name="halign">center</property>
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
     <child>

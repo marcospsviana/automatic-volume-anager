@@ -19,13 +19,13 @@
     <property name="height_request">600</property>
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="halign">center</property>
+    <property name="hexpand">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="default_width">800</property>
     <property name="default_height">600</property>
     <property name="destroy_with_parent">True</property>
-    <property name="gravity">center</property>
+    <property name="gravity">north</property>
     <child>
       <placeholder/>
     </child>
@@ -498,6 +498,8 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="margin_left">20</property>
+            <property name="margin_right">20</property>
             <property name="spacing">2</property>
             <child>
               <object class="GtkLabel" id="label_valor_da_locacao">
@@ -660,6 +662,7 @@
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="column_spacing">5</property>
+                <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="num_1">
                     <property name="label" translatable="yes">1</property>
@@ -804,6 +807,7 @@
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="column_spacing">5</property>
+                <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="q">
                     <property name="label" translatable="yes">q</property>
@@ -966,6 +970,7 @@
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="column_spacing">5</property>
+                <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="a">
                     <property name="label" translatable="yes">a</property>
@@ -1128,6 +1133,7 @@
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="column_spacing">5</property>
+                <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="m">
                     <property name="label" translatable="yes">m</property>
