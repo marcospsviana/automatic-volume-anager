@@ -39,6 +39,7 @@ class CadastroUsuarios(object):
         self.builder.add_from_file("ui/cadastro_usuario.glade")
         self.window_cadastro_usuario = self.builder.get_object("window_cadastro_usuario")
         self.window_entrada_dados = self.builder.get_object("window_entrada_dados")
+        self.window_entrada_numeros = self.builder.get_object("window_entrada_numeros")
         """ =================LABELS ====================="""
 
         self.label_nome = self.builder.get_object("label_nome")
@@ -49,6 +50,9 @@ class CadastroUsuarios(object):
         self.label_quantidade_minutos = self.builder.get_object("label_quantidade_minutos")
         " ----------   LABEL ENTRADA_DADOS --------------"
         self.label_entrada_dados = self.builder.get_object("label_entrada_dados")
+
+        " ----------   LABEL ENTRADA NUMEROS ------------"
+        self.label_entrada_numeros = self.builder.get_object("label_entrada_numeros")
         
         """ ================FIM LABELS==================="""
 
@@ -255,21 +259,27 @@ class CadastroUsuarios(object):
     
     def on_entry_celular_button_press_event(self, widget, event):
         self.entry = "3"
-        self.label_entrada_dados.set_text("CELULAR")
+        self.label_entrada_numeros.set_text("CELULAR")
         
-        self.window_entrada_dados.show()
+        self.window_entrada_numeros.show()
         return self.entry
     
     def on_entry_quantidade_diaria_button_press_event(self, widget, event):
         self.entry = "4"
+        self.label_entrada_numeros.set_text("QUANTIDADE DIÁRIA")
+        self.window_entrada_numeros.show()
         return self.entry
     
     def on_entry_quantidade_horas_button_press_event(self, widget, event):
         self.entry = "5"
+        self.label_entrada_numeros.set_text("QUANTIDADE HORAS")
+        self.window_entrada_numeros.show()
         return self.entry
 
     def on_entry_minutos_button_press_event(self, widget, event):
         self.entry = "6"
+        self.label_entrada_numeros.set_text("QUANTIDADE MINUTOS")
+        self.window_entrada_numeros.show()
         return self.entry
     
     def on_btn_limpar_nome_button_press_event(self, widget, event):
