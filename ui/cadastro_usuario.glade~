@@ -1456,6 +1456,7 @@
     </child>
   </object>
   <object class="GtkWindow" id="window_entrada_numeros">
+    <property name="name">window</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
@@ -1545,6 +1546,7 @@
                 <child>
                   <object class="GtkButton" id="btn_um">
                     <property name="label" translatable="yes">1</property>
+                    <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1557,6 +1559,7 @@
                 <child>
                   <object class="GtkButton" id="btn_dois">
                     <property name="label" translatable="yes">2</property>
+                    <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1569,6 +1572,7 @@
                 <child>
                   <object class="GtkButton" id="btn_tres">
                     <property name="label" translatable="yes">3</property>
+                    <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1593,6 +1597,7 @@
                 <child>
                   <object class="GtkButton" id="btn_quatro">
                     <property name="label" translatable="yes">4</property>
+                    <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1605,6 +1610,7 @@
                 <child>
                   <object class="GtkButton" id="btn_cinco">
                     <property name="label" translatable="yes">5</property>
+                    <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1617,6 +1623,7 @@
                 <child>
                   <object class="GtkButton" id="btn_seis">
                     <property name="label" translatable="yes">6</property>
+                    <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1641,6 +1648,7 @@
                 <child>
                   <object class="GtkButton" id="btn_sete">
                     <property name="label" translatable="yes">7</property>
+                    <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1653,6 +1661,7 @@
                 <child>
                   <object class="GtkButton" id="btn_oito">
                     <property name="label" translatable="yes">8</property>
+                    <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1665,6 +1674,7 @@
                 <child>
                   <object class="GtkButton" id="btn_nove">
                     <property name="label" translatable="yes">9</property>
+                    <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1690,6 +1700,7 @@
                 <child>
                   <object class="GtkButton" id="btn_zero">
                     <property name="label" translatable="yes">0</property>
+                    <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1757,6 +1768,7 @@
             <child>
               <object class="GtkButton" id="btn_retornar_entrada_numeros">
                 <property name="label" translatable="yes">RETORNAR TELA ANTERIOR</property>
+                <property name="name">btn_retornar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -1770,6 +1782,7 @@
             <child>
               <object class="GtkButton" id="btn_confirmar_entrada_numero">
                 <property name="label" translatable="yes">CONFIRMAR</property>
+                <property name="name">btn_confirmar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>

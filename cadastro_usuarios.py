@@ -35,6 +35,7 @@ class CadastroUsuarios(object):
             "on_btn_confirmar_entrada_numero_button_press_event": self.on_btn_confirmar_entrada_numero_button_press_event,
             "on_btn_retornar_entrada_numeros_button_press_event": self.on_btn_retornar_entrada_numeros_button_press_event,
             "on_entry_entrada_numeros_button_press_event": self.on_entry_entrada_numeros_button_press_event,
+            
         })
         self.builder.add_from_file("ui/cadastro_usuario.glade")
         self.window_cadastro_usuario = self.builder.get_object("window_cadastro_usuario")
@@ -124,6 +125,10 @@ class CadastroUsuarios(object):
         self.btn_nove.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
         self.btn_zero = self.builder.get_object("btn_zero")
         self.btn_zero.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
+        self.btn_confirmar_entrada_numero = self.builder.get_object("btn_confirmar_entrada_numero")
+        self.btn_confirmar_entrada_numero.connect("button_press_event", self.on_btn_confirmar_entrada_numero_button_press_event )
+        self.btn_retornar_entrada_numeros = self.builder.get_object("btn_retornar_entrada_numeros")
+        self.btn_retornar_entrada_numeros.connect("button_press_event", self.on_btn_retornar_entrada_numeros_button_press_event)
         """ ===================GRIDS====================== """
         self.grid_numbers = self.builder.get_object("grid_numbers")
 
@@ -338,7 +343,7 @@ class CadastroUsuarios(object):
         pass
     
     def on_btn_retornar_entrada_numeros_button_press_event(self, widget, event):
-        pass
+        self.window_entrada_numeros.hide()
     
     def on_entry_entrada_numeros_button_press_event(self, widget):
         self.widget = widget
