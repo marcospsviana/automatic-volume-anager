@@ -32,13 +32,13 @@ dialog{
 	    color: #d6e6ee;
 	     }
 #btn_confirmar{  
-		font: 2.1em sans-serif;
+		font: 1.8em sans-serif;
 		background: rgb(8, 107, 173);
 	    color: #d6e6ee;
 
 		 }
 #btn_retornar{  
-	font: 2.1em sans-serif;
+	font: 1.8em sans-serif;
 	background: rgb(209, 44, 3);
 	color: #d6e6ee;
 	
@@ -70,7 +70,7 @@ dialog{
 	background: #FDCF03;
 	border: rgb(9, 19, 41) solid 1px;
 	color: #000;
-	font: 3em sans-serif;
+	font: 2.5em sans-serif;
 }
 #tecla_num:focus{
 background: rgb(9, 19, 41);
