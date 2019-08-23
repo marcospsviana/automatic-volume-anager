@@ -606,10 +606,11 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">center</property>
             <property name="margin_top">30</property>
             <property name="margin_bottom">20</property>
             <property name="hexpand">True</property>
-            <property name="spacing">15</property>
+            <property name="spacing">5</property>
             <child>
               <object class="GtkLabel" id="label_entrada_dados">
                 <property name="name">label_entrada_dados</property>
@@ -629,7 +630,7 @@
                 <property name="width_request">500</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="hexpand">False</property>
+                <property name="hexpand">True</property>
                 <signal name="button-press-event" handler="on_entry_entrada_dados_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -652,13 +653,13 @@
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="orientation">vertical</property>
-            <property name="spacing">2</property>
+            <property name="spacing">5</property>
             <child>
               <object class="GtkGrid" id="grid_numbers">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
-                <property name="column_spacing">2</property>
+                <property name="column_spacing">5</property>
                 <child>
                   <object class="GtkButton" id="num_1">
                     <property name="label" translatable="yes">1</property>
@@ -802,7 +803,7 @@
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
-                <property name="column_spacing">2</property>
+                <property name="column_spacing">5</property>
                 <child>
                   <object class="GtkButton" id="q">
                     <property name="label" translatable="yes">q</property>
@@ -964,7 +965,7 @@
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
-                <property name="column_spacing">2</property>
+                <property name="column_spacing">5</property>
                 <child>
                   <object class="GtkButton" id="a">
                     <property name="label" translatable="yes">a</property>
@@ -1126,7 +1127,7 @@
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
-                <property name="column_spacing">2</property>
+                <property name="column_spacing">5</property>
                 <child>
                   <object class="GtkButton" id="m">
                     <property name="label" translatable="yes">m</property>
@@ -1263,7 +1264,7 @@
                 <child>
                   <object class="GtkButton" id="btn_arroba">
                     <property name="label" translatable="yes">@</property>
-                    <property name="name">tecla_alfa</property>
+                    <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1289,7 +1290,7 @@
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="row_spacing">2</property>
-                <property name="column_spacing">2</property>
+                <property name="column_spacing">5</property>
                 <child>
                   <object class="GtkButton" id="btn_gmail">
                     <property name="label" translatable="yes">@gmail.com</property>
@@ -1357,9 +1358,10 @@
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="row_spacing">1</property>
-                <property name="column_spacing">3</property>
+                <property name="column_spacing">5</property>
                 <child>
                   <object class="GtkButton" id="BACKSPACE">
                     <property name="label" translatable="yes">&lt; backspace</property>
@@ -1380,12 +1382,13 @@
                   <object class="GtkButton" id="btn_espaco">
                     <property name="label" translatable="yes"> </property>
                     <property name="name">tecla_alfa</property>
+                    <property name="width_request">250</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="margin_left">49</property>
                     <property name="margin_right">29</property>
-                    <property name="hexpand">True</property>
+                    <property name="hexpand">False</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -1752,6 +1755,7 @@
             <property name="halign">center</property>
             <property name="margin_top">5</property>
             <property name="margin_bottom">15</property>
+            <property name="column_spacing">5</property>
             <child>
               <object class="GtkFixed">
                 <property name="visible">True</property>

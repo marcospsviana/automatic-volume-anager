@@ -53,7 +53,14 @@ dialog{
 
 #lbl_time { font-size: 52px }       
 #label_telefone { color: #fff;}
-#label_nome { 
+#label_nome , 
+#label_email, 
+#label_celular, 
+#label_quantidade_diaria,
+#label_quantidade_horas,
+#label_quantidade_minutos,
+#label_valor_da_locacao,
+#label_total { 
 	font: 1.5em sans-serif;
 	color: rgb(9, 19, 41);}
 #label_senha { color: #fff }
@@ -80,7 +87,7 @@ color: #fff;
 	background: #FDCF03;
 	border: rgb(9, 19, 41) solid 1px;
 	color: #000;
-	font: 2em sans-serif;
+	font: 1.7em sans-serif;
 }
 #tecla_alfa:focus{
 background: rgb(9, 19, 41);
