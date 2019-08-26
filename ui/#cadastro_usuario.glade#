@@ -296,6 +296,7 @@
             <child>
               <object class="GtkComboBox" id="combobox_flags_ddd">
                 <property name="visible">True</property>
+                <property name="app_paintable">True</property>
                 <property name="can_focus">False</property>
                 <property name="model">liststore_flags</property>
               </object>

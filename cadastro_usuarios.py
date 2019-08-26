@@ -1,6 +1,6 @@
 import gi
-gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, Gdk
+gi.require_versions({"Gtk": "3.0","Gio": "2.0"})
+from gi.repository import Gtk, Gdk, Gio, GdkPixbuf
 from datetime import datetime, date
 from controllers import Management
 
@@ -214,6 +214,18 @@ class CadastroUsuarios(object):
         self.btn_yahoo = self.builder.get_object("btn_yahoo")
         self.btn_yahoo.connect("clicked", self.on_entry_entrada_dados_button_press_event)
         """========== fim elementos do teclado  """
+        """ ========= lista combobox ========= """
+        self.cell_renderer = Gtk.CellRendererPixbuf()
+        
+        self.list_flags = Gtk.ListStore( str, GdkPixbuf.Pixbuf)
+        pb = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/Flag_of_Albania.svg",40, 20)
+        self.list_flags.append(["Albania",pb])
+        #self.combobox_flags_ddd = Gtk.ComboBox.new_with_model(self.list_flags)
+        self.combobox_flags_ddd = self.builder.get_object("combobox_flags_ddd")
+        self.combobox_flags_ddd.add_attribute(self.cell_renderer, "Albania", 0)
+        
+        
+    
 
         if self.tempo_locacao == "diaria":
             self.label_quantidade_horas.hide()
