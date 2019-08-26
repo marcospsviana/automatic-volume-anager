@@ -217,12 +217,26 @@ class CadastroUsuarios(object):
         """ ========= lista combobox ========= """
         self.cell_renderer = Gtk.CellRendererPixbuf()
         
-        self.list_flags = Gtk.ListStore( str, GdkPixbuf.Pixbuf)
-        pb = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/Flag_of_Albania.svg",40, 20)
-        self.list_flags.append(["Albania",pb])
+        self.list_flags = Gtk.ListStore(str, Gtk.Image)
+        
+        pb = br = Gtk.Image()
+        pb_alb = GdkPixbuf.Pixbuf.new_from_file_at_scale("static/images/flags_ddd/Flag_of_Albania.svg", -1, -1, 1)
+        pb.set_from_pixbuf(pb_alb)
+        pb_br = GdkPixbuf.Pixbuf.new_from_file_at_scale("static/images/flags_ddd/Flag_of_Brazil.svg",-1, -1, 1)
+        
+        br.set_from_pixbuf(pb_br)
+        self.list_flags.append(["Albania", pb])
+        self.list_flags.append(["Brasil", br])
+       
         #self.combobox_flags_ddd = Gtk.ComboBox.new_with_model(self.list_flags)
+        
         self.combobox_flags_ddd = self.builder.get_object("combobox_flags_ddd")
-        self.combobox_flags_ddd.add_attribute(self.cell_renderer, "Albania", 0)
+        self.combobox_flags_ddd.pack_start(self.cell_renderer, True)
+        self.combobox_flags_ddd.set_property("model", self.list_flags)
+        self.combobox_flags_ddd.add_attribute(self.cell_renderer,"Brasil", 0)
+        
+        #self.combobox_flags_ddd.set_active(0)
+        #self.combobox_flags_ddd.add_attribute(self.cell_renderer, "Albania", 0)
         
         
     
