@@ -12,7 +12,31 @@
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/usa.svg</property>
   </object>
-  <object class="GtkListStore" id="liststore_flags"/>
+  <object class="GtkListStore" id="list_flags_ddd">
+    <columns>
+      <!-- column-name flags -->
+      <column type="GdkPixbuf"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0"/>
+      </row>
+    </data>
+  </object>
+  <object class="GtkListStore" id="liststore_flag">
+    <columns>
+      <!-- column-name flags -->
+      <column type="GdkPixbuf"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0">Brasil</col>
+      </row>
+      <row>
+        <col id="0">albania</col>
+      </row>
+    </data>
+  </object>
   <object class="GtkWindow" id="window_cadastro_usuario">
     <property name="name">window</property>
     <property name="width_request">800</property>
@@ -296,8 +320,17 @@
             <child>
               <object class="GtkComboBox" id="combobox_flags_ddd">
                 <property name="visible">True</property>
+                <property name="app_paintable">True</property>
                 <property name="can_focus">False</property>
-                <property name="model">liststore_flags</property>
+                <property name="focus_on_click">False</property>
+                <property name="model">liststore_flag</property>
+                <property name="has_entry">True</property>
+                <property name="popup_fixed_width">False</property>
+                <child internal-child="entry">
+                  <object class="GtkEntry">
+                    <property name="can_focus">False</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -589,6 +622,7 @@
       </object>
     </child>
   </object>
+  <object class="GtkListStore" id="liststore_flags"/>
   <object class="GtkWindow" id="window_entrada_dados">
     <property name="name">window</property>
     <property name="can_focus">False</property>

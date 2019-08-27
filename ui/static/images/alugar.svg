@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="72.291962mm"
+   height="64.83149mm"
+   viewBox="0 0 72.291962 64.83149"
+   version="1.1"
+   id="svg11728"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   sodipodi:docname="alugar.svg">
+  <defs
+     id="defs11722">
+    <symbol
+       id="BaggageCheckIn">
+      <title
+         id="title14866">Baggage Check In</title>
+      <path
+         inkscape:connector-curvature="0"
+         d="m 8.2020833,3.7041667 a 0.79375,0.79375 0 0 0 -0.79375,0.79375 v 1.3229166 h -1.5875 V 15.345833 H 13.49375 V 5.8208333 H 11.641667 V 4.4979167 a 0.79375,0.79375 0 0 0 -0.79375,-0.79375 z m 0,0.79375 H 10.847917 V 5.8208333 H 8.2020833 Z M 3.96875,5.8208333 A 1.3229167,1.3229167 0 0 0 2.6458333,7.14375 v 6.879167 A 1.3229167,1.3229167 0 0 0 3.96875,15.345833 H 5.0270833 V 5.8208333 Z m 10.31875,0 v 9.5249997 h 0.79375 a 1.3229167,1.3229167 0 0 0 1.322917,-1.322916 V 7.14375 A 1.3229167,1.3229167 0 0 0 15.08125,5.8208333 Z"
+         style="stroke:none;stroke-width:0.26458332"
+         id="path14868" />
+    </symbol>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.0875"
+     inkscape:cx="-2482.3984"
+     inkscape:cy="829.39699"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="mm"
+     inkscape:window-width="1366"
+     inkscape:window-height="674"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata11725">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-1.5955785,-258.26736)">
+    <rect
+       style="fill:#ffe100;fill-opacity:1;stroke:#ffe100;stroke-width:0.62996089;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect10215-3"
+       width="71.662003"
+       height="64.20153"
+       x="1.7159644"
+       y="258.42944" />
+    <g
+       id="use9397"
+       style="fill:#aa0000;fill-opacity:1;stroke:#aa0000;stroke-opacity:1"
+       transform="matrix(3.2023635,0,0,3.2023635,-3.061756,256.23268)">
+      <title
+         id="title9419">Baggage Lockers</title>
+      <!-- key -->
+      <path
+         id="path9421"
+         style="stroke:none;stroke-width:0.26458332"
+         d="m 9.1611979,2.9104167 a 1.984375,1.984375 0 1 0 0,1.8520833 h 0.6283854 l 0.6614587,-0.6614583 0.529166,0.5291666 0.529167,-0.5291666 0.529167,0.5291666 0.529166,-0.5291666 0.529167,0.5291666 0.661458,-0.6614583 c 0.132292,-0.1322917 0.132292,-0.2645833 0,-0.396875 L 13.096875,2.9104167 Z M 7.14375,3.8364583 a 0.52916667,0.52916667 0 1 1 -1.0583333,0 0.52916667,0.52916667 0 1 1 1.0583333,0 z"
+         inkscape:connector-curvature="0" />
+      <!-- locker -->
+      <rect
+         id="rect9423"
+         style="fill:#ffffff;stroke-width:1.32291663"
+         height="8.4666662"
+         width="10.31875"
+         y="7.0114584"
+         x="4.3656249" />
+      <!-- bag -->
+      <path
+         id="path9425"
+         style="stroke:none;stroke-width:0.26458332"
+         d="M 8.8635417,8.334375 A 0.396875,0.396875 0 0 0 8.4666667,8.73125 v 0.6614583 h -0.79375 V 14.155208 H 11.509375 V 9.3927083 H 10.583333 V 8.73125 A 0.396875,0.396875 0 0 0 10.186458,8.334375 Z m 0,0.396875 H 10.186458 V 9.3927083 H 8.8635417 Z M 6.746875,9.3927083 A 0.66145833,0.66145833 0 0 0 6.0854167,10.054167 V 13.49375 A 0.66145833,0.66145833 0 0 0 6.746875,14.155208 H 7.2760417 V 9.3927083 Z m 5.159375,0 v 4.7624997 h 0.396875 A 0.66145833,0.66145833 0 0 0 12.964583,13.49375 V 10.054167 A 0.66145833,0.66145833 0 0 0 12.303125,9.3927083 Z"
+         inkscape:connector-curvature="0" />
+    </g>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:9.2307272;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect11778"
+       width="27.354143"
+       height="22.170063"
+       x="14.262949"
+       y="281.06772" />
+    <g
+       id="use11690-5"
+       style="fill:#aa0000;stroke:#000000"
+       transform="matrix(-1.3373797,0,0,1.3373797,45.691556,278.34194)">
+      <title
+         id="title9391">Right Arrow</title>
+      <path
+         id="path9393"
+         style="stroke:none;stroke-width:0.26458332"
+         d="m 16.66875,9.525 -5.820833,5.820833 H 6.8791667 L 11.1125,11.1125 H 2.6458333 V 7.9375 H 11.1125 L 6.8791667,3.7041667 h 3.9687503 z"
+         inkscape:connector-curvature="0" />
+    </g>
+    <use
+       id="use18068"
+       transform="matrix(1.7500026,0,0,1.7500026,42.370226,274.24814)"
+       style="fill:#aa0000;stroke:#000000"
+       xlink:href="#BaggageCheckIn"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.16426229px;line-height:0;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.15579891"
+       x="12.966788"
+       y="316.04282"
+       id="text7315"><tspan
+         sodipodi:role="line"
+         id="tspan7313"
+         x="12.966788"
+         y="316.04282"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:none;stroke-width:1.15579891">Alugar Armário</tspan></text>
+    <rect
+       style="fill:#ffe100;fill-opacity:1;stroke:none;stroke-width:2.33099985;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect9469"
+       width="72.073059"
+       height="17.422382"
+       x="1.7159644"
+       y="258.42944" />
+  </g>
+</svg>
