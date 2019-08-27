@@ -12,17 +12,6 @@
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/usa.svg</property>
   </object>
-  <object class="GtkListStore" id="list_flags_ddd">
-    <columns>
-      <!-- column-name flags -->
-      <column type="GdkPixbuf"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0"/>
-      </row>
-    </data>
-  </object>
   <object class="GtkListStore" id="liststore_flag">
     <columns>
       <!-- column-name flags -->
@@ -30,10 +19,10 @@
     </columns>
     <data>
       <row>
-        <col id="0">Brasil</col>
+        <col id="0">static/images/flags_ddd/Flag_of_Brazil.svg</col>
       </row>
       <row>
-        <col id="0">albania</col>
+        <col id="0">static/images/flags_ddd/Flag_of_Albania.svg</col>
       </row>
     </data>
   </object>
@@ -327,7 +316,7 @@
                 <property name="has_entry">True</property>
                 <property name="popup_fixed_width">False</property>
                 <child internal-child="entry">
-                  <object class="GtkEntry">
+                  <object class="GtkEntry" id="entry_combobox">
                     <property name="can_focus">False</property>
                   </object>
                 </child>
@@ -622,7 +611,6 @@
       </object>
     </child>
   </object>
-  <object class="GtkListStore" id="liststore_flags"/>
   <object class="GtkWindow" id="window_entrada_dados">
     <property name="name">window</property>
     <property name="can_focus">False</property>

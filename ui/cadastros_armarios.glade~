@@ -223,6 +223,7 @@
               <object class="GtkComboBoxText">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="valign">center</property>
                 <property name="margin_left">20</property>
                 <property name="hexpand">True</property>
                 <items>
@@ -247,6 +248,7 @@
               <object class="GtkFixed">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="valign">center</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -257,6 +259,7 @@
               <object class="GtkFixed">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="valign">center</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>

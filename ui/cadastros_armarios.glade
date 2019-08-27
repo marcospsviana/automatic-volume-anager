@@ -46,7 +46,7 @@
                   <item id="classe_A" translatable="yes">A</item>
                   <item id="classe_B" translatable="yes">B</item>
                   <item id="classe_C" translatable="yes">C</item>
-                  <item translatable="yes">D</item>
+                  <item id="classe_D" translatable="yes">D</item>
                 </items>
               </object>
               <packing>
