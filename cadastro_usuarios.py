@@ -217,11 +217,15 @@ class CadastroUsuarios(object):
         """ ========= lista combobox ========= """
         self.cell_renderer = Gtk.CellRendererPixbuf()
         br = alb = Gtk.Image()
-        FLAGS = [["static/images/flags_ddd/Flag_of_Albania.svg"], ["static/images/flags_ddd/Flag_of_Brazil.svg"]]
-        self.list_flag_ddd = Gtk.ListStore(GdkPixbuf.Pixbuf)
+        
+        FLAG_BR = ["static/images/flags_ddd/Flag_of_Brazil.svg"]
+        FLAG_ALB = ["static/images/flags_ddd/Flag_of_Albania.svg"]
+        FLAGS = [[FLAG_BR], [FLAG_ALB]]
+        self.list_flag_ddd = Gtk.ListStore(Gtk.Image)
         
         
-        self.list_flag_ddd.append([FLAGS])
+        for f in range(len(FLAGS)):
+            self.list_flag_ddd.append(FLAGS[f])
         #self.list_flag_ddd.append([pb])
        
         #self.combobox_flags_ddd = Gtk.ComboBox.new_with_model(self.list_flags)

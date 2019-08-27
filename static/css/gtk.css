@@ -27,8 +27,8 @@ dialog{
 	    color: #d6e6ee;
 	    }
 #btn_cancelar {  
-	font: 2.5em sans-serif;
-		background: rgb(9, 19, 41);
+	font: 1.8em sans-serif;
+		background: rgb(199, 75, 54);
 	    color: #d6e6ee;
 	     }
 #btn_confirmar{  
@@ -39,7 +39,7 @@ dialog{
 		 }
 #btn_retornar{  
 	font: 1.8em sans-serif;
-	background: rgb(209, 44, 3);
+	background: rgb(199, 75, 54);
 	color: #d6e6ee;
 	
 			 }

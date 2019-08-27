@@ -114,7 +114,7 @@ class Login(Gtk.Window):
         #conectando os botões aos eventos ========================
         self.btn_delete.connect("clicked", self.on_entry_backspace)
         #s = Gdk.Screen.get_default()'''
-        self.window_login.fullscreen()
+        #self.window_login.fullscreen()
         self.window_login.show()
     
     def on_cancela_clicked(self, event):
