@@ -95,6 +95,7 @@
             <property name="can_focus">True</property>
             <property name="valign">center</property>
             <property name="margin_right">20</property>
+            <signal name="button-press-event" handler="on_entry_email_telefone_button_press_event" swapped="no"/>
           </object>
           <packing>
             <property name="x">100</property>
@@ -125,6 +126,7 @@
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="margin_right">30</property>
+            <signal name="button-press-event" handler="on_entry_senha_button_press_event" swapped="no"/>
           </object>
           <packing>
             <property name="x">101</property>
