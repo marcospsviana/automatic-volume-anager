@@ -46,7 +46,7 @@
                   <item id="classe_A" translatable="yes">A</item>
                   <item id="classe_B" translatable="yes">B</item>
                   <item id="classe_C" translatable="yes">C</item>
-                  <item translatable="yes">D</item>
+                  <item id="classe_D" translatable="yes">D</item>
                 </items>
               </object>
               <packing>
@@ -293,5 +293,16 @@
         </child>
       </object>
     </child>
+  </object>
+  <object class="GtkListStore" id="liststore1">
+    <columns>
+      <!-- column-name GdkPixbuf1 -->
+      <column type="GdkPixbuf"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0">/home/marcos/coolbag/raspcontrol/ui/static/images/flags_ddd/Flag of Canada.svg</col>
+      </row>
+    </data>
   </object>
 </interface>

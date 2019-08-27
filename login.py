@@ -20,8 +20,8 @@ class Login(Gtk.Window):
             {
                 "on_window_login_destroy": self.on_window_login_destroy,
                 "on_ENTER_clicked": self.on_ENTER_clicked,
-                "on_entry_nome": self.on_entry_nome,
-                "on_entry_senha": self.on_entry_senha,
+                "on_entry_email_telefone_button_press_event": self.on_entry_email_telefone_button_press_event,
+                "on_entry_senha_button_press_event": self.on_entry_senha_button_press_event,
                 "on_btn_login_clicked": self.on_btn_login_clicked,
                 "on_num_button_press_event": self.on_num_button_press_event,
                 "on_cancela_clicked": self.on_cancela_clicked,
@@ -30,12 +30,12 @@ class Login(Gtk.Window):
         )
         self.window_login = builder.get_object("window_login")
         # adicionando elementos da janela
-        self.entry_nome = builder.get_object("entry_nome")
+        self.entry_nome = builder.get_object("entry_email_telefone")
         
         self.entry_senha = builder.get_object('entry_senha')
-        self.entry_nome.connect("button-press-event", self.on_entry_nome)
-        self.entry_senha.connect("button-press-event", self.on_entry_senha)
-        #adicionando os elementos do teclado =======================
+        self.entry_nome.connect("button-press-event", self.on_entry_email_telefone_button_press_event)
+        self.entry_senha.connect("button-press-event", self.on_entry_senha_button_press_event)
+        '''#adicionando os elementos do teclado =======================
         self.a = builder.get_object("a")
         self.a.connect("clicked", self.on_entry_button_press_event)
         self.b = builder.get_object("b")
@@ -113,7 +113,7 @@ class Login(Gtk.Window):
         self.btn_delete.connect("clicked", self.on_entry_backspace)
         #conectando os botões aos eventos ========================
         self.btn_delete.connect("clicked", self.on_entry_backspace)
-        #s = Gdk.Screen.get_default()
+        #s = Gdk.Screen.get_default()'''
         self.window_login.fullscreen()
         self.window_login.show()
     
@@ -216,11 +216,11 @@ class Login(Gtk.Window):
     def dialog_cobranca_show(self):
         #self.dialog_cobranca.show()
         print('cobranca em dialogo')   
-    def on_entry_nome(self, widget, event):
+    def on_entry_email_telefone_button_press_event(self, widget, event):
         self.entrada = '7'
         return self.entrada
     
-    def on_entry_senha(self, widget, event):
+    def on_entry_senha_button_press_event(self, widget, event):
         self.entrada = '8'
         return self.entrada
     

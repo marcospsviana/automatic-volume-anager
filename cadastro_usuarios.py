@@ -216,29 +216,22 @@ class CadastroUsuarios(object):
         """========== fim elementos do teclado  """
         """ ========= lista combobox ========= """
         self.cell_renderer = Gtk.CellRendererPixbuf()
+        br = alb = Gtk.Image()
+        FLAGS = [["static/images/flags_ddd/Flag_of_Albania.svg"], ["static/images/flags_ddd/Flag_of_Brazil.svg"]]
+        self.list_flag_ddd = Gtk.ListStore(GdkPixbuf.Pixbuf)
         
-        self.list_flag_ddd = self.builder.get_object("liststore_flag")
         
-        pb = br = Gtk.Image()
-        pb_alb = GdkPixbuf.Pixbuf.new_from_file("static/images/flags_ddd/Flag_of_Albania.svg")
-        pb.set_from_pixbuf(pb_alb)
-        pb_br = GdkPixbuf.Pixbuf.new_from_file("static/images/flags_ddd/Flag_of_Brazil.svg")
-        
-        br.set_from_pixbuf(pb_br)
-        
-        #self.list_flag_ddd.append([br])
+        self.list_flag_ddd.append([FLAGS])
         #self.list_flag_ddd.append([pb])
        
         #self.combobox_flags_ddd = Gtk.ComboBox.new_with_model(self.list_flags)
         
         self.combobox_flags_ddd = self.builder.get_object("combobox_flags_ddd")
-        self.combobox_flags_ddd.pack_start(self.cell_renderer, True)
-        self.entry_combobox = self.builder.get_object("entry_combobox")
-        self.entry_combobox.set_text("")
+        #self.combobox_flags_ddd.pack_start(self.cell_renderer, True)
         self.combobox_flags_ddd.set_property("model", self.list_flag_ddd)
         #self.combobox_flags_ddd.add_attribute(self.cell_renderer,"Brasil", 0)
         
-        #self.combobox_flags_ddd.set_active(1)
+        self.combobox_flags_ddd.set_active(0)
         #self.combobox_flags_ddd.add_attribute(self.cell_renderer, "GdkPixbuf", 0)
         
         

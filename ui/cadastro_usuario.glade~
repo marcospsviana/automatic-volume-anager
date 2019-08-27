@@ -12,20 +12,6 @@
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/usa.svg</property>
   </object>
-  <object class="GtkListStore" id="liststore_flag">
-    <columns>
-      <!-- column-name flags -->
-      <column type="GdkPixbuf"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0">/home/marcos/coolbag/raspcontrol/ui/static/images/flags_ddd/Flag_of_Brazil.svg</col>
-      </row>
-      <row>
-        <col id="0">/home/marcos/coolbag/raspcontrol/ui/static/images/flags_ddd/Flag_of_Albania.svg</col>
-      </row>
-    </data>
-  </object>
   <object class="GtkWindow" id="window_cadastro_usuario">
     <property name="name">window</property>
     <property name="width_request">800</property>
@@ -307,19 +293,9 @@
               </packing>
             </child>
             <child>
-              <object class="GtkComboBox" id="combobox_flags_ddd">
+              <object class="GtkComboBox">
                 <property name="visible">True</property>
-                <property name="app_paintable">True</property>
                 <property name="can_focus">False</property>
-                <property name="focus_on_click">False</property>
-                <property name="model">liststore_flag</property>
-                <property name="has_entry">True</property>
-                <property name="popup_fixed_width">False</property>
-                <child internal-child="entry">
-                  <object class="GtkEntry" id="entry_combobox">
-                    <property name="can_focus">False</property>
-                  </object>
-                </child>
               </object>
               <packing>
                 <property name="expand">False</property>

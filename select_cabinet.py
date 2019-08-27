@@ -6,6 +6,7 @@ import time
 from gi.repository import GLib 
 
 from window_select_size import SelectSize
+from login import Login
 
 class SelectCabinet(object):
     def __init__(self):
@@ -43,7 +44,8 @@ class SelectCabinet(object):
         return (self.label_data, self.label_horario)
     
     def on_abrir_cofre_button_press_event(self, widget, event):
-        pass
+        self.select_cabinet.hide()
+        Login()
     
     def on_concluir_reserva_button_press_event(self, widget, event):
         pass
