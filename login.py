@@ -169,13 +169,13 @@ class Login(Gtk.Window):
 
     def on_btn_confirmar_clicked(self, event):
         self.message = ''
-        nome = self.entry_senha.get_text()
+        nome = self.entry_email_telefone.get_text()
         senha = self.entry_senha.get_text()
         result = self.manager.abre_armario(senha, nome)
         print('result login', result)
         if result == 'armario liberado':
             self.window_login.hide()
-            self.entry_senha.set_text('')
+            self.entry_email_telefone.set_text('')
             self.entry_senha.set_text('')
             print('abrir')
         else:
@@ -188,7 +188,7 @@ class Login(Gtk.Window):
             result = ''
 
     def dialog_cobranca_show(self):
-        #self.dialog_cobranca.show()
+        self.dialog_cobranca.show()
         print('cobranca em dialogo')   
     
     
