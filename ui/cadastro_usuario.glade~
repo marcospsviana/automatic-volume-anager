@@ -296,6 +296,7 @@
               <object class="GtkComboBox">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="has_frame">False</property>
               </object>
               <packing>
                 <property name="expand">False</property>

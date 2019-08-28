@@ -1,6 +1,6 @@
 import gi
 gi.require_versions({"Gtk": "3.0","Gio": "2.0"})
-from gi.repository import Gtk, Gdk, Gio, GdkPixbuf
+from gi.repository import Gtk, Gdk, Gio, GdkPixbuf, GObject
 from datetime import datetime, date
 from controllers import Management
 import PIL
@@ -221,11 +221,11 @@ class CadastroUsuarios(object):
         self.cell_renderer_text = Gtk.CellRendererText()
         
         
-        FLAG_BR = Image.open("static/images/flags_ddd/brasil.png")
-        FLAG_ALB = Image.open("static/images/flags_ddd/albania.png")
-        print(type(FLAG_BR))
-        FLAGS = [["Brasil",FLAG_BR], ["Albania",FLAG_ALB]]
-        self.list_flag_ddd = Gtk.ListStore(str, PIL.PngImagePlugin.PngImageFile)
+        FLAG_BR = GdkPixbuf.Pixbuf("static/images/flags_ddd/brasil.png")
+        FLAG_ALB = gtk_image_new_from_file("static/images/flags_ddd/albania.png")
+        #print(type(FLAG_BR))
+        FLAGS = [["Brasil"], ["Albania"]]
+        self.list_flag_ddd = Gtk.ListStore(str)
         
         
         for f in range(len(FLAGS)):
@@ -238,8 +238,8 @@ class CadastroUsuarios(object):
         self.combobox_flags_ddd.pack_start(self.cell_renderer_text, False)
         self.combobox_flags_ddd.pack_start(self.cell_renderer, True)
         self.combobox_flags_ddd.set_property("model", self.list_flag_ddd)
-        self.combobox_flags_ddd.add_attribute(self.cell_renderer_text,"Brasil", 0)
-        self.combobox_flags_ddd.add_attribute(self.cell_renderer, "FLAG_BR", 1)
+        self.combobox_flags_ddd.add_attribute(self.cell_renderer_text,"text", 0)
+        self.combobox_flags_ddd.add_attribute(self.cell_renderer, "pixbuf", 1)
         self.combobox_flags_ddd.set_active(0)
         
         
