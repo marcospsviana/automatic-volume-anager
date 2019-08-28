@@ -93,7 +93,7 @@
                 <property name="name">label_entrada_dados</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">NOME</property>
+                <property name="label" translatable="yes">EMAIL OU TELEFONE</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -108,7 +108,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
-                <signal name="button-press-event" handler="on_entry_entrada_dados_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -144,6 +143,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -157,6 +157,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -170,6 +171,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -183,6 +185,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -196,6 +199,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -209,6 +213,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -222,6 +227,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -235,6 +241,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -248,6 +255,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -261,6 +269,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -289,6 +298,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="valign">center</property>
                   </object>
@@ -303,6 +313,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="valign">center</property>
                   </object>
@@ -317,6 +328,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -332,6 +344,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -347,6 +360,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -362,6 +376,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -377,6 +392,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -392,6 +408,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -407,6 +424,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -422,6 +440,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -452,6 +471,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -467,6 +487,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -482,6 +503,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -497,6 +519,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -512,6 +535,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -527,6 +551,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -542,6 +567,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -557,6 +583,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -572,6 +599,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="valign">center</property>
                   </object>
@@ -586,6 +614,7 @@
                     <property name="name">tecla_alfa</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                   </object>
@@ -615,6 +644,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -630,6 +660,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -645,6 +676,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -660,6 +692,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -675,6 +708,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -690,6 +724,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -705,6 +740,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -720,6 +756,7 @@
                     <property name="name">tecla_alfa</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                   </object>
@@ -734,6 +771,7 @@
                     <property name="name">tecla_alfa</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                   </object>
@@ -748,6 +786,7 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -778,6 +817,7 @@
                     <property name="name">tecla_alfa</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                   </object>
@@ -792,6 +832,7 @@
                     <property name="name">tecla_alfa</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                   </object>
@@ -806,6 +847,7 @@
                     <property name="name">tecla_alfa</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                   </object>
@@ -820,6 +862,7 @@
                     <property name="name">tecla_alfa</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                   </object>
@@ -849,6 +892,7 @@
                     <property name="name">tecla_backspace</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -866,6 +910,7 @@
                     <property name="width_request">250</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="hexpand">False</property>
                   </object>
@@ -902,8 +947,10 @@
                 <property name="name">btn_confirmar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
                 <property name="hexpand">True</property>
+                <signal name="button-press-event" handler="on_btn_confirmar_entrada_dados_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -917,6 +964,7 @@
                 <property name="name">btn_retornar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -973,7 +1021,7 @@
                     <property name="can_focus">False</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
-                    <property name="label" translatable="yes">EMAIL</property>
+                    <property name="label" translatable="yes">EMAIL OU TELEFONE</property>
                   </object>
                   <packing>
                     <property name="x">20</property>
@@ -990,7 +1038,7 @@
                     <signal name="button-press-event" handler="on_entry_email_telefone_button_press_event" swapped="no"/>
                   </object>
                   <packing>
-                    <property name="x">100</property>
+                    <property name="x">159</property>
                     <property name="y">50</property>
                   </packing>
                 </child>
@@ -1006,7 +1054,7 @@
                     <property name="label" translatable="yes">SENHA</property>
                   </object>
                   <packing>
-                    <property name="x">20</property>
+                    <property name="x">80</property>
                     <property name="y">70</property>
                   </packing>
                 </child>
@@ -1022,24 +1070,24 @@
                     <signal name="button-press-event" handler="on_entry_senha_button_press_event" swapped="no"/>
                   </object>
                   <packing>
-                    <property name="x">101</property>
+                    <property name="x">158</property>
                     <property name="y">95</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="btn_login">
+                  <object class="GtkButton" id="btn_confirmar">
                     <property name="label" translatable="yes">CONFIRMA</property>
                     <property name="name">btn_confirmar</property>
                     <property name="width_request">100</property>
                     <property name="height_request">30</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
+                    <property name="can_focus">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="margin_top">40</property>
                     <property name="margin_bottom">10</property>
-                    <signal name="clicked" handler="on_btn_login_clicked" swapped="no"/>
+                    <signal name="clicked" handler="on_btn_confirmar_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="x">460</property>
@@ -1053,7 +1101,7 @@
                     <property name="width_request">100</property>
                     <property name="height_request">30</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
+                    <property name="can_focus">False</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="margin_top">40</property>

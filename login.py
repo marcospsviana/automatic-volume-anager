@@ -19,10 +19,10 @@ class Login(Gtk.Window):
         self.builder.connect_signals(
             {
                 "on_window_login_destroy": self.on_window_login_destroy,
-                "on_ENTER_clicked": self.on_ENTER_clicked,
-                "on_entry_email_telefone_button_press_event": self.on_entry_email_telefone_button_press_event,
+                "on_entry_email_telefone_telefone_button_press_event": self.on_entry_email_telefone_telefone_button_press_event,
                 "on_entry_senha_button_press_event": self.on_entry_senha_button_press_event,
-                "on_btn_login_clicked": self.on_btn_login_clicked,
+                "on_btn_confirmar_entrada_dados_button_press_event": self.on_btn_confirmar_entrada_dados_button_press_event,
+                "on_btn_confirmar_clicked": self.on_btn_confirmar_clicked,
                 "on_cancela_clicked": self.on_cancela_clicked,
                 "gtk_widget_destroy" : self.gtk_widget_destroy
             }
@@ -30,12 +30,32 @@ class Login(Gtk.Window):
         self.window_login = self.builder.get_object("window_login")
         self.window_entrada_dados = self.builder.get_object("window_entrada_dados")
         # adicionando elementos da janela
-        self.entry_nome = self.builder.get_object("entry_email_telefone")
+        self.entry_senha = self.builder.get_object("entry_email_telefone_telefone")
         
         self.entry_senha = self.builder.get_object('entry_senha')
-        self.entry_nome.connect("button-press-event", self.on_entry_email_telefone_button_press_event)
+        self.entry_senha.connect("button-press-event", self.on_entry_email_telefone_telefone_button_press_event)
         self.entry_senha.connect("button-press-event", self.on_entry_senha_button_press_event)
         #adicionando os elementos do teclado =======================
+        self.num_1 = self.builder.get_object("num_1")
+        self.num_1.connect("clicked", self.on_entry_button_press_event)
+        self.num_2 = self.builder.get_object("num_2")
+        self.num_2.connect("clicked", self.on_entry_button_press_event)
+        self.num_3 = self.builder.get_object("num_3")
+        self.num_3.connect("clicked", self.on_entry_button_press_event)
+        self.num_4 = self.builder.get_object("num_4")
+        self.num_4.connect("clicked", self.on_entry_button_press_event)
+        self.num_5 = self.builder.get_object("num_5")
+        self.num_5.connect("clicked", self.on_entry_button_press_event)
+        self.num_6 = self.builder.get_object("num_6")
+        self.num_6.connect("clicked", self.on_entry_button_press_event)
+        self.num_7 = self.builder.get_object("num_7")
+        self.num_7.connect("clicked", self.on_entry_button_press_event)
+        self.num_8 = self.builder.get_object("num_8")
+        self.num_8.connect("clicked", self.on_entry_button_press_event)
+        self.num_9 = self.builder.get_object("num_9")
+        self.num_9.connect("clicked", self.on_entry_button_press_event)
+        self.num_0 = self.builder.get_object("num_0")
+        self.num_0.connect("clicked", self.on_entry_button_press_event)
         self.a = self.builder.get_object("a")
         self.a.connect("clicked", self.on_entry_button_press_event)
         self.b = self.builder.get_object("b")
@@ -91,7 +111,7 @@ class Login(Gtk.Window):
         
         self.space = self.builder.get_object("space")
         #self.btn_delete = self.builder.get_object("DELETE")
-        self.btn_login = self.builder.get_object("btn_login")
+        self.btn_confirmar = self.builder.get_object("btn_confirmar")
         #self.enter = self.builder.get_object("ENTER")
         #self.enter.connect("clicked", self.on_ENTER_clicked)
         self.lbl_time = self.builder.get_object("time")
@@ -103,40 +123,57 @@ class Login(Gtk.Window):
         
 
         #========== fim elementos do teclado =====================
-        #conectando os botões aos eventos ========================
-        #self.btn_delete.connect("clicked", self.on_entry_backspace)
-        #conectando os botões aos eventos ========================
-        #self.btn_delete.connect("clicked", self.on_entry_backspace)
-        #s = Gdk.Screen.get_default()'''
+        #=========   LABELS TELA TECLADO ========================
+        self.label_entrada_dados = self.builder.get_object("label_entrada_dados")
+        self.entry_entrada_dados = self.builder.get_object("entry_entrada_dados")
+        self.btn_confirmar_entrada_dados = self.builder.get_object("btn_confirmar_entrada_dados")
+        self.btn_confirmar_entrada_dados.connect("button_press_event", self.on_btn_confirmar_entrada_dados_button_press_event)
+        
         #self.window_login.fullscreen()
         self.window_login.show()
     
     def on_cancela_clicked(self, event):
         self.window_login.hide()
+    def on_entry_email_telefone_telefone_button_press_event(self, widget, event):
+        #self.entrada = '7'
+        #return self.entrada
+        self.label_entrada_dados.set_text("EMAIL OU TELEFONE")
+        self.window_entrada_dados.show()
     
+    def on_entry_senha_button_press_event(self, widget, event):
+        #self.entrada = '8'
+        #return self.entrada
+        self.label_entrada_dados.set_text("SENHA")
+        self.window_entrada_dados.show()
         
    
             
         
-    def on_ENTER_clicked(self, widget):
-        self.window_time.show()
-        j = 10
-        for i in range(0,5):
-            self.lbl_time.set_text(str(j-i))
-            time.sleep(1)
+    def on_btn_confirmar_entrada_dados_button_press_event(self, widget, event):
+        self.text_entrada = self.entry_entrada_dados.get_text()
+        print(self.label_entrada_dados.get_text())
+        if self.label_entrada_dados.get_text() == "SENHA":
+            self.entry_senha.set_text(self.text_entrada)
+            self.entry_senha.set_position(-1)
+        elif self.label_entrada_dados.get_text() == "EMAIL OU TELEFONE":
+            self.entry_email_telefone.set_text(self.text_entrada)
+            self.entry_email_telefone.set_position(-1)
+        
+        self.entry_entrada_dados.set_text("")
+        self.window_entrada_dados.hide()
             
         
             
 
-    def on_btn_login_clicked(self, event):
+    def on_btn_confirmar_clicked(self, event):
         self.message = ''
-        nome = self.entry_nome.get_text()
+        nome = self.entry_senha.get_text()
         senha = self.entry_senha.get_text()
         result = self.manager.abre_armario(senha, nome)
         print('result login', result)
         if result == 'armario liberado':
             self.window_login.hide()
-            self.entry_nome.set_text('')
+            self.entry_senha.set_text('')
             self.entry_senha.set_text('')
             print('abrir')
         else:
@@ -151,41 +188,27 @@ class Login(Gtk.Window):
     def dialog_cobranca_show(self):
         #self.dialog_cobranca.show()
         print('cobranca em dialogo')   
-    def on_entry_email_telefone_button_press_event(self, widget, event):
-        #self.entrada = '7'
-        #return self.entrada
-        self.window_entrada_dados.show()
     
-    def on_entry_senha_button_press_event(self, widget, event):
-        self.entrada = '8'
-        return self.entrada
     
 
 
     def on_entry_button_press_event(self, widget):
         self.value = widget.get_label()
-        
-        if self.entrada == '7':
-            
-            self.text_nome = self.entry_nome.get_text() + self.value
-            if self.text_nome.isalpha() or (self.text_nome.isalpha and string.whitespace):
-                self.entry_nome.set_text(self.text_nome)
-                self.entry_nome.set_position(-1)
+        #self.value = self.widget.get_label()
+        self.text_entrada = self.entry_entrada_dados.get_text() + self.value
+        self.entry_entrada_dados.set_text(self.text_entrada)
+        self.entry_entrada_dados.set_position(-1)
                 
             
-        elif self.entrada == '8':
-            self.text_senha = self.entry_senha.get_text() + self.value
-            self.entry_senha.set_text(self.text_senha)
-            self.entry_senha.set_position(-1)
-    
+       
     def on_entry_backspace(self, widget):
         
         if self.entrada == '7':
             self.texto = ''
-            self.texto = self.entry_nome.get_text()
+            self.texto = self.entry_senha.get_text()
             self.texto = self.texto[:-1]
-            self.entry_nome.set_text(self.texto)
-            self.entry_nome.set_position(-1)
+            self.entry_senha.set_text(self.texto)
+            self.entry_senha.set_position(-1)
         elif self.entrada == '8':
             self.texto = ''
             self.texto = self.entry_senha.get_text()
@@ -194,7 +217,7 @@ class Login(Gtk.Window):
             self.entry_senha.set_position(-1)
     def gtk_widget_destroy(self, widget):
         self.entry_senha.set_text('')
-        self.entry_nome.set_text('')
+        self.entry_senha.set_text('')
         self.on_window_login_destroy
         self.dialog_cobranca.destroy()
     def on_window_login_destroy(self, widget):
