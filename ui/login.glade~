@@ -108,7 +108,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
-                <signal name="button-press-event" handler="on_entry_entrada_dados_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -951,6 +950,7 @@
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
                 <property name="hexpand">True</property>
+                <signal name="button-press-event" handler="on_btn_confirmar_entrada_dados_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1024,7 +1024,7 @@
                     <property name="label" translatable="yes">EMAIL OU TELEFONE</property>
                   </object>
                   <packing>
-                    <property name="x">20</property>
+                    <property name="x">36</property>
                     <property name="y">25</property>
                   </packing>
                 </child>
@@ -1067,6 +1067,8 @@
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="margin_top">20</property>
+                    <property name="visibility">False</property>
+                    <property name="invisible_char">*</property>
                     <signal name="button-press-event" handler="on_entry_senha_button_press_event" swapped="no"/>
                   </object>
                   <packing>
