@@ -169,7 +169,7 @@
                     <signal name="clicked" handler="on_btn_login_clicked" swapped="no"/>
                   </object>
                   <packing>
-                    <property name="x">450</property>
+                    <property name="x">460</property>
                     <property name="y">138</property>
                   </packing>
                 </child>
