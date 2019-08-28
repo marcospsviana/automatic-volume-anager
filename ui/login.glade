@@ -108,6 +108,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
+                <signal name="button-press-event" handler="on_entry_entrada_dados_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
