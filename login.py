@@ -6,7 +6,9 @@ from gi.repository import Gtk, Gdk
 from controllers import Management
 
 class Login(Gtk.Window):
-    def __init__(self):
+    def __init__(self, *args):
+        self.opcao = args[0]
+        print(self.opcao)
         #self.gtk_style()    
         self.screen = Gdk.Screen.get_default()
         self.builder = Gtk.Builder()

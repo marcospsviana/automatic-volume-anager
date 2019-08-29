@@ -45,10 +45,11 @@ class SelectCabinet(object):
     
     def on_abrir_cofre_button_press_event(self, widget, event):
         self.select_cabinet.hide()
-        Login()
+        Login("abrir")
     
     def on_concluir_reserva_button_press_event(self, widget, event):
-        pass
+        self.select_cabinet.hide()
+        Login("encerrar")
     def on_precosemedidas_button_press_event(self, widget, event):
         pass
 
