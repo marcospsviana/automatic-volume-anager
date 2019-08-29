@@ -274,6 +274,7 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">start</property>
             <property name="margin_left">20</property>
             <property name="margin_right">20</property>
             <property name="margin_top">15</property>
@@ -293,7 +294,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkComboBox">
+              <object class="GtkComboBox" id="combobox_flags_ddd">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="has_frame">False</property>
@@ -334,22 +335,6 @@
                 <property name="position">3</property>
               </packing>
             </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">4</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkBox">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="margin_left">20</property>
-            <property name="margin_right">20</property>
-            <property name="margin_top">15</property>
-            <property name="margin_bottom">15</property>
-            <property name="spacing">5</property>
             <child>
               <object class="GtkLabel" id="label_quantidade_diaria">
                 <property name="name">label_quantidade_diaria</property>
@@ -361,7 +346,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">0</property>
+                <property name="position">4</property>
               </packing>
             </child>
             <child>
@@ -377,7 +362,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">1</property>
+                <property name="position">5</property>
               </packing>
             </child>
             <child>
@@ -385,16 +370,33 @@
                 <property name="label" translatable="yes">LIMPAR</property>
                 <property name="name">btn_limpar_quantidade_diaria</property>
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <signal name="button-press-event" handler="on_btn_limpar_quantidade_diaria_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">2</property>
+                <property name="position">6</property>
               </packing>
             </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">start</property>
+            <property name="margin_left">20</property>
+            <property name="margin_right">20</property>
+            <property name="margin_top">15</property>
+            <property name="margin_bottom">15</property>
+            <property name="spacing">5</property>
             <child>
               <object class="GtkLabel" id="label_quantidade_horas">
                 <property name="name">label_quantidade_horas</property>
@@ -405,7 +407,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">3</property>
+                <property name="position">0</property>
               </packing>
             </child>
             <child>
@@ -420,7 +422,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">4</property>
+                <property name="position">1</property>
               </packing>
             </child>
             <child>
@@ -435,7 +437,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">5</property>
+                <property name="position">2</property>
               </packing>
             </child>
             <child>
@@ -448,7 +450,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">6</property>
+                <property name="position">3</property>
               </packing>
             </child>
             <child>
@@ -462,7 +464,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">7</property>
+                <property name="position">4</property>
               </packing>
             </child>
             <child>
@@ -470,15 +472,24 @@
                 <property name="label" translatable="yes">LIMPAR</property>
                 <property name="name">btn_limpar_minutos</property>
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <signal name="button-press-event" handler="on_btn_limpar_minutos_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">8</property>
+                <property name="position">5</property>
               </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
             </child>
             <child>
               <placeholder/>
