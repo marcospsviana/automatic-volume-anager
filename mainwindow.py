@@ -14,7 +14,7 @@ from controllers import Management
 from login import Login
 from encerrar import Encerrar
 from locar import Locar
-
+TAXA = 0.15
 
 class RaspControl(object):
     def __init__(self):
@@ -444,11 +444,11 @@ class RaspControl(object):
                 self.hora = self.entry_horas.get_text()
                 self.hora = self.hora +".0"
                 self.hora = float(self.hora) 
-                self.hora = self.hora * 60 * 0.15
+                self.hora = self.hora * 60 * TAXA
                 self.minuto = self.entry_minutos.get_text()
                 self.minuto = self.minuto + ".0"
                 self.minuto = float(self.minuto) 
-                self.minuto = self.minuto * 0.15
+                self.minuto = self.minuto * TAXA
                 self.total =  self.dia + self.hora + self.minuto
                 print(self.total)
                 self.text_total.set_text(str(self.total))

@@ -42,7 +42,7 @@ class SelectSize(object):
         self.label_malasx2 = self.builder.get_object("label_malasx2")
         self.label_mochilasx2 = self.builder.get_object("label_mochilasx2")
         self.label_cameraenotebook = self.builder.get_object("label_cameraenotebook")
-        # ============== FIM LABELS ================
+        # ============== FIM LABELS =================
 
         self.window_select_size.fullscreen()
         self.window_select_size.show()

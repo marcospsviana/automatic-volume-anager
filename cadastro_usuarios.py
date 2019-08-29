@@ -5,15 +5,18 @@ from datetime import datetime, date
 from controllers import Management
 import PIL
 from PIL import Image
+TAXA = 0.15
 
 class CadastroUsuarios(object):
     def __init__(self, *args):
         teste = args
         print(teste)
         self.tempo_locacao = args[0]
-        self.classe = args[1]
+        self.classe = args[1][0]
+        print(self.classe)
         print(self.tempo_locacao)
         self.entry = ""
+        self.dia = self.hora = self.minuto = 0
         self.builder = Gtk.Builder()
         self.builder.connect_signals({
             "gtk_main_quit": Gtk.main_quit,
@@ -51,6 +54,7 @@ class CadastroUsuarios(object):
         self.label_quantidade_diaria = self.builder.get_object("label_quantidade_diaria")
         self.label_quantidade_horas = self.builder.get_object("label_quantidade_horas")
         self.label_quantidade_minutos = self.builder.get_object("label_quantidade_minutos")
+        self.label_total = self.builder.get_object("label_total")
         " ----------   LABEL ENTRADA_DADOS --------------"
         self.label_entrada_dados = self.builder.get_object("label_entrada_dados")
 
@@ -68,7 +72,7 @@ class CadastroUsuarios(object):
         self.entry_celular = self.builder.get_object("entry_celular")
         self.entry_celular.connect("button_press_event", self.on_entry_celular_button_press_event)
         self.entry_quantidade_diaria = self.builder.get_object("entry_quantidade_diaria")
-        self.entry_quantidade_diaria.connect("button_press_event", self.on_entry_celular_button_press_event)
+        self.entry_quantidade_diaria.connect("button_press_event", self.on_entry_quantidade_diaria_button_press_event)
         self.entry_quantidade_horas = self.builder.get_object("entry_quantidade_horas")
         self.entry_quantidade_horas.connect("button_press_event", self.on_entry_quantidade_horas_button_press_event)
         self.entry_minutos = self.builder.get_object("entry_minutos")
@@ -77,6 +81,8 @@ class CadastroUsuarios(object):
         """ -----------ENTRY WINDOW_ENTRADA_DADOS ------------"""
         self.entry_entrada_dados = self.builder.get_object("entry_entrada_dados")
         self.entry_entrada_dados.connect("button_press_event", self.on_entry_entrada_dados_button_press_event)
+        """ -----------ENTRY WINDOW_ENTRADA_NUMEROS ---------"""
+        self.entry_entrada_numeros = self.builder.get_object("entry_entrada_numeros")
 
         """ =================FIM ENTRYS=================== """
 
@@ -217,12 +223,12 @@ class CadastroUsuarios(object):
         self.btn_yahoo.connect("clicked", self.on_entry_entrada_dados_button_press_event)
         """========== fim elementos do teclado  """
         """ ========= lista combobox ========= """
-        self.cell_renderer = Gtk.CellRendererPixbuf()
+        #self.cell_renderer = Gtk.CellRendererPixbuf()
         self.cell_renderer_text = Gtk.CellRendererText()
         
         
-        FLAG_BR = GdkPixbuf.Pixbuf("static/images/flags_ddd/brasil.png")
-        FLAG_ALB = gtk_image_new_from_file("static/images/flags_ddd/albania.png")
+        #FLAG_BR = GdkPixbuf.Pixbuf("static/images/flags_ddd/brasil.png")
+        #FLAG_ALB = gtk_image_new_from_file("static/images/flags_ddd/albania.png")
         #print(type(FLAG_BR))
         FLAGS = [["Brasil"], ["Albania"]]
         self.list_flag_ddd = Gtk.ListStore(str)
@@ -236,10 +242,10 @@ class CadastroUsuarios(object):
         
         self.combobox_flags_ddd = self.builder.get_object("combobox_flags_ddd")
         self.combobox_flags_ddd.pack_start(self.cell_renderer_text, False)
-        self.combobox_flags_ddd.pack_start(self.cell_renderer, True)
+        #self.combobox_flags_ddd.pack_start(self.cell_renderer, True)
         self.combobox_flags_ddd.set_property("model", self.list_flag_ddd)
         self.combobox_flags_ddd.add_attribute(self.cell_renderer_text,"text", 0)
-        self.combobox_flags_ddd.add_attribute(self.cell_renderer, "pixbuf", 1)
+        #self.combobox_flags_ddd.add_attribute(self.cell_renderer, "pixbuf", 1)
         self.combobox_flags_ddd.set_active(0)
         
         
@@ -275,9 +281,11 @@ class CadastroUsuarios(object):
         __quantidade_diaria = self.entry_quantidade_diaria.get_text()
         __quantidade_horas = self.entry_quantidade_horas.get_text()
         __quantidade_minutos = self.entry_minutos.get_text()
+        print("qtd minutos ", __quantidade_minutos)
+        __armario = self.classe
         print("locacao", __quantidade_diaria, __quantidade_horas, __quantidade_minutos)
-        #result =  manager.locacao(__nome, __email, __telefone, __quantidade_diaria, __quantidade_horas, __quantidade_minutos)
-        #return result
+        result =  manager.locacao(__nome, __email, __telefone, __quantidade_diaria, __quantidade_horas, __quantidade_minutos, __armario)
+        return result
 
     def on_btn_retornar_button_press_event(self, widget, event):
         self.window_cadastro_usuario.hide()
@@ -299,25 +307,25 @@ class CadastroUsuarios(object):
         self.label_entrada_numeros.set_text("CELULAR")
         
         self.window_entrada_numeros.show()
-        return self.entry
+        
     
     def on_entry_quantidade_diaria_button_press_event(self, widget, event):
         self.entry = "4"
         self.label_entrada_numeros.set_text("QUANTIDADE DIÁRIA")
         self.window_entrada_numeros.show()
-        return self.entry
+        
     
     def on_entry_quantidade_horas_button_press_event(self, widget, event):
         self.entry = "5"
         self.label_entrada_numeros.set_text("QUANTIDADE HORAS")
         self.window_entrada_numeros.show()
-        return self.entry
+        
 
     def on_entry_minutos_button_press_event(self, widget, event):
         self.entry = "6"
         self.label_entrada_numeros.set_text("QUANTIDADE MINUTOS")
         self.window_entrada_numeros.show()
-        return self.entry
+        
     
     def on_btn_limpar_nome_button_press_event(self, widget, event):
         self.entry_nome.set_text("")
@@ -354,6 +362,7 @@ class CadastroUsuarios(object):
         self.entry_entrada_dados.set_text(self.text_entrada)
         self.entry_entrada_dados.set_position(-1)
         
+        
     def on_btn_confirmar_entrada_dados_button_press_event(self, widget, event):
         self.text_entrada = self.entry_entrada_dados.get_text()
         print(self.label_entrada_dados.get_text())
@@ -363,16 +372,50 @@ class CadastroUsuarios(object):
         elif self.label_entrada_dados.get_text() == "EMAIL":
             self.entry_email.set_text(self.text_entrada)
             self.entry_email.set_position(-1)
-        elif self.label_entrada_dados.get_text() == "CELULAR":
-            self.entry_celular.set_text(self.text_entrada)
-            self.entry_celular.set_position(-1)
-            self.entry_celular.activate
+        
 
         self.entry_entrada_dados.set_text("")
         self.window_entrada_dados.hide()
     
     def on_btn_confirmar_entrada_numero_button_press_event(self, widget, event):
-        pass
+        if self.label_entrada_numeros.get_text() == "CELULAR":
+            self.ddd = self.combobox_flags_ddd.get_active()
+            if self.ddd == 0:
+                self.ddd = "+55 "
+            elif self.ddd == 1:
+                self.ddd = "+1 "
+            self.entry_celular.set_text(self.ddd + self.text_entrada)
+            self.entry_celular.set_position(-1)
+        elif self.label_entrada_numeros.get_text() == "QUANTIDADE DIÁRIA":
+            
+            self.entry_quantidade_diaria.set_text(self.text_entrada)
+            print("entry qtd diaria ===>",self.entry_quantidade_diaria.get_text())
+            self.entry_quantidade_diaria.set_position(-1)
+            
+        elif self.label_entrada_numeros.get_text() == "QUANTIDADE HORAS":
+            self.entry_quantidade_horas.set_text(self.text_entrada)
+            print("entry qtd horas ===>",self.entry_quantidade_horas.get_text())
+            self.entry_quantidade_horas.set_position(-1)
+        elif self.label_entrada_numeros.get_text() == "QUANTIDADE MINUTOS":
+            self.entry_minutos.set_text(self.text_entrada)
+            self.entry_minutos.set_position(-1)
+        self.dia = self.entry_quantidade_diaria.get_text() + ".0"
+        self.dia = float(self.dia)
+        self.dia = self.dia * 50
+        self.hora = self.entry_quantidade_horas.get_text()
+        self.hora = self.hora +".0"
+        self.hora = float(self.hora) 
+        self.hora = self.hora * 60 * TAXA
+        self.minuto = self.entry_minutos.get_text()
+        self.minuto = self.minuto + ".0"
+        self.minuto = float(self.minuto) 
+        self.minuto = self.minuto * TAXA
+        self.total =  self.dia + self.hora + self.minuto
+        print(self.total)
+        
+        self.label_total.set_text(str(self.total))
+        self.entry_entrada_numeros.set_text("")
+        self.window_entrada_numeros.hide()
     
     def on_btn_retornar_entrada_numeros_button_press_event(self, widget, event):
         self.window_entrada_numeros.hide()
@@ -380,9 +423,9 @@ class CadastroUsuarios(object):
     def on_entry_entrada_numeros_button_press_event(self, widget):
         self.widget = widget
         self.value = self.widget.get_label()
-        self.text_entrada = self.entry_entrada_dados.get_text() + self.value
-        self.entry_entrada_dados.set_text(self.text_entrada)
-        self.entry_entrada_dados.set_position(-1)
+        self.text_entrada = self.entry_entrada_numeros.get_text() + self.value
+        self.entry_entrada_numeros.set_text(self.text_entrada)
+        self.entry_entrada_numeros.set_position(-1)
 
 
 if __name__ == "__main__":

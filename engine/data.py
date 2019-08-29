@@ -101,8 +101,14 @@ ENGINE=InnoDB
 
     def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario):
         #self.port = Portas()
+        dia = dia
+        dia = dia.replace(".0","")
         self.__dia = int(dia)
-        self.__hora = int(hora)
+        self.__hora = int(hora.replace(".0",""))
+        minuto = minuto
+        print("minuto---*",minuto)
+        minuto = minuto.replace(".0","")
+        
         self.__minuto = int(minuto)
         self.__armario = str(armario)
         self.__nome = str(nome)
@@ -185,7 +191,7 @@ ENGINE=InnoDB
         print("nome ou mail select user",__email)
         query = ''
         __c.execute("SELECT id_usuario FROM tb_usuario where email = '"+ __nome +"' or telefone = '"+ __email +"'")
-        query = __c.fetchone()
+        query = __c.fetchall()
         print("##### id usuario ###")
         print(query)
         return query

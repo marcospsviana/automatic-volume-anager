@@ -23,9 +23,10 @@ class Locacao(object):
     def locacao( nome, email, telefone, dia, hora, minuto, armario):
         
         __bk = Banco()
-        __dia = int(dia)
-        __hora = int(hora)
-        __minuto = int(minuto)
+        __dia = dia
+        __hora = hora
+        __minuto = minuto
+        print("locacao minuto", __minuto)
         __armario = str(armario)
         __nome = str(nome)
         __email = str(email)
