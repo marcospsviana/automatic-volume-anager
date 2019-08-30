@@ -20,13 +20,14 @@ class Login(Gtk.Window):
         self.num = list(map(lambda x: x, range(10))) # números para o teclado numérico
         self.builder.connect_signals(
             {
-                "on_window_login_destroy": self.on_window_login_destroy,
+                #"on_window_login_destroy": self.on_window_login_destroy,
                 "on_entry_email_telefone_button_press_event": self.on_entry_email_telefone_button_press_event,
                 "on_entry_senha_button_press_event": self.on_entry_senha_button_press_event,
                 "on_btn_confirmar_entrada_dados_button_press_event": self.on_btn_confirmar_entrada_dados_button_press_event,
                 "on_btn_confirmar_clicked": self.on_btn_confirmar_clicked,
                 "on_cancela_clicked": self.on_cancela_clicked,
-                "gtk_widget_destroy" : self.gtk_widget_destroy
+                "on_btn_cobranca_ok_button_press_event": self.on_btn_cobranca_ok_button_press_event,
+                #"gtk_widget_destroy" : self.gtk_widget_destroy
             }
         )
         self.window_login = self.builder.get_object("window_login")
@@ -118,10 +119,14 @@ class Login(Gtk.Window):
         #self.enter.connect("clicked", self.on_ENTER_clicked)
         self.lbl_time = self.builder.get_object("time")
         self.window_time = self.builder.get_object("window_time")
-        self.dialog_cobranca = self.builder.get_object("dialog_cobranca")
+        
         self.lbl_message = self.builder.get_object("lbl_message")
         self.btn_num = self.builder.get_object("num")
-        
+        #============ ELEMENTOS DIALOGO COBRANÇA ==================
+        self.dialog_cobranca = self.builder.get_object("dialog_cobranca")
+        self.btn_cobranca_ok = self.builder.get_object("btn_cobranca_ok")
+        #self.btn_cobranca_ok.connect("button_press_event", self.on_btn_cobranca_ok_button_press_event)
+
         
 
         #========== fim elementos do teclado =====================
@@ -173,7 +178,10 @@ class Login(Gtk.Window):
         self.message = ''
         nome = self.entry_email_telefone.get_text()
         senha = self.entry_senha.get_text()
-        result = self.manager.abre_armario(senha, nome)
+        if self.opcao == "abrir":
+            result = self.manager.abre_armario(senha, nome)
+        elif self.opcao == "encerrar":
+            result = self.manager.liberar_armarios(senha, nome)
         print('result login', result)
         if result == 'armario liberado':
             self.window_login.hide()
@@ -181,7 +189,7 @@ class Login(Gtk.Window):
             self.entry_senha.set_text('')
             print('abrir')
         else:
-            self.window_login.close()
+            #self.window_login.close()
 
             print('ok fechou')
             self.message = str(result)
@@ -207,7 +215,8 @@ class Login(Gtk.Window):
         self.entry_entrada_dados.set_text(self.text_entrada)
         self.entry_entrada_dados.set_position(-1)
                 
-            
+    def on_btn_cobranca_ok_button_press_event(self, widget, event):
+        print("pagamento")       
        
     def on_entry_backspace(self, widget):
         

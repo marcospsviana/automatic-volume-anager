@@ -10,7 +10,7 @@
   <object class="GtkImage" id="image_br_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../../static/images/brasilpq.svg</property>
+    <property name="pixbuf">../static/images/brasilpq.svg</property>
   </object>
   <object class="GtkImage" id="image_concluir_reserva">
     <property name="visible">True</property>
@@ -30,9 +30,10 @@
   <object class="GtkImage" id="image_usa_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../../../static/images/usa.svg</property>
+    <property name="pixbuf">../static/images/usa.svg</property>
   </object>
-  <object class="GtkWindow">
+  <object class="GtkWindow" id="window_select">
+    <property name="name">window</property>
     <property name="can_focus">False</property>
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
@@ -154,6 +155,8 @@
           <object class="GtkFixed">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <property name="margin_top">30</property>
             <child>
               <object class="GtkButton" id="btn_reservar">
                 <property name="width_request">100</property>
@@ -170,13 +173,14 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton">
+              <object class="GtkButton" id="btn_concluir">
                 <property name="width_request">100</property>
                 <property name="height_request">80</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="image">image_concluir_reserva</property>
+                <signal name="button-press-event" handler="on_btn_concluir_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="x">577</property>
@@ -218,13 +222,14 @@ RESERVA</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton">
+              <object class="GtkButton" id="btn_abrir">
                 <property name="width_request">100</property>
                 <property name="height_request">80</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="image">image3</property>
+                <signal name="button-press-event" handler="on_abrir_cofre_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="x">299</property>
@@ -232,13 +237,14 @@ RESERVA</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton">
+              <object class="GtkButton" id="btn_medidas">
                 <property name="width_request">100</property>
                 <property name="height_request">80</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="image">image_precos_medidas</property>
+                <signal name="button-press-event" handler="on_btn_medidas_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="x">868</property>

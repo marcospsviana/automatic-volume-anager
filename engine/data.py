@@ -245,16 +245,17 @@ ENGINE=InnoDB
         id_armario = ''
         taxa = 0.15
         hj = datetime.datetime.now()
-        hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
+        hj = datetime.timedelta( hj.hour, hj.minute, hj.second)
         hj = hj + datetime.timedelta(minutes=+10)
+        print("hj", hj)
         self.__senha = senha
         self.__nome = nome
-        print('nome e senha de data', __senha, __nome)
+        print('nome e senha de data', self.__senha, self.__nome)
         self.__id_user = self.select_user(self.__nome)
-        self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
+        self.__locacao = self.get_locacao(self.__senha, self.__id_user[0][0])
         print('********** dados locacao **************')
-        print(self.__locacao[0][2])
-        if (self.__locacao[0][2]) >= hj:
+        print("self.locacao[0][2]",self.__locacao[0][2])
+        if (self.__locacao[0][2]) > hj:
             
             tempo_total = hj - self.__locacao[0][2]
             dias_passados = tempo_total.days

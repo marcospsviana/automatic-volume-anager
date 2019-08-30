@@ -11,13 +11,13 @@ from login import Login
 class SelectCabinet(object):
     def __init__(self):
         self.build = Gtk.Builder()
-        self.build.add_from_file("ui/escolha.glade")
+        self.build.add_from_file("ui/select_option.glade")
         self.build.connect_signals(
             {
                 "gtk_main_quit": Gtk.main_quit,
                 "on_reservar_button_press_event": self.on_reservar_button_press_event,
                 "on_abrir_cofre_button_press_event": self.on_abrir_cofre_button_press_event,
-                "on_concluir_reserva_button_press_event": self.on_concluir_reserva_button_press_event,
+                "on_btn_concluir_button_press_event": self.on_btn_concluir_button_press_event,
                 "on_precosemedidas_button_press_event": self.on_precosemedidas_button_press_event,
             }
         )
@@ -47,7 +47,7 @@ class SelectCabinet(object):
         self.select_cabinet.hide()
         Login("abrir")
     
-    def on_concluir_reserva_button_press_event(self, widget, event):
+    def on_btn_concluir_button_press_event(self, widget, event):
         self.select_cabinet.hide()
         Login("encerrar")
     def on_precosemedidas_button_press_event(self, widget, event):
