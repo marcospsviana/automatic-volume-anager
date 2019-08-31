@@ -127,8 +127,10 @@ ENGINE=InnoDB
             timedelta(minutes=self.__minuto)  # adiciona minutos
         # registra a data limite para a não cobrança de taxa extra
         self.__data_limite = self.__futuro
+
         self.__data_limite = self.__data_limite + \
             timedelta(minutes=10)  # adiciona 10 minutos de tolerancia
+        print("data limite para salvar no banco", self.__data_limite)
 
         self.__senha = ''
 
@@ -146,13 +148,15 @@ ENGINE=InnoDB
             print("==== id_armario, id_usuario ======")
             #print(loca_armario[0], self.dados_locatario[0])
             self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(null, '%s','%s',null,'%s',%s,%s)"% (self.__data_locacao, self.__data_limite, self.__senha, loca_armario[0], self.dados_locatario))
-            self.__conn.commit()
+            
             self.__c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario[0]))
+            
             self.__conn.commit()
             self.__conn.close()
             return "locacao concluida com sucesso"
+            
             ##port = self.select_port(loca_armario[0])
-            self.port.exec_port(str(port[0][0]), "abre")
+            #self.port.exec_port(str(port[0][0]), "abre")
         else:
             return loca_armario
     def select_port(self, armario):
@@ -231,7 +235,9 @@ ENGINE=InnoDB
         print('---senha---',__senha)
         __id_user = id_usuario
         print('*** id usuario *** ', __id_user)
-        __c.execute("SELECT id_armario, id_locacao, tempo_locado from tb_locacao where senha = '%s' AND id_usuario = %s" % (__senha,__id_user,))
+        print(__senha)
+        __c.execute("SELECT id_armario, id_locacao, tempo_locado from tb_locacao where senha = '%s' AND id_usuario = %s" %(__senha,__id_user[0]))
+        #for reg in __c.next_proc_resultset():
         __result = __c.fetchall()
         print("888888 ---- result")
         print(__result)
@@ -245,16 +251,18 @@ ENGINE=InnoDB
         id_armario = ''
         taxa = 0.15
         hj = datetime.datetime.now()
-        hj = datetime.timedelta( hj.hour, hj.minute, hj.second)
-        hj = hj + datetime.timedelta(minutes=+10)
+        #hj = datetime.timedelta( hj.hour, hj.minute, hj.second)
+        #hj = hj + datetime.timedelta(minutes=+10)
         print("hj", hj)
         self.__senha = senha
         self.__nome = nome
         print('nome e senha de data', self.__senha, self.__nome)
         self.__id_user = self.select_user(self.__nome)
-        self.__locacao = self.get_locacao(self.__senha, self.__id_user[0][0])
+        self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
         print('********** dados locacao **************')
+        print("self.locacao", self.__locacao)
         print("self.locacao[0][2]",self.__locacao[0][2])
+        print("self.locacao[0 0]", self.__locacao[0][0])
         if (self.__locacao[0][2]) > hj:
             
             tempo_total = hj - self.__locacao[0][2]
@@ -264,7 +272,7 @@ ENGINE=InnoDB
             result = self.cobranca(valor_total,hj)
              
             self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
-            self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao[0][0],), multi=True)
+            self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao[0][0]))
             self.__conn.commit()
             self.__conn.close()
             return "armario liberado"
@@ -474,6 +482,23 @@ ENGINE=InnoDB
             print('-------> %s'%tempo)
             result = self.cobranca_excedente(int(tempo))
             return result
+    def finalizar_pagamento(self, senha, nome):
+        __conn = mdb.connect(
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+        __c = __conn.cursor(buffered=True)
+        __senha = senha
+        __nome = nome
+        #__id_user = self.select_user(__nome)
+        #__locacao = self.get_locacao(__senha, __id_user[0])
+        __c.execute("DELETE FROM tb_locacao WHERE senha = '%s'"%(__senha))
+        id_armario = __c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (__senha,))
+        print("finaliza_pagamento id armario", id_armario)
+        self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (id_armario,))
+        __conn.commit()
+        return "locacao finalizada com sucesso"
+        __conn.close()
+
+
 
 
 

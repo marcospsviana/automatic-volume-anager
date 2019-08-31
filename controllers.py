@@ -92,6 +92,13 @@ class Management(object):
         result = arm.finalizar(__senha, __nome)
         print("finalizar controllers--->", result)
         return result
+    def finalizar_pagamento(self, senha, nome):
+        __senha = senha
+        __nome = nome
+        result = loc.finalizar_pagamento(__senha, __nome)
+        return result
+
+
 
 
         

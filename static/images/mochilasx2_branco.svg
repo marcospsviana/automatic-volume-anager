@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="46.302082mm"
-   height="44.651348mm"
-   viewBox="0 0 46.302087 44.651348"
+   width="55.79216mm"
+   height="53.230812mm"
+   viewBox="0 0 55.792166 53.230812"
    version="1.1"
    id="svg9308"
    inkscape:version="0.92.4 5da689c313, 2019-01-14"
@@ -26,8 +26,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="146.85138"
-     inkscape:cy="109.07031"
+     inkscape:cx="34.53813"
+     inkscape:cy="84.08814"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -52,30 +52,124 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-45.333813,-77.601842)">
-    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
-       id="rect4747"
-       width="45.698681"
-       height="44.047947"
-       x="45.635513"
-       y="77.903542" />
+     transform="translate(-36.685444,-69.972034)">
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.58611107px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="58.831776"
-       y="73.264862"
-       id="text14017"><tspan
+       x="-11.844578"
+       y="18.094702"
+       id="text14017-6"><tspan
          sodipodi:role="line"
-         id="tspan14015"
-         x="58.831776"
-         y="73.264862"
-         style="font-size:4.58611107px;stroke-width:0.26458332">47,50 cm</tspan></text>
+         id="tspan14015-7"
+         x="-11.844578"
+         y="18.094702"
+         style="font-size:4.58611107px;stroke-width:0.26458332">47 cm</tspan></text>
     <g
-       id="g9419"
-       transform="translate(3.9686372,12.740089)">
+       id="g13974"
+       transform="translate(-85.109171,-52.886574)">
       <g
-         transform="matrix(-0.1167981,0,0,0.06322942,88.787091,61.547309)"
+         id="g13964">
+        <g
+           id="use19469-5"
+           style="fill:#000000;stroke:#000000;stroke-width:4.47215605;stroke-miterlimit:4;stroke-dasharray:none"
+           transform="matrix(0.31698076,0,0,0.17159963,57.515139,71.036151)">
+          <title
+             id="title9332-3">Left Arrow</title>
+          <path
+             id="path9334-5"
+             style="stroke:none;stroke-width:4.47215605;stroke-miterlimit:4;stroke-dasharray:none"
+             d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
+             inkscape:connector-curvature="0" />
+        </g>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 106.1029,72.605214 c -46.071726,0.06853 -46.071726,0.06853 -46.071726,0.06853"
+           id="path9357-6"
+           inkscape:connector-curvature="0" />
+        <g
+           transform="matrix(-0.31698076,0,0,0.17159963,108.44899,71.036151)"
+           style="fill:#000000;stroke:#000000;stroke-width:4.47215605;stroke-miterlimit:4;stroke-dasharray:none"
+           id="g13955">
+          <title
+             id="title13951">Left Arrow</title>
+          <path
+             inkscape:connector-curvature="0"
+             d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
+             style="stroke:none;stroke-width:4.47215605;stroke-miterlimit:4;stroke-dasharray:none"
+             id="path13953" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g13992"
+       transform="matrix(0,1.7953492,-1,0,43.140256,-80.816772)">
+      <g
+         id="g13990">
+        <g
+           transform="matrix(0.31698076,0,0,0.17159963,57.515139,71.036151)"
+           style="fill:#000000;stroke:#000000;stroke-width:4.47215605;stroke-miterlimit:4;stroke-dasharray:none"
+           id="g13980">
+          <title
+             id="title13976">Left Arrow</title>
+          <path
+             inkscape:connector-curvature="0"
+             d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
+             style="stroke:none;stroke-width:4.47215605;stroke-miterlimit:4;stroke-dasharray:none"
+             id="path13978" />
+        </g>
+        <path
+           inkscape:connector-curvature="0"
+           id="path13982"
+           d="m 106.1029,72.605214 c -46.071726,0.06853 -46.071726,0.06853 -46.071726,0.06853"
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <g
+           id="g13988"
+           style="fill:#000000;stroke:#000000;stroke-width:4.47215605;stroke-miterlimit:4;stroke-dasharray:none"
+           transform="matrix(-0.31698076,0,0,0.17159963,108.44899,71.036151)">
+          <title
+             id="title13984">Left Arrow</title>
+          <path
+             id="path13986"
+             style="stroke:none;stroke-width:4.47215605;stroke-miterlimit:4;stroke-dasharray:none"
+             d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+    </g>
+    <text
+       id="text13996"
+       y="-31.784538"
+       x="-71.987389"
+       style="font-style:normal;font-weight:normal;font-size:4.58611107px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"
+       transform="rotate(-90)"><tspan
+         style="font-size:4.58611107px;stroke-width:0.26458332"
+         y="-31.784538"
+         x="-71.987389"
+         id="tspan13994"
+         sodipodi:role="line">95 cm</tspan></text>
+    <g
+       id="g28375">
+      <rect
+         y="77.903542"
+         x="45.635513"
+         height="44.047947"
+         width="45.698681"
+         id="rect4747"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+      <text
+         id="text14017"
+         y="73.264862"
+         x="60.948444"
+         style="font-style:normal;font-weight:normal;font-size:4.58611107px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-size:4.58611107px;stroke-width:0.26458332"
+           y="73.264862"
+           x="60.948444"
+           id="tspan14015"
+           sodipodi:role="line">47 cm</tspan></text>
+      <g
+         transform="matrix(-0.1167981,0,0,0.06322942,92.755728,74.287398)"
          style="fill:#000000;stroke:#000000;stroke-width:3.07882452"
          id="use19455">
         <title
@@ -87,7 +181,7 @@
            id="path9328" />
       </g>
       <g
-         transform="matrix(0.12156297,0,0,0.06580892,40.056511,61.590108)"
+         transform="matrix(0.12156297,0,0,0.06580892,44.025148,74.330197)"
          style="fill:#000000;stroke:#000000;stroke-width:2.95814466"
          id="use19469">
         <title
@@ -101,53 +195,90 @@
       <path
          inkscape:connector-curvature="0"
          id="path9357"
-         d="m 87.70145,62.148712 c -46.071724,0.06853 -46.071724,0.06853 -46.071724,0.06853"
-         style="fill:none;stroke:#000000;stroke-width:0.20999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    </g>
-    <text
-       id="text14029"
-       y="39.449104"
-       x="-105.65302"
-       style="font-style:normal;font-weight:normal;font-size:4.58611107px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       xml:space="preserve"
-       transform="rotate(-90)"><tspan
-         style="font-size:4.58611107px;stroke-width:0.26458332"
-         y="39.449104"
+         d="m 91.670087,74.888801 c -46.071724,0.06853 -46.071724,0.06853 -46.071724,0.06853"
+         style="fill:none;stroke:#000000;stroke-width:0.40000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         transform="rotate(-90)"
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:4.58611107px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
          x="-105.65302"
-         id="tspan14027"
-         sodipodi:role="line">47,50 cm</tspan></text>
-    <g
-       transform="rotate(-90,71.572299,91.976537)"
-       id="g14045">
+         y="39.978271"
+         id="text14029"><tspan
+           sodipodi:role="line"
+           id="tspan14027"
+           x="-105.65302"
+           y="39.978271"
+           style="font-size:4.58611107px;stroke-width:0.26458332">47 cm</tspan></text>
       <g
          id="g14035"
-         style="fill:#000000;stroke:#000000;stroke-width:3.07882452"
-         transform="matrix(-0.1167981,0,0,0.06322942,88.787091,61.547309)">
+         style="fill:#000000;stroke:#000000;stroke-width:24957.5078125;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(0,0.1167981,0.06322942,0,41.143071,74.761745)">
         <title
            id="title14031">Left Arrow</title>
         <path
            id="path14033"
-           style="stroke:none;stroke-width:0.73690611"
+           style="stroke:none;stroke-width:24957.5078125;stroke-miterlimit:4;stroke-dasharray:none"
            d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
            inkscape:connector-curvature="0" />
       </g>
       <g
          id="g14041"
-         style="fill:#000000;stroke:#000000;stroke-width:2.95814466"
-         transform="matrix(0.12156297,0,0,0.06580892,40.056511,61.590108)">
+         style="fill:#000000;stroke:#000000;stroke-width:17414.51367188;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(0,-0.12156297,0.06580892,0,41.18587,123.49232)">
         <title
            id="title14037">Left Arrow</title>
         <path
            id="path14039"
-           style="stroke:none;stroke-width:0.70802182"
+           style="stroke:none;stroke-width:17414.51367188;stroke-miterlimit:4;stroke-dasharray:none"
            d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
            inkscape:connector-curvature="0" />
       </g>
       <path
-         style="fill:none;stroke:#000000;stroke-width:0.20999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         d="m 87.70145,62.148712 c -46.071724,0.06853 -46.071724,0.06853 -46.071724,0.06853"
+         style="fill:none;stroke:#000000;stroke-width:0.40000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 41.744474,75.847386 c 0.06853,46.071724 0.06853,46.071724 0.06853,46.071724"
          id="path14043"
          inkscape:connector-curvature="0" />
+      <g
+         transform="matrix(-0.07465799,0.14804568,-0.01601078,-0.04514292,57.606607,98.945395)"
+         style="fill:#000000;stroke:#000000;stroke-width:2.63967896;stroke-miterlimit:4;stroke-dasharray:none"
+         id="g14050">
+        <title
+           id="title14046">Left Arrow</title>
+        <path
+           inkscape:connector-curvature="0"
+           d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
+           style="stroke:none;stroke-width:2.63967896;stroke-miterlimit:4;stroke-dasharray:none"
+           id="path14048" />
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path14052"
+         d="M 46.016409,121.2255 C 56.861217,99.689705 56.861217,99.689705 56.861217,99.689705"
+         style="fill:none;stroke:#000000;stroke-width:0.40000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g14058"
+         style="fill:#000000;stroke:#000000;stroke-width:2.63967896;stroke-miterlimit:4;stroke-dasharray:none"
+         transform="matrix(0.07465799,-0.14804568,-0.01601078,-0.04514292,45.610237,122.73401)">
+        <title
+           id="title14054">Left Arrow</title>
+        <path
+           id="path14056"
+           style="stroke:none;stroke-width:2.63967896;stroke-miterlimit:4;stroke-dasharray:none"
+           d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
+           inkscape:connector-curvature="0" />
+      </g>
+      <text
+         id="text14066"
+         y="94.37999"
+         x="-85.013954"
+         style="font-style:normal;font-weight:normal;font-size:4.58611059px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"
+         transform="rotate(-67.788177)"><tspan
+           style="font-size:4.58611059px;stroke-width:0.26458332"
+           y="94.37999"
+           x="-85.013954"
+           id="tspan14064"
+           sodipodi:role="line">80 cm</tspan></text>
     </g>
   </g>
 </svg>

@@ -285,44 +285,40 @@ class CadastroUsuarios(object):
         __armario = self.classe
         print("locacao", __quantidade_diaria, __quantidade_horas, __quantidade_minutos)
         result =  manager.locacao(__nome, __email, __telefone, __quantidade_diaria, __quantidade_horas, __quantidade_minutos, __armario)
-        return result
+        print("result cadastro usuario ", result[0])
+        if result[0] == "locacao concluida com sucesso":
+            self.window_cadastro_usuario.hide()
 
     def on_btn_retornar_button_press_event(self, widget, event):
         self.window_cadastro_usuario.hide()
     
     def on_entry_nome_button_press_event(self, widget, event):
-        self.entry = "1" #setando entrada para mudar o estado da janela de entrada de dados
         self.label_entrada_dados.set_text("NOME")
         self.window_entrada_dados.show()
         return (self.entry, self.label_entrada_dados)
     
     def on_entry_email_button_press_event(self, widget, event):
-        self.entry = "2"
         self.label_entrada_dados.set_text("EMAIL")
         self.window_entrada_dados.show()
         return self.entry
     
     def on_entry_celular_button_press_event(self, widget, event):
-        self.entry = "3"
         self.label_entrada_numeros.set_text("CELULAR")
         
         self.window_entrada_numeros.show()
         
     
     def on_entry_quantidade_diaria_button_press_event(self, widget, event):
-        self.entry = "4"
         self.label_entrada_numeros.set_text("QUANTIDADE DIÁRIA")
         self.window_entrada_numeros.show()
         
     
     def on_entry_quantidade_horas_button_press_event(self, widget, event):
-        self.entry = "5"
         self.label_entrada_numeros.set_text("QUANTIDADE HORAS")
         self.window_entrada_numeros.show()
         
 
     def on_entry_minutos_button_press_event(self, widget, event):
-        self.entry = "6"
         self.label_entrada_numeros.set_text("QUANTIDADE MINUTOS")
         self.window_entrada_numeros.show()
         
@@ -358,6 +354,7 @@ class CadastroUsuarios(object):
     def on_entry_entrada_dados_button_press_event(self, widget):
         self.widget = widget
         self.value = self.widget.get_label()
+        print("self.value entrada de dados ===> ",self.value)
         self.text_entrada = self.entry_entrada_dados.get_text() + self.value
         self.entry_entrada_dados.set_text(self.text_entrada)
         self.entry_entrada_dados.set_position(-1)

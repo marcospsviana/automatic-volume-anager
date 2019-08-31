@@ -9,6 +9,7 @@ class SelectSize(object):
         self.classe = ""
         self.builder = Gtk.Builder()
         self.builder.add_from_file("ui/select_size.glade")
+        self.builder.add_from_file("ui/tamanhos_tarifas.glade")
         self.builder.connect_signals({
             "gtk_main_quit": Gtk.main_quit,
             "on_btn_malasx4_toggled": self.on_btn_malasx4_toggled,
@@ -18,6 +19,8 @@ class SelectSize(object):
             "on_btn_confirmar_button_press_event": self.on_btn_confirmar_button_press_event,
             "on_btn_tamanhos_tarifas_button_press_event": self.on_btn_tamanhos_tarifas_button_press_event,
             "on_btn_retornar_button_press_event": self.on_btn_retornar_button_press_event,
+            "on_btn_retornar_tarifas_button_press_event": self.on_btn_retornar_tarifas_button_press_event,
+            "on_window_tamanhos_tarifas_button_press_event": self.on_btn_tamanhos_tarifas_button_press_event,
         })
         # janela principal
         self.window_select_size = self.builder.get_object("window_select_size")
@@ -34,7 +37,7 @@ class SelectSize(object):
         self.btn_retornar = self.builder.get_object("btn_retornar")
         self.btn_retornar.connect("button_press_event", self.on_btn_retornar_button_press_event)
         self.btn_confirmar = self.builder.get_object("btn_confirmar")
-        #self.btn_confirmar.connect("button_press_event", self.on_btn_confirmar_button_press_event)
+       
         # ============= FIM BOTOES ==================
 
         #============== LABELS ======================
@@ -43,6 +46,19 @@ class SelectSize(object):
         self.label_mochilasx2 = self.builder.get_object("label_mochilasx2")
         self.label_cameraenotebook = self.builder.get_object("label_cameraenotebook")
         # ============== FIM LABELS =================
+        # ============== TELA TAMANHO E TARIFAS =====
+        self.window_tamanhos_tarifas = self.builder.get_object("window_tamanhos_tarifas")
+        self.btn_retornar_tarifas = self.builder.get_object("btn_retornar_tarifas")
+        self.btn_confirmar_tarifas = self.builder.get_object("btn_confirmar_tarifas")
+        self.btn_confirmar_tarifas.connect("button_press_event", self.on_btn_confirmar_button_press_event)
+        self.btn_malasx4_tarifas = self.builder.get_object("btn_malasx4_tarifas")
+        self.btn_malasx4_tarifas.connect("toggled", self.on_btn_malasx4_toggled )
+        self.btn_malasx2_tarifas = self.builder.get_object("btn_malasx2_tarifas")
+        self.btn_malasx2_tarifas.connect("toggled", self.on_btn_malasx2_toggled)
+        self.btn_mochilasx2_tarifas = self.builder.get_object("btn_mochilasx2_tarifas")
+        self.btn_mochilasx2_tarifas.connect("toggled", self.on_btn_mochilasx2_toggled)
+        self.btn_cameraenotebook_tarifas = self.builder.get_object("btn_cameraenotebook_tarifas")
+        self.btn_cameraenotebook_tarifas.connect("toggled", self.on_btn_cameraenotebook_toggled)
 
         self.window_select_size.fullscreen()
         self.window_select_size.show()
@@ -52,7 +68,9 @@ class SelectSize(object):
         
         if self.btn_malasx4.get_active():
             self.classe = "A"
-            
+            self.btn_cameraenotebook.get_active()
+        elif self.btn_malasx4_tarifas.get_active():
+            self.classe = "A"
         else:
             self.classe = ""
         
@@ -63,6 +81,8 @@ class SelectSize(object):
         if self.btn_malasx2.get_active():
             self.classe = "B"
             print(self.classe)
+        elif self.btn_malasx2_tarifas.get_active():
+            self.classe = "B"
         else:
             self.classe =""
 
@@ -72,6 +92,8 @@ class SelectSize(object):
         if self.btn_mochilasx2.get_active():
             self.classe = "C"
             print(self.classe)
+        elif self.btn_mochilasx2_tarifas.get_active():
+            self.classe = "C"
         else:
             self.classe =""
         
@@ -80,6 +102,8 @@ class SelectSize(object):
         if self.btn_cameraenotebook.get_active():
             self.classe = "D"
             print(self.classe)
+        elif self.btn_cameraenotebook_tarifas.get_active():
+            self.classe = "D"
         else:
             self.classe =""
         
@@ -91,12 +115,18 @@ class SelectSize(object):
             print("classe selecionada",self.classe)
             OpcaoHoraDiaria(self.classe)
             self.window_select_size.hide()
+            self.window_tamanhos_tarifas.hide()
     
     def on_btn_retornar_button_press_event(self, widget, event):
         self.window_select_size.hide()
     
+    def on_btn_retornar_tarifas_button_press_event(self, widget, event):
+        self.window_tamanhos_tarifas.hide()
+    
     def on_btn_tamanhos_tarifas_button_press_event(self, widget, event):
-        pass
+        self.window_tamanhos_tarifas.show()
+    
+    
 
 if __name__ == "__main__":
     app = SelectSize()

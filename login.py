@@ -27,6 +27,7 @@ class Login(Gtk.Window):
                 "on_btn_confirmar_clicked": self.on_btn_confirmar_clicked,
                 "on_cancela_clicked": self.on_cancela_clicked,
                 "on_btn_cobranca_ok_button_press_event": self.on_btn_cobranca_ok_button_press_event,
+                
                 #"gtk_widget_destroy" : self.gtk_widget_destroy
             }
         )
@@ -216,7 +217,13 @@ class Login(Gtk.Window):
         self.entry_entrada_dados.set_position(-1)
                 
     def on_btn_cobranca_ok_button_press_event(self, widget, event):
-        print("pagamento")       
+        manager = Management()
+        nome = self.entry_email_telefone.get_text()
+        senha = self.entry_senha.get_text()
+        result = manager.finalizar_pagamento(senha, nome)
+        print(result)
+        self.dialog_cobranca.hide()
+        self.window_login.hide()    
        
     def on_entry_backspace(self, widget):
         

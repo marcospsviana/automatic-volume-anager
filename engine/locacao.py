@@ -37,8 +37,17 @@ class Locacao(object):
             return "armario da classe escolhida indisponível"
         
         else:
-            __bk.locar_armario(__nome, __email, __telefone, __dia, __hora, __minuto, __armario)
-            return "armario locado com sucesso"
+            result = __bk.locar_armario(__nome, __email, __telefone, __dia, __hora, __minuto, __armario)
+            return result
+        
+    @classmethod
+    def finalizar_pagamento(self, senha, nome):
+        __bk = Banco()
+        __senha = senha
+        __nome = nome
+        result = __bk.finalizar_pagamento(__senha, __nome)
+        return result
+
             
     
 

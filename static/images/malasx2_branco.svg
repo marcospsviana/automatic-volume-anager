@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="66.302078mm"
-   height="99.302879mm"
-   viewBox="0 0 66.302085 99.30288"
+   width="57.689892mm"
+   height="97.730011mm"
+   viewBox="0 0 57.689898 97.730012"
    version="1.1"
    id="svg9308"
    inkscape:version="0.92.4 5da689c313, 2019-01-14"
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="39.576819"
-     inkscape:cy="229.72108"
+     inkscape:zoom="0.54036738"
+     inkscape:cx="-287.74235"
+     inkscape:cy="236.03046"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -54,112 +54,157 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-45.333813,-66.871116)">
+     transform="translate(-49.639906,-67.657551)">
     <g
-       id="g9513"
-       transform="translate(4.3440701,3.641129)">
-      <rect
-         y="72.29747"
-         x="55.76017"
-         height="88.450165"
-         width="45.449368"
-         id="rect4747"
-         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+       id="g28410">
       <g
-         id="g9476">
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         inkscape:export-filename="/home/marcos/Área de trabalho/armariob.png"
+         id="g14225">
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+           id="rect4747"
+           width="45.449368"
+           height="88.450165"
+           x="59.739861"
+           y="75.9077" />
         <text
            xml:space="preserve"
            style="font-style:normal;font-weight:normal;font-size:4.58611107px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-           x="68.920517"
-           y="67.340149"
+           x="72.900208"
+           y="70.950378"
            id="text14017"><tspan
              sodipodi:role="line"
              id="tspan14015"
-             x="68.920517"
-             y="67.340149"
-             style="font-size:4.58611107px;stroke-width:0.26458332">47,50 cm</tspan></text>
+             x="72.900208"
+             y="70.950378"
+             style="font-size:4.58611107px;stroke-width:0.26458332">47 cm</tspan></text>
         <g
-           id="g9419"
-           transform="translate(14.057378,6.8153729)">
+           id="g13974"
+           transform="translate(-0.36438082,-0.03090026)">
           <g
-             transform="matrix(-0.1167981,0,0,0.06322942,88.787091,61.547309)"
-             style="fill:#000000;stroke:#000000;stroke-width:3.07882452"
-             id="use19455">
-            <title
-               id="title9326">Left Arrow</title>
+             id="g13964">
+            <g
+               id="use19469"
+               style="fill:#000000;stroke:#000000;stroke-width:4.47215605;stroke-miterlimit:4;stroke-dasharray:none"
+               transform="matrix(0.31698076,0,0,0.17159963,57.515139,71.036151)">
+              <title
+                 id="title9332">Left Arrow</title>
+              <path
+                 id="path9334"
+                 style="stroke:none;stroke-width:4.47215605;stroke-miterlimit:4;stroke-dasharray:none"
+                 d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
+                 inkscape:connector-curvature="0" />
+            </g>
             <path
-               inkscape:connector-curvature="0"
-               d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
-               style="stroke:none;stroke-width:0.73690611"
-               id="path9328" />
+               style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="m 106.1029,72.605214 c -46.071726,0.06853 -46.071726,0.06853 -46.071726,0.06853"
+               id="path9357"
+               inkscape:connector-curvature="0" />
+            <g
+               transform="matrix(-0.31698076,0,0,0.17159963,108.44899,71.036151)"
+               style="fill:#000000;stroke:#000000;stroke-width:4.47215605;stroke-miterlimit:4;stroke-dasharray:none"
+               id="g13955">
+              <title
+                 id="title13951">Left Arrow</title>
+              <path
+                 inkscape:connector-curvature="0"
+                 d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
+                 style="stroke:none;stroke-width:4.47215605;stroke-miterlimit:4;stroke-dasharray:none"
+                 id="path13953" />
+            </g>
           </g>
-          <g
-             transform="matrix(0.12156297,0,0,0.06580892,40.056511,61.590108)"
-             style="fill:#000000;stroke:#000000;stroke-width:2.95814466"
-             id="use19469">
-            <title
-               id="title9332">Left Arrow</title>
-            <path
-               inkscape:connector-curvature="0"
-               d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
-               style="stroke:none;stroke-width:0.70802182"
-               id="path9334" />
-          </g>
-          <path
-             inkscape:connector-curvature="0"
-             id="path9357"
-             d="m 87.70145,62.148712 c -46.071724,0.06853 -46.071724,0.06853 -46.071724,0.06853"
-             style="fill:none;stroke:#000000;stroke-width:0.20999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
         </g>
-      </g>
-      <g
-         id="g9488">
+        <g
+           id="g13992"
+           transform="matrix(0,1.7953492,-1,0,127.88505,-27.961097)">
+          <g
+             id="g13990">
+            <g
+               transform="matrix(0.31698076,0,0,0.17159963,57.515139,71.036151)"
+               style="fill:#000000;stroke:#000000;stroke-width:4.47215605;stroke-miterlimit:4;stroke-dasharray:none"
+               id="g13980">
+              <title
+                 id="title13976">Left Arrow</title>
+              <path
+                 inkscape:connector-curvature="0"
+                 d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
+                 style="stroke:none;stroke-width:4.47215605;stroke-miterlimit:4;stroke-dasharray:none"
+                 id="path13978" />
+            </g>
+            <path
+               inkscape:connector-curvature="0"
+               id="path13982"
+               d="m 106.1029,72.605214 c -46.071726,0.06853 -46.071726,0.06853 -46.071726,0.06853"
+               style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <g
+               id="g13988"
+               style="fill:#000000;stroke:#000000;stroke-width:4.47215605;stroke-miterlimit:4;stroke-dasharray:none"
+               transform="matrix(-0.31698076,0,0,0.17159963,108.44899,71.036151)">
+              <title
+                 id="title13984">Left Arrow</title>
+              <path
+                 id="path13986"
+                 style="stroke:none;stroke-width:4.47215605;stroke-miterlimit:4;stroke-dasharray:none"
+                 d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
+                 inkscape:connector-curvature="0" />
+            </g>
+          </g>
+        </g>
         <text
-           id="text19488"
-           y="49.942245"
-           x="-122.55824"
+           id="text13996"
+           y="52.960251"
+           x="-124.84306"
            style="font-style:normal;font-weight:normal;font-size:4.58611107px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
            xml:space="preserve"
-           transform="rotate(-89.575928)"><tspan
+           transform="rotate(-90)"><tspan
              style="font-size:4.58611107px;stroke-width:0.26458332"
-             y="49.942245"
-             x="-122.55824"
-             id="tspan19486"
-             sodipodi:role="line">98 cm</tspan></text>
+             y="52.960251"
+             x="-124.84306"
+             id="tspan13994"
+             sodipodi:role="line">95 cm</tspan></text>
         <g
-           transform="matrix(0.00373678,-1.8656751,0.99999302,0.00697166,-10.405907,236.28977)"
-           id="g9446"
-           style="stroke-width:0.732117">
-          <g
-             id="g9436"
-             style="fill:#000000;stroke:#000000;stroke-width:2.25405979"
-             transform="matrix(-0.1167981,0,0,0.06322942,88.787091,61.547309)">
-            <title
-               id="title9432">Left Arrow</title>
-            <path
-               id="path9434"
-               style="stroke:none;stroke-width:0.53950149"
-               d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
-               inkscape:connector-curvature="0" />
-          </g>
-          <g
-             id="g9442"
-             style="fill:#000000;stroke:#000000;stroke-width:2.16570783"
-             transform="matrix(0.12156297,0,0,0.06580892,40.056511,61.590108)">
-            <title
-               id="title9438">Left Arrow</title>
-            <path
-               id="path9440"
-               style="stroke:none;stroke-width:0.51835483"
-               d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
-               inkscape:connector-curvature="0" />
-          </g>
+           id="g14050"
+           style="fill:#000000;stroke:#000000;stroke-width:2.63967896;stroke-miterlimit:4;stroke-dasharray:none"
+           transform="matrix(-0.07465799,0.14804568,-0.01601078,-0.04514292,71.710958,141.35176)">
+          <title
+             id="title14046">Left Arrow</title>
           <path
-             style="fill:none;stroke:#000000;stroke-width:0.15374456;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-             d="m 87.70145,62.148712 c -46.071724,0.06853 -46.071724,0.06853 -46.071724,0.06853"
-             id="path9444"
+             id="path14048"
+             style="stroke:none;stroke-width:2.63967896;stroke-miterlimit:4;stroke-dasharray:none"
+             d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
              inkscape:connector-curvature="0" />
         </g>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.40000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 60.12076,163.63187 c 10.844808,-21.5358 10.844808,-21.5358 10.844808,-21.5358"
+           id="path14052"
+           inkscape:connector-curvature="0" />
+        <g
+           transform="matrix(0.07465799,-0.14804568,-0.01601078,-0.04514292,59.714587,165.14038)"
+           style="fill:#000000;stroke:#000000;stroke-width:2.63967896;stroke-miterlimit:4;stroke-dasharray:none"
+           id="g14058">
+          <title
+             id="title14054">Left Arrow</title>
+          <path
+             inkscape:connector-curvature="0"
+             d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
+             style="stroke:none;stroke-width:2.63967896;stroke-miterlimit:4;stroke-dasharray:none"
+             id="path14056" />
+        </g>
+        <text
+           transform="rotate(-67.788177)"
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:4.58611107px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="-118.94157"
+           y="123.46864"
+           id="text14066"><tspan
+             sodipodi:role="line"
+             id="tspan14064"
+             x="-118.94157"
+             y="123.46864"
+             style="font-size:4.58611107px;stroke-width:0.26458332">80 cm</tspan></text>
       </g>
     </g>
   </g>

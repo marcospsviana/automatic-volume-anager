@@ -2,10 +2,48 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <object class="GtkWindow">
+  <object class="GtkImage" id="image_br_flag">
+    <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="pixbuf">../static/images/brasilpq.svg</property>
+  </object>
+  <object class="GtkImage" id="image_cameraenotebook">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../static/images/cameraenotebook_branco.svg</property>
+  </object>
+  <object class="GtkImage" id="image_malasx4">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="halign">center</property>
+    <property name="valign">center</property>
+    <property name="pixbuf">../static/images/malasx4_branco.svg</property>
+  </object>
+  <object class="GtkImage" id="image_malax2">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../static/images/malasx2_branco.svg</property>
+  </object>
+  <object class="GtkImage" id="image_mochilasx2">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../static/images/mochilasx2_branco.svg</property>
+  </object>
+  <object class="GtkImage" id="image_usa_flag">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../static/images/usa.svg</property>
+  </object>
+  <object class="GtkWindow" id="window_tamanhos_tarifas">
+    <property name="name">window</property>
+    <property name="can_focus">False</property>
+    <property name="modal">True</property>
+    <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
+    <property name="decorated">False</property>
+    <property name="gravity">center</property>
+    <signal name="button-press-event" handler="on_window_tamanhos_tarifas_button_press_event" swapped="no"/>
     <child>
       <placeholder/>
     </child>
@@ -140,35 +178,253 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkFrame">
+              <object class="GtkBox">
                 <property name="width_request">100</property>
                 <property name="height_request">80</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label_xalign">0</property>
-                <property name="shadow_type">none</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
                 <child>
-                  <object class="GtkAlignment">
+                  <object class="GtkBox">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="top_padding">8</property>
-                    <property name="left_padding">12</property>
+                    <property name="orientation">vertical</property>
                     <child>
-                      <placeholder/>
+                      <object class="GtkToggleButton" id="btn_malasx4_tarifas">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="focus_on_click">False</property>
+                        <property name="receives_default">True</property>
+                        <property name="margin_left">30</property>
+                        <property name="image">image_malasx4</property>
+                        <property name="relief">none</property>
+                        <property name="use_underline">True</property>
+                        <property name="always_show_image">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="label_malasx4">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">IDEAL PARA</property>
+                        <attributes>
+                          <attribute name="font-desc" value="Sans 15"/>
+                          <attribute name="weight" value="medium"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
                     </child>
                   </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
                 </child>
-                <child type="label">
-                  <object class="GtkLabel">
+                <child>
+                  <object class="GtkBox">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">     ------------------------  98 cm -----------------------</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkToggleButton" id="btn_malasx2_tarifas">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="focus_on_click">False</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">image_malax2</property>
+                        <property name="relief">none</property>
+                        <property name="use_underline">True</property>
+                        <property name="always_show_image">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="label_malasx2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">IDEAL PARA</property>
+                        <attributes>
+                          <attribute name="font-desc" value="Sans 15"/>
+                          <attribute name="weight" value="medium"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
                   </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkBox">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkToggleButton" id="btn_mochilasx2_tarifas">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="focus_on_click">False</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">image_mochilasx2</property>
+                        <property name="relief">none</property>
+                        <property name="use_underline">True</property>
+                        <property name="always_show_image">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="label_mochilasx2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="margin_bottom">46</property>
+                        <property name="label" translatable="yes">IDEAL PARA</property>
+                        <attributes>
+                          <attribute name="font-desc" value="Sans 15"/>
+                          <attribute name="weight" value="medium"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkToggleButton" id="btn_cameraenotebook_tarifas">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="focus_on_click">False</property>
+                        <property name="receives_default">True</property>
+                        <property name="image">image_cameraenotebook</property>
+                        <property name="relief">none</property>
+                        <property name="use_underline">True</property>
+                        <property name="always_show_image">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="label_cameraenotebook">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">IDEAL PARA</property>
+                        <attributes>
+                          <attribute name="font-desc" value="Sans 15"/>
+                          <attribute name="weight" value="medium"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">3</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">2</property>
+                  </packing>
                 </child>
               </object>
               <packing>
-                <property name="x">96</property>
-                <property name="y">63</property>
+                <property name="x">-27</property>
+                <property name="y">80</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_tarifa_diaria_tamA">
+                <property name="width_request">100</property>
+                <property name="height_request">80</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">R$ 37,50 /dia</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="x">148</property>
+                <property name="y">280</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_tarifa_diaria_tamB">
+                <property name="width_request">100</property>
+                <property name="height_request">80</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">R$ 24,50 /dia</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="x">496</property>
+                <property name="y">258</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_tarifa_diaria_tamC">
+                <property name="width_request">100</property>
+                <property name="height_request">80</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">R$ 14,50 /dia</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="x">693</property>
+                <property name="y">174</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_tarifa_diaria_tamA1">
+                <property name="width_request">100</property>
+                <property name="height_request">80</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">R$ 9,00 /dia</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="x">689</property>
+                <property name="y">412</property>
               </packing>
             </child>
           </object>
@@ -187,7 +443,7 @@
             <property name="margin_bottom">20</property>
             <property name="spacing">20</property>
             <child>
-              <object class="GtkButton" id="btn_confirmar">
+              <object class="GtkButton" id="btn_confirmar_tarifas">
                 <property name="label" translatable="yes">CONFIRMAR</property>
                 <property name="name">btn_confirmar</property>
                 <property name="visible">True</property>
@@ -202,12 +458,13 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btn_retornar">
+              <object class="GtkButton" id="btn_retornar_tarifas">
                 <property name="label" translatable="yes">RETORNAR TELA ANTERIOR</property>
                 <property name="name">btn_retornar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="button-press-event" handler="on_btn_retornar_tarifas_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -224,15 +481,5 @@
         </child>
       </object>
     </child>
-  </object>
-  <object class="GtkImage" id="image_br_flag">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">../../../../static/images/brasilpq.svg</property>
-  </object>
-  <object class="GtkImage" id="image_usa_flag">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">../../../../static/images/usa.svg</property>
   </object>
 </interface>

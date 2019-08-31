@@ -29,8 +29,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <signal name="clicked" handler="gtk_widget_destroy" object="window_login" swapped="no"/>
-                <signal name="destroy" handler="on_window_login_destroy" object="window_login" swapped="no"/>
+                <signal name="button-press-event" handler="on_btn_cobranca_ok_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
