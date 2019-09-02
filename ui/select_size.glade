@@ -381,7 +381,8 @@
             </child>
             <child>
               <object class="GtkButton" id="btn_tamanhos_tarifas">
-                <property name="label" translatable="yes">TAMANHOS E TARIFAS</property>
+                <property name="label" translatable="yes">TAMANHOS 
+  E TARIFAS</property>
                 <property name="name">btn_confirmar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -396,7 +397,8 @@
             </child>
             <child>
               <object class="GtkButton" id="btn_retornar">
-                <property name="label" translatable="yes">RETORNAR A TELA ANTERIOR</property>
+                <property name="label" translatable="yes">   RETORNAR A 
+TELA ANTERIOR</property>
                 <property name="name">btn_retornar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
