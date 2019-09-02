@@ -173,15 +173,18 @@
         <child>
           <object class="GtkBox">
             <property name="width_request">750</property>
-            <property name="height_request">400</property>
+            <property name="height_request">450</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
-            <property name="margin_top">40</property>
+            <property name="valign">center</property>
+            <property name="margin_top">5</property>
             <child>
               <object class="GtkBox">
+                <property name="height_request">450</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="valign">center</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkToggleButton" id="btn_malasx4">
