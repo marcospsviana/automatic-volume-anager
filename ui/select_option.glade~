@@ -2,15 +2,15 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <object class="GtkImage" id="image3">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/cadeadosvg_clean.svg</property>
-  </object>
   <object class="GtkImage" id="image_br_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/brasilpq.svg</property>
+  </object>
+  <object class="GtkImage" id="image_cofre">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../static/images/cadeadosvg_clean.svg</property>
   </object>
   <object class="GtkImage" id="image_concluir_reserva">
     <property name="visible">True</property>
@@ -165,11 +165,10 @@
             <property name="margin_top">30</property>
             <child>
               <object class="GtkButton" id="btn_reservar">
-                <property name="width_request">100</property>
-                <property name="height_request">80</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="halign">center</property>
                 <property name="image">image_iniciar_reserva</property>
                 <signal name="button-press-event" handler="on_reservar_button_press_event" swapped="no"/>
               </object>
@@ -180,11 +179,10 @@
             </child>
             <child>
               <object class="GtkButton" id="btn_concluir">
-                <property name="width_request">100</property>
-                <property name="height_request">80</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="halign">center</property>
                 <property name="image">image_concluir_reserva</property>
                 <signal name="button-press-event" handler="on_btn_concluir_button_press_event" swapped="no"/>
               </object>
@@ -227,12 +225,11 @@ RESERVA</property>
             </child>
             <child>
               <object class="GtkButton" id="btn_abrir">
-                <property name="width_request">100</property>
-                <property name="height_request">80</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="image">image3</property>
+                <property name="halign">center</property>
+                <property name="image">image_cofre</property>
                 <signal name="button-press-event" handler="on_abrir_cofre_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -242,11 +239,10 @@ RESERVA</property>
             </child>
             <child>
               <object class="GtkButton" id="btn_medidas">
-                <property name="width_request">100</property>
-                <property name="height_request">80</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="halign">center</property>
                 <property name="image">image_precos_medidas</property>
                 <signal name="button-press-event" handler="on_precosemedidas_button_press_event" swapped="no"/>
               </object>

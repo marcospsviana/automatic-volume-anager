@@ -2,15 +2,15 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <object class="GtkImage" id="image3">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/cadeadosvg_clean.svg</property>
-  </object>
   <object class="GtkImage" id="image_br_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/brasilpq.svg</property>
+  </object>
+  <object class="GtkImage" id="image_cofre">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../static/images/cadeadosvg_clean.svg</property>
   </object>
   <object class="GtkImage" id="image_concluir_reserva">
     <property name="visible">True</property>
@@ -203,7 +203,7 @@ RESERVA</property>
                 </attributes>
               </object>
               <packing>
-                <property name="x">95</property>
+                <property name="x">70</property>
                 <property name="y">250</property>
               </packing>
             </child>
@@ -219,7 +219,7 @@ RESERVA</property>
                 </attributes>
               </object>
               <packing>
-                <property name="x">644</property>
+                <property name="x">620</property>
                 <property name="y">250</property>
               </packing>
             </child>
@@ -229,7 +229,7 @@ RESERVA</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="halign">center</property>
-                <property name="image">image3</property>
+                <property name="image">image_cofre</property>
                 <signal name="button-press-event" handler="on_abrir_cofre_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -263,7 +263,7 @@ COFRE</property>
                 </attributes>
               </object>
               <packing>
-                <property name="x">377</property>
+                <property name="x">357</property>
                 <property name="y">250</property>
               </packing>
             </child>
@@ -280,7 +280,7 @@ COFRE</property>
                 </attributes>
               </object>
               <packing>
-                <property name="x">916</property>
+                <property name="x">900</property>
                 <property name="y">250</property>
               </packing>
             </child>
