@@ -52,7 +52,6 @@
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="halign">center</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
@@ -175,6 +174,7 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="margin_top">40</property>
             <child>
@@ -363,7 +363,6 @@
             <property name="can_focus">False</property>
             <property name="halign">center</property>
             <property name="spacing">5</property>
-            <property name="homogeneous">True</property>
             <child>
               <object class="GtkButton" id="btn_confirmar">
                 <property name="label" translatable="yes">CONFIRMAR</property>
@@ -413,7 +412,7 @@
           </object>
           <packing>
             <property name="expand">False</property>
-            <property name="fill">True</property>
+            <property name="fill">False</property>
             <property name="position">3</property>
           </packing>
         </child>
