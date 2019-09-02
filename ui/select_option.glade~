@@ -192,7 +192,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_iniciar_reserva">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
@@ -203,12 +203,12 @@ RESERVA</property>
                 </attributes>
               </object>
               <packing>
-                <property name="x">95</property>
+                <property name="x">70</property>
                 <property name="y">250</property>
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_concluir_reserva">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
@@ -219,7 +219,7 @@ RESERVA</property>
                 </attributes>
               </object>
               <packing>
-                <property name="x">644</property>
+                <property name="x">620</property>
                 <property name="y">250</property>
               </packing>
             </child>
@@ -252,7 +252,7 @@ RESERVA</property>
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_abrir_cofre">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
@@ -263,12 +263,13 @@ COFRE</property>
                 </attributes>
               </object>
               <packing>
-                <property name="x">377</property>
+                <property name="x">357</property>
                 <property name="y">250</property>
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_tamanhos_tafifas">
+                <property name="name">label_op</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
@@ -280,7 +281,7 @@ COFRE</property>
                 </attributes>
               </object>
               <packing>
-                <property name="x">916</property>
+                <property name="x">900</property>
                 <property name="y">250</property>
               </packing>
             </child>

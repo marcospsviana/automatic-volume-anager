@@ -187,12 +187,12 @@
                 <signal name="button-press-event" handler="on_btn_concluir_button_press_event" swapped="no"/>
               </object>
               <packing>
-                <property name="x">577</property>
+                <property name="x">517</property>
                 <property name="y">10</property>
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_iniciar_reserva">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
@@ -208,7 +208,7 @@ RESERVA</property>
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_concluir_reserva">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
@@ -219,7 +219,7 @@ RESERVA</property>
                 </attributes>
               </object>
               <packing>
-                <property name="x">620</property>
+                <property name="x">560</property>
                 <property name="y">250</property>
               </packing>
             </child>
@@ -233,7 +233,7 @@ RESERVA</property>
                 <signal name="button-press-event" handler="on_abrir_cofre_button_press_event" swapped="no"/>
               </object>
               <packing>
-                <property name="x">299</property>
+                <property name="x">269</property>
                 <property name="y">10</property>
               </packing>
             </child>
@@ -247,12 +247,12 @@ RESERVA</property>
                 <signal name="button-press-event" handler="on_precosemedidas_button_press_event" swapped="no"/>
               </object>
               <packing>
-                <property name="x">868</property>
+                <property name="x">760</property>
                 <property name="y">13</property>
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_abrir_cofre">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
@@ -263,12 +263,13 @@ COFRE</property>
                 </attributes>
               </object>
               <packing>
-                <property name="x">357</property>
+                <property name="x">327</property>
                 <property name="y">250</property>
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_tamanhos_tafifas">
+                <property name="name">label_op</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
@@ -280,7 +281,7 @@ COFRE</property>
                 </attributes>
               </object>
               <packing>
-                <property name="x">900</property>
+                <property name="x">800</property>
                 <property name="y">250</property>
               </packing>
             </child>
