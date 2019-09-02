@@ -41,7 +41,7 @@
     <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
-    <property name="default_width">1024</property>
+    <property name="default_width">800</property>
     <property name="default_height">600</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
@@ -362,7 +362,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
-            <property name="spacing">17</property>
+            <property name="spacing">5</property>
             <property name="homogeneous">True</property>
             <child>
               <object class="GtkButton" id="btn_confirmar">
