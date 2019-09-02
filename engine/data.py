@@ -198,7 +198,10 @@ ENGINE=InnoDB
         query = __c.fetchall()
         print("##### id usuario ###")
         print(query)
-        return query
+        if query == []:
+            return 'senha, email ou telefone incorretos, tente novamente'
+        else:
+            return query
         __conn.close()
 
     def __get_passwd(self):
@@ -258,33 +261,37 @@ ENGINE=InnoDB
         self.__nome = nome
         print('nome e senha de data', self.__senha, self.__nome)
         self.__id_user = self.select_user(self.__nome)
-        self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
-        print('********** dados locacao **************')
-        print("self.locacao", self.__locacao)
-        print("self.locacao[0][2]",self.__locacao[0][2])
-        print("self.locacao[0 0]", self.__locacao[0][0])
-        if (self.__locacao[0][2]) > hj:
-            
-            tempo_total = hj - self.__locacao[0][2]
-            dias_passados = tempo_total.days
-            minutos_passados = tempo_total.seconds / 60
-            valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
-            result = self.cobranca(valor_total,hj)
-             
-            self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
-            self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao[0][0]))
-            self.__conn.commit()
-            self.__conn.close()
-            return "armario liberado"
-            port = self.select_port(self.__locacao[0][0])
-            self.port.exec_port(port[0], "abre")
+        if self.__id_user == 'senha, email ou telefone incorretos, tente novamente':
+            return 'senha, email ou telefone incorretos, tente novamente'
+        
         else:
-            
-            tempo = hj - self.__locacao[0][2] 
-            tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
-            print('-------> %s'%tempo)
-            result = self.cobranca_excedente(int(tempo))
-            return result
+            self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
+            print('********** dados locacao **************')
+            print("self.locacao", self.__locacao)
+            print("self.locacao[0][2]",self.__locacao[0][2])
+            print("self.locacao[0 0]", self.__locacao[0][0])
+            if (self.__locacao[0][2]) > hj:
+                
+                tempo_total = hj - self.__locacao[0][2]
+                dias_passados = tempo_total.days
+                minutos_passados = tempo_total.seconds / 60
+                valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
+                result = self.cobranca(valor_total,hj)
+                
+                self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
+                self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao[0][0]))
+                self.__conn.commit()
+                self.__conn.close()
+                return "armario liberado"
+                port = self.select_port(self.__locacao[0][0])
+                self.port.exec_port(port[0], "abre")
+            else:
+                
+                tempo = hj - self.__locacao[0][2] 
+                tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
+                print('-------> %s'%tempo)
+                result = self.cobranca_excedente(int(tempo))
+                return result
 
 
     def remover_armario(self, id_armario):
@@ -356,10 +363,7 @@ ENGINE=InnoDB
         '''if (self.__tempo_corrido.days and self.__tempo_corrido) <= 0:
             return None
         else:'''
-        # calculo do total de tempo excedente em minutos
-        #__total_minutos = (self.__tempo_corrido.days * 24 * 60) + (self.__tempo_corrido.seconds / 60)
-        # formatando o valor para duas casas apos a virgura e convertendo em float
-        #__total_minutos = float('{:.2f}'.format(__total_minutos))
+        
         __total_preco = self.__tempo_locado * self.__TAXA  # preço total do excedente
         __total_preco = "%.2f"%(__total_preco) # formatando para duas casas decimais apos virgula
         __total_preco = str(__total_preco.replace('.',',')) #troca ponto por virgula pra formatar em moeda BR
@@ -393,29 +397,33 @@ ENGINE=InnoDB
         self.__nome = nome
         print('senha e nome finalizar', self.__senha, self.__nome)
         self.__id_user = self.select_user(self.__nome)
-        self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
-        if (self.__locacao[0][2]) >= hj:
-            
-            tempo_total = hj - self.__locacao[0][2]
-            dias_passados = tempo_total.days
-            minutos_passados = tempo_total.seconds / 60
-            valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
-            result = self.cobranca(valor_total,hj)
-             
-            self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
-            self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (self.__locacao[0][0],))
-            self.__conn.commit()
-            self.__conn.close()
-            return "armario liberado"
-            port = self.select_port(self.__locacao[0][0])
-            self.port.exec_port(port[0], "abre")
+        if self.__id_user == 'senha, email ou telefone incorretos, tente novamente':
+            return 'senha, email ou telefone incorretos, tente novamente'
+        
         else:
-            
-            tempo = hj - self.__locacao[0][2] 
-            tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
-            print('-------> %s'%tempo)
-            result = self.cobranca_excedente(int(tempo))
-            return result
+            self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
+            if (self.__locacao[0][2]) >= hj:
+                
+                tempo_total = hj - self.__locacao[0][2]
+                dias_passados = tempo_total.days
+                minutos_passados = tempo_total.seconds / 60
+                valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
+                result = self.cobranca(valor_total,hj)
+                
+                self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
+                self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (self.__locacao[0][0],))
+                self.__conn.commit()
+                self.__conn.close()
+                return "armario liberado"
+                port = self.select_port(self.__locacao[0][0])
+                self.port.exec_port(port[0], "abre")
+            else:
+                
+                tempo = hj - self.__locacao[0][2] 
+                tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
+                print('-------> %s'%tempo)
+                result = self.cobranca_excedente(int(tempo))
+                return result
         
 
     
@@ -458,30 +466,34 @@ ENGINE=InnoDB
         self.__senha = senha
         self.__nome = nome
         self.__id_user = self.select_user(self.__nome)
-        self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
-        print('********** dados locacao **************')
-        print(self.__locacao[0][2])
-        if (self.__locacao[0][2]) >= hj:
-            
-            tempo_total = hj - self.__locacao[0][2]
-            dias_passados = tempo_total.days
-            minutos_passados = tempo_total.seconds / 60
-            valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
-            result = self.cobranca(valor_total,hj)
-             
-            self.__c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
-            self.__conn.commit()
-            self.__conn.close()
-            return "armario liberado"
-            port = self.select_port(loca_armario[0][0])
-            self.port.exec_port(port, "abre")
+        if self.__id_user == 'senha, email ou telefone incorretos, tente novamente':
+            return 'senha, email ou telefone incorretos, tente novamente'
+        
         else:
-            
-            tempo = hj - self.__locacao[0][2] 
-            tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
-            print('-------> %s'%tempo)
-            result = self.cobranca_excedente(int(tempo))
-            return result
+            self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
+            print('********** dados locacao **************')
+            print(self.__locacao[0][2])
+            if (self.__locacao[0][2]) >= hj:
+                
+                tempo_total = hj - self.__locacao[0][2]
+                dias_passados = tempo_total.days
+                minutos_passados = tempo_total.seconds / 60
+                valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
+                result = self.cobranca(valor_total,hj)
+                
+                self.__c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
+                self.__conn.commit()
+                self.__conn.close()
+                return "armario liberado"
+                port = self.select_port(loca_armario[0][0])
+                self.port.exec_port(port, "abre")
+            else:
+                
+                tempo = hj - self.__locacao[0][2] 
+                tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
+                print('-------> %s'%tempo)
+                result = self.cobranca_excedente(int(tempo))
+                return result
     def finalizar_pagamento(self, senha, nome):
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')

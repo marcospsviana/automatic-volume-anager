@@ -28,6 +28,7 @@ class Login(Gtk.Window):
                 "on_cancela_clicked": self.on_cancela_clicked,
                 "on_btn_cobranca_ok_button_press_event": self.on_btn_cobranca_ok_button_press_event,
                 
+                
                 #"gtk_widget_destroy" : self.gtk_widget_destroy
             }
         )
@@ -128,6 +129,14 @@ class Login(Gtk.Window):
         self.btn_cobranca_ok = self.builder.get_object("btn_cobranca_ok")
         #self.btn_cobranca_ok.connect("button_press_event", self.on_btn_cobranca_ok_button_press_event)
 
+        #========== DIALOG SENHA INCORRETA =======================
+        self.dialog_senha_incorreta = self.builder.get_object("dialog_senha_incorreta")
+        self.btn_tentar_dialog_senha_incorreta = self.builder.get_object("btn_tentar_dialog_senha_incorreta")
+        self.btn_dialog_cancelar_senha_incorreta = self.builder.get_object("btn_dialog_cancelar_senha_incorreta")
+        self.label_dialog_senha_incorreta = self.builder.get_object("label_dialog_senha_incorreta")
+        self.btn_tentar_dialog_senha_incorreta.connect("clicked", self.on_tentar_novamente)
+        self.btn_dialog_cancelar_senha_incorreta.connect("clicked", self.on_cancelar_senha_incorreta)
+
         
 
         #========== fim elementos do teclado =====================
@@ -189,6 +198,14 @@ class Login(Gtk.Window):
             self.entry_email_telefone.set_text('')
             self.entry_senha.set_text('')
             print('abrir')
+        elif result == 'senha, email ou telefone incorretos, tente novamente':
+            #self.window_login.hide()
+            self.entry_email_telefone.set_text('')
+            self.entry_senha.set_text('')
+             
+            self.label_dialog_senha_incorreta.set_text('senha, email ou telefone incorretos, tente novamente')
+            self.dialog_senha_incorreta.show()
+            
         else:
             #self.window_login.close()
 
@@ -241,6 +258,17 @@ class Login(Gtk.Window):
         self.dialog_cobranca.destroy()
     def on_window_login_destroy(self, widget):
         self.window_login.close()
+    
+    def on_tentar_novamente(self, event):
+        self.entry_email_telefone.set_text('')
+        self.entry_senha.set_text('')
+        self.dialog_senha_incorreta.hide()
+    
+    def on_cancelar_senha_incorreta(self, event):
+        self.entry_email_telefone.set_text('')
+        self.entry_senha.set_text('')
+        self.dialog_senha_incorreta.hide()
+        self.window_login.hide()
 
     
 

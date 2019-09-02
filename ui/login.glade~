@@ -61,6 +61,85 @@
       </object>
     </child>
   </object>
+  <object class="GtkDialog" id="dialog_senha_incorreta">
+    <property name="can_focus">False</property>
+    <property name="modal">True</property>
+    <property name="type_hint">dialog</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="btn_dialog_cancelar_senha_incorreta">
+                <property name="label" translatable="yes">CANCELAR</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_tentar_dialog_senha_incorreta">
+                <property name="label" translatable="yes">TENTAR NOVAMENTE</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <property name="margin_right">64</property>
+            <property name="margin_bottom">46</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel" id="label_dialog_senha_incorreta">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">label</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="GtkWindow" id="window_entrada_dados">
     <property name="name">window</property>
     <property name="can_focus">False</property>
@@ -985,8 +1064,11 @@
   <object class="GtkWindow" id="window_login">
     <property name="name">window</property>
     <property name="can_focus">False</property>
+    <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
     <property name="default_height">500</property>
+    <property name="decorated">False</property>
+    <property name="gravity">center</property>
     <child>
       <placeholder/>
     </child>
