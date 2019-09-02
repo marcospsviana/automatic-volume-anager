@@ -259,6 +259,22 @@
             <property name="position">4</property>
           </packing>
         </child>
+        <child>
+          <object class="GtkButton" id="btn_tela_hora_diaria">
+            <property name="label" translatable="yes">RETORNAR TELA ANTERIOR</property>
+            <property name="name">btn_retornar</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="halign">center</property>
+            <signal name="button-press-event" handler="on_btn_tela_hora_diaria_button_press_event" swapped="no"/>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">5</property>
+          </packing>
+        </child>
       </object>
     </child>
   </object>

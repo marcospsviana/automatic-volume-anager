@@ -16,6 +16,7 @@ class OpcaoHoraDiaria(object):
                 "gtk_main_quit": Gtk.main_quit,
                 "on_btn_loc_hora_button_press_event": self.on_btn_loc_hora_button_press_event,
                 "on_btn_loc_diaria_button_press_event": self.on_btn_loc_diaria_button_press_event,
+                "on_btn_tela_hora_diaria_button_press_event": self.on_btn_tela_hora_diaria_button_press_event,
             }
         )
         self.codigos_ddd = ["""
@@ -131,6 +132,7 @@ class OpcaoHoraDiaria(object):
        
         +58	 Venezuela	América do Sul,"""
         ]
+
         self.window_hora_diaria.show()
     
     def on_btn_loc_hora_button_press_event(self, widget, event):
@@ -140,6 +142,9 @@ class OpcaoHoraDiaria(object):
     def on_btn_loc_diaria_button_press_event(self, widget, event):
         tempo_locacao = "diaria"
         CadastroUsuarios(tempo_locacao, self.classe)
+    
+    def on_btn_tela_hora_diaria_button_press_event(self, widget, event):
+        self.window_hora_diaria.hide()
 
 if __name__ == "__main__":
     app = OpcaoHoraDiaria()

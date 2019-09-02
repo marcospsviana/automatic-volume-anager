@@ -26,9 +26,11 @@
     <property name="name">window</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
+    <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
     <property name="destroy_with_parent">True</property>
+    <property name="gravity">north</property>
     <child>
       <placeholder/>
     </child>
@@ -255,6 +257,21 @@
             <property name="expand">True</property>
             <property name="fill">True</property>
             <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btn_tela_hora_diaria">
+            <property name="label" translatable="yes">RETORNAR TELA ANTERIOR</property>
+            <property name="name">btn_retornar</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="halign">center</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">5</property>
           </packing>
         </child>
       </object>
