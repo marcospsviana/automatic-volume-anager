@@ -1,0 +1,5 @@
+msgid "INICIAR \n RESERVA"
+msgstr "START \n BOOKING"
+
+msgid "ABRIR\n COFRE"
+msgstr "OPEN\n SAFE"

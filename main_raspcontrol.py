@@ -4,6 +4,7 @@
 
 import sys, os
 import datetime
+import gettext
 import gi
 import numpy as np
 import string
@@ -16,6 +17,9 @@ from login import Login
 from encerrar import Encerrar
 from locar import Locar
 from select_cabinet import SelectCabinet
+
+gettext.bindtextdomain("coolbag", "~/raspcontrol/locale/en_US")
+gettext.textdomain("coolbag")
 
 class RaspControl(object):
     def __init__(self):
