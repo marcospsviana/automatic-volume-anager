@@ -4,7 +4,6 @@
 
 import sys, os
 import datetime
-import gettext
 import gi
 import numpy as np
 import string
@@ -19,8 +18,6 @@ from locar import Locar
 from select_cabinet import SelectCabinet
 
 
-t = gettext.translation("coolbag", "locale")
-_ = t.ugettext
 
 class RaspControl(object):
     def __init__(self):
