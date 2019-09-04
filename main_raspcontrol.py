@@ -18,8 +18,9 @@ from encerrar import Encerrar
 from locar import Locar
 from select_cabinet import SelectCabinet
 
-gettext.bindtextdomain("coolbag", "~/raspcontrol/locale/en_US")
-gettext.textdomain("coolbag")
+
+t = gettext.translation("coolbag", "locale")
+_ = t.ugettext
 
 class RaspControl(object):
     def __init__(self):
