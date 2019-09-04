@@ -5,32 +5,32 @@
   <object class="GtkImage" id="image_br_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/brasilpq.svg</property>
+    <property name="pixbuf">..\static\images\brasilpq.svg</property>
   </object>
   <object class="GtkImage" id="image_cofre">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/cadeadosvg_clean.svg</property>
+    <property name="pixbuf">..\static\images\cadeadosvg_clean.svg</property>
   </object>
   <object class="GtkImage" id="image_concluir_reserva">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/cartao_clean.svg</property>
+    <property name="pixbuf">..\static\images\cartao_clean.svg</property>
   </object>
   <object class="GtkImage" id="image_iniciar_reserva">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/inicio_reserva_clean.svg</property>
+    <property name="pixbuf">..\static\images\inicio_reserva_clean.svg</property>
   </object>
   <object class="GtkImage" id="image_precos_medidas">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/precosmedidas_clean.svg</property>
+    <property name="pixbuf">..\static\images\precosmedidas_clean.svg</property>
   </object>
   <object class="GtkImage" id="image_usa_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/usa.svg</property>
+    <property name="pixbuf">..\static\images\usa.svg</property>
   </object>
   <object class="GtkWindow" id="window_select">
     <property name="name">window</property>
@@ -112,7 +112,7 @@
                 <property name="spacing">5</property>
                 <property name="homogeneous">True</property>
                 <child>
-                  <object class="GtkButton" id="btn_usa">
+                  <object class="GtkButton" id="btn_flag_usa">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -128,7 +128,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="btn_br">
+                  <object class="GtkButton" id="btn_flag_br">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -187,7 +187,7 @@
                 <signal name="button-press-event" handler="on_btn_concluir_button_press_event" swapped="no"/>
               </object>
               <packing>
-                <property name="x">577</property>
+                <property name="x">517</property>
                 <property name="y">10</property>
               </packing>
             </child>
@@ -198,6 +198,8 @@
                 <property name="halign">center</property>
                 <property name="label" translatable="yes"> INICIAR
 RESERVA</property>
+                <property name="justify">center</property>
+                <property name="wrap">True</property>
                 <attributes>
                   <attribute name="scale" value="2"/>
                 </attributes>
@@ -214,12 +216,14 @@ RESERVA</property>
                 <property name="halign">center</property>
                 <property name="label" translatable="yes">CONCLUIR
  RESERVA</property>
+                <property name="justify">center</property>
+                <property name="wrap">True</property>
                 <attributes>
                   <attribute name="scale" value="2"/>
                 </attributes>
               </object>
               <packing>
-                <property name="x">620</property>
+                <property name="x">560</property>
                 <property name="y">250</property>
               </packing>
             </child>
@@ -233,7 +237,7 @@ RESERVA</property>
                 <signal name="button-press-event" handler="on_abrir_cofre_button_press_event" swapped="no"/>
               </object>
               <packing>
-                <property name="x">299</property>
+                <property name="x">269</property>
                 <property name="y">10</property>
               </packing>
             </child>
@@ -247,7 +251,7 @@ RESERVA</property>
                 <signal name="button-press-event" handler="on_precosemedidas_button_press_event" swapped="no"/>
               </object>
               <packing>
-                <property name="x">868</property>
+                <property name="x">760</property>
                 <property name="y">13</property>
               </packing>
             </child>
@@ -258,12 +262,14 @@ RESERVA</property>
                 <property name="halign">center</property>
                 <property name="label" translatable="yes">ABRIR
 COFRE</property>
+                <property name="justify">center</property>
+                <property name="wrap">True</property>
                 <attributes>
                   <attribute name="scale" value="2"/>
                 </attributes>
               </object>
               <packing>
-                <property name="x">357</property>
+                <property name="x">327</property>
                 <property name="y">250</property>
               </packing>
             </child>
@@ -276,12 +282,13 @@ COFRE</property>
                 <property name="label" translatable="yes">TAMANHOS 
           E
     TARIFAS</property>
+                <property name="justify">center</property>
                 <attributes>
                   <attribute name="scale" value="2"/>
                 </attributes>
               </object>
               <packing>
-                <property name="x">900</property>
+                <property name="x">800</property>
                 <property name="y">250</property>
               </packing>
             </child>

@@ -21,6 +21,7 @@ from select_cabinet import SelectCabinet
 
 class RaspControl(object):
     def __init__(self):
+        self.language = "pt_BR"
         self.gtk_style()
         self.builder = Gtk.Builder()
         self.builder.add_from_file("ui/coolbag_safe.glade")
@@ -31,6 +32,10 @@ class RaspControl(object):
         self.main_window = self.builder.get_object("mainwindow")
         self.label_horario = self.builder.get_object("label_horario")
         self.label_data = self.builder.get_object("label_data")
+        self.btn_flag_br = self.builder.get_object("btn_flag_br")
+        self.btn_flag_usa = self.builder.get_object("btn_flag_usa")
+        self.btn_flag_br.connect("clicked", self.on_change_language_br)
+        self.btn_flag_usa.connect("clicked", self.on_change_language_usa)
         GLib.timeout_add(1000, self.hora_certa)
         self.main_window.fullscreen()
         self.main_window.show()
@@ -44,7 +49,12 @@ class RaspControl(object):
 
 
     def on_btn_principal_clicked(self, event):
-        SelectCabinet()
+        SelectCabinet(self.language)
+    def on_change_language_br(self, event):
+        self.language = "pt_BR"
+    
+    def on_change_language_usa(self, event):
+        self.language = "en_US"
     
     def gtk_style(self):
         css = b"""

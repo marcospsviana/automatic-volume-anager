@@ -5,32 +5,32 @@
   <object class="GtkImage" id="image_br_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/brasilpq.svg</property>
+    <property name="pixbuf">..\static\images\brasilpq.svg</property>
   </object>
   <object class="GtkImage" id="image_cofre">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/cadeadosvg_clean.svg</property>
+    <property name="pixbuf">..\static\images\cadeadosvg_clean.svg</property>
   </object>
   <object class="GtkImage" id="image_concluir_reserva">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/cartao_clean.svg</property>
+    <property name="pixbuf">..\static\images\cartao_clean.svg</property>
   </object>
   <object class="GtkImage" id="image_iniciar_reserva">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/inicio_reserva_clean.svg</property>
+    <property name="pixbuf">..\static\images\inicio_reserva_clean.svg</property>
   </object>
   <object class="GtkImage" id="image_precos_medidas">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/precosmedidas_clean.svg</property>
+    <property name="pixbuf">..\static\images\precosmedidas_clean.svg</property>
   </object>
   <object class="GtkImage" id="image_usa_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/usa.svg</property>
+    <property name="pixbuf">..\static\images\usa.svg</property>
   </object>
   <object class="GtkWindow" id="window_select">
     <property name="name">window</property>
@@ -112,7 +112,7 @@
                 <property name="spacing">5</property>
                 <property name="homogeneous">True</property>
                 <child>
-                  <object class="GtkButton" id="btn_usa">
+                  <object class="GtkButton" id="btn_flag_usa">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -128,7 +128,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="btn_br">
+                  <object class="GtkButton" id="btn_flag_br">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -198,6 +198,7 @@
                 <property name="halign">center</property>
                 <property name="label" translatable="yes"> INICIAR
 RESERVA</property>
+                <property name="justify">center</property>
                 <attributes>
                   <attribute name="scale" value="2"/>
                 </attributes>
@@ -214,6 +215,7 @@ RESERVA</property>
                 <property name="halign">center</property>
                 <property name="label" translatable="yes">CONCLUIR
  RESERVA</property>
+                <property name="justify">center</property>
                 <attributes>
                   <attribute name="scale" value="2"/>
                 </attributes>
@@ -258,6 +260,7 @@ RESERVA</property>
                 <property name="halign">center</property>
                 <property name="label" translatable="yes">ABRIR
 COFRE</property>
+                <property name="justify">center</property>
                 <attributes>
                   <attribute name="scale" value="2"/>
                 </attributes>
@@ -276,6 +279,7 @@ COFRE</property>
                 <property name="label" translatable="yes">TAMANHOS 
           E
     TARIFAS</property>
+                <property name="justify">center</property>
                 <attributes>
                   <attribute name="scale" value="2"/>
                 </attributes>
