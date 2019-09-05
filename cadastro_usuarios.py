@@ -282,6 +282,11 @@ class CadastroUsuarios(object):
             self.btn_limpar_minutos.set_label("LIMPAR")
             self.btn_limpar_nome.set_label("LIMPAR")
             self.btn_limpar_quantidade_diaria.set_label("LIMPAR")
+            self.btn_confirmar_entrada_dados.set_label("CONFIRMAR")
+            self.btn_confirmar_entrada_numero.set_label("CONFIRMAR")
+            self.btn_retornar_entrada_dados.set_label("RETORNAR TELA ANTERIOR")
+            self.btn_retornar_entrada_numeros.set_label("RETORNAR TELA ANTERIOR")
+            
         elif self.language == "en_US":
             self.label_nome.set_text("NAME")
             self.label_telefone.set_text("PHONE")
@@ -291,6 +296,10 @@ class CadastroUsuarios(object):
             self.label_valor_da_locacao.set_text("RENTAL VALUE R$")
             self.btn_confirmar.set_label("CONFIRM")
             self.btn_retornar.set_label("RETURN TO THE PREVIOUS SCREEN")
+            self.btn_confirmar_entrada_dados.set_label("CONFIRM")
+            self.btn_confirmar_entrada_numero.set_label("CONFIRM")
+            self.btn_retornar_entrada_dados.set_label("RETURN TO THE PREVIOUS SCREEN")
+            self.btn_retornar_entrada_numeros.set_label("RETURN TO THE PREVIOUS SCREEN")
             self.btn_limpar_celular.set_label("CLEAR")
             self.btn_limpar_email.set_label("CLEAR")
             self.btn_limpar_horas.set_label("CLEAR")

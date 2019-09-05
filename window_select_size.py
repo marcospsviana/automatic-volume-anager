@@ -2,6 +2,7 @@ import gi
 gi.require_versions({'Gtk': '3.0', 'GLib': '2.0', 'Gio': '2.0'})
 from gi.repository import Gtk, Gdk, GLib
 from window_op_hora_diaria import OpcaoHoraDiaria
+from tamanhos_tarifas import TamanhosTarifas
 
 class SelectSize(object):
     def __init__(self, arg):
@@ -37,6 +38,7 @@ class SelectSize(object):
         self.btn_retornar = self.builder.get_object("btn_retornar")
         self.btn_retornar.connect("button_press_event", self.on_btn_retornar_button_press_event)
         self.btn_confirmar = self.builder.get_object("btn_confirmar")
+        self.btn_tamanhos_tarifas = self.builder.get_object("btn_tamanhos_tarifas")
 
         self.btn_usa = self.builder.get_object("btn_usa")
         self.btn_br = self.builder.get_object("btn_br")
@@ -73,13 +75,18 @@ class SelectSize(object):
             self.label_malasx2.set_text("IDEAL PARA")
             self.label_mochilasx2.set_text("IDEAL PARA")
             self.label_cameraenotebook.set_text("IDEAL PARA")
-            
+            self.btn_confirmar.set_label("CONFIRMAR")
+            self.btn_retornar.set_label("RETORNAR TELA ANTERIOR")
+            self.btn_tamanhos_tarifas.set_label("TAMANHOS E TARIFAS")
+
         elif self.language == "en_US":
             self.label_malasx4.set_text("IDEAL FOR")
             self.label_malasx2.set_text("IDEAL FOR")
             self.label_mochilasx2.set_text("IDEAL FOR")
             self.label_cameraenotebook.set_text("IDEAL FOR")
-            
+            self.btn_confirmar.set_label("CONFIRM")
+            self.btn_retornar.set_label("RETURN TO THE PREVIOUS SCREEN")
+            self.btn_tamanhos_tarifas.set_label("SIZES AND RATES")
        
 
         self.window_select_size.fullscreen()
@@ -145,7 +152,7 @@ class SelectSize(object):
     
     
     def on_btn_tamanhos_tarifas_button_press_event(self, widget, event):
-        self.window_tamanhos_tarifas.show()
+        TamanhosTarifas(self.language)
     
     def on_change_language_br(self, event):
         self.language = "pt_BR"
@@ -153,6 +160,8 @@ class SelectSize(object):
         self.label_malasx2.set_text("IDEAL PARA")
         self.label_mochilasx2.set_text("IDEAL PARA")
         self.label_cameraenotebook.set_text("IDEAL PARA")
+        self.btn_retornar.set_label("RETORNAR TELA ANTERIOR")
+        self.btn_tamanhos_tarifas.set_label("TAMANHOS E TARIFAS")
         
     
     def on_change_language_usa(self, event):
@@ -161,7 +170,8 @@ class SelectSize(object):
         self.label_malasx2.set_text("IDEAL FOR")
         self.label_mochilasx2.set_text("IDEAL FOR")
         self.label_cameraenotebook.set_text("IDEAL FOR")
-        
+        self.btn_retornar.set_label("RETURN TO THE PREVIOUS SCREEN")
+        self.btn_tamanhos_tarifas.set_label("SIZES AND RATES")
     
     
 

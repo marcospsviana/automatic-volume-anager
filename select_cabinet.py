@@ -6,6 +6,7 @@ import time
 from gi.repository import GLib 
 
 from window_select_size import SelectSize
+from tamanhos_tarifas import TamanhosTarifas
 from login import Login
 
 class SelectCabinet(object):
@@ -94,7 +95,6 @@ class SelectCabinet(object):
         self.select_cabinet.hide()
         Login("encerrar", self.language)
     def on_precosemedidas_button_press_event(self, widget, event):
-        from tamanhos_tafiras import TamanhosTarifas
         TamanhosTarifas(self.language)
         self.select_cabinet.hide()
     

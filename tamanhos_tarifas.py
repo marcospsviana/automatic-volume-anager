@@ -3,6 +3,7 @@ gi.require_versions({'Gtk': '3.0', 'GLib': '2.0', 'Gio': '2.0'})
 from gi.repository import Gtk, Gdk, GLib
 from window_op_hora_diaria import OpcaoHoraDiaria
 
+
 class TamanhosTarifas(object):
     def __init__(self, arg):
         self.language = arg
@@ -28,6 +29,7 @@ class TamanhosTarifas(object):
         # =============== BOTOES ====================
         self.window_tamanhos_tarifas = self.builder.get_object("window_tamanhos_tarifas")
         self.btn_retornar_tarifas = self.builder.get_object("btn_retornar_tarifas")
+        self.btn_retornar_tarifas.connect("button_press_event", self.on_btn_retornar_tarifas_button_press_event)
         self.btn_confirmar_tarifas = self.builder.get_object("btn_confirmar_tarifas")
         self.btn_confirmar_tarifas.connect("button_press_event", self.on_btn_confirmar_button_press_event)
         self.btn_malasx4_tarifas = self.builder.get_object("btn_malasx4_tarifas")
@@ -61,12 +63,16 @@ class TamanhosTarifas(object):
             self.label_tamanhos_tarifas_mochilasx2.set_text("IDEAL PARA")
             self.label_tamanhos_tarifas_cameraenotebook.set_text("IDEAL PARA")
             self.label_titulo_tamanhos_tarifas.set_text("TAMANHOS E TARIFAS")
+            self.btn_retornar_tarifas.set_label("RETORNAR TELA ANTERIOR")
+            self.btn_confirmar_tarifas.set_label("CONFIRMAR")
         elif self.language == "en_US":
             self.label_tamanhos_tarifas_malasx4.set_text("IDEAL FOR")
             self.label_tamanhos_tarifas_malasx2.set_text("IDEAL FOR")
             self.label_tamanhos_tarifas_mochilasx2.set_text("IDEAL FOR")
             self.label_tamanhos_tarifas_cameraenotebook.set_text("IDEAL FOR")
             self.label_titulo_tamanhos_tarifas.set_text("SIZES AND RATES")
+            self.btn_retornar_tarifas.set_label("RETURN TO THE PREVIOUS SCREEN")
+            self.btn_confirmar_tarifas.set_label("CONFIRM")
        
         
 
