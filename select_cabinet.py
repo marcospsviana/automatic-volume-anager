@@ -24,6 +24,9 @@ class SelectCabinet(object):
         )
         self.select_cabinet = self.builder.get_object("window_select")
         self.btn_reservar = self.builder.get_object("btn_reservar")
+        self.btn_abrir = self.builder.get_object("btn_abrir")
+        self.btn_concluir = self.builder.get_object("btn_concluir")
+        self.btn_medidas = self.builder.get_object("btn_medidas")
         self.label_horario = self.builder.get_object("label_horario")
         self.label_data = self.builder.get_object("label_data")
         self.btn_flag_br = self.builder.get_object("btn_flag_br")
@@ -34,13 +37,17 @@ class SelectCabinet(object):
         self.label_concluir_reserva = self.builder.get_object("label_concluir_reserva")
         self.label_abrir_cofre = self.builder.get_object("label_abrir_cofre")
         self.label_tamanhos_tafifas = self.builder.get_object("label_tamanhos_tafifas")
+        self.start_reservation = Gtk.Image()
+        self.iniciar_reserva = Gtk.Image()
+        self.start_reservation.set_from_file("static/images/start_reservation.svg")
+        self.iniciar_reserva.set_from_file("static/images/inicio_reserva.svg")
         if self.language == "pt_BR":
-            self.label_abrir_cofre.set_text("ABRIR\n COFRE")
+            self.btn_reservar.set_image(self.iniciar_reserva)
             self.label_concluir_reserva.set_text("CONCLUIR\n RESERVA")
             self.label_iniciar_reserva.set_text("INICIAR\n RESERVA")
             self.label_tamanhos_tafifas.set_text("TAMANHOS\n E\n TARIFAS")
         elif self.language == "en_US":
-            self.label_abrir_cofre.set_text("OPEN\n SAFE")
+            self.btn_reservar.set_image(self.start_reservation)
             self.label_concluir_reserva.set_text("COMPLETE\n RESERVATON")
             self.label_iniciar_reserva.set_text("START\n RESERVATION")
             self.label_tamanhos_tafifas.set_text("SIZES\n AND\n RATES")
@@ -78,14 +85,14 @@ class SelectCabinet(object):
         self.language = "pt_BR"
         self.label_abrir_cofre.set_text("ABRIR\n COFRE")
         self.label_concluir_reserva.set_text("CONCLUIR\n RESERVA")
-        self.label_iniciar_reserva.set_text("INICIAR\n RESERVA")
+        self.btn_reservar.set_image(self.iniciar_reserva)
         self.label_tamanhos_tafifas.set_text("TAMANHOS\n E\n TARIFAS")
     
     def on_change_language_usa(self, event):
         self.language = "en_US"
         self.label_abrir_cofre.set_text("OPEN\n SAFE")
         self.label_concluir_reserva.set_text("COMPLETE\n RESERVATON")
-        self.label_iniciar_reserva.set_text("START\n RESERVATION")
+        self.btn_reservar.set_image(self.start_reservation)
         self.label_tamanhos_tafifas.set_text("SIZES\n AND\n RATES")
         
         

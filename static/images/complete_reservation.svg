@@ -14,11 +14,11 @@
    height="149.75084mm"
    viewBox="0 0 58.127094 149.75084"
    version="1.1"
-   id="svg8"
+   id="svg27592"
    inkscape:version="0.92.4 5da689c313, 2019-01-14"
-   sodipodi:docname="cartao.svg">
+   sodipodi:docname="complete_reservation.svg">
   <defs
-     id="defs2" />
+     id="defs27586" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497476"
-     inkscape:cx="-364.40407"
-     inkscape:cy="121.2037"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="-288.50419"
+     inkscape:cy="331.95413"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -38,14 +38,14 @@
      inkscape:window-y="0"
      inkscape:window-maximized="1" />
   <metadata
-     id="metadata5">
+     id="metadata27589">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -53,11 +53,11 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-66.70602,-102.40663)">
+     transform="translate(-17.8055,-5.9221967)">
     <g
-       id="g27564">
+       id="g32119">
       <g
-         transform="matrix(0.87344506,0,0,1.000581,8.4774557,-0.10299642)"
+         transform="matrix(0.87344506,0,0,1.000581,-40.423064,-96.587425)"
          id="g18371">
         <rect
            style="fill:#ffffff;fill-opacity:1;stroke:#4d4d4d;stroke-width:1.32291687;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
@@ -79,45 +79,45 @@
       <text
          transform="scale(0.99550053,1.0045198)"
          id="text9288"
-         y="173.01849"
-         x="76.723251"
+         y="76.968193"
+         x="27.188017"
          style="font-style:normal;font-weight:normal;font-size:7.80571985px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458326"
          xml:space="preserve"><tspan
            style="stroke-width:0.26458326"
-           y="175.24216"
-           x="76.723251"
+           y="79.191849"
+           x="27.188017"
            id="tspan9286"
            sodipodi:role="line" /><tspan
            id="tspan9290"
            style="stroke-width:0.26458326"
-           y="175.24216"
-           x="76.723251"
-           sodipodi:role="line">CONCLUIR </tspan><tspan
+           y="79.191849"
+           x="27.188017"
+           sodipodi:role="line">COMPLETE </tspan><tspan
            id="tspan9294"
            style="stroke-width:0.26458326"
-           y="175.24216"
-           x="76.723251"
+           y="79.191849"
+           x="27.188017"
            sodipodi:role="line">               </tspan></text>
       <text
          transform="scale(0.99550053,1.0045198)"
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:7.80571985px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458326"
-         x="80.185097"
-         y="179.86574"
+         x="21.829386"
+         y="83.815437"
          id="text9306"><tspan
            sodipodi:role="line"
            id="tspan9300"
-           x="80.185097"
-           y="182.0894"
+           x="21.829386"
+           y="86.039093"
            style="stroke-width:0.26458326" /><tspan
            sodipodi:role="line"
-           x="80.185097"
-           y="182.0894"
+           x="21.829386"
+           y="86.039093"
            style="stroke-width:0.26458326"
-           id="tspan9302">RESERVA </tspan><tspan
+           id="tspan9302">RESERVATION </tspan><tspan
            sodipodi:role="line"
-           x="80.185097"
-           y="182.0894"
+           x="21.829386"
+           y="86.039093"
            style="stroke-width:0.26458326"
            id="tspan9304">               </tspan></text>
     </g>
