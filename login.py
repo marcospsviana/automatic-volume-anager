@@ -119,6 +119,7 @@ class Login(Gtk.Window):
         self.space = self.builder.get_object("space")
         #self.btn_delete = self.builder.get_object("DELETE")
         self.btn_confirmar = self.builder.get_object("btn_confirmar")
+        self.btn_cancela = self.builder.get_object("btn_cancela")
         #self.enter = self.builder.get_object("ENTER")
         #self.enter.connect("clicked", self.on_ENTER_clicked)
         self.lbl_time = self.builder.get_object("time")
@@ -139,6 +140,10 @@ class Login(Gtk.Window):
         self.btn_tentar_dialog_senha_incorreta.connect("clicked", self.on_tentar_novamente)
         self.btn_dialog_cancelar_senha_incorreta.connect("clicked", self.on_cancelar_senha_incorreta)
 
+        # ====== LABELS TELA LOGIN ============
+        self.label_email_telefone = self.builder.get_object("label_email_telefone")
+        self.label_senha = self.builder.get_object("label_senha")
+
         
 
         #========== fim elementos do teclado =====================
@@ -146,7 +151,21 @@ class Login(Gtk.Window):
         self.label_entrada_dados = self.builder.get_object("label_entrada_dados")
         self.entry_entrada_dados = self.builder.get_object("entry_entrada_dados")
         self.btn_confirmar_entrada_dados = self.builder.get_object("btn_confirmar_entrada_dados")
-        
+
+        if self.language == "pt_BR":
+            self.label_email_telefone.set_text("EMAIL OU TELEFONE")
+            self.label_senha.set_text("SENHA")
+            self.btn_cancela.set_label("CANCELAR")
+            self.btn_confirmar.set_label("CONFIRMAR")
+            self.btn_confirmar_entrada_dados.set_label("CONFIRMAR")
+            self.btn_dialog_cancelar_senha_incorreta.set_label("CANCELAR")
+        elif self.language == "en_US":
+            self.label_email_telefone.set_text("EMAIL OR PHONE")
+            self.label_senha.set_text("PASSWORD")
+            self.btn_cancela.set_label("CANCEL")
+            self.btn_confirmar.set_label("CONFIRM")
+            self.btn_confirmar_entrada_dados.set_label("CONFIRM")
+            self.btn_dialog_cancelar_senha_incorreta.set_label("CANCEL")        
         
         
         #self.window_login.fullscreen()

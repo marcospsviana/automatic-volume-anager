@@ -94,7 +94,8 @@ class SelectCabinet(object):
         self.select_cabinet.hide()
         Login("encerrar", self.language)
     def on_precosemedidas_button_press_event(self, widget, event):
-        SelectSize(self.language).on_btn_tamanhos_tarifas_button_press_event()
+        from tamanhos_tafiras import TamanhosTarifas
+        TamanhosTarifas(self.language)
         self.select_cabinet.hide()
     
     def on_change_language_br(self, event):

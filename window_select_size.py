@@ -20,7 +20,6 @@ class SelectSize(object):
             "on_btn_confirmar_button_press_event": self.on_btn_confirmar_button_press_event,
             "on_btn_tamanhos_tarifas_button_press_event": self.on_btn_tamanhos_tarifas_button_press_event,
             "on_btn_retornar_button_press_event": self.on_btn_retornar_button_press_event,
-            "on_btn_retornar_tarifas_button_press_event": self.on_btn_retornar_tarifas_button_press_event,
             "on_window_tamanhos_tarifas_button_press_event": self.on_btn_tamanhos_tarifas_button_press_event,
         })
         # janela principal
@@ -68,6 +67,20 @@ class SelectSize(object):
         self.btn_mochilasx2_tarifas.connect("toggled", self.on_btn_mochilasx2_toggled)
         self.btn_cameraenotebook_tarifas = self.builder.get_object("btn_cameraenotebook_tarifas")
         self.btn_cameraenotebook_tarifas.connect("toggled", self.on_btn_cameraenotebook_toggled)
+
+        if self.language == "pt_BR":
+            self.label_malasx4.set_text("IDEAL PARA")
+            self.label_malasx2.set_text("IDEAL PARA")
+            self.label_mochilasx2.set_text("IDEAL PARA")
+            self.label_cameraenotebook.set_text("IDEAL PARA")
+            
+        elif self.language == "en_US":
+            self.label_malasx4.set_text("IDEAL FOR")
+            self.label_malasx2.set_text("IDEAL FOR")
+            self.label_mochilasx2.set_text("IDEAL FOR")
+            self.label_cameraenotebook.set_text("IDEAL FOR")
+            
+       
 
         self.window_select_size.fullscreen()
         self.window_select_size.show()

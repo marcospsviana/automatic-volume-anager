@@ -53,12 +53,25 @@ class TamanhosTarifas(object):
         self.label_tamanhos_tarifas_malasx2 = self.builder.get_object("label_tamanhos_tarifas_malasx2")
         self.label_tamanhos_tarifas_mochilasx2 = self.builder.get_object("label_tamanhos_tarifas_mochilasx2")
         self.label_tamanhos_tarifas_cameraenotebook = self.builder.get_object("label_tamanhos_tarifas_cameraenotebook")
+        self.label_titulo_tamanhos_tarifas = self.builder.get_object("label_titulo_tamanhos_tarifas")
         # ============== FIM LABELS =================
+        if self.language == "pt_BR":
+            self.label_tamanhos_tarifas_malasx4.set_text("IDEAL PARA")
+            self.label_tamanhos_tarifas_malasx2.set_text("IDEAL PARA")
+            self.label_tamanhos_tarifas_mochilasx2.set_text("IDEAL PARA")
+            self.label_tamanhos_tarifas_cameraenotebook.set_text("IDEAL PARA")
+            self.label_titulo_tamanhos_tarifas.set_text("TAMANHOS E TARIFAS")
+        elif self.language == "en_US":
+            self.label_tamanhos_tarifas_malasx4.set_text("IDEAL FOR")
+            self.label_tamanhos_tarifas_malasx2.set_text("IDEAL FOR")
+            self.label_tamanhos_tarifas_mochilasx2.set_text("IDEAL FOR")
+            self.label_tamanhos_tarifas_cameraenotebook.set_text("IDEAL FOR")
+            self.label_titulo_tamanhos_tarifas.set_text("SIZES AND RATES")
        
         
 
-        self.window_select_size.fullscreen()
-        self.window_select_size.show()
+        self.window_tamanhos_tarifas.fullscreen()
+        self.window_tamanhos_tarifas.show()
     
        
     def on_btn_malasx4_toggled(self, widget):
