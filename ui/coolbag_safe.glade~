@@ -62,7 +62,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkGrid">
+              <object class="GtkGrid" id="grid_flags">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_left">15</property>

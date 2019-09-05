@@ -5,17 +5,17 @@
   <object class="GtkImage" id="image_flag_br">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">..\static\images\brasilpq.svg</property>
+    <property name="pixbuf">../static/images/brasilpq.svg</property>
   </object>
   <object class="GtkImage" id="image_flag_usa">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">..\static\images\usa.svg</property>
+    <property name="pixbuf">../static/images/usa.svg</property>
   </object>
   <object class="GtkImage" id="principal_image">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">..\static\images\coolbag_inicial.svg</property>
+    <property name="pixbuf">../static/images/coolbag_inicial.svg</property>
   </object>
   <object class="GtkWindow" id="mainwindow">
     <property name="name">window</property>

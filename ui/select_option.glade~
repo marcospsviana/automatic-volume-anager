@@ -199,7 +199,6 @@
                 <property name="label" translatable="yes"> INICIAR
 RESERVA</property>
                 <property name="justify">center</property>
-                <property name="wrap">True</property>
                 <attributes>
                   <attribute name="scale" value="2"/>
                 </attributes>
@@ -217,7 +216,6 @@ RESERVA</property>
                 <property name="label" translatable="yes">CONCLUIR
  RESERVA</property>
                 <property name="justify">center</property>
-                <property name="wrap">True</property>
                 <attributes>
                   <attribute name="scale" value="2"/>
                 </attributes>
@@ -263,7 +261,6 @@ RESERVA</property>
                 <property name="label" translatable="yes">ABRIR
 COFRE</property>
                 <property name="justify">center</property>
-                <property name="wrap">True</property>
                 <attributes>
                   <attribute name="scale" value="2"/>
                 </attributes>

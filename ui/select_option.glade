@@ -5,32 +5,32 @@
   <object class="GtkImage" id="image_br_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">..\static\images\brasilpq.svg</property>
+    <property name="pixbuf">../static/images/brasilpq.svg</property>
   </object>
   <object class="GtkImage" id="image_cofre">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">..\static\images\cadeadosvg_clean.svg</property>
+    <property name="pixbuf">../static/images/cadeadosvg_clean.svg</property>
   </object>
   <object class="GtkImage" id="image_concluir_reserva">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">..\static\images\cartao_clean.svg</property>
+    <property name="pixbuf">../static/images/cartao_clean.svg</property>
   </object>
   <object class="GtkImage" id="image_iniciar_reserva">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">..\static\images\inicio_reserva_clean.svg</property>
+    <property name="pixbuf">../static/images/inicio_reserva_clean.svg</property>
   </object>
   <object class="GtkImage" id="image_precos_medidas">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">..\static\images\precosmedidas_clean.svg</property>
+    <property name="pixbuf">../static/images/precosmedidas_clean.svg</property>
   </object>
   <object class="GtkImage" id="image_usa_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">..\static\images\usa.svg</property>
+    <property name="pixbuf">../static/images/usa.svg</property>
   </object>
   <object class="GtkWindow" id="window_select">
     <property name="name">window</property>
