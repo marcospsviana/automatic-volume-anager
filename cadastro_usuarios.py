@@ -13,8 +13,10 @@ class CadastroUsuarios(object):
         print(teste)
         self.tempo_locacao = args[0]
         self.classe = args[1][0]
+        self.language = args[2]
         print(self.classe)
         print(self.tempo_locacao)
+        print(self.language)
         self.entry = ""
         self.dia = self.hora = self.minuto = 0
         self.builder = Gtk.Builder()
@@ -50,11 +52,12 @@ class CadastroUsuarios(object):
 
         self.label_nome = self.builder.get_object("label_nome")
         self.label_email = self.builder.get_object("label_email")
-        self.label_telefone = self.builder.get_object("label_telefone")
+        self.label_telefone = self.builder.get_object("label_celular")
         self.label_quantidade_diaria = self.builder.get_object("label_quantidade_diaria")
         self.label_quantidade_horas = self.builder.get_object("label_quantidade_horas")
         self.label_quantidade_minutos = self.builder.get_object("label_quantidade_minutos")
         self.label_total = self.builder.get_object("label_total")
+        self.label_valor_da_locacao = self.builder.get_object("label_valor_da_locacao")
         " ----------   LABEL ENTRADA_DADOS --------------"
         self.label_entrada_dados = self.builder.get_object("label_entrada_dados")
 
@@ -263,6 +266,39 @@ class CadastroUsuarios(object):
             self.label_quantidade_diaria.hide()
             self.entry_quantidade_diaria.hide()
             self.btn_limpar_quantidade_diaria.hide()
+        
+        if self.language == "pt_BR":
+            self.label_nome.set_text("NOME")
+            self.label_telefone.set_text("CELULAR")
+            self.label_quantidade_diaria.set_text("QUANTIDADE DIÁRIA") #daily amount
+            self.label_quantidade_horas.set_text("QUANTIDADE DE HORAS") #quantity of hours
+            self.label_quantidade_minutos.set_text("QUANTIDADE DE MINUTOS") #quantity of minutes
+            self.label_valor_da_locacao.set_text("VALOR DA LOCAÇÃO R$")
+            self.btn_confirmar.set_label("CONFIRMAR")
+            self.btn_retornar.set_label("RETORNAR TELA ANTERIOR")
+            self.btn_limpar_celular.set_label("LIMPAR")
+            self.btn_limpar_email.set_label("LIMPAR")
+            self.btn_limpar_horas.set_label("LIMPAR")
+            self.btn_limpar_minutos.set_label("LIMPAR")
+            self.btn_limpar_nome.set_label("LIMPAR")
+            self.btn_limpar_quantidade_diaria.set_label("LIMPAR")
+        elif self.language == "en_US":
+            self.label_nome.set_text("NAME")
+            self.label_telefone.set_text("PHONE")
+            self.label_quantidade_diaria.set_text("DAILY AMOUNT") 
+            self.label_quantidade_horas.set_text("QUANTITY OF HOURS") 
+            self.label_quantidade_minutos.set_text("QUANTITY OF MINUTES")
+            self.label_valor_da_locacao.set_text("RENTAL VALUE R$")
+            self.btn_confirmar.set_label("CONFIRM")
+            self.btn_retornar.set_label("RETURN TO THE PREVIOUS SCREEN")
+            self.btn_limpar_celular.set_label("CLEAR")
+            self.btn_limpar_email.set_label("CLEAR")
+            self.btn_limpar_horas.set_label("CLEAR")
+            self.btn_limpar_minutos.set_label("CLEAR")
+            self.btn_limpar_nome.set_label("CLEAR")
+            self.btn_limpar_quantidade_diaria.set_label("CLEAR")
+
+         
 
         
         self.window_cadastro_usuario.fullscreen()

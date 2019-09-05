@@ -247,7 +247,6 @@ COFRE</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
-                    <property name="image">image_iniciar_reserva</property>
                     <property name="always_show_image">True</property>
                     <signal name="button-press-event" handler="on_reservar_button_press_event" swapped="no"/>
                   </object>

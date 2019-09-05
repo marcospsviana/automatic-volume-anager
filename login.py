@@ -8,6 +8,8 @@ from controllers import Management
 class Login(Gtk.Window):
     def __init__(self, *args):
         self.opcao = args[0]
+        self.language = args[1]
+        print("language login",self.language)
         print(self.opcao)
         #self.gtk_style()    
         self.screen = Gdk.Screen.get_default()

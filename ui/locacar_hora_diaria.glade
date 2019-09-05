@@ -30,6 +30,7 @@
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
     <property name="destroy_with_parent">True</property>
+    <property name="decorated">False</property>
     <property name="gravity">north</property>
     <child>
       <placeholder/>
@@ -209,7 +210,7 @@
             <property name="can_focus">False</property>
             <property name="spacing">8</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_por_hora">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">POR HORA</property>
@@ -225,7 +226,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_por_diaria">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">POR DIÁRIA</property>
@@ -263,10 +264,13 @@
           <object class="GtkButton" id="btn_tela_hora_diaria">
             <property name="label" translatable="yes">RETORNAR TELA ANTERIOR</property>
             <property name="name">btn_retornar</property>
+            <property name="width_request">400</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="halign">center</property>
+            <property name="valign">center</property>
+            <property name="margin_bottom">10</property>
             <signal name="button-press-event" handler="on_btn_tela_hora_diaria_button_press_event" swapped="no"/>
           </object>
           <packing>

@@ -307,7 +307,7 @@
             <child>
               <object class="GtkEntry" id="entry_celular">
                 <property name="name">entry</property>
-                <property name="width_request">200</property>
+                <property name="width_request">400</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">False</property>
@@ -1511,6 +1511,7 @@
             <child>
               <object class="GtkEntry" id="entry_entrada_numeros">
                 <property name="name">entry</property>
+                <property name="width_request">350</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <signal name="button-press-event" handler="on_entry_entrada_numeros_button_press_event" swapped="no"/>

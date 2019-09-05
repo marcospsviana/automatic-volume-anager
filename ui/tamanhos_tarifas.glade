@@ -209,7 +209,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="label_malasx4">
+                      <object class="GtkLabel" id="label_tamanhos_tarifas_malasx4">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">IDEAL PARA</property>
@@ -254,7 +254,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="label_malasx2">
+                      <object class="GtkLabel" id="label_tamanhos_tarifas_malasx2">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">IDEAL PARA</property>
@@ -301,7 +301,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="label_mochilasx2">
+                      <object class="GtkLabel" id="label_tamanhos_tarifas_mochilasx2">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="margin_bottom">46</property>
@@ -335,7 +335,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="label_cameraenotebook">
+                      <object class="GtkLabel" id="label_tamanhos_tarifas_cameraenotebook">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">IDEAL PARA</property>

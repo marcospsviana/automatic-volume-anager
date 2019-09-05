@@ -10,7 +10,7 @@
   <object class="GtkImage" id="image_cofre">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/cadeadosvg.svg</property>
+    <property name="pixbuf">../static/images/cadeado.svg</property>
   </object>
   <object class="GtkImage" id="image_concluir_reserva">
     <property name="visible">True</property>
@@ -163,76 +163,6 @@
             <property name="can_focus">False</property>
             <property name="halign">center</property>
             <property name="margin_top">30</property>
-            <child>
-              <object class="GtkLabel" id="label_iniciar_reserva">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">center</property>
-                <property name="label" translatable="yes"> INICIAR
-RESERVA</property>
-                <property name="justify">center</property>
-                <attributes>
-                  <attribute name="scale" value="2"/>
-                </attributes>
-              </object>
-              <packing>
-                <property name="x">70</property>
-                <property name="y">250</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label_concluir_reserva">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">center</property>
-                <property name="label" translatable="yes">CONCLUIR
- RESERVA</property>
-                <property name="justify">center</property>
-                <attributes>
-                  <attribute name="scale" value="2"/>
-                </attributes>
-              </object>
-              <packing>
-                <property name="x">560</property>
-                <property name="y">250</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label_abrir_cofre">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">center</property>
-                <property name="label" translatable="yes">ABRIR
-COFRE</property>
-                <property name="justify">center</property>
-                <attributes>
-                  <attribute name="scale" value="2"/>
-                </attributes>
-              </object>
-              <packing>
-                <property name="x">327</property>
-                <property name="y">250</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label_tamanhos_tafifas">
-                <property name="name">label_op</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">center</property>
-                <property name="label" translatable="yes">TAMANHOS 
-          E
-    TARIFAS</property>
-                <property name="justify">center</property>
-                <attributes>
-                  <attribute name="scale" value="2"/>
-                </attributes>
-              </object>
-              <packing>
-                <property name="x">800</property>
-                <property name="y">250</property>
-              </packing>
-            </child>
             <child>
               <object class="GtkGrid">
                 <property name="width_request">100</property>
