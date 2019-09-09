@@ -7,7 +7,8 @@ from gi.repository import GLib
 
 from window_select_size import SelectSize
 from tamanhos_tarifas import TamanhosTarifas
-from login import Login
+#from login import Login
+from window_login import WindowLogin
 
 class SelectCabinet(object):
     def __init__(self, arg):
@@ -89,11 +90,11 @@ class SelectCabinet(object):
     
     def on_abrir_cofre_button_press_event(self, widget, event):
         self.select_cabinet.hide()
-        Login("abrir", self.language)
+        WindowLogin("abrir", self.language)
     
     def on_btn_concluir_button_press_event(self, widget, event):
         self.select_cabinet.hide()
-        Login("encerrar", self.language)
+        WindowLogin("encerrar", self.language)
     def on_precosemedidas_button_press_event(self, widget, event):
         TamanhosTarifas(self.language)
         self.select_cabinet.hide()
