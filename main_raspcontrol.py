@@ -34,9 +34,11 @@ class RaspControl(object):
         self.label_data = self.builder.get_object("label_data")
         self.btn_flag_br = self.builder.get_object("btn_flag_br")
         self.btn_flag_usa = self.builder.get_object("btn_flag_usa")
+        self.spinner_coolbag = self.builder.get_object("spinner_coolbag")
         self.btn_flag_br.connect("clicked", self.on_change_language_br)
         self.btn_flag_usa.connect("clicked", self.on_change_language_usa)
         GLib.timeout_add(1000, self.hora_certa)
+        self.spinner_coolbag.start()
         self.main_window.fullscreen()
         self.main_window.show()
     
