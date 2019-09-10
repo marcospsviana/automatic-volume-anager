@@ -65,5 +65,5 @@ class Armario:
         #__nome = nome
         __senha = senha
         __bk = Banco()
-        result = __bk.abrir_armario(__senha, __nome)
+        result = __bk.abrir_armario(__senha)
         return result

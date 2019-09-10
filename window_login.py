@@ -46,7 +46,7 @@ class WindowLogin(Gtk.Window):
         self.message = ''
         senha = self.entry.get_text()
         if self.opcao == "abrir":
-            result = self.manager.abre_armario(senha, nome)
+            result = self.manager.abre_armario(senha)
         elif self.opcao == "encerrar":
             result = self.manager.liberar_armarios(senha)
         print('result login', result)

@@ -20,16 +20,21 @@ class Banco(object):
             user='root', password='m1cr0@t805i', database='coolbag')
         self.__c = self.__conn.cursor(buffered=True)
 
-        self.__c.execute('''CREATE TABLE IF NOT EXISTS `tb_armario` (
-        `id_armario` int(30) NOT NULL AUTO_INCREMENT,
-        `classe` tinytext COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-        `local` tinytext COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-        `terminal` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-        `estado` tinytext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-        `nivel` tinytext COLLATE utf8mb4_unicode_ci DEFAULT '',
-        `porta` tinytext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-        PRIMARY KEY (`id_armario`)
-        ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;'''
+        self.__c.execute('''CREATE TABLE IF NOT EXISTS`tb_armario` (
+	       `id_armario` INT(30) NOT NULL AUTO_INCREMENT,
+	       `classe` TINYTEXT NOT NULL DEFAULT '' COLLATE 'utf8mb4_unicode_ci',
+	       `local` TINYTEXT NOT NULL DEFAULT '' COLLATE 'utf8mb4_unicode_ci',
+	       `terminal` VARCHAR(50) NOT NULL DEFAULT '' COLLATE 'utf8mb4_unicode_ci',
+	       `estado` TINYTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	       `nivel` TINYTEXT NULL DEFAULT '' COLLATE 'utf8mb4_unicode_ci',
+	       `numeracao` TINYTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	       `porta` TINYTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	       PRIMARY KEY (`id_armario`)
+           )
+           COLLATE='utf8mb4_unicode_ci'
+           ENGINE=InnoDB
+           AUTO_INCREMENT=11
+           '''
                        )
         self.__c.execute(''' CREATE TABLE IF NOT EXISTS `tb_usuario` (
 	`id_usuario` INT(10)  AUTO_INCREMENT,
@@ -462,6 +467,7 @@ ENGINE=InnoDB
         hj = datetime.datetime.now()
         hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
         hj = hj + datetime.timedelta(minutes=+10)
+        
         self.__senha = senha
         self.__id_user = self.select_user(self.__senha)
         if self.__id_user == 'senha incorreta, tente novamente':
@@ -469,6 +475,7 @@ ENGINE=InnoDB
         
         else:
             self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
+            
             print('********** dados locacao **************')
             print(self.__locacao[0][2])
             if (self.__locacao[0][2]) >= hj:
