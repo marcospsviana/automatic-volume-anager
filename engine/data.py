@@ -466,8 +466,8 @@ ENGINE=InnoDB
         self.__senha = senha
         self.__nome = nome
         self.__id_user = self.select_user(self.__nome)
-        if self.__id_user == 'senha, email ou telefone incorretos, tente novamente':
-            return 'senha, email ou telefone incorretos, tente novamente'
+        if self.__id_user == 'senha incorreta, tente novamente':
+            return 'senha incorreta, tente novamente'
         
         else:
             self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
