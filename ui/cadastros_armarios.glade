@@ -31,7 +31,7 @@
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">       Armário       </property>
+                <property name="label" translatable="yes">ARMARIO</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -58,7 +58,7 @@
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">         Nível            </property>
+                <property name="label" translatable="yes">NIVEL</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -106,7 +106,7 @@
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">       Coluna      </property>
+                <property name="label" translatable="yes">COLUNA</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -145,7 +145,7 @@
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">         Terminal           </property>
+                <property name="label" translatable="yes">TERMINAL</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -211,7 +211,7 @@
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Porta</property>
+                <property name="label" translatable="yes">PORTA</property>
                 <property name="justify">fill</property>
               </object>
               <packing>
@@ -267,10 +267,31 @@
               </packing>
             </child>
             <child>
-              <placeholder/>
+              <object class="GtkLabel" id="label_numeracao">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">NUMERACAO </property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">0</property>
+              </packing>
             </child>
             <child>
-              <placeholder/>
+              <object class="GtkComboBoxText" id="combobox_numeracao">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="has_entry">True</property>
+                <child internal-child="entry">
+                  <object class="GtkEntry">
+                    <property name="can_focus">False</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">3</property>
+                <property name="top_attach">0</property>
+              </packing>
             </child>
           </object>
           <packing>

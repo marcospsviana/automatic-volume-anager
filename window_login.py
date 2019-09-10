@@ -18,7 +18,9 @@ class WindowLogin(Gtk.Window):
         self.entrada = ''
         self.alfa = list(string.ascii_lowercase) # alfabeto para gerar o teclado
         self.num = list(map(lambda x: x, range(10))) # números para o teclado numérico
-        #self.builder.connect_signals()
+        self.builder.connect_signals({
+            "on_btn_retornar_entrada_dados_pressed": self.on_btn_retornar_entrada_dados_pressed
+        })
         for alfabet in self.alfa:
             self.alfabet = self.builder.get_object("%s"%(alfabet))
             self.alfabet.connect("clicked", self.on_entry_button_press_event)
@@ -72,6 +74,7 @@ class WindowLogin(Gtk.Window):
     def on_btn_retornar_entrada_dados_pressed(self, event):
         self.entry.set_text("")
         self.window_login.hide()
+        
     
 
 if __name__ == "__main__":

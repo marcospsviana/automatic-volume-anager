@@ -19,16 +19,33 @@ class MainWindowCad():
         self.combo_coluna = builder.get_object("combobox_coluna")
         self.combo_nivel = builder.get_object("combobox_nivel")
         self.combo_terminal = builder.get_object("combobox_terminal")
+        
         self.btn_cadastrar = builder.get_object("btn_cadastrar_armario")
         self.lbl_resultado  = builder.get_object("lbl_resultado")
         self.btn_cadastrar.connect("clicked", self.on_btn_cadastrar_armario_button_press_event)
-        self.window_cad.show()
-
-    def on_btn_cadastrar_armario_button_press_event(self, event):
         CLASSES = ["A", "B", "C", "D"]
         NIVEIS = ["SUPERIOR", "INFERIOR", "SUPERIOR DIREITA", "SUPERIOR ESQUERDA", "INFERIOR DIREITA", "INFERIOR ESQUERDA"]
         COLUNAS = list(map(lambda x: x, range(1,17)))
         TERMINAIS = ["OTHON PALACE HOTEL", "PORTO FUTURO HOTEL"]
+        PORTAS = list(map(lambda x: x, range(1,101)))
+        REGISTROS = []
+        for c in CLASSES:
+            for p in PORTAS:
+                REGISTROS.append(c+str(p))
+        self.registros = Gtk.ListStore(str)
+        for r in REGISTROS:
+            self.registros.append([r])
+        
+        self.combobox_numeracao = builder.get_object("combobox_numeracao")
+        self.combobox_numeracao.set_model(self.registros)
+       
+        #self.combobox_numeracao.connect("changed", self.on_change_combobox_numeracao)
+        self.window_cad.show()
+
+    def on_btn_cadastrar_armario_button_press_event(self, event):
+        
+        
+
         self.classe = CLASSES[self.combo_classe.get_active()]
         self.nivel = NIVEIS[self.combo_nivel.get_active()]
         self.coluna = COLUNAS[self.combo_coluna.get_active()]
@@ -38,6 +55,11 @@ class MainWindowCad():
         result = manager.cad_armarios( self.classe, self.terminal, self.coluna, self.nivel)
         print("reuslt cad armarios", result)
         self.lbl_resultado.set_text(str(result))
+    
+    '''def on_change_combobox_numeracao(self, combo):
+        self.registros = REGISTROS[self.combobox_numeracao.get_active()]'''
+        
+    
 
 
         

@@ -41,11 +41,11 @@ class Locacao(object):
             return result
         
     @classmethod
-    def finalizar_pagamento(self, senha, nome):
+    def finalizar_pagamento(self, senha):
         __bk = Banco()
         __senha = senha
-        __nome = nome
-        result = __bk.finalizar_pagamento(__senha, __nome)
+        #__nome = nome
+        result = __bk.finalizar_pagamento(__senha)
         return result
 
             

@@ -42,27 +42,27 @@ class Armario:
         return classe
     
     @staticmethod
-    def liberar_armario(senha, nome):
+    def liberar_armario(senha):
         __bk = Banco()
         __senha = senha
-        __nome = nome
-        result = __bk.liberar_armario(__senha, __nome)
+        #__nome = nome
+        result = __bk.liberar_armario(__senha)
         return result
     
     @staticmethod
-    def finalizar(senha, nome):
+    def finalizar(senha):
         result = ''
-        __nome = nome
+        #__nome = nome
         __senha = senha
-        print('nome e senha de arm', __senha, __nome)
+        print('nome e senha de arm', __senha)
         __bk = Banco()
-        result = __bk.finalizar( __senha, __nome)
+        result = __bk.finalizar( __senha)
         return result
     
     @staticmethod
-    def abrir_armario(senha, nome):
+    def abrir_armario(senha):
         result = ''
-        __nome = nome
+        #__nome = nome
         __senha = senha
         __bk = Banco()
         result = __bk.abrir_armario(__senha, __nome)

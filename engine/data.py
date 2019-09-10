@@ -175,7 +175,7 @@ ENGINE=InnoDB
             "SELECT id_armario  from tb_armario where classe = '%s' and ESTADO = 'LIVRE' ORDER BY id_armario" % (self.__classe,))
         result = self.__c.fetchall()
         print('-----------localisa-------')
-        print(result[0])
+        print(result)
         print('-----fimlocalisa----')
         if (result == []) or (result == None) or (result == 0):
             return "nao ha armario disponivel"
@@ -186,20 +186,20 @@ ENGINE=InnoDB
         
 
     @staticmethod
-    def select_user(email):
+    def select_user(password):
         __conn = mdb.connect(
             user='root', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
-        __email = email
-        __nome = email
-        print("nome ou mail select user",__email)
+        __password = password
+        
+        print("nome ou mail select user",__password)
         query = ''
-        __c.execute("SELECT id_usuario FROM tb_usuario where email = '"+ __nome +"' or telefone = '"+ __email +"'")
+        __c.execute("SELECT id_usuario FROM tb_locacao where senha = '"+ __password +"'")
         query = __c.fetchall()
         print("##### id usuario ###")
         print(query)
         if query == []:
-            return 'senha, email ou telefone incorretos, tente novamente'
+            return 'senha incorreta, tente novamente'
         else:
             return query
         __conn.close()
@@ -248,7 +248,7 @@ ENGINE=InnoDB
         __conn.close()
 
 
-    def liberar_armario(self, senha, nome):
+    def liberar_armario(self, senha):
         
         result = ''
         id_armario = ''
@@ -258,11 +258,10 @@ ENGINE=InnoDB
         #hj = hj + datetime.timedelta(minutes=+10)
         print("hj", hj)
         self.__senha = senha
-        self.__nome = nome
         print('nome e senha de data', self.__senha, self.__nome)
-        self.__id_user = self.select_user(self.__nome)
-        if self.__id_user == 'senha, email ou telefone incorretos, tente novamente':
-            return 'senha, email ou telefone incorretos, tente novamente'
+        self.__id_user = self.select_user(self.__senha)
+        if self.__id_user == 'senha incorreta, tente novamente':
+            return 'senha incorreta, tente novamente'
         
         else:
             self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
@@ -304,7 +303,7 @@ ENGINE=InnoDB
             self.__c.execute(
                 "DELETE FROM tb_armario where id_armario = %s " % (self.__id))
         else:
-            return "não é possível remover armario, verifique se o mesmo não esta"
+            return "não é possível remover armario, verifique se o mesmo não está em uso"
 
     def cadastrar_armario(self, classe, terminal, coluna, nivel):
 
@@ -344,7 +343,7 @@ ENGINE=InnoDB
         # envia a data limite para calculo de tempo excedente
         self.__cobranca = self.__cobranca(self.result[0][2])
         if self.__cobranca == None:
-            self.liberar_armario
+            self.liberar_armario(self.__senha)
         else:
             return ('tempo excedente',self.__cobranca)
 
@@ -384,7 +383,7 @@ ENGINE=InnoDB
         print ('$$$$$$$ total $$$$ %s' % total)
         return (total )
     
-    def finalizar(self,senha, nome):
+    def finalizar(self,senha):
         
         result = ''
         id_armario = ''
@@ -394,9 +393,9 @@ ENGINE=InnoDB
         hj = hj + datetime.timedelta(minutes=+10)
         
         self.__senha = senha
-        self.__nome = nome
-        print('senha e nome finalizar', self.__senha, self.__nome)
-        self.__id_user = self.select_user(self.__nome)
+        
+        print('senha e nome finalizar', self.__senha)
+        self.__id_user = self.select_user(self.__senha)
         if self.__id_user == 'senha, email ou telefone incorretos, tente novamente':
             return 'senha, email ou telefone incorretos, tente novamente'
         
@@ -455,8 +454,8 @@ ENGINE=InnoDB
         __conn.close()
     
     @classmethod
-    def abrir_armario(self,senha, nome):
-        print('senha data', senha, nome)
+    def abrir_armario(self,senha):
+        print('senha data', senha)
         result = ''
         id_armario = ''
         taxa = 0.15
@@ -464,8 +463,7 @@ ENGINE=InnoDB
         hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
         hj = hj + datetime.timedelta(minutes=+10)
         self.__senha = senha
-        self.__nome = nome
-        self.__id_user = self.select_user(self.__nome)
+        self.__id_user = self.select_user(self.__senha)
         if self.__id_user == 'senha incorreta, tente novamente':
             return 'senha incorreta, tente novamente'
         
@@ -494,12 +492,12 @@ ENGINE=InnoDB
                 print('-------> %s'%tempo)
                 result = self.cobranca_excedente(int(tempo))
                 return result
-    def finalizar_pagamento(self, senha, nome):
+    def finalizar_pagamento(self, senha):
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         __senha = senha
-        __nome = nome
+        #__nome = nome
         #__id_user = self.select_user(__nome)
         #__locacao = self.get_locacao(__senha, __id_user[0])
         __c.execute("DELETE FROM tb_locacao WHERE senha = '%s'"%(__senha))

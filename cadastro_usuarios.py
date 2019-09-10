@@ -1,7 +1,8 @@
 import gi
 gi.require_versions({"Gtk": "3.0","Gio": "2.0"})
 from gi.repository import Gtk, Gdk, Gio, GdkPixbuf, GObject
-from datetime import datetime, date
+from datetime import datetime, date, time
+import string
 from controllers import Management
 import PIL
 from PIL import Image
@@ -17,6 +18,8 @@ class CadastroUsuarios(object):
         print(self.classe)
         print(self.tempo_locacao)
         print(self.language)
+        self.alfa = list(string.ascii_lowercase) # alfabeto para gerar o teclado
+        self.num = list(map(lambda x: x, range(10))) # números para o teclado numérico
         self.entry = ""
         self.dia = self.hora = self.minuto = 0
         self.builder = Gtk.Builder()
@@ -48,6 +51,7 @@ class CadastroUsuarios(object):
         self.window_cadastro_usuario = self.builder.get_object("window_cadastro_usuario")
         self.window_entrada_dados = self.builder.get_object("window_entrada_dados")
         self.window_entrada_numeros = self.builder.get_object("window_entrada_numeros")
+        self.dialog_retorno_cadastro = self.builder.get_object("dialog_retorno_cadastro")
         """ =================LABELS ====================="""
 
         self.label_nome = self.builder.get_object("label_nome")
@@ -58,12 +62,14 @@ class CadastroUsuarios(object):
         self.label_quantidade_minutos = self.builder.get_object("label_quantidade_minutos")
         self.label_total = self.builder.get_object("label_total")
         self.label_valor_da_locacao = self.builder.get_object("label_valor_da_locacao")
+
         " ----------   LABEL ENTRADA_DADOS --------------"
         self.label_entrada_dados = self.builder.get_object("label_entrada_dados")
 
         " ----------   LABEL ENTRADA NUMEROS ------------"
         self.label_entrada_numeros = self.builder.get_object("label_entrada_numeros")
-        
+        " ----------   LABEL DIALOGO RETORNO CADASTRO ---"
+        self.label_retorno_cadastro = self.builder.get_object("label_retorno_cadastro")
         """ ================FIM LABELS==================="""
 
         """ ================= ENTRYS ===================="""
@@ -140,82 +146,21 @@ class CadastroUsuarios(object):
         self.btn_confirmar_entrada_numero.connect("button_press_event", self.on_btn_confirmar_entrada_numero_button_press_event )
         self.btn_retornar_entrada_numeros = self.builder.get_object("btn_retornar_entrada_numeros")
         self.btn_retornar_entrada_numeros.connect("button_press_event", self.on_btn_retornar_entrada_numeros_button_press_event)
+
+        """ =================== BOTÃO DIALOGO RETORNO CADASTRO ===================="""
+        self.btn_ok_dialog_retorno_cadastro = self.builder.get_object("btn_ok_dialog_retorno_cadastro")
+        self.btn_ok_dialog_retorno_cadastro.connect("button_press_event", self.on_btn_ok_dialog_retorno_cadastro_pressed)
         """ ===================GRIDS====================== """
         self.grid_numbers = self.builder.get_object("grid_numbers")
 
         """ ========== adicionando os elementos do teclado ======================= """
-        self.num_1 = self.builder.get_object("num_1")
-        self.num_1.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.num_2 = self.builder.get_object("num_2")
-        self.num_2.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.num_3 = self.builder.get_object("num_3")
-        self.num_3.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.num_4 = self.builder.get_object("num_4")
-        self.num_4.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.num_5 = self.builder.get_object("num_5")
-        self.num_5.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.num_6 = self.builder.get_object("num_6")
-        self.num_6.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.num_7 = self.builder.get_object("num_7")
-        self.num_7.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.num_8 = self.builder.get_object("num_8")
-        self.num_8.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.num_9 = self.builder.get_object("num_9")
-        self.num_9.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.num_0 = self.builder.get_object("num_0")
-        self.num_0.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.a = self.builder.get_object("a")
-        self.a.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.b = self.builder.get_object("b")
-        self.b.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.c = self.builder.get_object("c")
-        self.c.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.d = self.builder.get_object("d")
-        self.d.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.e = self.builder.get_object("e")
-        self.e.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.f = self.builder.get_object("f")
-        self.f.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.g = self.builder.get_object("g")
-        self.g.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.h = self.builder.get_object("h")
-        self.h.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.i = self.builder.get_object("i")
-        self.i.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.j = self.builder.get_object("j")
-        self.j.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.k = self.builder.get_object("k")
-        self.k.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.l = self.builder.get_object("l")
-        self.l.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.m = self.builder.get_object("m")
-        self.m.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.n = self.builder.get_object("n")
-        self.n.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.o = self.builder.get_object("o")
-        self.o.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.p = self.builder.get_object("p")
-        self.p.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.q = self.builder.get_object("q")
-        self.q.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.r = self.builder.get_object("r")
-        self.r.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.s = self.builder.get_object("s")
-        self.s.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.t = self.builder.get_object("t")
-        self.t.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.u = self.builder.get_object("u")
-        self.u.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.v = self.builder.get_object("v")
-        self.v.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.w = self.builder.get_object("w")
-        self.w.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.x = self.builder.get_object("x")
-        self.x.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.y = self.builder.get_object("y")
-        self.y.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        self.z = self.builder.get_object("z")
-        self.z.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        for alfabet in self.alfa:
+            self.alfabet = self.builder.get_object("%s"%(alfabet))
+            self.alfabet.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        for num in self.num:
+            self.number = self.builder.get_object("num_%s"%(num))
+            self.number.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        
         self.btn_espaco = self.builder.get_object("btn_espaco")
         self.btn_espaco.connect("clicked", self.on_entry_entrada_dados_button_press_event)
         self.btn_gmail = self.builder.get_object("btn_gmail")
@@ -224,6 +169,12 @@ class CadastroUsuarios(object):
         self.btn_outlook.connect("clicked", self.on_entry_entrada_dados_button_press_event)
         self.btn_yahoo = self.builder.get_object("btn_yahoo")
         self.btn_yahoo.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.btn_dot = self.builder.get_object("btn_dot")
+        self.btn_dot.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.btn_dash = self.builder.get_object("btn_dash")
+        self.btn_dash.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.btn_under = self.builder.get_object("btn_under")
+        self.btn_under.connect("clicked", self.on_entry_entrada_dados_button_press_event)
         """========== fim elementos do teclado  """
         """ ========= lista combobox ========= """
         #self.cell_renderer = Gtk.CellRendererPixbuf()
@@ -312,6 +263,9 @@ class CadastroUsuarios(object):
         
         self.window_cadastro_usuario.fullscreen()
         self.window_cadastro_usuario.show()
+    def on_btn_ok_dialog_retorno_cadastro_pressed(self, widget, event):
+        self.dialog_retorno_cadastro.hide()
+        self.window_cadastro_usuario.destroy()
 
     def on_btn_confirmar_button_press_event(self, widget, event):
         if self.tempo_locacao == "horas":
@@ -333,9 +287,18 @@ class CadastroUsuarios(object):
         print("result cadastro usuario ", result[0])
         if result[0] == "locacao concluida com sucesso":
             self.window_cadastro_usuario.hide()
+        elif result[0] == "armario da classe escolhida indisponível":
+            if self.language == "pt_BR":
+                self.label_retorno_cadastro.set_text("tamanho de armario\n  escolhido indisponível")
+                self.dialog_retorno_cadastro.show()
+            elif self.language == "en_US":
+                self.label_retorno_cadastro.set_text("chosen cabinet\n size unavailable")
+                self.dialog_retorno_cadastro.show()
+
 
     def on_btn_retornar_button_press_event(self, widget, event):
         self.window_cadastro_usuario.hide()
+        
     
     def on_entry_nome_button_press_event(self, widget, event):
         self.label_entrada_dados.set_text("NOME")

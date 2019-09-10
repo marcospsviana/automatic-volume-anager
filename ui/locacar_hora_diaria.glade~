@@ -270,6 +270,7 @@
             <property name="receives_default">True</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
+            <property name="margin_bottom">10</property>
             <signal name="button-press-event" handler="on_btn_tela_hora_diaria_button_press_event" swapped="no"/>
           </object>
           <packing>

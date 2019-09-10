@@ -35,13 +35,13 @@ class Cobranca(object):
             else:
                 return result
 
-    def finalizar( nome, senha):
+    def finalizar( senha):
         def __init__(self):
             result = ''
             self.__bk = Banco()
-            self.__nome = nome
+            #self.__nome = nome
             self.__senha = senha
-            result = self.__bk.finalizar(self.__nome, self.__senha)
+            result = self.__bk.finalizar(self.__senha)
             return result
 
 if __name__ == "__main__":

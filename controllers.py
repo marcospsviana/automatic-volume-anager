@@ -55,8 +55,8 @@ class Management(object):
 
 
     @staticmethod
-    def liberar_armarios(senha, nome):
-        __nome = nome
+    def liberar_armarios(senha):
+        #__nome = nome
         __senha = senha
         result = arm.liberar_armario(__senha, __nome)
         print('result controllers --->', result)
@@ -76,26 +76,26 @@ class Management(object):
         result = cb.pagamento(self, self.__total)
         return result
     
-    def abre_armario(self, senha, nome):
+    def abre_armario(self, senha):
         result = ''
-        __nome = nome
+        #__nome = nome
         __senha = senha
         
-        result = arm.abrir_armario(__senha, __nome)
+        result = arm.abrir_armario(__senha)
         print("result controllers--->", result)
         return result
-    def finalizar(self, senha, nome):
+    def finalizar(self, senha):
         result = ''
-        __nome = nome
+        #__nome = nome
         __senha = senha
-        print('nome e senha de controllers', __senha, __nome)
-        result = arm.finalizar(__senha, __nome)
+        print('nome e senha de controllers', __senha)
+        result = arm.finalizar(__senha)
         print("finalizar controllers--->", result)
         return result
-    def finalizar_pagamento(self, senha, nome):
+    def finalizar_pagamento(self, senha):
         __senha = senha
-        __nome = nome
-        result = loc.finalizar_pagamento(__senha, __nome)
+        #__nome = nome
+        result = loc.finalizar_pagamento(__senha)
         return result
 
 

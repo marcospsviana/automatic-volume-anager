@@ -157,13 +157,15 @@ class OpcaoHoraDiaria(object):
     def on_btn_loc_hora_button_press_event(self, widget, event):
         tempo_locacao = "horas"
         CadastroUsuarios(tempo_locacao, self.classe, self.language)
+        self.window_hora_diaria.destroy()
     
     def on_btn_loc_diaria_button_press_event(self, widget, event):
         tempo_locacao = "diaria"
         CadastroUsuarios(tempo_locacao, self.classe, self.language)
+        self.window_hora_diaria.destroy()
     
     def on_btn_tela_hora_diaria_button_press_event(self, widget, event):
-        self.window_hora_diaria.hide()
+        self.window_hora_diaria.destroy()
     
     def on_change_language_br(self, event):
         self.language = "pt_BR"
