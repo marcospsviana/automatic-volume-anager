@@ -210,12 +210,15 @@ class CadastroUsuarios(object):
             self.label_quantidade_horas.hide()
             self.label_quantidade_minutos.hide()
             self.entry_minutos.hide()
+            self.entry_minutos.set_text("0")
             self.entry_quantidade_horas.hide()
+            self.entry_quantidade_horas.set_text("0")
             self.btn_limpar_horas.hide()
             self.btn_limpar_minutos.hide()
         elif self.tempo_locacao == "horas":
             self.label_quantidade_diaria.hide()
             self.entry_quantidade_diaria.hide()
+            self.entry_quantidade_diaria.set_text("0")
             self.btn_limpar_quantidade_diaria.hide()
         
         if self.language == "pt_BR":
@@ -257,6 +260,7 @@ class CadastroUsuarios(object):
             self.btn_limpar_minutos.set_label("CLEAR")
             self.btn_limpar_nome.set_label("CLEAR")
             self.btn_limpar_quantidade_diaria.set_label("CLEAR")
+        
 
          
 
@@ -277,9 +281,18 @@ class CadastroUsuarios(object):
         __nome = self.entry_nome.get_text()
         __email = self.entry_email.get_text()
         __telefone = self.entry_celular.get_text()
-        __quantidade_diaria = self.entry_quantidade_diaria.get_text()
-        __quantidade_horas = self.entry_quantidade_horas.get_text()
-        __quantidade_minutos = self.entry_minutos.get_text()
+        if self.entry_quantidade_diaria.get_text() == "":
+            __quantidade_diaria = "0"
+        else:
+            __quantidade_diaria = self.entry_quantidade_diaria.get_text()
+        if self.entry_quantidade_horas.get_text() == "":
+            __quantidade_horas = "0"
+        else:
+            __quantidade_horas = self.entry_quantidade_horas.get_text()
+        if self.entry_minutos.get_text() == "":
+            __quantidade_minutos = "0"
+        else:
+            __quantidade_minutos = self.entry_minutos.get_text()
         print("qtd minutos ", __quantidade_minutos)
         __armario = self.classe
         print("locacao", __quantidade_diaria, __quantidade_horas, __quantidade_minutos)
