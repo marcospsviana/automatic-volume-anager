@@ -112,9 +112,9 @@ ENGINE=InnoDB
         self.__hora = int(hora.replace(".0",""))
         minuto = minuto
         print("minuto---*",minuto)
-        minuto = minuto.replace(".0","")
+        minuto = int(minuto.replace(".0",""))
         
-        self.__minuto = int(minuto)
+        self.__minuto = minuto
         self.__armario = str(armario)
         self.__nome = str(nome)
         self.__email = str(email)
