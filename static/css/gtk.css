@@ -11,13 +11,13 @@ button{
 	border-radius: 5px;
 }
 dialog{
-	background-color: darkcyan;
+	background-color: rgb(233, 29, 46);
 	font: 32px "Noto Sans";
 }
 
 #btn_confirmar{
 	background-color: blue;
-	color: #d6e6ee
+	color: #d6e6ee;
 }
 #btn_num{ background-color: red; font-size: 22px}
 
@@ -131,4 +131,9 @@ color: #fff;
 }
 #label_data, #label_horario{
 	font: 2em sans-serif;
+}
+#label_informacao_final_locacao{
+	font: 3em sans-serif;
+	background-color: #fff;
+	color: #000000;
 }

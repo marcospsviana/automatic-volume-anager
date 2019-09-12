@@ -45,6 +45,7 @@ class CadastroUsuarios(object):
             "on_btn_confirmar_entrada_numero_button_press_event": self.on_btn_confirmar_entrada_numero_button_press_event,
             "on_btn_retornar_entrada_numeros_button_press_event": self.on_btn_retornar_entrada_numeros_button_press_event,
             "on_entry_entrada_numeros_button_press_event": self.on_entry_entrada_numeros_button_press_event,
+            "on_btn_dialog_preencher_campos_pressed_event": self.on_btn_dialog_preencher_campos_pressed_event,
             
         })
         self.builder.add_from_file("ui/cadastro_usuario.glade")
@@ -52,6 +53,7 @@ class CadastroUsuarios(object):
         self.window_entrada_dados = self.builder.get_object("window_entrada_dados")
         self.window_entrada_numeros = self.builder.get_object("window_entrada_numeros")
         self.dialog_retorno_cadastro = self.builder.get_object("dialog_retorno_cadastro")
+        self.dialog_message_preencher_campos = self.builder.get_object("dialog_message_preencher_campos")
         """ =================LABELS ====================="""
 
         self.label_nome = self.builder.get_object("label_nome")
@@ -70,6 +72,8 @@ class CadastroUsuarios(object):
         self.label_entrada_numeros = self.builder.get_object("label_entrada_numeros")
         " ----------   LABEL DIALOGO RETORNO CADASTRO ---"
         self.label_retorno_cadastro = self.builder.get_object("label_retorno_cadastro")
+        " ----------   LABEL dialog_message_preencher_campos -------------"
+        self.label_message_preencher_campos = self.builder.get_object("label_message_preencher_campos")
         """ ================FIM LABELS==================="""
 
         """ ================= ENTRYS ===================="""
@@ -147,9 +151,11 @@ class CadastroUsuarios(object):
         self.btn_retornar_entrada_numeros = self.builder.get_object("btn_retornar_entrada_numeros")
         self.btn_retornar_entrada_numeros.connect("button_press_event", self.on_btn_retornar_entrada_numeros_button_press_event)
 
-        """ =================== BOTÃO DIALOGO RETORNO CADASTRO ===================="""
+        """ =================== BOTÕES DIALOGOS ===================="""
         self.btn_ok_dialog_retorno_cadastro = self.builder.get_object("btn_ok_dialog_retorno_cadastro")
         self.btn_ok_dialog_retorno_cadastro.connect("button_press_event", self.on_btn_ok_dialog_retorno_cadastro_pressed)
+        self.btn_dialog_preencher_campos = self.builder.get_object("btn_dialog_preencher_campos")
+        self.btn_dialog_preencher_campos.connect("button_press_event", self.on_btn_dialog_preencher_campos_pressed_event)
         """ ===================GRIDS====================== """
         self.grid_numbers = self.builder.get_object("grid_numbers")
 
@@ -267,6 +273,10 @@ class CadastroUsuarios(object):
         
         self.window_cadastro_usuario.fullscreen()
         self.window_cadastro_usuario.show()
+    
+    def on_btn_dialog_preencher_campos_pressed_event(self, widget, event):
+        self.dialog_message_preencher_campos.hide()
+
     def on_btn_ok_dialog_retorno_cadastro_pressed(self, widget, event):
         self.dialog_retorno_cadastro.hide()
         self.window_cadastro_usuario.destroy()
@@ -281,10 +291,7 @@ class CadastroUsuarios(object):
         __nome = self.entry_nome.get_text()
         __email = self.entry_email.get_text()
         __telefone = self.entry_celular.get_text()
-        if self.entry_quantidade_diaria.get_text() == "":
-            __quantidade_diaria = "0"
-        else:
-            __quantidade_diaria = self.entry_quantidade_diaria.get_text()
+        __quantidade_diaria = self.entry_quantidade_diaria.get_text()
         if self.entry_quantidade_horas.get_text() == "":
             __quantidade_horas = "0"
         else:
@@ -293,20 +300,44 @@ class CadastroUsuarios(object):
             __quantidade_minutos = "0"
         else:
             __quantidade_minutos = self.entry_minutos.get_text()
-        print("qtd minutos ", __quantidade_minutos)
-        __armario = self.classe
-        print("locacao", __quantidade_diaria, __quantidade_horas, __quantidade_minutos)
-        result =  manager.locacao(__nome, __email, __telefone, __quantidade_diaria, __quantidade_horas, __quantidade_minutos, __armario)
-        print("result cadastro usuario ", result[0])
-        if result[0] == "locacao concluida com sucesso":
-            self.window_cadastro_usuario.hide()
-        elif result[0] == "armario da classe escolhida indisponível":
+        if __nome == "":
             if self.language == "pt_BR":
-                self.label_retorno_cadastro.set_text("tamanho de armario\n  escolhido indisponível")
-                self.dialog_retorno_cadastro.show()
+                self.label_message_preencher_campos.set_text("preencha todos os campos")
             elif self.language == "en_US":
-                self.label_retorno_cadastro.set_text("chosen cabinet\n size unavailable")
-                self.dialog_retorno_cadastro.show()
+                self.label_message_preencher_campos.set_text("fill in all fields")
+            self.dialog_message_preencher_campos.show()
+        elif __email == "":
+            if self.language == "pt_BR":
+                self.label_message_preencher_campos.set_text("preencha todos os campos")
+            elif self.language == "en_US":
+                self.label_message_preencher_campos.set_text("fill in all fields")
+            self.dialog_message_preencher_campos.show()
+        elif __telefone == "":
+            if self.language == "pt_BR":
+                self.label_message_preencher_campos.set_text("preencha todos os campos")
+            elif self.language == "en_US":
+                self.label_message_preencher_campos.set_text("fill in all fields")
+            self.dialog_message_preencher_campos.show()
+        elif __quantidade_diaria == __quantidade_horas == __quantidade_minutos:
+            if self.language == "pt_BR":
+                self.label_message_preencher_campos.set_text("preencha todos os campos")
+            elif self.language == "en_US":
+                self.label_message_preencher_campos.set_text("fill in all fields")
+            self.dialog_message_preencher_campos.show()
+        else:
+            __armario = self.classe
+            print("locacao", __quantidade_diaria, __quantidade_horas, __quantidade_minutos)
+            result =  manager.locacao(__nome, __email, __telefone, __quantidade_diaria, __quantidade_horas, __quantidade_minutos, __armario)
+            print("result cadastro usuario ", result[0])
+            if result[0] == "locacao concluida com sucesso":
+                self.window_cadastro_usuario.hide()
+            elif result[0] == "armario da classe escolhida indisponível":
+                if self.language == "pt_BR":
+                    self.label_retorno_cadastro.set_text("tamanho de armario\n  escolhido indisponível")
+                    self.dialog_retorno_cadastro.show()
+                elif self.language == "en_US":
+                    self.label_retorno_cadastro.set_text("chosen cabinet\n size unavailable")
+                    self.dialog_retorno_cadastro.show()
 
 
     def on_btn_retornar_button_press_event(self, widget, event):

@@ -3,9 +3,11 @@ gi.require_versions({'Gtk': '3.0', 'GLib': '2.0', 'Gio': '2.0'})
 from gi.repository import Gtk, Gdk, GLib
 from window_op_hora_diaria import OpcaoHoraDiaria
 from tamanhos_tarifas import TamanhosTarifas
-
+from controllers import Management
+import numpy as np
 class SelectSize(object):
     def __init__(self, arg):
+        self.manager = Management()
         self.language = arg
         print("language select size", self.language)
         self.classe = ""
@@ -22,6 +24,7 @@ class SelectSize(object):
             "on_btn_tamanhos_tarifas_button_press_event": self.on_btn_tamanhos_tarifas_button_press_event,
             "on_btn_retornar_button_press_event": self.on_btn_retornar_button_press_event,
             "on_window_tamanhos_tarifas_button_press_event": self.on_btn_tamanhos_tarifas_button_press_event,
+            "on_btn_dialog_unavailable_pressed_event": self.on_btn_dialog_unavailable_pressed_event,
         })
         # janela principal
         self.window_select_size = self.builder.get_object("window_select_size")
@@ -70,6 +73,12 @@ class SelectSize(object):
         self.btn_cameraenotebook_tarifas = self.builder.get_object("btn_cameraenotebook_tarifas")
         self.btn_cameraenotebook_tarifas.connect("toggled", self.on_btn_cameraenotebook_toggled)
 
+        # WINDOW DIALOG UNAVAILABLE
+        self.dialog_unavailable = self.builder.get_object("dialog_unavailable")
+        self.label_message_armario_unavailable = self.builder.get_object("label_message_armario_unavailable")
+        self.btn_dialog_unavailable = self.builder.get_object("btn_dialog_unavailable")
+        self.btn_dialog_unavailable.connect("button_press_event", self.on_btn_dialog_unavailable_pressed_event)
+
         if self.language == "pt_BR":
             self.label_malasx4.set_text("IDEAL PARA")
             self.label_malasx2.set_text("IDEAL PARA")
@@ -91,7 +100,9 @@ class SelectSize(object):
 
         self.window_select_size.fullscreen()
         self.window_select_size.show()
-    
+
+    def on_btn_dialog_unavailable_pressed_event(self, widget, event):
+        self.dialog_unavailable.hide()
        
     def on_btn_malasx4_toggled(self, widget):
         
@@ -102,6 +113,18 @@ class SelectSize(object):
             self.classe = "A"
         else:
             self.classe = ""
+        classes = self.manager.lista_armarios()
+        print("classes obtidas", classes)
+        if self.classe in np.array(classes):
+            pass
+        else:
+            self.classe =""
+            if self.language == "pt_BR":
+                self.label_message_armario_unavailable.set_text(" INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! ")
+            elif self.language == "en_US":
+                self.label_message_armario_unavailable.set_text(" UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ")
+            self.dialog_unavailable.show()
+
         
         
         
@@ -114,6 +137,18 @@ class SelectSize(object):
             self.classe = "B"
         else:
             self.classe =""
+        classes = self.manager.lista_armarios()
+        print("classes obtidas", classes)
+        if self.classe in np.array(classes):
+            pass
+        else:
+            self.classe =""
+            if self.language == "pt_BR":
+                self.label_message_armario_unavailable.set_text(" INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! ")
+            elif self.language == "en_US":
+                self.label_message_armario_unavailable.set_text(" UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ")
+            self.dialog_unavailable.show()
+            
 
         
     
@@ -125,6 +160,17 @@ class SelectSize(object):
             self.classe = "C"
         else:
             self.classe =""
+        classes = self.manager.lista_armarios()
+        print("classes obtidas", classes)
+        if self.classe in np.array(classes):
+            pass
+        else:
+            self.classe =""
+            if self.language == "pt_BR":
+                self.label_message_armario_unavailable.set_text(" INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! ")
+            elif self.language == "en_US":
+                self.label_message_armario_unavailable.set_text(" UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ")
+            self.dialog_unavailable.show()
         
 
     def on_btn_cameraenotebook_toggled(self, widget):
@@ -135,6 +181,17 @@ class SelectSize(object):
             self.classe = "D"
         else:
             self.classe =""
+        classes = self.manager.lista_armarios()
+        print("classes obtidas", classes)
+        if self.classe in np.array(classes):
+            pass
+        else:
+            self.classe =""
+            if self.language == "pt_BR":
+                self.label_message_armario_unavailable.set_text(" INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! ")
+            elif self.language == "en_US":
+                self.label_message_armario_unavailable.set_text(" UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ")
+            self.dialog_unavailable.show()
         
     
     def on_btn_confirmar_button_press_event(self, widget, event):
