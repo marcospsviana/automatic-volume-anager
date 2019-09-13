@@ -214,12 +214,19 @@ ENGINE=InnoDB
         sem ordem predefinida , a ordem dos dígitos também serão aleatórios """
         __password = []
         self.__pass2 = ''
-        __alfabet = list(string.ascii_lowercase)
+        __alfabet = list(string.ascii_letters)
         print('---alfabet-----')
         print(__alfabet)
-        for i in range(2):
-            __password.append(random.randrange(0, 9))
-            __password.append(choice(__alfabet))
+        
+        while len(__password) < 4:
+            result  = random.randrange(0, 9)
+            if result not in __password:
+                __password.append(result)
+            
+            add_alfa = choice(__alfabet)
+            if add_alfa not in __password:
+                __password.append(add_alfa)
+            print(__password)
 
         __passwd = sample(__password, len(__password))
         print('===========senha=======')

@@ -8,8 +8,8 @@ from controllers import Management
 
 class WindowLogin(Gtk.Window):
     def __init__(self, *args):
-        self.opcao = args[0]
-        self.language = args[1]
+        #self.opcao = args[0]
+        #self.language = args[1]
         self.screen = Gdk.Screen.get_default()
         self.builder = Gtk.Builder()
         self.builder.add_from_file("ui/window_login.glade")
@@ -19,20 +19,28 @@ class WindowLogin(Gtk.Window):
         self.alfa = list(string.ascii_lowercase) # alfabeto para gerar o teclado
         self.num = list(map(lambda x: x, range(10))) # números para o teclado numérico
         self.builder.connect_signals({
-            "on_btn_retornar_entrada_dados_pressed": self.on_btn_retornar_entrada_dados_pressed
+            "on_btn_retornar_entrada_dados_pressed": self.on_btn_retornar_entrada_dados_pressed,
+            "on_btn_shift_button_press_event": self.on_btn_shift_button_press_event,
         })
+        # ======== BOTOES DO TECLADO ============================
         for alfabet in self.alfa:
-            self.alfabet = self.builder.get_object("%s"%(alfabet))
-            self.alfabet.connect("clicked", self.on_entry_button_press_event)
+            self."%s"%alfabet = self.builder.get_object("%s"%(alfabet))
+            self."%s"%alfabet.connect("clicked", self.on_entry_button_press_event)
         for num in self.num:
             self.number = self.builder.get_object("num_%s"%(num))
             self.number.connect("clicked", self.on_entry_button_press_event)
+        
+        self.btn_shift = self.builder.get_object("btn_shift")
+        self.btn_shift.connect("button_press_event", self.on_btn_shift_button_press_event)
+        
+        # ==============================================
         
         self.entry = self.builder.get_object("entry_entrada_dados")
         self.btn_confirmar_entrada_dados = self.builder.get_object("btn_confirmar_entrada_dados")
         self.btn_retornar_entrada_dados = self.builder.get_object("btn_retornar_entrada_dados")
         self.btn_retornar_entrada_dados.connect("clicked", self.on_btn_retornar_entrada_dados_pressed)
         self.btn_confirmar_entrada_dados.connect("clicked", self.on_btn_confirmar_entrada_dados_pressed)
+
         self.window_login = self.builder.get_object("window_login")
         self.window_login.show()
 
@@ -74,6 +82,17 @@ class WindowLogin(Gtk.Window):
     def on_btn_retornar_entrada_dados_pressed(self, event):
         self.entry.set_text("")
         self.window_login.hide()
+    
+    def on_btn_shift_button_press_event(self, widget, event):
+
+        
+        for alfabet in self.alfa:
+            print(self.alfabet.get_label())
+            if self.a.get_label().islower():
+               self.a.set_label("A")
+            elif self.alfabet.get_label().isupper():
+                self.alfabet.set_label(alfabet.lower())
+        
         
     
 
