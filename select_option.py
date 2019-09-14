@@ -24,7 +24,7 @@ class SelectCabinet(object):
                 "on_precosemedidas_button_press_event": self.on_precosemedidas_button_press_event,
             }
         )
-        self.select_cabinet = self.builder.get_object("window_select")
+        self.select_option = self.builder.get_object("window_select")
         self.btn_reservar = self.builder.get_object("btn_reservar")
         self.btn_abrir = self.builder.get_object("btn_abrir")
         self.btn_concluir = self.builder.get_object("btn_concluir")
@@ -73,13 +73,13 @@ class SelectCabinet(object):
         GLib.timeout_add(1000, self.hora_certa )
             
        
-        self.select_cabinet.fullscreen()
-        self.select_cabinet.show()
+        self.select_option.fullscreen()
+        self.select_option.show()
         
 
     def on_reservar_button_press_event(self, widget, event):
         SelectSize(self.language)
-        self.select_cabinet.hide()
+        self.select_option.hide()
         
     
     def hora_certa(self):
@@ -89,15 +89,15 @@ class SelectCabinet(object):
         return (self.label_data, self.label_horario)
     
     def on_abrir_cofre_button_press_event(self, widget, event):
-        self.select_cabinet.hide()
+        self.select_option.hide()
         WindowLogin("abrir", self.language)
     
     def on_btn_concluir_button_press_event(self, widget, event):
-        self.select_cabinet.hide()
+        self.select_option.hide()
         WindowLogin("encerrar", self.language)
     def on_precosemedidas_button_press_event(self, widget, event):
         TamanhosTarifas(self.language)
-        self.select_cabinet.hide()
+        self.select_option.hide()
     
     def on_change_language_br(self, event):
         self.language = "pt_BR"
