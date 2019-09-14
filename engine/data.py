@@ -125,16 +125,16 @@ ENGINE=InnoDB
         # datetime.datetime(self.adiciona.year, self.adiciona.month, self.adiciona.day, self.__data_locacao.hour, self.__data_locacao.minute)
         self.__futuro = self.__data_locacao
         self.__futuro = self.__futuro + \
-            timedelta(days=self.__dia)  # adiciona dias
+            datetime.timedelta(days=self.__dia)  # adiciona dias
         # adiciona horas ao tempo atual
-        self.__futuro = self.__futuro + timedelta(hours=self.__hora)
+        self.__futuro = self.__futuro + datetime.timedelta(hours=self.__hora)
         self.__futuro = self.__futuro + \
-            timedelta(minutes=self.__minuto)  # adiciona minutos
+            datetime.timedelta(minutes=self.__minuto)  # adiciona minutos
         # registra a data limite para a não cobrança de taxa extra
         self.__data_limite = self.__futuro
 
         self.__data_limite = self.__data_limite + \
-            timedelta(minutes=10)  # adiciona 10 minutos de tolerancia
+            datetime.timedelta(minutes=10)  # adiciona 10 minutos de tolerancia
         print("data limite para salvar no banco", self.__data_limite)
 
         self.__senha = ''
