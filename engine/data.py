@@ -47,7 +47,7 @@ ENGINE=InnoDB;''')
         self.__c.execute('''CREATE TABLE IF NOT EXISTS `tb_locacao` (
 	`id_locacao` INT(10)  AUTO_INCREMENT,
 	`data_locacao` DATETIME NOT NULL,
-	`tempo_locado` TIME NOT NULL DEFAULT '00:00:00',
+	`tempo_locado` DATETIME NOT NULL,
 	`tempo_corrido` TIME NULL DEFAULT '00:00:00',
 	`senha` TEXT NULL DEFAULT '',
 	`id_armario` INT(10)  DEFAULT 0,
