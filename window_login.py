@@ -8,8 +8,8 @@ from controllers import Management
 
 class WindowLogin(Gtk.Window):
     def __init__(self, *args):
-        #self.opcao = args[0]
-        #self.language = args[1]
+        self.opcao = args[0]
+        self.language = args[1]
         self.screen = Gdk.Screen.get_default()
         self.builder = Gtk.Builder()
         self.builder.add_from_file("ui/window_login.glade")
@@ -22,12 +22,14 @@ class WindowLogin(Gtk.Window):
             "on_btn_retornar_entrada_dados_pressed": self.on_btn_retornar_entrada_dados_pressed,
             "on_btn_shift_button_press_event": self.on_btn_shift_button_press_event,
         })
+        # ================ DIALOGS ==============================
+        self.dialog_cobranca = self.builder.get_object("dialog_cobranca")
         # ======== BOTOES DO TECLADO ============================
         for alfabet in self.alfa:
-            self."%s"%alfabet = self.builder.get_object("%s"%(alfabet))
-            self."%s"%alfabet.connect("clicked", self.on_entry_button_press_event)
+            self.alfabet = self.builder.get_object(alfabet)
+            self.alfabet.connect("clicked", self.on_entry_button_press_event)
         for num in self.num:
-            self.number = self.builder.get_object("num_%s"%(num))
+            self.number = self.builder.get_object("num_"+str(num))
             self.number.connect("clicked", self.on_entry_button_press_event)
         
         self.btn_shift = self.builder.get_object("btn_shift")
@@ -43,6 +45,9 @@ class WindowLogin(Gtk.Window):
 
         self.window_login = self.builder.get_object("window_login")
         self.window_login.show()
+
+        #========= LABELS =========================
+        self.lbl_message = self.builder.get_object("lbl_message")
 
     def on_entry_button_press_event(self, widget):
         self.value = widget.get_label()

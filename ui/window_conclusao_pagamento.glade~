@@ -35,10 +35,13 @@
             <property name="can_focus">False</property>
             <property name="spacing">20</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_locacao_inicial">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">LOCACÇÃO INICIAL</property>
+                <attributes>
+                  <attribute name="weight" value="semibold"/>
+                </attributes>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -47,11 +50,14 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_data_locacao_inicial">
                 <property name="name">label_informacao_final_locacao</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Qua 04/09</property>
+                <attributes>
+                  <attribute name="weight" value="semibold"/>
+                </attributes>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -60,12 +66,15 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_hour_locacao_inicial">
                 <property name="name">label_informacao_final_locacao</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">16:25</property>
                 <property name="justify">right</property>
+                <attributes>
+                  <attribute name="weight" value="semibold"/>
+                </attributes>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -87,10 +96,13 @@
             <property name="can_focus">False</property>
             <property name="spacing">20</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_locacao_encerrada">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">LOCAÇÃO ENCERRADA ÀS</property>
+                <attributes>
+                  <attribute name="weight" value="semibold"/>
+                </attributes>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -99,11 +111,14 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_data_locacao_encerrada">
                 <property name="name">label_informacao_final_locacao</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Qua 04/09</property>
+                <attributes>
+                  <attribute name="weight" value="semibold"/>
+                </attributes>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -112,12 +127,15 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_hour_locacao_encerrada">
                 <property name="name">label_informacao_final_locacao</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">16:58</property>
                 <property name="justify">right</property>
+                <attributes>
+                  <attribute name="weight" value="semibold"/>
+                </attributes>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -139,7 +157,7 @@
             <property name="can_focus">False</property>
             <property name="spacing">20</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_tempo_extra">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">TEMPO EXTRA</property>
@@ -151,13 +169,31 @@
               </packing>
             </child>
             <child>
-              <placeholder/>
+              <object class="GtkLabel" id="label_tempo_extra_days">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">label</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
             </child>
             <child>
-              <placeholder/>
+              <object class="GtkLabel" id="label_tempo_extra_hours">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">label</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_tempo_extra_minutes">
                 <property name="name">label_informacao_final_locacao</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -184,7 +220,7 @@
             <property name="can_focus">False</property>
             <property name="spacing">20</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_valor_extra">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">VALOR EXTRA</property>
@@ -199,7 +235,7 @@
               <placeholder/>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_valor_extra_value">
                 <property name="name">label_informacao_final_locacao</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -227,11 +263,12 @@
             <property name="halign">center</property>
             <property name="spacing">20</property>
             <child>
-              <object class="GtkButton">
+              <object class="GtkButton" id="btn_efetuar_pagamento">
                 <property name="label" translatable="yes">EFETUAR PAGAMENTO</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="button-press-event" handler="on_btn_efetuar_pagamento_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -240,7 +277,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton">
+              <object class="GtkButton" id="btn_encerrar_sessao">
                 <property name="label" translatable="yes">ENCERRAR SESSÃO</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>

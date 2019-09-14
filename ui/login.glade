@@ -142,6 +142,8 @@
   </object>
   <object class="GtkWindow" id="window_entrada_dados">
     <property name="name">window</property>
+    <property name="width_request">800</property>
+    <property name="height_request">500</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
@@ -156,6 +158,12 @@
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <property name="margin_left">20</property>
+        <property name="margin_right">20</property>
+        <property name="margin_top">20</property>
+        <property name="margin_bottom">20</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">

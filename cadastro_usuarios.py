@@ -4,6 +4,7 @@ from gi.repository import Gtk, Gdk, Gio, GdkPixbuf, GObject
 from datetime import datetime, date, time
 import string
 from controllers import Management
+from window_conclusao_pagamento import WindowConclusaoPagamento
 import PIL
 from PIL import Image
 TAXA = 0.15
@@ -54,6 +55,8 @@ class CadastroUsuarios(object):
         self.window_entrada_numeros = self.builder.get_object("window_entrada_numeros")
         self.dialog_retorno_cadastro = self.builder.get_object("dialog_retorno_cadastro")
         self.dialog_message_preencher_campos = self.builder.get_object("dialog_message_preencher_campos")
+        self.window_conclusao  = self.builder.get_object("window_conclusao")
+
         """ =================LABELS ====================="""
 
         self.label_nome = self.builder.get_object("label_nome")
@@ -64,6 +67,19 @@ class CadastroUsuarios(object):
         self.label_quantidade_minutos = self.builder.get_object("label_quantidade_minutos")
         self.label_total = self.builder.get_object("label_total")
         self.label_valor_da_locacao = self.builder.get_object("label_valor_da_locacao")
+
+        self.label_compartimento_titulo = self.builder.get_object("label_compartimento_titulo")
+        self.label_compartimento = self.builder.get_object("label_compartimento")
+        self.label_inicio_locacao_titulo = self.builder.get_object("label_inicio_locacao_titulo")
+        self.label_date_inicio_locacao = self.builder.get_object("label_date_inicio_locacao")
+        self.label_hour_inicio_locacao = self.builder.get_object("label_hour_inicio_locacao")
+        self.label_minute_inicio_locacao = self.builder.get_object("label_minute_inicio_locacao")
+        self.label_fim_locacao_titulo = self.builder.get_object("label_fim_locacao_titulo")
+        self.label_date_fim_locacao = self.builder.get_object("label_date_fim_locacao")
+        self.label_hour_fim_locacao = self.builder.get_object("label_hour_fim_locacao")
+        self.label_minute_fim_locacao = self.builder.get_object("label_minute_fim_locacao")
+        self.label_message_envio_email = self.builder.get_object("label_message_envio_email")
+        
 
         " ----------   LABEL ENTRADA_DADOS --------------"
         self.label_entrada_dados = self.builder.get_object("label_entrada_dados")
@@ -99,7 +115,7 @@ class CadastroUsuarios(object):
 
         """ =================FIM ENTRYS=================== """
 
-        """ =================BOTOES======================= """
+        """ ================= BUTTONS ======================= """
 
         self.btn_limpar_nome = self.builder.get_object("btn_limpar_nome")
         self.btn_limpar_nome.connect("button_press_event", self.on_btn_limpar_nome_button_press_event)
@@ -117,6 +133,8 @@ class CadastroUsuarios(object):
         self.btn_confirmar.connect("button_press_event", self.on_btn_confirmar_button_press_event)
         self.btn_retornar = self.builder.get_object("btn_retornar")
         self.btn_retornar.connect("button_press_event", self.on_btn_retornar_button_press_event)
+
+        self.btn_finalizar_sessao = self.builder.get_object("btn_finalizar_sessao")
 
         " ----------- BOTOES ENTRADA_DADOS --------------- "
         self.btn_confirmar_entrada_dados = self.builder.get_object("btn_confirmar_entrada_dados")
