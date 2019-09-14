@@ -6,13 +6,13 @@ from controllers import Management
 
 class WindowConclusaoPagamento(Gtk.Window):
     def __init__(self, *args):
-        self.__nome = args[0]
-        self.__email = args[1]
-        self.__telefone = args[2]
-        self.__quantidade_diaria = args[3]
-        self.__quantidade_horas = args[4]
-        self.__quantidade_minutos = args[5]
-        self.__armario = args[6]
+        #self.__nome = args[0]
+        #self.__email = args[1]
+        #self.__telefone = args[2]
+        #self.__quantidade_diaria = args[3]
+        #self.__quantidade_horas = args[4]
+        #self.__quantidade_minutos = args[5]
+        #self.__armario = args[6]
         self.manager = Management()
         self.builder = Gtk.Builder()
         self.builder.add_from_file("ui/window_conclusao_pagamento.glade")
@@ -44,7 +44,7 @@ class WindowConclusaoPagamento(Gtk.Window):
 
         # ================== SET LANGUAGE ===================================
 
-        if self.language = "pt_BR":
+        if self.language == "pt_BR":
             self.label_locacao_inicial.set_text("LOCAÇÃO INICIAL")
             self.label_locacao_encerrada.set_text("LOCAÇÃO ENCERRADA ÀS")
             self.label_tempo_extra.set_text("TEMPO EXTRA")

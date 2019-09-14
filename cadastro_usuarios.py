@@ -4,7 +4,7 @@ from gi.repository import Gtk, Gdk, Gio, GdkPixbuf, GObject
 from datetime import datetime, date, time
 import string
 from controllers import Management
-from window_conclusao_pagamento import WindowConclusaoPagamento
+#from window_conclusao_pagamento import WindowConclusaoPagamento
 import PIL
 from PIL import Image
 TAXA = 0.15
