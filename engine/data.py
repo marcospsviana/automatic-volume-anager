@@ -157,8 +157,11 @@ ENGINE=InnoDB
             self.__c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario[0]))
             
             self.__conn.commit()
+            self.__c.execute("select data_locacao, tempo_locado, senha from tb_locacao where id_armario= %s" %(loca_armario[0]))
+            query_select = self.__c.fetchall()
             self.__conn.close()
-            return "locacao concluida com sucesso"
+            print("result locacao" , query_select)
+            return ("locacao concluida com sucesso", query_select)
             
             ##port = self.select_port(loca_armario[0])
             #self.port.exec_port(str(port[0][0]), "abre")

@@ -15,7 +15,7 @@ from controllers import Management
 from login import Login
 from encerrar import Encerrar
 from locar import Locar
-from select_cabinet import SelectCabinet
+from select_option import SelectOption
 
 
 
@@ -51,7 +51,7 @@ class RaspControl(object):
 
 
     def on_btn_principal_clicked(self, event):
-        SelectCabinet(self.language)
+        SelectOption(self.language)
     def on_change_language_br(self, event):
         self.language = "pt_BR"
     

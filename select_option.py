@@ -10,7 +10,7 @@ from tamanhos_tarifas import TamanhosTarifas
 #from login import Login
 from window_login import WindowLogin
 
-class SelectCabinet(object):
+class SelectOption(object):
     def __init__(self, arg):
         self.language = arg
         self.builder = Gtk.Builder()
@@ -119,6 +119,6 @@ class SelectCabinet(object):
 
 
 if __name__ == "__main__":
-    app = SelectCabinet()
+    app = SelectOption()
     Gtk.main()
     

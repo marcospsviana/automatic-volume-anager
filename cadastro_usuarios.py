@@ -1,10 +1,11 @@
 import gi
 gi.require_versions({"Gtk": "3.0","Gio": "2.0"})
 from gi.repository import Gtk, Gdk, Gio, GdkPixbuf, GObject
-from datetime import datetime, date, time
+import datetime
+import calendar
 import string
 from controllers import Management
-#from window_conclusao_pagamento import WindowConclusaoPagamento
+from window_conclusao_pagamento import WindowConclusaoPagamento
 import PIL
 from PIL import Image
 TAXA = 0.15
@@ -305,49 +306,56 @@ class CadastroUsuarios(object):
         elif self.tempo_locacao == "diaria":
             self.entry_quantidade_horas.set_text("0")
             self.entry_minutos.set_text("0")
-        manager = Management()
-        __nome = self.entry_nome.get_text()
-        __email = self.entry_email.get_text()
-        __telefone = self.entry_celular.get_text()
-        __quantidade_diaria = self.entry_quantidade_diaria.get_text()
+        
+        self.__nome = self.entry_nome.get_text()
+        self.__email = self.entry_email.get_text()
+        self.__telefone = self.entry_celular.get_text()
+        self.__quantidade_diaria = self.entry_quantidade_diaria.get_text()
         if self.entry_quantidade_horas.get_text() == "":
-            __quantidade_horas = "0"
+            self.__quantidade_horas = "0"
         else:
-            __quantidade_horas = self.entry_quantidade_horas.get_text()
+            self.__quantidade_horas = self.entry_quantidade_horas.get_text()
         if self.entry_minutos.get_text() == "":
-            __quantidade_minutos = "0"
+            self.__quantidade_minutos = "0"
         else:
-            __quantidade_minutos = self.entry_minutos.get_text()
-        if __nome == "":
+            self.__quantidade_minutos = self.entry_minutos.get_text()
+        if self.__nome == "":
             if self.language == "pt_BR":
                 self.label_message_preencher_campos.set_text("preencha todos os campos")
             elif self.language == "en_US":
                 self.label_message_preencher_campos.set_text("fill in all fields")
             self.dialog_message_preencher_campos.show()
-        elif __email == "":
+        elif self.__email == "":
             if self.language == "pt_BR":
                 self.label_message_preencher_campos.set_text("preencha todos os campos")
             elif self.language == "en_US":
                 self.label_message_preencher_campos.set_text("fill in all fields")
             self.dialog_message_preencher_campos.show()
-        elif __telefone == "":
+        elif self.__telefone == "":
             if self.language == "pt_BR":
                 self.label_message_preencher_campos.set_text("preencha todos os campos")
             elif self.language == "en_US":
                 self.label_message_preencher_campos.set_text("fill in all fields")
             self.dialog_message_preencher_campos.show()
-        elif __quantidade_diaria == __quantidade_horas == __quantidade_minutos:
+        elif self.__quantidade_diaria == self.__quantidade_horas == self.__quantidade_minutos:
             if self.language == "pt_BR":
                 self.label_message_preencher_campos.set_text("preencha todos os campos")
             elif self.language == "en_US":
                 self.label_message_preencher_campos.set_text("fill in all fields")
             self.dialog_message_preencher_campos.show()
         else:
-            __armario = self.classe
-            print("locacao", __quantidade_diaria, __quantidade_horas, __quantidade_minutos)
-            result =  manager.locacao(__nome, __email, __telefone, __quantidade_diaria, __quantidade_horas, __quantidade_minutos, __armario)
+            self.__armario = self.classe
+            print("locacao", self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos)
+            manager = Management()
+            result =  manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario)
             print("result cadastro usuario ", result[0])
-            if result[0] == "locacao concluida com sucesso":
+            if result[0][0] == "locacao concluida com sucesso":
+                dia_inicio_locacao = result[0][1][0][0].day
+                dia_semana = datetime.datetime.strptime(str(datetime.date.today()), '%Y-%m-%d').weekday()
+               
+                self.label_date_inicio_locacao.set_text(str(calendar.day_name[dia_semana]).upper() + " " + str(result[0][1][0][0].day) + "/" + str(result[0][1][0][0].month))
+                self.label_minute_fim_locacao.set_text(str())
+                self.window_conclusao.show()
                 self.window_cadastro_usuario.hide()
             elif result[0] == "armario da classe escolhida indisponível":
                 if self.language == "pt_BR":

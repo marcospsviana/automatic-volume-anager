@@ -909,7 +909,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel">
+          <object class="GtkLabel" id="label_message_envio_email">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
