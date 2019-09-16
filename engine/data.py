@@ -9,6 +9,7 @@ import time
 import random
 import string
 from random import choice, sample
+import pandas as pd
 #from .portas import Portas
 
 
@@ -157,11 +158,49 @@ ENGINE=InnoDB
             self.__c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario[0]))
             
             self.__conn.commit()
-            self.__c.execute("select data_locacao, tempo_locado, senha from tb_locacao where id_armario= %s" %(loca_armario[0]))
-            query_select = self.__c.fetchall()
+
+            #self.__c.execute("select data_locacao, tempo_locado, senha from tb_locacao where id_armario= %s" %(loca_armario[0]))
+            query_select = "select senha from tb_locacao where id_armario= %s" %(loca_armario[0])
+            data_and_passwd = pd.read_sql(query_select, self.__conn)
+            compartimento = "select compartimento from tb_armario where id_armario = %s" %(loca_armario[0])
+            compartimento_select = pd.read_sql(compartimento, self.__conn)
+            
+            '''if len(str(data_locacao.month)) == 1:
+                mes_locacao = "0" + str(data_locacao.month)
+            else:
+                mes_locacao = str(data_locacao.month)
+            if len(str(data_locacao.day)) == 1:
+                dia_locacao = "0" + str(data_locacao.day)
+            else:
+                dia_locacao= str(data_locacao.day)
+            data_locacao = dia_locacao + "/" + mes_locacao
+            tempo_locado = data_and_passwd.head().values[0][1].to_pydatetime()
+            if len(str(tempo_locado.month)) == 1:
+                mes_locado = "0" + str(tempo_locado.month)
+            else:
+                mes_locado = str(tempo_locado.month)
+            if len(str(tempo_locado.day)) == 1:
+                dia_locado = "0" + str(tempo_locado.day)
+            else:
+                dia_locado = str(tempo_locado.day)
+            tempo_locado = dia_locado + "/" + mes_locado'''
+            self.__data_locacao = str(self.__data_locacao)
+            self.__data_limite = str(self.__data_limite)
+            mes_locacao = str(self.__data_locacao[5:7])
+            dia_locacao = str(self.__data_locacao[8:10])
+            mes_locado = str(self.__data_limite[5:7])
+            dia_locado = str(self.__data_limite[8:10])
+            senha = data_and_passwd.head().values[0]
+            compartimento = compartimento_select.head().values[0]
+            hora_locacao = str(self.__data_locacao[11:16])
+            hora_locada = str(self.__data_limite[11:16])
+            data_locacao = dia_locacao + "/" + mes_locacao
+            tempo_locado = dia_locado + "/" + mes_locado
+
+            #query_select = self.__c.fetchall()
             self.__conn.close()
             print("result locacao" , query_select)
-            return ("locacao concluida com sucesso", query_select)
+            return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, senha, compartimento)
             
             ##port = self.select_port(loca_armario[0])
             #self.port.exec_port(str(port[0][0]), "abre")
@@ -217,7 +256,7 @@ ENGINE=InnoDB
         sem ordem predefinida , a ordem dos dígitos também serão aleatórios """
         __password = []
         self.__pass2 = ''
-        __alfabet = list(string.ascii_letters)
+        __alfabet = list(string.ascii_lowercase)
         print('---alfabet-----')
         print(__alfabet)
         

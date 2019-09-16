@@ -21,6 +21,7 @@ class WindowLogin(Gtk.Window):
         self.builder.connect_signals({
             "on_btn_retornar_entrada_dados_pressed": self.on_btn_retornar_entrada_dados_pressed,
             "on_btn_shift_button_press_event": self.on_btn_shift_button_press_event,
+            "on_btn_efetuar_pagamento_button_press_event": self.on_btn_efetuar_pagamento_button_press_event,
         })
         # ================ DIALOGS ==============================
         self.dialog_cobranca = self.builder.get_object("dialog_cobranca")
@@ -36,6 +37,12 @@ class WindowLogin(Gtk.Window):
         self.btn_shift.connect("button_press_event", self.on_btn_shift_button_press_event)
         
         # ==============================================
+        # ============================== BUTTONS =========================================
+
+        self.btn_efetuar_pagamento = self.builder.get_object("btn_efetuar_pagamento")
+        self.btn_efetuar_pagamento.connect("button_press_event", self.on_btn_efetuar_pagamento_button_press_event)
+        self.btn_encerrar_sessao = self.builder.get_object("btn_encerrar_sessao")
+
         
         self.entry = self.builder.get_object("entry_entrada_dados")
         self.btn_confirmar_entrada_dados = self.builder.get_object("btn_confirmar_entrada_dados")
@@ -43,11 +50,41 @@ class WindowLogin(Gtk.Window):
         self.btn_retornar_entrada_dados.connect("clicked", self.on_btn_retornar_entrada_dados_pressed)
         self.btn_confirmar_entrada_dados.connect("clicked", self.on_btn_confirmar_entrada_dados_pressed)
 
+        #========= LABELS =========================
+        self.lbl_message = self.builder.get_object("lbl_message")
+        self.label_locacao_inicial = self.builder.get_object("label_locacao_inicial")
+        self.label_data_locacao_inicial = self.builder.get_object("label_data_locacao_inicial")
+        self.label_hour_locacao_inicial = self.builder.get_object("label_hour_locacao_inicial")
+        self.label_locacao_encerrada = self.builder.get_object("label_locacao_encerrada")
+        self.label_data_locacao_encerrada = self.builder.get_object("label_data_locacao_encerrada")
+        self.label_hour_locacao_encerrada = self.builder.get_object("label_hour_locacao_encerrada")
+        self.label_tempo_extra = self.builder.get_object("label_tempo_extra")
+        self.label_tempo_extra_days = self.builder.get_object("label_tempo_extra_days")
+        self.label_tempo_extra_hours = self.builder.get_object("label_tempo_extra_hours")
+        self.label_tempo_extra_minutes = self.builder.get_object("label_tempo_extra_minutes")
+        self.label_valor_extra = self.builder.get_object("label_valor_extra")
+        self.label_valor_extra_value = self.builder.get_object("label_valor_extra_value")
+
+         # ================== SET LANGUAGE ===================================
+
+        if self.language == "pt_BR":
+            self.label_locacao_inicial.set_text("LOCAÇÃO INICIAL")
+            self.label_locacao_encerrada.set_text("LOCAÇÃO ENCERRADA ÀS")
+            self.label_tempo_extra.set_text("TEMPO EXTRA")
+            self.label_valor_extra.set_text("VALOR EXTRA")
+            self.btn_efetuar_pagamento.set_label("EFETUAR PAGAMENTO")
+        elif self.language == "en_US":
+            self.label_locacao_inicial.set_text("START DATE OF LEASE")
+            self.label_locacao_encerrada.set_text("FINAL DATE OF LEASE")
+            self.label_tempo_extra.set_text("TIME OVER")
+            self.label_valor_extra.set_text("OVERTIME CHARGE")
+            self.btn_efetuar_pagamento("MAKE THE PAYMENT")
+        
+        self.window_pagamento_extra = self.builder.get_object("window_pagamento_extra")
         self.window_login = self.builder.get_object("window_login")
         self.window_login.show()
 
-        #========= LABELS =========================
-        self.lbl_message = self.builder.get_object("lbl_message")
+        
 
     def on_entry_button_press_event(self, widget):
         self.value = widget.get_label()

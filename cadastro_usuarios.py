@@ -48,6 +48,7 @@ class CadastroUsuarios(object):
             "on_btn_retornar_entrada_numeros_button_press_event": self.on_btn_retornar_entrada_numeros_button_press_event,
             "on_entry_entrada_numeros_button_press_event": self.on_entry_entrada_numeros_button_press_event,
             "on_btn_dialog_preencher_campos_pressed_event": self.on_btn_dialog_preencher_campos_pressed_event,
+            "on_btn_finalizar_sessao_button_press_event": self.on_btn_finalizar_sessao_button_press_event,
             
         })
         self.builder.add_from_file("ui/cadastro_usuario.glade")
@@ -68,7 +69,8 @@ class CadastroUsuarios(object):
         self.label_quantidade_minutos = self.builder.get_object("label_quantidade_minutos")
         self.label_total = self.builder.get_object("label_total")
         self.label_valor_da_locacao = self.builder.get_object("label_valor_da_locacao")
-
+        
+        self.label_senha = self.builder.get_object("label_senha")
         self.label_compartimento_titulo = self.builder.get_object("label_compartimento_titulo")
         self.label_compartimento = self.builder.get_object("label_compartimento")
         self.label_inicio_locacao_titulo = self.builder.get_object("label_inicio_locacao_titulo")
@@ -80,6 +82,7 @@ class CadastroUsuarios(object):
         self.label_hour_fim_locacao = self.builder.get_object("label_hour_fim_locacao")
         self.label_minute_fim_locacao = self.builder.get_object("label_minute_fim_locacao")
         self.label_message_envio_email = self.builder.get_object("label_message_envio_email")
+        self.label_senha = self.builder.get_object("label_senha")
         
 
         " ----------   LABEL ENTRADA_DADOS --------------"
@@ -91,6 +94,12 @@ class CadastroUsuarios(object):
         self.label_retorno_cadastro = self.builder.get_object("label_retorno_cadastro")
         " ----------   LABEL dialog_message_preencher_campos -------------"
         self.label_message_preencher_campos = self.builder.get_object("label_message_preencher_campos")
+        " ----------   LABEL WINDOW CONCLUSAO ----------------------------"
+        
+        self.label_senha_titulo = self.builder.get_object("label_senha_titulo")
+        self.label_inicio_locacao_titulo = self.builder.get_object("label_inicio_locacao_titulo")
+        self.label_fim_locacao_titulo = self.builder.get_object("label_fim_locacao_titulo")
+
         """ ================FIM LABELS==================="""
 
         """ ================= ENTRYS ===================="""
@@ -175,6 +184,8 @@ class CadastroUsuarios(object):
         self.btn_ok_dialog_retorno_cadastro.connect("button_press_event", self.on_btn_ok_dialog_retorno_cadastro_pressed)
         self.btn_dialog_preencher_campos = self.builder.get_object("btn_dialog_preencher_campos")
         self.btn_dialog_preencher_campos.connect("button_press_event", self.on_btn_dialog_preencher_campos_pressed_event)
+        self.btn_finalizar_sessao = self.builder.get_object("btn_finalizar_sessao")
+        self.btn_finalizar_sessao.connect("button_press_event", self.on_btn_finalizar_sessao_button_press_event)
         """ ===================GRIDS====================== """
         self.grid_numbers = self.builder.get_object("grid_numbers")
 
@@ -265,6 +276,11 @@ class CadastroUsuarios(object):
             self.btn_confirmar_entrada_numero.set_label("CONFIRMAR")
             self.btn_retornar_entrada_dados.set_label("RETORNAR TELA ANTERIOR")
             self.btn_retornar_entrada_numeros.set_label("RETORNAR TELA ANTERIOR")
+            self.label_compartimento_titulo.set_text("SEU COMPARTIMENTO É")
+            self.label_senha_titulo.set_text.set_text("SUA SENHA DE ACESSO É")
+            self.label_inicio_locacao_titulo.set_text("INÍCIO LOCAÇÃO")
+            self.label_fim_locacao_titulo.set_text("FIM DA LOCAÇÃO")
+            self.label_message_envio_email.set_text("UM EMAIL COM O RECAPTULATIVO DE SUA RESERVA ACABA DE LHE SER ENVIADO!")
             
         elif self.language == "en_US":
             self.label_nome.set_text("NAME")
@@ -285,6 +301,11 @@ class CadastroUsuarios(object):
             self.btn_limpar_minutos.set_label("CLEAR")
             self.btn_limpar_nome.set_label("CLEAR")
             self.btn_limpar_quantidade_diaria.set_label("CLEAR")
+            self.label_compartimento_titulo.set_text("YOUR CABINET IS")
+            self.label_senha_titulo.set_text.set_text("YOUR PASSWORD IS")
+            self.label_inicio_locacao_titulo.set_text("START DATE OF LEASE")
+            self.label_fim_locacao_titulo.set_text("FINAL DATE OF LEASE")
+            self.label_message_envio_email.set_text("AN EMAIL WITH THE RECAPTULATIVE OF YOUR RESERVATION HAS JUST BEEN SENT!")
         
 
          
@@ -292,6 +313,8 @@ class CadastroUsuarios(object):
         
         self.window_cadastro_usuario.fullscreen()
         self.window_cadastro_usuario.show()
+    def on_btn_finalizar_sessao_button_press_event(self, widget, event):
+        self.window_conclusao.hide()
     
     def on_btn_dialog_preencher_campos_pressed_event(self, widget, event):
         self.dialog_message_preencher_campos.hide()
@@ -321,27 +344,27 @@ class CadastroUsuarios(object):
             self.__quantidade_minutos = self.entry_minutos.get_text()
         if self.__nome == "":
             if self.language == "pt_BR":
-                self.label_message_preencher_campos.set_text("preencha todos os campos")
+                self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
             elif self.language == "en_US":
-                self.label_message_preencher_campos.set_text("fill in all fields")
+                self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
             self.dialog_message_preencher_campos.show()
         elif self.__email == "":
             if self.language == "pt_BR":
-                self.label_message_preencher_campos.set_text("preencha todos os campos")
+                self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
             elif self.language == "en_US":
-                self.label_message_preencher_campos.set_text("fill in all fields")
+                self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
             self.dialog_message_preencher_campos.show()
         elif self.__telefone == "":
             if self.language == "pt_BR":
-                self.label_message_preencher_campos.set_text("preencha todos os campos")
+                self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
             elif self.language == "en_US":
-                self.label_message_preencher_campos.set_text("fill in all fields")
+                self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
             self.dialog_message_preencher_campos.show()
         elif self.__quantidade_diaria == self.__quantidade_horas == self.__quantidade_minutos:
             if self.language == "pt_BR":
-                self.label_message_preencher_campos.set_text("preencha todos os campos")
+                self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
             elif self.language == "en_US":
-                self.label_message_preencher_campos.set_text("fill in all fields")
+                self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
             self.dialog_message_preencher_campos.show()
         else:
             self.__armario = self.classe
@@ -350,11 +373,19 @@ class CadastroUsuarios(object):
             result =  manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario)
             print("result cadastro usuario ", result[0])
             if result[0][0] == "locacao concluida com sucesso":
-                dia_inicio_locacao = result[0][1][0][0].day
-                dia_semana = datetime.datetime.strptime(str(datetime.date.today()), '%Y-%m-%d').weekday()
+                dia_inicio_locacao = result[0][1]
+                hora_inicio_locacao = result[0][2]
+                data_fim_locacao = result[0][3]
+                hora_fim_locacao = result[0][4]
+                __senha = result[0][5][0]
+                compartimento = result[0][6][0]
                
-                self.label_date_inicio_locacao.set_text(str(calendar.day_name[dia_semana]).upper() + " " + str(result[0][1][0][0].day) + "/" + str(result[0][1][0][0].month))
-                self.label_minute_fim_locacao.set_text(str())
+                self.label_date_inicio_locacao.set_text(dia_inicio_locacao)
+                self.label_date_fim_locacao.set_text(data_fim_locacao)
+                self.label_hour_inicio_locacao.set_text(hora_inicio_locacao)
+                self.label_hour_fim_locacao.set_text(hora_fim_locacao)
+                self.label_senha.set_text(str(__senha))
+                self.label_compartimento.set_text(str(compartimento))
                 self.window_conclusao.show()
                 self.window_cadastro_usuario.hide()
             elif result[0] == "armario da classe escolhida indisponível":
