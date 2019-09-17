@@ -137,3 +137,9 @@ color: #fff;
 	background-color: #fff;
 	color: #000000;
 }
+#btn_encerrar_sessao{
+	font: 3em sans-serif;
+	color: #fff;
+	background-color: #000000;
+	border-radius: 0px;
+}

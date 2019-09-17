@@ -886,7 +886,6 @@
     </child>
   </object>
   <object class="GtkWindow" id="window_pagamento_extra">
-    <property name="name">window</property>
     <property name="width_request">800</property>
     <property name="height_request">500</property>
     <property name="can_focus">False</property>
@@ -1054,6 +1053,7 @@
             </child>
             <child>
               <object class="GtkLabel" id="label_tempo_extra_days">
+                <property name="name">label_informacao_final_locacao</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">label</property>
@@ -1066,6 +1066,7 @@
             </child>
             <child>
               <object class="GtkLabel" id="label_tempo_extra_hours">
+                <property name="name">label_informacao_final_locacao</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">label</property>
@@ -1152,6 +1153,7 @@
             <child>
               <object class="GtkButton" id="btn_efetuar_pagamento">
                 <property name="label" translatable="yes">EFETUAR PAGAMENTO</property>
+                <property name="name">btn_confirmar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -1165,6 +1167,7 @@
             <child>
               <object class="GtkButton" id="btn_encerrar_sessao">
                 <property name="label" translatable="yes">ENCERRAR SESSÃO</property>
+                <property name="name">btn_encerrar_sessao</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
