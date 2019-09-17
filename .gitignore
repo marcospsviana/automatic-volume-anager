@@ -7,6 +7,7 @@ __pycache__/
 *.so
 # vscode config file
 .vscode
+.vscode*
 # pycharm idea
 .idea
 .idea*
