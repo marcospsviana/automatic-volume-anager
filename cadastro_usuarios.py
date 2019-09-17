@@ -48,6 +48,8 @@ class CadastroUsuarios(object):
             "on_entry_entrada_numeros_button_press_event": self.on_entry_entrada_numeros_button_press_event,
             "on_btn_dialog_preencher_campos_pressed_event": self.on_btn_dialog_preencher_campos_pressed_event,
             "on_btn_finalizar_sessao_button_press_event": self.on_btn_finalizar_sessao_button_press_event,
+            "on_btn_backspace_button_press_event": self.on_btn_backspace_button_press_event,
+            "on_btn_limpar_entrada_numeros_button_press_event": self.on_btn_limpar_entrada_numeros_button_press_event,
             
         })
         self.builder.add_from_file("ui/cadastro_usuario.glade")
@@ -150,6 +152,7 @@ class CadastroUsuarios(object):
         self.btn_confirmar_entrada_dados.connect("button_press_event", self.on_btn_confirmar_entrada_dados_button_press_event)
         self.btn_retornar_entrada_dados = self.builder.get_object("btn_retornar_entrada_dados")
         self.btn_retornar_entrada_dados.connect("button_press_event", self.on_btn_retornar_entrada_dados_button_press_event)
+        self.btn_bakspace = self.builder.get_object("btn_bakspace")
 
         """ ================FIM BOTOES==================== """
         " ----------- BOTOES TELA ENTRADA NUMEROS --------- "
@@ -312,6 +315,15 @@ class CadastroUsuarios(object):
         
         self.window_cadastro_usuario.fullscreen()
         self.window_cadastro_usuario.show()
+    
+    def on_btn_limpar_entrada_numeros_button_press_event(self, widget, event):
+        self.entry_entrada_numeros.set_text("")
+
+    def on_btn_backspace_button_press_event(self, widget, event):
+        self.texto = self.entry.get_text()
+        self.texto = self.texto[:-1]
+        self.entry_entrada_dados.set_text(self.texto)
+        self.entry_entrada_dados.set_position(-1)
     def on_btn_finalizar_sessao_button_press_event(self, widget, event):
         self.window_conclusao.hide()
     

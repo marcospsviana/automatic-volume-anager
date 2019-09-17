@@ -7,47 +7,17 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="54"
-   height="35"
-   viewBox="0 0 14.287499 9.2604168"
+   width="9.8693085mm"
+   height="6.6481867mm"
+   viewBox="0 0 9.8693085 6.6481868"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 5da689c313, 2019-01-14"
    sodipodi:docname="backspace.svg">
   <defs
-     id="defs2">
-    <symbol
-       id="LeftArrow_Inv">
-      <title
-         id="title4364">Left Arrow</title>
-      <rect
-         x="0.13229166"
-         y="0.13229166"
-         width="18.785418"
-         height="18.785418"
-         ry="1.5875"
-         style="stroke:#ffffff;stroke-width:0.26458332"
-         id="rect4366" />
-      <path
-         inkscape:connector-curvature="0"
-         d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
-         style="fill:#ffffff;stroke:none;stroke-width:0.26458332"
-         id="path4368" />
-    </symbol>
-    <symbol
-       id="LeftArrow">
-      <title
-         id="title4359">Left Arrow</title>
-      <path
-         inkscape:connector-curvature="0"
-         d="M 2.38125,9.525 8.2020833,3.7041667 H 12.170833 L 7.9375,7.9375 h 8.466667 v 3.175 H 7.9375 l 4.233333,4.233333 H 8.2020833 Z"
-         style="stroke:none;stroke-width:0.26458332"
-         id="path4361" />
-    </symbol>
-  </defs>
+     id="defs2" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -55,16 +25,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="74.242057"
-     inkscape:cy="34.86258"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="-11.019655"
+     inkscape:cy="53.927504"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     units="px"
-     width="25px"
      inkscape:window-width="1366"
-     inkscape:window-height="728"
+     inkscape:window-height="674"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1" />
@@ -76,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -84,15 +52,11 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(1.1693041,-288.67503)">
-    <use
-       id="use9350"
-       transform="matrix(1.0188679,0,0,0.79545457,-3.5954833,285.72853)"
-       style="fill:#f2f2f2;stroke:#000000"
-       xlink:href="#LeftArrow"
-       x="0"
-       y="0"
-       width="100%"
-       height="100%" />
+     transform="translate(-89.466637,-124.34532)">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.14059781;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       d="m 94.81393,124.40468 c 0,0 -1.261391,0.80006 -3.984512,2.3844 l -1.320487,0.80599 0.355925,0.26808 c 2.630377,1.62144 4.949074,3.07074 4.949074,3.07074 l -0.0371,-1.66941 4.488817,0.0371 v -1.63231 -1.63231 l -4.488817,0.0371 z"
+       id="path6518-3"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

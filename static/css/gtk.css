@@ -97,11 +97,11 @@ color: #fff;
 background: rgb(9, 19, 41);
 color: #fff;
 }
-#tecla_backspace{
+#btn_backspace{
 	background: #FDCF03;
 	border: rgb(9, 19, 41) solid 1px;
 	color: #000;
-	font: 1.7em sans-serif;
+	font: 1.9em sans-serif;
 }
 #tecla_backspace:focus{
 background: rgb(9, 19, 41);
