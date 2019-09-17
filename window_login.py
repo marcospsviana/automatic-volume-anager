@@ -78,7 +78,7 @@ class WindowLogin(Gtk.Window):
             self.label_locacao_encerrada.set_text("FINAL DATE OF LEASE")
             self.label_tempo_extra.set_text("TIME OVER")
             self.label_valor_extra.set_text("OVERTIME CHARGE")
-            self.btn_efetuar_pagamento("MAKE THE PAYMENT")
+            self.btn_efetuar_pagamento("PAYMENT")
         
         self.window_pagamento_extra = self.builder.get_object("window_pagamento_extra")
         self.window_login = self.builder.get_object("window_login")
@@ -114,9 +114,16 @@ class WindowLogin(Gtk.Window):
             
         else:
             #self.window_login.close()
+            __result = result[0]
+            __data_locacao = result[1] 
+            __data_limite = result[2] 
+            __dia_da_semana_locacao = result[3] 
+            __dia_da_semana_locado = result[4]
+            self.label_data_locacao_inicial.set_text(__data_locacao)
+            
 
             print('ok fechou')
-            self.message = str(result)
+            self.message = str(__result)
             self.lbl_message.set_text(self.message)
             self.dialog_cobranca.show()
             result = ''

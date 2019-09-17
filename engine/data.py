@@ -30,6 +30,7 @@ class Banco(object):
 	       `nivel` TINYTEXT NULL DEFAULT '' COLLATE 'utf8mb4_unicode_ci',
 	       `numeracao` TINYTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
 	       `porta` TINYTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+           `compartimento` TINYTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
 	       PRIMARY KEY (`id_armario`)
            )
            COLLATE='utf8mb4_unicode_ci'
@@ -164,26 +165,6 @@ ENGINE=InnoDB
             data_and_passwd = pd.read_sql(query_select, self.__conn)
             compartimento = "select compartimento from tb_armario where id_armario = %s" %(loca_armario[0])
             compartimento_select = pd.read_sql(compartimento, self.__conn)
-            
-            '''if len(str(data_locacao.month)) == 1:
-                mes_locacao = "0" + str(data_locacao.month)
-            else:
-                mes_locacao = str(data_locacao.month)
-            if len(str(data_locacao.day)) == 1:
-                dia_locacao = "0" + str(data_locacao.day)
-            else:
-                dia_locacao= str(data_locacao.day)
-            data_locacao = dia_locacao + "/" + mes_locacao
-            tempo_locado = data_and_passwd.head().values[0][1].to_pydatetime()
-            if len(str(tempo_locado.month)) == 1:
-                mes_locado = "0" + str(tempo_locado.month)
-            else:
-                mes_locado = str(tempo_locado.month)
-            if len(str(tempo_locado.day)) == 1:
-                dia_locado = "0" + str(tempo_locado.day)
-            else:
-                dia_locado = str(tempo_locado.day)
-            tempo_locado = dia_locado + "/" + mes_locado'''
             self.__data_locacao = str(self.__data_locacao)
             self.__data_limite = str(self.__data_limite)
             mes_locacao = str(self.__data_locacao[5:7])
@@ -515,7 +496,7 @@ ENGINE=InnoDB
         taxa = 0.15
         hj = datetime.datetime.now()
         hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
-        hj = hj + datetime.timedelta(minutes=+10)
+        
         
         self.__senha = senha
         self.__id_user = self.select_user(self.__senha)
@@ -535,19 +516,35 @@ ENGINE=InnoDB
                 valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
                 result = self.cobranca(valor_total,hj)
                 
-                self.__c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
-                self.__conn.commit()
-                self.__conn.close()
+                #self.__c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
+                #self.__conn.commit()
+                #self.__conn.close()
                 return "armario liberado"
                 port = self.select_port(loca_armario[0][0])
                 self.port.exec_port(port, "abre")
             else:
-                
+                query_data_locacao = "select data_locacao from tb_locacao where senha = %s"%self.__senha
+                query_data_limite = "select tempo_locado from tb_locacao where senha = %s"%self.__senha
+                df_data_locacao = pd.read_sql(query_data_locacao, self.__conn)
+                data_locacao = str(pd.to_datetime(df_data_locacao.head().values[0][0]))#data em que foi feita a locacao
+                df_data_limite = pd.read_sql(query_data_limite, self.__conn)
+                data_limite = str(pd.to_datetime(df_data_limite.head().values[0][0])) #data e hora final da locacao
+                mes_locacao = data_locacao[5:7] # mes da locacao
+                dia_locacao = data_locacao[8:10] #dia da locacao
+                hora_locacao = data_locacao[11:16]
+                mes_locado = data_limite[5:7]
+                dia_locado = data_limite[8:10]
+                hora_locado = data_limite[11:16]
+                dia_da_semana_locacao = pd.to_datetime(df_data_locacao.head().values[0][0]).day_name
+                dia_da_semana_locado = pd.to_datetime(df_data_limite.head().values[0][0]).day_name
+               
+                data_locacao = dia_locacao + "/" + mes_locacao
+                tempo_locado = dia_locado + "/" + mes_locado
                 tempo = hj - self.__locacao[0][2] 
                 tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
                 print('-------> %s'%tempo)
                 result = self.cobranca_excedente(int(tempo))
-                return result
+                return (result, data_locacao, data_limite, dia_da_semana_locacao, dia_da_semana_locado)
     def finalizar_pagamento(self, senha):
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')

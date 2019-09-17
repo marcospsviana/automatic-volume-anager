@@ -78,7 +78,6 @@ class Management(object):
     
     def abre_armario(self, senha):
         result = ''
-        #__nome = nome
         __senha = senha
         
         result = arm.abrir_armario(__senha)
@@ -97,13 +96,3 @@ class Management(object):
         #__nome = nome
         result = loc.finalizar_pagamento(__senha)
         return result
-
-
-
-
-        
-        
-
-
-
-
