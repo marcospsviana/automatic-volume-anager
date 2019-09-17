@@ -490,6 +490,9 @@ ENGINE=InnoDB
     
     @classmethod
     def abrir_armario(self,senha):
+        __conn = mdb.connect(
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+        __cursor = __conn.cursor()
         print('senha data', senha)
         result = ''
         id_armario = ''
@@ -523,11 +526,15 @@ ENGINE=InnoDB
                 port = self.select_port(loca_armario[0][0])
                 self.port.exec_port(port, "abre")
             else:
-                query_data_locacao = "select data_locacao from tb_locacao where senha = %s"%self.__senha
-                query_data_limite = "select tempo_locado from tb_locacao where senha = %s"%self.__senha
-                df_data_locacao = pd.read_sql(query_data_locacao, self.__conn)
+                query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'"%self.__senha
+                query_data_limite = "select tempo_locado from tb_locacao where senha = '%s'"%self.__senha
+                __cursor.execute("select dayname(data_locacao) from tb_locacao where senha = '%s'"%self.__senha)
+                query_dia_semana_locacao = __cursor.fetchone()
+                __cursor.execute("select dayname(tempo_locado) from tb_locacao where senha = '%s'"%self.__senha)
+                query_dia_semana_locado = __cursor.fetchone()
+                df_data_locacao = pd.read_sql(query_data_locacao, __conn)
                 data_locacao = str(pd.to_datetime(df_data_locacao.head().values[0][0]))#data em que foi feita a locacao
-                df_data_limite = pd.read_sql(query_data_limite, self.__conn)
+                df_data_limite = pd.read_sql(query_data_limite, __conn)
                 data_limite = str(pd.to_datetime(df_data_limite.head().values[0][0])) #data e hora final da locacao
                 mes_locacao = data_locacao[5:7] # mes da locacao
                 dia_locacao = data_locacao[8:10] #dia da locacao
@@ -535,16 +542,21 @@ ENGINE=InnoDB
                 mes_locado = data_limite[5:7]
                 dia_locado = data_limite[8:10]
                 hora_locado = data_limite[11:16]
-                dia_da_semana_locacao = pd.to_datetime(df_data_locacao.head().values[0][0]).day_name
-                dia_da_semana_locado = pd.to_datetime(df_data_limite.head().values[0][0]).day_name
+                #dia_da_semana_locacao = pd.to_datetime(df_data_locacao.head().values[0][0]).day_name
+                #dia_da_semana_locado = pd.to_datetime(df_data_limite.head().values[0][0]).day_name
                
                 data_locacao = dia_locacao + "/" + mes_locacao
                 tempo_locado = dia_locado + "/" + mes_locado
                 tempo = hj - self.__locacao[0][2] 
+                __dia_extra = tempo.days
+                __hora_extra = tempo.seconds//3600 #hj.hour - self.__locacao[0][2].hour
+                minuto = tempo.seconds/3600        
+                __minuto_extra = (tempo.seconds%3600)//60 #hj.minute - self.__locacao[0][2].minute
+                
                 tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
                 print('-------> %s'%tempo)
                 result = self.cobranca_excedente(int(tempo))
-                return (result, data_locacao, data_limite, dia_da_semana_locacao, dia_da_semana_locado)
+                return (result, data_locacao, tempo_locado, query_dia_semana_locacao, query_dia_semana_locado, hora_locacao, hora_locado, __dia_extra, __hora_extra, __minuto_extra)
     def finalizar_pagamento(self, senha):
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')

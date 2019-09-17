@@ -64,6 +64,9 @@ class WindowLogin(Gtk.Window):
         self.label_tempo_extra_minutes = self.builder.get_object("label_tempo_extra_minutes")
         self.label_valor_extra = self.builder.get_object("label_valor_extra")
         self.label_valor_extra_value = self.builder.get_object("label_valor_extra_value")
+        self.label_tempo_extra_days = self.builder.get_object("label_tempo_extra_days")
+        self.label_tempo_extra_hours = self.builder.get_object("label_tempo_extra_hours")
+        self.label_tempo_extra_minutes = self.builder.get_object("label_tempo_extra_minutes")
 
          # ================== SET LANGUAGE ===================================
 
@@ -119,14 +122,30 @@ class WindowLogin(Gtk.Window):
             __data_limite = result[2] 
             __dia_da_semana_locacao = result[3] 
             __dia_da_semana_locado = result[4]
-            self.label_data_locacao_inicial.set_text(__data_locacao)
+            __hora_locacao = result[5]
+            __hora_locado = result[6]
+            __dia_extra = result[7] 
+            __hora_extra = result[8] 
+            __minuto_extra = result[9]
+            self.label_data_locacao_inicial.set_text(str(__dia_da_semana_locacao[0]) + "  " + __data_locacao)
+            self.label_data_locacao_encerrada.set_text(str(__dia_da_semana_locado[0]) + "  " + __data_limite)
+            self.label_hour_locacao_inicial.set_text(__hora_locacao)
+            self.label_hour_locacao_encerrada.set_text(__hora_locado)
+            self.label_tempo_extra_days.set_text(str(__dia_extra))
+            self.label_tempo_extra_hours.set_text(str(__hora_extra))
+            self.label_tempo_extra_minutes.set_text(str(__minuto_extra))
+            self.label_valor_extra_value.set_text("R$ "+ str(__result))
+
+            self.window_pagamento_extra.show()
             
 
-            print('ok fechou')
-            self.message = str(__result)
-            self.lbl_message.set_text(self.message)
-            self.dialog_cobranca.show()
-            result = ''
+            #print('ok fechou')
+            #self.message = str(__result)
+            #self.lbl_message.set_text(self.message)
+            #self.dialog_cobranca.show()
+            #result = ''
+    def on_btn_efetuar_pagamento_button_press_event(self, widget, event):
+        pass
 
     def on_btn_retornar_entrada_dados_pressed(self, event):
         self.entry.set_text("")

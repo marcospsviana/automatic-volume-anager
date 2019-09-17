@@ -5,7 +5,6 @@ import datetime
 import calendar
 import string
 from controllers import Management
-from window_conclusao_pagamento import WindowConclusaoPagamento
 import PIL
 from PIL import Image
 TAXA = 0.15
