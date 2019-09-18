@@ -281,6 +281,12 @@
               <object class="GtkComboBoxText" id="combobox_numeracao">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="has_entry">True</property>
+                <child internal-child="entry">
+                  <object class="GtkEntry">
+                    <property name="can_focus">False</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="left_attach">3</property>

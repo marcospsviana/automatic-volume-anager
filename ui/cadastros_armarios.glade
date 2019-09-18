@@ -312,6 +312,9 @@
             <property name="position">3</property>
           </packing>
         </child>
+        <child>
+          <placeholder/>
+        </child>
       </object>
     </child>
   </object>
