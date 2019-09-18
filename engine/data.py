@@ -464,7 +464,7 @@ ENGINE=InnoDB
     @staticmethod
     def listar_classes_armarios():
         __conn = mdb.connect(
-            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+            user='root', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         __classes = []
         result = ''
@@ -478,7 +478,7 @@ ENGINE=InnoDB
         self.classe = classe
         print('classe recebida data', self.classe)
         __conn = mdb.connect(
-            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+            user='root', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         __classes = []
         result = ''
@@ -491,7 +491,7 @@ ENGINE=InnoDB
     @classmethod
     def abrir_armario(self,senha):
         __conn = mdb.connect(
-            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+            user='root', password='m1cr0@t805i', database='coolbag')
         __cursor = __conn.cursor()
         print('senha data', senha)
         result = ''
@@ -559,7 +559,7 @@ ENGINE=InnoDB
                 return (result, data_locacao, tempo_locado, query_dia_semana_locacao, query_dia_semana_locado, hora_locacao, hora_locado, __dia_extra, __hora_extra, __minuto_extra)
     def finalizar_pagamento(self, senha):
         __conn = mdb.connect(
-            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+            user='root', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         __senha = senha
         #__nome = nome

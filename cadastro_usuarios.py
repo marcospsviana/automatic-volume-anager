@@ -144,6 +144,8 @@ class CadastroUsuarios(object):
         self.btn_confirmar.connect("button_press_event", self.on_btn_confirmar_button_press_event)
         self.btn_retornar = self.builder.get_object("btn_retornar")
         self.btn_retornar.connect("button_press_event", self.on_btn_retornar_button_press_event)
+        self.btn_limpar_entrada_numeros = self.builder.get_object("btn_limpar_entrada_numeros")
+        self.btn_limpar_entrada_numeros.connect("button_press_event", self.on_btn_limpar_entrada_numeros_button_press_event)
 
         self.btn_finalizar_sessao = self.builder.get_object("btn_finalizar_sessao")
 
@@ -152,7 +154,8 @@ class CadastroUsuarios(object):
         self.btn_confirmar_entrada_dados.connect("button_press_event", self.on_btn_confirmar_entrada_dados_button_press_event)
         self.btn_retornar_entrada_dados = self.builder.get_object("btn_retornar_entrada_dados")
         self.btn_retornar_entrada_dados.connect("button_press_event", self.on_btn_retornar_entrada_dados_button_press_event)
-        self.btn_bakspace = self.builder.get_object("btn_bakspace")
+        self.btn_backspace = self.builder.get_object("btn_backspace")
+        self.btn_backspace.connect("button_press_event", self.on_btn_backspace_button_press_event)
 
         """ ================FIM BOTOES==================== """
         " ----------- BOTOES TELA ENTRADA NUMEROS --------- "
@@ -279,7 +282,7 @@ class CadastroUsuarios(object):
             self.btn_retornar_entrada_dados.set_label("RETORNAR TELA ANTERIOR")
             self.btn_retornar_entrada_numeros.set_label("RETORNAR TELA ANTERIOR")
             self.label_compartimento_titulo.set_text("SEU COMPARTIMENTO É")
-            self.label_senha_titulo.set_text.set_text("SUA SENHA DE ACESSO É")
+            self.label_senha_titulo.set_text("SUA SENHA DE ACESSO É")
             self.label_inicio_locacao_titulo.set_text("INÍCIO LOCAÇÃO")
             self.label_fim_locacao_titulo.set_text("FIM DA LOCAÇÃO")
             self.label_message_envio_email.set_text("UM EMAIL COM O RECAPTULATIVO DE SUA RESERVA ACABA DE LHE SER ENVIADO!")
@@ -320,7 +323,7 @@ class CadastroUsuarios(object):
         self.entry_entrada_numeros.set_text("")
 
     def on_btn_backspace_button_press_event(self, widget, event):
-        self.texto = self.entry.get_text()
+        self.texto = self.entry_entrada_dados.get_text()
         self.texto = self.texto[:-1]
         self.entry_entrada_dados.set_text(self.texto)
         self.entry_entrada_dados.set_position(-1)

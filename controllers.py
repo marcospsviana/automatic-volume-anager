@@ -48,6 +48,7 @@ class Management(object):
         __classe = arm.listar_classes()
         print('lista armarios controllers', __classe)
         return __classe
+        
     def select_armario(self, armario):
         self.armario = armario
         __classe = arm.seleciona_classe(self.armario)

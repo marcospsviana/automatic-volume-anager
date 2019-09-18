@@ -89,6 +89,16 @@ class TamanhosTarifas(object):
             self.classe = "A"
         else:
             self.classe = ""
+        print("classes obtidas", classes)
+        if self.classe in np.array(classes):
+            pass
+        else:
+            self.classe =""
+            if self.language == "pt_BR":
+                self.label_message_armario_unavailable.set_text(" INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! ")
+            elif self.language == "en_US":
+                self.label_message_armario_unavailable.set_text(" UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ")
+            self.dialog_unavailable.show()
         
         
         
@@ -101,6 +111,16 @@ class TamanhosTarifas(object):
             self.classe = "B"
         else:
             self.classe =""
+        print("classes obtidas", classes)
+        if self.classe in np.array(classes):
+            pass
+        else:
+            self.classe =""
+            if self.language == "pt_BR":
+                self.label_message_armario_unavailable.set_text(" INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! ")
+            elif self.language == "en_US":
+                self.label_message_armario_unavailable.set_text(" UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ")
+            self.dialog_unavailable.show()
 
         
     
@@ -112,6 +132,16 @@ class TamanhosTarifas(object):
             self.classe = "C"
         else:
             self.classe =""
+        print("classes obtidas", classes)
+        if self.classe in np.array(classes):
+            pass
+        else:
+            self.classe =""
+            if self.language == "pt_BR":
+                self.label_message_armario_unavailable.set_text(" INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! ")
+            elif self.language == "en_US":
+                self.label_message_armario_unavailable.set_text(" UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ")
+            self.dialog_unavailable.show()
         
 
     def on_btn_cameraenotebook_toggled(self, widget):
@@ -122,6 +152,16 @@ class TamanhosTarifas(object):
             self.classe = "D"
         else:
             self.classe =""
+        print("classes obtidas", classes)
+        if self.classe in np.array(classes):
+            pass
+        else:
+            self.classe =""
+            if self.language == "pt_BR":
+                self.label_message_armario_unavailable.set_text(" INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! ")
+            elif self.language == "en_US":
+                self.label_message_armario_unavailable.set_text(" UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ")
+            self.dialog_unavailable.show()
         
     
     def on_btn_confirmar_button_press_event(self, widget, event):
