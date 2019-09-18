@@ -109,8 +109,6 @@ class SelectSize(object):
         if self.btn_malasx4.get_active():
             self.classe = "A"
             self.btn_cameraenotebook.get_active()
-        elif self.btn_malasx4_tarifas.get_active():
-            self.classe = "A"
         else:
             self.classe = ""
         classes = self.manager.lista_armarios()
@@ -133,8 +131,6 @@ class SelectSize(object):
         if self.btn_malasx2.get_active():
             self.classe = "B"
             print(self.classe)
-        elif self.btn_malasx2_tarifas.get_active():
-            self.classe = "B"
         else:
             self.classe =""
         classes = self.manager.lista_armarios()
@@ -156,8 +152,6 @@ class SelectSize(object):
         if self.btn_mochilasx2.get_active():
             self.classe = "C"
             print(self.classe)
-        elif self.btn_mochilasx2_tarifas.get_active():
-            self.classe = "C"
         else:
             self.classe =""
         classes = self.manager.lista_armarios()
@@ -177,8 +171,6 @@ class SelectSize(object):
         if self.btn_cameraenotebook.get_active():
             self.classe = "D"
             print(self.classe)
-        elif self.btn_cameraenotebook_tarifas.get_active():
-            self.classe = "D"
         else:
             self.classe =""
         classes = self.manager.lista_armarios()
@@ -201,7 +193,7 @@ class SelectSize(object):
             print("classe selecionada",self.classe)
             OpcaoHoraDiaria(self.classe, self.language)
             self.window_select_size.hide()
-            self.window_tamanhos_tarifas.hide()
+            
     
     def on_btn_retornar_button_press_event(self, widget, event):
         self.window_select_size.hide()

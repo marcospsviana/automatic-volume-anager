@@ -307,7 +307,7 @@ class CadastroUsuarios(object):
             self.btn_limpar_nome.set_label("CLEAR")
             self.btn_limpar_quantidade_diaria.set_label("CLEAR")
             self.label_compartimento_titulo.set_text("YOUR CABINET IS")
-            self.label_senha_titulo.set_text.set_text("YOUR PASSWORD IS")
+            self.label_senha_titulo.set_text("YOUR PASSWORD IS")
             self.label_inicio_locacao_titulo.set_text("START DATE OF LEASE")
             self.label_fim_locacao_titulo.set_text("FINAL DATE OF LEASE")
             self.label_message_envio_email.set_text("AN EMAIL WITH THE RECAPTULATIVE OF YOUR RESERVATION HAS JUST BEEN SENT!")
