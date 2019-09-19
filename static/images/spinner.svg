@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="241.68411mm"
-   height="241.6841mm"
-   viewBox="0 0 241.68411 241.6841"
-   version="1.1"
+   sodipodi:docname="spinner.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    id="svg8"
-   inkscape:version="0.92.4 5da689c313, 2019-01-14"
-   sodipodi:docname="spinner.svg">
+   version="1.1"
+   viewBox="0 0 24.077083 24.077082"
+   height="24.077082mm"
+   width="24.077084mm">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -25,16 +25,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.24748737"
-     inkscape:cx="440.63797"
-     inkscape:cy="600.60767"
+     inkscape:zoom="2"
+     inkscape:cx="189.21539"
+     inkscape:cy="22.382493"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1366"
-     inkscape:window-height="674"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      showguides="true"
      inkscape:guide-bbox="true" />
@@ -54,10 +54,10 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(15.842049,-26.10162)">
+     transform="translate(15.842046,-243.70864)">
     <g
        id="g5354"
-       transform="translate(-1.3827975e-6)">
+       transform="matrix(-0.09962212,0,0,0.09962212,6.6568186,241.10834)">
       <path
          inkscape:connector-curvature="0"
          id="path4819"

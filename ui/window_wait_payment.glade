@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkImage" id="image_flag_br">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">..\..\..\..\..\..\WINDOWS\static\images\brasilpq.svg</property>
+  </object>
+  <object class="GtkImage" id="image_flag_usa">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">..\..\..\..\..\..\WINDOWS\static\images\usa.svg</property>
+  </object>
+  <object class="GtkImage" id="principal_image">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">..\static\images\coolbag_inicial.svg</property>
+  </object>
+  <object class="GtkWindow" id="window_wait_payment">
+    <property name="name">window</property>
+    <property name="can_focus">False</property>
+    <property name="default_width">1024</property>
+    <property name="default_height">600</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="spacing">5</property>
+            <child>
+              <object class="GtkLabel" id="label_horario">
+                <property name="name">label_horario</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_data">
+                <property name="name">label_data</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkGrid" id="grid_flags">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_top">15</property>
+                <property name="margin_bottom">5</property>
+                <property name="row_spacing">6</property>
+                <property name="column_spacing">30</property>
+                <child>
+                  <object class="GtkButton" id="btn_flag_br">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="image">image_flag_br</property>
+                    <property name="always_show_image">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn_flag_usa">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="image">image_flag_usa</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="padding">6</property>
+                <property name="pack_type">end</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btn_principal">
+            <property name="name">btn_principal</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
+            <property name="image">principal_image</property>
+            <property name="relief">none</property>
+            <property name="always_show_image">True</property>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="spinner">
+            <property name="name">spinner</property>
+            <property name="width_request">50</property>
+            <property name="height_request">50</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixbuf">..\static\images\spinner_coolbag.svg</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

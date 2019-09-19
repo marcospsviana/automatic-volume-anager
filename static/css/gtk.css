@@ -143,3 +143,11 @@ color: #fff;
 	background-color: #000000;
 	border-radius: 0px;
 }
+
+#spinner {
+		/*background: url("static\images\spinner.svg");*/
+		opacity: 1; 
+		animation: spin 0.3s linear infinite;
+		-gtk-icon-source: url("../images/spinner_coolbag.svg");
+		-gtk-icon-transform: rotate(257deg);
+}
