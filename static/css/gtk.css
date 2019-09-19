@@ -98,7 +98,7 @@ background: rgb(9, 19, 41);
 color: #fff;
 }
 #btn_backspace{
-	background: #FDCF03;
+	background: #fdcf03;
 	border: rgb(9, 19, 41) solid 1px;
 	color: #000;
 	font: 1.9em sans-serif;
@@ -147,7 +147,11 @@ color: #fff;
 #spinner {
 		/*background: url("static\images\spinner.svg");*/
 		opacity: 1; 
-		animation: spin 0.3s linear infinite;
+		animation: spin 1.4s linear infinite;
 		-gtk-icon-source: url("../images/spinner_coolbag.svg");
-		-gtk-icon-transform: rotate(257deg);
+		/*-gtk-icon-transform: rotate(359deg);*/
+}
+#label_aguarde{
+	font: 4em sans-serif;
+	font-weight: lighter;
 }

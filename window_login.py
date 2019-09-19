@@ -103,7 +103,7 @@ class WindowLogin(Gtk.Window):
             self.label_locacao_encerrada.set_text("FINAL DATE OF LEASE")
             self.label_tempo_extra.set_text("TIME OVER")
             self.label_valor_extra.set_text("OVERTIME CHARGE")
-            self.btn_efetuar_pagamento("PAYMENT")
+            self.btn_efetuar_pagamento.set_label("PAYMENT")
 
         self.window_pagamento_extra = self.builder.get_object(
             "window_pagamento_extra")
