@@ -443,7 +443,7 @@ class CadastroUsuarios(object):
         if self.language == "pt_BR":
             self.label_entrada_numeros.set_text("QUANTIDADE DIÁRIA")
         elif self.language == "en_US":
-            self.label_entrada_numeros.set_text("NUMBER OF DAYS")
+            self.label_entrada_numeros.set_text("QUANTITY DAYS")
         self.window_entrada_numeros.show()
         
     
@@ -451,7 +451,7 @@ class CadastroUsuarios(object):
         if self.language == "pt_BR":
             self.label_entrada_numeros.set_text("QUANTIDADE HORAS")
         elif self.language == "en_US":
-            self.label_entrada_numeros.set_text("QUANTITY OF HOURS")
+            self.label_entrada_numeros.set_text("QUANTITY HOURS")
         self.window_entrada_numeros.show()
         
 
@@ -459,7 +459,7 @@ class CadastroUsuarios(object):
         if self.language == "pt_BR":
             self.label_entrada_numeros.set_text("QUANTIDADE MINUTOS")
         elif self.language == "en_US":
-            self.label_entrada_numeros.set_text("QUANTITY OF MINUTES")
+            self.label_entrada_numeros.set_text("QUANTITY MINUTES")
         self.window_entrada_numeros.show()
         
     
