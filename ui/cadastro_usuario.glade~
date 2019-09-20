@@ -1231,7 +1231,7 @@
             <child>
               <object class="GtkEntry" id="entry_nome">
                 <property name="name">entry</property>
-                <property name="width_request">400</property>
+                <property name="width_request">500</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <signal name="button-press-event" handler="on_entry_nome_button_press_event" swapped="no"/>
@@ -1293,7 +1293,7 @@
             <child>
               <object class="GtkEntry" id="entry_email">
                 <property name="name">entry</property>
-                <property name="width_request">400</property>
+                <property name="width_request">500</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">False</property>
@@ -1368,7 +1368,7 @@
             <child>
               <object class="GtkEntry" id="entry_celular">
                 <property name="name">entry</property>
-                <property name="width_request">300</property>
+                <property name="width_request">350</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">False</property>
@@ -1432,7 +1432,7 @@
             <child>
               <object class="GtkEntry" id="entry_quantidade_diaria">
                 <property name="name">entry</property>
-                <property name="width_request">-1</property>
+                <property name="width_request">50</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="halign">start</property>
@@ -1478,7 +1478,7 @@
             <child>
               <object class="GtkEntry" id="entry_quantidade_horas">
                 <property name="name">entry</property>
-                <property name="width_request">20</property>
+                <property name="width_request">50</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="valign">center</property>
