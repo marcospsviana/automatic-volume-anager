@@ -108,7 +108,7 @@ class TamanhosTarifas(object):
             self.label_tamanhos_tarifas_cameraenotebook.set_text("IDEAL FOR")
             self.label_titulo_tamanhos_tarifas.set_text("SIZES AND RATES")
             self.btn_retornar_tarifas.set_label(
-                "RETURN TO THE PREVIOUS SCREEN")
+                "PREVIOUS SCREEN")
             self.btn_confirmar_tarifas.set_label("CONFIRM")
             self.label_message_armario_unavailable.set_text(
                 "CABINET SIZE UNAVAILABLE AT THE TIME,\n PLEASE CHOOSE ANOTHER!")

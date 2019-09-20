@@ -3,10 +3,13 @@
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkDialog" id="dialog_message_preencher_campos">
+    <property name="width_request">600</property>
+    <property name="height_request">400</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
+    <property name="decorated">False</property>
     <child>
       <placeholder/>
     </child>
@@ -25,6 +28,7 @@
             <child>
               <object class="GtkButton" id="btn_dialog_preencher_campos">
                 <property name="label" translatable="yes">OK</property>
+                <property name="name">btn_confirmar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -77,6 +81,8 @@
     </child>
   </object>
   <object class="GtkDialog" id="dialog_retorno_cadastro">
+    <property name="width_request">600</property>
+    <property name="height_request">500</property>
     <property name="can_focus">False</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>
@@ -84,6 +90,7 @@
     <property name="default_height">350</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
+    <property name="decorated">False</property>
     <child>
       <placeholder/>
     </child>
@@ -102,6 +109,7 @@
             <child>
               <object class="GtkButton" id="btn_ok_dialog_retorno_cadastro">
                 <property name="label" translatable="yes">ok</property>
+                <property name="name">btn_confirmar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -157,12 +165,15 @@
   </object>
   <object class="GtkWindow" id="window_entrada_dados">
     <property name="name">window</property>
+    <property name="width_request">1000</property>
+    <property name="height_request">600</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
     <property name="destroy_with_parent">True</property>
+    <property name="decorated">False</property>
     <property name="gravity">center</property>
     <child>
       <placeholder/>
@@ -1046,16 +1057,17 @@
   </object>
   <object class="GtkWindow" id="window_cadastro_usuario">
     <property name="name">window</property>
-    <property name="width_request">800</property>
+    <property name="width_request">900</property>
     <property name="height_request">600</property>
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="hexpand">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
-    <property name="default_width">1024</property>
+    <property name="default_width">800</property>
     <property name="default_height">600</property>
     <property name="destroy_with_parent">True</property>
+    <property name="decorated">False</property>
     <property name="gravity">center</property>
     <child>
       <placeholder/>
@@ -1224,7 +1236,7 @@
             <child>
               <object class="GtkButton" id="btn_limpar_nome">
                 <property name="label" translatable="yes">LIMPAR</property>
-                <property name="name">btn_limpar_nome</property>
+                <property name="name">btn_clear</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
@@ -1283,7 +1295,7 @@
             <child>
               <object class="GtkButton" id="btn_limpar_email">
                 <property name="label" translatable="yes">LIMPAR</property>
-                <property name="name">btn_limpar_email</property>
+                <property name="name">btn_clear</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
@@ -1354,7 +1366,7 @@
             <child>
               <object class="GtkButton" id="btn_limpar_celular">
                 <property name="label" translatable="yes">LIMPAR</property>
-                <property name="name">btn_limpar_celular</property>
+                <property name="name">btn_clear</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
@@ -1415,7 +1427,7 @@
             <child>
               <object class="GtkButton" id="btn_limpar_quantidade_diaria">
                 <property name="label" translatable="yes">LIMPAR</property>
-                <property name="name">btn_limpar_quantidade_diaria</property>
+                <property name="name">btn_clear</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
@@ -1459,7 +1471,7 @@
             <child>
               <object class="GtkButton" id="btn_limpar_horas">
                 <property name="label" translatable="yes">LIMPAR</property>
-                <property name="name">btn_limpar_horas</property>
+                <property name="name">btn_clear</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
@@ -1502,7 +1514,7 @@
             <child>
               <object class="GtkButton" id="btn_limpar_minutos">
                 <property name="label" translatable="yes">LIMPAR</property>
-                <property name="name">btn_limpar_minutos</property>
+                <property name="name">btn_clear</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
@@ -1615,7 +1627,7 @@
           </object>
           <packing>
             <property name="expand">False</property>
-            <property name="fill">True</property>
+            <property name="fill">False</property>
             <property name="position">7</property>
           </packing>
         </child>
@@ -1881,6 +1893,7 @@
         <child>
           <object class="GtkButton" id="btn_finalizar_sessao">
             <property name="label" translatable="yes">FINALIZAR SESSÃO</property>
+            <property name="name">btn_encerrar_sessao</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
@@ -1954,9 +1967,11 @@
             <child>
               <object class="GtkButton" id="btn_limpar_entrada_numeros">
                 <property name="label" translatable="yes">LIMPAR</property>
+                <property name="name">btn_clear</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="button-press-event" handler="on_btn_limpar_entrada_numeros_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>

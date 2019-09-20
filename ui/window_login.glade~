@@ -819,7 +819,7 @@
                 <child>
                   <object class="GtkButton" id="btn_backspace">
                     <property name="label" translatable="yes">Backspace</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">btn_backspace</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="receives_default">True</property>

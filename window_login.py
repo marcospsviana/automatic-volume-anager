@@ -37,8 +37,7 @@ class WindowLogin(Gtk.Window):
             self.number.connect("clicked", self.on_entry_button_press_event)
 
         self.btn_backspace = self.builder.get_object("btn_backspace")
-        #self.btn_backspace.connect("button_press_event",
-                               #self.on_btn_backspace_button_press_event)
+        
 
         # ==============================================
         # ============================== BUTTONS =========================================
@@ -90,6 +89,9 @@ class WindowLogin(Gtk.Window):
             "label_tempo_extra_hours")
         self.label_tempo_extra_minutes = self.builder.get_object(
             "label_tempo_extra_minutes")
+        
+        self.label_entrada_dados = self.builder.get_object(
+            "label_entrada_dados")
 
         # ================== SET LANGUAGE ===================================
 
@@ -98,13 +100,19 @@ class WindowLogin(Gtk.Window):
             self.label_locacao_encerrada.set_text("LOCAÇÃO ENCERRADA ÀS")
             self.label_tempo_extra.set_text("TEMPO EXTRA")
             self.label_valor_extra.set_text("VALOR EXTRA")
+            self.label_entrada_dados.set_text("SENHA")
             self.btn_efetuar_pagamento.set_label("EFETUAR PAGAMENTO")
+            self.btn_confirmar_entrada_dados.set_label("CONFIRMAR")
+            self.btn_retornar_entrada_dados.set_label("RETORNAR TELA ANTERIOR")
         elif self.language == "en_US":
             self.label_locacao_inicial.set_text("START DATE OF LEASE")
             self.label_locacao_encerrada.set_text("FINAL DATE OF LEASE")
             self.label_tempo_extra.set_text("TIME OVER")
             self.label_valor_extra.set_text("OVERTIME CHARGE")
+            self.label_entrada_dados.set_text("PASSWORD")
             self.btn_efetuar_pagamento.set_label("PAYMENT")
+            self.btn_confirmar_entrada_dados.set_label("CONFIRM")
+            self.btn_retornar_entrada_dados.set_label("PREVIOUS SCREEN")
 
         self.window_pagamento_extra = self.builder.get_object(
             "window_pagamento_extra")

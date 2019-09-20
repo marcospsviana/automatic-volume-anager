@@ -94,7 +94,7 @@ class SelectSize(object):
             self.label_mochilasx2.set_text("IDEAL FOR")
             self.label_cameraenotebook.set_text("IDEAL FOR")
             self.btn_confirmar.set_label("CONFIRM")
-            self.btn_retornar.set_label("RETURN TO THE PREVIOUS SCREEN")
+            self.btn_retornar.set_label("PREVIOUS SCREEN")
             self.btn_tamanhos_tarifas.set_label("SIZES AND RATES")
        
 

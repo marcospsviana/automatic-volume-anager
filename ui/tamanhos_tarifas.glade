@@ -7,6 +7,7 @@
     <property name="modal">True</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
+    <property name="decorated">False</property>
     <child>
       <placeholder/>
     </child>
@@ -188,6 +189,7 @@
                 <property name="homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="btn_usa">
+                    <property name="name">btn_flag</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -204,6 +206,7 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_br">
+                    <property name="name">btn_flag</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -266,6 +269,7 @@
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkToggleButton" id="btn_malasx4_tarifas">
+                        <property name="name">btn_toggle</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="focus_on_click">False</property>
@@ -313,6 +317,7 @@
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkToggleButton" id="btn_malasx2_tarifas">
+                        <property name="name">btn_toggle</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="focus_on_click">False</property>
@@ -361,6 +366,7 @@
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkToggleButton" id="btn_mochilasx2_tarifas">
+                        <property name="name">btn_toggle</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="focus_on_click">False</property>
@@ -396,6 +402,7 @@
                     </child>
                     <child>
                       <object class="GtkToggleButton" id="btn_cameraenotebook_tarifas">
+                        <property name="name">btn_toggle</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="focus_on_click">False</property>

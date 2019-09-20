@@ -188,6 +188,7 @@
                 <property name="homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="btn_usa">
+                    <property name="name">btn_flag</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -204,6 +205,7 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_br">
+                    <property name="name">btn_flag</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -266,6 +268,7 @@
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkToggleButton" id="btn_malasx4_tarifas">
+                        <property name="name">btn_toggle</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="focus_on_click">False</property>
@@ -275,6 +278,7 @@
                         <property name="relief">none</property>
                         <property name="use_underline">True</property>
                         <property name="always_show_image">True</property>
+                        <signal name="toggled" handler="on_btn_malasx4_tarifas_toggled" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -312,6 +316,7 @@
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkToggleButton" id="btn_malasx2_tarifas">
+                        <property name="name">btn_toggle</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="focus_on_click">False</property>
@@ -320,6 +325,7 @@
                         <property name="relief">none</property>
                         <property name="use_underline">True</property>
                         <property name="always_show_image">True</property>
+                        <signal name="toggled" handler="on_btn_malasx2_tarifas_toggled" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -359,6 +365,7 @@
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkToggleButton" id="btn_mochilasx2_tarifas">
+                        <property name="name">btn_toggle</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="focus_on_click">False</property>
@@ -367,6 +374,7 @@
                         <property name="relief">none</property>
                         <property name="use_underline">True</property>
                         <property name="always_show_image">True</property>
+                        <signal name="toggled" handler="on_btn_mochilasx2_tarifas_toggled" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -393,6 +401,7 @@
                     </child>
                     <child>
                       <object class="GtkToggleButton" id="btn_cameraenotebook_tarifas">
+                        <property name="name">btn_toggle</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="focus_on_click">False</property>
@@ -401,6 +410,7 @@
                         <property name="relief">none</property>
                         <property name="use_underline">True</property>
                         <property name="always_show_image">True</property>
+                        <signal name="toggled" handler="on_btn_cameraenotebook_tarifas_toggled" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">False</property>

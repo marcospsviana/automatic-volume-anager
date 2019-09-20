@@ -281,6 +281,7 @@ class CadastroUsuarios(object):
             self.btn_confirmar_entrada_numero.set_label("CONFIRMAR")
             self.btn_retornar_entrada_dados.set_label("RETORNAR TELA ANTERIOR")
             self.btn_retornar_entrada_numeros.set_label("RETORNAR TELA ANTERIOR")
+            self.btn_limpar_entrada_numeros.set_label("LIMPAR")
             self.label_compartimento_titulo.set_text("SEU COMPARTIMENTO É")
             self.label_senha_titulo.set_text("SUA SENHA DE ACESSO É")
             self.label_inicio_locacao_titulo.set_text("INÍCIO LOCAÇÃO")
@@ -298,14 +299,15 @@ class CadastroUsuarios(object):
             self.btn_retornar.set_label("RETURN TO THE PREVIOUS SCREEN")
             self.btn_confirmar_entrada_dados.set_label("CONFIRM")
             self.btn_confirmar_entrada_numero.set_label("CONFIRM")
-            self.btn_retornar_entrada_dados.set_label("RETURN TO THE PREVIOUS SCREEN")
-            self.btn_retornar_entrada_numeros.set_label("RETURN TO THE PREVIOUS SCREEN")
+            self.btn_retornar_entrada_dados.set_label("PREVIOUS SCREEN")
+            self.btn_retornar_entrada_numeros.set_label("PREVIOUS SCREEN")
             self.btn_limpar_celular.set_label("CLEAR")
             self.btn_limpar_email.set_label("CLEAR")
             self.btn_limpar_horas.set_label("CLEAR")
             self.btn_limpar_minutos.set_label("CLEAR")
             self.btn_limpar_nome.set_label("CLEAR")
             self.btn_limpar_quantidade_diaria.set_label("CLEAR")
+            self.btn_limpar_entrada_numeros.set_label("CLEAR")
             self.label_compartimento_titulo.set_text("YOUR CABINET IS")
             self.label_senha_titulo.set_text("YOUR PASSWORD IS")
             self.label_inicio_locacao_titulo.set_text("START DATE OF LEASE")
@@ -416,7 +418,10 @@ class CadastroUsuarios(object):
         
     
     def on_entry_nome_button_press_event(self, widget, event):
-        self.label_entrada_dados.set_text("NOME")
+        if self.language == "pt_BR":
+            self.label_entrada_dados.set_text("NOME")
+        elif self.language == "en_US":
+            self.label_entrada_dados.set_text("NAME")
         self.window_entrada_dados.show()
         return (self.entry, self.label_entrada_dados)
     
@@ -426,23 +431,35 @@ class CadastroUsuarios(object):
         return self.entry
     
     def on_entry_celular_button_press_event(self, widget, event):
-        self.label_entrada_numeros.set_text("CELULAR")
+        if self.language == "pt_BR":
+            self.label_entrada_numeros.set_text("CELULAR")
+        elif self.language == "en_US":
+            self.label_entrada_numeros.set_text("PHONE")
         
         self.window_entrada_numeros.show()
         
     
     def on_entry_quantidade_diaria_button_press_event(self, widget, event):
-        self.label_entrada_numeros.set_text("QUANTIDADE DIÁRIA")
+        if self.language == "pt_BR":
+            self.label_entrada_numeros.set_text("QUANTIDADE DIÁRIA")
+        elif self.language == "en_US":
+            self.label_entrada_numeros.set_text("NUMBER OF DAYS")
         self.window_entrada_numeros.show()
         
     
     def on_entry_quantidade_horas_button_press_event(self, widget, event):
-        self.label_entrada_numeros.set_text("QUANTIDADE HORAS")
+        if self.language == "pt_BR":
+            self.label_entrada_numeros.set_text("QUANTIDADE HORAS")
+        elif self.language == "en_US":
+            self.label_entrada_numeros.set_text("QUANTITY OF HOURS")
         self.window_entrada_numeros.show()
         
 
     def on_entry_minutos_button_press_event(self, widget, event):
-        self.label_entrada_numeros.set_text("QUANTIDADE MINUTOS")
+        if self.language == "pt_BR":
+            self.label_entrada_numeros.set_text("QUANTIDADE MINUTOS")
+        elif self.language == "en_US":
+            self.label_entrada_numeros.set_text("QUANTITY OF MINUTES")
         self.window_entrada_numeros.show()
         
     

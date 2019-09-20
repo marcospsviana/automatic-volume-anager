@@ -293,7 +293,7 @@ ENGINE=InnoDB
         #hj = hj + datetime.timedelta(minutes=+10)
         print("hj", hj)
         self.__senha = senha
-        print('nome e senha de data', self.__senha, self.__nome)
+        print('nome e senha de data', self.__senha)
         self.__id_user = self.select_user(self.__senha)
         if self.__id_user == 'senha incorreta, tente novamente':
             return 'senha incorreta, tente novamente'
