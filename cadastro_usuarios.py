@@ -265,9 +265,9 @@ class CadastroUsuarios(object):
         if self.language == "pt_BR":
             self.label_nome.set_text("NOME")
             self.label_telefone.set_text("CELULAR")
-            self.label_quantidade_diaria.set_text("QUANTIDADE DIÁRIA") #daily amount
-            self.label_quantidade_horas.set_text("QUANTIDADE DE HORAS") #quantity of hours
-            self.label_quantidade_minutos.set_text("QUANTIDADE DE MINUTOS") #quantity of minutes
+            self.label_quantidade_diaria.set_text("QUANTIDADE\n DIÁRIA") #daily amount
+            self.label_quantidade_horas.set_text("QUANTIDADE\n DE HORAS") #quantity of hours
+            self.label_quantidade_minutos.set_text("QUANTIDADE\n DE MINUTOS") #quantity of minutes
             self.label_valor_da_locacao.set_text("VALOR DA LOCAÇÃO R$")
             self.btn_confirmar.set_label("CONFIRMAR")
             self.btn_retornar.set_label("TELA ANTERIOR")
@@ -291,9 +291,9 @@ class CadastroUsuarios(object):
         elif self.language == "en_US":
             self.label_nome.set_text("NAME")
             self.label_telefone.set_text("PHONE")
-            self.label_quantidade_diaria.set_text("QUANTITY DAYS") 
-            self.label_quantidade_horas.set_text("QUANTITY HOURS") 
-            self.label_quantidade_minutos.set_text("QUANTITy MINUTES")
+            self.label_quantidade_diaria.set_text("QUANTITY\n DAYS") 
+            self.label_quantidade_horas.set_text("QUANTITY\n HOURS") 
+            self.label_quantidade_minutos.set_text("QUANTITY\n MINUTES")
             self.label_valor_da_locacao.set_text("RENTAL VALUE R$")
             self.btn_confirmar.set_label("CONFIRM")
             self.btn_retornar.set_label("PREVIOUS SCREEN")
