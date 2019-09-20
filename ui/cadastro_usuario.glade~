@@ -1082,7 +1082,7 @@
         <property name="margin_right">10</property>
         <property name="margin_top">10</property>
         <property name="margin_bottom">10</property>
-        <property name="hexpand">True</property>
+        <property name="hexpand">False</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
@@ -1883,7 +1883,8 @@
             <property name="margin_right">5</property>
             <property name="margin_top">5</property>
             <property name="margin_bottom">5</property>
-            <property name="label" translatable="yes">UM EMAIL COM O RECAPTULATIVO DE SUA RESERVA ACABA DE LHE SER ENVIADO!</property>
+            <property name="label" translatable="yes">UM EMAIL COM O RECAPTULATIVO DE SUA 
+RESERVA ACABA DE LHE SER ENVIADO!</property>
           </object>
           <packing>
             <property name="expand">False</property>
