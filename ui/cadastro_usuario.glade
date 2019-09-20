@@ -1210,6 +1210,7 @@
                 <property name="name">label_nome</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_right">10</property>
                 <property name="label" translatable="yes">NOME</property>
               </object>
               <packing>
@@ -1270,6 +1271,7 @@
                 <property name="name">label_email</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_right">10</property>
                 <property name="label" translatable="yes">EMAIL</property>
               </object>
               <packing>
@@ -1330,6 +1332,7 @@
                 <property name="name">label_email</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_right">10</property>
                 <property name="label" translatable="yes">CELULAR</property>
               </object>
               <packing>
@@ -1371,6 +1374,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
+                <property name="margin_left">10</property>
                 <signal name="button-press-event" handler="on_btn_limbar_celular_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1402,6 +1406,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>
+                <property name="margin_right">10</property>
                 <property name="label" translatable="yes">QUANTIDADE DIÁRIA</property>
               </object>
               <packing>
@@ -1446,6 +1451,7 @@
                 <property name="name">label_quantidade_horas</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_right">10</property>
                 <property name="label" translatable="yes">QUANTIDADE 
      HORAS</property>
               </object>
