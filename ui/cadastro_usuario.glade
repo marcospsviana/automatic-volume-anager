@@ -1407,7 +1407,7 @@
         </child>
         <child>
           <object class="GtkBox">
-            <property name="width_request">600</property>
+            <property name="width_request">450</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">start</property>
@@ -1420,11 +1420,13 @@
             <child>
               <object class="GtkLabel" id="label_quantidade_diaria">
                 <property name="name">label_quantidade_diaria</property>
+                <property name="width_request">20</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>
                 <property name="margin_right">10</property>
-                <property name="label" translatable="yes">QUANTIDADE DIÁRIA</property>
+                <property name="label" translatable="yes">QUANTIDADE
+ DIÁRIA</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1466,6 +1468,7 @@
             <child>
               <object class="GtkLabel" id="label_quantidade_horas">
                 <property name="name">label_quantidade_horas</property>
+                <property name="width_request">20</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_right">10</property>
@@ -1511,6 +1514,7 @@
             <child>
               <object class="GtkLabel" id="label_quantidade_minutos">
                 <property name="name">label_quantidade_minutos</property>
+                <property name="width_request">20</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">QUANTIDADE 
