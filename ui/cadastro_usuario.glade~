@@ -1089,8 +1089,10 @@
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
+            <property name="width_request">650</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="margin_right">20</property>
             <child>
               <object class="GtkLabel" id="label_horario">
                 <property name="name">label_hora</property>
