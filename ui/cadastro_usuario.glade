@@ -1408,10 +1408,11 @@
         </child>
         <child>
           <object class="GtkBox">
-            <property name="width_request">400</property>
+            <property name="width_request">350</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">start</property>
+            <property name="margin_left">20</property>
             <property name="margin_right">10</property>
             <property name="margin_top">15</property>
             <property name="margin_bottom">15</property>
