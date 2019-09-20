@@ -140,7 +140,7 @@ color: #fff;
 #btn_encerrar_sessao{
 	font: 2.5em sans-serif;
 	color: #fff;
-	background-color: #000000;
+	background: #000000;
 	border-radius: 0px;
 }
 
@@ -166,10 +166,10 @@ color: #fff;
 #btn_clear{
 	font: 1.5em sans-serif;
 	color: #fff;
-	background-color: #000000;
+	background: #000000;
 	border-radius: 0px;
 }
 #btn_clear:active{
 	color: #000;
-	background-color: red;
+	background: red;
 }
