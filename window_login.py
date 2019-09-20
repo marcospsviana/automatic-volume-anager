@@ -1,4 +1,5 @@
 from controllers import Management
+from window_wait_payment import WindowWaitPayment
 from gi.repository import Gtk, Gdk
 import gi
 import string

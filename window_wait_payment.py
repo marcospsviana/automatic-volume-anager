@@ -1,7 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*- 
-
-
 import sys, os
 import datetime
 import gi
@@ -13,9 +9,8 @@ from gi.repository import Gtk, Gdk, GLib
 from datetime import datetime, date
 from controllers import Management
 from login import Login
-from encerrar import Encerrar
-from locar import Locar
-from select_option import SelectOption
+
+
 
 
 

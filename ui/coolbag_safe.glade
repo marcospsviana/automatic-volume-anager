@@ -73,6 +73,7 @@
                 <property name="column_spacing">30</property>
                 <child>
                   <object class="GtkButton" id="btn_flag_br">
+                    <property name="name">btn_flag</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -86,6 +87,7 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_flag_usa">
+                    <property name="name">btn_flag</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>

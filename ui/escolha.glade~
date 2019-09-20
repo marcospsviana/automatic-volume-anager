@@ -11,6 +11,7 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/cartao.svg</property>
+    <signal name="button-press-event" handler="on_concluir_reserva_button_press_event" swapped="no"/>
   </object>
   <object class="GtkImage" id="image_br_flag">
     <property name="visible">True</property>

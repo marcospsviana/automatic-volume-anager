@@ -155,3 +155,8 @@ color: #fff;
 	font: 4em sans-serif;
 	font-weight: lighter;
 }
+#btn_flag{
+	border-radius: 0;
+	padding: 0;
+	margin: 0;
+}
