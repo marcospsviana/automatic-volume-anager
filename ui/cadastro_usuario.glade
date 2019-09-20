@@ -1205,7 +1205,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="margin_left">20</property>
-            <property name="margin_right">40</property>
+            <property name="margin_right">50</property>
             <property name="margin_top">15</property>
             <property name="margin_bottom">15</property>
             <property name="hexpand">True</property>
@@ -1246,6 +1246,7 @@
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
                 <property name="margin_left">10</property>
+                <property name="margin_right">10</property>
                 <signal name="button-press-event" handler="on_btn_limbar_nome_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1266,7 +1267,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="margin_left">20</property>
-            <property name="margin_right">40</property>
+            <property name="margin_right">50</property>
             <property name="margin_top">15</property>
             <property name="margin_bottom">15</property>
             <property name="hexpand">True</property>
@@ -1307,6 +1308,7 @@
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
                 <property name="margin_left">10</property>
+                <property name="margin_right">10</property>
                 <signal name="button-press-event" handler="on_btn_limbar_email_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1327,7 +1329,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="margin_left">20</property>
-            <property name="margin_right">40</property>
+            <property name="margin_right">50</property>
             <property name="margin_top">15</property>
             <property name="margin_bottom">15</property>
             <property name="hexpand">True</property>
@@ -1380,6 +1382,7 @@
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
                 <property name="margin_left">10</property>
+                <property name="margin_right">10</property>
                 <signal name="button-press-event" handler="on_btn_limbar_celular_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1400,7 +1403,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="margin_left">20</property>
-            <property name="margin_right">40</property>
+            <property name="margin_right">50</property>
             <property name="margin_top">15</property>
             <property name="margin_bottom">15</property>
             <property name="hexpand">True</property>
@@ -1532,6 +1535,7 @@
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="margin_left">10</property>
+                <property name="margin_right">10</property>
                 <signal name="button-press-event" handler="on_btn_limpar_minutos_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1551,9 +1555,9 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">center</property>
+            <property name="halign">start</property>
             <property name="margin_left">20</property>
-            <property name="margin_right">20</property>
+            <property name="margin_right">50</property>
             <property name="margin_top">10</property>
             <property name="margin_bottom">10</property>
             <property name="spacing">2</property>
