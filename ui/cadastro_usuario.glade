@@ -1235,6 +1235,7 @@
                 <property name="width_request">550</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="hexpand">True</property>
                 <signal name="button-press-event" handler="on_entry_nome_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1297,7 +1298,7 @@
                 <property name="width_request">550</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="hexpand">False</property>
+                <property name="hexpand">True</property>
                 <signal name="button-press-event" handler="on_entry_email_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1372,7 +1373,7 @@
                 <property name="width_request">400</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="hexpand">False</property>
+                <property name="hexpand">True</property>
                 <signal name="button-press-event" handler="on_entry_celular_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1407,12 +1408,11 @@
         </child>
         <child>
           <object class="GtkBox">
-            <property name="width_request">450</property>
+            <property name="width_request">400</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">start</property>
-            <property name="margin_left">20</property>
-            <property name="margin_right">50</property>
+            <property name="margin_right">10</property>
             <property name="margin_top">15</property>
             <property name="margin_bottom">15</property>
             <property name="hexpand">False</property>
