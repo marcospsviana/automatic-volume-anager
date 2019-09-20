@@ -266,8 +266,8 @@ class CadastroUsuarios(object):
             self.label_nome.set_text("NOME")
             self.label_telefone.set_text("CELULAR")
             self.label_quantidade_diaria.set_text("QUANTIDADE\n DIÁRIA") #daily amount
-            self.label_quantidade_horas.set_text("QUANTIDADE\n DE HORAS") #quantity of hours
-            self.label_quantidade_minutos.set_text("QUANTIDADE\n DE MINUTOS") #quantity of minutes
+            self.label_quantidade_horas.set_text("QUANTIDADE\n HORAS") #quantity of hours
+            self.label_quantidade_minutos.set_text("QUANTIDADE\n MINUTOS") #quantity of minutes
             self.label_valor_da_locacao.set_text("VALOR DA LOCAÇÃO R$")
             self.btn_confirmar.set_label("CONFIRMAR")
             self.btn_retornar.set_label("TELA ANTERIOR")
