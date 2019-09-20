@@ -1240,6 +1240,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
+                <property name="margin_left">10</property>
                 <signal name="button-press-event" handler="on_btn_limbar_nome_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1300,6 +1301,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
+                <property name="margin_left">10</property>
                 <signal name="button-press-event" handler="on_btn_limbar_email_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1521,6 +1523,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
+                <property name="margin_left">10</property>
                 <signal name="button-press-event" handler="on_btn_limpar_minutos_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1528,12 +1531,6 @@
                 <property name="fill">True</property>
                 <property name="position">8</property>
               </packing>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
             </child>
           </object>
           <packing>
