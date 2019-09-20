@@ -7,6 +7,7 @@
     <property name="modal">True</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
+    <property name="decorated">False</property>
     <child>
       <placeholder/>
     </child>
@@ -64,6 +65,7 @@
     <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="type_hint">dialog</property>
+    <property name="decorated">False</property>
     <child>
       <placeholder/>
     </child>
@@ -225,7 +227,6 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -239,7 +240,6 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -253,7 +253,6 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -267,7 +266,6 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -281,7 +279,6 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -295,7 +292,6 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -309,7 +305,6 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -323,7 +318,6 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -337,7 +331,6 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -351,7 +344,6 @@
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
@@ -376,11 +368,10 @@
                 <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="q">
-                    <property name="label" translatable="yes">q</property>
+                    <property name="label" translatable="yes">Q</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="valign">center</property>
                   </object>
@@ -391,11 +382,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="w">
-                    <property name="label" translatable="yes">w</property>
+                    <property name="label" translatable="yes">W</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="valign">center</property>
                   </object>
@@ -406,11 +396,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="e">
-                    <property name="label" translatable="yes">e</property>
+                    <property name="label" translatable="yes">E</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -422,11 +411,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="r">
-                    <property name="label" translatable="yes">r</property>
+                    <property name="label" translatable="yes">R</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -438,11 +426,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="t">
-                    <property name="label" translatable="yes">t</property>
+                    <property name="label" translatable="yes">T</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -454,11 +441,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="y">
-                    <property name="label" translatable="yes">y</property>
+                    <property name="label" translatable="yes">Y</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -470,11 +456,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="u">
-                    <property name="label" translatable="yes">u</property>
+                    <property name="label" translatable="yes">U</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -486,11 +471,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="i">
-                    <property name="label" translatable="yes">i</property>
+                    <property name="label" translatable="yes">I</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -502,11 +486,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="o">
-                    <property name="label" translatable="yes">o</property>
+                    <property name="label" translatable="yes">O</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -518,11 +501,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="p">
-                    <property name="label" translatable="yes">p</property>
+                    <property name="label" translatable="yes">P</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -549,11 +531,10 @@
                 <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="a">
-                    <property name="label" translatable="yes">a</property>
+                    <property name="label" translatable="yes">A</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -565,11 +546,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="s">
-                    <property name="label" translatable="yes">s</property>
+                    <property name="label" translatable="yes">S</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -581,11 +561,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="d">
-                    <property name="label" translatable="yes">d</property>
+                    <property name="label" translatable="yes">D</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -597,11 +576,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="f">
-                    <property name="label" translatable="yes">f</property>
+                    <property name="label" translatable="yes">F</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -613,11 +591,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="g">
-                    <property name="label" translatable="yes">g</property>
+                    <property name="label" translatable="yes">G</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -629,11 +606,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="h">
-                    <property name="label" translatable="yes">h</property>
+                    <property name="label" translatable="yes">H</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -645,11 +621,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="j">
-                    <property name="label" translatable="yes">j</property>
+                    <property name="label" translatable="yes">J</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -661,11 +636,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="k">
-                    <property name="label" translatable="yes">k</property>
+                    <property name="label" translatable="yes">K</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -677,11 +651,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="l">
-                    <property name="label" translatable="yes">l</property>
+                    <property name="label" translatable="yes">L</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="valign">center</property>
                   </object>
@@ -706,11 +679,10 @@
                 <property name="column_spacing">5</property>
                 <child>
                   <object class="GtkButton" id="z">
-                    <property name="label" translatable="yes">z</property>
+                    <property name="label" translatable="yes">Z</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -722,11 +694,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="x">
-                    <property name="label" translatable="yes">x</property>
+                    <property name="label" translatable="yes">X</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -738,11 +709,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="c">
-                    <property name="label" translatable="yes">c</property>
+                    <property name="label" translatable="yes">C</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -754,11 +724,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="v">
-                    <property name="label" translatable="yes">v</property>
+                    <property name="label" translatable="yes">V</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -770,11 +739,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="b">
-                    <property name="label" translatable="yes">b</property>
+                    <property name="label" translatable="yes">B</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -786,11 +754,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="n">
-                    <property name="label" translatable="yes">n</property>
+                    <property name="label" translatable="yes">N</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -802,11 +769,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="m">
-                    <property name="label" translatable="yes">m</property>
+                    <property name="label" translatable="yes">M</property>
                     <property name="name">tecla_num</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>

@@ -15,10 +15,7 @@ dialog{
 	font: 32px "Noto Sans";
 }
 
-#btn_confirmar{
-	background-color: blue;
-	color: #d6e6ee;
-}
+
 #btn_num{ background-color: red; font-size: 22px}
 
 #btn_proximo { 
@@ -27,20 +24,25 @@ dialog{
 	    color: #d6e6ee;
 	    }
 #btn_cancelar {  
-	font: 1.8em sans-serif;
+	font: 1.4em sans-serif;
 		background: rgb(199, 75, 54);
-	    color: #d6e6ee;
+		color: #d6e6ee;
+		border-radius: 2px;
 	     }
 #btn_confirmar{  
-		font: 1.2em sans-serif;
+		font: 1.4em sans-serif;
 		background: rgb(8, 107, 173);
-	    color: #d6e6ee;
+		color: #d6e6ee;
+		padding: 5px;
+		border-radius: 3px
 
 		 }
 #btn_retornar{  
 	font: 1.2em sans-serif;
 	background: rgb(199, 75, 54);
 	color: #d6e6ee;
+	padding: 5px;
+	border-radius: 3px
 	
 			 }
 #window { background-color: #FDCF03;
@@ -139,10 +141,11 @@ color: #fff;
 	color: #000000;
 }
 #btn_encerrar_sessao{
-	font: 1.5em sans-serif;
+	font: 1.4em sans-serif;
 	color: #fff;
 	background: #000000;
 	border-radius: 0px;
+	padding: 5px;
 }
 
 #spinner {

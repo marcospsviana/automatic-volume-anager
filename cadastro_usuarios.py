@@ -7,7 +7,7 @@ import string
 from controllers import Management
 import PIL
 from PIL import Image
-TAXA = 0.15
+TAXA = 15
 
 class CadastroUsuarios(object):
     def __init__(self, *args):
@@ -19,7 +19,7 @@ class CadastroUsuarios(object):
         print(self.classe)
         print(self.tempo_locacao)
         print(self.language)
-        self.alfa = list(string.ascii_lowercase) # alfabeto para gerar o teclado
+        self.alfa = list(string.ascii_uppercase) # alfabeto para gerar o teclado
         self.num = list(map(lambda x: x, range(10))) # números para o teclado numérico
         self.entry = ""
         self.dia = self.hora = self.minuto = 0
@@ -33,13 +33,13 @@ class CadastroUsuarios(object):
             "on_entry_celular_button_press_event": self.on_entry_celular_button_press_event,
             "on_entry_quantidade_diaria_button_press_event": self.on_entry_quantidade_diaria_button_press_event,
             "on_entry_quantidade_horas_button_press_event": self.on_entry_quantidade_horas_button_press_event,
-            "on_entry_minutos_button_press_event": self.on_entry_minutos_button_press_event,
+            #"on_entry_minutos_button_press_event": self.on_entry_minutos_button_press_event,
             "on_btn_limpar_nome_button_press_event": self.on_btn_limpar_nome_button_press_event,
             "on_btn_limpar_email_button_press_event": self.on_btn_limpar_email_button_press_event,
             "on_btn_limpar_celular_button_press_event": self.on_btn_limpar_celular_button_press_event,
             "on_btn_limpar_quantidade_diaria_button_press_event": self.on_btn_limpar_quantidade_diaria_button_press_event,
             "on_btn_limpar_horas_button_press_event": self.on_btn_limpar_horas_button_press_event,
-            "on_btn_limpar_minutos_button_press_event": self.on_btn_limpar_minutos_button_press_event,
+            #"on_btn_limpar_minutos_button_press_event": self.on_btn_limpar_minutos_button_press_event,
             "on_btn_retornar_entrada_dados_button_press_event": self.on_btn_retornar_entrada_dados_button_press_event,
             "on_entry_entrada_dados_button_press_event": self.on_entry_entrada_dados_button_press_event,
             "on_btn_confirmar_entrada_dados_button_press_event": self.on_btn_confirmar_entrada_dados_button_press_event,
@@ -67,7 +67,7 @@ class CadastroUsuarios(object):
         self.label_telefone = self.builder.get_object("label_celular")
         self.label_quantidade_diaria = self.builder.get_object("label_quantidade_diaria")
         self.label_quantidade_horas = self.builder.get_object("label_quantidade_horas")
-        self.label_quantidade_minutos = self.builder.get_object("label_quantidade_minutos")
+        #self.label_quantidade_minutos = self.builder.get_object("label_quantidade_minutos")
         self.label_total = self.builder.get_object("label_total")
         self.label_valor_da_locacao = self.builder.get_object("label_valor_da_locacao")
         
@@ -115,8 +115,8 @@ class CadastroUsuarios(object):
         self.entry_quantidade_diaria.connect("button_press_event", self.on_entry_quantidade_diaria_button_press_event)
         self.entry_quantidade_horas = self.builder.get_object("entry_quantidade_horas")
         self.entry_quantidade_horas.connect("button_press_event", self.on_entry_quantidade_horas_button_press_event)
-        self.entry_minutos = self.builder.get_object("entry_minutos")
-        self.entry_minutos.connect("button_press_event", self.on_entry_minutos_button_press_event)
+        #self.entry_minutos = self.builder.get_object("entry_minutos")
+        #self.entry_minutos.connect("button_press_event", self.on_entry_minutos_button_press_event)
 
         """ -----------ENTRY WINDOW_ENTRADA_DADOS ------------"""
         self.entry_entrada_dados = self.builder.get_object("entry_entrada_dados")
@@ -138,8 +138,8 @@ class CadastroUsuarios(object):
         self.btn_limpar_quantidade_diaria.connect("button_press_event", self.on_btn_limpar_quantidade_diaria_button_press_event)
         self.btn_limpar_horas = self.builder.get_object("btn_limpar_horas")
         self.btn_limpar_horas.connect("button_press_event", self.on_btn_limpar_horas_button_press_event)
-        self.btn_limpar_minutos = self.builder.get_object("btn_limpar_minutos")
-        self.btn_limpar_minutos.connect("button_press_event", self.on_btn_limpar_minutos_button_press_event)
+        #self.btn_limpar_minutos = self.builder.get_object("btn_limpar_minutos")
+        #self.btn_limpar_minutos.connect("button_press_event", self.on_btn_limpar_minutos_button_press_event)
         self.btn_confirmar = self.builder.get_object("btn_confirmar")
         self.btn_confirmar.connect("button_press_event", self.on_btn_confirmar_button_press_event)
         self.btn_retornar = self.builder.get_object("btn_retornar")
@@ -249,13 +249,13 @@ class CadastroUsuarios(object):
 
         if self.tempo_locacao == "diaria":
             self.label_quantidade_horas.hide()
-            self.label_quantidade_minutos.hide()
-            self.entry_minutos.hide()
-            self.entry_minutos.set_text("0")
+            #self.label_quantidade_minutos.hide()
+            #self.entry_minutos.hide()
+            #self.entry_minutos.set_text("0")
             self.entry_quantidade_horas.hide()
             self.entry_quantidade_horas.set_text("0")
             self.btn_limpar_horas.hide()
-            self.btn_limpar_minutos.hide()
+            #self.btn_limpar_minutos.hide()
         elif self.tempo_locacao == "horas":
             self.label_quantidade_diaria.hide()
             self.entry_quantidade_diaria.hide()
@@ -267,14 +267,14 @@ class CadastroUsuarios(object):
             self.label_telefone.set_text("CELULAR")
             self.label_quantidade_diaria.set_text("QUANTIDADE\n DIÁRIA") #daily amount
             self.label_quantidade_horas.set_text("QUANTIDADE\n HORAS") #quantity of hours
-            self.label_quantidade_minutos.set_text("QUANTIDADE\n MINUTOS") #quantity of minutes
+            #self.label_quantidade_minutos.set_text("QUANTIDADE\n MINUTOS") #quantity of minutes
             self.label_valor_da_locacao.set_text("VALOR DA LOCAÇÃO R$")
             self.btn_confirmar.set_label("CONFIRMAR")
             self.btn_retornar.set_label("TELA ANTERIOR")
             self.btn_limpar_celular.set_label("LIMPAR")
             self.btn_limpar_email.set_label("LIMPAR")
             self.btn_limpar_horas.set_label("LIMPAR")
-            self.btn_limpar_minutos.set_label("LIMPAR")
+            #self.btn_limpar_minutos.set_label("LIMPAR")
             self.btn_limpar_nome.set_label("LIMPAR")
             self.btn_limpar_quantidade_diaria.set_label("LIMPAR")
             self.btn_confirmar_entrada_dados.set_label("CONFIRMAR")
@@ -293,7 +293,7 @@ class CadastroUsuarios(object):
             self.label_telefone.set_text("PHONE")
             self.label_quantidade_diaria.set_text("QUANTITY\n DAYS") 
             self.label_quantidade_horas.set_text("QUANTITY\n HOURS") 
-            self.label_quantidade_minutos.set_text("QUANTITY\n MINUTES")
+            #self.label_quantidade_minutos.set_text("QUANTITY\n MINUTES")
             self.label_valor_da_locacao.set_text("RENTAL VALUE R$")
             self.btn_confirmar.set_label("CONFIRM")
             self.btn_retornar.set_label("PREVIOUS SCREEN")
@@ -304,7 +304,7 @@ class CadastroUsuarios(object):
             self.btn_limpar_celular.set_label("CLEAR")
             self.btn_limpar_email.set_label("CLEAR")
             self.btn_limpar_horas.set_label("CLEAR")
-            self.btn_limpar_minutos.set_label("CLEAR")
+            #self.btn_limpar_minutos.set_label("CLEAR")
             self.btn_limpar_nome.set_label("CLEAR")
             self.btn_limpar_quantidade_diaria.set_label("CLEAR")
             self.btn_limpar_entrada_numeros.set_label("CLEAR")
@@ -344,20 +344,21 @@ class CadastroUsuarios(object):
             self.entry_quantidade_diaria.set_text("0")
         elif self.tempo_locacao == "diaria":
             self.entry_quantidade_horas.set_text("0")
-            self.entry_minutos.set_text("0")
+            #self.entry_minutos.set_text("0")
         
         self.__nome = self.entry_nome.get_text()
         self.__email = self.entry_email.get_text()
         self.__telefone = self.entry_celular.get_text()
         self.__quantidade_diaria = self.entry_quantidade_diaria.get_text()
+        self.__quantidade_minutos = "0"
         if self.entry_quantidade_horas.get_text() == "":
             self.__quantidade_horas = "0"
         else:
             self.__quantidade_horas = self.entry_quantidade_horas.get_text()
-        if self.entry_minutos.get_text() == "":
+        """if self.entry_minutos.get_text() == "":
             self.__quantidade_minutos = "0"
         else:
-            self.__quantidade_minutos = self.entry_minutos.get_text()
+            self.__quantidade_minutos = self.entry_minutos.get_text()"""
         if self.__nome == "":
             if self.language == "pt_BR":
                 self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
@@ -376,7 +377,7 @@ class CadastroUsuarios(object):
             elif self.language == "en_US":
                 self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
             self.dialog_message_preencher_campos.show()
-        elif self.__quantidade_diaria == self.__quantidade_horas == self.__quantidade_minutos:
+        elif self.__quantidade_diaria == self.__quantidade_horas: #== self.__quantidade_minutos:
             if self.language == "pt_BR":
                 self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
             elif self.language == "en_US":
@@ -455,12 +456,12 @@ class CadastroUsuarios(object):
         self.window_entrada_numeros.show()
         
 
-    def on_entry_minutos_button_press_event(self, widget, event):
+    """def on_entry_minutos_button_press_event(self, widget, event):
         if self.language == "pt_BR":
             self.label_entrada_numeros.set_text("QUANTIDADE MINUTOS")
         elif self.language == "en_US":
             self.label_entrada_numeros.set_text("QUANTITY MINUTES")
-        self.window_entrada_numeros.show()
+        self.window_entrada_numeros.show()"""
         
     
     def on_btn_limpar_nome_button_press_event(self, widget, event):
@@ -483,9 +484,9 @@ class CadastroUsuarios(object):
         self.entry_quantidade_horas.set_text("")
         self.entry_quantidade_horas.set_position(0)
     
-    def on_btn_limpar_minutos_button_press_event(self, widget, event):
+    """""def on_btn_limpar_minutos_button_press_event(self, widget, event):
         self.entry_minutos.set_text("")
-        self.entry_minutos.set_position(0)
+        self.entry_minutos.set_position(0)"""
     
     def on_btn_retornar_entrada_dados_button_press_event(self, widget, event):
         self.entry_entrada_dados.set_text("")
@@ -533,21 +534,19 @@ class CadastroUsuarios(object):
             self.entry_quantidade_horas.set_text(self.text_entrada)
             print("entry qtd horas ===>",self.entry_quantidade_horas.get_text())
             self.entry_quantidade_horas.set_position(-1)
-        elif self.label_entrada_numeros.get_text() == "QUANTIDADE MINUTOS":
+        """elif self.label_entrada_numeros.get_text() == "QUANTIDADE MINUTOS":
             self.entry_minutos.set_text(self.text_entrada)
-            self.entry_minutos.set_position(-1)
+            self.entry_minutos.set_position(-1)"""
         self.dia = self.entry_quantidade_diaria.get_text() + ".0"
         self.dia = float(self.dia)
         self.dia = self.dia * 50
         self.hora = self.entry_quantidade_horas.get_text()
         self.hora = self.hora +".0"
         self.hora = float(self.hora) 
-        self.hora = self.hora * 60 * TAXA
-        self.minuto = self.entry_minutos.get_text()
-        self.minuto = self.minuto + ".0"
-        self.minuto = float(self.minuto) 
+        self.hora = self.hora * TAXA
+        self.minuto = 0.0
         self.minuto = self.minuto * TAXA
-        self.total =  self.dia + self.hora + self.minuto
+        self.total =  self.dia + self.hora #+ self.minuto
         print(self.total)
         
         self.label_total.set_text(str(self.total))

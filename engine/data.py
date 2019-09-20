@@ -237,9 +237,7 @@ ENGINE=InnoDB
         sem ordem predefinida , a ordem dos dígitos também serão aleatórios """
         __password = []
         self.__pass2 = ''
-        __alfabet = list(string.ascii_lowercase)
-        print('---alfabet-----')
-        print(__alfabet)
+        __alfabet = list(string.ascii_uppercase)
         
         while len(__password) < 4:
             result  = random.randrange(0, 9)

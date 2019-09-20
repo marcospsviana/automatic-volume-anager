@@ -18,7 +18,7 @@ class WindowLogin(Gtk.Window):
         self.value = ''
         self.entrada = ''
         # alfabeto para gerar o teclado
-        self.alfa = list(string.ascii_lowercase)
+        self.alfa = list(string.ascii_uppercase)
         # números para o teclado numérico
         self.num = list(map(lambda x: x, range(10)))
         self.builder.connect_signals({
