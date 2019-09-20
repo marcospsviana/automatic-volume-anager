@@ -32,13 +32,13 @@ dialog{
 	    color: #d6e6ee;
 	     }
 #btn_confirmar{  
-		font: 1.8em sans-serif;
+		font: 1.2em sans-serif;
 		background: rgb(8, 107, 173);
 	    color: #d6e6ee;
 
 		 }
 #btn_retornar{  
-	font: 1.8em sans-serif;
+	font: 1.2em sans-serif;
 	background: rgb(199, 75, 54);
 	color: #d6e6ee;
 	
@@ -139,7 +139,7 @@ color: #fff;
 	color: #000000;
 }
 #btn_encerrar_sessao{
-	font: 2.5em sans-serif;
+	font: 1.5em sans-serif;
 	color: #fff;
 	background: #000000;
 	border-radius: 0px;
