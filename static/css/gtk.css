@@ -70,7 +70,7 @@ dialog{
 	}
 #label_senha { color: #fff }
 #btn_delete{
-	font: 32px "Noto Sans";
+	font: 1em "Noto Sans";
 	background: darkorange;
 	font-weight: bold;
 }
@@ -113,7 +113,7 @@ color: #fff;
 	
 }
 #btn_locar, #btn_encerrar, #btn_abrir, #label_total{
-	font: 36px "Noto Sans";
+	font: 1em "Noto Sans";
 	color: #000000;
 	font-stretch: condensed;
 }
@@ -165,7 +165,7 @@ color: #fff;
 	background-color: #000
 }
 #btn_clear{
-	font: 1.5em sans-serif;
+	font: 1em sans-serif;
 	color: #fff;
 	background: #000000;
 	border-radius: 0px;
