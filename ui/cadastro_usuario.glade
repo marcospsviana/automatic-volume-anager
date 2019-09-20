@@ -1199,12 +1199,11 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">center</property>
             <property name="margin_left">20</property>
             <property name="margin_right">20</property>
             <property name="margin_top">15</property>
             <property name="margin_bottom">15</property>
-            <property name="hexpand">False</property>
+            <property name="hexpand">True</property>
             <property name="spacing">5</property>
             <child>
               <object class="GtkLabel" id="label_nome">
@@ -1260,11 +1259,11 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">center</property>
             <property name="margin_left">20</property>
             <property name="margin_right">20</property>
             <property name="margin_top">15</property>
             <property name="margin_bottom">15</property>
+            <property name="hexpand">True</property>
             <property name="spacing">5</property>
             <child>
               <object class="GtkLabel" id="label_email">
@@ -1320,11 +1319,11 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">center</property>
             <property name="margin_left">20</property>
             <property name="margin_right">20</property>
             <property name="margin_top">15</property>
             <property name="margin_bottom">15</property>
+            <property name="hexpand">True</property>
             <property name="spacing">5</property>
             <child>
               <object class="GtkLabel" id="label_celular">
@@ -1392,11 +1391,11 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">center</property>
             <property name="margin_left">20</property>
             <property name="margin_right">20</property>
             <property name="margin_top">15</property>
             <property name="margin_bottom">15</property>
+            <property name="hexpand">True</property>
             <property name="spacing">5</property>
             <child>
               <object class="GtkLabel" id="label_quantidade_diaria">
