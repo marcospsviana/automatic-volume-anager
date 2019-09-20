@@ -60,7 +60,7 @@ dialog{
 #label_valor_da_locacao,
 #label_total,
 #label_entrada_dados { 
-	font: 1.5em sans-serif;
+	font: 1em sans-serif;
 	color: rgb(9, 19, 41);}
 #label_quantidade_diaria,
 #label_quantidade_horas,
