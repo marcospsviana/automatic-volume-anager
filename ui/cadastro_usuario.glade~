@@ -1417,7 +1417,7 @@
             <property name="margin_top">15</property>
             <property name="margin_bottom">15</property>
             <property name="hexpand">False</property>
-            <property name="spacing">5</property>
+            <property name="spacing">4</property>
             <child>
               <object class="GtkLabel" id="label_quantidade_diaria">
                 <property name="name">label_quantidade_diaria</property>
