@@ -286,7 +286,7 @@ class CadastroUsuarios(object):
             self.label_senha_titulo.set_text("SUA SENHA DE ACESSO É")
             self.label_inicio_locacao_titulo.set_text("INÍCIO LOCAÇÃO")
             self.label_fim_locacao_titulo.set_text("FIM DA LOCAÇÃO")
-            self.label_message_envio_email.set_text("UM EMAIL COM O RECAPTULATIVO DE SUA RESERVA ACABA DE LHE SER ENVIADO!")
+            self.label_message_envio_email.set_text("UM EMAIL COM O RECAPTULATIVO DE SUA\n RESERVA ACABA DE LHE SER ENVIADO!")
             
         elif self.language == "en_US":
             self.label_nome.set_text("NAME")
@@ -312,7 +312,7 @@ class CadastroUsuarios(object):
             self.label_senha_titulo.set_text("YOUR PASSWORD IS")
             self.label_inicio_locacao_titulo.set_text("START DATE OF LEASE")
             self.label_fim_locacao_titulo.set_text("FINAL DATE OF LEASE")
-            self.label_message_envio_email.set_text("AN EMAIL WITH THE RECAPTULATIVE OF YOUR RESERVATION HAS JUST BEEN SENT!")
+            self.label_message_envio_email.set_text("AN EMAIL WITH THE RECAPTULATIVE OF YOUR\n RESERVATION HAS JUST BEEN SENT!")
         
 
          
