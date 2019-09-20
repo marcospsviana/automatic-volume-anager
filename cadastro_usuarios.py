@@ -291,9 +291,9 @@ class CadastroUsuarios(object):
         elif self.language == "en_US":
             self.label_nome.set_text("NAME")
             self.label_telefone.set_text("PHONE")
-            self.label_quantidade_diaria.set_text("DAILY AMOUNT") 
-            self.label_quantidade_horas.set_text("QUANTITY OF HOURS") 
-            self.label_quantidade_minutos.set_text("QUANTITY OF MINUTES")
+            self.label_quantidade_diaria.set_text("QUANTITY DAYS") 
+            self.label_quantidade_horas.set_text("QUANTITY HOURS") 
+            self.label_quantidade_minutos.set_text("QUANTITy MINUTES")
             self.label_valor_da_locacao.set_text("RENTAL VALUE R$")
             self.btn_confirmar.set_label("CONFIRM")
             self.btn_retornar.set_label("PREVIOUS SCREEN")
