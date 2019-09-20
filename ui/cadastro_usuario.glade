@@ -1075,14 +1075,14 @@
     </child>
     <child>
       <object class="GtkBox">
-        <property name="width_request">750</property>
+        <property name="width_request">700</property>
         <property name="height_request">450</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="can_default">True</property>
         <property name="halign">center</property>
         <property name="margin_left">10</property>
-        <property name="margin_right">20</property>
+        <property name="margin_right">30</property>
         <property name="margin_top">10</property>
         <property name="margin_bottom">10</property>
         <property name="hexpand">False</property>
