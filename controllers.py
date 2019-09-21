@@ -59,7 +59,7 @@ class Management(object):
     def liberar_armarios(senha):
         #__nome = nome
         __senha = senha
-        result = arm.liberar_armario(__senha, __nome)
+        result = arm.liberar_armario(__senha)
         print('result controllers --->', result)
         return result
     def calculo(self, dia, hora, minuto):
