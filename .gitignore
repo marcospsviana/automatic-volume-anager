@@ -10,6 +10,7 @@ __pycache__/
 .vscode*
 .vscode/*
 .vscode\*
+*.vscode
 # pycharm idea
 .idea
 .idea*
