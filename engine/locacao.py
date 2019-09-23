@@ -20,7 +20,7 @@ class Locacao(object):
 
     
     @staticmethod
-    def locacao( nome, email, telefone, dia, hora, minuto, armario):
+    def locacao( nome, email, telefone, dia, hora, minuto, armario, language):
         
         __bk = Banco()
         __dia = dia
@@ -31,13 +31,14 @@ class Locacao(object):
         __nome = str(nome)
         __email = str(email)
         __telefone = str(telefone)
+        __language = str(language)
         
         __get_armario = __bk.localisa_armario(__armario)
         if __get_armario == "nao ha armario disponivel" or __get_armario == []:
             return "armario da classe escolhida indisponível"
         
         else:
-            result = __bk.locar_armario(__nome, __email, __telefone, __dia, __hora, __minuto, __armario)
+            result = __bk.locar_armario(__nome, __email, __telefone, __dia, __hora, __minuto, __armario, __language)
             return result
         
     @classmethod
@@ -47,6 +48,11 @@ class Locacao(object):
         #__nome = nome
         result = __bk.finalizar_pagamento(senha)
         return result
+    
+    """def send_email(self, nome, email, senha, compartimento, data_locacao, data_limite, hora_inicio_locacao, hora_fim_locacao, language):
+        __bk = Banco()
+        result = __bk.send_email(nome, email, senha, compartimento, data_locacao, data_limite, language)
+        return result"""
 
             
     
