@@ -10,6 +10,7 @@ import random
 import string
 from random import choice, sample
 import pandas as pd
+import smtplib
 #from .portas import Portas
 
 
@@ -177,7 +178,7 @@ ENGINE=InnoDB
             hora_locada = str(self.__data_limite[11:16])
             data_locacao = dia_locacao + "/" + mes_locacao
             tempo_locado = dia_locado + "/" + mes_locado
-            send_email(self.__nome, self.__email, senha, compartimento, data_locacao, tempo_locado, hora_locacao, hora_locada, language)
+            self.send_email(self.__nome, self.__email, senha, compartimento, data_locacao, hora_locacao, tempo_locado,  hora_locada, language)
 
             #query_select = self.__c.fetchall()
             self.__conn.close()
@@ -457,20 +458,21 @@ ENGINE=InnoDB
                 print('-------> %s'%tempo)
                 result = self.cobranca_excedente(int(tempo))
                 return result
-def send_email(self, nome, email, senha, compartimento, data_locacao, data_limite, hora_inicio_locacao, hora_fim_locacao, language):
-    __server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-    __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
-    __nome = string.capwords(nome)
-    if language == "pt_BR":
-        __message = " Este e-mail foi enviado de forma automática , não responda diretamente a este e-mail!\n\n Obrigado por utilizar nossos serviços %s, abaixo encontra-se os seus dados de acesso para liberação do compartimento:\n \
-                     COMPARTIMENTO:  %s \n SENHA: %s\n DATA LOCAÇÃO: %s %s \n DATA LIMITE: %s %s\n "
-    elif language == "en_US":
-        __message = "This email was sent automatically, please do not reply directly to this email! Thanks for using our services %s, below is your compartment release access details:\n \
-            COMPARTMENT: %s \n PASSWORD: %s \n DATE RENT: %s %s \n DEADLINE: %s %s \n"
+    def send_email(self, nome, email, senha, compartimento, data_locacao, hora_inicio_locacao, data_limite,  hora_fim_locacao, language):
+        __server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
+        __nome = string.capwords(nome)
+        if language == "pt_BR":
+            __message = " Este e-mail foi enviado de forma automática , não responda diretamente a este e-mail!\n\n Obrigado por utilizar nossos serviços %s, abaixo encontra-se os seus dados de acesso para liberação do compartimento:\n \
+                COMPARTIMENTO:  %s \n SENHA: %s\n DATA LOCAÇÃO: %s %s \n DATA LIMITE: %s %s\n "%(__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
+        elif language == "en_US":
+            __message = "This email was sent automatically, please do not reply directly to this email! Thanks for using our services %s, below is your compartment release access details:\n \
+                COMPARTMENT: %s \n PASSWORD: %s \n DATE RENT: %s %s \n DEADLINE: %s %s \n"%(__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
-    __mail_from = "marcospaulo.silvaviana@gmail.com"%(nome, compartimento, senha, data_locacao, data_limite)
-    __mail_to = string.ascii_lowercase(email)
-    __server.sendmail(__mail_from, __mail_to, __message.encode("utf8"))
+        __mail_from = "marcospaulo.silvaviana@gmail.com"
+        __mail_to = email.lower()
+        __server.sendmail(__mail_from, __mail_to, __message.encode("utf8"))
+        __server.quit()
 
 
         
