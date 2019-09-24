@@ -153,6 +153,7 @@ ENGINE=InnoDB
         # se houver armário livre segue com cadastro de locação
         if (loca_armario != []) or (loca_armario != None):
             self.__senha = self.__get_passwd()
+            #self.__hash_senha = hashlib.sha3_512(b"%s"%self.__senha).hexdigest()
             print("==== id_armario, id_usuario ======")
             #print(loca_armario[0], self.dados_locatario[0])
             self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(null, '%s','%s',null,'%s',%s,%s)"% (self.__data_locacao, self.__data_limite, self.__senha, loca_armario[0], self.dados_locatario))
@@ -249,14 +250,22 @@ ENGINE=InnoDB
             add_alfa = choice(__alfabet)
             if add_alfa not in __password:
                 __password.append(add_alfa)
+            if len(__password) == 4:
+                self.__c.execute("select senha from tb_locacao")
+                comparativo = self.__c.fetchall()
+                if __password in comparativo:
+                    __password = ""
+                else:
+                    __passwd = sample(__password, len(__password))
+                    print('===========senha=======')
+                    print(__passwd)
+                    print('======fimsenha=========')
+                    for i in __passwd:
+                        self.__pass2 += str(i)
+
             print(__password)
 
-        __passwd = sample(__password, len(__password))
-        print('===========senha=======')
-        print(__passwd)
-        print('======fimsenha=========')
-        for i in __passwd:
-            self.__pass2 += str(i)
+       
         return self.__pass2
 
     def __send_passwd(self, passwd):
