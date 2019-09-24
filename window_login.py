@@ -172,7 +172,7 @@ class WindowLogin(Gtk.Window):
 
            
     def on_btn_efetuar_pagamento_button_press_event(self, widget, event):
-        pass
+        WindowWaitPayment()
 
     def on_btn_retornar_entrada_dados_pressed(self, event):
         self.entry.set_text("")
