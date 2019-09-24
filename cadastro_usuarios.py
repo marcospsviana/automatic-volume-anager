@@ -396,8 +396,6 @@ class CadastroUsuarios(object):
                 hora_fim_locacao = result[0][4]
                 __senha = result[0][5][0]
                 compartimento = result[0][6][0]
-
-                #manager.send_email(self.__nome, self.__email, __senha, compartimento, dia_inicio_locacao, data_fim_locacao, hora_inicio_locacao, hora_fim_locacao, self.language)
                
                 self.label_date_inicio_locacao.set_text(dia_inicio_locacao)
                 self.label_date_fim_locacao.set_text(data_fim_locacao)

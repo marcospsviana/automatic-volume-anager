@@ -76,7 +76,7 @@ ENGINE=InnoDB
         return: id_usuario  """
 
         self.nome = str(nome)
-        self.email = str(email)
+        self.email = str(email).lower()
         self.telefone = str(telefone)
         self.__c.execute("SELECT * from tb_usuario where email= '%s' OR telefone= '%s'" % (self.email, self.telefone))
         self.select = self.__c.fetchall()
@@ -178,7 +178,7 @@ ENGINE=InnoDB
             hora_locada = str(self.__data_limite[11:16])
             data_locacao = dia_locacao + "/" + mes_locacao
             tempo_locado = dia_locado + "/" + mes_locado
-            self.send_email(self.__nome, self.__email, senha, compartimento, data_locacao, hora_locacao, tempo_locado,  hora_locada, language)
+            self.send_email(self.__nome, self.__email, senha[0], compartimento[0], data_locacao, hora_locacao, tempo_locado,  hora_locada, language)
 
             #query_select = self.__c.fetchall()
             self.__conn.close()
@@ -463,7 +463,7 @@ ENGINE=InnoDB
         __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
         __nome = string.capwords(nome)
         if language == "pt_BR":
-            __message = " Este e-mail foi enviado de forma automática , não responda diretamente a este e-mail!\n\n Obrigado por utilizar nossos serviços %s, abaixo encontra-se os seus dados de acesso para liberação do compartimento:\n \
+            __message = " Este e-mail foi enviado de forma automática , não responda diretamente a este e-mail!\n\n Obrigado por utilizar nossos serviços %s, abaixo encontra-se os seus dados de acesso para liberação do compartimento:\n\
                 COMPARTIMENTO:  %s \n SENHA: %s\n DATA LOCAÇÃO: %s %s \n DATA LIMITE: %s %s\n "%(__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
         elif language == "en_US":
             __message = "This email was sent automatically, please do not reply directly to this email! Thanks for using our services %s, below is your compartment release access details:\n \
