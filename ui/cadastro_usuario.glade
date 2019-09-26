@@ -211,6 +211,8 @@
                 <property name="width_request">500</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="is_focus">True</property>
+                <property name="has_default">True</property>
                 <property name="hexpand">True</property>
                 <signal name="button-press-event" handler="on_entry_entrada_dados_button_press_event" swapped="no"/>
               </object>
@@ -1232,7 +1234,7 @@
               <object class="GtkEntry" id="entry_nome">
                 <property name="name">entry</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="hexpand">True</property>
                 <signal name="button-press-event" handler="on_entry_nome_button_press_event" swapped="no"/>
               </object>
@@ -1294,7 +1296,7 @@
               <object class="GtkEntry" id="entry_email">
                 <property name="name">entry</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="hexpand">True</property>
                 <signal name="button-press-event" handler="on_entry_email_button_press_event" swapped="no"/>
               </object>
@@ -1368,7 +1370,7 @@
               <object class="GtkEntry" id="entry_celular">
                 <property name="name">entry</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="hexpand">True</property>
                 <signal name="button-press-event" handler="on_entry_celular_button_press_event" swapped="no"/>
               </object>
@@ -1436,7 +1438,7 @@
                 <property name="name">entry</property>
                 <property name="width_request">50</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="halign">start</property>
                 <property name="valign">center</property>
                 <signal name="button-press-event" handler="on_entry_quantidade_diaria_button_press_event" swapped="no"/>
@@ -1483,7 +1485,7 @@
                 <property name="name">entry</property>
                 <property name="width_request">50</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="valign">center</property>
                 <signal name="button-press-event" handler="on_entry_quantidade_horas_button_press_event" swapped="no"/>
               </object>
@@ -2246,6 +2248,94 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkDialog" id="window_payment_wait">
+    <property name="name">window</property>
+    <property name="can_focus">False</property>
+    <property name="modal">True</property>
+    <property name="type_hint">dialog</property>
+    <property name="decorated">False</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_window_payment_wait">
+                <property name="label" translatable="yes">OK</property>
+                <property name="name">btn_confirmar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="button-press-event" handler="on_btn_window_payment_wait_button_press_event" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel" id="label_aguarde_pagamento">
+                <property name="name">label_aguarde</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_top">200</property>
+                <property name="label" translatable="yes">AGUARDE PAGAMENTO</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="spinner">
+                <property name="name">spinner</property>
+                <property name="width_request">50</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_top">50</property>
+                <property name="pixbuf">../static/images/spinner_coolbag.svg</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
           </packing>
         </child>
       </object>

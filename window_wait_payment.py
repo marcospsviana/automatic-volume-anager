@@ -9,7 +9,7 @@ from gi.repository import Gtk, Gdk, GLib
 from datetime import datetime, date
 from controllers import Management
 from login import Login
-
+import time
 
 
 
@@ -36,6 +36,8 @@ class WindowWaitPayment(object):
         #self.spinner_coolbag.start()
         self.main_window.fullscreen()
         self.main_window.show()
+        time.sleep(30)
+        self.main_window.destroy()
     
     def hora_certa(self):
         dia = datetime.now()

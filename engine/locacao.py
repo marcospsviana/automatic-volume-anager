@@ -20,7 +20,7 @@ class Locacao(object):
 
     
     @staticmethod
-    def locacao( nome, email, telefone, dia, hora, minuto, armario, language):
+    def locacao( nome, email, telefone, dia, hora, minuto, armario, language, total):
         
         __bk = Banco()
         __dia = dia
@@ -38,7 +38,7 @@ class Locacao(object):
             return "armario da classe escolhida indisponível"
         
         else:
-            result = __bk.locar_armario(__nome, __email, __telefone, __dia, __hora, __minuto, __armario, __language)
+            result = __bk.locar_armario(__nome, __email, __telefone, __dia, __hora, __minuto, __armario, __language, total)
             return result
         
     @classmethod

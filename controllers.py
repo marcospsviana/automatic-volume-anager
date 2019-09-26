@@ -13,13 +13,13 @@ class Management(object):
             dados:
             nome, email, telefone, armario: string
             dia, hora, minuto, tempo_locado(total do tempo contratado em segundos): int'''
-    def locacao( self, nome, email, telefone, dia, hora, minuto, armario, language):
+    def locacao( self, nome, email, telefone, dia, hora, minuto, armario, language, total):
          
         self.__cobranca = ''
-        self.__nome, self.__email, self.__telefone, self.__armario, self.__language = nome, email, telefone, armario, language
+        self.__nome, self.__email, self.__telefone, self.__armario, self.__language, self.__total = nome, email, telefone, armario, language, total
         self.__dia, self.__hora, self.__minuto = dia, hora, minuto
         self.__rec = self.cad_user(self.__nome, self.__email, self.__telefone)
-        result = loc.locacao(self.__nome, self.__email, self.__telefone, self.__dia, self.__hora, self.__minuto, self.__armario, self.__language)
+        result = loc.locacao(self.__nome, self.__email, self.__telefone, self.__dia, self.__hora, self.__minuto, self.__armario, self.__language, self.__total)
                
         return (result, self.__cobranca)
 

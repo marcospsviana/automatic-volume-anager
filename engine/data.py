@@ -75,7 +75,7 @@ ENGINE=InnoDB
         str: email
         return: id_usuario  """
 
-        self.nome = str(nome)
+        self.nome = str(nome).lower()
         self.email = str(email).lower()
         self.telefone = str(telefone)
         self.__c.execute("SELECT * from tb_usuario where email= '%s' OR telefone= '%s'" % (self.email, self.telefone))
@@ -107,7 +107,7 @@ ENGINE=InnoDB
 
         self.__conn.close()
 
-    def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario, language):
+    def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario, language, total):
         #self.port = Portas()
         dia = dia
         dia = dia.replace(".0","")
@@ -116,7 +116,7 @@ ENGINE=InnoDB
         minuto = minuto
         print("minuto---*",minuto)
         minuto = int(minuto.replace(".0",""))
-        
+        self.__total = total
         self.__minuto = minuto
         self.__armario = str(armario)
         self.__nome = str(nome)
@@ -147,11 +147,13 @@ ENGINE=InnoDB
         print("dados locatario data.py locacao===>", self.dados_locatario)
         # seleciona um armario com a classe indicada e recebe seu id
         loca_armario = self.localisa_armario(self.__armario)
-        print('======= loca ramario =====')
-        print(loca_armario)
+        
+        #print('======= loca ramario =====')
+        #print(loca_armario)
         #self.__c.execute("SET FOREIGN_KEY_CHECKS = 0;")
         # se houver armário livre segue com cadastro de locação
-        if (loca_armario != []) or (loca_armario != None):
+        retorno = self.pagamento(self.__total)
+        if retorno == "lk4thHG34=GKss0xndhe":
             self.__senha = self.__get_passwd()
             #self.__hash_senha = hashlib.sha3_512(b"%s"%self.__senha).hexdigest()
             print("==== id_armario, id_usuario ======")
@@ -179,7 +181,7 @@ ENGINE=InnoDB
             hora_locada = str(self.__data_limite[11:16])
             data_locacao = dia_locacao + "/" + mes_locacao
             tempo_locado = dia_locado + "/" + mes_locado
-            self.send_email(self.__nome, self.__email, senha[0], compartimento[0], data_locacao, hora_locacao, tempo_locado,  hora_locada, language)
+            #self.send_email(self.__nome, self.__email, senha[0], compartimento[0], data_locacao, hora_locacao, tempo_locado,  hora_locada, language)
 
             #query_select = self.__c.fetchall()
             self.__conn.close()
@@ -188,7 +190,7 @@ ENGINE=InnoDB
             
             ##port = self.select_port(loca_armario[0])
             #self.port.exec_port(str(port[0][0]), "abre")
-        else:
+        elif retorno == "houve um problema com o pagamento":
             return loca_armario
     def select_port(self, armario):
         __armario = armario
@@ -281,14 +283,16 @@ ENGINE=InnoDB
         __senha = senha
         print('---senha---',__senha)
         __id_user = id_usuario
-        print('*** id usuario *** ', __id_user)
+        print('*** id usuario *** ', __id_user[0])
         print(__senha)
-        __c.execute("SELECT id_armario, id_locacao, tempo_locado from tb_locacao where senha = '%s' AND id_usuario = %s" %(__senha,__id_user[0]))
+        #__c.execute("SELECT id_armario, id_locacao, tempo_locado, data_locacao from tb_locacao where senha = '%s' AND id_usuario = %s" %(__senha,__id_user[0]))
+        dados = pd.read_sql("SELECT id_armario, id_locacao, tempo_locado, data_locacao from tb_locacao where senha = '%s' AND id_usuario = %s" %(__senha,__id_user[0]), __conn)
         #for reg in __c.next_proc_resultset():
-        __result = __c.fetchall()
-        print("888888 ---- result")
-        print(__result)
-        return __result
+        #__result = __c.fetchall()
+        #print("888888 ---- result")
+        #print(__result)
+        print("dados get_locacao", dados)
+        return (dados )
         __conn.close()
 
 
@@ -296,8 +300,10 @@ ENGINE=InnoDB
         
         result = ''
         id_armario = ''
-        taxa = 0.15
+        taxa_hora = 0.15
+        taxa_dia = 50
         hj = datetime.datetime.now()
+        hj = pd.to_datetime(hj, unit='ns')
         #hj = datetime.timedelta( hj.hour, hj.minute, hj.second)
         #hj = hj + datetime.timedelta(minutes=+10)
         print("hj", hj)
@@ -310,15 +316,20 @@ ENGINE=InnoDB
         else:
             self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
             print('********** dados locacao **************')
-            print("self.locacao", self.__locacao)
+            print("self.locacao", self.__locacao.head())
             print("self.locacao[0][2]",self.__locacao[0][2])
             print("self.locacao[0 0]", self.__locacao[0][0])
             if (self.__locacao[0][2]) > hj:
                 
-                tempo_total = hj - self.__locacao[0][2]
-                dias_passados = tempo_total.days
-                minutos_passados = tempo_total.seconds / 60
-                valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
+                tempo_total = hj - self.__locacao['tempo_locado'][0]
+                dias_passados = tempo_total.components.days
+                #minutos_passados = tempo_total.seconds / 60
+                minutos_passados = tempo_total.components.minutes
+                horas_passadas = tempo_total.components.hours
+                #valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
+                if minutos_passados >= 15:
+                    horas_passadas += 1
+                valor_total = ((dias_passados * 24) + horas_passadas ) * taxa_hora
                 result = self.cobranca(valor_total,hj)
                 
                 self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
@@ -434,7 +445,8 @@ ENGINE=InnoDB
         taxa = 0.15
         hj = datetime.datetime.now()
         hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
-        hj = hj + datetime.timedelta(minutes=+10)
+        #hj = hj + datetime.timedelta(minutes=+10)
+        hj = pd.to_datetime(hj)
         
         self.__senha = senha
         
@@ -445,9 +457,9 @@ ENGINE=InnoDB
         
         else:
             self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
-            if (self.__locacao[0][2]) >= hj:
+            if (self.__locacao['tempo_locado'][0]) >= hj:
                 
-                tempo_total = hj - self.__locacao[0][2]
+                tempo_total = hj - self.__locacao['tempo_locado'][0]
                 dias_passados = tempo_total.days
                 minutos_passados = tempo_total.seconds / 60
                 valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
@@ -462,11 +474,17 @@ ENGINE=InnoDB
                 self.port.exec_port(port[0], "abre")
             else:
                 
-                tempo = hj - self.__locacao[0][2] 
+                tempo = hj - self.__locacao['tempo_locado'][0]
+                print("tempo banco", tempo)
+                tempos = tempo.days
+                tempo_hora = tempo.seconds // 3600
+                tempo_minutos = tempo.seconds % 60
                 tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
                 print('-------> %s'%tempo)
-                result = self.cobranca_excedente(int(tempo))
-                return result
+                cobranca = self.cobranca_excedente(int(tempo))
+                print("banco cobranca --- > ", cobranca)
+                print("banco self.__locacao" , self.__locacao)
+                return (self.__locacao, cobranca, tempos, tempo_hora, tempo_minutos)
     def send_email(self, nome, email, senha, compartimento, data_locacao, hora_inicio_locacao, data_limite,  hora_fim_locacao, language):
         __server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
         __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
@@ -598,6 +616,16 @@ ENGINE=InnoDB
         __conn.commit()
         return "locacao finalizada com sucesso"
         __conn.close()
+    
+
+    def pagamento(self, total):
+        codigo = "paguei"
+        print("informe o codigo")
+        entrada = "paguei"
+        if codigo==entrada:
+            return ("lk4thHG34=GKss0xndhe")
+        else:
+            return ("houve um problema com o pagamento")
 
 
 

@@ -2,6 +2,7 @@ import gi
 gi.require_versions({"Gtk": "3.0","Gio": "2.0"})
 from gi.repository import Gtk, Gdk, Gio, GdkPixbuf, GObject
 import datetime
+import time
 import calendar
 import string
 from controllers import Management
@@ -50,15 +51,18 @@ class CadastroUsuarios(object):
             "on_btn_finalizar_sessao_button_press_event": self.on_btn_finalizar_sessao_button_press_event,
             "on_btn_backspace_button_press_event": self.on_btn_backspace_button_press_event,
             "on_btn_limpar_entrada_numeros_button_press_event": self.on_btn_limpar_entrada_numeros_button_press_event,
+            "on_btn_window_payment_wait_button_press_event": self.on_btn_window_payment_wait_button_press_event,
             
         })
         self.builder.add_from_file("ui/cadastro_usuario.glade")
         self.window_cadastro_usuario = self.builder.get_object("window_cadastro_usuario")
+        self.window_payment = self.builder.get_object("window_payment_wait")
         self.window_entrada_dados = self.builder.get_object("window_entrada_dados")
         self.window_entrada_numeros = self.builder.get_object("window_entrada_numeros")
         self.dialog_retorno_cadastro = self.builder.get_object("dialog_retorno_cadastro")
         self.dialog_message_preencher_campos = self.builder.get_object("dialog_message_preencher_campos")
         self.window_conclusao  = self.builder.get_object("window_conclusao")
+        
 
         """ =================LABELS ====================="""
 
@@ -100,8 +104,11 @@ class CadastroUsuarios(object):
         self.label_senha_titulo = self.builder.get_object("label_senha_titulo")
         self.label_inicio_locacao_titulo = self.builder.get_object("label_inicio_locacao_titulo")
         self.label_fim_locacao_titulo = self.builder.get_object("label_fim_locacao_titulo")
+        " ----------------- LABEL WAIT PAYMENT ---------------------------"
+        self.label_aguarde_pagamento = self.builder.get_object("label_aguarde_pagamento")
 
         """ ================FIM LABELS==================="""
+        self.spinner = self.builder.get_object("spinner")
 
         """ ================= ENTRYS ===================="""
 
@@ -148,6 +155,9 @@ class CadastroUsuarios(object):
         self.btn_limpar_entrada_numeros.connect("button_press_event", self.on_btn_limpar_entrada_numeros_button_press_event)
 
         self.btn_finalizar_sessao = self.builder.get_object("btn_finalizar_sessao")
+
+        self.btn_window_payment_wait = self.builder.get_object("btn_window_payment_wait")
+        self.btn_window_payment_wait.connect("button_press_event", self.on_btn_window_payment_wait_button_press_event)
 
         " ----------- BOTOES ENTRADA_DADOS --------------- "
         self.btn_confirmar_entrada_dados = self.builder.get_object("btn_confirmar_entrada_dados")
@@ -263,6 +273,7 @@ class CadastroUsuarios(object):
             self.btn_limpar_quantidade_diaria.hide()
         
         if self.language == "pt_BR":
+            self.label_aguarde_pagamento.set_text("AGUARDE PAGAMENTO")
             self.label_nome.set_text("NOME")
             self.label_telefone.set_text("CELULAR")
             self.label_quantidade_diaria.set_text("QUANTIDADE\n DIÁRIA") #daily amount
@@ -289,6 +300,7 @@ class CadastroUsuarios(object):
             self.label_message_envio_email.set_text("UM EMAIL COM O RECAPTULATIVO DE SUA\n RESERVA ACABA DE LHE SER ENVIADO!")
             
         elif self.language == "en_US":
+            self.label_aguarde_pagamento.set_text("WAIT FOR PAYMENT")
             self.label_nome.set_text("NAME")
             self.label_telefone.set_text("PHONE")
             self.label_quantidade_diaria.set_text("QUANTITY\n DAYS") 
@@ -331,6 +343,7 @@ class CadastroUsuarios(object):
         self.entry_entrada_dados.set_position(-1)
     def on_btn_finalizar_sessao_button_press_event(self, widget, event):
         self.window_conclusao.hide()
+        self.window_payment.hide()
     
     def on_btn_dialog_preencher_campos_pressed_event(self, widget, event):
         self.dialog_message_preencher_campos.hide()
@@ -340,8 +353,12 @@ class CadastroUsuarios(object):
         self.window_cadastro_usuario.destroy()
 
     def on_btn_confirmar_button_press_event(self, widget, event):
+        self.wait_payment()
+        
+        
+    def on_btn_window_payment_wait_button_press_event(self, widget, event):
         if self.tempo_locacao == "horas":
-            self.entry_quantidade_diaria.set_text("0")
+                self.entry_quantidade_diaria.set_text("0")
         elif self.tempo_locacao == "diaria":
             self.entry_quantidade_horas.set_text("0")
             #self.entry_minutos.set_text("0")
@@ -387,33 +404,41 @@ class CadastroUsuarios(object):
             self.__armario = self.classe
             print("locacao", self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos)
             manager = Management()
-            result =  manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario, self.language)
-            print("result cadastro usuario ", result[0])
-            if result[0][0] == "locacao concluida com sucesso":
-                dia_inicio_locacao = result[0][1]
-                hora_inicio_locacao = result[0][2]
-                data_fim_locacao = result[0][3]
-                hora_fim_locacao = result[0][4]
-                __senha = result[0][5][0]
-                compartimento = result[0][6][0]
-               
+            self.__result =  manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario, self.language, self.total)
+            count = 0
+            print("self.__result cadastro usuario ", self.__result[0])
+            if self.__result[0][0] == "locacao concluida com sucesso":
+                dia_inicio_locacao = self.__result[0][1]
+                hora_inicio_locacao = self.__result[0][2]
+                data_fim_locacao = self.__result[0][3]
+                hora_fim_locacao = self.__result[0][4]
+                __senha = self.__result[0][5][0]
+                compartimento = self.__result[0][6][0]
+            
                 self.label_date_inicio_locacao.set_text(dia_inicio_locacao)
                 self.label_date_fim_locacao.set_text(data_fim_locacao)
                 self.label_hour_inicio_locacao.set_text(hora_inicio_locacao)
                 self.label_hour_fim_locacao.set_text(hora_fim_locacao)
                 self.label_senha.set_text(str(__senha))
                 self.label_compartimento.set_text(str(compartimento))
+                
+                
                 self.window_conclusao.show()
                 self.window_cadastro_usuario.hide()
-            elif result[0] == "armario da classe escolhida indisponível":
+                self.window_payment.hide()
+                
+            elif self.__result[0] == "armario da classe escolhida indisponível":
                 if self.language == "pt_BR":
                     self.label_retorno_cadastro.set_text("tamanho de armario\n  escolhido indisponível")
                     self.dialog_retorno_cadastro.show()
                 elif self.language == "en_US":
                     self.label_retorno_cadastro.set_text("chosen cabinet\n size unavailable")
-                    self.dialog_retorno_cadastro.show()
+                    self.dialog_retorno_cadastro.show()        
 
 
+    def wait_payment(self):
+        self.window_payment.show()
+        
     def on_btn_retornar_button_press_event(self, widget, event):
         self.window_cadastro_usuario.hide()
         
@@ -445,6 +470,7 @@ class CadastroUsuarios(object):
             self.label_entrada_numeros.set_text("QUANTIDADE DIÁRIA")
         elif self.language == "en_US":
             self.label_entrada_numeros.set_text("QUANTITY DAYS")
+            
         self.window_entrada_numeros.show()
         
     
@@ -490,6 +516,7 @@ class CadastroUsuarios(object):
     
     def on_btn_retornar_entrada_dados_button_press_event(self, widget, event):
         self.entry_entrada_dados.set_text("")
+        self.entry_entrada_dados.set_position(-1)
         self.window_entrada_dados.hide()
     
     def on_entry_entrada_dados_button_press_event(self, widget):
@@ -504,7 +531,7 @@ class CadastroUsuarios(object):
     def on_btn_confirmar_entrada_dados_button_press_event(self, widget, event):
         self.text_entrada = self.entry_entrada_dados.get_text()
         print(self.label_entrada_dados.get_text())
-        if self.label_entrada_dados.get_text() == "NOME":
+        if self.label_entrada_dados.get_text() == "NOME" or self.label_entrada_dados.get_text() == "NAME":
             self.entry_nome.set_text(self.text_entrada)
             self.entry_nome.set_position(-1)
         elif self.label_entrada_dados.get_text() == "EMAIL":
@@ -513,10 +540,11 @@ class CadastroUsuarios(object):
         
 
         self.entry_entrada_dados.set_text("")
+        self.entry_entrada_dados.set_position(0)
         self.window_entrada_dados.hide()
     
     def on_btn_confirmar_entrada_numero_button_press_event(self, widget, event):
-        if self.label_entrada_numeros.get_text() == "CELULAR":
+        if self.label_entrada_numeros.get_text() == "CELULAR" or self.label_entrada_numeros.get_text() == "PHONE":
             self.ddd = self.combobox_flags_ddd.get_active()
             if self.ddd == 0:
                 self.ddd = "+55 "
@@ -524,13 +552,13 @@ class CadastroUsuarios(object):
                 self.ddd = "+1 "
             self.entry_celular.set_text(self.ddd + self.text_entrada)
             self.entry_celular.set_position(-1)
-        elif self.label_entrada_numeros.get_text() == "QUANTIDADE DIÁRIA":
+        elif self.label_entrada_numeros.get_text() == "QUANTIDADE DIÁRIA" or self.label_entrada_numeros.get_text() == "QUANTITY DAYS":
             
             self.entry_quantidade_diaria.set_text(self.text_entrada)
             print("entry qtd diaria ===>",self.entry_quantidade_diaria.get_text())
             self.entry_quantidade_diaria.set_position(-1)
             
-        elif self.label_entrada_numeros.get_text() == "QUANTIDADE HORAS":
+        elif self.label_entrada_numeros.get_text() == "QUANTIDADE HORAS" or self.label_entrada_numeros.get_text() == "QUANTITY HOURS":
             self.entry_quantidade_horas.set_text(self.text_entrada)
             print("entry qtd horas ===>",self.entry_quantidade_horas.get_text())
             self.entry_quantidade_horas.set_position(-1)
