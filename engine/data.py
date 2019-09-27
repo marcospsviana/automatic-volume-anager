@@ -48,21 +48,20 @@ class Banco(object):
 )
 ENGINE=InnoDB;''')
         self.__c.execute('''CREATE TABLE IF NOT EXISTS `tb_locacao` (
-	`id_locacao` INT(10)  AUTO_INCREMENT,
-	`data_locacao` DATETIME NOT NULL,
-	`tempo_locado` DATETIME NOT NULL,
-	`tempo_corrido` TIME NULL DEFAULT '00:00:00',
-	`senha` TEXT NULL DEFAULT '',
-	`id_armario` INT(10)  DEFAULT 0,
-	`id_usuario` INT(10)  DEFAULT 0,
-	INDEX `id_locacao` (`id_locacao`),
-	INDEX `FK__tb_armario` (`id_armario`),
-	INDEX `FK__tb_usuario` (`id_usuario`),
-	CONSTRAINT `FK__tb_armario` FOREIGN KEY (`id_armario`) REFERENCES `tb_armario` (`id_armario`) ON UPDATE CASCADE ON DELETE CASCADE,
-	CONSTRAINT `FK__tb_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`id_usuario`) ON UPDATE CASCADE ON DELETE CASCADE
-)
-ENGINE=InnoDB
-;
+  `id_locacao` int(10) NOT NULL AUTO_INCREMENT,
+  `data_locacao` datetime NOT NULL,
+  `tempo_locado` datetime NOT NULL,
+  `tempo_corrido` time DEFAULT '00:00:00',
+  `senha` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_armario` int(10) NOT NULL DEFAULT 0,
+  `id_usuario` int(10) NOT NULL DEFAULT 0,
+  KEY `id_locacao` (`id_locacao`),
+  KEY `FK__tb_armario` (`id_armario`),
+  KEY `FK__tb_usuario` (`id_usuario`),
+  CONSTRAINT `FK__tb_armario` FOREIGN KEY (`id_armario`) REFERENCES `tb_armario` (`id_armario`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK__tb_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 ''')
 
     def create_user(self, nome, email, telefone):
@@ -554,10 +553,10 @@ ENGINE=InnoDB
             self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
             
             print('********** dados locacao **************')
-            print(self.__locacao[0][2])
-            if (self.__locacao[0][2]) >= hj:
+            print(self.__locacao['tempo_locado'][0])
+            if (self.__locacao['tempo_locado'][0]) >= hj:
                 
-                tempo_total = hj - self.__locacao[0][2]
+                tempo_total = hj - self.__locacao['tempo_locado'][0]
                 dias_passados = tempo_total.days
                 minutos_passados = tempo_total.seconds / 60
                 valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
