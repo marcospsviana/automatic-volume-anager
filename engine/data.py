@@ -11,7 +11,7 @@ import string
 from random import choice, sample
 import pandas as pd
 import smtplib
-#from .portas import Portas
+from .portas import Portas
 
 
 class Banco(object):
@@ -107,7 +107,7 @@ ENGINE=InnoDB;''')
         self.__conn.close()
 
     def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario, language, total):
-        #self.port = Portas()
+        self.port = Portas()
         dia = dia
         dia = dia.replace(".0","")
         self.__dia = int(dia)
@@ -187,8 +187,8 @@ ENGINE=InnoDB;''')
             print("result locacao" , query_select)
             return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, senha, compartimento)
             
-            ##port = self.select_port(loca_armario[0])
-            #self.port.exec_port(str(port[0][0]), "abre")
+            port = self.select_port(loca_armario[0])
+            self.port.exec_port(str(port[0][0]), "abre")
         elif retorno == "houve um problema com o pagamento":
             return loca_armario
     def select_port(self, armario):
@@ -228,7 +228,7 @@ ENGINE=InnoDB;''')
         query = ''
         __c.execute("SELECT id_usuario FROM tb_locacao where senha = '"+ __password +"'")
         query = __c.fetchall()
-        print("##### id usuario ###")
+        print("##### id usuario ----")
         print(query)
         if query == []:
             return 'senha incorreta, tente novamente'
