@@ -2255,8 +2255,12 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
   </object>
   <object class="GtkDialog" id="window_payment_wait">
     <property name="name">window</property>
+    <property name="width_request">800</property>
+    <property name="height_request">600</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
+    <property name="default_width">800</property>
+    <property name="default_height">600</property>
     <property name="type_hint">dialog</property>
     <property name="decorated">False</property>
     <child>
@@ -2306,8 +2310,10 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <property name="name">label_aguarde</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">center</property>
                 <property name="margin_top">200</property>
                 <property name="label" translatable="yes">AGUARDE PAGAMENTO</property>
+                <property name="wrap">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
