@@ -188,6 +188,7 @@ ENGINE=InnoDB;''')
             return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, senha, compartimento)
             
             port = self.select_port(loca_armario[0])
+            print("porta selecionada", port[0][0])
             self.port.exec_port(str(port[0][0]), "abre")
         elif retorno == "houve um problema com o pagamento":
             return loca_armario
