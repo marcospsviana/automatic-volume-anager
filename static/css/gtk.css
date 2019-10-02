@@ -30,19 +30,20 @@ dialog{
 		border-radius: 2px;
 	     }
 #btn_confirmar{  
-		font: 1.4em sans-serif;
+		font: 1.5em sans-serif;
 		background: rgb(8, 107, 173);
 		color: #d6e6ee;
 		padding: 5px;
-		border-radius: 3px
+		border-radius: 2px;
+		padding: 2%
 
 		 }
 #btn_retornar{  
-	font: 1.2em sans-serif;
+	font: 1.3em sans-serif;
 	background: rgb(199, 75, 54);
 	color: #d6e6ee;
 	padding: 5px;
-	border-radius: 3px
+	border-radius: 2px
 	
 			 }
 #window { background-color: #FDCF03;
