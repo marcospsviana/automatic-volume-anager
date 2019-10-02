@@ -183,15 +183,17 @@ ENGINE=InnoDB;''')
             #self.send_email(self.__nome, self.__email, senha[0], compartimento[0], data_locacao, hora_locacao, tempo_locado,  hora_locada, language)
 
             #query_select = self.__c.fetchall()
-            self.__conn.close()
+            
             print("result locacao" , query_select)
-            return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, senha, compartimento)
+            
             
             port = self.select_port(loca_armario[0])
             print("porta selecionada", port[0][0])
             self.port.exec_port(str(port[0][0]), "abre")
+            return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, senha, compartimento)
         elif retorno == "houve um problema com o pagamento":
             return loca_armario
+        self.__conn.close()
     def select_port(self, armario):
         __armario = armario
         self.__c.execute("SELECT porta FROM coolbag.tb_armario where id_armario = %s"%(__armario))
