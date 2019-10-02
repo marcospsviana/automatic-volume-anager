@@ -147,11 +147,13 @@
   </object>
   <object class="GtkWindow" id="window_login">
     <property name="name">window</property>
+    <property name="width_request">1024</property>
+    <property name="height_request">550</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
-    <property name="default_width">800</property>
-    <property name="default_height">400</property>
+    <property name="default_width">1024</property>
+    <property name="default_height">550</property>
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
@@ -166,6 +168,7 @@
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
+            <property name="width_request">900</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
@@ -1191,6 +1194,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="button-press-event" handler="on_btn_window_payment_wait_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
