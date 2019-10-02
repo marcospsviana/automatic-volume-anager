@@ -1081,7 +1081,7 @@
     <property name="border_width">10</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
-    <property name="default_width">750</property>
+    <property name="default_width">1024</property>
     <property name="default_height">600</property>
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
