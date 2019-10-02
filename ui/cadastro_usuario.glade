@@ -1011,11 +1011,13 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
+            <property name="margin_top">10</property>
             <property name="spacing">20</property>
             <child>
               <object class="GtkButton" id="btn_confirmar_entrada_dados">
                 <property name="label" translatable="yes">CONFIRMAR</property>
                 <property name="name">btn_confirmar</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -1032,6 +1034,7 @@
               <object class="GtkButton" id="btn_retornar_entrada_dados">
                 <property name="label" translatable="yes">RETORNAR TELA ANTERIOR</property>
                 <property name="name">btn_retornar</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
