@@ -11,7 +11,7 @@ import string
 from random import choice, sample
 import pandas as pd
 import smtplib
-from .portas import Portas
+#from .portas import Portas
 
 
 class Banco(object):
