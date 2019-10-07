@@ -195,8 +195,7 @@ class WindowLogin(Gtk.Window):
         self.window_payment.show()
         retorno = self.manager.pagamento(self.__result, self.entry.get_text())
         if retorno == "pagamento ok":
-            self.window_pagamento_extra.hide()
-            self.window_login.hide()
+            
             self.wait_payment()
 
 
@@ -212,6 +211,8 @@ class WindowLogin(Gtk.Window):
     
     def on_btn_window_payment_wait_button_press_event(self, widget, event):
         self.window_payment.hide()
+        self.window_pagamento_extra.hide()
+        self.window_login.hide()
         
 
 
@@ -226,7 +227,6 @@ class WindowLogin(Gtk.Window):
 
 
     def wait_payment(self):
-        input()
         self.window_payment.hide()
         
     
