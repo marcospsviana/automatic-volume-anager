@@ -170,8 +170,8 @@ class WindowLogin(Gtk.Window):
             print(type(locacao))
             #__data_locacao = result[0][0][1]
             #__data_limite = result[0][0][2]
-            __dia_da_semana_locacao = result[0]['data_locacao'][0].weekday_name()
-            __dia_da_semana_locado = result[0]['tempo_locado'][0].weekday_name()
+            __dia_da_semana_locacao = result[0]['data_locacao'][0].weekday_name
+            __dia_da_semana_locado = result[0]['tempo_locado'][0].weekday_name
             __hora_locacao = result[0]['data_locacao'][0].hour
             __hora_locado = result[0]['tempo_locado'][0].hour
             __dia_extra = result[2]
