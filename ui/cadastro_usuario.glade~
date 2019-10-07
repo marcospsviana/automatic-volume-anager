@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.20.0 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkDialog" id="dialog_message_preencher_campos">
+    <property name="name">window</property>
     <property name="width_request">600</property>
     <property name="height_request">400</property>
     <property name="can_focus">False</property>
@@ -10,9 +11,6 @@
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="decorated">False</property>
-    <child>
-      <placeholder/>
-    </child>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can_focus">False</property>
@@ -81,6 +79,7 @@
     </child>
   </object>
   <object class="GtkDialog" id="dialog_retorno_cadastro">
+    <property name="name">window</property>
     <property name="width_request">600</property>
     <property name="height_request">500</property>
     <property name="can_focus">False</property>
@@ -91,9 +90,6 @@
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="decorated">False</property>
-    <child>
-      <placeholder/>
-    </child>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can_focus">False</property>
@@ -161,7 +157,7 @@
   <object class="GtkImage" id="image1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/backspace.svg</property>
+    <property name="pixbuf">../static/images/spinner_coolbag.svg</property>
   </object>
   <object class="GtkWindow" id="window_entrada_dados">
     <property name="name">window</property>
@@ -177,9 +173,6 @@
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child>
-      <placeholder/>
-    </child>
     <child>
       <object class="GtkBox">
         <property name="width_request">1000</property>
@@ -1061,12 +1054,12 @@
   <object class="GtkImage" id="image_br_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/brasilpq.svg</property>
+    <property name="pixbuf">../static/images/spinner_coolbag.svg</property>
   </object>
   <object class="GtkImage" id="image_usa_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/usa.svg</property>
+    <property name="pixbuf">../static/images/spinner_coolbag.svg</property>
   </object>
   <object class="GtkWindow" id="window_cadastro_usuario">
     <property name="name">window</property>
@@ -1088,9 +1081,6 @@
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child>
-      <placeholder/>
-    </child>
     <child>
       <object class="GtkBox">
         <property name="width_request">1024</property>
@@ -1647,9 +1637,6 @@
     <property name="decorated">False</property>
     <property name="gravity">center</property>
     <child>
-      <placeholder/>
-    </child>
-    <child>
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
@@ -1923,9 +1910,6 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child>
-      <placeholder/>
-    </child>
     <child>
       <object class="GtkBox">
         <property name="width_request">1000</property>
@@ -2284,13 +2268,8 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
     <property name="type_hint">dialog</property>
     <property name="decorated">False</property>
     <property name="gravity">static</property>
-    <child>
-      <placeholder/>
-    </child>
     <child internal-child="vbox">
       <object class="GtkBox">
-        <property name="width_request">900</property>
-        <property name="height_request">450</property>
         <property name="can_focus">False</property>
         <property name="halign">center</property>
         <property name="valign">center</property>
