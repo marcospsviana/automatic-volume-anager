@@ -72,9 +72,10 @@ class Management(object):
         return self.__cobranca
 
         
-    def pagamento(self, total):
+    def pagamento(self, total, senha):
         self.__total  = total
-        result = cb.pagamento(self, self.__total)
+        print("total controller", self.__total)
+        result = cb.pagamento(self.__total, senha)
         return result
     
     def abre_armario(self, senha):

@@ -62,6 +62,7 @@
     </child>
   </object>
   <object class="GtkDialog" id="dialog_senha_incorreta">
+    <property name="name">window</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="type_hint">dialog</property>
@@ -72,18 +73,22 @@
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can_focus">False</property>
+        <property name="halign">center</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox">
             <property name="can_focus">False</property>
+            <property name="halign">center</property>
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="btn_dialog_cancelar_senha_incorreta">
                 <property name="label" translatable="yes">CANCELAR</property>
+                <property name="name">btn_cancelar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="halign">center</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -94,9 +99,11 @@
             <child>
               <object class="GtkButton" id="btn_tentar_dialog_senha_incorreta">
                 <property name="label" translatable="yes">TENTAR NOVAMENTE</property>
+                <property name="name">btn_confirmar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="halign">center</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -116,6 +123,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
+            <property name="margin_top">10</property>
             <property name="margin_bottom">46</property>
             <property name="orientation">vertical</property>
             <child>
@@ -195,6 +203,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
+                <property name="caps_lock_warning">False</property>
               </object>
               <packing>
                 <property name="expand">False</property>

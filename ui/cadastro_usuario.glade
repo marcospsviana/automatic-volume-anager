@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.20.0 -->
+<!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkDialog" id="dialog_message_preencher_campos">
@@ -10,6 +10,9 @@
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="decorated">False</property>
+    <child>
+      <placeholder/>
+    </child>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can_focus">False</property>
@@ -88,6 +91,9 @@
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="decorated">False</property>
+    <child>
+      <placeholder/>
+    </child>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can_focus">False</property>
@@ -171,6 +177,9 @@
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
+    <child>
+      <placeholder/>
+    </child>
     <child>
       <object class="GtkBox">
         <property name="width_request">1000</property>
@@ -1052,12 +1061,12 @@
   <object class="GtkImage" id="image_br_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">..static/images/usa.svg</property>
+    <property name="pixbuf">../static/images/brasilpq.svg</property>
   </object>
   <object class="GtkImage" id="image_usa_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">..static/images/usa.svg</property>
+    <property name="pixbuf">../static/images/usa.svg</property>
   </object>
   <object class="GtkWindow" id="window_cadastro_usuario">
     <property name="name">window</property>
@@ -1079,6 +1088,9 @@
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
+    <child>
+      <placeholder/>
+    </child>
     <child>
       <object class="GtkBox">
         <property name="width_request">1024</property>
@@ -1635,6 +1647,9 @@
     <property name="decorated">False</property>
     <property name="gravity">center</property>
     <child>
+      <placeholder/>
+    </child>
+    <child>
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
@@ -1908,6 +1923,9 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
+    <child>
+      <placeholder/>
+    </child>
     <child>
       <object class="GtkBox">
         <property name="width_request">1000</property>
@@ -2266,6 +2284,9 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
     <property name="type_hint">dialog</property>
     <property name="decorated">False</property>
     <property name="gravity">static</property>
+    <child>
+      <placeholder/>
+    </child>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can_focus">False</property>
@@ -2331,7 +2352,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_top">50</property>
-                <property name="pixbuf">..static/images/usa.svg</property>
+                <property name="pixbuf">../static/images/spinner_coolbag.svg</property>
               </object>
               <packing>
                 <property name="expand">False</property>

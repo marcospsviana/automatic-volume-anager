@@ -107,7 +107,7 @@ ENGINE=InnoDB;''')
         self.__conn.close()
 
     def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario, language, total):
-        self.port = Portas()
+        #self.port = Portas()
         dia = dia
         dia = dia.replace(".0","")
         self.__dia = int(dia)
@@ -151,7 +151,7 @@ ENGINE=InnoDB;''')
         #print(loca_armario)
         #self.__c.execute("SET FOREIGN_KEY_CHECKS = 0;")
         # se houver armário livre segue com cadastro de locação
-        retorno = self.pagamento(self.__total)
+        retorno = self.pagamento_locacao(self.__total)
         if retorno == "lk4thHG34=GKss0xndhe":
             self.__senha = self.__get_passwd()
             #self.__hash_senha = hashlib.sha3_512(b"%s"%self.__senha).hexdigest()
@@ -189,7 +189,7 @@ ENGINE=InnoDB;''')
             
             port = self.select_port(loca_armario[0])
             print("porta selecionada", port[0][0])
-            self.port.exec_port(str(port[0][0]), "abre")
+            # HABILILAR NO RASPBERRY PI self.port.exec_port(str(port[0][0]), "abre")
             return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, senha, compartimento)
         elif retorno == "houve um problema com o pagamento":
             return loca_armario
@@ -245,11 +245,14 @@ ENGINE=InnoDB;''')
         __password = []
         self.__pass2 = ''
         __alfabet = list(string.ascii_uppercase)
+        __num = list(range(10))
+        for n in __num:
+            __alfabet.append(n)
         
         while len(__password) < 4:
-            result  = random.randrange(0, 9)
+            """result  = random.randrange(0, 9)
             if result not in __password:
-                __password.append(result)
+                __password.append(result)"""
             
             add_alfa = choice(__alfabet)
             if add_alfa not in __password:
@@ -277,18 +280,18 @@ ENGINE=InnoDB;''')
     
     
     @staticmethod
-    def get_locacao(senha, id_usuario):
+    def get_locacao(senha):
         __conn = mdb.connect(
             user='root', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         result = ''
         __senha = senha
         print('---senha---',__senha)
-        __id_user = id_usuario
-        print('*** id usuario *** ', __id_user[0])
-        print(__senha)
+        #__id_user = id_usuario
+        #print('*** id usuario *** ', __id_user[0])
+        #print(__senha)
         #__c.execute("SELECT id_armario, id_locacao, tempo_locado, data_locacao from tb_locacao where senha = '%s' AND id_usuario = %s" %(__senha,__id_user[0]))
-        dados = pd.read_sql("SELECT id_armario, id_locacao, tempo_locado, data_locacao from tb_locacao where senha = '%s' AND id_usuario = %s" %(__senha,__id_user[0]), __conn)
+        dados = pd.read_sql("SELECT id_armario, id_locacao, tempo_locado, data_locacao from tb_locacao where senha = '%s'" %(__senha), __conn)
         #for reg in __c.next_proc_resultset():
         #__result = __c.fetchall()
         #print("888888 ---- result")
@@ -316,7 +319,7 @@ ENGINE=InnoDB;''')
             return 'senha incorreta, tente novamente'
         
         else:
-            self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
+            self.__locacao = self.get_locacao(self.__senha)
             print('********** dados locacao **************')
             print("self.locacao", self.__locacao.head())
             print("self.locacao[0][2]",self.__locacao[0][2])
@@ -458,7 +461,7 @@ ENGINE=InnoDB;''')
             return 'senha, email ou telefone incorretos, tente novamente'
         
         else:
-            self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
+            self.__locacao = self.get_locacao(self.__senha)
             if (self.__locacao['tempo_locado'][0]) >= hj:
                 
                 tempo_total = hj - self.__locacao['tempo_locado'][0]
@@ -553,7 +556,7 @@ ENGINE=InnoDB;''')
             return 'senha incorreta, tente novamente'
         
         else:
-            self.__locacao = self.get_locacao(self.__senha, self.__id_user[0])
+            self.__locacao = self.get_locacao(self.__senha)
             
             print('********** dados locacao **************')
             print(self.__locacao['tempo_locado'][0])
@@ -620,7 +623,21 @@ ENGINE=InnoDB;''')
         __conn.close()
     
 
-    def pagamento(self, total):
+    def pagamento(self, total, senha):
+        codigo = "paguei"
+        print("informe o codigo")
+        entrada = "paguei"
+        self.__locacao = self.get_locacao(senha)
+        if codigo==entrada:
+            self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (senha,))
+            self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (self.__locacao['id_armario'][0],))
+            self.__conn.commit()
+            self.__conn.close()
+            return ("lk4thHG34=GKss0xndhe")
+        else:
+            return ("houve um problema com o pagamento")
+    
+    def pagamento_locacao(self, total):
         codigo = "paguei"
         print("informe o codigo")
         entrada = "paguei"
@@ -628,6 +645,7 @@ ENGINE=InnoDB;''')
             return ("lk4thHG34=GKss0xndhe")
         else:
             return ("houve um problema com o pagamento")
+    
 
 
 

@@ -21,19 +21,19 @@ class Cobranca(object):
         print('modulo cobrança')
         return __result
 
-    def pagamento(total):
-        def __init__(self):
-            self.__bk = Banco()
-            self.__total = total
-            print('******* total pagamento ********')
-            print(self.__total)
-            result = self.__bk.cobranca_excedente(self.__total)
-            print('%------- pagamento ---------%')
-            print(result)
-            if result == "armario liberado ":
-                return 'pagamento ok'
-            else:
-                return result
+    @staticmethod
+    def pagamento(total, senha):
+        __bk = Banco()
+        __total = total
+        print('******* total pagamento ********')
+        print(__total)
+        __result = __bk.pagamento(__total, senha)
+        print('%------- pagamento ---------%')
+        print(__result)
+        if __result == "lk4thHG34=GKss0xndhe":
+            return 'pagamento ok'
+        else:
+            return __result
 
     def finalizar( senha):
         def __init__(self):

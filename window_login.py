@@ -29,6 +29,7 @@ class WindowLogin(Gtk.Window):
         })
         # ================ DIALOGS ==============================
         self.dialog_cobranca = self.builder.get_object("dialog_cobranca")
+        self.dialog_senha_incorreta = self.builder.get_object("dialog_senha_incorreta")
         # ======== BOTOES DO TECLADO ============================
         for alfabet in self.alfa:
             self.alfabet = self.builder.get_object(alfabet)
@@ -62,9 +63,14 @@ class WindowLogin(Gtk.Window):
         
         self.btn_window_payment_wait = self.builder.get_object("btn_window_payment_wait")
         self.btn_window_payment_wait.connect("button_press_event", self.on_btn_window_payment_wait_button_press_event)
+        self.btn_tentar_dialog_senha_incorreta = self.builder.get_object("btn_tentar_dialog_senha_incorreta")
+        self.btn_tentar_dialog_senha_incorreta.connect("clicked", self.on_btn_tentar_dialog_senha_incorreta)
+        self.btn_dialog_cancelar_senha_incorreta = self.builder.get_object("btn_dialog_cancelar_senha_incorreta")
+        self.btn_dialog_cancelar_senha_incorreta.connect("clicked", self.on_btn_dialog_cancelar_senha_incorreta)
 
         # ========= LABELS =========================
         self.lbl_message = self.builder.get_object("lbl_message")
+        self.label_dialog_senha_incorreta = self.builder.get_object("label_dialog_senha_incorreta")
         self.label_locacao_inicial = self.builder.get_object(
             "label_locacao_inicial")
         self.label_data_locacao_inicial = self.builder.get_object(
@@ -100,6 +106,7 @@ class WindowLogin(Gtk.Window):
         # ================== SET LANGUAGE ===================================
 
         if self.language == "pt_BR":
+            self.label_dialog_senha_incorreta.set_text("SENHA INCORRETA,\n TENTE NOVAMENTE")
             self.label_locacao_inicial.set_text("LOCAÇÃO INICIAL")
             self.label_locacao_encerrada.set_text("LOCAÇÃO ENCERRADA ÀS")
             self.label_tempo_extra.set_text("TEMPO EXTRA")
@@ -108,7 +115,11 @@ class WindowLogin(Gtk.Window):
             self.btn_efetuar_pagamento.set_label("EFETUAR PAGAMENTO")
             self.btn_confirmar_entrada_dados.set_label("CONFIRMAR")
             self.btn_retornar_entrada_dados.set_label("RETORNAR TELA ANTERIOR")
+            self.btn_dialog_cancelar_senha_incorreta.set_label("CANCELAR")
+            self.btn_tentar_dialog_senha_incorreta.set_label("TENTAR NOVAMENTE")
+            
         elif self.language == "en_US":
+            self.label_dialog_senha_incorreta.set_text("WRONG PASSWORD,\n TRY AGAIN")
             self.label_locacao_inicial.set_text("START DATE OF LEASE")
             self.label_locacao_encerrada.set_text("FINAL DATE OF LEASE")
             self.label_tempo_extra.set_text("TIME OVER")
@@ -117,6 +128,8 @@ class WindowLogin(Gtk.Window):
             self.btn_efetuar_pagamento.set_label("PAYMENT")
             self.btn_confirmar_entrada_dados.set_label("CONFIRM")
             self.btn_retornar_entrada_dados.set_label("PREVIOUS SCREEN")
+            self.btn_dialog_cancelar_senha_incorreta.set_label("CANCEL")
+            self.btn_tentar_dialog_senha_incorreta.set_label("TRY AGAIN")
         
         self.window_payment = self.builder.get_object("window_payment_wait")
         self.window_pagamento_extra = self.builder.get_object(
@@ -145,9 +158,6 @@ class WindowLogin(Gtk.Window):
         elif result == 'senha incorreta, tente novamente':
             # self.window_login.hide()
             self.entry.set_text('')
-
-            self.label_dialog_senha_incorreta.set_text(
-                'senha incorreta, tente novamente')
             self.dialog_senha_incorreta.show()
 
         else:
@@ -182,7 +192,13 @@ class WindowLogin(Gtk.Window):
 
            
     def on_btn_efetuar_pagamento_button_press_event(self, widget, event):
-        retorno = self.manager.pagamento(self.__result)
+        self.window_payment.show()
+        retorno = self.manager.pagamento(self.__result, self.entry.get_text())
+        if retorno == "pagamento ok":
+            self.window_pagamento_extra.hide()
+            self.window_login.hide()
+            self.wait_payment()
+
 
     def on_btn_retornar_entrada_dados_pressed(self, event):
         self.entry.set_text("")
@@ -195,87 +211,23 @@ class WindowLogin(Gtk.Window):
         self.entry.set_position(-1)
     
     def on_btn_window_payment_wait_button_press_event(self, widget, event):
-        if self.tempo_locacao == "horas":
-                self.entry_quantidade_diaria.set_text("0")
-        elif self.tempo_locacao == "diaria":
-            self.entry_quantidade_horas.set_text("0")
-            #self.entry_minutos.set_text("0")
+        self.window_payment.hide()
         
-        self.__nome = self.entry_nome.get_text()
-        self.__email = self.entry_email.get_text()
-        self.__telefone = self.entry_celular.get_text()
-        self.__quantidade_diaria = self.entry_quantidade_diaria.get_text()
-        self.__quantidade_minutos = "0"
-        if self.entry_quantidade_horas.get_text() == "":
-            self.__quantidade_horas = "0"
-        else:
-            self.__quantidade_horas = self.entry_quantidade_horas.get_text()
-        """if self.entry_minutos.get_text() == "":
-            self.__quantidade_minutos = "0"
-        else:
-            self.__quantidade_minutos = self.entry_minutos.get_text()"""
-        if self.__nome == "":
-            if self.language == "pt_BR":
-                self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
-            elif self.language == "en_US":
-                self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
-            self.dialog_message_preencher_campos.show()
-        elif self.__email == "":
-            if self.language == "pt_BR":
-                self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
-            elif self.language == "en_US":
-                self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
-            self.dialog_message_preencher_campos.show()
-        elif self.__telefone == "":
-            if self.language == "pt_BR":
-                self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
-            elif self.language == "en_US":
-                self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
-            self.dialog_message_preencher_campos.show()
-        elif self.__quantidade_diaria == self.__quantidade_horas: #== self.__quantidade_minutos:
-            if self.language == "pt_BR":
-                self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
-            elif self.language == "en_US":
-                self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
-            self.dialog_message_preencher_campos.show()
-        else:
-            self.__armario = self.classe
-            print("locacao", self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos)
-            manager = Management()
-            self.__result =  manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario, self.language, self.total)
-            count = 0
-            print("self.__result cadastro usuario ", self.__result[0])
-            if self.__result[0][0] == "locacao concluida com sucesso":
-                dia_inicio_locacao = self.__result[0][1]
-                hora_inicio_locacao = self.__result[0][2]
-                data_fim_locacao = self.__result[0][3]
-                hora_fim_locacao = self.__result[0][4]
-                __senha = self.__result[0][5][0]
-                compartimento = self.__result[0][6][0]
-            
-                self.label_date_inicio_locacao.set_text(dia_inicio_locacao)
-                self.label_date_fim_locacao.set_text(data_fim_locacao)
-                self.label_hour_inicio_locacao.set_text(hora_inicio_locacao)
-                self.label_hour_fim_locacao.set_text(hora_fim_locacao)
-                self.label_senha.set_text(str(__senha))
-                self.label_compartimento.set_text(str(compartimento))
-                
-                
-                self.window_conclusao.show()
-                self.window_cadastro_usuario.hide()
-                self.window_payment.hide()
-                
-            elif self.__result[0] == "armario da classe escolhida indisponível":
-                if self.language == "pt_BR":
-                    self.label_retorno_cadastro.set_text("tamanho de armario\n  escolhido indisponível")
-                    self.dialog_retorno_cadastro.show()
-                elif self.language == "en_US":
-                    self.label_retorno_cadastro.set_text("chosen cabinet\n size unavailable")
-                    self.dialog_retorno_cadastro.show()        
+
+
+    def on_btn_tentar_dialog_senha_incorreta(self, widget):
+        self.dialog_senha_incorreta.hide()
+    
+    def on_btn_dialog_cancelar_senha_incorreta(self, widget):
+        self.dialog_senha_incorreta.hide()
+        self.window_login.hide()
+
+              
 
 
     def wait_payment(self):
-        self.window_payment.show()
+        input()
+        self.window_payment.hide()
         
     
 
