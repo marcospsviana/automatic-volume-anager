@@ -468,7 +468,7 @@ ENGINE=InnoDB;''')
         return (total )
     
     def finalizar(self,senha):
-        
+        taxa = 15
         result = ''
         id_armario = ''
         
@@ -490,8 +490,8 @@ ENGINE=InnoDB;''')
                 
                 tempo_total = hj - self.__locacao['tempo_locado'][0]
                 dias_passados = tempo_total.days
-                hora = tempo_total.seconds //3600
-                minutos_passados = tempo_total.seconds % 3600
+                minutos_passados = tempo_total.seconds / 60
+                calculo_hora = tempo_total // 3600
                 calculo_minuto = 0
                 if minutos_passados <= 15 and minutos_passados > 5:
                     calculo_minuto = (1/4) 
@@ -499,12 +499,13 @@ ENGINE=InnoDB;''')
                     calculo_minuto = (2/4) 
                 elif minutos_passados > 15 and minutos_passados <= 30:
                     calculo_minuto = (3/4) 
+                valor_total = ((dias_passados * 24 * 60) * 50)
+                valor_total = valor_total + (calculo_minuto * taxa )
+                valor_total = valor_total + calculo_hora * 15
+                result = self.cobranca_excedente(dias_passados, calculo_hora, calculo_minuto)#(valor_total,hj) 
                 
             
-                valor_total = ((dias_passados * 50) + (hora * TAXA) + calculo_minuto * TAXA)
-                
-                result = self.cobranca(valor_total,hj)
-                
+            
                 self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
                 self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (self.__locacao[0][0],))
                 self.__conn.commit()
@@ -512,19 +513,51 @@ ENGINE=InnoDB;''')
                 return "armario liberado"
                 port = self.select_port(self.__locacao[0][0])
                 self.port.exec_port(port[0], "abre")
+                      
             else:
-                
+                query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'"%self.__senha
+                query_data_limite = "select tempo_locado from tb_locacao where senha = '%s'"%self.__senha
+                self.__c.execute("select dayname(data_locacao) from tb_locacao where senha = '%s'"%self.__senha)
+                query_dia_semana_locacao = self.__c.fetchone()
+                self.__c.execute("select dayname(tempo_locado) from tb_locacao where senha = '%s'"%self.__senha)
+                query_dia_semana_locado = self.__c.fetchone()
+                df_data_locacao = pd.read_sql(query_data_locacao, self.__conn)
+                data_locacao = str(pd.to_datetime(df_data_locacao.head().values[0][0]))#data em que foi feita a locacao
+                df_data_limite = pd.read_sql(query_data_limite, self.__conn)
+                data_limite = str(pd.to_datetime(df_data_limite.head().values[0][0])) #data e hora final da locacao
+                mes_locacao = data_locacao[5:7] # mes da locacao
+                dia_locacao = data_locacao[8:10] #dia da locacao
+                hora_locacao = data_locacao[11:16]
+                mes_locado = data_limite[5:7]
+                dia_locado = data_limite[8:10]
+                hora_locado = data_limite[11:16]
+                #dia_da_semana_locacao = pd.to_datetime(df_data_locacao.head().values[0][0]).day_name
+                #dia_da_semana_locado = pd.to_datetime(df_data_limite.head().values[0][0]).day_name
+            
+                data_locacao = dia_locacao + "/" + mes_locacao
+                tempo_locado = dia_locado + "/" + mes_locado
                 tempo = hj - self.__locacao['tempo_locado'][0]
-                print("tempo banco", tempo)
-                tempos = tempo.days
-                tempo_hora = tempo.seconds // 3600
-                tempo_minutos = tempo.seconds % 60
-                #tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
-                #print('-------> %s'%tempo)
-                cobranca = self.cobranca_excedente(tempo.days, tempo_hora, tempo_minutos)
-                print("banco cobranca --- > ", cobranca)
-                print("banco self.__locacao" , self.__locacao)
-                return (self.__locacao, cobranca, tempos, tempo_hora, tempo_minutos)
+                __dia_extra = tempo.days
+                __hora_extra = tempo.seconds//3600 #hj.hour - self.__locacao[0][2].hour
+                minuto = tempo.seconds/3600        
+                __minuto_extra = (tempo.seconds%3600)//60 #hj.minute - self.__locacao[0][2].minute
+                
+                tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
+                print('-------> %s'%tempo)
+                result = self.cobranca_excedente(__dia_extra, __hora_extra, __minuto_extra)
+                dados_locacao = {
+                                "total": result,
+                                "data_locacao": data_locacao, 
+                                "tempo_locado": tempo_locado, 
+                                "dia_locacao":query_dia_semana_locacao[0], 
+                                "dia_limite": query_dia_semana_locado[0], 
+                                "hora_locacao":hora_locacao, 
+                                "hora_locado":hora_locado, 
+                                "dia_extra": __dia_extra, 
+                                "hora_extra":__hora_extra, 
+                                "minuto_extra":__minuto_extra 
+                                }
+                return dados_locacao
     def send_email(self, nome, email, senha, compartimento, data_locacao, hora_inicio_locacao, data_limite,  hora_fim_locacao, language):
         __server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
         __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")

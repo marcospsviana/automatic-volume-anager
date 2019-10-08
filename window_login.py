@@ -161,9 +161,10 @@ class WindowLogin(Gtk.Window):
             self.dialog_senha_incorreta.show()
 
         else:
+            
             print("result window_login",result)
             # self.window_login.close()
-            result = dict(zip(result))
+            #result = dict(zip(result))
             self.__result = result["total"]
             #print(self.__result, result)
             
@@ -179,9 +180,9 @@ class WindowLogin(Gtk.Window):
             __dia_extra = result["dia_extra"]
             __hora_extra = result["hora_extra"]
             __minuto_extra = result["minuto_extra"]
-            self.label_data_locacao_inicial.set_text(
+            self.label_data_locacao_inicial.set_text( __dia_da_semana_locacao + " " +
                 str(locacao))#locacao)[8:10] + "/" + str(locacao)[5:7])
-            self.label_data_locacao_encerrada.set_text(
+            self.label_data_locacao_encerrada.set_text( __dia_da_semana_locado + " " +
                 str(limite))#[8:10] + "/" + str(limite)[5:7])
             self.label_hour_locacao_inicial.set_text(str(__hora_locacao))
             self.label_hour_locacao_encerrada.set_text(str(__hora_locado))
@@ -189,7 +190,7 @@ class WindowLogin(Gtk.Window):
             self.label_tempo_extra_hours.set_text(str(__hora_extra))
             self.label_tempo_extra_minutes.set_text(str(__minuto_extra))
             self.label_valor_extra_value.set_text("R$ " + result["total"])
-
+            
             self.window_pagamento_extra.show()
 
            
