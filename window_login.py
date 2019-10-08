@@ -163,30 +163,32 @@ class WindowLogin(Gtk.Window):
         else:
             print("result window_login",result)
             # self.window_login.close()
-            self.__result = result[1]
-            locacao = result[0]['data_locacao'][0]
-            limite = result[0]['tempo_locado'][0]
+            result = dict(zip(result))
+            self.__result = result["total"]
+            #print(self.__result, result)
+            
+            locacao = result["data_locacao"]
+            limite = result["tempo_locado"]
             print("locacao window_login", locacao)
             print(type(locacao))
-            #__data_locacao = result[0][0][1]
-            #__data_limite = result[0][0][2]
-            __dia_da_semana_locacao = result[0]['data_locacao'][0].weekday_name
-            __dia_da_semana_locado = result[0]['tempo_locado'][0].weekday_name
-            __hora_locacao = result[0]['data_locacao'][0].hour
-            __hora_locado = result[0]['tempo_locado'][0].hour
-            __dia_extra = result[2]
-            __hora_extra = result[3]
-            __minuto_extra = result[4]
+            
+            __dia_da_semana_locacao = result["dia_locacao"]
+            __dia_da_semana_locado = result["dia_limite"]
+            __hora_locacao = result["hora_locacao"]
+            __hora_locado = result["hora_locado"]
+            __dia_extra = result["dia_extra"]
+            __hora_extra = result["hora_extra"]
+            __minuto_extra = result["minuto_extra"]
             self.label_data_locacao_inicial.set_text(
-                str(locacao)[8:10] + "/" + str(locacao)[5:7])
+                str(locacao))#locacao)[8:10] + "/" + str(locacao)[5:7])
             self.label_data_locacao_encerrada.set_text(
-                str(limite)[8:10] + "/" + str(limite)[5:7])
+                str(limite))#[8:10] + "/" + str(limite)[5:7])
             self.label_hour_locacao_inicial.set_text(str(__hora_locacao))
             self.label_hour_locacao_encerrada.set_text(str(__hora_locado))
             self.label_tempo_extra_days.set_text(str(__dia_extra))
             self.label_tempo_extra_hours.set_text(str(__hora_extra))
             self.label_tempo_extra_minutes.set_text(str(__minuto_extra))
-            self.label_valor_extra_value.set_text("R$ " + str(self.__result))
+            self.label_valor_extra_value.set_text("R$ " + result["total"])
 
             self.window_pagamento_extra.show()
 

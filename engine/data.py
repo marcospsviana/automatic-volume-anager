@@ -11,12 +11,15 @@ import string
 from random import choice, sample
 import pandas as pd
 import smtplib
+import json
 #from .portas import Portas
 
 
 class Banco(object):
     def __init__(self):
         self.data = ''
+        global TAXA
+        TAXA = 15
 
         self.__conn = mdb.connect(
             user='root', password='m1cr0@t805i', database='coolbag')
@@ -305,6 +308,7 @@ ENGINE=InnoDB;''')
         
         result = ''
         id_armario = ''
+        taxa_15min = 0.07
         taxa_hora = 0.15
         taxa_dia = 50
         hj = datetime.datetime.now()
@@ -329,12 +333,21 @@ ENGINE=InnoDB;''')
                 tempo_total = hj - self.__locacao['tempo_locado'][0]
                 dias_passados = tempo_total.components.days
                 #minutos_passados = tempo_total.seconds / 60
-                minutos_passados = tempo_total.components.minutes
+                minuto = tempo_total.components.minutes
                 horas_passadas = tempo_total.components.hours
                 #valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
-                if minutos_passados >= 15:
-                    horas_passadas += 1
-                valor_total = ((dias_passados * 24) + horas_passadas ) * taxa_hora
+                calculo_minuto = 0
+                
+                if minuto <= 15 and minuto > 5:
+                    calculo_minuto = (1/4) 
+                elif minuto > 15 and minuto <= 30:
+                    calculo_minuto = (2/4) 
+                elif minuto > 15 and minuto <= 30:
+                    calculo_minuto = (3/4) 
+                valor_total = ((dias * 50) + (hora * TAXA) + calculo_minuto * TAXA)
+
+
+                #valor_total = ((dias_passados * 24) + horas_passadas ) * taxa_hora + valor_taxa_15
                 result = self.cobranca(valor_total,hj)
                 
                 self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
@@ -347,9 +360,12 @@ ENGINE=InnoDB;''')
             else:
                 
                 tempo = hj - self.__locacao[0][2] 
-                tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
+                dias = tempo.days 
+                horas = tempo.seconds // 3600
+                minutos = tempo.seconds % 3600
+                tempo = (tempo.days * 24 * 60) + ( tempo.seconds // 3600 ) + tempo.seconds % 60
                 print('-------> %s'%tempo)
-                result = self.cobranca_excedente(int(tempo))
+                result = self.cobranca_excedente(dias, horas, minutos)
                 return result
 
 
@@ -414,7 +430,7 @@ ENGINE=InnoDB;''')
             retorno: diferença tipo datetime.timedelta convertido em minutos e calculado o preço conforme 
             taxa por minuto cobrado"""
         
-        self.__TAXA = 0.15 
+        
         self.__data_atual = data_futura
         #self.__data_futura = data_futura
         self.__tempo_locado = total
@@ -423,23 +439,31 @@ ENGINE=InnoDB;''')
             return None
         else:'''
         
-        __total_preco = self.__tempo_locado * self.__TAXA  # preço total do excedente
+        __total_preco = self.__tempo_locado * TAXA  # preço total do excedente
         __total_preco = "%.2f"%(__total_preco) # formatando para duas casas decimais apos virgula
         __total_preco = str(__total_preco.replace('.',',')) #troca ponto por virgula pra formatar em moeda BR
         print('modulo data')
         return __total_preco
 
     @staticmethod
-    def cobranca_excedente(tempo):
-
-        message = "tempo excedido cobrança de R$ : %s"
-        taxa = 0.15
-        print('22222222222 tempo 222222222222')
-        print(tempo)
+    def cobranca_excedente(dias, hora, minuto):
+        calculo_minuto = 0
         
-        __excedente = float(tempo)
-        total = __excedente * taxa
-        total = "%.2f"%total
+        if minuto <= 15 and minuto > 5:
+            calculo_minuto = (1/4) 
+        elif minuto > 15 and minuto <= 30:
+            calculo_minuto = (2/4) 
+        elif minuto > 15 and minuto <= 30:
+            calculo_minuto = (3/4) 
+        valor_total = ((dias * 50) + (hora * TAXA) + calculo_minuto * TAXA)
+        message = "tempo excedido cobrança de R$ : %s"% valor_total
+        
+        print('22222222222 tempo 222222222222')
+        print(valor_total)
+        
+        __excedente = float(valor_total)
+        #total = __excedente * taxa
+        total = "%.2f"%valor_total
         print ('$$$$$$$ total $$$$ %s' % total)
         return (total )
     
@@ -447,7 +471,7 @@ ENGINE=InnoDB;''')
         
         result = ''
         id_armario = ''
-        taxa = 0.15
+        
         hj = datetime.datetime.now()
         hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
         #hj = hj + datetime.timedelta(minutes=+10)
@@ -466,8 +490,19 @@ ENGINE=InnoDB;''')
                 
                 tempo_total = hj - self.__locacao['tempo_locado'][0]
                 dias_passados = tempo_total.days
-                minutos_passados = tempo_total.seconds / 60
-                valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
+                hora = tempo_total.seconds //3600
+                minutos_passados = tempo_total.seconds % 3600
+                calculo_minuto = 0
+                if minutos_passados <= 15 and minutos_passados > 5:
+                    calculo_minuto = (1/4) 
+                elif minutos_passados > 15 and minutos_passados <= 30:
+                    calculo_minuto = (2/4) 
+                elif minutos_passados > 15 and minutos_passados <= 30:
+                    calculo_minuto = (3/4) 
+                
+            
+                valor_total = ((dias_passados * 50) + (hora * TAXA) + calculo_minuto * TAXA)
+                
                 result = self.cobranca(valor_total,hj)
                 
                 self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
@@ -484,9 +519,9 @@ ENGINE=InnoDB;''')
                 tempos = tempo.days
                 tempo_hora = tempo.seconds // 3600
                 tempo_minutos = tempo.seconds % 60
-                tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
-                print('-------> %s'%tempo)
-                cobranca = self.cobranca_excedente(int(tempo))
+                #tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
+                #print('-------> %s'%tempo)
+                cobranca = self.cobranca_excedente(tempo.days, tempo_hora, tempo_minutos)
                 print("banco cobranca --- > ", cobranca)
                 print("banco self.__locacao" , self.__locacao)
                 return (self.__locacao, cobranca, tempos, tempo_hora, tempo_minutos)
@@ -545,7 +580,7 @@ ENGINE=InnoDB;''')
         print('senha data', senha)
         result = ''
         id_armario = ''
-        taxa = 0.15
+        taxa = 15
         hj = datetime.datetime.now()
         hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
         
@@ -565,7 +600,17 @@ ENGINE=InnoDB;''')
                 tempo_total = hj - self.__locacao['tempo_locado'][0]
                 dias_passados = tempo_total.days
                 minutos_passados = tempo_total.seconds / 60
-                valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
+                calculo_hora = tempo_total // 3600
+                calculo_minuto = 0
+                if minutos_passados <= 15 and minutos_passados > 5:
+                    calculo_minuto = (1/4) 
+                elif minutos_passados > 15 and minutos_passados <= 30:
+                    calculo_minuto = (2/4) 
+                elif minutos_passados > 15 and minutos_passados <= 30:
+                    calculo_minuto = (3/4) 
+                valor_total = ((dias_passados * 24 * 60) * 50)
+                valor_total = valor_total + (calculo_minuto * taxa )
+                valor_total = valor_total + calculo_hora * 15
                 result = self.cobranca(valor_total,hj)
                 
                 #self.__c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
@@ -596,7 +641,7 @@ ENGINE=InnoDB;''')
                
                 data_locacao = dia_locacao + "/" + mes_locacao
                 tempo_locado = dia_locado + "/" + mes_locado
-                tempo = hj - self.__locacao[0][2] 
+                tempo = hj - self.__locacao['tempo_locado'][0]
                 __dia_extra = tempo.days
                 __hora_extra = tempo.seconds//3600 #hj.hour - self.__locacao[0][2].hour
                 minuto = tempo.seconds/3600        
@@ -604,8 +649,20 @@ ENGINE=InnoDB;''')
                 
                 tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
                 print('-------> %s'%tempo)
-                result = self.cobranca_excedente(int(tempo))
-                return (result, data_locacao, tempo_locado, query_dia_semana_locacao, query_dia_semana_locado, hora_locacao, hora_locado, __dia_extra, __hora_extra, __minuto_extra)
+                result = self.cobranca_excedente(__dia_extra, __hora_extra, __minuto_extra)
+                dados_locacao = {
+                                 "total": result,
+                                 "data_locacao": data_locacao, 
+                                 "tempo_locado": tempo_locado, 
+                                 "dia_locacao":query_dia_semana_locacao[0], 
+                                 "dia_limite": query_dia_semana_locado[0], 
+                                 "hora_locacao":hora_locacao, 
+                                 "hora_locado":hora_locado, 
+                                 "dia_extra": __dia_extra, 
+                                 "hora_extra":__hora_extra, 
+                                 "minuto_extra":__minuto_extra 
+                                 }
+                return dados_locacao#result, data_locacao, tempo_locado, query_dia_semana_locacao, query_dia_semana_locado, hora_locacao, hora_locado, __dia_extra, __hora_extra, __minuto_extra)
     def finalizar_pagamento(self, senha):
         __conn = mdb.connect(
             user='root', password='m1cr0@t805i', database='coolbag')
