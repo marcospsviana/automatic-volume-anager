@@ -3,6 +3,7 @@
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkDialog" id="dialog_cobranca">
+    <property name="name">window</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="destroy_with_parent">True</property>
@@ -63,10 +64,16 @@
   </object>
   <object class="GtkDialog" id="dialog_senha_incorreta">
     <property name="name">window</property>
+    <property name="width_request">900</property>
+    <property name="height_request">350</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
+    <property name="window_position">center-always</property>
+    <property name="default_width">800</property>
+    <property name="default_height">350</property>
     <property name="type_hint">dialog</property>
     <property name="decorated">False</property>
+    <property name="gravity">center</property>
     <child>
       <placeholder/>
     </child>
@@ -80,6 +87,7 @@
           <object class="GtkButtonBox">
             <property name="can_focus">False</property>
             <property name="halign">center</property>
+            <property name="margin_bottom">10</property>
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="btn_dialog_cancelar_senha_incorreta">
@@ -122,14 +130,15 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">center</property>
             <property name="margin_top">10</property>
             <property name="margin_bottom">46</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel" id="label_dialog_senha_incorreta">
+                <property name="name">label_dialogo</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="hexpand">True</property>
                 <property name="label" translatable="yes">label</property>
               </object>
               <packing>
@@ -1177,10 +1186,16 @@
   </object>
   <object class="GtkDialog" id="window_payment_wait">
     <property name="name">window</property>
+    <property name="width_request">900</property>
+    <property name="height_request">500</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
+    <property name="window_position">center-always</property>
+    <property name="default_width">900</property>
+    <property name="default_height">500</property>
     <property name="type_hint">dialog</property>
     <property name="decorated">False</property>
+    <property name="gravity">center</property>
     <child>
       <placeholder/>
     </child>

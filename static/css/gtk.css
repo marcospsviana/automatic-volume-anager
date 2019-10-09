@@ -10,8 +10,8 @@ button{
 	font: 2em sans-serif;
 	border-radius: 5px;
 }
-dialog{
-	background-color: rgb(233, 29, 46);
+#label_dialogo{
+	
 	font: 32px "Noto Sans";
 }
 
