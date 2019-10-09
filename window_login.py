@@ -28,7 +28,7 @@ class WindowLogin(Gtk.Window):
             "on_btn_window_payment_wait_button_press_event": self.on_btn_window_payment_wait_button_press_event,
         })
         # ================ DIALOGS ==============================
-        self.dialog_cobranca = self.builder.get_object("dialog_cobranca")
+        #self.dialog_cobranca = self.builder.get_object("dialog_cobranca")
         self.dialog_senha_incorreta = self.builder.get_object("dialog_senha_incorreta")
         # ======== BOTOES DO TECLADO ============================
         for alfabet in self.alfa:
