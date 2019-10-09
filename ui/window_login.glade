@@ -1207,6 +1207,7 @@
         <child internal-child="action_area">
           <object class="GtkButtonBox">
             <property name="can_focus">False</property>
+            <property name="margin_bottom">15</property>
             <property name="layout_style">end</property>
             <child>
               <placeholder/>
@@ -1218,6 +1219,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="margin_bottom">5</property>
                 <signal name="button-press-event" handler="on_btn_window_payment_wait_button_press_event" swapped="no"/>
               </object>
               <packing>
