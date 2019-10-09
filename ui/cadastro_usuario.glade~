@@ -2,6 +2,40 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+  <object class="GtkDialog">
+    <property name="can_focus">False</property>
+    <property name="type_hint">dialog</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="GtkDialog" id="dialog_message_preencher_campos">
     <property name="width_request">600</property>
     <property name="height_request">400</property>
@@ -86,7 +120,7 @@
     <property name="can_focus">False</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>
-    <property name="default_width">600</property>
+    <property name="default_width">900</property>
     <property name="default_height">350</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
@@ -102,6 +136,7 @@
         <child internal-child="action_area">
           <object class="GtkButtonBox">
             <property name="can_focus">False</property>
+            <property name="margin_bottom">15</property>
             <property name="layout_style">end</property>
             <child>
               <placeholder/>
@@ -1932,6 +1967,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
         <property name="height_request">500</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="margin_top">15</property>
         <property name="hexpand">True</property>
         <property name="vexpand">True</property>
         <property name="orientation">vertical</property>
@@ -2008,6 +2044,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="hexpand">True</property>
                 <property name="column_spacing">5</property>
                 <child>
                   <object class="GtkButton" id="btn_um">
@@ -2059,6 +2096,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="hexpand">True</property>
                 <property name="column_spacing">5</property>
                 <child>
                   <object class="GtkButton" id="btn_quatro">
@@ -2110,6 +2148,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="hexpand">True</property>
                 <property name="column_spacing">5</property>
                 <child>
                   <object class="GtkButton" id="btn_sete">
@@ -2273,13 +2312,13 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
   <object class="GtkDialog" id="window_payment_wait">
     <property name="name">window</property>
     <property name="width_request">900</property>
-    <property name="height_request">450</property>
+    <property name="height_request">500</property>
     <property name="can_focus">False</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
     <property name="default_width">900</property>
-    <property name="default_height">450</property>
+    <property name="default_height">500</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="decorated">False</property>
@@ -2290,13 +2329,12 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can_focus">False</property>
-        <property name="halign">center</property>
-        <property name="valign">center</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox">
             <property name="can_focus">False</property>
+            <property name="margin_bottom">15</property>
             <property name="layout_style">end</property>
             <child>
               <placeholder/>
@@ -2308,6 +2346,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="margin_bottom">5</property>
                 <signal name="button-press-event" handler="on_btn_window_payment_wait_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -2352,7 +2391,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_top">50</property>
-                <property name="pixbuf">..static/images/usa.svg</property>
+                <property name="pixbuf">../static/images/spinner_coolbag.svg</property>
               </object>
               <packing>
                 <property name="expand">False</property>
