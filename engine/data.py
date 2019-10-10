@@ -18,8 +18,16 @@ import json
 class Banco(object):
     def __init__(self):
         self.data = ''
-        global TAXA
-        TAXA = 15
+        global TAXA_HORA_A, TAXA_HORA_B, TAXA_HORA_C, TAXA_HORA_D
+        global TAXA_DIARIA_A, TAXA_DIARIA_B, TAXA_DIARIA_C, TAXA_DIARIA_D
+        TAXA_DIARIA_A = 37.5
+        TAXA_DIARIA_B = 24.5
+        TAXA_DIARIA_C = 14.5
+        TAXA_DIARIA_D = 9.0
+        TAXA_HORA_A = 2.10
+        TAXA_HORA_B = 1.56
+        TAXA_HORA_C = 1.05
+        TAXA_HORA_D = 0.6
 
         self.__conn = mdb.connect(
             user='root', password='m1cr0@t805i', database='coolbag')
@@ -308,9 +316,6 @@ ENGINE=InnoDB;''')
         
         result = ''
         id_armario = ''
-        taxa_15min = 0.07
-        taxa_hora = 0.15
-        taxa_dia = 50
         hj = datetime.datetime.now()
         hj = pd.to_datetime(hj, unit='ns')
         #hj = datetime.timedelta( hj.hour, hj.minute, hj.second)
@@ -344,7 +349,7 @@ ENGINE=InnoDB;''')
                     calculo_minuto = (2/4) 
                 elif minuto > 15 and minuto <= 30:
                     calculo_minuto = (3/4) 
-                valor_total = ((dias * 50) + (hora * TAXA) + calculo_minuto * TAXA)
+                valor_total = ((dias * taxa) + (hora * TAXA) + calculo_minuto * TAXA)
 
 
                 #valor_total = ((dias_passados * 24) + horas_passadas ) * taxa_hora + valor_taxa_15
@@ -381,7 +386,7 @@ ENGINE=InnoDB;''')
         else:
             return "não é possível remover armario, verifique se o mesmo não está em uso"
 
-    def cadastrar_armario(self, classe, terminal, coluna, nivel):
+    def cadastrar_armario(self, classe, terminal, coluna, nivel, compartimento):
 
         self.__c = self.__conn.cursor(buffered=True)
         self.__classe = classe
@@ -389,8 +394,9 @@ ENGINE=InnoDB;''')
         self.__terminal = terminal
         self.__coluna = coluna
         self.__nivel = nivel
-        self.__c.execute("INSERT INTO tb_armario ( id_armario, classe, terminal, local, estado, nivel )" +
-                       "VALUES (0,%s,%s,%s, 'LIVRE', %s)", (self.__classe, self.__terminal, self.__coluna, self.__nivel))
+        self.__compartimento = compartimento
+        self.__c.execute("INSERT INTO tb_armario ( id_armario, classe, terminal, local, estado, nivel, compartimento )" +
+                       "VALUES (0,%s,%s,%s, 'LIVRE', %s, %s)", (self.__classe, self.__terminal, self.__coluna, self.__nivel, self.__compartimento))
         result = self.__c.fetchone()
         self.__conn.commit()
         self.__conn.close()
@@ -446,16 +452,29 @@ ENGINE=InnoDB;''')
         return __total_preco
 
     @staticmethod
-    def cobranca_excedente(dias, hora, minuto):
+    def cobranca_excedente(dias, hora, minuto, id_armario):
+        __conn = mdb.connect(
+            user='root', password='m1cr0@t805i', database='coolbag')
         calculo_minuto = 0
-        
-        if minuto <= 15 and minuto > 5:
+        __minuto = minuto
+        classe_armario = pd.read_sql("select classe from tb_armario where id_armario = %s"% id_armario, __conn)
+        classe = str(classe_armario['classe'][0])
+        if __minuto <= 15 and minuto > 5:
             calculo_minuto = (1/4) 
-        elif minuto > 15 and minuto <= 30:
+        elif __minuto > 15 and minuto <= 30:
             calculo_minuto = (2/4) 
-        elif minuto > 15 and minuto <= 30:
+        elif __minuto > 30 and minuto <= 45:
             calculo_minuto = (3/4) 
-        valor_total = ((dias * 50) + (hora * TAXA) + calculo_minuto * TAXA)
+        if classe == "A":
+            valor_total = ((dias * TAXA_DIARIA_A) + (hora * TAXA_HORA_A) + calculo_minuto * TAXA_HORA_A)
+        elif classe == "B":
+            valor_total = ((dias * TAXA_DIARIA_B) + (hora * TAXA_HORA_B) + calculo_minuto * TAXA_HORA_B)
+        elif classe == "C":
+            valor_total = ((dias * TAXA_DIARIA_C) + (hora * TAXA_HORA_C) + calculo_minuto * TAXA_HORA_c)
+        elif classe == "D":
+            valor_total = ((dias * TAXA_DIARIA_D) + (hora * TAXA_HORA_D) + calculo_minuto * TAXA_HORA_D)
+        
+        #valor_total = ((dias *24 * 15) + (hora * TAXA) + calculo_minuto * TAXA)
         message = "tempo excedido cobrança de R$ : %s"% valor_total
         
         print('22222222222 tempo 222222222222')
@@ -629,23 +648,7 @@ ENGINE=InnoDB;''')
             print('********** dados locacao **************')
             print(self.__locacao['tempo_locado'][0])
             if (self.__locacao['tempo_locado'][0]) >= hj:
-                
-                tempo_total = hj - self.__locacao['tempo_locado'][0]
-                dias_passados = tempo_total.days
-                minutos_passados = tempo_total.seconds / 60
-                calculo_hora = tempo_total // 3600
-                calculo_minuto = 0
-                if minutos_passados <= 15 and minutos_passados > 5:
-                    calculo_minuto = (1/4) 
-                elif minutos_passados > 15 and minutos_passados <= 30:
-                    calculo_minuto = (2/4) 
-                elif minutos_passados > 15 and minutos_passados <= 30:
-                    calculo_minuto = (3/4) 
-                valor_total = ((dias_passados * 24 * 60) * 50)
-                valor_total = valor_total + (calculo_minuto * taxa )
-                valor_total = valor_total + calculo_hora * 15
-                result = self.cobranca(valor_total,hj)
-                
+                              
                 #self.__c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
                 #self.__conn.commit()
                 #self.__conn.close()
@@ -682,7 +685,7 @@ ENGINE=InnoDB;''')
                 
                 tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
                 print('-------> %s'%tempo)
-                result = self.cobranca_excedente(__dia_extra, __hora_extra, __minuto_extra)
+                result = self.cobranca_excedente(__dia_extra, __hora_extra, __minuto_extra, self.__locacao['id_armario'][0])
                 dados_locacao = {
                                  "total": result,
                                  "data_locacao": data_locacao, 
