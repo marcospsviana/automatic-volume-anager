@@ -386,7 +386,7 @@ ENGINE=InnoDB;''')
         else:
             return "não é possível remover armario, verifique se o mesmo não está em uso"
 
-    def cadastrar_armario(self, classe, terminal, coluna, nivel, compartimento):
+    def cadastrar_armario(self, classe, terminal, coluna, nivel, porta, compartimento):
 
         self.__c = self.__conn.cursor(buffered=True)
         self.__classe = classe
@@ -394,9 +394,10 @@ ENGINE=InnoDB;''')
         self.__terminal = terminal
         self.__coluna = coluna
         self.__nivel = nivel
+        self.__porta = porta
         self.__compartimento = compartimento
-        self.__c.execute("INSERT INTO tb_armario ( id_armario, classe, terminal, local, estado, nivel, compartimento )" +
-                       "VALUES (0,%s,%s,%s, 'LIVRE', %s, %s)", (self.__classe, self.__terminal, self.__coluna, self.__nivel, self.__compartimento))
+        self.__c.execute("INSERT INTO tb_armario ( id_armario, classe, terminal, local, estado, nivel, porta, compartimento )" +
+                       "VALUES (0,%s,%s,%s, 'LIVRE', %s, %s, %s)", (self.__classe, self.__terminal, self.__coluna, self.__nivel, self.__porta, self.__compartimento))
         result = self.__c.fetchone()
         self.__conn.commit()
         self.__conn.close()

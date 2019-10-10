@@ -3,9 +3,11 @@
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkWindow" id="cad_armarios_window">
+    <property name="width_request">800</property>
+    <property name="height_request">400</property>
     <property name="can_focus">False</property>
-    <property name="default_width">550</property>
-    <property name="default_height">350</property>
+    <property name="default_width">800</property>
+    <property name="default_height">400</property>
     <signal name="destroy" handler="gtk_main_quit" swapped="no"/>
     <child>
       <placeholder/>
@@ -40,6 +42,7 @@
             </child>
             <child>
               <object class="GtkComboBoxText" id="combobox_classe">
+                <property name="name">combobox</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <items>
@@ -67,6 +70,7 @@
             </child>
             <child>
               <object class="GtkComboBoxText" id="combobox_nivel">
+                <property name="name">combobox</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <items>
@@ -115,6 +119,7 @@
             </child>
             <child>
               <object class="GtkComboBoxText" id="combobox_coluna">
+                <property name="name">combobox</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <items>
@@ -154,6 +159,7 @@
             </child>
             <child>
               <object class="GtkComboBoxText" id="combobox_terminal">
+                <property name="name">combobox</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <items>
@@ -176,37 +182,11 @@
           <object class="GtkGrid">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <child>
-              <object class="GtkFixed">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="margin_left">148</property>
-                <property name="margin_right">20</property>
-                <property name="margin_top">10</property>
-                <property name="margin_bottom">10</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="btn_cadastrar_armario">
-                <property name="label" translatable="yes">      Cadastrar    </property>
-                <property name="name">button</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="margin_right">10</property>
-                <property name="margin_top">10</property>
-                <property name="margin_bottom">10</property>
-                <signal name="button-press-event" handler="on_btn_cadastrar_armario_button_press_event" swapped="no"/>
-              </object>
-              <packing>
-                <property name="left_attach">3</property>
-                <property name="top_attach">1</property>
-              </packing>
-            </child>
+            <property name="margin_left">15</property>
+            <property name="margin_right">15</property>
+            <property name="margin_top">15</property>
+            <property name="margin_bottom">15</property>
+            <property name="column_spacing">17</property>
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
@@ -220,7 +200,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkComboBoxText">
+              <object class="GtkComboBoxText" id="combobox_portas">
+                <property name="name">combobox</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">center</property>
@@ -245,52 +226,26 @@
               </packing>
             </child>
             <child>
-              <object class="GtkFixed">
+              <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="valign">center</property>
+                <property name="label" translatable="yes">COMPARTIMENTO</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkComboBoxText" id="combobox_compartimentos">
+                <property name="name">combobox</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="hexpand">True</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
                 <property name="top_attach">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkFixed">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="valign">center</property>
-              </object>
-              <packing>
-                <property name="left_attach">2</property>
-                <property name="top_attach">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label_numeracao">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">NUMERACAO </property>
-              </object>
-              <packing>
-                <property name="left_attach">2</property>
-                <property name="top_attach">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkComboBoxText" id="combobox_numeracao">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="has_entry">True</property>
-                <child internal-child="entry">
-                  <object class="GtkEntry">
-                    <property name="can_focus">False</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="left_attach">3</property>
-                <property name="top_attach">0</property>
               </packing>
             </child>
           </object>
@@ -313,7 +268,24 @@
           </packing>
         </child>
         <child>
-          <placeholder/>
+          <object class="GtkButton" id="btn_cadastrar_armario">
+            <property name="label" translatable="yes">      Cadastrar    </property>
+            <property name="name">btn_confirmar</property>
+            <property name="width_request">200</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="halign">center</property>
+            <property name="margin_right">10</property>
+            <property name="margin_top">10</property>
+            <property name="margin_bottom">10</property>
+            <signal name="button-press-event" handler="on_btn_cadastrar_armario_button_press_event" swapped="no"/>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
+          </packing>
         </child>
       </object>
     </child>

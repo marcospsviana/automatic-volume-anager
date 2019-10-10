@@ -14,7 +14,12 @@ button{
 	
 	font: 32px "Noto Sans";
 }
-
+#combobox{
+	border-radius: 0;
+}
+#label_combobox{
+	font: 2em "Noto Sans";
+}
 
 #btn_num{ background-color: red; font-size: 22px}
 

@@ -29,13 +29,15 @@ class Management(object):
         self.__telefone = telefone
         usr.create_usr(self.__nome, self.__email, self.__telefone)
     
-    def cad_armarios(self, classe, terminal, coluna, nivel):
+    def cad_armarios(self, classe, terminal, coluna, nivel, porta, compartimento):
         
         __classe = str(classe)
         __terminal = str(terminal)
         __nivel = str(nivel)
         __coluna = str(coluna)
-        result = arm.cad_armario(__classe, __terminal, __coluna, __nivel)
+        __compartimento = str(compartimento)
+        __porta = str(porta)
+        result = arm.cad_armario(__classe, __terminal, __coluna, __nivel, __porta, __compartimento)
         return result
 
     def remove_armarios(self, id_armario):

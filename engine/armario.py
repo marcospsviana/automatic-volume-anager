@@ -8,15 +8,17 @@ class Armario:
    
 
     @classmethod
-    def cad_armario(self, classe, terminal, coluna, nivel):
+    def cad_armario(self, classe, terminal, coluna, nivel, porta, compartimento):
         
-        self.__bk = Banco()
-        self.__classe = classe
-        self.__terminal = terminal
-        self.__coluna = coluna
-        self.__nivel = nivel
-        result = self.__bk.cadastrar_armario(
-            self.__classe, self.__terminal, self.__coluna, self.__nivel)
+        __bk = Banco()
+        __classe = classe
+        __terminal = terminal
+        __coluna = coluna
+        __nivel = nivel
+        __porta = porta
+        __compartimento = compartimento
+        result = __bk.cadastrar_armario(
+            __classe, __terminal, __coluna, __nivel, __porta, __compartimento)
         return result
 
     def remove_armario(id_armario):
