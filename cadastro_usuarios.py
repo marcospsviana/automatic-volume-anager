@@ -8,10 +8,20 @@ import string
 from controllers import Management
 import PIL
 from PIL import Image
-TAXA = 15
+from decimal import Decimal
 
 class CadastroUsuarios(object):
     def __init__(self, *args):
+        global TAXA_HORA_A, TAXA_HORA_B, TAXA_HORA_C, TAXA_HORA_D
+        global TAXA_DIARIA_A, TAXA_DIARIA_B, TAXA_DIARIA_C, TAXA_DIARIA_D
+        TAXA_DIARIA_A = 37.5
+        TAXA_DIARIA_B = 24.5
+        TAXA_DIARIA_C = 14.5
+        TAXA_DIARIA_D = 9.0
+        TAXA_HORA_A = 2.10
+        TAXA_HORA_B = 1.56
+        TAXA_HORA_C = 1.05
+        TAXA_HORA_D = 0.6
         teste = args
         print(teste)
         self.tempo_locacao = args[0]
@@ -565,19 +575,31 @@ class CadastroUsuarios(object):
         """elif self.label_entrada_numeros.get_text() == "QUANTIDADE MINUTOS":
             self.entry_minutos.set_text(self.text_entrada)
             self.entry_minutos.set_position(-1)"""
+        
+        
         self.dia = self.entry_quantidade_diaria.get_text() + ".0"
         self.dia = float(self.dia)
-        self.dia = self.dia * 50
+        
         self.hora = self.entry_quantidade_horas.get_text()
         self.hora = self.hora +".0"
         self.hora = float(self.hora) 
-        self.hora = self.hora * TAXA
-        self.minuto = 0.0
-        self.minuto = self.minuto * TAXA
-        self.total =  self.dia + self.hora #+ self.minuto
-        print(self.total)
         
-        self.label_total.set_text(str(self.total))
+        self.minuto = 0.0
+        
+        if self.classe == "A":
+            self.valor_total = ((self.dia * TAXA_DIARIA_A) + (self.hora * TAXA_HORA_A) + self.minuto * TAXA_HORA_A)
+        elif self.classe == "B":
+            self.valor_total = ((self.dia * TAXA_DIARIA_B) + (self.hora * TAXA_HORA_B) + self.minuto * TAXA_HORA_B)
+        elif self.classe == "C":
+            self.valor_total = ((self.dia * TAXA_DIARIA_C) + (self.hora * TAXA_HORA_C) + self.minuto * TAXA_HORA_c)
+        elif self.classe == "D":
+            self.valor_total = ((self.dia * TAXA_DIARIA_D) + (self.hora * TAXA_HORA_D) + self.minuto * TAXA_HORA_D)
+        
+        self.valor_total = float(Decimal(str(self.valor_total)).quantize(Decimal('1.00')))
+        
+        print(self.valor_total)
+        
+        self.label_total.set_text("%.2f"%self.valor_total)
         self.entry_entrada_numeros.set_text("")
         self.window_entrada_numeros.hide()
     

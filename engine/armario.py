@@ -41,13 +41,13 @@ class Armario:
         print('listar classe armario armario.py', classe)
         return classe
     
-    @staticmethod
+    """@staticmethod
     def liberar_armario(senha):
         __bk = Banco()
         __senha = senha
         #__nome = nome
         result = __bk.liberar_armario(__senha)
-        return result
+        return result"""
     
     @staticmethod
     def finalizar(senha):
