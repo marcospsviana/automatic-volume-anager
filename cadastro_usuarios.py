@@ -414,7 +414,7 @@ class CadastroUsuarios(object):
             self.__armario = self.classe
             print("locacao", self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos)
             manager = Management()
-            self.__result =  manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario, self.language, self.total)
+            self.__result =  manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario, self.language, self.valor_total)
             count = 0
             print("self.__result cadastro usuario ", self.__result[0])
             if self.__result[0][0] == "locacao concluida com sucesso":
