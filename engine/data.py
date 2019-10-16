@@ -30,7 +30,7 @@ class Banco(object):
         TAXA_HORA_D = 0.6
 
         self.__conn = mdb.connect(
-            user='root', password='m1cr0@t805i', database='coolbag')
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         self.__c = self.__conn.cursor(buffered=True)
 
         self.__c.execute('''CREATE TABLE IF NOT EXISTS`tb_armario` (
@@ -234,7 +234,7 @@ ENGINE=InnoDB;''')
     @staticmethod
     def select_user(password):
         __conn = mdb.connect(
-            user='root', password='m1cr0@t805i', database='coolbag')
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         __password = password
         
@@ -293,7 +293,7 @@ ENGINE=InnoDB;''')
     @staticmethod
     def get_locacao(senha):
         __conn = mdb.connect(
-            user='root', password='m1cr0@t805i', database='coolbag')
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         result = ''
         __senha = senha
@@ -455,7 +455,7 @@ ENGINE=InnoDB;''')
     @staticmethod
     def cobranca_excedente(dias, hora, minuto, id_armario):
         __conn = mdb.connect(
-            user='root', password='m1cr0@t805i', database='coolbag')
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         calculo_minuto = 0
         __minuto = minuto
         classe_armario = pd.read_sql("select classe from tb_armario where id_armario = %s"% id_armario, __conn)
@@ -601,7 +601,7 @@ ENGINE=InnoDB;''')
     @staticmethod
     def listar_classes_armarios():
         __conn = mdb.connect(
-            user='root', password='m1cr0@t805i', database='coolbag')
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         __classes = []
         result = ''
@@ -615,7 +615,7 @@ ENGINE=InnoDB;''')
         self.classe = classe
         print('classe recebida data', self.classe)
         __conn = mdb.connect(
-            user='root', password='m1cr0@t805i', database='coolbag')
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         __classes = []
         result = ''
@@ -628,7 +628,7 @@ ENGINE=InnoDB;''')
     @classmethod
     def abrir_armario(self,senha):
         __conn = mdb.connect(
-            user='root', password='m1cr0@t805i', database='coolbag')
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __cursor = __conn.cursor()
         print('senha data', senha)
         result = ''
@@ -702,7 +702,7 @@ ENGINE=InnoDB;''')
                 return dados_locacao#result, data_locacao, tempo_locado, query_dia_semana_locacao, query_dia_semana_locado, hora_locacao, hora_locado, __dia_extra, __hora_extra, __minuto_extra)
     def finalizar_pagamento(self, senha):
         __conn = mdb.connect(
-            user='root', password='m1cr0@t805i', database='coolbag')
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         __senha = senha
         #__nome = nome
