@@ -50,7 +50,7 @@ button{
 	border-radius: 2px
 	
 			 }
-#window { background-color: #FDCF03;
+dialog, #window { background-color: #FDCF03;
 	/*font: 32px "Noto Sans";*/
 }
 #window_locacao { 
@@ -170,7 +170,7 @@ color: #fff;
 	margin: 0;
 }
 #btn_toggle :active{
-	background-color: #000
+	background: #000
 }
 #btn_clear{
 	font: 1em sans-serif;

@@ -12,6 +12,7 @@ from random import choice, sample
 import pandas as pd
 import smtplib
 import json
+import hashlib
 #from .portas import Portas
 
 
@@ -165,18 +166,19 @@ ENGINE=InnoDB;''')
         retorno = self.pagamento_locacao(self.__total)
         if retorno == "lk4thHG34=GKss0xndhe":
             self.__senha = self.__get_passwd()
-            #self.__hash_senha = hashlib.sha3_512(b"%s"%self.__senha).hexdigest()
+            senha_encode = self.__senha.encode(encoding='utf-8', errors='restrict')
+            self.__hash_senha = hashlib.sha3_512(senha_encode).hexdigest()
             print("==== id_armario, id_usuario ======")
             #print(loca_armario[0], self.dados_locatario[0])
-            self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(null, '%s','%s',null,'%s',%s,%s)"% (self.__data_locacao, self.__data_limite, self.__senha, loca_armario[0], self.dados_locatario))
+            self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(null, '%s','%s',null,'%s',%s,%s)"% (self.__data_locacao, self.__data_limite, self.__hash_senha, loca_armario[0], self.dados_locatario))
             
             self.__c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario[0]))
             
             self.__conn.commit()
 
             #self.__c.execute("select data_locacao, tempo_locado, senha from tb_locacao where id_armario= %s" %(loca_armario[0]))
-            query_select = "select senha from tb_locacao where id_armario= %s" %(loca_armario[0])
-            data_and_passwd = pd.read_sql(query_select, self.__conn)
+            #query_select = "select senha from tb_locacao where id_armario= %s" %(loca_armario[0])
+            #data_and_passwd = pd.read_sql(query_select, self.__conn)
             compartimento = "select compartimento from tb_armario where id_armario = %s" %(loca_armario[0])
             compartimento_select = pd.read_sql(compartimento, self.__conn)
             self.__data_locacao = str(self.__data_locacao)
@@ -185,23 +187,24 @@ ENGINE=InnoDB;''')
             dia_locacao = str(self.__data_locacao[8:10])
             mes_locado = str(self.__data_limite[5:7])
             dia_locado = str(self.__data_limite[8:10])
-            senha = data_and_passwd.head().values[0]
+            #senha = data_and_passwd.head().values[0]
+            ###senha = 
             compartimento = compartimento_select.head().values[0]
             hora_locacao = str(self.__data_locacao[11:16])
             hora_locada = str(self.__data_limite[11:16])
             data_locacao = dia_locacao + "/" + mes_locacao
             tempo_locado = dia_locado + "/" + mes_locado
-            #self.send_email(self.__nome, self.__email, senha[0], compartimento[0], data_locacao, hora_locacao, tempo_locado,  hora_locada, language)
+            #self.send_email(self.__nome, self.__email, self.__senha, compartimento[0], data_locacao, hora_locacao, tempo_locado,  hora_locada, language)
 
             #query_select = self.__c.fetchall()
             
-            print("result locacao" , query_select)
+            print("result locacao" , self.__senha)
             
             
             port = self.select_port(loca_armario[0])
             print("porta selecionada", port[0][0])
             # HABILILAR NO RASPBERRY PI self.port.exec_port(str(port[0][0]), "abre")
-            return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, senha, compartimento)
+            return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, self.__senha, compartimento)
         elif retorno == "houve um problema com o pagamento":
             return loca_armario
         self.__conn.close()
@@ -232,11 +235,14 @@ ENGINE=InnoDB;''')
         
 
     @staticmethod
-    def select_user(password):
+    def select_user(senha):
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
-        __password = password
+        senha_encode = senha.encode(encoding='utf-8', errors='restrict')
+        senha_encode = hashlib.sha3_512(senha_encode).hexdigest()
+        __password = senha_encode#.encode('utf-8')
+        
         
         print("nome ou mail select user",__password)
         query = ''
@@ -271,7 +277,8 @@ ENGINE=InnoDB;''')
             if len(__password) == 4:
                 self.__c.execute("select senha from tb_locacao")
                 comparativo = self.__c.fetchall()
-                if __password in comparativo:
+                pass_encoded = __password.encode(encoding='utf-8', errors='strict')
+                if (hashlib.sha3_512(pass_encoded).hexdigest()) in comparativo:
                     __password = ""
                 else:
                     __passwd = sample(__password, len(__password))
@@ -281,7 +288,7 @@ ENGINE=InnoDB;''')
                     for i in __passwd:
                         self.__pass2 += str(i)
 
-            print(__password)
+            print(__pass2)
 
        
         return self.__pass2
@@ -296,9 +303,10 @@ ENGINE=InnoDB;''')
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         result = ''
-        __senha = senha
+        pass_encoded = senha.encode(encoding='utf-8', errors='strict')
+        __senha = hashlib.sha3_512(pass_encoded).hexdigest()
         print('---senha---',__senha)
-        #__id_user = id_usuario
+        #__senha = __senha.decode('utf-8')
         #print('*** id usuario *** ', __id_user[0])
         #print(__senha)
         #__c.execute("SELECT id_armario, id_locacao, tempo_locado, data_locacao from tb_locacao where senha = '%s' AND id_usuario = %s" %(__senha,__id_user[0]))
@@ -321,14 +329,16 @@ ENGINE=InnoDB;''')
         #hj = datetime.timedelta( hj.hour, hj.minute, hj.second)
         #hj = hj + datetime.timedelta(minutes=+10)
         print("hj", hj)
-        self.__senha = senha
+        pass_encoded = senha.encode(encoding='utf-8', errors='strict')
+        self.__senha = hashlib.sha3_512(pass_encoded).hexdigest()
+        self.__senha = self.__senha.encode('utf-8')
         print('nome e senha de data', self.__senha)
-        self.__id_user = self.select_user(self.__senha)
+        self.__id_user = self.select_user(senha)#self.__senha)
         if self.__id_user == 'senha incorreta, tente novamente':
             return 'senha incorreta, tente novamente'
         
         else:
-            self.__locacao = self.get_locacao(self.__senha)
+            self.__locacao = self.get_locacao(senha)#self.__senha)
             print('********** dados locacao **************')
             print("self.locacao", self.__locacao.head())
             print("self.locacao[0][2]",self.__locacao[0][2])
@@ -415,7 +425,9 @@ ENGINE=InnoDB;''')
 
         #self.__email = email
         #self.__telefone = telefone
-        self.__senha = senha
+        pass_encoded = senha.encode(encoding='utf-8', errors='strict')
+        self.__senha = hashlib.sha3_512(pass_encoded).hexdigest()
+        self.__senha = self.__senha.encode('utf-8')
 
         self.__c.execute(
             "SELECT * FROM tb_locacao where senha = '%s'" % (self.__senha))
@@ -426,7 +438,7 @@ ENGINE=InnoDB;''')
         # envia a data limite para calculo de tempo excedente
         self.__cobranca = self.__cobranca(self.result[0][2])
         if self.__cobranca == None:
-            self.liberar_armario(self.__senha)
+            self.liberar_armario(senha)#self.__senha)
         else:
             return ('tempo excedente',self.__cobranca)
 
@@ -496,16 +508,17 @@ ENGINE=InnoDB;''')
         hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
         #hj = hj + datetime.timedelta(minutes=+10)
         hj = pd.to_datetime(hj)
-        
-        self.__senha = senha
+        senha = senha.encode(encoding='utf-8', errors='strict')
+        self.__senha = hashlib.sha3_512(senha).hexdigest()
+        self.__senha = self.__senha.encode('utf-8')
         
         print('senha e nome finalizar', self.__senha)
-        self.__id_user = self.select_user(self.__senha)
+        self.__id_user = self.select_user(senha)#self.__senha)
         if self.__id_user == 'senha incorreta, tente novamente':
             return 'senha incorreta, tente novamente'
         
         else:
-            self.__locacao = self.get_locacao(self.__senha)
+            self.__locacao = self.get_locacao(senha)#self.__senha)
             if (self.__locacao['tempo_locado'][0]) >= hj:
                 
                 tempo_total = hj - self.__locacao['tempo_locado'][0]
@@ -636,15 +649,16 @@ ENGINE=InnoDB;''')
         taxa = 15
         hj = datetime.datetime.now()
         hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
-        
-        
-        self.__senha = senha
-        self.__id_user = self.select_user(self.__senha)
+        __senha = senha.encode(encoding='utf-8', errors='strict')
+        print('senha encode', senha)
+        self.__senha = hashlib.sha3_512(__senha).hexdigest()
+        #print(self.__senha)
+        self.__id_user = self.select_user(senha)#self.__senha)
         if self.__id_user == 'senha incorreta, tente novamente':
             return 'senha incorreta, tente novamente'
         
         else:
-            self.__locacao = self.get_locacao(self.__senha)
+            self.__locacao = self.get_locacao(senha)#self.__senha)
             
             print('********** dados locacao **************')
             print(self.__locacao['tempo_locado'][0])
@@ -708,8 +722,11 @@ ENGINE=InnoDB;''')
         #__nome = nome
         #__id_user = self.select_user(__nome)
         #__locacao = self.get_locacao(__senha, __id_user[0])
-        __c.execute("DELETE FROM tb_locacao WHERE senha = '%s'"%(__senha))
-        id_armario = __c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (__senha,))
+        __senha = senha.encode(encoding='utf-8', errors='strict')
+        print('senha encode', senha)
+        self.__senha = hashlib.sha3_512(senha).hexdigest()
+        __c.execute("DELETE FROM tb_locacao WHERE senha = '%s'"%(self.__senha))
+        id_armario = __c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
         print("finaliza_pagamento id armario", id_armario)
         self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (id_armario,))
         __conn.commit()
@@ -722,8 +739,11 @@ ENGINE=InnoDB;''')
         print("informe o codigo")
         entrada = "paguei"
         self.__locacao = self.get_locacao(senha)
+        __senha_encode = senha.encode(encoding='utf-8', errors='strict')
+        
+        __senha = hashlib.sha3_512(__senha_encode).hexdigest()
         if codigo==entrada:
-            self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (senha,))
+            self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
             self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (self.__locacao['id_armario'][0],))
             self.__conn.commit()
             self.__conn.close()
