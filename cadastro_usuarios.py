@@ -245,8 +245,12 @@ class CadastroUsuarios(object):
         #FLAG_BR = GdkPixbuf.Pixbuf("static/images/flags_ddd/brasil.png")
         #FLAG_ALB = gtk_image_new_from_file("static/images/flags_ddd/albania.png")
         #print(type(FLAG_BR))
-        FLAGS = [["Brasil"], ["Albania"]]
-        self.list_flag_ddd = Gtk.ListStore(str)
+        #img_flag_br = Gtk.Image()
+        flag_br= Image.open("static/images/brasilpq.png")
+        print(type(flag_br))
+        #img_flag_br.add(flag_br)
+        FLAGS = [[flag_br,"Brasil"], [flag_br, "Albania"]]
+        self.list_flag_ddd = Gtk.ListStore(PIL, str)
         
         
         for f in range(len(FLAGS)):
