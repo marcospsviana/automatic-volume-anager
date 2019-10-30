@@ -23,7 +23,7 @@ class OpcaoHoraDiaria(object):
             }
         )
         self.codigos_ddd = ["""
-        +27	 África do Sul,
+        ###+27	 África do Sul,
         +49	 Alemanha	Europa,
         +966	 Arábia Saudita	Ásia,
         +213	 Argélia	África,
