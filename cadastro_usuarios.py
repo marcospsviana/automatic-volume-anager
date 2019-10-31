@@ -241,7 +241,7 @@ class CadastroUsuarios(object):
        
         
         self.combobox_flags_ddd = self.builder.get_object("combobox_flags_ddd")
-        self.combobox_flags_ddd.set_wrap_width(9)
+        self.combobox_flags_ddd.set_wrap_width(12)
         
         self.list_flag_ddd = Gtk.ListStore(GdkPixbuf.Pixbuf, str)
         FLAG_BR = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/brasil.png", 32, 50)
@@ -287,6 +287,9 @@ class CadastroUsuarios(object):
         FLAG_SUECIA = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/suecia.png", 32, 50)
         FLAG_URUGUAI = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/uruguai.png", 32, 50)
         FLAG_VENEZUELA = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/venezuela.png", 32, 50)
+        FLAG_AFEGAN = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/afeganistao.png", 32, 50)
+        FLAG_QUENIA = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/quenia.png", 32, 50)
+        NO_FLAG = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/no_flag.png", 32, 50)
 
         
         FLAGS = [[FLAG_BR, "+55"], [FLAG_ARGENTINA, "+54"], [FLAG_CHILE, "+56"], [FLAG_COLOMBIA, "+57"],
@@ -294,13 +297,13 @@ class CadastroUsuarios(object):
                  [FLAG_ALE, "+49"], [FLAG_ARABIA, "+966"],
                  [FLAG_ARGEL, "+213"], [FLAG_AUSTRALIA, "+61" ], [FLAG_AUSTRIA, "+43"],
                  [FLAG_BAREIN, "+973"], [FLAG_BELGICA, "+32"], [FLAG_CANADA, "+1"],
-                  [FLAG_CHINA, "+86"], [ FLAG_COREIA_SUL, "+82"],
+                 [FLAG_CHINA, "+86"], [ FLAG_COREIA_SUL, "+82"],  [FLAG_SINGAPURA, "+65"],
                  [FLAG_COSTA_RICA, "+506"], [FLAG_DINAMARCA, "+45"], [FLAG_EMIRADOS, "+971"], [FLAG_EQUADOR, "+593"],
                  [FLAG_ESPANHA, "+34"], [FLAG_USA, "+1"], [FLAG_FINLANDIA, "+358"], [FLAG_FRANCA, "+33"], [FLAG_HONG_KONG, "+852"],
                  [FLAG_IRAN, "+98"], [FLAG_IRAQUE, "+964"], [FLAG_IRLANDA, "+353"], [FLAG_ISLANDIA, "+354"], [FLAG_ISRAEL, "+972"],
-                 [FLAG_ITALIA, "+39"], [FLAG_JAPAO, "+81"], [FLAG_MEXICO, "+52"], [FLAG_NORUEGA, "+47"],
-                 [FLAG_PORTUGAL, "+351"], [FLAG_REINO_UNIDO, "+44"], [FLAG_RUSSIA, "+7"], [FLAG_SINGAPURA, "+65"], [FLAG_SUICA, "+46"],
-                 [FLAG_SUECIA, "+41"], [FLAG_VENEZUELA, "+58"], [FLAG_AFRICA_SUL, "+27"]
+                 [FLAG_ITALIA, "+39"], [FLAG_JAPAO, "+81"], [FLAG_MEXICO, "+52"], [FLAG_NORUEGA, "+47"], [FLAG_QUENIA, "+254"],
+                 [FLAG_PORTUGAL, "+351"], [FLAG_REINO_UNIDO, "+44"], [FLAG_RUSSIA, "+7"], [FLAG_SUICA, "+46"],
+                 [FLAG_SUECIA, "+41"], [FLAG_VENEZUELA, "+58"], [FLAG_AFRICA_SUL, "+27"], [FLAG_AFEGAN, "+93"], [NO_FLAG, "Others"]
         ]
         
         for f in range(len(FLAGS)):
