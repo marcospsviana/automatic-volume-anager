@@ -8,7 +8,7 @@ import gi
 import numpy as np
 import string
 import encodings.unicode_escape
-gi.require_versions({'Gtk': '3.0', 'GLib': '2.0'})
+gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk, GLib
 from datetime import datetime, date
 from controllers import Management
