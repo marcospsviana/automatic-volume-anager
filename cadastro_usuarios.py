@@ -289,16 +289,26 @@ class CadastroUsuarios(object):
         FLAG_VENEZUELA = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/venezuela.png", 32, 50)
         FLAG_AFEGAN = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/afeganistao.png", 32, 50)
         FLAG_QUENIA = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/quenia.png", 32, 50)
+        FLAG_MONACO = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/monaco.png", 32, 50)
+        FLAG_POLONIA = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/polonia.png", 32, 50)
+        FLAG_GRECIA = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/grecia.png", 32, 50)
+        FLAG_BULGARIA = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/bulgaria.png", 32, 50)
+        FLAG_HOLANDA = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/holanda.png", 32, 50)
+        FLAG_ROMENIA = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/romenia.png", 32, 50)
+        FLAG_CROACIA = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/croacia.png", 32, 50)
+        FLAG_ESLOVENIA = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/eslovenia.png", 32, 50)
+        FLAG_ESLOVAQUIA = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/eslovaquia.png", 32, 50)
+        FLAG_SERVIA = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/servia.png", 32, 50)
         NO_FLAG = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/no_flag.png", 32, 50)
 
         
         FLAGS = [[FLAG_BR, "+55"], [FLAG_ARGENTINA, "+54"], [FLAG_CHILE, "+56"], [FLAG_COLOMBIA, "+57"],
-                 [FLAG_PARAGUAI, "+595"], [FLAG_URUGUAI, "+598"], [FLAG_BOLIVIA, "+591"],
-                 [FLAG_ALE, "+49"], [FLAG_ARABIA, "+966"],
-                 [FLAG_ARGEL, "+213"], [FLAG_AUSTRALIA, "+61" ], [FLAG_AUSTRIA, "+43"],
-                 [FLAG_BAREIN, "+973"], [FLAG_BELGICA, "+32"], [FLAG_CANADA, "+1"],
-                 [FLAG_CHINA, "+86"], [ FLAG_COREIA_SUL, "+82"],  [FLAG_SINGAPURA, "+65"],
-                 [FLAG_COSTA_RICA, "+506"], [FLAG_DINAMARCA, "+45"], [FLAG_EMIRADOS, "+971"], [FLAG_EQUADOR, "+593"],
+                 [FLAG_PARAGUAI, "+595"], [FLAG_URUGUAI, "+598"], [FLAG_BOLIVIA, "+591"], [FLAG_SERVIA, "+381"],
+                 [FLAG_ALE, "+49"], [FLAG_ARABIA, "+966"], [FLAG_CROACIA, "+385"], [FLAG_ESLOVENIA, "+386"], [FLAG_ESLOVAQUIA, "+421"],
+                 [FLAG_ARGEL, "+213"], [FLAG_AUSTRALIA, "+61" ], [FLAG_AUSTRIA, "+43"], [FLAG_ROMENIA, "+40"],
+                 [FLAG_BAREIN, "+973"], [FLAG_BELGICA, "+32"], [FLAG_CANADA, "+1"], [FLAG_MONACO, "+377"], [FLAG_HOLANDA, "+31"],
+                 [FLAG_CHINA, "+86"], [ FLAG_COREIA_SUL, "+82"],  [FLAG_SINGAPURA, "+65"], [FLAG_POLONIA, "+48"], [FLAG_BULGARIA, "+359"],
+                 [FLAG_COSTA_RICA, "+506"], [FLAG_DINAMARCA, "+45"], [FLAG_EMIRADOS, "+971"], [FLAG_EQUADOR, "+593"],[FLAG_GRECIA, "+30"],
                  [FLAG_ESPANHA, "+34"], [FLAG_USA, "+1"], [FLAG_FINLANDIA, "+358"], [FLAG_FRANCA, "+33"], [FLAG_HONG_KONG, "+852"],
                  [FLAG_IRAN, "+98"], [FLAG_IRAQUE, "+964"], [FLAG_IRLANDA, "+353"], [FLAG_ISLANDIA, "+354"], [FLAG_ISRAEL, "+972"],
                  [FLAG_ITALIA, "+39"], [FLAG_JAPAO, "+81"], [FLAG_MEXICO, "+52"], [FLAG_NORUEGA, "+47"], [FLAG_QUENIA, "+254"],
