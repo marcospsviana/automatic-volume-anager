@@ -196,7 +196,7 @@
   <object class="GtkImage" id="image1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">..static/images/usa.svg</property>
+    <property name="pixbuf">static/images/backspace.svg</property>
   </object>
   <object class="GtkWindow" id="window_entrada_dados">
     <property name="name">window</property>
@@ -1953,8 +1953,8 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
-    <property name="default_width">1024</property>
-    <property name="default_height">600</property>
+    <property name="default_width">900</property>
+    <property name="default_height">500</property>
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
