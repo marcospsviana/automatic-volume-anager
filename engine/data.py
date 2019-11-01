@@ -405,13 +405,22 @@ ENGINE=InnoDB;''')
         self.__coluna = coluna
         self.__nivel = nivel
         self.__porta = porta
-        self.__compartimento = compartimento
-        self.__c.execute("INSERT INTO tb_armario ( id_armario, classe, terminal, local, estado, nivel, porta, compartimento )" +
-                       "VALUES (0,%s,%s,%s, 'LIVRE', %s, %s, %s)", (self.__classe, self.__terminal, self.__coluna, self.__nivel, self.__porta, self.__compartimento))
-        result = self.__c.fetchone()
-        self.__conn.commit()
-        self.__conn.close()
-        return (self.__classe, self.__coluna, self.__nivel, self.__terminal, "cadastrado com sucesso")
+        self.__c.execute("select porta from tb_armario where porta='%s' and estado='LIVRE'"%(self.__porta))
+        select_porta = self.__c.fetchone()
+        print("select_porta", select_porta)
+        if select_porta == None or select_porta == [] or select_porta == "":
+            
+            self.__compartimento = compartimento
+            self.__c.execute("INSERT INTO tb_armario ( id_armario, classe, terminal, local, estado, nivel, porta, compartimento )" +
+                        "VALUES (0,%s,%s,%s, 'LIVRE', %s, %s, %s)", (self.__classe, self.__terminal, self.__coluna, self.__nivel, self.__porta, self.__compartimento))
+            result = self.__c.fetchone()
+            self.__conn.commit()
+            self.__conn.close()
+            return (self.__classe, self.__coluna, self.__nivel, self.__terminal, "cadastrado com sucesso")
+        else :
+            return "porta já utilizada confira a porta exada para o cadastro e evite problemas!"
+
+
 
     def resgatar_bagagem(self, senha):
         ''' seleciona a locacao conforme a senha fornecida retornando todos os dados:
