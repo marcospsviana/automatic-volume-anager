@@ -3,7 +3,7 @@ from controllers import Management
 from window_op_hora_diaria import OpcaoHoraDiaria
 from gi.repository import Gtk, Gdk, GLib
 import gi
-gi.require_versions({'Gtk': '3.0', 'GLib': '2.0', 'Gio': '2.0'})
+gi.require_version('Gtk', '3.0')
 
 
 class TamanhosTarifas(object):

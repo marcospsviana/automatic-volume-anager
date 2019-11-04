@@ -5,7 +5,7 @@ from engine.locacao import Locacao as loc
 from engine.usuario import User as usr
 from engine.armario import Armario as arm
 from engine.cobranca import Cobranca as cb
-from engine.pyfire import FireBaseCollections
+#from engine.pyfire import FireBaseCollections
 
 
 class Management(object):
