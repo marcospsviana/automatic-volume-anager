@@ -545,7 +545,7 @@ ENGINE=InnoDB;''')
                 valor_total = ((dias_passados * 24 * 60) * 50)
                 valor_total = valor_total + (calculo_minuto * taxa )
                 valor_total = valor_total + calculo_hora * 15
-                result = self.cobranca_excedente(dias_passados, calculo_hora, calculo_minuto)#(valor_total,hj) 
+                result = self.cobranca_excedente(dias_passados, calculo_hora, calculo_minuto, self.__locacao[0][0])#(valor_total,hj) 
                 
             
             
