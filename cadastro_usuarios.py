@@ -629,7 +629,7 @@ class CadastroUsuarios(object):
                 self.ddd = "+55 "
             elif self.ddd == 1:
                 self.ddd = "+1 "
-            self.entry_celular.set_text(self.ddd + self.text_entrada)
+            self.entry_celular.set_text(str(self.ddd) + str(self.text_entrada))
             self.entry_celular.set_position(-1)
         elif self.label_entrada_numeros.get_text() == "QUANTIDADE DIÁRIA" or self.label_entrada_numeros.get_text() == "QUANTITY DAYS":
             
