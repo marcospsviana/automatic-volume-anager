@@ -86,30 +86,30 @@ ENGINE=InnoDB;''')
         str: email
         return: id_usuario  """
 
-        self.nome = str(nome).lower()
-        self.email = str(email).lower()
-        self.telefone = str(telefone)
-        self.__c.execute("SELECT * from tb_usuario where email= '%s' OR telefone= '%s'" % (self.email, self.telefone))
+        __nome = str(nome).lower()
+        __email = str(email).lower()
+        __telefone = str(telefone)
+        self.__c.execute("SELECT * from tb_usuario where email= '%s' OR telefone= '%s'" % (__email, __self.telefone))
         self.select = self.__c.fetchall()
 
         if self.select == [] or self.select == None:
             consulta = ''
 
-            self.__c.execute("INSERT INTO tb_usuario (id_usuario, nome, email, telefone) values (null,'%s','%s','%s')" % (self.nome, self.email,  self.telefone))
+            self.__c.execute("INSERT INTO tb_usuario (id_usuario, nome, email, telefone) values (null,'%s','%s','%s')" % (__nome, __email,  __telefone))
             self.__conn.commit()
-            self.__c.execute("SELECT id_usuario from tb_usuario where email='%s' AND telefone='%s'" % (self.email, self.telefone,))
+            self.__c.execute("SELECT id_usuario from tb_usuario where email='%s' AND telefone='%s'" % (__email, __telefone,))
             consulta = self.__c.fetchall()
             print("-----CONSULTA ID USUARIO-----")
             print(consulta)
             return consulta
 
-        elif self.select[0][2] != self.email and self.select[0][3] == self.telefone:
-                self.__c.execute("UPDATE tb_usuario SET email = '%s' WHERE id_usuario = %s"%(self.email, self.select[0][0]))
+        elif self.select[0][2] != __email and self.select[0][3] == __telefone:
+                self.__c.execute("UPDATE tb_usuario SET email = '%s' WHERE id_usuario = %s"%(__email, self.select[0][0]))
                 self.__conn.commit()
                 
                 return self.select[0][0]# id_usuario
-        elif self.select[0][2] == self.email and self.select[0][3] != self.telefone:
-                self.__c.execute("UPDATE tb_usuario SET telefone = '%s' WHERE id_usuario = %s"%(self.telefone, self.select[0][0]))
+        elif self.select[0][2] == __email and self.select[0][3] != __telefone:
+                self.__c.execute("UPDATE tb_usuario SET telefone = '%s' WHERE id_usuario = %s"%(__telefone, self.select[0][0]))
                 self.__conn.commit()
                 return self.select[0][0]
         else:
@@ -130,9 +130,9 @@ ENGINE=InnoDB;''')
         self.__total = total
         self.__minuto = minuto
         self.__armario = str(armario)
-        self.__nome = str(nome)
-        self.__email = str(email)
-        self.__telefone = str(telefone)
+        __nome = str(nome)
+        __email = str(email)
+        __telefone = str(telefone)
         self.__data_locacao = datetime.datetime.now()
         print('=== data locacao ====')
         print(self.__data_locacao)
@@ -151,10 +151,10 @@ ENGINE=InnoDB;''')
             datetime.timedelta(minutes=10)  # adiciona 10 minutos de tolerancia
         print("data limite para salvar no banco", self.__data_limite)
 
-        self.__senha = ''
+        __senha = ''
 
         self.dados_locatario = self.create_user(
-            self.__nome, self.__email, self.__telefone)
+            __nome, __email, __telefone)
         print("dados locatario data.py locacao===>", self.dados_locatario)
         # seleciona um armario com a classe indicada e recebe seu id
         loca_armario = self.localisa_armario(self.__armario)
@@ -165,12 +165,12 @@ ENGINE=InnoDB;''')
         # se houver armário livre segue com cadastro de locação
         retorno = self.pagamento_locacao(self.__total)
         if retorno == "lk4thHG34=GKss0xndhe":
-            self.__senha = self.__get_passwd()
-            #senha_encode = self.__senha.encode(encoding='utf-8', errors='restrict')
+            __senha = self.__get_passwd()
+            #senha_encode = __senha.encode(encoding='utf-8', errors='restrict')
             #self.__hash_senha = hashlib.sha3_512(senha_encode).hexdigest()
             print("==== id_armario, id_usuario ======")
             #print(loca_armario[0], self.dados_locatario[0])
-            self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(null, '%s','%s',null,'%s',%s,%s)"% (self.__data_locacao, self.__data_limite, self.__senha, loca_armario[0], self.dados_locatario))
+            self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(null, '%s','%s',null,'%s',%s,%s)"% (self.__data_locacao, self.__data_limite, __senha, loca_armario[0], self.dados_locatario))
             
             self.__c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario[0]))
             
@@ -194,17 +194,17 @@ ENGINE=InnoDB;''')
             hora_locada = str(self.__data_limite[11:16])
             data_locacao = dia_locacao + "/" + mes_locacao
             tempo_locado = dia_locado + "/" + mes_locado
-            #self.send_email(self.__nome, self.__email, self.__senha, compartimento[0], data_locacao, hora_locacao, tempo_locado,  hora_locada, language)
+            #self.send_email(__nome, __email, __senha, compartimento[0], data_locacao, hora_locacao, tempo_locado,  hora_locada, language)
 
             #query_select = self.__c.fetchall()
             
-            print("result locacao" , self.__senha)
+            print("result locacao" , __senha)
             
             
             port = self.select_port(loca_armario[0])
             print("porta selecionada", port[0][0])
             # HABILILAR NO RASPBERRY PI self.port.exec_port(str(port[0][0]), "abre")
-            return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, self.__senha, compartimento)
+            return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, __senha, compartimento)
         elif retorno == "houve um problema com o pagamento":
             return loca_armario
         self.__conn.close()
@@ -330,15 +330,15 @@ ENGINE=InnoDB;''')
         #hj = hj + datetime.timedelta(minutes=+10)
         print("hj", hj)
         #pass_encoded = senha.encode(encoding='utf-8', errors='strict')
-        self.__senha = senha #hashlib.sha3_512(pass_encoded).hexdigest()
-        #self.__senha = self.__senha.encode('utf-8')
-        print('nome e senha de data', self.__senha)
-        self.__id_user = self.select_user(senha)#self.__senha)
+        __senha = senha #hashlib.sha3_512(pass_encoded).hexdigest()
+        #__senha = __senha.encode('utf-8')
+        print('nome e senha de data', __senha)
+        self.__id_user = self.select_user(senha)#__senha)
         if self.__id_user == 'senha incorreta, tente novamente':
             return 'senha incorreta, tente novamente'
         
         else:
-            self.__locacao = self.get_locacao(senha)#self.__senha)
+            self.__locacao = self.get_locacao(senha)#__senha)
             print('********** dados locacao **************')
             print("self.locacao", self.__locacao.head())
             print("self.locacao[0][2]",self.__locacao[0][2])
@@ -365,7 +365,7 @@ ENGINE=InnoDB;''')
                 #valor_total = ((dias_passados * 24) + horas_passadas ) * taxa_hora + valor_taxa_15
                 result = self.cobranca(valor_total,hj)
                 
-                self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
+                self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
                 self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao[0][0]))
                 self.__conn.commit()
                 self.__conn.close()
@@ -405,7 +405,8 @@ ENGINE=InnoDB;''')
         self.__coluna = coluna
         self.__nivel = nivel
         self.__porta = porta
-        self.__c.execute("select porta from tb_armario where porta='%s' and estado='LIVRE'"%(self.__porta))
+        self.__compartimento = compartimento
+        self.__c.execute("select porta, compartimento  from tb_armario where porta='%s' and compartimento = '%s' and estado='LIVRE'"%(self.__porta, self.__compartimento))
         select_porta = self.__c.fetchone()
         print("select_porta", select_porta)
         if select_porta == None or select_porta == [] or select_porta == "":
@@ -418,7 +419,7 @@ ENGINE=InnoDB;''')
             self.__conn.close()
             return (self.__classe, self.__coluna, self.__nivel, self.__terminal, "cadastrado com sucesso")
         else :
-            return "porta já utilizada confira a porta exada para o cadastro e evite problemas!"
+            return "porta ou compartimento já utilizada confira a porta exada para o cadastro e evite problemas!"
 
 
 
@@ -432,14 +433,14 @@ ENGINE=InnoDB;''')
         if finalizar == True:
             pass'''
 
-        #self.__email = email
-        #self.__telefone = telefone
+        #__email = email
+        #__telefone = telefone
         #pass_encoded = senha.encode(encoding='utf-8', errors='strict')
-        self.__senha = senha #hashlib.sha3_512(pass_encoded).hexdigest()
-        #self.__senha = self.__senha.encode('utf-8')
+        __senha = senha #hashlib.sha3_512(pass_encoded).hexdigest()
+        #__senha = __senha.encode('utf-8')
 
         self.__c.execute(
-            "SELECT * FROM tb_locacao where senha = '%s'" % (self.__senha))
+            "SELECT * FROM tb_locacao where senha = '%s'" % (__senha))
         self.__result = self.__c.fetchall()
         print('resgatar_bagagem result---->', self.__result)
         print(self.__result[0])
@@ -447,7 +448,7 @@ ENGINE=InnoDB;''')
         # envia a data limite para calculo de tempo excedente
         self.__cobranca = self.__cobranca(self.result[0][2])
         if self.__cobranca == None:
-            self.liberar_armario(senha)#self.__senha)
+            self.liberar_armario(senha)#__senha)
         else:
             return ('tempo excedente',self.__cobranca)
 
@@ -518,16 +519,16 @@ ENGINE=InnoDB;''')
         #hj = hj + datetime.timedelta(minutes=+10)
         hj = pd.to_datetime(hj)
         #senha = senha.encode(encoding='utf-8', errors='strict')
-        self.__senha =  senha #hashlib.sha3_512(senha).hexdigest()
-        #self.__senha = self.__senha.encode('utf-8')
+        __senha =  senha #hashlib.sha3_512(senha).hexdigest()
+        #__senha = __senha.encode('utf-8')
         
-        print('senha e nome finalizar', self.__senha)
-        self.__id_user = self.select_user(senha)#self.__senha)
+        print('senha e nome finalizar', __senha)
+        self.__id_user = self.select_user(senha)#__senha)
         if self.__id_user == 'senha incorreta, tente novamente':
             return 'senha incorreta, tente novamente'
         
         else:
-            self.__locacao = self.get_locacao(senha)#self.__senha)
+            self.__locacao = self.get_locacao(senha)#__senha)
             if (self.__locacao['tempo_locado'][0]) >= hj:
                 
                 tempo_total = hj - self.__locacao['tempo_locado'][0]
@@ -548,7 +549,7 @@ ENGINE=InnoDB;''')
                 
             
             
-                self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
+                self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
                 self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (self.__locacao[0][0],))
                 self.__conn.commit()
                 self.__conn.close()
@@ -557,11 +558,11 @@ ENGINE=InnoDB;''')
                 self.port.exec_port(port[0], "abre")
                       
             else:
-                query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'"%self.__senha
-                query_data_limite = "select tempo_locado from tb_locacao where senha = '%s'"%self.__senha
-                self.__c.execute("select dayname(data_locacao) from tb_locacao where senha = '%s'"%self.__senha)
+                query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'"%__senha
+                query_data_limite = "select tempo_locado from tb_locacao where senha = '%s'"%__senha
+                self.__c.execute("select dayname(data_locacao) from tb_locacao where senha = '%s'"%__senha)
                 query_dia_semana_locacao = self.__c.fetchone()
-                self.__c.execute("select dayname(tempo_locado) from tb_locacao where senha = '%s'"%self.__senha)
+                self.__c.execute("select dayname(tempo_locado) from tb_locacao where senha = '%s'"%__senha)
                 query_dia_semana_locado = self.__c.fetchone()
                 df_data_locacao = pd.read_sql(query_data_locacao, self.__conn)
                 data_locacao = str(pd.to_datetime(df_data_locacao.head().values[0][0]))#data em que foi feita a locacao
@@ -660,31 +661,31 @@ ENGINE=InnoDB;''')
         hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
         #__senha = senha.encode(encoding='utf-8', errors='strict')
         #print('senha encode', senha)
-        self.__senha = senha #hashlib.sha3_512(__senha).hexdigest()
-        #print(self.__senha)
-        self.__id_user = self.select_user(self.__senha)#self.__senha)
+        __senha = senha #hashlib.sha3_512(__senha).hexdigest()
+        #print(__senha)
+        self.__id_user = self.select_user(__senha)#__senha)
         if self.__id_user == 'senha incorreta, tente novamente':
             return 'senha incorreta, tente novamente'
         
         else:
-            self.__locacao = self.get_locacao(senha)#self.__senha)
+            self.__locacao = self.get_locacao(senha)#__senha)
             
             print('********** dados locacao **************')
             print(self.__locacao['tempo_locado'][0])
             if (self.__locacao['tempo_locado'][0]) >= hj:
                               
-                #self.__c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
+                #self.__c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (__senha,))
                 #self.__conn.commit()
                 #self.__conn.close()
                 return "armario liberado"
                 port = self.select_port(loca_armario[0][0])
                 self.port.exec_port(port, "abre")
             else:
-                query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'"%self.__senha
-                query_data_limite = "select tempo_locado from tb_locacao where senha = '%s'"%self.__senha
-                __cursor.execute("select dayname(data_locacao) from tb_locacao where senha = '%s'"%self.__senha)
+                query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'"%__senha
+                query_data_limite = "select tempo_locado from tb_locacao where senha = '%s'"%__senha
+                __cursor.execute("select dayname(data_locacao) from tb_locacao where senha = '%s'"%__senha)
                 query_dia_semana_locacao = __cursor.fetchone()
-                __cursor.execute("select dayname(tempo_locado) from tb_locacao where senha = '%s'"%self.__senha)
+                __cursor.execute("select dayname(tempo_locado) from tb_locacao where senha = '%s'"%__senha)
                 query_dia_semana_locado = __cursor.fetchone()
                 df_data_locacao = pd.read_sql(query_data_locacao, __conn)
                 data_locacao = str(pd.to_datetime(df_data_locacao.head().values[0][0]))#data em que foi feita a locacao
@@ -733,9 +734,9 @@ ENGINE=InnoDB;''')
         #__locacao = self.get_locacao(__senha, __id_user[0])
         #__senha = senha.encode(encoding='utf-8', errors='strict')
         #print('senha encode', senha)
-        self.__senha = senha #hashlib.sha3_512(senha).hexdigest()
-        __c.execute("DELETE FROM tb_locacao WHERE senha = '%s'"%(self.__senha))
-        id_armario = __c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (self.__senha,))
+        __senha = senha #hashlib.sha3_512(senha).hexdigest()
+        __c.execute("DELETE FROM tb_locacao WHERE senha = '%s'"%(__senha))
+        id_armario = __c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (__senha,))
         print("finaliza_pagamento id armario", id_armario)
         self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (id_armario,))
         __conn.commit()
