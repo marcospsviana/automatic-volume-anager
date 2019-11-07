@@ -119,7 +119,8 @@ ENGINE=InnoDB;''')
         self.__conn.close()
 
     def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario, language, total):
-        #self.port = Portas()
+        self.port = Portas()
+        port =''
         dia = dia
         dia = dia.replace(".0","")
         self.__dia = int(dia)
