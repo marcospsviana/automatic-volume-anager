@@ -89,7 +89,7 @@ ENGINE=InnoDB;''')
         __nome = str(nome).lower()
         __email = str(email).lower()
         __telefone = str(telefone)
-        self.__c.execute("SELECT * from tb_usuario where email= '%s' OR telefone= '%s'" % (__email, __self.telefone))
+        self.__c.execute("SELECT * from tb_usuario where email= '%s' OR telefone= '%s'" % (__email, __telefone))
         self.select = self.__c.fetchall()
 
         if self.select == [] or self.select == None:
