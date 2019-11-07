@@ -115,6 +115,17 @@ venv.bak/
 #modules node
 node_modules
 
-#settings vscod
-settings.json
-settings.*
+#settings and folders visual studio code
+.vscode/*
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+*.code-workspace
+.vscode\*
+.vscode\settings.json
+.vscode\tasks.json
+.vscode\launch.json
+.vscode\extensions.json
+*.code-workspace
+.vscode/settings.json
