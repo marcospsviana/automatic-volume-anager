@@ -543,10 +543,11 @@ ENGINE=InnoDB;''')
                     calculo_minuto = (2/4) 
                 elif minutos_passados > 15 and minutos_passados <= 30:
                     calculo_minuto = (3/4) 
+                id_amrario = self.__locacao['id_armario'][0]
                 valor_total = int((dias_passados * 24 * 60) * 50)
                 valor_total = int(valor_total + (calculo_minuto * taxa ))
                 valor_total = int(valor_total + calculo_hora * 15)
-                result = self.cobranca_excedente(dias_passados, calculo_hora, calculo_minuto, self.__locacao[0][0])#(valor_total,hj) 
+                result = self.cobranca_excedente(dias_passados, calculo_hora, calculo_minuto, id_amrario)#(valor_total,hj) 
                 
             
             
