@@ -342,7 +342,7 @@ ENGINE=InnoDB;''')
             print('********** dados locacao **************')
             print("self.locacao", self.__locacao.head())
             print("self.locacao[0][2]",self.__locacao[0][2])
-            print("self.locacao[0 0]", self.__locacao[0][0])
+            print("self.locacao[0 0]", self.__locacao[0][0]) #id_armario
             if (self.__locacao[0][2]) > hj:
                 
                 tempo_total = hj - self.__locacao['tempo_locado'][0]
@@ -380,7 +380,7 @@ ENGINE=InnoDB;''')
                 minutos = tempo.seconds % 3600
                 tempo = (tempo.days * 24 * 60) + ( tempo.seconds // 3600 ) + tempo.seconds % 60
                 print('-------> %s'%tempo)
-                result = self.cobranca_excedente(dias, horas, minutos)
+                result = self.cobranca_excedente(dias, horas, minutos, self.__locacao[0][0])
                 return result
 
 
