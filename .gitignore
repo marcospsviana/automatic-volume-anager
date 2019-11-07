@@ -5,12 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
-# vscode config file
-.vscode
-.vscode*
-.vscode/*
-.vscode\*
-*.vscode
+
 # pycharm idea
 .idea
 .idea*
@@ -129,3 +124,8 @@ node_modules
 .vscode\extensions.json
 *.code-workspace
 .vscode/settings.json
+.vscode/settings.json
+.vscode/
+*launch.json
+*settings.json
+
