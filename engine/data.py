@@ -587,7 +587,7 @@ ENGINE=InnoDB;''')
                 
                 tempo = (tempo.days * 24 * 60) + ( tempo.seconds / 60 )
                 print('-------> %s'%tempo)
-                __id_armario = self.__locacao[0][0]
+                __id_armario = self.__locacao["id_armario"][0]
                 result = self.cobranca_excedente(__dia_extra, __hora_extra, __minuto_extra, __id_armario)
                 dados_locacao = {
                                 "total": result,
