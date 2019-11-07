@@ -552,7 +552,7 @@ ENGINE=InnoDB;''')
             
             
                 self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
-                self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (self.__locacao[0][0],))
+                self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (id_amrario,))
                 self.__conn.commit()
                 self.__conn.close()
                 return "armario liberado"
