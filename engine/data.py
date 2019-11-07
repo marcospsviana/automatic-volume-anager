@@ -13,7 +13,7 @@ import pandas as pd
 import smtplib
 import json
 import hashlib
-#from .portas import Portas
+from .portas import Portas
 
 
 class Banco(object):
