@@ -13,7 +13,7 @@ import pandas as pd
 import smtplib
 import json
 import hashlib
-from .portas import Portas
+#from .portas import Portas
 
 
 class Banco(object):
@@ -755,7 +755,7 @@ ENGINE=InnoDB;''')
         __senha = senha #hashlib.sha3_512(__senha_encode).hexdigest()
         if codigo==entrada:
             self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
-            self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (self.__locacao['id_armario'][0],))
+            self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao['id_armario'][0],))
             self.__conn.commit()
             self.__conn.close()
             return ("lk4thHG34=GKss0xndhe")
