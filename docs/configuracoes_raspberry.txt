@@ -23,3 +23,52 @@ $ sudo leafpad /boot/cmdline.txt
 
 E remova a linha “console=serial0,115200”, 
 salve o arquivo e realize o “Reboot” da Raspberry PI.
+
+Comandos
+Raspberry PI - Python
+ 
+Os comandos Python utilizados para realizar a comunicação serial na Raspberry Pi fazem parte da biblioteca “serial” da linguagem e devemos usar o comando import  para utilizá-lo nos nossos códigos. Como utilizar o comando import é demonstrado na seção “Código”.
+ 
+serial.Serial(): É uma classe usada para configurar a porta serial. Cria uma instância para essa classe, no projeto ela recebe o nome de “ser”, mas poderia receber qualquer outro nome.
+ 
+Sintaxe:
+ser  = serial.Serial(Port, Baudrate)
+ 
+Parâmetros:
+Port: nome da porta serial, no projeto é usado "/dev/ttyS0".
+Baudrate: taxa de baudrate tais como 9600, 38400 e 115200.
+ 
+Exemplo:
+ser = serial.Serial(“dev/ttyS0”, 9600)
+ 
+read(): Essa função é usada para ler os dados na porta serial.
+ 
+Sintaxe:
+received_data = ser.read(Size)
+ 
+Parâmetros:
+Size: número de bytes a serem lidos. O tamanho padrão 1.
+ 
+Retorno:
+Bytes lidos da porta serial.
+ 
+inWaiting(): Verifica se ainda há bytes restantes no buffer de recepção da porta serial.
+ 
+Sintaxe:
+data_left = ser.inWainting()
+ 
+Retorno:
+Retorna os bytes armazenados no buffer.
+ 
+write(): Essa função é usada para transmitir/enviar dados da porta serial.
+ 
+Sintaxe:
+ser.write(Data)
+ 
+Parâmetros:
+Data: são os dados a serem enviados pela porta serial.
+ 
+Retorno:
+Número de bytes escritos/enviados.
+ 
+close(): Finaliza a transmissão serial.
