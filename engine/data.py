@@ -13,7 +13,7 @@ from random import choice, sample
 import pandas as pd
 import smtplib
 import json
-#import hashlib
+import hashlib
 from .portas import Portas
 
 
@@ -201,6 +201,11 @@ ENGINE=InnoDB;''')
             #query_select = self.__c.fetchall()
             
             print("result locacao" , __senha)
+            
+            
+            port = self.select_port(loca_armario[0])
+            print("porta selecionada", port[0][0])
+            self.port.exec_port(str(port[0][0]), "abre") # HABILILAR NO RASPBERRY PI 
             locacao_json = {
                 "message": "locacao concluida com sucesso",
                 "data_locacao": data_locacao,
@@ -211,12 +216,6 @@ ENGINE=InnoDB;''')
                 "compartimento" : compartimento[0]
             }
             return locacao_json
-            
-            port = self.select_port(loca_armario[0])
-            print("porta selecionada", port[0][0])
-            self.port.exec_port(str(port[0][0]), "abre") # HABILILAR NO RASPBERRY PI 
-            
-            
             #return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, __senha, compartimento)
         elif retorno == "houve um problema com o pagamento":
             return loca_armario
@@ -694,9 +693,8 @@ ENGINE=InnoDB;''')
                 
                 port = self.select_port(self.__locacao['id_armario'][0])
                 print("abrir armario data.py porta", str(port[0][0]))
-                return "armario liberado"
                 self.port.exec_port(port[0][0], "abre")
-                
+                return "armario liberado"
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'"%__senha
                 query_data_limite = "select tempo_locado from tb_locacao where senha = '%s'"%__senha
@@ -767,9 +765,9 @@ ENGINE=InnoDB;''')
         entrada = "paguei"
         self.__locacao = self.get_locacao(senha)
         #__senha_encode = senha.encode(encoding='utf-8', errors='strict')
-        #self.__c.execute("select id_armario from tb_locacao where senha='%s'"%(senha))
-        result_id_armario = self.__locacao['id_armario'][0]
-        #print("curosr select id_amrario data.py", self.__c.fetchone())
+        self.__c.execute("select id_armario from tb_locacao where senha='%s'"%(senha))
+        result_id_armario = self.__c.fetchone()
+        print("curosr select id_amrario data.py", self.__c.fetchone())
         __senha = senha #hashlib.sha3_512(__senha_encode).hexdigest()
         if codigo==entrada:
             self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
@@ -798,6 +796,11 @@ ENGINE=InnoDB;''')
         __c.execute("SELECT porta FROM coolbag.tb_armario where id_armario = %s"%(__armario))
         retorno_porta = __c.fetchall()
         return retorno_porta
+    
+
+    loop = asyncio.get_event_loop()
+    loop.call_soon(self.locar_armario)
+    loop.run_forever()
 
 
 
