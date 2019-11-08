@@ -205,7 +205,11 @@ ENGINE=InnoDB;''')
             
             port = self.select_port(loca_armario[0])
             print("porta selecionada", port[0][0])
-            self.port.exec_port(str(port[0][0]), "abre") # HABILILAR NO RASPBERRY PI 
+            loop = asyncio.get_event_loop()
+            loop.create_task(self.port.exec_port(str(port[0][0]), "abre"))  # HABILILAR NO RASPBERRY PI 
+
+
+            
             locacao_json = {
                 "message": "locacao concluida com sucesso",
                 "data_locacao": data_locacao,
@@ -798,10 +802,7 @@ ENGINE=InnoDB;''')
         return retorno_porta
     
 
-    loop = asyncio.get_event_loop()
-    loop.call_soon(locar_armario)
-    loop.run_forever()
-
+   
 
 
 
