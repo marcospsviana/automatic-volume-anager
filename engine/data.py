@@ -201,12 +201,6 @@ ENGINE=InnoDB;''')
             #query_select = self.__c.fetchall()
             
             print("result locacao" , __senha)
-            
-            
-            port = self.select_port(loca_armario[0])
-            print("porta selecionada", port[0][0])
-            self.port.exec_port(str(port[0][0]), "abre") # HABILILAR NO RASPBERRY PI 
-            await asyncio.sleep(0.1)
             locacao_json = {
                 "message": "locacao concluida com sucesso",
                 "data_locacao": data_locacao,
@@ -217,6 +211,12 @@ ENGINE=InnoDB;''')
                 "compartimento" : compartimento[0]
             }
             return locacao_json
+            
+            port = self.select_port(loca_armario[0])
+            print("porta selecionada", port[0][0])
+            self.port.exec_port(str(port[0][0]), "abre") # HABILILAR NO RASPBERRY PI 
+            
+            
             #return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, __senha, compartimento)
         elif retorno == "houve um problema com o pagamento":
             return loca_armario
@@ -694,8 +694,9 @@ ENGINE=InnoDB;''')
                 
                 port = self.select_port(self.__locacao['id_armario'][0])
                 print("abrir armario data.py porta", str(port[0][0]))
-                self.port.exec_port(port[0][0], "abre")
                 return "armario liberado"
+                self.port.exec_port(port[0][0], "abre")
+                
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'"%__senha
                 query_data_limite = "select tempo_locado from tb_locacao where senha = '%s'"%__senha
