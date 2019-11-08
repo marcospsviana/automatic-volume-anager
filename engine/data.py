@@ -119,7 +119,7 @@ ENGINE=InnoDB;''')
 
         self.__conn.close()
 
-    async def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario, language, total):
+    def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario, language, total):
         self.port = Portas()
         port =''
         dia = dia
