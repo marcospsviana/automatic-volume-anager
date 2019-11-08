@@ -784,7 +784,7 @@ ENGINE=InnoDB;''')
             return ("houve um problema com o pagamento")
     
     @classmethod
-    def select_port(armario):
+    def select_port(self, armario):
         __armario = armario
         self.__c.execute("SELECT porta FROM coolbag.tb_armario where id_armario = %s"%(__armario))
         self.retorno_porta = self.__c.fetchall()
