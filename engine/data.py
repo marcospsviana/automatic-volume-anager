@@ -209,7 +209,7 @@ ENGINE=InnoDB;''')
                 "message": "locacao concluida com sucesso",
                 "data_locacao": data_locacao,
                 "hora_locacao" : hora_locacao,
-                "tempo_locado" : tempo_locado,
+                "data_locada" : tempo_locado,
                 "hora_locada" : hora_locada,
                 "senha" : __senha, 
                 "compartimento" : compartimento
