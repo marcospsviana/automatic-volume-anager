@@ -328,8 +328,9 @@ ENGINE=InnoDB;''')
         #print("888888 ---- result")
         #print(__result)
         print("dados get_locacao", dados)
-        return (dados )
+        
         __conn.close()
+        return (dados )
 
 
     def liberar_armario(self, senha):
@@ -381,9 +382,10 @@ ENGINE=InnoDB;''')
                 self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao[0][0]))
                 self.__conn.commit()
                 self.__conn.close()
-                return "armario liberado"
+                
                 port = self.select_port(self.__locacao[0][0])
                 self.port.exec_port(port[0], "abre")
+                return "armario liberado"
             else:
                 
                 tempo = hj - self.__locacao[0][2] 
@@ -567,9 +569,10 @@ ENGINE=InnoDB;''')
                 self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (id_amrario,))
                 self.__conn.commit()
                 self.__conn.close()
-                return "armario liberado"
+                
                 port = self.select_port(self.__locacao[0][0])
                 self.port.exec_port(port[0], "abre")
+                return "armario liberado"
                       
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'"%__senha
@@ -646,8 +649,9 @@ ENGINE=InnoDB;''')
         __c.execute("SELECT classe FROM tb_armario WHERE estado = 'LIVRE'")
         result = __c.fetchall()
         print('result listar classes data', result)
-        return result
+        
         __conn.close()
+        return result
     
     def seleciona_classe(self, classe):
         self.classe = classe
@@ -660,8 +664,9 @@ ENGINE=InnoDB;''')
         __c.execute("select classe from tb_armario where estado = 'LIVRE' and classe = '%s'"%self.classe)
         result = __c.fetchall()
         print('result data classe', result)
-        return result
+        
         __conn.close()
+        return result
     
     @classmethod
     def abrir_armario(self,senha):
@@ -759,8 +764,9 @@ ENGINE=InnoDB;''')
         print("finaliza_pagamento id armario", id_armario)
         self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (id_armario,))
         __conn.commit()
-        return "locacao finalizada com sucesso"
+        
         __conn.close()
+        return "locacao finalizada com sucesso"
     
 
     def pagamento(self, total, senha):
