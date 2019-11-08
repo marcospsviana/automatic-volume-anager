@@ -690,10 +690,11 @@ ENGINE=InnoDB;''')
                 #self.__c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (__senha,))
                 #self.__conn.commit()
                 #self.__conn.close()
-                return "armario liberado"
+                
                 port = self.select_port(loca_armario[0][0])
                 print("abrir armario data.py porta", port)
                 self.port.exec_port(port, "abre")
+                return "armario liberado"
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'"%__senha
                 query_data_limite = "select tempo_locado from tb_locacao where senha = '%s'"%__senha
