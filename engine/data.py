@@ -520,6 +520,7 @@ ENGINE=InnoDB;''')
         taxa = 15
         result = ''
         id_armario = ''
+        port = ''
         
         hj = datetime.datetime.now()
         hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
@@ -664,6 +665,7 @@ ENGINE=InnoDB;''')
         __cursor = __conn.cursor()
         print('senha data', senha)
         result = ''
+        port = ''
         id_armario = ''
         taxa = 15
         hj = datetime.datetime.now()
@@ -689,7 +691,7 @@ ENGINE=InnoDB;''')
                 
                 port = self.select_port(self.__locacao['id_armario'][0])
                 print("abrir armario data.py porta", port)
-                self.port.exec_port(port, "abre")
+                self.port.exec_port(port[0], "abre")
                 return "armario liberado"
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'"%__senha
