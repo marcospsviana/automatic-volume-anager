@@ -799,7 +799,7 @@ ENGINE=InnoDB;''')
     
 
     loop = asyncio.get_event_loop()
-    loop.call_soon(self.locar_armario)
+    loop.call_soon(locar_armario)
     loop.run_forever()
 
 
