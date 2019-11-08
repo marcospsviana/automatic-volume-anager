@@ -205,7 +205,17 @@ ENGINE=InnoDB;''')
             port = self.select_port(loca_armario[0])
             print("porta selecionada", port[0][0])
             self.port.exec_port(str(port[0][0]), "abre") # HABILILAR NO RASPBERRY PI 
-            return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, __senha, compartimento)
+            locacao_json = {
+                "message": "locacao concluida com sucesso",
+                "data_locacao": data_locacao,
+                "hora_locacao" : hora_locacao,
+                "tempo_locado" : tempo_locado,
+                "hora_locada" : hora_locada,
+                "senha" : __senha, 
+                "compartimento" : compartimento
+            }
+            return locacao_json
+            #return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, __senha, compartimento)
         elif retorno == "houve um problema com o pagamento":
             return loca_armario
         self.__conn.close()

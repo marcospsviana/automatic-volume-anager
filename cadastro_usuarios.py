@@ -486,13 +486,13 @@ class CadastroUsuarios(object):
             self.__result =  manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario, self.language, self.valor_total)
             count = 0
             print("self.__result cadastro usuario ", self.__result[0])
-            if self.__result[0][0] == "locacao concluida com sucesso":
-                dia_inicio_locacao = self.__result[0][1]
-                hora_inicio_locacao = self.__result[0][2]
-                data_fim_locacao = self.__result[0][3]
-                hora_fim_locacao = self.__result[0][4]
-                senha = self.__result[0][5][0]
-                compartimento = self.__result[0][6][0]
+            if self.__result["message"] == "locacao concluida com sucesso":
+                dia_inicio_locacao = self.__result["data_locacao"]
+                hora_inicio_locacao = self.__result["hora_locacao"]
+                data_fim_locacao = self.__result["data_locada"]
+                hora_fim_locacao = self.__result["hora_locada"]
+                senha = self.__result["senha"]
+                compartimento = self.__result["compartimento"]
             
                 self.label_date_inicio_locacao.set_text(dia_inicio_locacao)
                 self.label_date_fim_locacao.set_text(data_fim_locacao)
