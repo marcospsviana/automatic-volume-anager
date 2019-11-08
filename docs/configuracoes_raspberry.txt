@@ -1,0 +1,25 @@
+Para que a Raspberry Pi consiga realizar a comunicação serial via protocolo UART é 
+necessário configurar o pino 8 como porta transmissora (TX) e o pino 10 como porta receptora (RX).
+ 
+Todos os comandos de configuração e para abrir arquivos serão realizados no “LX Terminal”
+Para configurar a serial é preciso editar o arquivo “inittab”, localizado em “/etc/inittab”. Para habilitar a serial deve-se comentar a linha “T0:23:respawn:/sbin/getty -L ttyAMA0 115200 vt100”.
+
+Para abrir este arquivo digite o seguinte comando no LX Terminal:
+**$ sudo leafpad /etc/inittab**
+
+Caso não se consiga encontrar este arquivo no sistema operacional da sua Raspberry PI, 
+deve-se realizar o seguinte comando:
+$ sudo leafpad /boot/config.txt
+Quando abrir este arquivo acrescente no final a seguinte linha “enable_uart=1”
+
+Em seguida desabilite a serial com os seguintes comandos:
+
+$ sudo systemctl stop serial-getty@ttyS0.service
+$ sudo systemctl disable serial-getty@ttyS0.service
+
+Em seguida execute o comando abaixo:
+
+$ sudo leafpad /boot/cmdline.txt
+
+E remova a linha “console=serial0,115200”, 
+salve o arquivo e realize o “Reboot” da Raspberry PI.
