@@ -766,9 +766,9 @@ ENGINE=InnoDB;''')
         entrada = "paguei"
         self.__locacao = self.get_locacao(senha)
         #__senha_encode = senha.encode(encoding='utf-8', errors='strict')
-        self.__c.execute("select id_armario from tb_locacao where senha='%s'"%(senha))
-        result_id_armario = self.__c.fetchone()
-        print("curosr select id_amrario data.py", self.__c.fetchone())
+        #self.__c.execute("select id_armario from tb_locacao where senha='%s'"%(senha))
+        result_id_armario = self.__locacao['id_armario'][0]
+        #print("curosr select id_amrario data.py", self.__c.fetchone())
         __senha = senha #hashlib.sha3_512(__senha_encode).hexdigest()
         if codigo==entrada:
             self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
