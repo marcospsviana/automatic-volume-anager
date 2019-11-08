@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-
+import sys
+import asyncio
 import mysql.connector as mdb
 import datetime
 from datetime import date, timedelta, time
@@ -12,7 +13,7 @@ from random import choice, sample
 import pandas as pd
 import smtplib
 import json
-import hashlib
+#import hashlib
 from .portas import Portas
 
 
@@ -118,7 +119,7 @@ ENGINE=InnoDB;''')
 
         self.__conn.close()
 
-    def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario, language, total):
+    async def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario, language, total):
         self.port = Portas()
         port =''
         dia = dia
@@ -205,6 +206,7 @@ ENGINE=InnoDB;''')
             port = self.select_port(loca_armario[0])
             print("porta selecionada", port[0][0])
             self.port.exec_port(str(port[0][0]), "abre") # HABILILAR NO RASPBERRY PI 
+            await asyncio.sleep(0.1)
             locacao_json = {
                 "message": "locacao concluida com sucesso",
                 "data_locacao": data_locacao,
