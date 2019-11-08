@@ -691,7 +691,7 @@ ENGINE=InnoDB;''')
                 #self.__conn.commit()
                 #self.__conn.close()
                 
-                port = self.select_port(loca_armario[0][0])
+                port = self.select_port(self.__locacao['id_armario'][0])
                 print("abrir armario data.py porta", port)
                 self.port.exec_port(port, "abre")
                 return "armario liberado"
