@@ -485,6 +485,7 @@ class CadastroUsuarios(object):
             manager = Management()
             self.__result =  manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario, self.language, self.valor_total)
             count = 0
+            self.__result = dict(self.__result)
             print("self.__result cadastro usuario", self.__result)
             #print("self.__result cadastro usuario ", self.__result[0])
             if self.__result["message"] == "locacao concluida com sucesso":
