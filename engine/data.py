@@ -212,7 +212,7 @@ ENGINE=InnoDB;''')
                 "data_locada" : tempo_locado,
                 "hora_locada" : hora_locada,
                 "senha" : __senha, 
-                "compartimento" : compartimento
+                "compartimento" : compartimento[0]
             }
             return locacao_json
             #return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, __senha, compartimento)
@@ -692,6 +692,7 @@ ENGINE=InnoDB;''')
                 #self.__conn.close()
                 return "armario liberado"
                 port = self.select_port(loca_armario[0][0])
+                print("abrir armario data.py porta", port)
                 self.port.exec_port(port, "abre")
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'"%__senha
