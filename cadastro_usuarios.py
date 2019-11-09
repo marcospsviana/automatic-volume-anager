@@ -493,7 +493,7 @@ class CadastroUsuarios(object):
                 data_fim_locacao = self.__result[0][3]
                 hora_fim_locacao = self.__result[0][4]
                 __senha = self.__result[0][5][0]
-                compartimento = self.__result[0][6][0]
+                compartimento = self.__result["compartimento"][0]
             
                 self.label_date_inicio_locacao.set_text(dia_inicio_locacao)
                 self.label_date_fim_locacao.set_text(data_fim_locacao)

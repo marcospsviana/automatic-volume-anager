@@ -570,7 +570,7 @@ ENGINE=InnoDB;''')
                 self.__conn.commit()
                 self.__conn.close()
                 
-                port = self.select_port(self.__locacao[0][0])
+                port = self.select_port(id_armario)
                 self.port.exec_port(port[0], "abre")
                 return "armario liberado"
                       
