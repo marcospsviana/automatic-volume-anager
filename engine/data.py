@@ -674,7 +674,7 @@ ENGINE=InnoDB;''')
         self.port = Portas()
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
-        __cursor = __conn.cursor()
+        __cursor = __conn.cursor(buffered=True)
         print('senha data', senha)
         result = ''
         port = ''
@@ -805,7 +805,7 @@ ENGINE=InnoDB;''')
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         __armario = armario
-        print("__ARMARIO EM SELECT PORTA ", __armario)
+        print("__ARMARIO EM SELECT_port ", __armario)
         __c.execute("SELECT porta FROM coolbag.tb_armario where id_armario = %s"%(__armario,))
         retorno_porta = __c.fetchall()
         return retorno_porta
