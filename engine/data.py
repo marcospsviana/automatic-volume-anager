@@ -181,8 +181,8 @@ ENGINE=InnoDB;''')
             #self.__c.execute("select data_locacao, tempo_locado, senha from tb_locacao where id_armario= %s" %(loca_armario[0]))
             #query_select = "select senha from tb_locacao where id_armario= %s" %(loca_armario[0])
             #data_and_passwd = pd.read_sql(query_select, self.__conn)
-            compartimento = "select compartimento from tb_armario where id_armario = %s" %(loca_armario[0])
-            compartimento_select = pd.read_sql(compartimento, self.__conn)
+            compartimento_query = "select compartimento from tb_armario where id_armario = %s" %(loca_armario[0])
+            compartimento_select = pd.read_sql(compartimento_query, self.__conn)
             self.__data_locacao = str(self.__data_locacao)
             self.__data_limite = str(self.__data_limite)
             mes_locacao = str(self.__data_locacao[5:7])
@@ -219,7 +219,7 @@ ENGINE=InnoDB;''')
                 "senha" : __senha, 
                 "compartimento" : compartimento[0]
             }
-            return (locacao_json["message"], locacao_json["data_locacao"], locacao_json["data_locada"], locacao_json["hora_locada"], locacao_json["senha"], locacao_json["compartimento"])
+            return (locacao_json["message"], locacao_json["data_locacao"], locacao_json["data_locada"], locacao_json["hora_locacao"], locacao_json["hora_locada"], locacao_json["senha"], locacao_json["compartimento"])
             #return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, __senha, compartimento)
         elif retorno == "houve um problema com o pagamento":
             return loca_armario
