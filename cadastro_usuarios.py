@@ -496,7 +496,7 @@ class CadastroUsuarios(object):
                 print("data_fim cadastro usuario", data_fim_locacao)
                 hora_fim_locacao = self.__result[0][4]
                 print("hora_fim cadastro usuario", hora_fim_locacao)
-                __senha = self.__result[0][5][0]
+                __senha = self.__result[0][5]
                 print("__senha cadastro usuario", __senha)
                 compartimento = self.__result[0][6]
                 print("compartimento cadastro usuario", compartimento)
