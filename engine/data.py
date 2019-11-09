@@ -806,7 +806,7 @@ ENGINE=InnoDB;''')
         __c = __conn.cursor(buffered=True)
         #__armario = armario
         print("__ARMARIO EM SELECT_port ", armario)
-        __c.execute("SELECT porta FROM coolbag.tb_armario WHERE id_armario = %s"%armario)
+        __c.execute("SELECT porta FROM coolbag.tb_armario WHERE id_armario=%d"%(armario,))
         retorno_porta = __c.fetchall()
         return retorno_porta
     
