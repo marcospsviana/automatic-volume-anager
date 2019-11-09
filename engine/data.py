@@ -807,7 +807,7 @@ ENGINE=InnoDB;''')
         __c = __conn.cursor(buffered=True)
         __armario = armario
         print("__ARMARIO EM SELECT_port ", __armario)
-        __c.execute("select porta from tb_armario where id_armario=%s"%(__armario))
+        __c.execute("select porta from tb_armario where id_armario='%s'" % (__armario))
         retorno_porta = __c.fetchone()
         return retorno_porta
     
