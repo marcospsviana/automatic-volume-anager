@@ -801,7 +801,7 @@ ENGINE=InnoDB;''')
             return ("houve um problema com o pagamento")
     
     @classmethod
-    def select_port(armario):
+    def select_port(self, armario):
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
