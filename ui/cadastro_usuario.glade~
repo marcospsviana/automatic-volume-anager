@@ -1116,7 +1116,6 @@
     <property name="hexpand">True</property>
     <property name="vexpand">True</property>
     <property name="border_width">10</property>
-    <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
