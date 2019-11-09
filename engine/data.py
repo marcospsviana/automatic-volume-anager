@@ -569,10 +569,11 @@ ENGINE=InnoDB;''')
                 self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
                 self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (id_amrario,))
                 self.__conn.commit()
-                self.__conn.close()
+                
                 
                 port = self.select_port(id_armario)
                 self.port.exec_port(port[0], "abre")
+                self.__conn.close()
                 return "armario liberado"
                       
             else:
@@ -800,13 +801,13 @@ ENGINE=InnoDB;''')
             return ("houve um problema com o pagamento")
     
     @classmethod
-    def select_port(self, armario):
+    def select_port(armario):
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         #__armario = armario
         print("__ARMARIO EM SELECT_port ", armario)
-        __c.execute("SELECT porta FROM coolbag.tb_armario WHERE id_armario=%d"%(armario,))
+        __c.execute("SELECT porta FROM coolbag.tb_armario WHERE id_armario=%s"%(armario,))
         retorno_porta = __c.fetchall()
         return retorno_porta
     
