@@ -563,7 +563,8 @@ ENGINE=InnoDB;''')
                 valor_total = int(valor_total + (calculo_minuto * taxa ))
                 valor_total = int(valor_total + calculo_hora * 15)
                 result = self.cobranca_excedente(dias_passados, calculo_hora, calculo_minuto, id_amrario)#(valor_total,hj) 
-                
+                port = self.select_port(id_armario)
+                self.port.exec_port(port[0], "abre")
             
             
                 self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
@@ -571,8 +572,7 @@ ENGINE=InnoDB;''')
                 self.__conn.commit()
                 
                 
-                port = self.select_port(id_armario)
-                self.port.exec_port(port[0], "abre")
+                
                 self.__conn.close()
                 return "armario liberado"
                       
