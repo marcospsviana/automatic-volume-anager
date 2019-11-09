@@ -196,7 +196,7 @@
   <object class="GtkImage" id="image1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">static/images/backspace.svg</property>
+    <property name="pixbuf">../static/images/backspace.svg</property>
   </object>
   <object class="GtkWindow" id="window_entrada_dados">
     <property name="name">window</property>
@@ -205,7 +205,7 @@
     <property name="can_focus">False</property>
     <property name="hexpand">True</property>
     <property name="vexpand">True</property>
-    <property name="modal">True</property>
+    <property name="resizable">False</property>
     <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
     <property name="default_height">600</property>
@@ -1116,6 +1116,7 @@
     <property name="hexpand">True</property>
     <property name="vexpand">True</property>
     <property name="border_width">10</property>
+    <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
