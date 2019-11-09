@@ -205,8 +205,8 @@ ENGINE=InnoDB;''')
             
             port = self.select_port(loca_armario[0])
             print("porta selecionada", port[0][0])
-            loop = asyncio.get_event_loop()
-            loop.create_task(self.port.exec_port(str(port[0][0]), "abre"))  # HABILILAR NO RASPBERRY PI 
+            
+            self.port.exec_port(str(port[0][0]), "abre") # HABILILAR NO RASPBERRY PI 
 
 
             
