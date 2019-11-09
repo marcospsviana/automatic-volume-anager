@@ -20,6 +20,7 @@ from .portas import Portas
 class Banco(object):
     def __init__(self):
         self.data = ''
+        self.porta = ''
         global TAXA_HORA_A, TAXA_HORA_B, TAXA_HORA_C, TAXA_HORA_D
         global TAXA_DIARIA_A, TAXA_DIARIA_B, TAXA_DIARIA_C, TAXA_DIARIA_D
         TAXA_DIARIA_A = 37.5
@@ -527,7 +528,7 @@ ENGINE=InnoDB;''')
         taxa = 15
         result = ''
         id_armario = ''
-        port = ''
+        
         
         hj = datetime.datetime.now()
         hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
@@ -563,8 +564,8 @@ ENGINE=InnoDB;''')
                 valor_total = int(valor_total + (calculo_minuto * taxa ))
                 valor_total = int(valor_total + calculo_hora * 15)
                 result = self.cobranca_excedente(dias_passados, calculo_hora, calculo_minuto, id_amrario)#(valor_total,hj) 
-                port = self.select_port(id_armario)
-                self.port.exec_port(port[0], "abre")
+                self.porta = self.select_port(id_armario)
+                self.port.exec_port(self.porta[0], "abre")
             
             
                 self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
