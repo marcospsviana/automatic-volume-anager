@@ -558,6 +558,7 @@ ENGINE=InnoDB;''')
                 elif minutos_passados > 15 and minutos_passados <= 30:
                     calculo_minuto = (3/4) 
                 id_amrario = self.__locacao['id_armario'][0]
+                print(" ID ARMARIO", id_amrario)
                 valor_total = int((dias_passados * 24 * 60) * 50)
                 valor_total = int(valor_total + (calculo_minuto * taxa ))
                 valor_total = int(valor_total + calculo_hora * 15)
