@@ -21,6 +21,7 @@ class Banco(object):
     def __init__(self):
         self.data = ''
         self.porta = ''
+        self.port = Portas()
         global TAXA_HORA_A, TAXA_HORA_B, TAXA_HORA_C, TAXA_HORA_D
         global TAXA_DIARIA_A, TAXA_DIARIA_B, TAXA_DIARIA_C, TAXA_DIARIA_D
         TAXA_DIARIA_A = 37.5
