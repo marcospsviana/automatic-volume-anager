@@ -489,11 +489,17 @@ class CadastroUsuarios(object):
             print("self.__result cadastro usuario ", self.__result[0])
             if self.__result[0][0] == "locacao concluida com sucesso":
                 dia_inicio_locacao = self.__result[0][1]
+                print("dia_inicio cadastro usuario", dia_inicio_locacao)
                 hora_inicio_locacao = self.__result[0][2]
+                print("hora_inicio cadastro usuario", hora_inicio_locacao)
                 data_fim_locacao = self.__result[0][3]
+                print("data_fim cadastro usuario", data_fim_locacao)
                 hora_fim_locacao = self.__result[0][4]
+                print("hora_fim cadastro usuario", hora_fim_locacao)
                 __senha = self.__result[0][5][0]
-                compartimento = self.__result["compartimento"][0]
+                print("__senha cadastro usuario", __senha)
+                compartimento = self.__result[0][6]
+                print("compartimento cadastro usuario", compartimento)
             
                 self.label_date_inicio_locacao.set_text(dia_inicio_locacao)
                 self.label_date_fim_locacao.set_text(data_fim_locacao)
