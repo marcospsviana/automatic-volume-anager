@@ -805,7 +805,7 @@ ENGINE=InnoDB;''')
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         #__armario = armario
-        print("__ARMARIO EM SELECT_port ", __armario)
+        print("__ARMARIO EM SELECT_port ", armario)
         __c.execute("SELECT porta FROM coolbag.tb_armario WHERE id_armario = %s"%armario)
         retorno_porta = __c.fetchall()
         return retorno_porta
