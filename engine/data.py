@@ -423,7 +423,7 @@ ENGINE=InnoDB;''')
         self.__porta = porta
         self.__compartimento = compartimento
         self.__c.execute("select porta, compartimento  from tb_armario where porta='%s' and compartimento = '%s' and estado='LIVRE'"%(self.__porta, self.__compartimento))
-        select_porta = self.__c.fetchall()
+        select_porta = self.__c.fetchone()
         print("select_porta", select_porta)
         if select_porta == None or select_porta == [] or select_porta == "":
             
@@ -567,7 +567,6 @@ ENGINE=InnoDB;''')
                 valor_total = int(valor_total + calculo_hora * 15)
                 result = self.cobranca_excedente(dias_passados, calculo_hora, calculo_minuto, id_amrario)#(valor_total,hj) 
                 porta = self.select_port(id_armario)
-                print("porta em finalizar", porta)
                 self.port.exec_port(porta[0], "abre")
             
             
@@ -813,7 +812,6 @@ ENGINE=InnoDB;''')
         print("__ARMARIO EM SELECT_port ", __armario)
         __c.execute("select porta from tb_armario where id_armario='%s'" % (__armario))
         retorno_porta = __c.fetchall()
-        __conn.close()
         return retorno_porta
     
 
