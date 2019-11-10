@@ -221,7 +221,7 @@ ENGINE=InnoDB;''')
                 "senha" : __senha, 
                 "compartimento" : compartimento[0]
             }
-            return (locacao_json["message"], locacao_json["data_locacao"], locacao_json["data_locada"], locacao_json["hora_locacao"], locacao_json["hora_locada"], locacao_json["senha"], locacao_json["compartimento"])
+            return (locacao_json["message"], locacao_json["data_locacao"], locacao_json["hora_locacao"], locacao_json["data_locada"], locacao_json["hora_locada"], locacao_json["senha"], locacao_json["compartimento"])
             #return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, __senha, compartimento)
         elif retorno == "houve um problema com o pagamento":
             return loca_armario
