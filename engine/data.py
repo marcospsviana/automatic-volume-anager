@@ -803,7 +803,7 @@ ENGINE=InnoDB;''')
         else:
             return ("houve um problema com o pagamento")
     
-    @classmethod
+    #@classmethod
     def select_port(self, armario):
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
