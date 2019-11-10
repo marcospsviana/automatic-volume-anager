@@ -560,18 +560,18 @@ ENGINE=InnoDB;''')
                     calculo_minuto = (2/4) 
                 elif minutos_passados > 15 and minutos_passados <= 30:
                     calculo_minuto = (3/4) 
-                id_amrario = self.__locacao['id_armario'][0]
+                id_armario = self.__locacao['id_armario'][0]
                 print(" ID ARMARIO", id_armario)
                 valor_total = int((dias_passados * 24 * 60) * 50)
                 valor_total = int(valor_total + (calculo_minuto * taxa ))
                 valor_total = int(valor_total + calculo_hora * 15)
-                result = self.cobranca_excedente(dias_passados, calculo_hora, calculo_minuto, id_amrario)#(valor_total,hj) 
+                result = self.cobranca_excedente(dias_passados, calculo_hora, calculo_minuto, id_armario)#(valor_total,hj) 
                 porta = self.select_port(id_armario)
                 self.port.exec_port(porta[0], "abre")
             
             
                 self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
-                self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (id_amrario,))
+                self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (id_armario,))
                 self.__conn.commit()
                 
                 
@@ -784,7 +784,7 @@ ENGINE=InnoDB;''')
         #__senha_encode = senha.encode(encoding='utf-8', errors='strict')
         self.__c.execute("select id_armario from tb_locacao where senha='%s'"%(__senha))
         result_id_armario = self.__c.fetchall()
-        print("curosr select id_amrario data.py", self.__c.fetchone())
+        print("curosr select id_armario data.py", self.__c.fetchone())
         if codigo==entrada:
             self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
             self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (result_id_armario[0]))
