@@ -806,14 +806,14 @@ ENGINE=InnoDB;''')
     
     @classmethod
     def select_port(self, armario):
-        '''__conn = mdb.connect(
+        __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
-        __c = __conn.cursor(buffered=True)'''
+        __c = __conn.cursor(buffered=True)
         __armario = armario
         print("__ARMARIO EM SELECT_port ", __armario)
-        self.__c.execute("select porta from tb_armario where id_armario='%s'" % (__armario))
-        retorno_porta = self.__c.fetchall()
-        self.__conn.close()
+        __c.execute("select porta from tb_armario where id_armario='%s'" % (__armario))
+        retorno_porta = __c.fetchall()
+        __conn.close()
         return retorno_porta
     
 
