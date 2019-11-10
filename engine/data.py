@@ -567,6 +567,7 @@ ENGINE=InnoDB;''')
                 valor_total = int(valor_total + calculo_hora * 15)
                 result = self.cobranca_excedente(dias_passados, calculo_hora, calculo_minuto, id_amrario)#(valor_total,hj) 
                 porta = self.select_port(id_armario)
+                print("porta em finalizar", porta)
                 self.port.exec_port(porta[0], "abre")
             
             
