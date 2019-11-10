@@ -561,7 +561,7 @@ ENGINE=InnoDB;''')
                 elif minutos_passados > 15 and minutos_passados <= 30:
                     calculo_minuto = (3/4) 
                 id_amrario = self.__locacao['id_armario'][0]
-                print(" ID ARMARIO", id_amrario)
+                print(" ID ARMARIO", id_armario)
                 valor_total = int((dias_passados * 24 * 60) * 50)
                 valor_total = int(valor_total + (calculo_minuto * taxa ))
                 valor_total = int(valor_total + calculo_hora * 15)
@@ -803,7 +803,7 @@ ENGINE=InnoDB;''')
         else:
             return ("houve um problema com o pagamento")
     
-    #@classmethod
+    @classmethod
     def select_port(self, armario):
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
