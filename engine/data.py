@@ -423,7 +423,7 @@ ENGINE=InnoDB;''')
         self.__porta = porta
         self.__compartimento = compartimento
         self.__c.execute("select porta, compartimento  from tb_armario where porta='%s' and compartimento = '%s' and estado='LIVRE'"%(self.__porta, self.__compartimento))
-        select_porta = self.__c.fetchone()
+        select_porta = self.__c.fetchall()
         print("select_porta", select_porta)
         if select_porta == None or select_porta == [] or select_porta == "":
             
@@ -811,7 +811,7 @@ ENGINE=InnoDB;''')
         __armario = armario
         print("__ARMARIO EM SELECT_port ", __armario)
         __c.execute("select porta from tb_armario where id_armario='%s'" % (__armario))
-        retorno_porta = __c.fetchone()
+        retorno_porta = __c.fetchall()
         return retorno_porta
     
 
