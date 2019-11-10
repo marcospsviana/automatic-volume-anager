@@ -526,6 +526,7 @@ ENGINE=InnoDB;''')
         return (total )
     
     def finalizar(self,senha):
+        self.port = Portas()
         taxa = 15
         result = ''
         id_armario = ''
@@ -565,8 +566,8 @@ ENGINE=InnoDB;''')
                 valor_total = int(valor_total + (calculo_minuto * taxa ))
                 valor_total = int(valor_total + calculo_hora * 15)
                 result = self.cobranca_excedente(dias_passados, calculo_hora, calculo_minuto, id_amrario)#(valor_total,hj) 
-                self.porta = self.select_port(id_armario)
-                self.port.exec_port(self.porta[0], "abre")
+                porta = self.select_port(id_armario)
+                self.port.exec_port(porta[0], "abre")
             
             
                 self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
@@ -704,9 +705,9 @@ ENGINE=InnoDB;''')
                 #self.__conn.commit()
                 #self.__conn.close()
                 
-                port = self.select_port(self.__locacao['id_armario'][0])
+                porta = self.select_port(self.__locacao['id_armario'][0])
                 print("abrir armario data.py porta", str(port[0][0]))
-                self.port.exec_port(port[0][0], "abre")
+                self.port.exec_port(porta[0][0], "abre")
                 return "armario liberado"
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'"%__senha
