@@ -787,7 +787,7 @@ ENGINE=InnoDB;''')
         print("curosr select id_amrario data.py", self.__c.fetchone())
         if codigo==entrada:
             self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
-            self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (result_id_armario))
+            self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (result_id_armario[0]))
             self.__conn.commit()
             self.__conn.close()
             return ("lk4thHG34=GKss0xndhe")
