@@ -197,7 +197,7 @@ class WindowLogin(Gtk.Window):
     def on_btn_efetuar_pagamento_button_press_event(self, widget, event):
         self.window_payment.show()
         retorno = self.manager.pagamento(self.__result, self.entry.get_text())
-        if retorno == "pagamento ok":
+        if retorno == "lk4thHG34=GKss0xndhe":
             
             self.wait_payment()
 
