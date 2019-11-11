@@ -151,7 +151,7 @@ class WindowLogin(Gtk.Window):
         elif self.opcao == "encerrar":
             result = self.manager.finalizar(senha)
         print('result login', result)
-        if self.opcao == "abrir": #result == 'armario liberado':
+        if result == 'armario liberado':
             self.window_login.hide()
             self.entry.set_text('')
             print('abrir')
