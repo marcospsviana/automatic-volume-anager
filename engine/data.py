@@ -831,3 +831,4 @@ class PortasThreading(threading.Thread):
 
 if __name__ == "__main__":
     Banco()
+    PortasThreading()
