@@ -710,6 +710,7 @@ ENGINE=InnoDB;''')
                 #self.port.exec_port(porta[0][0], "abre")
                 t = threading.Thread(target=self.port.exec_port(porta[0][0], "abre"))
                 t.start()
+                t.stop() 
                 return "armario liberado"
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'"%__senha
