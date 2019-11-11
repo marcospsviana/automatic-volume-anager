@@ -707,7 +707,8 @@ ENGINE=InnoDB;''')
                 
                 porta = self.select_port(self.__locacao['id_armario'][0])
                 print("abrir armario data.py porta", str(porta[0][0]))
-                yield self.port.exec_port(porta[0][0], "abre")
+                #self.port.exec_port(porta[0][0], "abre")
+                PortasThreading.start(porta[0][0])
                 return "armario liberado"
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'"%__senha
@@ -816,6 +817,13 @@ ENGINE=InnoDB;''')
     
 
    
+import threading
+class PortasThreading(threading.Thread):
+    def __init__(self, porta):
+        self.ports = Portas()
+        self.porta = porta
+    def run_porta(self):
+        self.ports.exec_port(self.porta, "abre")
 
 
 
