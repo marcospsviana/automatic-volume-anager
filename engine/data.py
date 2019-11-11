@@ -822,6 +822,7 @@ class PortasThreading(threading.Thread):
     def __init__(self, porta):
         self.ports = Portas()
         self.porta = porta
+        threading.Thread.__init__(self)
     def run_porta(self):
         self.ports.exec_port(self.porta, "abre")
 
