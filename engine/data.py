@@ -820,11 +820,11 @@ ENGINE=InnoDB;''')
 import threading
 class PortasThreading(threading.Thread):
     def __init__(self, porta):
-        self.ports = Portas()
         self.porta = porta
         print("porta em threading", self.porta)
         threading.Thread.__init__(self)
     def run_porta(self):
+        self.ports = Portas()
         self.ports.exec_port(self.porta, "abre")
 
 
