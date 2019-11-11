@@ -71,7 +71,7 @@ class Portas(object):
         
     def exec_port(self, port, command):
         self.port = str(port)
-        print(self.port)
+        print("exec port em portas", self.port)
         self.command =str(command)
         print(self.command)
         __exec = self.port + ":" + self.command+ "\n"
