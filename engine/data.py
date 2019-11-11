@@ -674,7 +674,7 @@ ENGINE=InnoDB;''')
         return result
     
     @classmethod
-    def abrir_armario(self,senha):
+    async def abrir_armario(self,senha):
         self.port = Portas()
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
