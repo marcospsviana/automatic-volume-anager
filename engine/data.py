@@ -198,7 +198,7 @@ ENGINE=InnoDB;''')
             hora_locada = str(self.__data_limite[11:16])
             data_locacao = dia_locacao + "/" + mes_locacao
             tempo_locado = dia_locado + "/" + mes_locado
-            #self.send_email(__nome, __email, __senha, compartimento[0], data_locacao, hora_locacao, tempo_locado,  hora_locada, language)
+            self.send_email(__nome, __email, __senha, compartimento[0], data_locacao, hora_locacao, tempo_locado,  hora_locada, language)
 
             #query_select = self.__c.fetchall()
             
@@ -780,11 +780,11 @@ ENGINE=InnoDB;''')
         entrada = "paguei"
         __senha = senha
         self.__locacao = self.get_locacao(senha)
-        print('self.__locacao id_armario', self.__locacao["id_armario"])
+        print('self.__locacao id_armario', self.__locacao["id_armario"][0])
         #__senha_encode = senha.encode(encoding='utf-8', errors='strict')
         self.__c.execute("select id_armario from tb_locacao where senha='%s'"%(__senha))
         result_id_armario = self.__c.fetchall()
-        print("curosr select id_armario data.py", self.__c.fetchone())
+        #print("curosr select id_armario data.py", self.__c.fetchone())
         if codigo==entrada:
             self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
             self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (result_id_armario[0]))
