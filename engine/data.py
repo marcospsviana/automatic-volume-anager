@@ -708,7 +708,7 @@ ENGINE=InnoDB;''')
                 porta = self.select_port(self.__locacao['id_armario'][0])
                 print("abrir armario data.py porta", str(porta[0][0]))
                 #self.port.exec_port(porta[0][0], "abre")
-                PortasThreading.start(porta[0][0])
+                PortasThreading(porta[0][0])
                 return "armario liberado"
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'"%__senha
@@ -831,4 +831,4 @@ class PortasThreading(threading.Thread):
 
 if __name__ == "__main__":
     Banco()
-    PortasThreading()
+    PortasThreading.start()
