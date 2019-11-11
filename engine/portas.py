@@ -82,6 +82,7 @@ class Portas(object):
         self.port = b'%b'%(self.port.encode('utf-8'))
         comando = self.port + b":fecha\n" 
         self.serial.write(comando)
+    asyncio.run(exec_port())
 
 
 if __name__ == "__main__":
