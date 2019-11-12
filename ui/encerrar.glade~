@@ -1416,7 +1416,7 @@
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
-                    <signal name="clicked" handler="on_cancela_clicked" swapped="no"/>
+                    <signal name="clicked" handler="on_CANCELAR_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>

@@ -34,7 +34,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <signal name="button-press-event" handler="on_btn_dialog_unavailable_press_event" swapped="no"/>
+                <signal name="button-press-event" handler="on_btn_dialog_unavailable_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
