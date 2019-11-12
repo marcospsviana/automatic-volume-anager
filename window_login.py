@@ -147,6 +147,7 @@ class WindowLogin(Gtk.Window):
         self.message = ''
         senha = self.entry.get_text()
         if self.opcao == "abrir":
+            self.window_login.hide()
             result = self.manager.abre_armario(senha)
         elif self.opcao == "encerrar":
             result = self.manager.finalizar(senha)
