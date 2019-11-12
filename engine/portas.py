@@ -69,7 +69,7 @@ class Portas(object):
         GPIO.setup(12, GPIO.IN)
 
         
-    async def exec_port(self, port, command):
+    def exec_port(self, port, command):
         self.port = str(port)
         print("exec port em portas", self.port)
         self.command =str(command)
@@ -78,12 +78,12 @@ class Portas(object):
         print(__exec)
         __exec = b'%b'%(__exec.encode('utf-8'))
         self.serial.write(__exec)
-        await asyncio.sleep(15)
+        time.sleep(15)
         self.port = b'%b'%(self.port.encode('utf-8'))
         comando = self.port + b":fecha\n" 
         self.serial.write(comando)
-    asyncio.run(exec_port())
-
+    
+    
 
 if __name__ == "__main__":
     Portas()
