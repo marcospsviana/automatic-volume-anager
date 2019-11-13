@@ -170,7 +170,7 @@ class CadastroUsuarios(object):
         self.btn_limpar_entrada_numeros = self.builder.get_object("btn_limpar_entrada_numeros")
         self.btn_limpar_entrada_numeros.connect("button_press_event", self.on_btn_limpar_entrada_numeros_button_press_event)
 
-        self.btn_finalizar_sessao = self.builder.get_object("btn_finalizar_sessao")
+        #self.btn_finalizar_sessao = self.builder.get_object("btn_finalizar_sessao")
 
         self.btn_window_payment_wait = self.builder.get_object("btn_window_payment_wait")
         self.btn_window_payment_wait.connect("button_press_event", self.on_btn_window_payment_wait_button_press_event)
@@ -388,7 +388,7 @@ class CadastroUsuarios(object):
             self.label_fim_locacao_titulo.set_text("FIM DA LOCAÇÃO")
             self.label_message_envio_email.set_text("UM EMAIL COM O RECAPTULATIVO DE SUA\n RESERVA ACABA DE LHE SER ENVIADO!")
             self.button_fechar_armario.set_label("FECHAR ARMÁRIO")
-            self.label_instrucao.set_label("Após guardar todo o volume necessário, \n \
+            self.label_instrucao.set_text("Após guardar todo o volume necessário, \n \
                                            empurre a porta sem forçar até encostar na trava, \n \
                                            depois para finalizar clique no botão abaixo com nome: FECHAR ARMÁRIO.\n \
                                            Observação: A responsabilidade de fechar o armário é do usuário,\n \
@@ -422,7 +422,7 @@ class CadastroUsuarios(object):
             self.label_fim_locacao_titulo.set_text("FINAL DATE OF LEASE")
             self.label_message_envio_email.set_text("AN EMAIL WITH THE RECAPTULATIVE OF YOUR\n RESERVATION HAS JUST BEEN SENT!")
             self.button_fechar_armario.set_label("CLOSE CABINET")
-            self.button_fechar_armario.set_label("After saving all the required volume, \n \
+            self.label_instrucao.set_text("After saving all the required volume, \n \
                                             push the door without force until it touches the lock, \n \
                                             then to finish click the button below with name: CLOSE CABINET. \ n \
                                             Note: It is the responsibility of the user to close the cabinet, \n \
@@ -536,7 +536,7 @@ class CadastroUsuarios(object):
                 self.window_conclusao.show()
                 self.window_cadastro_usuario.hide()
                 self.window_payment.hide()
-                self.on_button_fechar_armario_button_press_event(self.senha)
+                
                 
             elif self.__result[0] == "armario da classe escolhida indisponível":
                 if self.language == "pt_BR":
@@ -714,9 +714,8 @@ class CadastroUsuarios(object):
         self.entry_entrada_numeros.set_text(self.text_entrada)
         self.entry_entrada_numeros.set_position(-1)
     
-    def on_button_fechar_armario_button_press_event(self, senha):
+    def on_button_fechar_armario_button_press_event(self):
         manager = Management()
-        self.senha = senha
         manager.fechar_armario(self.senha)
         
 
