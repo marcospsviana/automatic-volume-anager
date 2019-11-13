@@ -264,7 +264,7 @@ class WindowLogin(Gtk.Window):
     def wait_payment(self):
         self.window_payment.hide()
 
-    def on_button_fechar_armario_button_press_event(self):
+    def on_button_fechar_armario_button_press_event(self, *args):
         self.manager.fechar_armario(self.senha)
 
 
