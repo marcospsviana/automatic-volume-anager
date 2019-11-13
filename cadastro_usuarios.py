@@ -714,7 +714,7 @@ class CadastroUsuarios(object):
         self.entry_entrada_numeros.set_text(self.text_entrada)
         self.entry_entrada_numeros.set_position(-1)
     
-    def on_button_fechar_armario_button_press_event(self):
+    def on_button_fechar_armario_button_press_event(self, *args):
         manager = Management()
         manager.fechar_armario(self.senha)
         
