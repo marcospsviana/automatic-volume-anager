@@ -829,7 +829,7 @@ ENGINE=InnoDB;''')
         print("__senha data.py fechar_armario", __senha)
         dados = pd.read_sql("SELECT id_armario from tb_locacao where senha = '%s'" %(__senha), __conn)
         
-        __porta = self.select_port(dados['id_armario'][0])
+        __porta = self.select_port(dados['id_armario'][0][0])
         self.porta.exec_port(__porta, "fecha")
 
 
