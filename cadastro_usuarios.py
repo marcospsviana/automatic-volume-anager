@@ -717,6 +717,7 @@ class CadastroUsuarios(object):
     def on_button_fechar_armario_button_press_event(self, *args):
         manager = Management()
         manager.fechar_armario(self.senha)
+        self.dialog_instrucao_fecha_armario.hide()
         
 
 

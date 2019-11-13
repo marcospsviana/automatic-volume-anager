@@ -183,13 +183,16 @@ class WindowLogin(Gtk.Window):
         self.senha = self.entry.get_text()
         if self.opcao == "abrir":
             result = self.manager.abre_armario(self.senha)
+            
         elif self.opcao == "encerrar":
             result = self.manager.finalizar(self.senha)
+            
         print('result login', result)
         if result == 'armario liberado':
             self.window_login.hide()
             self.entry.set_text('')
             print('abrir')
+            self.dialog_instrucao_fecha_armario.show()
         elif result == 'senha incorreta, tente novamente':
             # self.window_login.hide()
             self.entry.set_text('')
