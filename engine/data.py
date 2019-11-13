@@ -832,7 +832,7 @@ ENGINE=InnoDB;''')
         print(dados)
         print(dados[0])
         __porta = self.select_port(dados[0])
-        self.porta.exec_port(__porta, "fecha")
+        self.porta.exec_port(__porta[0][0], "fecha")
         __conn.close()
 
 
