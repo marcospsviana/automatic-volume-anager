@@ -536,7 +536,7 @@ class CadastroUsuarios(object):
                 self.window_conclusao.show()
                 self.window_cadastro_usuario.hide()
                 self.window_payment.hide()
-                return self.senha
+                self.on_button_fechar_armario_button_press_event(self.senha)
                 
             elif self.__result[0] == "armario da classe escolhida indisponível":
                 if self.language == "pt_BR":
@@ -714,8 +714,9 @@ class CadastroUsuarios(object):
         self.entry_entrada_numeros.set_text(self.text_entrada)
         self.entry_entrada_numeros.set_position(-1)
     
-    def on_button_fechar_armario_button_press_event(self):
+    def on_button_fechar_armario_button_press_event(self, senha):
         manager = Management()
+        self.senha = senha
         manager.fechar_armario(self.senha)
         
 

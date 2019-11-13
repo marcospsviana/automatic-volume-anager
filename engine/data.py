@@ -825,6 +825,7 @@ ENGINE=InnoDB;''')
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
         __senha = senha
+        print("__senha data.py fechar_armario", __senha)
         dados = pd.read_sql("SELECT id_armario from tb_locacao where senha = '%s'" %(__senha), __conn)
         
         __porta = self.select_port(dados[0])
