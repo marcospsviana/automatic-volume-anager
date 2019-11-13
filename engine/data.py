@@ -816,7 +816,26 @@ ENGINE=InnoDB;''')
         print("__ARMARIO EM SELECT_port ", __armario)
         __c.execute("select porta from tb_armario where id_armario='%s'" % (__armario))
         retorno_porta = __c.fetchall()
+        __conn.close()
         return retorno_porta
+
+    @classmethod
+    def fechar_armario(self, senha):
+        self.porta = Portas()
+        __conn = mdb.connect(
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+        __c = __conn.cursor(buffered=True)
+        __senha = senha
+        print("__senha data.py fechar_armario", __senha)
+        __c.execute("SELECT id_armario from tb_locacao where senha = '%s'" %(__senha))
+        dados = __c.fetchall()
+        print(dados)
+        print(dados[0])
+        __porta = self.select_port(dados[0])
+        self.porta.exec_port(__porta[0][0], "fecha")
+        __conn.close()
+
+
     
 
    

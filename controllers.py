@@ -101,6 +101,8 @@ class Management(object):
         #__nome = nome
         result = loc.finalizar_pagamento(__senha)
         return result
-    """def send_email(self, nome, email, senha, compartimento, data_locacao, data_limite, hora_inicio_locacao, hora_fim_locacao, language):
-        result = loc.send_email(nome, email, senha, compartimento, data_locacao, data_limite, language)
-        return result"""
+    
+    def fechar_armario(self, senha):
+        __senha = senha
+        arm.fechar_armario(__senha)
+    

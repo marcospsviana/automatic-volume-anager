@@ -14,6 +14,7 @@ class CadastroUsuarios(object):
     def __init__(self, *args):
         global TAXA_HORA_A, TAXA_HORA_B, TAXA_HORA_C, TAXA_HORA_D
         global TAXA_DIARIA_A, TAXA_DIARIA_B, TAXA_DIARIA_C, TAXA_DIARIA_D
+        self.senha = ''
         TAXA_DIARIA_A = 37.5
         TAXA_DIARIA_B = 24.5
         TAXA_DIARIA_C = 14.5
@@ -62,6 +63,7 @@ class CadastroUsuarios(object):
             "on_btn_backspace_button_press_event": self.on_btn_backspace_button_press_event,
             "on_btn_limpar_entrada_numeros_button_press_event": self.on_btn_limpar_entrada_numeros_button_press_event,
             "on_btn_window_payment_wait_button_press_event": self.on_btn_window_payment_wait_button_press_event,
+            "on_button_fechar_armario_button_press_event": self.on_button_fechar_armario_button_press_event,
             
         })
         self.builder.add_from_file("ui/cadastro_usuario.glade")
@@ -71,6 +73,8 @@ class CadastroUsuarios(object):
         self.window_entrada_numeros = self.builder.get_object("window_entrada_numeros")
         self.dialog_retorno_cadastro = self.builder.get_object("dialog_retorno_cadastro")
         self.dialog_message_preencher_campos = self.builder.get_object("dialog_message_preencher_campos")
+        self.dialog_instrucao_fecha_armario = self.builder.get_object(
+            "dialog_instrucao_fecha_armario")
         self.window_conclusao  = self.builder.get_object("window_conclusao")
         
 
@@ -109,6 +113,8 @@ class CadastroUsuarios(object):
         self.label_retorno_cadastro = self.builder.get_object("label_retorno_cadastro")
         " ----------   LABEL dialog_message_preencher_campos -------------"
         self.label_message_preencher_campos = self.builder.get_object("label_message_preencher_campos")
+        " ----------   LABEL DIALOG INSTRUCAO FECHAR ARMARIO -------------"
+        self.label_instrucao = self.builder.get_object("label_instrucao")
         " ----------   LABEL WINDOW CONCLUSAO ----------------------------"
         
         self.label_senha_titulo = self.builder.get_object("label_senha_titulo")
@@ -164,7 +170,7 @@ class CadastroUsuarios(object):
         self.btn_limpar_entrada_numeros = self.builder.get_object("btn_limpar_entrada_numeros")
         self.btn_limpar_entrada_numeros.connect("button_press_event", self.on_btn_limpar_entrada_numeros_button_press_event)
 
-        self.btn_finalizar_sessao = self.builder.get_object("btn_finalizar_sessao")
+        #self.btn_finalizar_sessao = self.builder.get_object("btn_finalizar_sessao")
 
         self.btn_window_payment_wait = self.builder.get_object("btn_window_payment_wait")
         self.btn_window_payment_wait.connect("button_press_event", self.on_btn_window_payment_wait_button_press_event)
@@ -211,6 +217,10 @@ class CadastroUsuarios(object):
         self.btn_dialog_preencher_campos.connect("button_press_event", self.on_btn_dialog_preencher_campos_pressed_event)
         self.btn_finalizar_sessao = self.builder.get_object("btn_finalizar_sessao")
         self.btn_finalizar_sessao.connect("button_press_event", self.on_btn_finalizar_sessao_button_press_event)
+        self.button_fechar_armario = self.builder.get_object(
+            "button_fechar_armario")
+        self.button_fechar_armario.connect(
+            "button_press_event", self.on_button_fechar_armario_button_press_event)
         """ ===================GRIDS====================== """
         self.grid_numbers = self.builder.get_object("grid_numbers")
 
@@ -377,6 +387,13 @@ class CadastroUsuarios(object):
             self.label_inicio_locacao_titulo.set_text("INÍCIO LOCAÇÃO")
             self.label_fim_locacao_titulo.set_text("FIM DA LOCAÇÃO")
             self.label_message_envio_email.set_text("UM EMAIL COM O RECAPTULATIVO DE SUA\n RESERVA ACABA DE LHE SER ENVIADO!")
+            self.button_fechar_armario.set_label("FECHAR ARMÁRIO")
+            self.label_instrucao.set_text("Após guardar todo o volume necessário, \n \
+                                           empurre a porta sem forçar até encostar na trava, \n \
+                                           depois para finalizar clique no botão abaixo com nome: FECHAR ARMÁRIO.\n \
+                                           Observação: A responsabilidade de fechar o armário é do usuário,\n \
+                                           caso esqueça de fechá-lo a empresa não se responsabilizará por perdas!"
+                                           )
             
         elif self.language == "en_US":
             self.label_aguarde_pagamento.set_text("WAIT FOR PAYMENT")
@@ -404,6 +421,12 @@ class CadastroUsuarios(object):
             self.label_inicio_locacao_titulo.set_text("START DATE OF LEASE")
             self.label_fim_locacao_titulo.set_text("FINAL DATE OF LEASE")
             self.label_message_envio_email.set_text("AN EMAIL WITH THE RECAPTULATIVE OF YOUR\n RESERVATION HAS JUST BEEN SENT!")
+            self.button_fechar_armario.set_label("CLOSE CABINET")
+            self.label_instrucao.set_text("After saving all the required volume, \n \
+                                            push the door without force until it touches the lock, \n \
+                                            then to finish click the button below with name: CLOSE CABINET. \ n \
+                                            Note: It is the responsibility of the user to close the cabinet, \n \
+                                            if you forget to close it the company will not be responsible for any losses!")
         
 
          
@@ -423,6 +446,7 @@ class CadastroUsuarios(object):
     def on_btn_finalizar_sessao_button_press_event(self, widget, event):
         self.window_conclusao.hide()
         self.window_payment.hide()
+        self.dialog_instrucao_fecha_armario.show()
     
     def on_btn_dialog_preencher_campos_pressed_event(self, widget, event):
         self.dialog_message_preencher_campos.hide()
@@ -496,8 +520,8 @@ class CadastroUsuarios(object):
                 print("data_fim cadastro usuario", data_fim_locacao)
                 hora_fim_locacao = self.__result[0][4]
                 print("hora_fim cadastro usuario", hora_fim_locacao)
-                __senha = self.__result[0][5]
-                print("__senha cadastro usuario", __senha)
+                self.senha = self.__result[0][5]
+                print("__senha cadastro usuario", self.senha)
                 compartimento = self.__result[0][6]
                 print("compartimento cadastro usuario", compartimento)
             
@@ -505,13 +529,14 @@ class CadastroUsuarios(object):
                 self.label_date_fim_locacao.set_text(data_fim_locacao)
                 self.label_hour_inicio_locacao.set_text(hora_inicio_locacao)
                 self.label_hour_fim_locacao.set_text(hora_fim_locacao)
-                self.label_senha.set_text(str(__senha))
+                self.label_senha.set_text(str(self.senha))
                 self.label_compartimento.set_text(str(compartimento))
                 
                 
                 self.window_conclusao.show()
                 self.window_cadastro_usuario.hide()
                 self.window_payment.hide()
+                
                 
             elif self.__result[0] == "armario da classe escolhida indisponível":
                 if self.language == "pt_BR":
@@ -688,6 +713,12 @@ class CadastroUsuarios(object):
         self.text_entrada = self.entry_entrada_numeros.get_text() + self.value
         self.entry_entrada_numeros.set_text(self.text_entrada)
         self.entry_entrada_numeros.set_position(-1)
+    
+    def on_button_fechar_armario_button_press_event(self, *args):
+        manager = Management()
+        manager.fechar_armario(self.senha)
+        self.dialog_instrucao_fecha_armario.hide()
+        
 
 
 if __name__ == "__main__":
