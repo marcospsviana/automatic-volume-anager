@@ -21,8 +21,10 @@ class Armario:
             __classe, __terminal, __coluna, __nivel, __porta, __compartimento)
         return result
 
-    def remove_armario(id_armario):
+    def fechar_armario(self, senha):
+        __senha = senha
         __bk = Banco()
+        __bk.fechar_armario(__senha)
     
     def seleciona_armario(id_armario):
         
