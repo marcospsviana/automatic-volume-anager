@@ -819,6 +819,7 @@ ENGINE=InnoDB;''')
         __conn.close()
         return retorno_porta
 
+    @classmethod
     def fechar_armario(self, senha):
         self.porta = Portas()
         __conn = mdb.connect(

@@ -21,6 +21,7 @@ class Armario:
             __classe, __terminal, __coluna, __nivel, __porta, __compartimento)
         return result
 
+    @classmethod
     def fechar_armario(self, senha):
         __senha = senha
         __bk = Banco()
