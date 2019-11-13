@@ -776,6 +776,7 @@ ENGINE=InnoDB;''')
     
 
     def pagamento(self, total, senha):
+        __port = Portas()
         codigo = "paguei"
         print("informe o codigo")
         entrada = "paguei"
@@ -791,6 +792,8 @@ ENGINE=InnoDB;''')
             self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (result_id_armario[0]))
             self.__conn.commit()
             self.__conn.close()
+            __porta = self.select_port(result_id_armario)
+            __port.exec_ports(__porta[0], "abre" )
             return ("lk4thHG34=GKss0xndhe")
         else:
             return ("houve um problema com o pagamento")

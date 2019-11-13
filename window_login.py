@@ -199,7 +199,7 @@ class WindowLogin(Gtk.Window):
         retorno = self.manager.pagamento(self.__result, self.entry.get_text())
         if retorno == "lk4thHG34=GKss0xndhe":
             
-            self.wait_payment()
+            self.wait_payment.hide()
 
 
     def on_btn_retornar_entrada_dados_pressed(self, event):
