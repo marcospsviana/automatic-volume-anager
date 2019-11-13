@@ -827,10 +827,13 @@ ENGINE=InnoDB;''')
         __c = __conn.cursor(buffered=True)
         __senha = senha
         print("__senha data.py fechar_armario", __senha)
-        dados = pd.read_sql("SELECT id_armario from tb_locacao where senha = '%s'" %(__senha), __conn)
-        
-        __porta = self.select_port(dados['id_armario'][0][0])
+        __c.execute("SELECT id_armario from tb_locacao where senha = '%s'" %(__senha))
+        dados = __c.fetchall()
+        print(dados)
+        print(dados[0])
+        __porta = self.select_port(dados[0])
         self.porta.exec_port(__porta, "fecha")
+        __conn.close()
 
 
     
