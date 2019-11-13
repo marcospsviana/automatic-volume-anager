@@ -14,7 +14,6 @@ class CadastroUsuarios(object):
     def __init__(self, *args):
         global TAXA_HORA_A, TAXA_HORA_B, TAXA_HORA_C, TAXA_HORA_D
         global TAXA_DIARIA_A, TAXA_DIARIA_B, TAXA_DIARIA_C, TAXA_DIARIA_D
-        global self.senha
         self.senha = ''
         TAXA_DIARIA_A = 37.5
         TAXA_DIARIA_B = 24.5
