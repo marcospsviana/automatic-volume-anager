@@ -793,7 +793,7 @@ ENGINE=InnoDB;''')
             self.__conn.commit()
             self.__conn.close()
             __porta = self.select_port(result_id_armario)
-            __port.exec_ports(__porta[0], "abre" )
+            __port.exec_port(__porta[0], "abre" )
             return ("lk4thHG34=GKss0xndhe")
         else:
             return ("houve um problema com o pagamento")
