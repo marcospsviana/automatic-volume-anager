@@ -183,7 +183,7 @@ class WindowLogin(Gtk.Window):
         self.senha = self.entry.get_text()
         self.id_armario = self.manager.localiza_id_armario(self.senha)
         if self.opcao == "abrir":
-            result = self.manager.abre_armario(self.senha)
+            result = self.manager.abre_armario(self.id_armario)
             
         elif self.opcao == "encerrar":
             result = self.manager.finalizar(self.senha)
