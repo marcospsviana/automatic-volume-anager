@@ -22,10 +22,10 @@ class Armario:
         return result
 
     @classmethod
-    def fechar_armario(self, senha):
-        __senha = senha
+    def fechar_armario(self, id_armario):
+        __id_armario = id_armario
         __bk = Banco()
-        __bk.fechar_armario(__senha)
+        __bk.fechar_armario(__id_armario)
     
     def seleciona_armario(id_armario):
         

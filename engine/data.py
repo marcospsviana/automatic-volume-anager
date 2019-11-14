@@ -793,7 +793,8 @@ ENGINE=InnoDB;''')
             self.__conn.commit()
             self.__conn.close()
             __porta = self.select_port(result_id_armario)
-            __port.exec_port(__porta[0], "abre" )
+            print(__porta)
+            __port.exec_port(__porta[0][0], "abre" )
             return ("lk4thHG34=GKss0xndhe")
         else:
             return ("houve um problema com o pagamento")
@@ -837,6 +838,7 @@ ENGINE=InnoDB;''')
         print("porta select porta id_armario", __porta)
         self.porta.exec_port(__porta[0][0], "fecha")
         __conn.close()
+
     @classmethod
     def abrir_armario(self, id_armario):
         self.porta = Portas()
