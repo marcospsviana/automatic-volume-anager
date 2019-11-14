@@ -660,11 +660,12 @@ class CadastroUsuarios(object):
     def on_btn_confirmar_entrada_numero_button_press_event(self, widget, event):
         if self.label_entrada_numeros.get_text() == "CELULAR" or self.label_entrada_numeros.get_text() == "PHONE":
             self.ddd = self.combobox_flags_ddd.get_active()
-            if self.ddd == 0:
+            '''if self.ddd == 0:
                 self.ddd = "+55 "
             elif self.ddd == 1:
-                self.ddd = "+1 "
-            self.entry_celular.set_text(str(self.ddd) + str(self.text_entrada))
+                self.ddd = "+1 "'''
+            print(self.ddd[1])
+            self.entry_celular.set_text(str(self.ddd[1]) + str(self.text_entrada))
             self.entry_celular.set_position(-1)
         elif self.label_entrada_numeros.get_text() == "QUANTIDADE DIÁRIA" or self.label_entrada_numeros.get_text() == "QUANTITY DAYS":
             
