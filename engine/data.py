@@ -833,7 +833,7 @@ ENGINE=InnoDB;''')
         print(dados[0])'''
         __id_armario = id_armario
         print("id armario em fechar armario data.py", __id_armario)
-        __porta = self.select_port(__id_armario)
+        __porta = self.select_port(__id_armario[0][0])
         print("porta select porta id_armario", __porta)
         self.porta.exec_port(__porta, "fecha")
         __conn.close()
