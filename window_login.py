@@ -272,8 +272,8 @@ class WindowLogin(Gtk.Window):
     def on_button_fechar_armario_button_press_event(self, *args):
         print("args button fechar window login", args)
         manager = Management()
-        id_armario = manager.localiza_id_armario(self.senha)
-        manager.fechar_armario(id_armario)
+        #id_armario = manager.localiza_id_armario(self.senha)
+        manager.fechar_armario(self.id_armario)
         self.dialog_instrucao_fecha_armario.hide()
 
 if __name__ == "__main__":
