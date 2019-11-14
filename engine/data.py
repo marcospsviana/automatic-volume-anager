@@ -831,7 +831,9 @@ ENGINE=InnoDB;''')
         dados = __c.fetchall()
         print(dados)
         print(dados[0])'''
-        __porta = self.select_port(id_armario)
+        __id_armario = id_armario
+        print("id armario em fechar armario data.py", __id_armario)
+        __porta = self.select_port(__id_armario)
         print("porta select porta id_armario", __porta)
         self.porta.exec_port(__porta, "fecha")
         __conn.close()
