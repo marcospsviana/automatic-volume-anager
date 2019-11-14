@@ -625,7 +625,10 @@ ENGINE=InnoDB;''')
                                 }
                 return dados_locacao
     def send_email(self, nome, email, senha, compartimento, data_locacao, hora_inicio_locacao, data_limite,  hora_fim_locacao, language):
-        __server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        #__server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        __server = smtplib.SMTP('smtp.gmail.com:587')
+        __server.starttls()
+        __server.ehlo()
         __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
         __nome = string.capwords(nome)
         if language == "pt_BR":
@@ -644,7 +647,7 @@ ENGINE=InnoDB;''')
 
         __mail_from = "marcospaulo.silvaviana@gmail.com"
         __mail_to = email.lower()
-        __server.sendmail(__mail_from, __mail_to, __message.encode("utf8"))
+        __server.sendmail(__mail_from, __mail_to, __message.as_string())
         __server.quit()
 
 
