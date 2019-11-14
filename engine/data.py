@@ -855,6 +855,7 @@ ENGINE=InnoDB;''')
         print("porta select porta id_armario", __porta)
         self.porta.exec_port(__porta[0][0], "abre")
         __conn.close()
+        return "armario liberado"
     
     @classmethod
     def localiza_id_armario(self, senha):
