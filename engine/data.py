@@ -831,7 +831,7 @@ ENGINE=InnoDB;''')
         print("porta select porta id_armario", __porta)
         #porta.exec_port(str(__porta[0][0]), "fecha")
         comando = str(__porta[0][0]) + ":fecha"
-        serial.write(b'%s'%comando.encode('utf-8'))
+        self.serial.write(b'%s'%comando.encode('utf-8'))
         return "fechado"
         
 
