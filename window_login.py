@@ -181,7 +181,7 @@ class WindowLogin(Gtk.Window):
     def on_btn_confirmar_entrada_dados_pressed(self, event):
         self.message = ''
         self.senha = self.entry.get_text()
-        self.id_armario = self.manager.select_armario(self.senha)
+        self.id_armario = self.manager.localiza_id_armario(self.senha)
         if self.opcao == "abrir":
             result = self.manager.abre_armario(self.senha)
             
