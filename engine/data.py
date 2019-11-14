@@ -647,7 +647,7 @@ ENGINE=InnoDB;''')
 
         __mail_from = "marcospaulo.silvaviana@gmail.com"
         __mail_to = email.lower()
-        __server.sendmail(__mail_from, __mail_to, __message.as_string())
+        __server.sendmail(__mail_from, __mail_to, __message.encode("utf8"))
         __server.quit()
 
 
