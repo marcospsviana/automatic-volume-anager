@@ -26,7 +26,7 @@ class WindowLogin(Gtk.Window):
             "on_btn_backspace_button_press_event": self.on_btn_backspace_button_press_event,
             "on_btn_efetuar_pagamento_button_press_event": self.on_btn_efetuar_pagamento_button_press_event,
             "on_btn_window_payment_wait_button_press_event": self.on_btn_window_payment_wait_button_press_event,
-            "on_button_fechar_armario_button_press_event": self.on_button_fechar_armario_button_press_event,
+            #"on_button_fechar_armario_button_press_event": self.on_button_fechar_armario_button_press_event,
         })
         # ================ DIALOGS ==============================
         #self.dialog_cobranca = self.builder.get_object("dialog_cobranca")
