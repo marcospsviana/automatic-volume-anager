@@ -820,34 +820,30 @@ ENGINE=InnoDB;''')
         return retorno_porta
 
     @classmethod
-    def fechar_armario(self, senha):
+    def fechar_armario(self, id_armario):
         self.porta = Portas()
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
-        __senha = senha
+        '''__senha = senha
         print("__senha data.py fechar_armario", __senha)
         __c.execute("SELECT id_armario from tb_locacao where senha = '%s'" %(__senha))
         dados = __c.fetchall()
         print(dados)
-        print(dados[0])
-        __porta = self.select_port(dados[0])
+        print(dados[0])'''
+        __porta = self.select_port(id_armario)
         self.porta.exec_port(__porta[0][0], "fecha")
         __conn.close()
-
-
     
+    @classmethod
+    def localiza_id_armario(senha):
+        __conn = mdb.connect(
+            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+        __c = __conn.cursor(buffered=True)
+        __c.execute("select id_armario from tb_locacao where senha = '%s'"%senha)
+        result = __c.fetchall()
+        return result
 
-   
-import threading
-class PortasThreading(threading.Thread):
-    def __init__(self, porta):
-        self.porta = porta
-        print("porta em threading", self.porta)
-        threading.Thread.__init__(self)
-    def run_porta(self):
-        self.ports = Portas()
-        self.ports.exec_port(self.porta, "abre")
 
 
 

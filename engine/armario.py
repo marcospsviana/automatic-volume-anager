@@ -72,3 +72,11 @@ class Armario:
         __bk = Banco()
         result = __bk.abrir_armario(__senha)
         return result
+    
+    @staticmethod
+    def localiza_id_armario(senha):
+        __bk = Banco()
+        __senha = senha
+        result = __bk.localiza_id_armario(__senha)
+        return result
+

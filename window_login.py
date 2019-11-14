@@ -181,6 +181,7 @@ class WindowLogin(Gtk.Window):
     def on_btn_confirmar_entrada_dados_pressed(self, event):
         self.message = ''
         self.senha = self.entry.get_text()
+        self.id_armario = self.manager.select_armario(self.senha)
         if self.opcao == "abrir":
             result = self.manager.abre_armario(self.senha)
             
@@ -230,7 +231,7 @@ class WindowLogin(Gtk.Window):
             self.label_valor_extra_value.set_text("R$ " + result["total"])
 
             self.window_pagamento_extra.show()
-            return self.senha
+            return (self.senha, self.id_armario)
 
     def on_btn_efetuar_pagamento_button_press_event(self, widget, event):
         self.window_payment.show()
@@ -265,7 +266,7 @@ class WindowLogin(Gtk.Window):
         self.window_payment.hide()
 
     def on_button_fechar_armario_button_press_event(self, *args):
-        self.manager.fechar_armario(self.senha)
+        self.manager.fechar_armario(self.id_armario)
 
 
 if __name__ == "__main__":

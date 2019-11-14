@@ -524,6 +524,7 @@ class CadastroUsuarios(object):
                 print("__senha cadastro usuario", self.senha)
                 compartimento = self.__result[0][6]
                 print("compartimento cadastro usuario", compartimento)
+                
             
                 self.label_date_inicio_locacao.set_text(dia_inicio_locacao)
                 self.label_date_fim_locacao.set_text(data_fim_locacao)
@@ -536,6 +537,8 @@ class CadastroUsuarios(object):
                 self.window_conclusao.show()
                 self.window_cadastro_usuario.hide()
                 self.window_payment.hide()
+                self.id_armario = manager.localiza_id_armario(self.senha)
+                return self.id_armario
                 
                 
             elif self.__result[0] == "armario da classe escolhida indisponível":
@@ -716,7 +719,8 @@ class CadastroUsuarios(object):
     
     def on_button_fechar_armario_button_press_event(self, *args):
         manager = Management()
-        manager.fechar_armario(self.senha)
+        id_armario = manager.localiza_id_armario(self.senha)
+        manager.fechar_armario(id_armario)
         self.dialog_instrucao_fecha_armario.hide()
         
 
