@@ -42,7 +42,6 @@ class Management(object):
         return result
 
     def localiza_id_armario(self, senha):
-        
         __senha = senha
         result = arm.localiza_id_armario(__senha)
         return result
@@ -105,6 +104,6 @@ class Management(object):
         return result
     
     def fechar_armario(self, id_armario):
-        __senha = senha
-        arm.fechar_armario(__senha)
+        __id_armario = id_armario
+        arm.fechar_armario(__id_armario)
     
