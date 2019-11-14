@@ -822,12 +822,16 @@ ENGINE=InnoDB;''')
 
     @classmethod
     def fechar_armario(self, id_armario):
+        import serial
+        self.serial = serial.Serial("/dev/ttyS0", 9600)
         porta = Portas()
         __id_armario = id_armario
         print("id armario em fechar armario data.py", __id_armario)
         __porta = self.select_port(__id_armario[0][0])
         print("porta select porta id_armario", __porta)
-        porta.exec_port(str(__porta[0][0]), "fecha")
+        #porta.exec_port(str(__porta[0][0]), "fecha")
+        comando = str(__porta[0][0]) + ":fecha"
+        serial.write(b'%s'%comando.encode('utf-8'))
         return "fechado"
         
 
