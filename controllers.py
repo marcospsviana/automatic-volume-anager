@@ -82,11 +82,11 @@ class Management(object):
         result = cb.pagamento(self.__total, senha)
         return result
     
-    def abre_armario(self, senha):
+    def abre_armario(self, id_armario):
         result = ''
-        __senha = senha
+        __id_armario = id_armario
         
-        result = arm.abrir_armario(__senha)
+        result = arm.abrir_armario(__id_armario)
         print("result controllers--->", result)
         return result
     def finalizar(self, senha):

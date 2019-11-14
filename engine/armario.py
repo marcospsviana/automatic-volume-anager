@@ -65,12 +65,12 @@ class Armario:
         return result
     
     @staticmethod
-    def abrir_armario(senha):
+    def abrir_armario(id_armario):
         result = ''
         #__nome = nome
-        __senha = senha
+        __id_armario = id_armario
         __bk = Banco()
-        result = __bk.abrir_armario(__senha)
+        result = __bk.abrir_armario(__id_armario)
         return result
     
     @staticmethod
