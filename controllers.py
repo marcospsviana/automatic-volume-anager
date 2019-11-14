@@ -105,5 +105,6 @@ class Management(object):
     
     def fechar_armario(self, id_armario):
         __id_armario = id_armario
-        arm.fechar_armario(__id_armario)
+        result = arm.fechar_armario(__id_armario)
+        return result
     

@@ -25,7 +25,8 @@ class Armario:
     def fechar_armario(self, id_armario):
         __id_armario = id_armario
         __bk = Banco()
-        __bk.fechar_armario(__id_armario)
+        result = __bk.fechar_armario(__id_armario)
+        return result
     
     def seleciona_armario(id_armario):
         

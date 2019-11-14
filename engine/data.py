@@ -823,21 +823,13 @@ ENGINE=InnoDB;''')
     @classmethod
     def fechar_armario(self, id_armario):
         self.porta = Portas()
-        __conn = mdb.connect(
-            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
-        __c = __conn.cursor(buffered=True)
-        '''__senha = senha
-        print("__senha data.py fechar_armario", __senha)
-        __c.execute("SELECT id_armario from tb_locacao where senha = '%s'" %(__senha))
-        dados = __c.fetchall()
-        print(dados)
-        print(dados[0])'''
         __id_armario = id_armario
         print("id armario em fechar armario data.py", __id_armario)
         __porta = self.select_port(__id_armario[0][0])
         print("porta select porta id_armario", __porta)
         self.porta.exec_port(__porta[0][0], "fecha")
-        __conn.close()
+        return "fechado"
+        
 
     @classmethod
     def abrir_armario(self, id_armario):
@@ -856,7 +848,7 @@ ENGINE=InnoDB;''')
         __porta = self.select_port(__id_armario[0][0])
         print("porta select porta id_armario", __porta)
         self.porta.exec_port(__porta[0][0], "abre")
-        __conn.close()
+        
         return "armario liberado"
     
     @classmethod
