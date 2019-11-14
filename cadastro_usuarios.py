@@ -718,6 +718,7 @@ class CadastroUsuarios(object):
         self.entry_entrada_numeros.set_position(-1)
     
     def on_button_fechar_armario_button_press_event(self, *args):
+        print("args button fechar cadastro usuario", args)
         manager = Management()
         id_armario = manager.localiza_id_armario(self.senha)
         manager.fechar_armario(id_armario)
