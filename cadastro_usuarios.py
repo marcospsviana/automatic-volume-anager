@@ -325,7 +325,7 @@ class CadastroUsuarios(object):
                  [FLAG_PORTUGAL, "+351"], [FLAG_REINO_UNIDO, "+44"], [FLAG_RUSSIA, "+7"], [FLAG_SUICA, "+46"],
                  [FLAG_SUECIA, "+41"], [FLAG_VENEZUELA, "+58"], [FLAG_AFRICA_SUL, "+27"], [FLAG_AFEGAN, "+93"], [NO_FLAG, "Others"]
         ]
-        
+        DDD = {0:"+55"}
         for f in range(len(FLAGS)):
             self.list_flag_ddd.append(FLAGS[f])
 
@@ -659,11 +659,11 @@ class CadastroUsuarios(object):
     
     def on_btn_confirmar_entrada_numero_button_press_event(self, widget, event):
         if self.label_entrada_numeros.get_text() == "CELULAR" or self.label_entrada_numeros.get_text() == "PHONE":
-            self.ddd = self.combobox_flags_ddd.get_text()
-            '''if self.ddd == 0:
+            self.ddd = self.combobox_flags_ddd.get_active()
+            if self.ddd == 0:
                 self.ddd = "+55 "
             elif self.ddd == 1:
-                self.ddd = "+1 "'''
+                self.ddd = "+1 "
             print("self ddd", self.ddd)
             self.entry_celular.set_text(str(self.ddd) + str(self.text_entrada))
             self.entry_celular.set_position(-1)
