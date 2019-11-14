@@ -836,7 +836,7 @@ ENGINE=InnoDB;''')
         __conn.close()
     
     @classmethod
-    def localiza_id_armario(senha):
+    def localiza_id_armario(self, senha):
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
