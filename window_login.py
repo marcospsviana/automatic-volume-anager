@@ -266,7 +266,8 @@ class WindowLogin(Gtk.Window):
         self.window_payment.hide()
 
     def on_button_fechar_armario_button_press_event(self, *args):
-        result = self.manager.fechar_armario(self.id_armario)
+        manager = Management()
+        result = manager.fechar_armario(self.id_armario)
         if result == "fechado":
             self.dialog_instrucao_fecha_armario.hide()
 
