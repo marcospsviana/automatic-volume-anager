@@ -669,39 +669,8 @@ class Banco(object):
             __message = "This email was sent automatically, please do not reply directly to this email! Thanks for using our services %s, below is your compartment release access details:\n \
                     COMPARTMENT: %s \n PASSWORD: %s \n DATE RENT: %s %s \n DEADLINE: %s %s \n" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
-        email_content = """
-                    <html>
-                    <head>
-                        <title>CoolBag-Safe RentLocker </title>
-                        <style type="text/css">
-                            html{
-                                font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif;
-                            }
-                        # header {
-                        background-color: rgb(253,207,3);
-                        text-align: center;
-                        }
-                        h3{
-                            padding: 10px;
-                            margin: 2%;
-                            position: absolute;
-                        }
-                        img{
-
-                            align-content:
-
-                        }
-                    </style>
-                    </head>
-                    <body>
-                    <div id="header"><img src="static/images/coolbag.jpg" width="304" height="150"><h3>CoolBag-Safe RentLocker </h3></div>
-                    <div id="body">
-                    %s
-                    </div>
-                    <div id="bottom"></div>
-                    </body>
-                    </html>
-                    """%( __message)
+        email_content = __message
+                    
 
         msg = email.message.Message()
         msg['Subject'] = 'CoolBag-SafeLocker - Credentials Access'
