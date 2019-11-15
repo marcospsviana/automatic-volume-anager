@@ -701,7 +701,7 @@ class Banco(object):
                     <div id="bottom"></div>
                     </body>
                     </html>
-                    """ % __message
+                    """%( __message)
 
         msg = email.message.Message()
         msg['Subject'] = 'CoolBag-SafeLocker - Credentials Access'
