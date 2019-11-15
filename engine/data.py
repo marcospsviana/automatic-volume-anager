@@ -721,8 +721,8 @@ class Banco(object):
         s.sendmail(msg['From'], [msg['To']], msg.as_string())
 
 
-   @staticmethod
-   def listar_classes_armarios():
+    @staticmethod
+    def listar_classes_armarios():
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
