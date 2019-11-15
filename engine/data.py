@@ -669,7 +669,7 @@ class Banco(object):
             __message = "This email was sent automatically, please do not reply directly to this email! Thanks for using our services %s, below is your compartment release access details:\n \
                     COMPARTMENT: %s \n PASSWORD: %s \n DATE RENT: %s %s \n DEADLINE: %s %s \n" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
-        email_content = __message.replace('\xe1', ' ')
+        email_content = __message.encode('utf-8')
         
                     
 
