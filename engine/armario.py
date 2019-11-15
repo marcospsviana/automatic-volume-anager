@@ -22,10 +22,11 @@ class Armario:
         return result
 
     @classmethod
-    def fechar_armario(self, senha):
-        __senha = senha
+    def fechar_armario(self, id_armario):
+        __id_armario = id_armario
         __bk = Banco()
-        __bk.fechar_armario(__senha)
+        result = __bk.fechar_armario(__id_armario)
+        return result
     
     def seleciona_armario(id_armario):
         
@@ -65,10 +66,18 @@ class Armario:
         return result
     
     @staticmethod
-    def abrir_armario(senha):
+    def abrir_armario(id_armario):
         result = ''
         #__nome = nome
-        __senha = senha
+        __id_armario = id_armario
         __bk = Banco()
-        result = __bk.abrir_armario(__senha)
+        result = __bk.abrir_armario(__id_armario)
         return result
+    
+    @staticmethod
+    def localiza_id_armario(senha):
+        __bk = Banco()
+        __senha = senha
+        result = __bk.localiza_id_armario(__senha)
+        return result
+

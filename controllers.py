@@ -41,9 +41,10 @@ class Management(object):
         result = arm.cad_armario(__classe, __terminal, __coluna, __nivel, __porta, __compartimento)
         return result
 
-    def remove_armarios(self, id_armario):
-        __id = id_armario
-        result = ''
+    def localiza_id_armario(self, senha):
+        __senha = senha
+        result = arm.localiza_id_armario(__senha)
+        return result
 
     @staticmethod
     def lista_armarios():
@@ -81,11 +82,11 @@ class Management(object):
         result = cb.pagamento(self.__total, senha)
         return result
     
-    def abre_armario(self, senha):
+    def abre_armario(self, id_armario):
         result = ''
-        __senha = senha
+        __id_armario = id_armario
         
-        result = arm.abrir_armario(__senha)
+        result = arm.abrir_armario(__id_armario)
         print("result controllers--->", result)
         return result
     def finalizar(self, senha):
@@ -102,7 +103,8 @@ class Management(object):
         result = loc.finalizar_pagamento(__senha)
         return result
     
-    def fechar_armario(self, senha):
-        __senha = senha
-        arm.fechar_armario(__senha)
+    def fechar_armario(self, id_armario):
+        __id_armario = id_armario
+        result = arm.fechar_armario(__id_armario)
+        return result
     

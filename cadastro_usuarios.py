@@ -325,7 +325,7 @@ class CadastroUsuarios(object):
                  [FLAG_PORTUGAL, "+351"], [FLAG_REINO_UNIDO, "+44"], [FLAG_RUSSIA, "+7"], [FLAG_SUICA, "+46"],
                  [FLAG_SUECIA, "+41"], [FLAG_VENEZUELA, "+58"], [FLAG_AFRICA_SUL, "+27"], [FLAG_AFEGAN, "+93"], [NO_FLAG, "Others"]
         ]
-        
+        DDD = {0:"+55"}
         for f in range(len(FLAGS)):
             self.list_flag_ddd.append(FLAGS[f])
 
@@ -524,6 +524,7 @@ class CadastroUsuarios(object):
                 print("__senha cadastro usuario", self.senha)
                 compartimento = self.__result[0][6]
                 print("compartimento cadastro usuario", compartimento)
+                
             
                 self.label_date_inicio_locacao.set_text(dia_inicio_locacao)
                 self.label_date_fim_locacao.set_text(data_fim_locacao)
@@ -536,6 +537,8 @@ class CadastroUsuarios(object):
                 self.window_conclusao.show()
                 self.window_cadastro_usuario.hide()
                 self.window_payment.hide()
+                self.id_armario = manager.localiza_id_armario(self.senha)
+                return self.id_armario
                 
                 
             elif self.__result[0] == "armario da classe escolhida indisponível":
@@ -661,6 +664,7 @@ class CadastroUsuarios(object):
                 self.ddd = "+55 "
             elif self.ddd == 1:
                 self.ddd = "+1 "
+            print("self ddd", self.ddd)
             self.entry_celular.set_text(str(self.ddd) + str(self.text_entrada))
             self.entry_celular.set_position(-1)
         elif self.label_entrada_numeros.get_text() == "QUANTIDADE DIÁRIA" or self.label_entrada_numeros.get_text() == "QUANTITY DAYS":
@@ -715,8 +719,10 @@ class CadastroUsuarios(object):
         self.entry_entrada_numeros.set_position(-1)
     
     def on_button_fechar_armario_button_press_event(self, *args):
+        print("args button fechar cadastro usuario", args)
         manager = Management()
-        manager.fechar_armario(self.senha)
+        id_armario = manager.localiza_id_armario(self.senha)
+        manager.fechar_armario(id_armario)
         self.dialog_instrucao_fecha_armario.hide()
         
 
