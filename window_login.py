@@ -185,6 +185,48 @@ class WindowLogin(Gtk.Window):
         print("id_armario window login abrir", self.id_armario)
         if self.opcao == "abrir":
             result = self.manager.abre_armario(self.id_armario)
+            if result == 'armario liberado':
+                self.window_login.hide()
+                self.entry.set_text('')
+                print('abrir')
+                self.dialog_instrucao_fecha_armario.show()
+            elif result == 'senha incorreta, tente novamente':
+                # self.window_login.hide()
+                self.entry.set_text('')
+                self.dialog_senha_incorreta.show()
+
+            else:
+
+                print("result window_login", result)
+                # self.window_login.close()
+                #result = dict(zip(result))
+                self.__result = result["total"]
+                #print(self.__result, result)
+
+                locacao = result["data_locacao"]
+                limite = result["tempo_locado"]
+                print("locacao window_login", locacao)
+                print(type(locacao))
+
+                __dia_da_semana_locacao = result["dia_locacao"]
+                __dia_da_semana_locado = result["dia_limite"]
+                __hora_locacao = result["hora_locacao"]
+                __hora_locado = result["hora_locado"]
+                __dia_extra = result["dia_extra"]
+                __hora_extra = result["hora_extra"]
+                __minuto_extra = result["minuto_extra"]
+                self.label_data_locacao_inicial.set_text(__dia_da_semana_locacao + " " +
+                                                        str(locacao))  # locacao)[8:10] + "/" + str(locacao)[5:7])
+                self.label_data_locacao_encerrada.set_text(__dia_da_semana_locado + " " +
+                                                        str(limite))  # [8:10] + "/" + str(limite)[5:7])
+                self.label_hour_locacao_inicial.set_text(str(__hora_locacao))
+                self.label_hour_locacao_encerrada.set_text(str(__hora_locado))
+                self.label_tempo_extra_days.set_text(str(__dia_extra))
+                self.label_tempo_extra_hours.set_text(str(__hora_extra))
+                self.label_tempo_extra_minutes.set_text(str(__minuto_extra))
+                self.label_valor_extra_value.set_text("R$ " + result["total"])
+
+                self.window_pagamento_extra.show()
             
         elif self.opcao == "encerrar":
             result = self.manager.finalizar(self.senha)
