@@ -230,7 +230,7 @@ class WindowLogin(Gtk.Window):
                 self.label_valor_extra_value.set_text("R$ " + result["total"])
 
                 self.window_pagamento_extra.show()
-        
+        return (self.senha, self.id_armario)
 
     def on_btn_efetuar_pagamento_button_press_event(self, widget, event):
         self.window_payment.show()
