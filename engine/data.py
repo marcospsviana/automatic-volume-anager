@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+
 import sys
 import asyncio
 import mysql.connector as mdb
@@ -19,6 +20,7 @@ from .portas import Portas
 
 class Banco(object):
     def __init__(self):
+
         self.data = ''
         self.porta = ''
         self.port = Portas()
@@ -55,29 +57,29 @@ class Banco(object):
            '''
                          )
         self.__c.execute(''' CREATE TABLE IF NOT EXISTS `tb_usuario` (
-	`id_usuario` INT(10)  AUTO_INCREMENT,
-	`nome` VARCHAR(50) NULL DEFAULT NULL,
-	`email` VARCHAR(80) NOT NULL,
-	`telefone` TEXT NOT NULL,
-	PRIMARY KEY (`id_usuario`)
-)
-ENGINE=InnoDB;''')
+                            `id_usuario` INT(10)  AUTO_INCREMENT,
+                            `nome` VARCHAR(50) NULL DEFAULT NULL,
+                            `email` VARCHAR(80) NOT NULL,
+                            `telefone` TEXT NOT NULL,
+                            PRIMARY KEY (`id_usuario`)
+                            )
+                            ENGINE=InnoDB;''')
         self.__c.execute('''CREATE TABLE IF NOT EXISTS `tb_locacao` (
-  `id_locacao` int(10) NOT NULL AUTO_INCREMENT,
-  `data_locacao` datetime NOT NULL,
-  `tempo_locado` datetime NOT NULL,
-  `tempo_corrido` time DEFAULT '00:00:00',
-  `senha` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_armario` int(10) NOT NULL DEFAULT 0,
-  `id_usuario` int(10) NOT NULL DEFAULT 0,
-  KEY `id_locacao` (`id_locacao`),
-  KEY `FK__tb_armario` (`id_armario`),
-  KEY `FK__tb_usuario` (`id_usuario`),
-  CONSTRAINT `FK__tb_armario` FOREIGN KEY (`id_armario`) REFERENCES `tb_armario` (`id_armario`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK__tb_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+                `id_locacao` int(10) NOT NULL AUTO_INCREMENT,
+                `data_locacao` datetime NOT NULL,
+                `tempo_locado` datetime NOT NULL,
+                `tempo_corrido` time DEFAULT '00:00:00',
+                `senha` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
+                `id_armario` int(10) NOT NULL DEFAULT 0,
+                `id_usuario` int(10) NOT NULL DEFAULT 0,
+                KEY `id_locacao` (`id_locacao`),
+                KEY `FK__tb_armario` (`id_armario`),
+                KEY `FK__tb_usuario` (`id_usuario`),
+                CONSTRAINT `FK__tb_armario` FOREIGN KEY (`id_armario`) REFERENCES `tb_armario` (`id_armario`) ON DELETE CASCADE ON UPDATE CASCADE,
+                CONSTRAINT `FK__tb_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-''')
+                ''')
 
     def create_user(self, nome, email, telefone):
         """ verifica se existe um usuario já cadastrado atraves de busa pelo email
@@ -644,31 +646,30 @@ ENGINE=InnoDB;''')
                 return dados_locacao
 
     def send_email(self, nome, email, senha, compartimento, data_locacao, hora_inicio_locacao, data_limite,  hora_fim_locacao, language):
-        # __server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-        from email.mime.multipart import MIMEMultipart
-        from email.mime.text import MIMEText
-        import email.message
-        import smtplib
-        __server = smtplib.SMTP('smtp.gmail.com:587')
-        __server.starttls()
-        __server.ehlo()
-        __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
-        __nome = string.capwords(nome)
-        if language == "pt_BR":
-            __message = " Este e-mail foi enviado de forma automática , \
+    # __server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+    from email.mime.multipart import MIMEMultipart
+    from email.mime.text import MIMEText
+    import email.message
+    import smtplib
+    __server = smtplib.SMTP('smtp.gmail.com:587')
+    __server.starttls()
+    __server.ehlo()
+    __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
+    __nome = string.capwords(nome)
+    if language == "pt_BR":
+        __message = " Este e-mail foi enviado de forma automática , \
             não responda diretamente a este e-mail!\n\n Obrigado por utilizar nossos serviços %s, \
             abaixo encontra-se os seus dados de acesso para liberação do compartimento:\n\
             COMPARTIMENTO:  %s \n \
             SENHA: %s\n \
             DATA LOCAÇÃO: %s %s \n \
             DATA LIMITE: %s %s\n " % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
-            
-        elif language == "en_US":
-            __message = "This email was sent automatically, please do not reply directly to this email! Thanks for using our services %s, below is your compartment release access details:\n \
+
+    elif language == "en_US":
+        __message = "This email was sent automatically, please do not reply directly to this email! Thanks for using our services %s, below is your compartment release access details:\n \
                 COMPARTMENT: %s \n PASSWORD: %s \n DATE RENT: %s %s \n DEADLINE: %s %s \n" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
-
-        email_content = """
+    email_content = """
                 <html>
                 <head>
                     <title>CoolBag-Safe RentLocker </title>
@@ -676,7 +677,7 @@ ENGINE=InnoDB;''')
                         html{
                             font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif;
                         }
-                    #header {
+                    # header {
                     background-color: rgb(253,207,3);
                     text-align: center;
                     }
@@ -686,8 +687,8 @@ ENGINE=InnoDB;''')
                         position: absolute;
                     }
                     img{
-                        
-                        align-content: 
+
+                        align-content:
 
                     }
                 </style>
@@ -700,25 +701,25 @@ ENGINE=InnoDB;''')
                 <div id="bottom"></div>
                 </body>
                 </html>
-                """%__message
+                """ % __message
 
-        msg = email.message.Message()
-        msg['Subject'] = 'CoolBag-SafeLocker - Credentials Access'
+    msg = email.message.Message()
+    msg['Subject'] = 'CoolBag-SafeLocker - Credentials Access'
 
+    msg['From'] = 'marcospaulo.silvaviana@gmail.com'
+    msg['To'] = 'marcospaulo.silvaviana@gmail.com'
+    password = "m1cr0@t805i"
+    msg.add_header('Content-Type', 'text/html')
+    msg.set_payload(email_content)
 
-        msg['From'] = 'marcospaulo.silvaviana@gmail.com'
-        msg['To'] = 'marcospaulo.silvaviana@gmail.com'
-        password = "m1cr0@t805i"
-        msg.add_header('Content-Type', 'text/html')
-        msg.set_payload(email_content)
+    s = smtplib.SMTP('smtp.gmail.com: 587')
+    s.starttls()
 
-        s = smtplib.SMTP('smtp.gmail.com: 587')
-        s.starttls()
+    # Login Credentials for sending the mail
+    s.login(msg['From'], password)
 
-        # Login Credentials for sending the mail
-        s.login(msg['From'], password)
+    s.sendmail(msg['From'], [msg['To']], msg.as_string())
 
-        s.sendmail(msg['From'], [msg['To']], msg.as_string())
 
    @staticmethod
    def listar_classes_armarios():
