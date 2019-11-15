@@ -678,7 +678,7 @@ class Banco(object):
         msg['From'] = 'marcospaulo.silvaviana@gmail.com'
         msg['To'] = 'marcospaulo.silvaviana@gmail.com'
         password = "m1cr0@t805i"
-        msg.add_header('Content-Type', 'text/html')
+        msg.add_header('Content-Type', 'text')
         msg.set_payload(email_content)
 
         s = smtplib.SMTP('smtp.gmail.com: 587')
@@ -687,7 +687,7 @@ class Banco(object):
         # Login Credentials for sending the mail
         s.login(msg['From'], password)
 
-        s.sendmail(msg['From'], [msg['To']], msg.encode('utf-8'))
+        s.sendmail(msg['From'], [msg['To']], msg.as_string())
 
 
     @staticmethod
