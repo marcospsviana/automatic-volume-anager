@@ -674,12 +674,12 @@ class Banco(object):
                     
 
        
-        __message['Subject'] = 'CoolBag-SafeLocker - Credentials Access'
+        Subject = 'CoolBag-SafeLocker - Credentials Access'
 
-        __message['From'] = 'marcospaulo.silvaviana@gmail.com'
-        __message['To'] = 'marcospaulo.silvaviana@gmail.com'
+        FROM = 'marcospaulo.silvaviana@gmail.com'
+        TO = 'marcospaulo.silvaviana@gmail.com'
         password = "m1cr0@t805i"
-        __message.add_header('Content-Type', 'text')
+        
        
         
 
@@ -687,9 +687,9 @@ class Banco(object):
         s.starttls()
 
         # Login Credentials for sending the mail
-        s.login(__message['From'], password)
+        s.login(FROM, password)
 
-        s.sendmail(msg['From'], [msg['To']], __message.encode('utf-8'))
+        s.sendmail(FROM, TO, __message.encode('utf-8'))
         s.quit()
 
 
