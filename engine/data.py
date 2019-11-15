@@ -649,6 +649,57 @@ ENGINE=InnoDB;''')
         __mail_to = email.lower()
         __server.sendmail(__mail_from, __mail_to, __message.encode("utf8"))
         __server.quit()
+        from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import email.message
+import smtplib
+
+#__server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+# __server = smtplib.SMTP('smtp.gmail.com:587')
+# __server.starttls()
+# __server.ehlo()
+# __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
+#__message = MIMEMultipart()
+email_content = """ 
+<html>
+ 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+   <title>Coolbag-Safe RentLocker</title>
+   <style type="text/css">
+    #header {
+    background-color: rgb(253,207,3);
+    }
+   </style>
+</head>
+ 
+<body>
+ 
+ <div></div>
+
+ 
+</body>
+</html>
+ """
+
+msg = email.message.Message()
+msg['Subject'] = 'CoolBag-SafeLocker - Credentials Access'
+ 
+ 
+msg['From'] = 'marcospaulo.silvaviana@gmail.com'
+msg['To'] = 'marcospaulo.silvaviana@gmail.com'
+password = "m1cr0@t805i"
+msg.add_header('Content-Type', 'text/html')
+msg.set_payload(email_content)
+ 
+s = smtplib.SMTP('smtp.gmail.com: 587')
+s.starttls()
+ 
+# Login Credentials for sending the mail
+s.login(msg['From'], password)
+ 
+s.sendmail(msg['From'], [msg['To']], msg.as_string())
 
 
         
