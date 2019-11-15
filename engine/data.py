@@ -687,7 +687,7 @@ class Banco(object):
         # Login Credentials for sending the mail
         s.login(msg['From'], password)
 
-        s.sendmail(msg['From'], [msg['To']], msg.as_string())
+        s.sendmail(msg['From'], [msg['To']], msg.encode('utf-8'))
 
 
     @staticmethod
