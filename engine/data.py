@@ -646,79 +646,79 @@ class Banco(object):
                 return dados_locacao
 
     def send_email(self, nome, email, senha, compartimento, data_locacao, hora_inicio_locacao, data_limite,  hora_fim_locacao, language):
-    # __server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-    from email.mime.multipart import MIMEMultipart
-    from email.mime.text import MIMEText
-    import email.message
-    import smtplib
-    __server = smtplib.SMTP('smtp.gmail.com:587')
-    __server.starttls()
-    __server.ehlo()
-    __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
-    __nome = string.capwords(nome)
-    if language == "pt_BR":
-        __message = " Este e-mail foi enviado de forma automática , \
-            não responda diretamente a este e-mail!\n\n Obrigado por utilizar nossos serviços %s, \
-            abaixo encontra-se os seus dados de acesso para liberação do compartimento:\n\
-            COMPARTIMENTO:  %s \n \
-            SENHA: %s\n \
-            DATA LOCAÇÃO: %s %s \n \
-            DATA LIMITE: %s %s\n " % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
+        # __server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        from email.mime.multipart import MIMEMultipart
+        from email.mime.text import MIMEText
+        import email.message
+        import smtplib
+        __server = smtplib.SMTP('smtp.gmail.com:587')
+        __server.starttls()
+        __server.ehlo()
+        __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
+        __nome = string.capwords(nome)
+        if language == "pt_BR":
+            __message = " Este e-mail foi enviado de forma automática , \
+                não responda diretamente a este e-mail!\n\n Obrigado por utilizar nossos serviços %s, \
+                abaixo encontra-se os seus dados de acesso para liberação do compartimento:\n\
+                COMPARTIMENTO:  %s \n \
+                SENHA: %s\n \
+                DATA LOCAÇÃO: %s %s \n \
+                DATA LIMITE: %s %s\n " % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
-    elif language == "en_US":
-        __message = "This email was sent automatically, please do not reply directly to this email! Thanks for using our services %s, below is your compartment release access details:\n \
-                COMPARTMENT: %s \n PASSWORD: %s \n DATE RENT: %s %s \n DEADLINE: %s %s \n" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
+        elif language == "en_US":
+            __message = "This email was sent automatically, please do not reply directly to this email! Thanks for using our services %s, below is your compartment release access details:\n \
+                    COMPARTMENT: %s \n PASSWORD: %s \n DATE RENT: %s %s \n DEADLINE: %s %s \n" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
-    email_content = """
-                <html>
-                <head>
-                    <title>CoolBag-Safe RentLocker </title>
-                    <style type="text/css">
-                        html{
-                            font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif;
+        email_content = """
+                    <html>
+                    <head>
+                        <title>CoolBag-Safe RentLocker </title>
+                        <style type="text/css">
+                            html{
+                                font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif;
+                            }
+                        # header {
+                        background-color: rgb(253,207,3);
+                        text-align: center;
                         }
-                    # header {
-                    background-color: rgb(253,207,3);
-                    text-align: center;
-                    }
-                    h3{
-                        padding: 10px;
-                        margin: 2%;
-                        position: absolute;
-                    }
-                    img{
+                        h3{
+                            padding: 10px;
+                            margin: 2%;
+                            position: absolute;
+                        }
+                        img{
 
-                        align-content:
+                            align-content:
 
-                    }
-                </style>
-                </head>
-                <body>
-                <div id="header"><img src="static/images/coolbag.jpg" width="304" height="150"><h3>CoolBag-Safe RentLocker </h3></div>
-                <div id="body">
-                %s
-                </div>
-                <div id="bottom"></div>
-                </body>
-                </html>
-                """ % __message
+                        }
+                    </style>
+                    </head>
+                    <body>
+                    <div id="header"><img src="static/images/coolbag.jpg" width="304" height="150"><h3>CoolBag-Safe RentLocker </h3></div>
+                    <div id="body">
+                    %s
+                    </div>
+                    <div id="bottom"></div>
+                    </body>
+                    </html>
+                    """ % __message
 
-    msg = email.message.Message()
-    msg['Subject'] = 'CoolBag-SafeLocker - Credentials Access'
+        msg = email.message.Message()
+        msg['Subject'] = 'CoolBag-SafeLocker - Credentials Access'
 
-    msg['From'] = 'marcospaulo.silvaviana@gmail.com'
-    msg['To'] = 'marcospaulo.silvaviana@gmail.com'
-    password = "m1cr0@t805i"
-    msg.add_header('Content-Type', 'text/html')
-    msg.set_payload(email_content)
+        msg['From'] = 'marcospaulo.silvaviana@gmail.com'
+        msg['To'] = 'marcospaulo.silvaviana@gmail.com'
+        password = "m1cr0@t805i"
+        msg.add_header('Content-Type', 'text/html')
+        msg.set_payload(email_content)
 
-    s = smtplib.SMTP('smtp.gmail.com: 587')
-    s.starttls()
+        s = smtplib.SMTP('smtp.gmail.com: 587')
+        s.starttls()
 
-    # Login Credentials for sending the mail
-    s.login(msg['From'], password)
+        # Login Credentials for sending the mail
+        s.login(msg['From'], password)
 
-    s.sendmail(msg['From'], [msg['To']], msg.as_string())
+        s.sendmail(msg['From'], [msg['To']], msg.as_string())
 
 
    @staticmethod
