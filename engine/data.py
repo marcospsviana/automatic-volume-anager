@@ -669,27 +669,28 @@ class Banco(object):
             __message = "This email was sent automatically, please do not reply directly to this email! Thanks for using our services %s, below is your compartment release access details:\n \
                     COMPARTMENT: %s \n PASSWORD: %s \n DATE RENT: %s %s \n DEADLINE: %s %s \n" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
-        email_content = __message.encode('utf-8')
+       
         
                     
 
-        msg = email.message.Message()
-        msg['Subject'] = 'CoolBag-SafeLocker - Credentials Access'
+       
+        __message['Subject'] = 'CoolBag-SafeLocker - Credentials Access'
 
-        msg['From'] = 'marcospaulo.silvaviana@gmail.com'
-        msg['To'] = 'marcospaulo.silvaviana@gmail.com'
+        __message['From'] = 'marcospaulo.silvaviana@gmail.com'
+        __message['To'] = 'marcospaulo.silvaviana@gmail.com'
         password = "m1cr0@t805i"
-        msg.add_header('Content-Type', 'text')
-        msg.set_payload(email_content)
+        __message.add_header('Content-Type', 'text')
+       
         
 
         s = smtplib.SMTP('smtp.gmail.com: 587')
         s.starttls()
 
         # Login Credentials for sending the mail
-        s.login(msg['From'], password)
+        s.login(__message['From'], password)
 
-        s.sendmail(msg['From'], [msg['To']], msg.as_string())
+        s.sendmail(msg['From'], [msg['To']], __message.encode('utf-8'))
+        s.quit()
 
 
     @staticmethod
