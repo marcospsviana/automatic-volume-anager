@@ -190,7 +190,7 @@ class WindowLogin(Gtk.Window):
             if result == "armario liberado":
                 self.dialog_instrucao_fecha_armario.show()
                 self.window_login.hide()
-            return self.id_armario
+        return self.id_armario
             
         print('result login', result)
         if result == 'armario liberado':
