@@ -678,15 +678,15 @@ class Banco(object):
         hj = datetime.datetime.now()
         hj = datetime.datetime(hj.year, hj.month, hj.day,
                                hj.hour, hj.minute, hj.second)
-        __cursor.execute("SELECT senha FROM tb_locacao WHERE id_armario = %s"%(id_armario[0][0]))
+        #__cursor.execute("SELECT senha FROM tb_locacao WHERE id_armario = %s"%(id_armario))
 
         # __senha = senha.encode(encoding='utf-8', errors='strict')
         # print('senha encode', senha)
         __senha = __cursor.fetchall()
-        __senha = __senha[0][0]
+        __senha = senha  #__senha[0][0]
         # print(__senha)
         self.__id_user = self.select_user(__senha)  # __senha)
-        if self.__id_user == 'senha incorreta, tente novamente' or __senha == []:
+        if self.__id_user == 'senha incorreta, tente novamente':
             return 'senha incorreta, tente novamente'
 
         else:
@@ -696,9 +696,10 @@ class Banco(object):
             print(self.__locacao['tempo_locado'][0])
             if (self.__locacao['tempo_locado'][0]) >= hj:
                 #import threading
-                # self.__c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (__senha,))
+                self.__c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (__senha,))
                 # self.__conn.commit()
                 # self.__conn.close()
+                id_armario = self.__c.fetchall()
 
                 porta = self.select_port(id_armario[0][0])
                 print("abrir armario data.py porta", str(porta[0][0]))

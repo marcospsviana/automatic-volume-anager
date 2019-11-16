@@ -189,7 +189,7 @@ class WindowLogin(Gtk.Window):
             result == 'senha incorreta, tente novamente'
         print("id_armario window login abrir", self.id_armario)
         if self.opcao == "abrir":
-            result = self.manager.abre_armario(self.id_armario)
+            result = self.manager.abre_armario(self.senha)
             if result == 'armario liberado':
                 self.window_login.hide()
                 self.entry.set_text('')
