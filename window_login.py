@@ -231,7 +231,7 @@ class WindowLogin(Gtk.Window):
                         self.window_login.hide()
                         self.entry.set_text('')
                         print('abrir')
-                        self.dialog_instrucao_fecha_armario.show()
+                        self.dialog_instrucao_fecha_armario.show() # adicionar instrucao de fim de locacao
                 else:
                     self.window_pagamento_extra.show()
             

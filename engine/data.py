@@ -340,7 +340,7 @@ class Banco(object):
 
     def liberar_armario(self, id_armario):
         self.port = Portas()
-        self.__id = id_armario
+        self.__id = id_armario[0][0]
         print("self id armario em liberar armario", self.__id)
         port = self.select_port(self.__id)
         self.port.exec_port(port, "abre")
