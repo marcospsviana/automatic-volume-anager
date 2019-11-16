@@ -78,11 +78,14 @@
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can_focus">False</property>
+        <property name="halign">center</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox">
             <property name="can_focus">False</property>
+            <property name="margin_right">30</property>
+            <property name="margin_bottom">30</property>
             <property name="layout_style">end</property>
             <child>
               <placeholder/>
