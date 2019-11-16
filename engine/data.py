@@ -613,7 +613,7 @@ class Banco(object):
         DEADLINE: %s %s \n""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
        
-        body = MIMEText(html, __message)
+        body = MIMEText(__message, 'html')
                     
 
        
