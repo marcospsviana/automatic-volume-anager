@@ -139,11 +139,11 @@ class WindowLogin(Gtk.Window):
             self.btn_tentar_dialog_senha_incorreta.set_label(
                 "TENTAR NOVAMENTE")
             self.button_fechar_armario.set_label("FECHAR ARMÁRIO")
-            self.label_instrucao.set_label("Após guardar todo o volume necessário, \n \
-                                           empurre a porta sem forçar até encostar na trava, \n \
-                                           depois para finalizar clique no botão abaixo com nome: FECHAR ARMÁRIO.\n \
-                                           Observação: A responsabilidade de fechar o armário é do usuário,\n \
-                                           caso esqueça de fechá-lo a empresa não se responsabilizará por perdas!"
+            self.label_instrucao.set_label("""Após guardar todo o volume necessário, \n
+                                           empurre a porta sem forçar até encostar na trava,\n 
+                                           depois para finalizar clique no botão abaixo com nome: FECHAR ARMÁRIO.\n
+                                           Observação: A responsabilidade de fechar o armário é do usuário,\n
+                                           caso esqueça de fechá-lo a empresa não se responsabilizará por perdas!"""
                                            )
 
         elif self.language == "en_US":
@@ -160,11 +160,12 @@ class WindowLogin(Gtk.Window):
             self.btn_dialog_cancelar_senha_incorreta.set_label("CANCEL")
             self.btn_tentar_dialog_senha_incorreta.set_label("TRY AGAIN")
             self.button_fechar_armario.set_label("CLOSE CABINET")
-            self.button_fechar_armario.set_label("After saving all the required volume, \n \
-                                            push the door without force until it touches the lock, \n \
-                                            then to finish click the button below with name: CLOSET CLOSER. \ n \
-                                            Note: It is the responsibility of the user to close the cabinet, \n \
-                                            if you forget to close it the company will not be responsible for any losses!")
+            self.button_fechar_armario.set_label("""After saving all the required volume,\n
+                                            push the door without force until it touches the lock,\n
+                                            then to finish click the button below with name: CLOSET CLOSER.\n
+                                            Note: It is the responsibility of the user to close the cabinet,\n
+                                            if you forget to close it the company will not be responsible for any losses!"""
+                                            )
 
         self.window_payment = self.builder.get_object("window_payment_wait")
         self.window_pagamento_extra = self.builder.get_object(

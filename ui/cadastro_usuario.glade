@@ -3,18 +3,21 @@
 <interface>
   <requires lib="gtk+" version="3.18"/>
   <object class="GtkDialog" id="dialog_instrucao_fecha_armario">
-    <property name="width_request">1024</property>
+    <property name="width_request">800</property>
     <property name="height_request">500</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
+    <property name="window_position">center-always</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
+    <property name="gravity">center</property>
     <child>
       <placeholder/>
     </child>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can_focus">False</property>
+        <property name="halign">center</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
@@ -49,6 +52,7 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">center</property>
             <property name="margin_left">20</property>
             <property name="margin_right">20</property>
             <property name="margin_top">10</property>
