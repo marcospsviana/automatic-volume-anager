@@ -820,7 +820,7 @@ class Banco(object):
         __armario = armario
         print("__ARMARIO EM SELECT_port ", __armario)
         __c.execute(
-            "select porta from tb_armario where id_armario='%s'" % (__armario[0][0]))
+            "select porta from tb_armario where id_armario='%s'" % (__armario))
         retorno_porta = __c.fetchall()
         __conn.close()
         return retorno_porta
