@@ -296,6 +296,7 @@ class WindowLogin(Gtk.Window):
         self.window_payment.hide()
         self.window_pagamento_extra.hide()
         self.window_login.hide()
+        self.dialog_instrucao_fecha_armario.show()
 
     def on_btn_tentar_dialog_senha_incorreta(self, widget):
         self.dialog_senha_incorreta.hide()
