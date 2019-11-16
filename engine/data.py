@@ -599,17 +599,23 @@ class Banco(object):
         __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
         __nome = string.capwords(nome)
         if language == "pt_BR":
-            __message = " Este e-mail foi enviado de forma automática , \
-                não responda diretamente a este e-mail!\n\n Obrigado por utilizar nossos serviços %s, \
-                abaixo encontra-se os seus dados de acesso para liberação do compartimento:\n\
-                COMPARTIMENTO:  %s \n \
-                SENHA: %s\n \
-                DATA LOCAÇÃO: %s %s \n \
-                DATA LIMITE: %s %s\n " % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
+            __message = """ Este e-mail foi enviado de forma automática , 
+                não responda diretamente a este e-mail!\n\n Obrigado por utilizar nossos serviços %s, 
+                abaixo encontra-se os seus dados de acesso para liberação do compartimento:\n
+                COMPARTIMENTO:  %s \n 
+                SENHA: %s\n 
+                DATA LOCAÇÃO: %s %s \n 
+                DATA LIMITE: %s %s\n """ % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
         elif language == "en_US":
-            __message = "This email was sent automatically, please do not reply directly to this email! Thanks for using our services %s, below is your compartment release access details:\n \
-                    COMPARTMENT: %s \n PASSWORD: %s \n DATE RENT: %s %s \n DEADLINE: %s %s \n" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
+            __message = """Subject = 'CoolBag-SafeLocker - Credentials Access'
+
+        From = marcospaulo.silvaviana@gmail.com
+        To = marcospaulo.silvaviana@gmail.com
+        This email was sent automatically, 
+            please do not reply directly to this email! Thanks for using our services %s, 
+            below is your compartment release access details:\n 
+                    COMPARTMENT: %s \n PASSWORD: %s \n DATE RENT: %s %s \n DEADLINE: %s %s \n""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
        
         
@@ -619,7 +625,7 @@ class Banco(object):
         Subject = 'CoolBag-SafeLocker - Credentials Access'
 
         FROM = 'marcospaulo.silvaviana@gmail.com'
-        TO = 'marcospaulo.silvaviana@gmail.com'
+        TO = email
         password = "m1cr0@t805i"
         
        
