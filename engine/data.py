@@ -505,6 +505,8 @@ class Banco(object):
         classe_armario = pd.read_sql(
             "select classe from tb_armario where id_armario = %s" % id_armario, __conn)
         classe = str(classe_armario['classe'][0])
+        if __minuto <= 5:
+            valor_total = 0
         if __minuto <= 15 and minuto > 5:
             calculo_minuto = (1/4)
         elif __minuto > 15 and minuto <= 30:
