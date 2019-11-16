@@ -597,20 +597,21 @@ class Banco(object):
         msg = MIMEMultipart()
         __nome = string.capwords(nome)
         if language == "pt_BR":
-            __message = """ Este e-mail foi enviado de forma automática , 
-                não responda diretamente a este e-mail!\n\n Obrigado por utilizar nossos serviços %s, 
-                abaixo encontra-se os seus dados de acesso para liberação do compartimento:\n
-                COMPARTIMENTO:  %s \n 
-                SENHA: %s\n 
-                DATA LOCAÇÃO: %s %s \n 
-                DATA LIMITE: %s %s\n """ % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
+            __message = """ Este e-mail foi enviado de forma automática ,não responda diretamente a este e-mail!\n 
+            Obrigado por utilizar nossos serviços %s, abaixo encontra-se os seus dados de acesso para liberação do compartimento:\n
+            COMPARTIMENTO:  %s \n 
+            SENHA: %s\n 
+            DATA LOCAÇÃO: %s %s \n 
+            DATA LIMITE: %s %s\n """ % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
         elif language == "en_US":
             __message = """
-        This email was sent automatically, 
-        please do not reply directly to this email! Thanks for using our services %s, 
-        below is your compartment release access details:\n 
-        COMPARTMENT: %s \n PASSWORD: %s \n DATE RENT: %s %s \n DEADLINE: %s %s \n""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
+        This email was sent automatically,please do not reply directly to this email! 
+        Thanks for using our services %s, below is your compartment release access details:\n 
+        COMPARTMENT: %s \n 
+        PASSWORD: %s \n 
+        DATE RENT: %s %s \n 
+        DEADLINE: %s %s \n""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
        
         body = MIMEText(__message)
