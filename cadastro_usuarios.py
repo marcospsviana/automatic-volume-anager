@@ -667,7 +667,7 @@ class CadastroUsuarios(object):
             self.ddd = self.combobox_flags_ddd.get_active()
             
             print("self ddd", self.ddd)
-            self.entry_celular.set_text(str(DDD[self.ddd]) + str(self.text_entrada))
+            self.entry_celular.set_text(str(DDD[self.ddd]) + " " +str(self.text_entrada))
             self.entry_celular.set_position(-1)
         elif self.label_entrada_numeros.get_text() == "QUANTIDADE DIÁRIA" or self.label_entrada_numeros.get_text() == "QUANTITY DAYS":
             
