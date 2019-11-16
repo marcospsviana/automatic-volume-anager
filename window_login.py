@@ -160,7 +160,7 @@ class WindowLogin(Gtk.Window):
             self.btn_dialog_cancelar_senha_incorreta.set_label("CANCEL")
             self.btn_tentar_dialog_senha_incorreta.set_label("TRY AGAIN")
             self.button_fechar_armario.set_label("CLOSE CABINET")
-            self.button_fechar_armario.set_label("""After saving all the required volume,\n
+            self.label_instrucao.set_label("""After saving all the required volume,\n
                                             push the door without force until it touches the lock,\n
                                             then to finish click the button below with name: CLOSET CLOSER.\n
                                             Note: It is the responsibility of the user to close the cabinet,\n
