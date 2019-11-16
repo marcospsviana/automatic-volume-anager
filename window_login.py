@@ -225,7 +225,7 @@ class WindowLogin(Gtk.Window):
                 self.label_tempo_extra_hours.set_text(str(__hora_extra))
                 self.label_tempo_extra_minutes.set_text(str(__minuto_extra))
                 self.label_valor_extra_value.set_text("R$ " + result["total"])
-                if result["total"] <= 0:
+                if float(result["total"]) <= 0.0:
                     self.manager.abre_armario(self.id_armario)
                 else:
                     self.window_pagamento_extra.show()
