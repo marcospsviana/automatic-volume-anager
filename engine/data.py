@@ -731,12 +731,12 @@ class Banco(object):
         print('id armario em data', id_armario)
         result = ''
         port = ''
-        id_armario = id_armario
+        
         taxa = 15
         hj = datetime.datetime.now()
         hj = datetime.datetime(hj.year, hj.month, hj.day,
                                hj.hour, hj.minute, hj.second)
-        __cursor.execute("SELECT senha FROM tb_locacao WHERE id_armario = %s"%(id_armario))
+        __cursor.execute("SELECT senha FROM tb_locacao WHERE id_armario = %s"%(id_armario[0][0]))
 
         # __senha = senha.encode(encoding='utf-8', errors='strict')
         # print('senha encode', senha)
