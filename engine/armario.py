@@ -72,6 +72,7 @@ class Armario:
         __id_armario = id_armario
         __bk = Banco()
         result = __bk.abrir_armario(__id_armario)
+        print("result abrir armario em armario.py", result)
         return result
     
     @staticmethod

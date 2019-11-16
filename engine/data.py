@@ -750,7 +750,7 @@ class Banco(object):
             print('********** dados locacao **************')
             print(self.__locacao['tempo_locado'][0])
             if (self.__locacao['tempo_locado'][0]) >= hj:
-                import threading
+                #import threading
                 # self.__c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (__senha,))
                 # self.__conn.commit()
                 # self.__conn.close()
