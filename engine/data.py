@@ -686,7 +686,7 @@ class Banco(object):
         __senha = __senha[0][0]
         # print(__senha)
         self.__id_user = self.select_user(__senha)  # __senha)
-        if self.__id_user == 'senha incorreta, tente novamente':
+        if self.__id_user == 'senha incorreta, tente novamente' or __senha == []:
             return 'senha incorreta, tente novamente'
 
         else:
