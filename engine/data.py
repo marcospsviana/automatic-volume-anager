@@ -758,7 +758,7 @@ class Banco(object):
                 # self.__conn.commit()
                 # self.__conn.close()
 
-                porta = self.select_port(self.__locacao[id_armario)
+                porta = self.select_port(self.__locacao(id_armario)
                 print("abrir armario data.py porta", str(porta[0][0]))
                 # self.port.exec_port(porta[0][0], "abre")
                 self.port.exec_port(porta[0][0], "abre")
