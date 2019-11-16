@@ -340,8 +340,6 @@ class Banco(object):
 
     def liberar_armario(self, id_armario):
         self.__id = id_armario
-        
-
         port = self.select_port(self.__id)
         self.port.exec_port(port[0][0], "abre")
         return "armario liberado"

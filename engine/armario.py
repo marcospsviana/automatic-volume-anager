@@ -74,6 +74,15 @@ class Armario:
         result = __bk.abrir_armario(__id_armario)
         print("result abrir armario em armario.py", result)
         return result
+    @staticmethod
+    def liberar_armario(id_armario):
+        result = ''
+        #__nome = nome
+        __id_armario = id_armario
+        __bk = Banco()
+        result = __bk.liberar_armario(__id_armario)
+        print("result abrir armario em armario.py", result)
+        return result
     
     @staticmethod
     def localiza_id_armario(senha):
