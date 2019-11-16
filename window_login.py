@@ -180,6 +180,7 @@ class WindowLogin(Gtk.Window):
 
     def on_btn_confirmar_entrada_dados_pressed(self, event):
         self.message = ''
+        result = ''
         self.senha = self.entry.get_text()
         self.id_armario = self.manager.localiza_id_armario(self.senha)
         if self.id_armario == []:
