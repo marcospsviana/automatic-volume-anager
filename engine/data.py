@@ -629,6 +629,8 @@ class Banco(object):
         __server.starttls()
         __server.ehlo()
         __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
+
+        __server.sendmail(FROM, TO, __message.encode('utf-8'))
         
        
         
