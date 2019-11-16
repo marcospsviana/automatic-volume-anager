@@ -682,7 +682,7 @@ class Banco(object):
 
         # __senha = senha.encode(encoding='utf-8', errors='strict')
         # print('senha encode', senha)
-        __senha = __cursor.fetchall()
+        #__senha = __cursor.fetchall()
         __senha = senha  #__senha[0][0]
         # print(__senha)
         self.__id_user = self.select_user(__senha)  # __senha)
