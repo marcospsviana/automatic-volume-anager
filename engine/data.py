@@ -589,14 +589,12 @@ class Banco(object):
 
     def send_email(self, nome, email, senha, compartimento, data_locacao, hora_inicio_locacao, data_limite,  hora_fim_locacao, language):
         # __server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        from smtplib import SMTP
         from email.mime.multipart import MIMEMultipart
         from email.mime.text import MIMEText
-        import email.message
-        import smtplib
-        __server = smtplib.SMTP('smtp.gmail.com:587')
-        __server.starttls()
-        __server.ehlo()
-        __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
+        
+    
+       
         __nome = string.capwords(nome)
         if language == "pt_BR":
             __message = """ Este e-mail foi enviado de forma automática , 
@@ -627,18 +625,15 @@ class Banco(object):
         FROM = 'marcospaulo.silvaviana@gmail.com'
         TO = email
         password = "m1cr0@t805i"
-        
+        __server = SMTP('smtp.gmail.com:587')
+        __server.starttls()
+        __server.ehlo()
+        __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
+        __server.se
        
         
 
-        s = smtplib.SMTP('smtp.gmail.com: 587')
-        s.starttls()
-
-        # Login Credentials for sending the mail
-        s.login(FROM, password)
-
-        s.sendmail(FROM, TO, __message.encode('utf-8'))
-        s.quit()
+       
 
 
     @staticmethod
