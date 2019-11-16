@@ -597,11 +597,11 @@ class Banco(object):
         msg = MIMEMultipart()
         __nome = string.capwords(nome)
         if language == "pt_BR":
-            __message = """ <strong>Este e-mail foi enviado de forma automática ,não responda diretamente a este e-mail!</strong>\n Obrigado por utilizar nossos serviços %s, abaixo encontra-se os seus dados de acesso para liberação do compartimento:\n
+            __message = """<html><body> <strong>Este e-mail foi enviado de forma automática ,não responda diretamente a este e-mail!</strong>\n Obrigado por utilizar nossos serviços %s, abaixo encontra-se os seus dados de acesso para liberação do compartimento:\n
         COMPARTIMENTO:  %s \n 
         SENHA: %s\n 
         DATA LOCAÇÃO: %s %s \n 
-        DATA LIMITE: %s %s\n """ % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
+        DATA LIMITE: %s %s\n</body></html>""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
         elif language == "en_US":
             __message = """
@@ -613,7 +613,7 @@ class Banco(object):
         DEADLINE: %s %s \n""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
        
-        body = MIMEText(__message)
+        body = MIMEText(html, __message)
                     
 
        
