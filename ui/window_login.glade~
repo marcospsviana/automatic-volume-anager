@@ -110,11 +110,17 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="margin_left">20</property>
+            <property name="margin_right">20</property>
+            <property name="margin_top">10</property>
+            <property name="margin_bottom">10</property>
+            <property name="vexpand">True</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel" id="label_instrucao">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="vexpand">True</property>
                 <property name="label" translatable="yes">Seu armário já está liberado, após guardar todo o volume necessário, empurre a porta sem necessidade de força  até encostar na trava, depois para finalizar clique no botão abaixo com nome: fechar. 
 Observação: A responsabilidade de fechar o armário é do usuário , caso esqueça de fechá-lo a empresa não se responsabilizará por perdas!</property>
               </object>

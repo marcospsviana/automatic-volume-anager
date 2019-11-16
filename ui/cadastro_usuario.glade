@@ -57,6 +57,7 @@
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel" id="label_instrucao">
+                <property name="name">label_instrucao</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="vexpand">True</property>
