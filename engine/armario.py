@@ -88,6 +88,7 @@ class Armario:
     def localiza_id_armario(senha):
         __bk = Banco()
         __senha = senha
+        print("senha em localiza id armario em armario.py", __senha)
         result = __bk.localiza_id_armario(__senha)
         return result
 
