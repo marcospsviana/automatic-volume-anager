@@ -616,7 +616,7 @@ class Banco(object):
                     COMPARTMENT: %s \n PASSWORD: %s \n DATE RENT: %s %s \n DEADLINE: %s %s \n""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
        
-        __message = str(__message)
+        
                     
 
        
