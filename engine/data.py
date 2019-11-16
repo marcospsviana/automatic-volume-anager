@@ -594,7 +594,7 @@ class Banco(object):
         from email.mime.text import MIMEText
         
     
-       
+        msg = MIMEMultipart()
         __nome = string.capwords(nome)
         if language == "pt_BR":
             __message = """ Este e-mail foi enviado de forma automática , 
@@ -616,21 +616,24 @@ class Banco(object):
                     COMPARTMENT: %s \n PASSWORD: %s \n DATE RENT: %s %s \n DEADLINE: %s %s \n""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
        
-        
+        __message = str(__message)
                     
 
        
-        Subject = 'CoolBag-SafeLocker - Credentials Access'
+        msg['Subject'] = 'CoolBag-SafeLocker - Credentials Access'
+        msg.attach(__message)
 
-        FROM = 'marcospaulo.silvaviana@gmail.com'
-        TO = email
+        msg['From'] = 'marcospaulo.silvaviana@gmail.com'
+        msg['To'] = email
         password = "m1cr0@t805i"
         __server = SMTP('smtp.gmail.com:587')
         __server.starttls()
         __server.ehlo()
         __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
 
-        __server.sendmail(FROM, TO, __message.encode('utf-8'))
+        __server.sendmail( msg['From'], msg['To'].split(","), msg.as_string())
+
+        __server.quit()
         
        
         

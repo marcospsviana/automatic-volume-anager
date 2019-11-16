@@ -325,7 +325,10 @@ class CadastroUsuarios(object):
                  [FLAG_PORTUGAL, "+351"], [FLAG_REINO_UNIDO, "+44"], [FLAG_RUSSIA, "+7"], [FLAG_SUICA, "+46"],
                  [FLAG_SUECIA, "+41"], [FLAG_VENEZUELA, "+58"], [FLAG_AFRICA_SUL, "+27"], [FLAG_AFEGAN, "+93"], [NO_FLAG, "Others"]
         ]
-        DDD = {0:"+55"}
+        DDD = {}
+
+        for f in FLAGS:
+            DDD[f[0]] = f[1]
         for f in range(len(FLAGS)):
             self.list_flag_ddd.append(FLAGS[f])
 
