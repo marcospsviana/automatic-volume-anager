@@ -182,7 +182,9 @@ class WindowLogin(Gtk.Window):
         self.message = ''
         result = ''
         self.senha = self.entry.get_text()
+        print(self.senha)
         self.id_armario = self.manager.localiza_id_armario(self.senha)
+        
         if self.id_armario == []:
             result == 'senha incorreta, tente novamente'
         print("id_armario window login abrir", self.id_armario)
