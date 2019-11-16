@@ -723,7 +723,7 @@ class Banco(object):
         return result
 
     @classmethod
-    def abrir_armario(self, senha):
+    def abrir_armario(self, id_armario):
         self.port = Portas()
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
@@ -731,21 +731,24 @@ class Banco(object):
         print('senha data', senha)
         result = ''
         port = ''
-        id_armario = ''
+        id_armario = id_armario
         taxa = 15
         hj = datetime.datetime.now()
         hj = datetime.datetime(hj.year, hj.month, hj.day,
                                hj.hour, hj.minute, hj.second)
+        __cursor.execute("SELECT senha FROM tb_locacao WHERE id_armario = %s"%(id_armario))
+
         # __senha = senha.encode(encoding='utf-8', errors='strict')
         # print('senha encode', senha)
-        __senha = senha  # hashlib.sha3_512(__senha).hexdigest()
+        __senha = __cursor.fetchall()
+        __senha = __senha[0][0]
         # print(__senha)
         self.__id_user = self.select_user(__senha)  # __senha)
         if self.__id_user == 'senha incorreta, tente novamente':
             return 'senha incorreta, tente novamente'
 
         else:
-            self.__locacao = self.get_locacao(senha)  # __senha)
+            self.__locacao = self.get_locacao(__senha)  # __senha)
 
             print('********** dados locacao **************')
             print(self.__locacao['tempo_locado'][0])
@@ -755,7 +758,7 @@ class Banco(object):
                 # self.__conn.commit()
                 # self.__conn.close()
 
-                porta = self.select_port(self.__locacao['id_armario'][0])
+                porta = self.select_port(self.__locacao[id_armario)
                 print("abrir armario data.py porta", str(porta[0][0]))
                 # self.port.exec_port(porta[0][0], "abre")
                 self.port.exec_port(porta[0][0], "abre")
@@ -894,7 +897,7 @@ class Banco(object):
         print(result)
         return "fechado"
 
-    @classmethod
+    '''@classmethod
     def abrir_armario(self, id_armario):
         porta = Portas()
         __id_armario = id_armario
@@ -903,7 +906,7 @@ class Banco(object):
         print("porta select porta id_armario", __porta)
         porta.exec_port(__porta[0][0], "abre")
 
-        return "armario liberado"
+        return "armario liberado"'''
 
     @classmethod
     def localiza_id_armario(self, senha):
