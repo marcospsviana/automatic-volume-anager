@@ -393,11 +393,11 @@ class CadastroUsuarios(object):
             self.label_fim_locacao_titulo.set_text("FIM DA LOCAÇÃO")
             self.label_message_envio_email.set_text("UM EMAIL COM O RECAPTULATIVO DE SUA\n RESERVA ACABA DE LHE SER ENVIADO!")
             self.button_fechar_armario.set_label("FECHAR ARMÁRIO")
-            self.label_instrucao.set_text("Após guardar todo o volume necessário, \n \
-                                           empurre a porta sem forçar até encostar na trava, \n \
-                                           depois para finalizar clique no botão abaixo com nome: FECHAR ARMÁRIO.\n \
-                                           Observação: A responsabilidade de fechar o armário é do usuário,\n \
-                                           caso esqueça de fechá-lo a empresa não se responsabilizará por perdas!"
+            self.label_instrucao.set_text("""Após guardar todo o volume necessário, \n
+                                           empurre a porta sem forçar até encostar na trava,\n 
+                                           depois para finalizar clique no botão abaixo com nome: FECHAR ARMÁRIO.\n
+                                           Observação: A responsabilidade de fechar o armário é do usuário,\n
+                                           caso esqueça de fechá-lo a empresa não se responsabilizará por perdas!"""
                                            )
             
         elif self.language == "en_US":
@@ -427,11 +427,12 @@ class CadastroUsuarios(object):
             self.label_fim_locacao_titulo.set_text("FINAL DATE OF LEASE")
             self.label_message_envio_email.set_text("AN EMAIL WITH THE RECAPTULATIVE OF YOUR\n RESERVATION HAS JUST BEEN SENT!")
             self.button_fechar_armario.set_label("CLOSE CABINET")
-            self.label_instrucao.set_text("After saving all the required volume, \n \
-                                            push the door without force until it touches the lock, \n \
-                                            then to finish click the button below with name: CLOSE CABINET. \ n \
-                                            Note: It is the responsibility of the user to close the cabinet, \n \
-                                            if you forget to close it the company will not be responsible for any losses!")
+            self.label_instrucao.set_text("""After saving all the required volume,\n
+                                            push the door without force until it touches the lock,\n
+                                            then to finish click the button below with name: CLOSET CLOSER.\n
+                                            Note: It is the responsibility of the user to close the cabinet,\n
+                                            if you forget to close it the company will not be responsible for any losses!"""
+                                            )
         
 
          
