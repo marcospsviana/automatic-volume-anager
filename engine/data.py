@@ -728,7 +728,7 @@ class Banco(object):
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __cursor = __conn.cursor(buffered=True)
-        print('senha data', senha)
+        print('id armario em data', id_armario)
         result = ''
         port = ''
         id_armario = id_armario
