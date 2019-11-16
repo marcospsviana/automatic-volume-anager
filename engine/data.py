@@ -338,73 +338,13 @@ class Banco(object):
         __conn.close()
         return (dados)
 
-    def liberar_armario(self, senha):
+    def liberar_armario(self, id_armario):
+        self.__id = id_armario
+        
 
-        result = ''
-        id_armario = ''
-        hj = datetime.datetime.now()
-        hj = pd.to_datetime(hj, unit='ns')
-        # hj = datetime.timedelta( hj.hour, hj.minute, hj.second)
-        # hj = hj + datetime.timedelta(minutes=+10)
-        print("hj", hj)
-        # pass_encoded = senha.encode(encoding='utf-8', errors='strict')
-        __senha = senha  # hashlib.sha3_512(pass_encoded).hexdigest()
-        # __senha = __senha.encode('utf-8')
-        print('nome e senha de data', __senha)
-        self.__id_user = self.select_user(senha)  # __senha)
-        if self.__id_user == 'senha incorreta, tente novamente':
-            return 'senha incorreta, tente novamente'
-
-        else:
-            self.__locacao = self.get_locacao(senha)  # __senha)
-            print('********** dados locacao **************')
-            print("self.locacao", self.__locacao.head())
-            print("self.locacao[0][2]", self.__locacao[0][2])
-            print("self.locacao[0 0]", self.__locacao[0][0])  # id_armario
-            if (self.__locacao[0][2]) > hj:
-
-                tempo_total = hj - self.__locacao['tempo_locado'][0]
-                dias_passados = tempo_total.components.days
-                # minutos_passados = tempo_total.seconds / 60
-                minuto = tempo_total.components.minutes
-                horas_passadas = tempo_total.components.hours
-                # valor_total = ((dias_passados * 24 * 60) + minutos_passados) * taxa
-                calculo_minuto = 0
-
-                if minuto <= 15 and minuto > 5:
-                    calculo_minuto = (1/4)
-                elif minuto > 15 and minuto <= 30:
-                    calculo_minuto = (2/4)
-                elif minuto > 15 and minuto <= 30:
-                    calculo_minuto = (3/4)
-                valor_total = ((dias * taxa) + (hora * TAXA) +
-                               calculo_minuto * TAXA)
-
-                # valor_total = ((dias_passados * 24) + horas_passadas ) * taxa_hora + valor_taxa_15
-                result = self.cobranca(valor_total, hj)
-
-                self.__c.execute(
-                    "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
-                self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (
-                    self.__locacao[0][0]))
-                self.__conn.commit()
-                self.__conn.close()
-
-                port = self.select_port(self.__locacao[0][0])
-                self.port.exec_port(port[0][0], "abre")
-                return "armario liberado"
-            else:
-
-                tempo = hj - self.__locacao[0][2]
-                dias = tempo.days
-                horas = tempo.seconds // 3600
-                minutos = tempo.seconds % 3600
-                tempo = (tempo.days * 24 * 60) + \
-                         (tempo.seconds // 3600) + tempo.seconds % 60
-                print('-------> %s' % tempo)
-                result = self.cobranca_excedente(
-                    dias, horas, minutos, self.__locacao[0][0])
-                return result
+        port = self.select_port(self.__id)
+        self.port.exec_port(port[0][0], "abre")
+        return "armario liberado"
 
     def remover_armario(self, id_armario):
 
