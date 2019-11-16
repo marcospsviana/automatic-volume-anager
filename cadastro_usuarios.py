@@ -12,7 +12,7 @@ from decimal import Decimal
 
 class CadastroUsuarios(object):
     def __init__(self, *args):
-        global TAXA_HORA_A, TAXA_HORA_B, TAXA_HORA_C, TAXA_HORA_D
+        global TAXA_HORA_A, TAXA_HORA_B, TAXA_HORA_C, TAXA_HORA_D, DDD
         global TAXA_DIARIA_A, TAXA_DIARIA_B, TAXA_DIARIA_C, TAXA_DIARIA_D
         self.senha = ''
         TAXA_DIARIA_A = 37.5
@@ -326,9 +326,11 @@ class CadastroUsuarios(object):
                  [FLAG_SUECIA, "+41"], [FLAG_VENEZUELA, "+58"], [FLAG_AFRICA_SUL, "+27"], [FLAG_AFEGAN, "+93"], [NO_FLAG, "Others"]
         ]
         DDD = {}
+        
 
-        for f in FLAGS:
-            DDD[f[0]] = f[1]
+
+        for i in range(0, len(FLAGS)):
+            DDD[i] = FLAGS[i][1]
         for f in range(len(FLAGS)):
             self.list_flag_ddd.append(FLAGS[f])
 
@@ -663,12 +665,9 @@ class CadastroUsuarios(object):
     def on_btn_confirmar_entrada_numero_button_press_event(self, widget, event):
         if self.label_entrada_numeros.get_text() == "CELULAR" or self.label_entrada_numeros.get_text() == "PHONE":
             self.ddd = self.combobox_flags_ddd.get_active()
-            if self.ddd == 0:
-                self.ddd = "+55 "
-            elif self.ddd == 1:
-                self.ddd = "+1 "
+            
             print("self ddd", self.ddd)
-            self.entry_celular.set_text(str(self.ddd) + str(self.text_entrada))
+            self.entry_celular.set_text(str(DDD[self.ddd]) + str(self.text_entrada))
             self.entry_celular.set_position(-1)
         elif self.label_entrada_numeros.get_text() == "QUANTIDADE DIÁRIA" or self.label_entrada_numeros.get_text() == "QUANTITY DAYS":
             
