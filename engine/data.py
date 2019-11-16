@@ -606,13 +606,14 @@ class Banco(object):
         </body></html>""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
         elif language == "en_US":
-            __message = """
-        This email was sent automatically,please do not reply directly to this email! 
-        Thanks for using our services %s, below is your compartment release access details:\n 
-        COMPARTMENT: %s \n 
-        PASSWORD: %s \n 
-        DATE RENT: %s %s \n 
-        DEADLINE: %s %s \n""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
+            __message = """<html><body> <strong>
+        This email was sent automatically,please do not reply directly to this email! </strong><br><br>
+        Thanks for using our services <b>%s</b>, below is your compartment release access details:<br><br>
+        <p>COMPARTMENT: <b> %s  </b>
+        <p>PASSWORD: <b> %s  </b>
+        <p>DATE RENT: <b> %s %s  </b>
+        <p>DEADLINE:  <b> %s %s </b>
+        </body></html>""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
 
        
         body = MIMEText(__message, 'html')
