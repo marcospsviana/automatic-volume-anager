@@ -185,6 +185,10 @@ color: #fff;
 #label_instrucao{
 	font: 1.5em sans-serif;
 }
+ToggleButton{
+	padding: 2;
+	margin: 2;
+}
 ToggleButton :active{
 	background: black;
 }
