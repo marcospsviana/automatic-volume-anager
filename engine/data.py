@@ -823,7 +823,8 @@ class Banco(object):
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
-        __armario = armario[0][0]
+        __armario = armario[0]
+        __armario = __armario[0]
         print("__ARMARIO EM SELECT_port ", __armario)
         __c.execute(
             "select porta from tb_armario where id_armario='%s'" % (__armario))
