@@ -841,10 +841,10 @@ class Banco(object):
         print("id armario em fechar armario data.py", __id_armario)
         __porta = self.select_port(__id_armario[0][0])
         print("porta select porta id_armario", __porta)
-        # porta.exec_port(str(__porta[0][0]), "fecha")
-        comando = str(__porta[0][0]) + ":fecha"
-        result = self.serial.write(b'%s' % comando.encode('utf-8'))
-        print(result)
+        porta.exec_port(str(__porta[0][0]), "fecha")
+        #comando = str(__porta[0][0]) + ":fecha"
+        #result = self.serial.write(b'%s' % comando.encode('utf-8'))
+        #print(result)
         return "fechado"
 
     '''@classmethod
