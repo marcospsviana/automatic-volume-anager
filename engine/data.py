@@ -858,7 +858,7 @@ class Banco(object):
         import serial
 
         s = serial.Serial('/dev/ttyUSB0', 9600)
-        comando = str(port[0][0])+":abre"
+        comando = str(porta[0][0])+":abre"
         s.write(b'%b'%comando.encode('utf-8'))
         return "fechado"
 
