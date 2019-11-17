@@ -219,7 +219,12 @@ class Banco(object):
             print("porta selecionada", port[0][0])
 
             # HABILILAR NO RASPBERRY PI
-            self.port.exec_port(str(port[0][0]), "abre")
+            import serial
+
+            s = serial.Serial('/dev/ttyUSB0', 9600)
+            comando = str(port[0][0])+":abre"
+            s.write(b'%b'%comando.encode('utf-8'))
+            #self.port.exec_port(str(port[0][0]), "abre")
 
             locacao_json = {
                 "message": "locacao concluida com sucesso",
@@ -710,7 +715,12 @@ class Banco(object):
                 porta = self.select_port(id_armario[0][0])
                 print("abrir armario data.py porta", str(porta[0][0]))
                 # self.port.exec_port(porta[0][0], "abre")
-                self.port.exec_port(porta[0][0], "abre")
+                import serial
+
+                s = serial.Serial('/dev/ttyUSB0', 9600)
+                comando = str(port[0][0])+":abre"
+                s.write(b'%b'%comando.encode('utf-8'))
+                #self.port.exec_port(porta[0][0], "abre")
                 return "armario liberado"
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'" % __senha
@@ -845,6 +855,11 @@ class Banco(object):
         #comando = str(__porta[0][0]) + ":fecha"
         #result = self.serial.write(b'%s' % comando.encode('utf-8'))
         #print(result)
+        import serial
+
+        s = serial.Serial('/dev/ttyUSB0', 9600)
+        comando = str(port[0][0])+":abre"
+        s.write(b'%b'%comando.encode('utf-8'))
         return "fechado"
 
     @classmethod
