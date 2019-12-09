@@ -59,7 +59,7 @@ class PGWebLibrary:
         self.PW_iExecTransacObj.restype  = c_short
 
         
-        self.PW_iExecTransacObj.argtypes = [POINTER((PW_GetData *10)),POINTER(c_int)]
+        self.PW_iExecTransacObj.argtypes = [POINTER((PW_GetData *11)),POINTER(c_int)]
         
         
         
