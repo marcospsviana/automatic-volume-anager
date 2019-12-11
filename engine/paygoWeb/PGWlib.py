@@ -20,10 +20,10 @@ myPGWebLib = PGWebLibrary()
 def AddMandatoryParams():
    # Adiciona os parâmetros obrigatórios
 
-   myPGWebLib.PW_iAddParam(E_PWINFO.PWINFO_AUTDEV.value, "NTK Solutions Ltda")
+   myPGWebLib.PW_iAddParam(E_PWINFO.PWINFO_AUTDEV.value, "COOLBAG-SAFE GUARDA BAGAGENS AUTOMATIZADO")
    myPGWebLib.PW_iAddParam(E_PWINFO.PWINFO_AUTVER.value, "1.0")
-   myPGWebLib.PW_iAddParam(E_PWINFO.PWINFO_AUTNAME.value, "PDVS")
-   myPGWebLib.PW_iAddParam(E_PWINFO.PWINFO_AUTCAP.value, "28")
+   myPGWebLib.PW_iAddParam(E_PWINFO.PWINFO_AUTNAME.value, "COOLBAGSAFE-RENTLOCKER")
+   myPGWebLib.PW_iAddParam(E_PWINFO.PWINFO_AUTCAP.value, "0")
    #myPGWebLib.PW_iAddParam(E_PWINFO.PWINFO_AUTHTECHUSER.value, "PGWEBLIBTEST")
 
    #  // Adiciona os parâmetros obrigatórios

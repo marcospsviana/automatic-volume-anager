@@ -13,7 +13,7 @@ class PGWebLibrary:
     self.me = os.path.abspath(os.path.dirname(__file__))
     
     #cria o diretório PGWebLib
-    directory = "PGWebLib"
+    directory = "."
   
     # Parent Directory path 
     parent_dir = self.me
@@ -39,6 +39,7 @@ class PGWebLibrary:
       
       return self.PW_iInitObj(c_char_p(self.b_path_init))
 
+  
   def PW_iNewTransac(self,bOper):
       self.PW_iNewTransactObj          = self.PGWebLib_dll.PW_iNewTransac
       self.PW_iNewTransactObj.restype  = c_short
