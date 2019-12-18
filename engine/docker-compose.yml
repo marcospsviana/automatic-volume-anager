@@ -1,0 +1,4 @@
+paygo:
+    image: i386/ubuntu:16.04
+    volumes:
+    - dados_paygo:/paygoWeb

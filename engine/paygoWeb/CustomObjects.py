@@ -28,7 +28,7 @@ class PW_GetData(Structure):
                ("bTipoDeDado",c_ubyte),
                ("szPrompt",c_char * 84),
                ("bNumOpcoesMenu",c_ubyte),     
-               ("vszTextoMenu",(c_char * 41) * PWMENU_MAXINTENS),
+               ("*",(c_char * 41) * PWMENU_MAXINTENS),
                ("vszValorMenu",(c_char * 256) * PWMENU_MAXINTENS),
                ("szMascaraDeCaptura",c_char * 41),
                ("bTiposEntradaPermitidos",c_ubyte),

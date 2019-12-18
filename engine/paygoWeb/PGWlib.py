@@ -229,9 +229,9 @@ def iExecGetDataInstall(vstGetData,iNumParam):
 
         # Menu de opções
         elif(vstGetData[i].bTipoDeDado == E_PWDAT.PWDAT_MENU.value):
-            print("\nTipo de dados = MENU")
+            print("Tipo de dados = MENU\n")
             #InputCR(vstGetData[i].szPrompt)
-            print("\n%s\n", vstGetData[i].szPrompt)
+            print("%s\n ", vstGetData[i].szPrompt)
 
             # Caso só tenha uma opção, escolhe automaticamente
             if( vstGetData[i].bNumOpcoesMenu == 1):
@@ -255,7 +255,7 @@ def iExecGetDataInstall(vstGetData,iNumParam):
             print("\n", iKey)
               
 
-            iRet = myPGWebLib.pPW_iAddParam(vstGetData[i].wIdentificador, vstGetData[i].vszValorMenu[iKey])
+            iRet = myPGWebLib.PW_iAddParam(vstGetData[i].wIdentificador, vstGetData[i].vszValorMenu[iKey])
             
             if(iRet != 0):
               print("\nERRO AO ADICIONAR PARAMETRO...")
