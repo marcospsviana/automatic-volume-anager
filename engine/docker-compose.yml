@@ -1,4 +1,8 @@
-paygo:
-    image: i386/ubuntu:16.04
-    volumes:
-    - dados_paygo:/paygoWeb
+version: "3.3"
+build:
+   dockerfile: Dockerfile
+   image: i386/ubuntu:16.04
+   volumes:
+     - ./paygoWeb:/home/paygo/paygoWeb
+   container_name:
+     "paygoweb"

@@ -15,7 +15,7 @@ import pandas as pd
 import smtplib
 import json
 import hashlib
-from .portas import Portas
+#from .portas import Portas
 
 
 class Banco(object):
@@ -23,7 +23,7 @@ class Banco(object):
 
         self.data = ''
         self.porta = ''
-        self.port = Portas()
+        #self.port = Portas()
         global TAXA_HORA_A, TAXA_HORA_B, TAXA_HORA_C, TAXA_HORA_D
         global TAXA_DIARIA_A, TAXA_DIARIA_B, TAXA_DIARIA_C, TAXA_DIARIA_D
         TAXA_DIARIA_A = 37.5
@@ -128,7 +128,7 @@ class Banco(object):
         self.__conn.close()
 
     def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario, language, total):
-        self.port = Portas()
+        #self.port = Portas()
         port = ''
         dia = dia
         dia = dia.replace(".0", "")
@@ -219,7 +219,7 @@ class Banco(object):
             print("porta selecionada", port[0][0])
 
             # HABILILAR NO RASPBERRY PI
-            self.port.exec_port(str(port[0][0]), "abre")
+            #self.port.exec_port(str(port[0][0]), "abre")
 
             locacao_json = {
                 "message": "locacao concluida com sucesso",
@@ -339,11 +339,11 @@ class Banco(object):
         return (dados)
 
     def liberar_armario(self, id_armario):
-        self.port = Portas()
+        #self.port = Portas()
         self.__id = id_armario[0][0]
         print("self id armario em liberar armario", self.__id)
         port = self.select_port(self.__id)
-        self.port.exec_port(port, "abre")
+        #self.port.exec_port(port, "abre")
         return "armario liberado"
 
     def remover_armario(self, id_armario):
@@ -479,7 +479,7 @@ class Banco(object):
         return (total)
 
     def finalizar(self, senha):
-        self.port = Portas()
+        #self.port = Portas()
         taxa = 15
         result = ''
         id_armario = ''
@@ -521,7 +521,7 @@ class Banco(object):
                 result = self.cobranca_excedente(
                     dias_passados, calculo_hora, calculo_minuto, id_armario)  # (valor_total,hj)
                 porta = self.select_port(id_armario)
-                self.port.exec_port(porta[0][0], "abre")
+                #self.port.exec_port(porta[0][0], "abre")
 
                 self.__c.execute(
                     "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
@@ -672,7 +672,7 @@ class Banco(object):
 
     @classmethod
     def abrir_armario(self, senha):
-        self.port = Portas()
+        #self.port = Portas()
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __cursor = __conn.cursor(buffered=True)
@@ -710,7 +710,7 @@ class Banco(object):
                 porta = self.select_port(id_armario[0][0])
                 print("abrir armario data.py porta", str(porta[0][0]))
                 # self.port.exec_port(porta[0][0], "abre")
-                self.port.exec_port(porta[0][0], "abre")
+                #self.port.exec_port(porta[0][0], "abre")
                 return "armario liberado"
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'" % __senha
@@ -784,8 +784,11 @@ class Banco(object):
         return "locacao finalizada com sucesso"
 
     def pagamento(self, total, senha):
-        __port = Portas()
-        codigo = "paguei"
+        import subprocess
+        
+
+        #__port = Portas()
+        codigo = subprocess('docker exec -it paygoweb bash -c "cd paygoWeb && ls &&  /usr/bin/python3 paygoWeb.py %s"'%total)
         print("informe o codigo")
         entrada = "paguei"
         __senha = senha
@@ -802,9 +805,9 @@ class Banco(object):
                 result_id_armario[0]))
             self.__conn.commit()
             self.__conn.close()
-            __porta = self.select_port(result_id_armario)
-            print(__porta)
-            __port.exec_port(__porta[0][0], "abre")
+            #self.port = self.select_port(result_id_armario)
+            
+            #self.port.exec_port(__porta[0][0], "abre")
             return ("lk4thHG34=GKss0xndhe")
         else:
             return ("houve um problema com o pagamento")

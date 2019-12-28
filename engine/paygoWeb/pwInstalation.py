@@ -110,16 +110,21 @@ class PgwInstall():
         self.PGWebLib_dll.PW_iAddParam(0x16, self.PWINFO_AUTVER)
         self.PGWebLib_dll.PW_iAddParam(0x17, self.PWINFO_AUTDEV)
         self.PGWebLib_dll.PW_iAddParam(0x1B, self.PWINFO_DESTTCPIP)
-        self.PGWebLib_dll.PW_iAddParam(28, self.PWINFO_MERCHCNPJCPF)
-        self.PGWebLib_dll.PW_iAddParam(246, self.PWINFO_AUTHTECHUSER)
-        self.PGWebLib_dll.PW_iAddParam(32513, self.PWINFO_USINGPINPAD)
-        self.PGWebLib_dll.PW_iAddParam(36, self.PWINFO_AUTCAP)
+        self.PGWebLib_dll.PW_iAddParam(0x1C, self.PWINFO_MERCHCNPJCPF)
+        self.PGWebLib_dll.PW_iAddParam(0xF6, self.PWINFO_AUTHTECHUSER)
+        self.PGWebLib_dll.PW_iAddParam(0x7F01, self.PWINFO_USINGPINPAD)
+        self.PGWebLib_dll.PW_iAddParam(0x24, self.PWINFO_AUTCAP)
 
-        self.PGWebLib_dll.PW_iEventLoop()
+        
+        
 
         ret = self.PW_iExecTransac(vstParam, iNumParam)
 
         return ret
+        retEventLoop = ''
+        szDspMsg = create_string_buffer(100000)
+        retEventLoop = self.PW_iPPEventLoop(szDspMsg, 1000)
+        print("retEventLoop szDspMsg", retEventLoop, szDspMsg)
 
         
 
