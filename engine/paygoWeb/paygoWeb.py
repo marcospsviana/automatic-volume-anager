@@ -107,7 +107,7 @@ class PayGoPayment:
                     ikeydisplay = self.PW_iPPDisplay("F1 - CREDITO\nF2 - DEBITO")
                     print("ikeydisplay", ikeydisplay)
                     iKey = self.PW_iPPWaitEvent(15)
-                    if iKey:
+                    if iKey == 0:
                         szDspMsg = create_string_buffer(100000)
                         retEventLoop = self.PW_iPPEventLoop(szDspMsg, 1000)
                         print("retEventLoop szDspMsg", retEventLoop, szDspMsg)

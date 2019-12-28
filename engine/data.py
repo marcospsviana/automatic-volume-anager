@@ -788,7 +788,8 @@ class Banco(object):
         
 
         #__port = Portas()
-        codigo = subprocess('docker exec -it paygoweb bash -c "cd paygoWeb && ls &&  /usr/bin/python3 paygoWeb.py %s"'%total)
+        #subprocess("docker start paygoweb")
+        codigo = subprocess('docker exec -it paygoweb bash -c "cd paygoWeb &&  /usr/bin/python3 paygoWeb.py %s"'%total)
         print("informe o codigo")
         entrada = "paguei"
         __senha = senha
