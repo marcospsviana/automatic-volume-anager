@@ -6,7 +6,7 @@ import ctypes
 from ctypes import *
 
 # Classe que carrega a DLL
-class PGWebLibrary:
+class PGWebLibrary(object):
   
   def __init__(self):
     
@@ -667,7 +667,7 @@ class PGWebLibrary:
         self.PW_iPPWaitEventObj.restype  = c_short
         self.PW_iPPWaitEventObj.argtypes = [POINTER(c_int)]
         ret = self.PW_iPPWaitEventObj(byref(c_int(ulEvent)))
-        return ret, ulEvent
+        return ret
   #fim de PW_iPPWaitEvent
 
 

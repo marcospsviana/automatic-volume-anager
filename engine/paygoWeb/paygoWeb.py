@@ -91,11 +91,12 @@ class PayGoPayment:
             #print("getcard", getcard)
             print("vstParam identificador", vstParam[i].wIdentificador)
             print("ret getdata", ret)
+            print("vstParam[i].bNumOpcoesMenu", vstParam[i].bNumOpcoesMenu)
             #msgMenu = create_string_buffer(100000)
             if ret == E_PWINFO.PWINFO_LOCALINFO1.value:
                 #vstParam[i].bTeclasDeAtalho = 1
-                vstParam[i].bTipoDeDado = E_PWDAT.PWDAT_MENU.value
-                vstParam[i].bNumOpcoesMenu = 2
+                print("vstParam[i].bTipoDeDado", vstParam[i].bTipoDeDado)
+                print("vstParam[i].bNumOpcoesMenu", vstParam[i].bNumOpcoesMenu)
                 vstParam[i].vszValorMenu[0] = create_string_buffer(b"F1 - CREDITO", 256)
                 vstParam[i].vszValorMenu[1] = create_string_buffer(b"F2 - DEBITO", 256)
                 vstParam[i].szPrompt = b"F1 - CREDITO\nF2 - DEBITO"
@@ -312,7 +313,7 @@ class PayGoPayment:
         ppEvent = ''
         ppEventRemove = ''
         pzData = szDspMsg = create_string_buffer(100000)
-        ulEvent = 0
+        ulEvent = c_int32(0)
         
 
 
@@ -329,14 +330,15 @@ class PayGoPayment:
         key = ''
         while key != 0:
             self.PW_iPPDisplay("DIGITE A PALAVRA PASSE\r")
-            self.PW_iPPWaitEvent(6)#(byref(c_int(6)))
+            self.PGWebLib_dll.PW_iPPWaitEvent(byref(6))#(byref(c_int(6)))
             
             sleep(5)
-            key = self.PW_iPPWaitEvent(0x13)#(byref(c_int(0x13)))
+            key = self.PGWebLib_dll.PW_iPPWaitEvent(byref(0x13))#(byref(c_int(0x13)))
             
             sleep(2)
             retEventLoop = self.PW_iPPEventLoop(szDspMsg, 1000)
             print("retEventLoop szDspMsg", retEventLoop, szDspMsg.value)
+            print("ulEvent", ulEvent, byref(ulEvent))
         retTransac = self.PGWebLib_dll.PW_iExecTransac(byref(vstParam), byref(c_int(iNumParam)))
         
         #ret = self.PW_iExecTransacObj(byref(vstParam),byref(c_int(iNumParam)))

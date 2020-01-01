@@ -1,5 +1,5 @@
 import os , sys
-from interops_test import *
+from Interops import *
 from Enums import *
 
 from ctypes import *
@@ -7,7 +7,8 @@ from CustomObjects import *
 
 class Venda:
     def __init__(self):
-        #valor = args
+        
+        self.szDspMsg = create_string_buffer(100000)
         
         self.pgWeb = PGWebLibrary()
         # INICIALIZA A BIBLIOTECA 
@@ -22,51 +23,18 @@ class Venda:
         #PARAMS DEFAULT PARAMS
         self.PWINFO_CURRENCY = "986"
         self.PWINFO_CURREXP = "2" 
+        self.PWINFO_CARDTYPE = "1" # DEBITO E CREDITO
         self.venda()
-    def PW_iExecGetData(self, vstParam, iNumParam):
-        i = j = iKey = iRet = ''
-        szAux = c_buffer(1024) 
-        szDspMsg = c_buffer(128)
-        szMsgPinPad = c_buffer(34)
-        ulEvent= c_int32(0)
-        if vstParam[0].szMsgPrevia != None and vstParam[0].szMsgPrevia == True:
-            print(vstParam[0].szMsgPrevia)
-        
-
-        #PERCORRE TODOS OS DADOS ENQUANTO HOUVER PARA CAPTURA
-        while iRet != E_PWRET.PWRET_OK.value or iRet == E_PWRET.PWRET_NOTHING.value or iRet == E_PWRET.PWRET_DISPLAY.value:
-            for i in range(0, iNumParam):
-                print("vstParam[i].wIdentificador", vstParam[i].wIdentificador)
-                if vstParam[i].wIdentificador == E_PWINFO.PWINFO_CARDTYPE.value:
-                    ret = vstParam[i].ulTipoEntradaCartao
-                    print("ret ulTipoEntradaCartao", vstParam[i].ulTipoEntradaCartao) 
-                    ret = self.pgWeb.PW_iPPGetCard(i)
-                    print("ret getcard", ret)
-                elif vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_MENU.value:
-                    if vstParam[i].bNumOpcoesMenu == 1:
-                        ret = self.pgWeb.PW_iAddParam(vstParam[i].wIdentificador, str(vstParam[i].vszValorMenu[0]))
-                        print(ret, ret)
-                    elif vstParam[i].bNumOpcoesMenu >= 2:
-                        num = vstParam[i].bNumOpcoesMenu
-                        x = 0
-                        print("vstParam[i].bNumOpcoesMenu", vstParam[i].bNumOpcoesMenu)
-                        for j in range(0,vstParam[i].bNumOpcoesMenu):
-                            
-                            ret = self.pgWeb.PW_iAddParam(vstParam[i].wIdentificador, str(vstParam[i].vszValorMenu[j]))
-                            print("add param menu",ret)
-                           
-
-
-                sleep(3)
+    
 
 
 
     def venda(self):
-        self.szDspMsg = create_string_buffer(100000)
+        
         vstParam_11 = (PW_GetData * 11)
         vstParam = vstParam_11()
         iNumParam = 10
-        ulEvent = c_byte(0)
+        ulEvent = 0
         # INICIA UMA NOVATRANSACAO
         self.pgWeb.PW_iNewTransac(0x21)
         self.pgWeb.PW_iAddParam(21, self.PWINFO_AUTNAME)
@@ -76,33 +44,39 @@ class Venda:
         self.pgWeb.PW_iAddParam(0x26, self.PWINFO_CURRENCY) 
         self.pgWeb.PW_iAddParam(0x27, self.PWINFO_CURREXP)
         self.pgWeb.PW_iAddParam(53, self.PWINFO_AUTHSYST)
-        self.pgWeb.PW_iAddParam(41,"1")
+        self.pgWeb.PW_iAddParam(0x29,"1")
+        self.pgWeb.PW_iAddParam(59, "1")
+        self.pgWeb.PW_iAddParam(0x25, "1200")
+        #self.pgWeb.PW_iAddParam(0x1F21, "1") #PWINFO_PAYMNTMODE 1 SOMENTE CARTAO
+        #self.pgWeb.PW_iAddParam(0xF4, "0")
+        #self.pgWeb.PW_iAddParam(192, "7") #PWINFO_CARDENTMODE = 192
+         
         wait = ''
-        getCard = ''
-        while wait == '':
-            self.pgWeb.PW_iPPDisplay("INSERIR, PASSAR OU APROXIMAR O CARTÃO")
+        retEventLoop = ''
+        self.pgWeb.PW_iPPDisplay("APROXIME, INSIRA OU\r PASSE O CARTAO")
             
-            wait = self.pgWeb.PW_iPPWaitEvent(POINTER(c_byte(ulEvent)))
-            print("byref ulevent",byref(ulEvent))
-            getCard = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
-            print("getCard", getCard)
+        wait = self.pgWeb.PW_iPPWaitEvent(15)
+        while retEventLoop == '' and retEventLoop != 0:
+            
+            retEventLoop = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
+            print("retEventLoop", retEventLoop)
             print("wait", wait)
+
+            
+            
+            
         
         ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
-        getCard = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
-        print("getCard", wait, getCard)
-        print("ulEvent", ulEvent)
+        
         if ret == -2497:
-            ret = self.PW_iExecGetData(vstParam, iNumParam)
+            ret = self.pgWeb.PW_iExecGetData(vstParam, iNumParam)
+            print("ret exectransac venda", ret)
+            if ret == 0:
+                return 0
 
         
 
-        """while wait != 0:
-            self.pgWeb.PW_iPPDisplay("INSERIR, PASSAR OU APROXIMAR O CARTÃO")
-            getCard = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
-            print("getCard", wait, getCard)
-            wait = self.pgWeb.PW_iPPWaitEvent(15)
-            print("wait", wait)"""
+       
             
             
                 
