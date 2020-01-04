@@ -31,11 +31,12 @@ class Venda:
 
 
     def venda(self):
-        
+        iRet = ''
         vstParam_11 = (PW_GetData * 11)
         vstParam = vstParam_11()
         iNumParam = 10
         ulEvent = 0
+        szAux = create_string_buffer(10000)
         # INICIA UMA NOVA TRANSACAO
         self.pgWeb.PW_iNewTransac(0x21)
         self.pgWeb.PW_iAddParam(21, self.PWINFO_AUTNAME)
@@ -77,7 +78,32 @@ class Venda:
             print("ret exectransac venda", ret)
             if ret == 0:
                 ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
+                if ret == 0:
+                    PWINFO_REQNUM = PWINFO_AUTLOCREF = PWINFO_AUTEXTREF = PWINFO_VIRTMERCH = PWINFO_AUTHSYST = ''
+                    
+                    for i in range(iNumParam):
+                        if vstParam[i].wIdentificador == E_PWINFO.PWINFO_REQNUM.value:
+                            PWINFO_REQNUM = self.pgWeb.PW_iGetResult(vstParam[i].wIdentificador, szAux, sizeof(szAux))
+                        elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_AUTLOCREF.value:
+                            PWINFO_AUTLOCREF = self.pgWeb.PW_iGetResult(vstParam[i].wIdentificador, szAux, sizeof(szAux))
+                        elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_AUTEXTREF.value:
+                            PWINFO_AUTEXTREF = self.pgWeb.PW_iGetResult(vstParam[i].wIdentificador, szAux, sizeof(szAux))
+                        elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_VIRTMERCH.value:
+                            PWINFO_VIRTMERCH = self.pgWeb.PW_iGetResult(vstParam[i].wIdentificador, szAux, sizeof(szAux))
+                        elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_AUTHSYST.value:
+                            PWINFO_AUTHSYST = self.pgWeb.PW_iGetResult(vstParam[i].wIdentificador, szAux, sizeof(szAux))
+                    iRet = self.pgWeb.PW_iConfirmation(
+                                                    E_PWCNF.PWCNF_CNF_AUTO.value, 
+                                                    PWINFO_REQNUM, 
+                                                    PWINFO_AUTLOCREF,
+                                                    PWINFO_AUTEXTREF,
+                                                    PWINFO_VIRTMERCH,
+                                                    PWINFO_AUTHSYST
+                                                    )
+                    return iRet
+            
                 print(" ret exectransac venda", ret)
+
 
 
         
