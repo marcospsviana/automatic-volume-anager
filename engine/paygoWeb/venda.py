@@ -1,4 +1,5 @@
 import os , sys
+#from Interops import *
 from Interops import *
 from Enums import *
 
@@ -19,11 +20,11 @@ class Venda:
         self.PWINFO_AUTVER = "1.0" #22
         self.PWINFO_AUTDEV = "COOLBAG-SAFE GUARDA BAGAGENS AUTOMATIZADO LTDA" # 23
         self.PWINFO_AUTCAP = "4" #36
-        self.PWINFO_AUTHSYST = "REDE"
+        self.PWINFO_AUTHSYST = "CIELO"
         #PARAMS DEFAULT PARAMS
         self.PWINFO_CURRENCY = "986"
         self.PWINFO_CURREXP = "2" 
-        self.PWINFO_CARDTYPE = "1" # DEBITO E CREDITO
+        #self.PWINFO_CARDTYPE = "3" # DEBITO E CREDITO
         self.venda()
     
 
@@ -35,7 +36,7 @@ class Venda:
         vstParam = vstParam_11()
         iNumParam = 10
         ulEvent = 0
-        # INICIA UMA NOVATRANSACAO
+        # INICIA UMA NOVA TRANSACAO
         self.pgWeb.PW_iNewTransac(0x21)
         self.pgWeb.PW_iAddParam(21, self.PWINFO_AUTNAME)
         self.pgWeb.PW_iAddParam(22, self.PWINFO_AUTVER)
@@ -44,13 +45,15 @@ class Venda:
         self.pgWeb.PW_iAddParam(0x26, self.PWINFO_CURRENCY) 
         self.pgWeb.PW_iAddParam(0x27, self.PWINFO_CURREXP)
         self.pgWeb.PW_iAddParam(53, self.PWINFO_AUTHSYST)
-        self.pgWeb.PW_iAddParam(0x29,"1")
+        #self.pgWeb.PW_iAddParam(0x29,"1")
         self.pgWeb.PW_iAddParam(59, "1")
         self.pgWeb.PW_iAddParam(0x25, "1200")
-        #self.pgWeb.PW_iAddParam(0x1F21, "1") #PWINFO_PAYMNTMODE 1 SOMENTE CARTAO
+        self.pgWeb.PW_iAddParam(0x1F21, "1") #PWINFO_PAYMNTMODE 1 SOMENTE CARTAO
         #self.pgWeb.PW_iAddParam(0xF4, "0")
-        #self.pgWeb.PW_iAddParam(192, "7") #PWINFO_CARDENTMODE = 192
-         
+        #self.pgWeb.PW_iAddParam(0, "28") #PWINFO_CARDENTMODE = 192
+        self.pgWeb.PW_iAddParam(77, "00")
+        self.pgWeb.PW_iAddParam(78, "00")
+        
         wait = ''
         retEventLoop = ''
         self.pgWeb.PW_iPPDisplay("APROXIME, INSIRA OU\r PASSE O CARTAO")
@@ -63,16 +66,19 @@ class Venda:
             print("wait", wait)
 
             
-            
-            
+        ret = ''    
+        
         
         ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
         
-        if ret == -2497:
+        while ret == -2497 or ret != E_PWRET.PWRET_OK.value or ret == E_PWRET.PWRET_NOTHING.value:
+            
             ret = self.pgWeb.PW_iExecGetData(vstParam, iNumParam)
             print("ret exectransac venda", ret)
             if ret == 0:
-                return 0
+                ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
+                print(" ret exectransac venda", ret)
+
 
         
 

@@ -68,6 +68,7 @@ class PgwInstall():
         self.PWINFO_USINGPINPAD =  "1"
         self.PWINFO_AUTNAME = "COOLBAGSAFE-RENTLOCKER"
         self.PWINFO_AUTCAP = "15"
+        self.install()
     def PW_iInit(self):
       self.PW_iInitObj          = self.PGWebLib_dll.PW_iInit
       self.PW_iInitObj.restype  = c_short
@@ -114,6 +115,7 @@ class PgwInstall():
         self.PGWebLib_dll.PW_iAddParam(0xF6, self.PWINFO_AUTHTECHUSER)
         self.PGWebLib_dll.PW_iAddParam(0x7F01, self.PWINFO_USINGPINPAD)
         self.PGWebLib_dll.PW_iAddParam(0x24, self.PWINFO_AUTCAP)
+        self.PGWebLib_dll.PW_iAddParam(0x7F02, "0")
 
         
         
