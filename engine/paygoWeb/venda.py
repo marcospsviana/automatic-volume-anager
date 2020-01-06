@@ -19,8 +19,8 @@ class Venda:
         self.PWINFO_AUTNAME =  "COOLBAGSAFE-RENTLOCKER" # 21
         self.PWINFO_AUTVER = "1.0" #22
         self.PWINFO_AUTDEV = "COOLBAG-SAFE GUARDA BAGAGENS AUTOMATIZADO LTDA" # 23
-        self.PWINFO_AUTCAP = "4" #36
-        self.PWINFO_AUTHSYST = "CIELO"
+        #self.PWINFO_AUTCAP = "15" #36
+        #self.PWINFO_AUTHSYST = "CIELO"
         #PARAMS DEFAULT PARAMS
         self.PWINFO_CURRENCY = "986"
         self.PWINFO_CURREXP = "2" 
@@ -36,17 +36,36 @@ class Venda:
         vstParam = vstParam_11()
         iNumParam = 10
         ulEvent = 0
+        szDspMsg = c_buffer(128)
         szAux = create_string_buffer(10000)
+        wait = ''
+        retEventLoop = ''
+        """self.pgWeb.PW_iPPDisplay("APROXIME, INSIRA OU\r PASSE O CARTAO")
+        retEventLoop = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
+            
+        wait = self.pgWeb.PW_iPPWaitEvent(15)
+
+        while retEventLoop == '' and retEventLoop != 0:
+            
+            retEventLoop = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
+            print("retEventLoop", retEventLoop)
+            print("wait", wait)
+            return retEventLoop"""
+        
+       
+
+            
+        ret = ''    
         # INICIA UMA NOVA TRANSACAO
         self.pgWeb.PW_iNewTransac(0x21)
         self.pgWeb.PW_iAddParam(21, self.PWINFO_AUTNAME)
         self.pgWeb.PW_iAddParam(22, self.PWINFO_AUTVER)
         self.pgWeb.PW_iAddParam(23, self.PWINFO_AUTDEV)
-        self.pgWeb.PW_iAddParam(36, self.PWINFO_AUTCAP)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTCAP.value, "28")
         self.pgWeb.PW_iAddParam(0x26, self.PWINFO_CURRENCY) 
         self.pgWeb.PW_iAddParam(0x27, self.PWINFO_CURREXP)
-        self.pgWeb.PW_iAddParam(53, self.PWINFO_AUTHSYST)
-        #self.pgWeb.PW_iAddParam(0x29,"1")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "CIELO")
+        self.pgWeb.PW_iAddParam(0x29,"1")
         self.pgWeb.PW_iAddParam(59, "1")
         self.pgWeb.PW_iAddParam(0x25, "1200")
         self.pgWeb.PW_iAddParam(0x1F21, "1") #PWINFO_PAYMNTMODE 1 SOMENTE CARTAO
@@ -54,30 +73,20 @@ class Venda:
         #self.pgWeb.PW_iAddParam(0, "28") #PWINFO_CARDENTMODE = 192
         self.pgWeb.PW_iAddParam(77, "00")
         self.pgWeb.PW_iAddParam(78, "00")
+        #self.pgWeb.PW_iAddParam(0xF6, "314159")
         
-        wait = ''
-        retEventLoop = ''
-        self.pgWeb.PW_iPPDisplay("APROXIME, INSIRA OU\r PASSE O CARTAO")
-            
-        wait = self.pgWeb.PW_iPPWaitEvent(15)
-        while retEventLoop == '' and retEventLoop != 0:
-            
-            retEventLoop = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
-            print("retEventLoop", retEventLoop)
-            print("wait", wait)
-
-            
-        ret = ''    
         
         
         ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
         
         while ret == -2497 or ret != E_PWRET.PWRET_OK.value or ret == E_PWRET.PWRET_NOTHING.value:
-            
+            #ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
             ret = self.pgWeb.PW_iExecGetData(vstParam, iNumParam)
             print("ret exectransac venda", ret)
+            
             if ret == 0:
                 ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
+                
                 if ret == 0:
                     PWINFO_REQNUM = PWINFO_AUTLOCREF = PWINFO_AUTEXTREF = PWINFO_VIRTMERCH = PWINFO_AUTHSYST = ''
                     

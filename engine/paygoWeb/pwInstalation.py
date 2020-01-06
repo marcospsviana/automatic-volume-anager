@@ -1,5 +1,7 @@
 from ctypes import *
 from Interops import *
+from Enums import *
+from CustomObjects import *
 
 class PW_GetData(Structure):
    _fields_=[   
@@ -38,95 +40,52 @@ class PW_GetData(Structure):
 
 class PgwInstall():
     def __init__(self):
-        #busca o diretório onde está o executavel 
-        self.me = os.path.abspath(os.path.dirname(__file__))
-        
-        #cria o diretório PGWebLib
-        directory = "."
-      
-        # Parent Directory path 
-        parent_dir = self.me
-          
-        # Path 
-        path = os.path.join(parent_dir, directory) 
-          
-        # Create the directory 
-        # 'GeeksForGeeks' in 
-        # '/home / User / Documents' 
-        if(os.path.exists(path) != True):
-            os.mkdir(path) 
-
-        self.aux_path  = os.path.join(self.me,  "PGWebLib.so")
-        self.path_init = os.path.join(self.me,  "PGWebLib")
-        self.PGWebLib_dll = CDLL(self.aux_path)
+        self.pgWeb = PGWebLibrary()
+        self.pgWeb.PW_iInit()
         self.PWINFO_DESTTCPIP = "app.tpgw.ntk.com.br:17502"
         self.PWINFO_POSID     = "62547"
-        self.PWINFO_AUTDEV    = "COOLBAG-SAFE GUARDA BAGAGENS AUTOMATIZADO"
+        self.PWINFO_AUTDEV    = "COOLBAG-SAFE GUARDA BAGAGENS AUTOMATIZADO LTDA"
         self.PWINFO_AUTVER = "1.0"
         self.PWINFO_MERCHCNPJCPF = "35223093000106"
         self.PWINFO_AUTHTECHUSER = "314159"
         self.PWINFO_USINGPINPAD =  "1"
         self.PWINFO_AUTNAME = "COOLBAGSAFE-RENTLOCKER"
-        self.PWINFO_AUTCAP = "15"
+        self.PWINFO_AUTCAP = "28"
+        self.PWINFO_PPCOMMPORT = "0"
         self.install()
-    def PW_iInit(self):
-      self.PW_iInitObj          = self.PGWebLib_dll.PW_iInit
-      self.PW_iInitObj.restype  = c_short
-      self.PW_iInitObj.argtypes = [c_char_p]
-      self.b_path_init = self.path_init.encode('utf-8')
-      
-      return self.PW_iInitObj(c_char_p(self.b_path_init))
+    
 
-    def PW_iNewTransac(self,bOper):
-        self.PW_iNewTransactObj          = self.PGWebLib_dll.PW_iNewTransac
-        self.PW_iNewTransactObj.restype  = c_short
-        self.PW_iNewTransactObj.argtypes = [c_byte]
-        return self.PW_iNewTransactObj(c_byte(bOper))
-
-    def PW_iExecTransac(self,vstParam, iNumParam):
-        self.PW_iExecTransacObj          = self.PGWebLib_dll.PW_iExecTransac
-        self.PW_iExecTransacObj.restype  = c_short
-
-
-        self.PW_iExecTransacObj.argtypes = [POINTER((PW_GetData *9)),POINTER(c_int)]
-
-
-
-        ret = self.PW_iExecTransacObj(byref(vstParam),byref(c_int(iNumParam)))
-
-        print(ret)
-
-
-        return ret
-
+   
     def install(self):
+        
         ret = ''
-        vstParam_install = (PW_GetData * 9)
-        vstParam = vstParam_install()
-        iNumParam = 1
-        self.PW_iInit()
-        self.PGWebLib_dll.PW_iNewTransac(0x01)
-        self.PGWebLib_dll.PW_iAddParam(0x11, self.PWINFO_POSID)
-        self.PGWebLib_dll.PW_iAddParam(0x15, self.PWINFO_AUTNAME)
-        self.PGWebLib_dll.PW_iAddParam(0x16, self.PWINFO_AUTVER)
-        self.PGWebLib_dll.PW_iAddParam(0x17, self.PWINFO_AUTDEV)
-        self.PGWebLib_dll.PW_iAddParam(0x1B, self.PWINFO_DESTTCPIP)
-        self.PGWebLib_dll.PW_iAddParam(0x1C, self.PWINFO_MERCHCNPJCPF)
-        self.PGWebLib_dll.PW_iAddParam(0xF6, self.PWINFO_AUTHTECHUSER)
-        self.PGWebLib_dll.PW_iAddParam(0x7F01, self.PWINFO_USINGPINPAD)
-        self.PGWebLib_dll.PW_iAddParam(0x24, self.PWINFO_AUTCAP)
-        self.PGWebLib_dll.PW_iAddParam(0x7F02, "0")
+        vstParam_11 = PW_GetData
+        vstParam = vstParam_11()
+        iNumParam = 10
+        
+        self.pgWeb.PW_iNewTransac(0x01)
+        self.pgWeb.PW_iAddParam(0x11, self.PWINFO_POSID)
+        self.pgWeb.PW_iAddParam(0x15, self.PWINFO_AUTNAME)
+        self.pgWeb.PW_iAddParam(0x16, self.PWINFO_AUTVER)
+        self.pgWeb.PW_iAddParam(0x17, self.PWINFO_AUTDEV)
+        self.pgWeb.PW_iAddParam(0x1B, self.PWINFO_DESTTCPIP)
+        self.pgWeb.PW_iAddParam(0x1C, self.PWINFO_MERCHCNPJCPF)
+        self.pgWeb.PW_iAddParam(0xF6, self.PWINFO_AUTHTECHUSER)
+        self.pgWeb.PW_iAddParam(0x7F01, self.PWINFO_USINGPINPAD)
+        self.pgWeb.PW_iAddParam(0x24, self.PWINFO_AUTCAP)
+        self.pgWeb.PW_iAddParam(0x7F02, self.PWINFO_PPCOMMPORT)
 
         
         
 
-        ret = self.PW_iExecTransac(vstParam, iNumParam)
+        ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
 
-        return ret
+        
         retEventLoop = ''
         szDspMsg = create_string_buffer(100000)
-        retEventLoop = self.PW_iPPEventLoop(szDspMsg, 1000)
+        retEventLoop = self.pgWeb.PW_iPPEventLoop(szDspMsg, 1000)
         print("retEventLoop szDspMsg", retEventLoop, szDspMsg)
+        return retEventLoop
 
         
 

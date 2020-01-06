@@ -1,6 +1,6 @@
 #ID DA IMAGEM UBUNTU 16.04 i386
 FROM i386/ubuntu:16.04
-MAINTAINER Marcos Paulo 
+ 
 
 COPY paygoWeb/ /paygoWeb
 RUN apt update && apt-get install -y --no-install-recommends apt-utils
@@ -31,7 +31,7 @@ RUN apt-get install python3 -y
 
 #CRIANDO DIRETORIO QUE SERA MAPEADO 
 
-RUN cd paygoWeb
+WORKDIR paygoWeb
 #CMD ["python3.7", "/paygoWeb/paygoWeb.py"]
 
 

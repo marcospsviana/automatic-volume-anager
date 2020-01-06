@@ -36,7 +36,7 @@ class Banco(object):
         TAXA_HORA_D = 0.6
 
         self.__conn = mdb.connect(
-            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+            user=DB_USER, password=DB_USER_PASSWORD, database=DB_DATABASE)
         self.__c = self.__conn.cursor(buffered=True)
 
         self.__c.execute('''CREATE TABLE IF NOT EXISTS`tb_armario` (
