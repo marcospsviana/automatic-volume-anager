@@ -666,7 +666,7 @@ class PGWebLibrary:
             self.PW_iPPWaitEventObj          = self.PGWebLib_dll.PW_iPPWaitEvent
             self.PW_iPPWaitEventObj.restype  = c_short
             self.PW_iPPWaitEventObj.argtypes = [POINTER(c_int)]
-            ret = self.PW_iPPWaitEventObj(c_int(id(ulEvent)))
+            ret = self.PW_iPPWaitEventObj(byref(c_int(ulEvent)))
             return ret
     #fim de PW_iPPWaitEvent
 
@@ -749,13 +749,11 @@ class PGWebLibrary:
         szPrompt = c_buffer(84)
         
         szDspMsg = create_string_buffer(100000)
-        print("vstParam.bTipoDeDado",vstParam[0].bTipoDeDado)
-        print("vstParam.identificador",vstParam[0].wIdentificador)
-        print("vstParam.bTipoDeDado1",vstParam[1].bTipoDeDado)
-        print("vstParam.identificador1",vstParam[1].wIdentificador)
-        print("vstParam.bTipoDeDado2",vstParam[2].bTipoDeDado)
-        print("vstParam.identificador2",vstParam[2].wIdentificador)
         
+        print("vstParam[0].wIdentificador", vstParam[0].wIdentificador)
+        print("vstParam[1].wIdentificador", vstParam[1].wIdentificador)
+        print("vstParam[2].wIdentificador", vstParam[2].wIdentificador)
+        print("vstParam[3].wIdentificador", vstParam[3].wIdentificador)
 
         #PERCORRE TODOS OS DADOS ENQUANTO HOUVER DADO A SER CAPTURADO
         #while iRet != 0 or iRet == E_PWRET.PWRET_NOTHING.value or iRet == E_PWRET.PWRET_DISPLAY.value:
@@ -763,82 +761,23 @@ class PGWebLibrary:
             print("vstParam[i].wIdentificador", vstParam[i].wIdentificador)
             
             print("vstParam[i].vszTextoMenu", vstParam[i].vszTextoMenu[0])
-            print("vstParam[i].vszValorMenu", vstParam[i].vszValorMenu)
+            print("vstParam[i].vszValorMenu", vstParam[i].vszValorMenu[0])
             print("E_PWDAT.PWDAT_MENU.value", E_PWDAT.PWDAT_MENU.value)
             print("vstParam[i].szPrompt", vstParam[i].szPrompt)
-            if vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_MENU.value:
-                pass
+            """if vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_MENU.value:
+                pass"""
             
 
             """if vstParam[i].wIdentificador == E_PWINFO.PWINFO_CARDTYPE.value:
                 print("PWINFO_CARDTYPE ", E_PWINFO.PWINFO_CARDTYPE.name, E_PWINFO.PWINFO_CARDTYPE.value)
                 ret = self.PW_iPPGetData(i)
                 print("ret cardtype getdata", ret)
-                ret= self.PW_iPPGetCard(i)
-                print("ret cardtype get card", ret)
                 iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
                 print("iRet cardtype", iRet)
                 if iRet == 0:
                     return iRet"""
            
-            
-            
-            """if vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_MENU.value:
-                print("vstParam[i].bTeclasDeAtalho", vstParam[i].bTeclasDeAtalho)
-                print("vstParam[i].bNumeroCapturas", vstParam[i].bNumeroCapturas)
-                print("vstParam.identificador",vstParam[0].wIdentificador)
-                
-                
-                #vstParam[i].szPrompt = b"ESCOLHA 1 OU 2"
-                
-                if vstParam[i].bNumOpcoesMenu == 1:
-                    
-                    ret = self.PW_iAddParam(vstParam[i].wIdentificador, vstParam[i].vszValorMenu.value)
-                    print("uma opcao")
-                    return ret
-                elif vstParam[i].bNumOpcoesMenu >= 2:
-                    vstParam[i].bItemInicial = 1
-                    #vstParam[i].bTeclasDeAtalho = 0
-                    vstParam[i].ulTipoEntradaCartao = 2
-                    #vstParam[i].vszValorMenu[0].value = b'0x21'
-                    #vstParam[i].vszValorMenu[1].value = b"0x22"
-                    #vstParam[i].vszTextoMenu[0] = create_string_buffer(b"CREDITO", 41)
-                    #vstParam[i].vszTextoMenu[1] = create_string_buffer(b"DEBITO", 41)
-                    #vstParam[i].vszPrompt[0] = "ESCOLHA CREDITO OU DEBITO"
-                    print("vstParam[i].wIdentificador", vstParam[i].wIdentificador)
-                    print("vstParam[i].vszValorMenu[0]", vstParam[i].vszValorMenu[0].value)
-                    print("vstParam[i].vszTextoMenu[0]", vstParam[i].vszTextoMenu[0].value)
-                    print("vstParam[i].vszValorMenu[1]", vstParam[i].vszValorMenu[1].value)
-                    print("vstParam[i].vszTextoMenu[1]", vstParam[i].vszTextoMenu[1].value)
-                    pszMsg = ("F1 - %s\n   F2 - %s"%(vstParam[i].vszTextoMenu[0].value, vstParam[i].vszTextoMenu[1].value))
-                    
-                    ret = self.PW_iPPDisplay(pszMsg)
-                    iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
-                    sleep(0.3)
-                    retwait = ''
-                    while retwait != E_PWRET.PWRET_OK:
-                        print("E_PWRET.PWRET_OK", E_PWRET.PWRET_OK)
-                        retwait = self.PW_iPPWaitEvent(E_PWPPEVTIN.PWPPEVTIN_KEYS)
-                        print("ret wait menu", retwait)
-                        iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
-                        sleep(0.3)
-                        
-                    
-                    print("ret waitevent menu" , szDspMsg == E_PWPPEVT.PWPPEVT_KEYF1, szDspMsg)
-                    if ret == b'1':
-                        ret = self.PW_iAddParam(vstParam[i].wIdentificador, vstParam[i].vszValorMenu[0])
-                    elif ret == b'2':
-                        ret = self.PW_iAddParam(vstParam[i].wIdentificador, vstParam[i].vszValorMenu[1])
-            """
-                    
-                        
-                    
-                    
-                    
-                    
-                    
-                    
-                
+                           
             if vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_TYPED.value:
                 print("vstParam.identificador",vstParam[0].wIdentificador)
                 print("vstParam[i].bTipoDeDado", vstParam[i].bTipoDeDado)
@@ -852,6 +791,7 @@ class PGWebLibrary:
                     print("vstParam[i].ulTipoEntradaCartao", vstParam[i].ulTipoEntradaCartao)
                     ret = self.PW_iPPGetCard(i)
                     iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
+                    print("tipo entrada cartao", iRet, ret, szDspMsg)
                     return iRet
                 
             elif vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_CARDOFF.value:
@@ -889,7 +829,6 @@ class PGWebLibrary:
                 ret = self.PW_iPPRemoveCard()
                 print("retire o cartao")
                 iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
-                #self.PW_iPPDisplay("RETIRE O CARTAO")
                 sleep(0.2)
                 if iRet == 0:
                     return iRet
@@ -900,15 +839,68 @@ class PGWebLibrary:
             elif vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_CARDONL.value:
                 ret = self.PW_iPPFinishChip(i)
                 iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
-                print("iRet cardtype", iRet)
+                sleep(0.3)
+                print("iRet cardonl", iRet)
                 if iRet == 0:
                     return iRet
             
             elif vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_PPCONF.value:
                 ret = self.PW_iPPConfirmData(i)
                 iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
-                print("iRet cardtype", iRet)
+                sleep(0.3)
+                print("iRet PPCONF", iRet)
                 if iRet == 0:
                     return iRet
-            
+            elif vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_MENU.value:
+                print("vstParam[i].bTeclasDeAtalho", vstParam[i].bTeclasDeAtalho)
+                print("vstParam[i].bNumeroCapturas", vstParam[i].bNumeroCapturas)
+                print("vstParam.identificador",vstParam[0].wIdentificador)
+                
+                
+                #vstParam[i].szPrompt = b"ESCOLHA 1 OU 2"
+                
+                if vstParam[i].bNumOpcoesMenu == 1:
+                    
+                    ret = self.PW_iAddParam(vstParam[i].wIdentificador, vstParam[i].vszValorMenu.value)
+                    print("uma opcao")
+                    return ret
+                elif vstParam[i].bNumOpcoesMenu >= 2:
+                    vstParam[i].bItemInicial = 1
+                    #vstParam[i].bTeclasDeAtalho = 0
+                    print("vstParam[i].ulTipoEntradaCartao", vstParam[i].ulTipoEntradaCartao)
+                    print("vstParam[i].szMsgPrevia", vstParam[i].szMsgPrevia)
+                    print("vstParam[i].wIdentificador", vstParam[i].wIdentificador)
+                    print("vstParam[i].vszValorMenu[0]", vstParam[i].vszValorMenu[0].value)
+                    print("vstParam[i].vszTextoMenu[0]", vstParam[i].vszTextoMenu[0].value)
+                    print("vstParam[i].vszValorMenu[1]", vstParam[i].vszValorMenu[1].value)
+                    print("vstParam[i].vszTextoMenu[1]", vstParam[i].vszTextoMenu[1].value)
+                    
+                    pszMsg = ("1 - %s\n   2 - %s"%(vstParam[i].vszTextoMenu[1].value, vstParam[i].vszTextoMenu[0].value))
+                    
+                    #ret = self.PW_iPPDisplay(pszMsg)
+                    #iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
+                    #sleep(1)
+                    retwait = ''
+                    #while retwait != E_PWRET.PWRET_OK:
+                    #print("E_PWRET.PWRET_OK", E_PWRET.PWRET_OK)
+                    """retwait = self.PW_iPPWaitEvent(1)
+                    sleep(1)
+                    print("ret wait menu", retwait)
+                    iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
+                    sleep(1)"""
+                    #print("ret waitevent menu e iRet" , ret, szDspMsg.value)
+                    import gi 
+                    gi.require_version
+                    print("1 - CREDITO")
+                    print("2 - DEBITO")
+                    ret = int(input())
+                    if ret == 1:
+                        ret = self.PW_iAddParam(41, "1")
+                        retparc = self.PW_iAddParam(59, "1")
+                        return ret
+                    elif retwait == 2:
+                        ret = self.PW_iAddParam(41, "2")
+                        retparc = self.PW_iAddParam(59, "1")
+                        return ret
+                    
             

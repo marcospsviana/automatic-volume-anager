@@ -40,7 +40,7 @@ class Venda:
         szAux = create_string_buffer(10000)
         wait = ''
         retEventLoop = ''
-        """self.pgWeb.PW_iPPDisplay("APROXIME, INSIRA OU\r PASSE O CARTAO")
+        self.pgWeb.PW_iPPDisplay("APROXIME, INSIRA OU\r PASSE O CARTAO")
         retEventLoop = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
             
         wait = self.pgWeb.PW_iPPWaitEvent(15)
@@ -50,7 +50,7 @@ class Venda:
             retEventLoop = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
             print("retEventLoop", retEventLoop)
             print("wait", wait)
-            return retEventLoop"""
+            return retEventLoop
         
        
 
@@ -58,22 +58,22 @@ class Venda:
         ret = ''    
         # INICIA UMA NOVA TRANSACAO
         self.pgWeb.PW_iNewTransac(0x21)
-        self.pgWeb.PW_iAddParam(21, self.PWINFO_AUTNAME)
-        self.pgWeb.PW_iAddParam(22, self.PWINFO_AUTVER)
-        self.pgWeb.PW_iAddParam(23, self.PWINFO_AUTDEV)
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTCAP.value, "28")
-        self.pgWeb.PW_iAddParam(0x26, self.PWINFO_CURRENCY) 
-        self.pgWeb.PW_iAddParam(0x27, self.PWINFO_CURREXP)
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "CIELO")
-        self.pgWeb.PW_iAddParam(0x29,"1")
-        self.pgWeb.PW_iAddParam(59, "1")
+        # ADICIONA OS PARAMETROS
+        self.pgWeb.PW_iAddParam(0x15, "COOLBAGSAFE-RENTLOCKER")
+        self.pgWeb.PW_iAddParam(0x16, "1.0")
+        self.pgWeb.PW_iAddParam(0x17, "COOLBAG-SAFE GUARDA BAGAGENS AUTOMATIZADO")
+        self.pgWeb.PW_iAddParam(0x24, "28")
+        self.pgWeb.PW_iAddParam(0x26, "986") 
+        self.pgWeb.PW_iAddParam(0x27, "2")
+        self.pgWeb.PW_iAddParam(0x35, "BIN")
+        #self.pgWeb.PW_iAddParam(0x29,"1")
+        #self.pgWeb.PW_iAddParam(0x3B, "1")
         self.pgWeb.PW_iAddParam(0x25, "1200")
-        self.pgWeb.PW_iAddParam(0x1F21, "1") #PWINFO_PAYMNTMODE 1 SOMENTE CARTAO
-        #self.pgWeb.PW_iAddParam(0xF4, "0")
-        #self.pgWeb.PW_iAddParam(0, "28") #PWINFO_CARDENTMODE = 192
-        self.pgWeb.PW_iAddParam(77, "00")
-        self.pgWeb.PW_iAddParam(78, "00")
-        #self.pgWeb.PW_iAddParam(0xF6, "314159")
+        self.pgWeb.PW_iAddParam(192, "102")
+        self.pgWeb.PW_iAddParam(0x1F21, "1") 
+        self.pgWeb.PW_iAddParam(0x4D, "00")
+        self.pgWeb.PW_iAddParam(0x4E, "00")
+        
         
         
         
@@ -83,9 +83,26 @@ class Venda:
             #ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
             ret = self.pgWeb.PW_iExecGetData(vstParam, iNumParam)
             print("ret exectransac venda", ret)
-            
-            if ret == 0:
+            if ret == E_PWRET.PWRET_CANCEL.value:
+                    print("E_PWRET.PWRET_CANCEL")
+                    ret = self.pgWeb.PW_iPPAbort()
+                    retEventLoop = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
+                    print("retEventLoop", retEventLoop)
+                    return retEventLoop
+            elif ret == E_PWRET.PWRET_HOSTTIMEOUT.value:
+                ret = self.pgWeb.PW_iPPAbort()
+                retEventLoop = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
+                print("retEventLoop", retEventLoop)
+                return retEventLoop
+            elif ret == E_PWRET.PWRET_REQPARAM.value:
+                print("PWRET_REQPARAM", E_PWRET.PWRET_REQPARAM.value)
+                ret = self.pgWeb.PW_iPPAbort()
+                retEventLoop = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
+                print("retEventLoop", retEventLoop)
+                return retEventLoop
+            elif ret == 0:
                 ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
+                
                 
                 if ret == 0:
                     PWINFO_REQNUM = PWINFO_AUTLOCREF = PWINFO_AUTEXTREF = PWINFO_VIRTMERCH = PWINFO_AUTHSYST = ''
@@ -93,14 +110,19 @@ class Venda:
                     for i in range(iNumParam):
                         if vstParam[i].wIdentificador == E_PWINFO.PWINFO_REQNUM.value:
                             PWINFO_REQNUM = self.pgWeb.PW_iGetResult(vstParam[i].wIdentificador, szAux, sizeof(szAux))
+                            print("PWINFO_REQNUM", PWINFO_REQNUM)
                         elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_AUTLOCREF.value:
                             PWINFO_AUTLOCREF = self.pgWeb.PW_iGetResult(vstParam[i].wIdentificador, szAux, sizeof(szAux))
+                            print("PWINFO_AUTLOCREF", PWINFO_AUTLOCREF)
                         elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_AUTEXTREF.value:
                             PWINFO_AUTEXTREF = self.pgWeb.PW_iGetResult(vstParam[i].wIdentificador, szAux, sizeof(szAux))
+                            print("PWINFO_AUTEXTREF", PWINFO_AUTEXTREF)
                         elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_VIRTMERCH.value:
                             PWINFO_VIRTMERCH = self.pgWeb.PW_iGetResult(vstParam[i].wIdentificador, szAux, sizeof(szAux))
+                            print("PWINFO_VIRTMERCH", PWINFO_VIRTMERCH)
                         elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_AUTHSYST.value:
                             PWINFO_AUTHSYST = self.pgWeb.PW_iGetResult(vstParam[i].wIdentificador, szAux, sizeof(szAux))
+                            print("PWINFO_AUTHSYST", PWINFO_AUTHSYST)
                     iRet = self.pgWeb.PW_iConfirmation(
                                                     E_PWCNF.PWCNF_CNF_AUTO.value, 
                                                     PWINFO_REQNUM, 
@@ -109,9 +131,21 @@ class Venda:
                                                     PWINFO_VIRTMERCH,
                                                     PWINFO_AUTHSYST
                                                     )
+                    print(iRet, iRet)
                     return iRet
+            """else:
+                    ret = self.pgWeb.PW_iPPAbort()
+                    retEventLoop = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
+                    print("retEventLoop", retEventLoop)
+                    return retEventLoop    
             
-                print(" ret exectransac venda", ret)
+                    print(" ret exectransac venda", ret)"""
+                
+            
+                
+
+
+        
 
 
 
