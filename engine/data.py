@@ -3,6 +3,7 @@
 
 
 import sys
+import asyncio
 import mysql.connector as mdb
 import datetime
 from datetime import date, timedelta, time
@@ -187,6 +188,9 @@ class Banco(object):
 
             self.__conn.commit()
 
+            # self.__c.execute("select data_locacao, tempo_locado, senha from tb_locacao where id_armario= %s" %(loca_armario[0]))
+            # query_select = "select senha from tb_locacao where id_armario= %s" %(loca_armario[0])
+            # data_and_passwd = pd.read_sql(query_select, self.__conn)
             compartimento_query = "select compartimento from tb_armario where id_armario = %s" % (
                 loca_armario[0])
             compartimento_select = pd.read_sql(

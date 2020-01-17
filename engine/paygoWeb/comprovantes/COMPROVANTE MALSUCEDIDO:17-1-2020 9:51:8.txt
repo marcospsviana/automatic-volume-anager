@@ -1,0 +1,1 @@
+b'\r  ERRO COMPACTACAO\r    DA MENSAGEM'
