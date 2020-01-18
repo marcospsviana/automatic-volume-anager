@@ -1,1 +1,0 @@
-<ctypes.c_char_Array_10000 object at 0xf7b97b24>

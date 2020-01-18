@@ -1,0 +1,1 @@
+b'\r  APROVADA 123456   '
