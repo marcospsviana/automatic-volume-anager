@@ -46,12 +46,11 @@ class Venda:
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTCAP.value, "28")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, "986") # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2") 
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "REDE")
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value,"2") # 1 - CREDITO 2 - DEBITO
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "CIELO") #ADQUIRENTE
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value,"1") # 1 - CREDITO 2 - DEBITO
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_FINTYPE.value, "1") # 1 A VISTA
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, "140000")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, "3590")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_PAYMNTTYPE.value, "1") # 1 SOMENTE CARTAO
-        #self.pgWeb.PW_iAddParam(0, "28") #PWINFO_CARDENTMODE = 192
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_BOARDINGTAX.value, "00")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TIPAMOUNT.value, "00")
         
@@ -128,13 +127,34 @@ class Venda:
         PWINFO_AUTHSYST = szAux.value.decode('utf-8')
         print("PWINFO_AUTHSYST", PWINFO_AUTHSYST)
         sleep(0.3)
+
+        self.pgWeb.PW_iGetResult(
+                    E_PWINFO.PWINFO_RESULTMSG.value, szAux, sizeof(szAux))
+        PWINFO_RESULTMSG = szAux.value.decode('utf-8')
+        print("PWINFO_AUTHSYST", PWINFO_RESULTMSG)
+        sleep(0.3)
+
+        result_json =  open('comprovantes/RESULT DATA:%s %s %s .json'%(data.day, data.month, data.year),'a+')
+        result_json.write('\n{  \n')
+        result_json.write('     "PWINFO_REQNUM"    : "%s",\n'%(PWINFO_REQNUM))
+        result_json.write('     "PWINFO_AUTLOCREF" : "%s",\n'%(PWINFO_AUTLOCREF))
+        result_json.write('     "PWINFO_AUTEXTREF" : "%s",\n'%(PWINFO_AUTEXTREF))
+        result_json.write('     "PWINFO_VIRTMERCH" : "%s",\n'%(PWINFO_VIRTMERCH))
+        result_json.write('     "PWINFO_AUTHSYST"  : "%s",\n'%(PWINFO_AUTHSYST))
+        result_json.write('     "PWINFO_RESULTMSG" : "%s",\n'%(PWINFO_RESULTMSG))
+        result_json.write('\n}  \n')
+        result_json.close()
+        
+
         self.pgWeb.PW_iGetResult(
             E_PWINFO.PWINFO_RCPTMERCH.value, szAux, sizeof(szAux))
         print("PWINFO_RCPTMERCH", E_PWINFO.PWINFO_RCPTMERCH.value)
         COMPROVANTE = szAux.value.decode('utf-8')
         print("result transacao nota")
         f = open('comprovantes/COMPROVANTE DATA:%s %s %s .txt'%(data.day, data.month, data.year),'a+')
+        f.write("==============================================\n\n")
         f.write(COMPROVANTE)
+        f.write("==============================================\n\n")
         f.close()
 
         sleep(0.3)
@@ -143,9 +163,15 @@ class Venda:
         print("PWINFO_RCPTMERCH", E_PWINFO.PWINFO_RCPTCHOLDER.value)
         COMPROVANTE_CLIENTE = szAux.value.decode('utf-8')
         f = open('comprovantes/COMPROVANTE CLIENTE DATA:%s %s %s .txt'%(data.day, data.month, data.year),'a+')
+        f.write("\n\n\==============================================\n\n")
         f.write(COMPROVANTE_CLIENTE)
+        f.write("\n\n==============================================\n\n")
         f.close()
-            
+
+
+
+        
+
         iRet = self.pgWeb.PW_iConfirmation(
             E_PWCNF.PWCNF_CNF_AUTO.value,
             PWINFO_REQNUM,
@@ -155,6 +181,10 @@ class Venda:
             PWINFO_AUTHSYST
         )
         print("iRet PW_iConfirmation", iRet)
+
+         
+        
+
         return iRet
     
             
