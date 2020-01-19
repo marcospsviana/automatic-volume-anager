@@ -19,12 +19,7 @@ class Venda:
         self.PWINFO_AUTNAME =  "COOLBAGSAFE-RENTLOCKER" # 21
         self.PWINFO_AUTVER = "1.0" #22
         self.PWINFO_AUTDEV = "COOLBAG-SAFE GUARDA BAGAGENS AUTOMATIZADO LTDA" # 23
-        #self.PWINFO_AUTCAP = "15" #36
-        #self.PWINFO_AUTHSYST = "CIELO"
-        #PARAMS DEFAULT PARAMS
-        self.PWINFO_CURRENCY = "986"
-        self.PWINFO_CURREXP = "2" 
-        #self.PWINFO_CARDTYPE = "3" # DEBITO E CREDITO
+        
         self.venda()
     
 
@@ -51,11 +46,11 @@ class Venda:
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTCAP.value, "28")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, "986") # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2") 
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "CIELO")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "REDE")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value,"2") # 1 - CREDITO 2 - DEBITO
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_FINTYPE.value, "1") # 1 A VISTA
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, "2050")
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_PAYMNTMODE.value, "1") # 1 SOMENTE CARTAO
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, "140000")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_PAYMNTTYPE.value, "1") # 1 SOMENTE CARTAO
         #self.pgWeb.PW_iAddParam(0, "28") #PWINFO_CARDENTMODE = 192
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_BOARDINGTAX.value, "00")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TIPAMOUNT.value, "00")
@@ -138,11 +133,18 @@ class Venda:
         print("PWINFO_RCPTMERCH", E_PWINFO.PWINFO_RCPTMERCH.value)
         COMPROVANTE = szAux.value.decode('utf-8')
         print("result transacao nota")
-        f = open('comprovantes/COMPROVANTE N. %s:%s-%s-%s %s:%s:%s.txt'%(PWINFO_REQNUM, data.day, data.month, data.year, data.hour, data.minute, data.second),'w+')
+        f = open('comprovantes/COMPROVANTE DATA:%s %s %s .txt'%(data.day, data.month, data.year),'a+')
         f.write(COMPROVANTE)
         f.close()
 
         sleep(0.3)
+        self.pgWeb.PW_iGetResult(
+            E_PWINFO.PWINFO_RCPTCHOLDER.value, szAux, sizeof(szAux))
+        print("PWINFO_RCPTMERCH", E_PWINFO.PWINFO_RCPTCHOLDER.value)
+        COMPROVANTE_CLIENTE = szAux.value.decode('utf-8')
+        f = open('comprovantes/COMPROVANTE CLIENTE DATA:%s %s %s .txt'%(data.day, data.month, data.year),'a+')
+        f.write(COMPROVANTE_CLIENTE)
+        f.close()
             
         iRet = self.pgWeb.PW_iConfirmation(
             E_PWCNF.PWCNF_CNF_AUTO.value,
