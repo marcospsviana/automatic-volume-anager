@@ -46,7 +46,7 @@ class Venda:
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTCAP.value, "28")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, "986") # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2") 
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "CIELO") #ADQUIRENTE
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "REDE") #ADQUIRENTE
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value,"1") # 1 - CREDITO 2 - DEBITO
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_FINTYPE.value, "1") # 1 A VISTA
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, "3590")
@@ -132,6 +132,18 @@ class Venda:
                     E_PWINFO.PWINFO_RESULTMSG.value, szAux, sizeof(szAux))
         PWINFO_RESULTMSG = szAux.value.decode('utf-8')
         print("PWINFO_AUTHSYST", PWINFO_RESULTMSG)
+        texto = ''
+        for i in PWINFO_RESULTMSG:
+            if i == '\n':
+                i = i.replace('\n', ' ')
+                texto += i
+            elif i == '\r':
+                i = i.replace('\r', ' ')
+                texto += i
+            else:
+                texto += i
+        PWINFO_RESULTMSG = texto
+            
         sleep(0.3)
 
         result_json =  open('comprovantes/RESULT DATA:%s %s %s .json'%(data.day, data.month, data.year),'a+')
