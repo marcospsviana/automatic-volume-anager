@@ -56,3 +56,43 @@
      "PWINFO_RESULTMSG" : " ERRO DE COMUNICACAO (MENSAGEM INVALIDA)",
 
 }  
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "",
+     "PWINFO_AUTHSYST"  : "",
+     "PWINFO_RESULTMSG" : "   PONTO DE CAPTURA     NAO INSTALADO",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "",
+     "PWINFO_AUTHSYST"  : "",
+     "PWINFO_RESULTMSG" : "   PONTO DE CAPTURA     NAO INSTALADO",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "",
+     "PWINFO_AUTHSYST"  : "",
+     "PWINFO_RESULTMSG" : "   PONTO DE CAPTURA     NAO INSTALADO",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "",
+     "PWINFO_AUTHSYST"  : "",
+     "PWINFO_RESULTMSG" : "   PONTO DE CAPTURA     NAO INSTALADO",
+
+}  

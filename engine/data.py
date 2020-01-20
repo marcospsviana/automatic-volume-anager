@@ -592,7 +592,8 @@ class Banco(object):
         from smtplib import SMTP
         from email.mime.multipart import MIMEMultipart
         from email.mime.text import MIMEText
-        
+        comprovante_pagamento = open('comprovantes/COMPROVANTE CLIENTE EMAIL:%s %s %s .txt'%(data.day, data.month, data.year),'r')
+        RECIBO = comprovante_pagamento.read()
     
         msg = MIMEMultipart()
         __nome = string.capwords(nome)
@@ -603,7 +604,8 @@ class Banco(object):
         <p>SENHA:<b> %s</b>
         <p>DATA LOCAÇÃO:<b> %s %s  </b>
         <p>DATA LIMITE:<b> %s %s</b>
-        </body></html>""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
+        <p>CUPOM FISCAL:  %s </b>
+        </body></html>""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao, RECIBO)
 
         elif language == "en_US":
             __message = """<html><body> <strong>
@@ -612,8 +614,9 @@ class Banco(object):
         <p>COMPARTMENT: <b> %s  </b>
         <p>PASSWORD: <b> %s  </b>
         <p>DATE RENT: <b> %s %s  </b>
-        <p>DEADLINE:  <b> %s %s </b>
-        </body></html>""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao)
+        <p>DEADLINE:  <b> %s %s </b><br>
+        <p>RECEIPT:  %s </b>
+        </body></html>""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao, RECIBO)
 
        
         body = MIMEText(__message, 'html')

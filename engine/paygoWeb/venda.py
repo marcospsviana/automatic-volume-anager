@@ -47,9 +47,9 @@ class Venda:
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, "986") # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2") 
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "REDE") #ADQUIRENTE
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value,"1") # 1 - CREDITO 2 - DEBITO
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value,"2") # 1 - CREDITO 2 - DEBITO
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_FINTYPE.value, "1") # 1 A VISTA
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, "3590")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, "700")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_PAYMNTTYPE.value, "1") # 1 SOMENTE CARTAO
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_BOARDINGTAX.value, "00")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TIPAMOUNT.value, "00")
@@ -179,6 +179,16 @@ class Venda:
         f.write(COMPROVANTE_CLIENTE)
         f.write("\n\n==============================================\n\n")
         f.close()
+
+        envio_email = open('comprovantes/COMPROVANTE CLIENTE EMAIL:%s %s %s .txt'%(data.day, data.month, data.year),'w+')
+        envio_email.write(COMPROVANTE_CLIENTE)
+        envio_email.close()
+
+        recebe_email = open('comprovantes/COMPROVANTE CLIENTE EMAIL:%s %s %s .txt'%(data.day, data.month, data.year),'r')
+        RECIBO = recebe_email.read()
+        recebe_email.close()
+
+        print(RECIBO)
 
 
 
