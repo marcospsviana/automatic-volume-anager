@@ -3,6 +3,7 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk, Gio, GdkPixbuf, GObject
 import datetime
 import time
+from time import sleep
 import calendar
 import string
 from controllers import Management
@@ -64,13 +65,16 @@ class CadastroUsuarios(object):
             "on_btn_limpar_entrada_numeros_button_press_event": self.on_btn_limpar_entrada_numeros_button_press_event,
             "on_btn_window_payment_wait_button_press_event": self.on_btn_window_payment_wait_button_press_event,
             "on_button_fechar_armario_button_press_event": self.on_button_fechar_armario_button_press_event,
-            
+            #"on_btn_credito_button_press_event": self.on_btn_credito_button_press_event,
+            #"on_btn_debito_button_press_event": self.on_btn_debito_button_press_event,
+            #"on_btn_cancelar_button_press_event": self.on_btn_cancelar_button_press_event
         })
         self.builder.add_from_file("ui/cadastro_usuario.glade")
         self.window_cadastro_usuario = self.builder.get_object("window_cadastro_usuario")
         self.window_payment = self.builder.get_object("window_payment_wait")
         self.window_entrada_dados = self.builder.get_object("window_entrada_dados")
         self.window_entrada_numeros = self.builder.get_object("window_entrada_numeros")
+        self.window_select_cartao = self.builder.get_object("window_select_cartao")
         self.dialog_retorno_cadastro = self.builder.get_object("dialog_retorno_cadastro")
         self.dialog_message_preencher_campos = self.builder.get_object("dialog_message_preencher_campos")
         self.dialog_instrucao_fecha_armario = self.builder.get_object(
@@ -221,7 +225,18 @@ class CadastroUsuarios(object):
             "button_fechar_armario")
         self.button_fechar_armario.connect(
             "button_press_event", self.on_button_fechar_armario_button_press_event)
-        """ ===================GRIDS====================== """
+        # ======================== BOTOES TELA OPCAO CARTAO ======================
+        self.btn_credito = self.builder.get_object("btn_credito")
+        self.btn_credito.connect("button-press-event", self.on_btn_credito_button_press_event)
+        self.btn_debito = self.builder.get_object("btn_debito")
+        self.btn_debito.connect("button-press-event", self.on_btn_debito_button_press_event)
+        self.btn_cancelar_escolha = self.builder.get_object("btn_cancelar_escolha")
+        self.btn_cancelar_escolha.connect("button-press-event", self.on_btn_cancelar_button_press_event)
+
+        # ========================= FIM BOTOES ===================================
+
+
+        # ========================    GRIDS     ==================================
         self.grid_numbers = self.builder.get_object("grid_numbers")
 
         """ ========== adicionando os elementos do teclado ======================= """
@@ -440,6 +455,125 @@ class CadastroUsuarios(object):
         
         self.window_cadastro_usuario.fullscreen()
         self.window_cadastro_usuario.show()
+    def on_btn_credito_button_press_event(self, event, args):
+        self.send_tipo_cartao("CREDITO")
+        sleep(0.5)
+        
+        
+
+    def on_btn_debito_button_press_event(self, event, args):
+        self.send_tipo_cartao("DEBITO")
+        sleep(0.5)
+        
+        
+
+    def on_btn_cancelar_button_press_event(self, event, args):
+        self.window_select_cartao.hide()
+
+    def send_tipo_cartao(self, tipo):
+        print(tipo)
+        total = "%.2f"%(self.valor_total)
+        print("total para json", total)
+        total = total.replace('.','')
+        print("total para json formatado", total)
+        with open("engine/paygoWeb/comprovantes/valor_venda.json", "w+") as f:
+            f.write('\n{  \n\n')
+            f.write('"TOTAL": "%s",  \n'%(total))
+            f.write('"LANGUAGE": "%s",  \n'%(self.language))
+            f.write('"PWINFO_CARDTYPE": "%s"  \n'%(tipo))
+            f.write('\n}  \n')
+        #self.wait_payment()
+        self.window_select_cartao.hide()
+        if self.tempo_locacao == "horas":
+                self.entry_quantidade_diaria.set_text("0")
+        elif self.tempo_locacao == "diaria":
+            self.entry_quantidade_horas.set_text("0")
+            #self.entry_minutos.set_text("0")
+        
+        self.__nome = self.entry_nome.get_text()
+        self.__email = self.entry_email.get_text()
+        self.__telefone = self.entry_celular.get_text()
+        self.__quantidade_diaria = self.entry_quantidade_diaria.get_text()
+        self.__quantidade_minutos = "0"
+        if self.entry_quantidade_horas.get_text() == "":
+            self.__quantidade_horas = "0"
+        else:
+            self.__quantidade_horas = self.entry_quantidade_horas.get_text()
+        """if self.entry_minutos.get_text() == "":
+            self.__quantidade_minutos = "0"
+        else:
+            self.__quantidade_minutos = self.entry_minutos.get_text()"""
+        if self.__nome == "":
+            if self.language == "pt_BR":
+                self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
+            elif self.language == "en_US":
+                self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
+            self.dialog_message_preencher_campos.show()
+        elif self.__email == "":
+            if self.language == "pt_BR":
+                self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
+            elif self.language == "en_US":
+                self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
+            self.dialog_message_preencher_campos.show()
+        elif self.__telefone == "":
+            if self.language == "pt_BR":
+                self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
+            elif self.language == "en_US":
+                self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
+            self.dialog_message_preencher_campos.show()
+        elif self.__quantidade_diaria == self.__quantidade_horas: #== self.__quantidade_minutos:
+            if self.language == "pt_BR":
+                self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
+            elif self.language == "en_US":
+                self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
+            self.dialog_message_preencher_campos.show()
+        else:
+            self.window_payment.show()
+            self.__armario = self.classe
+            print("locacao", self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos)
+            manager = Management()
+            self.__result =  manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario, self.language, self.valor_total)
+            count = 0
+            #self.__result = self.__result[0]
+            print("self.__result cadastro usuario ", self.__result[0])
+            if self.__result[0][0] == "locacao concluida com sucesso":
+                dia_inicio_locacao = self.__result[0][1]
+                print("dia_inicio cadastro usuario", dia_inicio_locacao)
+                hora_inicio_locacao = self.__result[0][2]
+                print("hora_inicio cadastro usuario", hora_inicio_locacao)
+                data_fim_locacao = self.__result[0][3]
+                print("data_fim cadastro usuario", data_fim_locacao)
+                hora_fim_locacao = self.__result[0][4]
+                print("hora_fim cadastro usuario", hora_fim_locacao)
+                self.senha = self.__result[0][5]
+                print("__senha cadastro usuario", self.senha)
+                compartimento = self.__result[0][6]
+                print("compartimento cadastro usuario", compartimento)
+                
+            
+                self.label_date_inicio_locacao.set_text(dia_inicio_locacao)
+                self.label_date_fim_locacao.set_text(data_fim_locacao)
+                self.label_hour_inicio_locacao.set_text(hora_inicio_locacao)
+                self.label_hour_fim_locacao.set_text(hora_fim_locacao)
+                self.label_senha.set_text(str(self.senha))
+                self.label_compartimento.set_text(str(compartimento))
+                
+                self.window_payment.hide()
+                self.window_conclusao.show()
+                self.window_cadastro_usuario.hide()
+                
+                self.id_armario = manager.localiza_id_armario(self.senha)
+                return self.id_armario
+                
+                
+            elif self.__result[0] == "armario da classe escolhida indisponível":
+                if self.language == "pt_BR":
+                    self.label_retorno_cadastro.set_text("tamanho de armario\n  escolhido indisponível")
+                    self.dialog_retorno_cadastro.show()
+                elif self.language == "en_US":
+                    self.label_retorno_cadastro.set_text("chosen cabinet\n size unavailable")
+                    self.dialog_retorno_cadastro.show()
+        
     
     def on_btn_limpar_entrada_numeros_button_press_event(self, widget, event):
         self.entry_entrada_numeros.set_text("")
@@ -462,8 +596,22 @@ class CadastroUsuarios(object):
         self.window_cadastro_usuario.destroy()
 
     def on_btn_confirmar_button_press_event(self, widget, event):
-        self.wait_payment()
-        
+        #self.wait_payment()
+        #self.window_select_cartao.show()
+        self.select_cartao()
+    def select_cartao(self):
+        if self.language == "pt_BR":
+            
+            self.btn_credito.set_label("CRÉDITO")
+            self.btn_debito.set_label("DÉBITO")
+            self.btn_cancelar_escolha.set_label("CANCELA")
+
+        elif self.language == "en_US":
+            self.btn_credito.set_label("CREDIT")
+            self.btn_debito.set_label("DEBIT")
+            self.btn_cancelar_escolha.set_label("CANCEL")
+            
+        self.window_select_cartao.show()   
         
     def on_btn_window_payment_wait_button_press_event(self, widget, event):
         if self.tempo_locacao == "horas":
@@ -558,6 +706,10 @@ class CadastroUsuarios(object):
 
     def wait_payment(self):
         self.window_payment.show()
+        if self.language == "pt_BR":
+            self.label_entrada_numeros.set_text("QUANTIDADE DIÁRIA")
+        elif self.language == "en_US":
+            self.label_entrada_numeros.set_text("QUANTITY DAYS")
         
     def on_btn_retornar_button_press_event(self, widget, event):
         self.window_cadastro_usuario.hide()
@@ -705,9 +857,10 @@ class CadastroUsuarios(object):
         
         self.valor_total = float(Decimal(str(self.valor_total)).quantize(Decimal('1.00')))
         
-        print(self.valor_total)
+        print("total para ver",self.valor_total)
         
-        self.label_total.set_text("%.2f"%self.valor_total)
+        self.label_total.set_text("%.2f"%(self.valor_total))
+        print("set label para ver","%.2f"%(self.valor_total))
         self.entry_entrada_numeros.set_text("")
         self.window_entrada_numeros.hide()
     

@@ -777,9 +777,10 @@ class PGWebLibrary:
                     return iRet
                 
             elif vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_CARDOFF.value:
-                print("pwdat_cardoff")
+                print("PWDAT_CARDOFF")
                 ret = self.PW_iPPGoOnChip(i)
                 iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
+                print("iRet, szDspMsg", iRet, szDspMsg)
                 sleep(0.1)
                 if iRet == 0:
                     return iRet
@@ -822,14 +823,14 @@ class PGWebLibrary:
             elif vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_CARDONL.value:
                 ret = self.PW_iPPFinishChip(i)
                 iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
-                print("iRet cardtype", iRet)
+                print("PWDAT_CARDONL", iRet)
                 if iRet == 0:
                     return iRet
             
             elif vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_PPCONF.value:
                 ret = self.PW_iPPConfirmData(i)
                 iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
-                print("iRet cardtype", iRet)
+                print("PWDAT_PPCONF", iRet)
                 if iRet == 0:
                     return iRet
             

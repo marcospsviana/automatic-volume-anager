@@ -8,6 +8,8 @@ import mysql.connector as mdb
 import datetime
 from datetime import date, timedelta, time
 import time
+from time import sleep
+import subprocess
 import random
 import string
 from random import choice, sample
@@ -36,7 +38,7 @@ class Banco(object):
         TAXA_HORA_D = 0.6
 
         self.__conn = mdb.connect(
-            user=DB_USER, password=DB_USER_PASSWORD, database=DB_DATABASE)
+            user="coolbaguser", password="m1cr0@t805i", database="coolbag")
         self.__c = self.__conn.cursor(buffered=True)
 
         self.__c.execute('''CREATE TABLE IF NOT EXISTS`tb_armario` (
@@ -173,8 +175,8 @@ class Banco(object):
         print(loca_armario)
         # self.__c.execute("SET FOREIGN_KEY_CHECKS = 0;")
         # se houver armário livre segue com cadastro de locação
-        retorno = self.pagamento_locacao(self.__total)
-        if retorno == "lk4thHG34=GKss0xndhe":
+        retorno = self.pagamento_locacao()
+        if retorno == "   APROVADA 123456   ":
             __senha = self.__get_passwd()
             # senha_encode = __senha.encode(encoding='utf-8', errors='restrict')
             # self.__hash_senha = hashlib.sha3_512(senha_encode).hexdigest()
@@ -594,6 +596,7 @@ class Banco(object):
         from email.mime.text import MIMEText
         comprovante_pagamento = open('comprovantes/COMPROVANTE CLIENTE EMAIL:%s %s %s .txt'%(data.day, data.month, data.year),'r')
         RECIBO = comprovante_pagamento.read()
+        comprovante_pagamento.close()
     
         msg = MIMEMultipart()
         __nome = string.capwords(nome)
@@ -787,14 +790,18 @@ class Banco(object):
         return "locacao finalizada com sucesso"
 
     def pagamento(self, total, senha):
-        import subprocess
         
-
         #__port = Portas()
         #subprocess("docker start paygoweb")
-        codigo = subprocess('docker exec -it paygoweb bash -c "cd paygoWeb &&  /usr/bin/python3 paygoWeb.py %s"'%total)
-        print("informe o codigo")
-        entrada = "paguei"
+        #subprocess("docker exec paygoweb cd paygoWeb")
+        subprocess.run('docker exec paygoweb /bin/bash -c "cd paygoWeb/ && python3 venda.py"', shell=True)
+        
+        sleep(0.3)
+        #print("informe o codigo")
+        with open('paygoWeb/comprovantes/RETORNO_TRANSACAO.json', 'r') as f:
+            resultado_transacao = json.load(f)
+        
+        
         __senha = senha
         self.__locacao = self.get_locacao(senha)
         print('self.__locacao id_armario', self.__locacao["id_armario"][0])
@@ -802,7 +809,7 @@ class Banco(object):
         self.__c.execute("select id_armario from tb_locacao where senha='%s'" % (__senha))
         result_id_armario = self.__c.fetchall()
         # print("curosr select id_armario data.py", self.__c.fetchone())
-        if codigo == entrada:
+        if resultado_transacao["PWINFO_RESULTMSG"] == "   APROVADA 123456   ":
             self.__c.execute(
                 "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
             self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (
@@ -812,16 +819,26 @@ class Banco(object):
             #self.port = self.select_port(result_id_armario)
             
             #self.port.exec_port(__porta[0][0], "abre")
-            return ("lk4thHG34=GKss0xndhe")
+            return ("   APROVADA 123456   ")
         else:
             return ("houve um problema com o pagamento")
 
-    def pagamento_locacao(self, total):
-        codigo = "paguei"
-        print("informe o codigo")
-        entrada = "paguei"
-        if codigo == entrada:
-            return ("lk4thHG34=GKss0xndhe")
+    def pagamento_locacao(self):
+        #subprocess("docker start paygoweb")
+        #subprocess("docker exec paygoweb cd paygoWeb")
+        subprocess.run('docker exec paygoweb /bin/bash -c "cd paygoWeb/ && python3 venda.py"', shell=True)
+        #cmd = ['docker', 'exec', 'paygoweb', 'bash', '-c', 'cd paygoWeb && python3 venda.py']
+        #p = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        #print(p)
+        #subprocess('docker exec paygoweb bash -c "cd paygoWeb && python3 venda.py"')
+        
+        sleep(0.5)
+        #print("informe o codigo")
+        with open('paygoWeb/comprovantes/RETORNO_TRANSACAO.json', 'r') as f:
+            resultado_transacao = json.load(f)
+        
+        if resultado_transacao["PWINFO_RESULTMSG"] == "   APROVADA 123456   ":
+            return ("   APROVADA 123456   ")
         else:
             return ("houve um problema com o pagamento")
 

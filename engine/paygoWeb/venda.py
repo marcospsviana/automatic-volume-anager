@@ -1,5 +1,5 @@
 import os , sys
-
+import json
 from Interops import *
 from Enums import *
 import datetime
@@ -13,13 +13,8 @@ class Venda:
         
         self.pgWeb = PGWebLibrary()
         # INICIALIZA A BIBLIOTECA 
-        self.pgWeb.PW_iInit()
-        
-        #MANDADATORY PARAMS
-        self.PWINFO_AUTNAME =  "COOLBAGSAFE-RENTLOCKER" # 21
-        self.PWINFO_AUTVER = "1.0" #22
-        self.PWINFO_AUTDEV = "COOLBAG-SAFE GUARDA BAGAGENS AUTOMATIZADO LTDA" # 23
-        
+        self.pgWeb.PW_iInit()     
+        # EXECUTA A FUNÇÃO VENDA
         self.venda()
     
 
@@ -37,19 +32,28 @@ class Venda:
         retEventLoop = ''                  
         ret = '' 
         ret2 = '' 
-          
+        with open('comprovantes/valor_venda.json', 'r') as f:
+            dados = json.load(f)
+        total = dados['TOTAL']
+        if dados['LANGUAGE'] == 'pt_BR':
+            language = "0"
+        else:
+            language = "1"
+        tipo_cartao = dados['PWINFO_CARDTYPE']
         # INICIA UMA NOVA TRANSACAO
         self.pgWeb.PW_iNewTransac(E_PWOPER.PWOPER_SALE.value)
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTNAME.value, self.PWINFO_AUTNAME)
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTVER.value, self.PWINFO_AUTVER)
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTDEV.value, self.PWINFO_AUTDEV)
+        #MANDADATORY PARAMS
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTNAME.value, "COOLBAGSAFE-RENTLOCKER")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTVER.value, "1.0")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTDEV.value, "COOLBAG-SAFE GUARDA BAGAGENS AUTOMATIZADO")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTCAP.value, "28")
+        #self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LANGUAGE.value, language)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, "986") # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2") 
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "REDE") #ADQUIRENTE
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value,"2") # 1 - CREDITO 2 - DEBITO
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value,"1") # 1 - CREDITO 2 - DEBITO
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_FINTYPE.value, "1") # 1 A VISTA
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, "700")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, "2590")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_PAYMNTTYPE.value, "1") # 1 SOMENTE CARTAO
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_BOARDINGTAX.value, "00")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TIPAMOUNT.value, "00")
@@ -156,6 +160,13 @@ class Venda:
         result_json.write('     "PWINFO_RESULTMSG" : "%s",\n'%(PWINFO_RESULTMSG))
         result_json.write('\n}  \n')
         result_json.close()
+
+        with  open('comprovantes/RETORNO_TRANSACAO.json','w+') as retorno_transacao:
+            retorno_transacao.write('\n{  \n\n')
+            retorno_transacao.write('     "PWINFO_RESULTMSG" : "%s",\n'%(PWINFO_RESULTMSG))
+            retorno_transacao.write('\n}  \n')
+        
+
         
 
         self.pgWeb.PW_iGetResult(
