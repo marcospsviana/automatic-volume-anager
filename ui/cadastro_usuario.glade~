@@ -2365,6 +2365,73 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
       </object>
     </child>
   </object>
+  <object class="GtkWindow" id="window_erro_pagamento">
+    <property name="name">window</property>
+    <property name="can_focus">False</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkLabel" id="label_window_erro_pagamentos">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">label</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <object class="GtkGrid">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkButton" id="btn_cancelar_window_erro_pagamentos">
+                <property name="label" translatable="yes">CANCELAR</property>
+                <property name="name">btn_cancelar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="button-press-event" handler="on_btn_cancelar_window_erro_pagamentos_button_press_event" swapped="no"/>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_tente_novamente_window_erro_pagamentos">
+                <property name="label" translatable="yes">TENTE NOVAMENTE</property>
+                <property name="name">btn_encerrar_sessao</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="GtkDialog" id="window_payment_wait">
     <property name="name">window</property>
     <property name="width_request">900</property>
@@ -2477,6 +2544,9 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
     <property name="default_height">400</property>
     <property name="gravity">center</property>
     <child>
+      <placeholder/>
+    </child>
+    <child>
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
@@ -2541,7 +2611,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="btn_cancelar">
+          <object class="GtkButton" id="btn_cancelar_escolha">
             <property name="label" translatable="yes">CANCELAR</property>
             <property name="name">btn_encerrar_sessao</property>
             <property name="width_request">200</property>

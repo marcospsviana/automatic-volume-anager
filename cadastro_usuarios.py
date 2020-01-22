@@ -80,6 +80,7 @@ class CadastroUsuarios(object):
         self.dialog_instrucao_fecha_armario = self.builder.get_object(
             "dialog_instrucao_fecha_armario")
         self.window_conclusao  = self.builder.get_object("window_conclusao")
+        self.window_erro_pagamentos = self.builder.get_object("window_erro_pagamentos")
         
 
         """ =================LABELS ====================="""
@@ -126,6 +127,9 @@ class CadastroUsuarios(object):
         self.label_fim_locacao_titulo = self.builder.get_object("label_fim_locacao_titulo")
         " ----------------- LABEL WAIT PAYMENT ---------------------------"
         self.label_aguarde_pagamento = self.builder.get_object("label_aguarde_pagamento")
+
+        #================== LABEL window_erro_pagamentos =========================
+        self.label_window_erro_pagamentos = self.builder.get_object("label_window_erro_pagamentos")
 
         """ ================FIM LABELS==================="""
         self.spinner = self.builder.get_object("spinner")
@@ -187,8 +191,9 @@ class CadastroUsuarios(object):
         self.btn_backspace = self.builder.get_object("btn_backspace")
         self.btn_backspace.connect("button_press_event", self.on_btn_backspace_button_press_event)
 
-        """ ================FIM BOTOES==================== """
-        " ----------- BOTOES TELA ENTRADA NUMEROS --------- "
+        # ================FIM BOTOES==================== 
+
+        # ============= BOTOES TELA ENTRADA NUMEROS ==================
         self.btn_um = self.builder.get_object("btn_um")
         self.btn_um.connect("clicked", self.on_entry_entrada_numeros_button_press_event)
         self.btn_dois = self.builder.get_object("btn_dois")
@@ -232,6 +237,12 @@ class CadastroUsuarios(object):
         self.btn_debito.connect("button-press-event", self.on_btn_debito_button_press_event)
         self.btn_cancelar_escolha = self.builder.get_object("btn_cancelar_escolha")
         self.btn_cancelar_escolha.connect("button-press-event", self.on_btn_cancelar_button_press_event)
+
+        # ======================== BOTOES window_erro_pagamentos =================
+        self.btn_tente_novamente_window_erro_pagamentos = self.builder.get_object("btn_tente_novamente_window_erro_pagamentos")
+        self.btn_tente_novamente_window_erro_pagamentos.connect("button-press-event", self.on_tente_novamente_window_erro_pagamentos)
+        self.btn_cancelar_window_erro_pagamentos = self.builder.get_object("btn_cancelar_window_erro_pagamentos")
+        self.btn_cancelar_window_erro_pagamentos.connect("button-press-event", self.on_cancelar_window_erro_pagamentos)
 
         # ========================= FIM BOTOES ===================================
 
@@ -457,12 +468,16 @@ class CadastroUsuarios(object):
         self.window_cadastro_usuario.show()
     def on_btn_credito_button_press_event(self, event, args):
         self.send_tipo_cartao("CREDITO")
+        self.window_payment.show()
+        self.window_select_cartao.hide()
         sleep(0.5)
         
         
 
     def on_btn_debito_button_press_event(self, event, args):
         self.send_tipo_cartao("DEBITO")
+        self.window_payment.show()
+        self.window_select_cartao.hide()
         sleep(0.5)
         
         
@@ -471,6 +486,7 @@ class CadastroUsuarios(object):
         self.window_select_cartao.hide()
 
     def send_tipo_cartao(self, tipo):
+        
         print(tipo)
         total = "%.2f"%(self.valor_total)
         print("total para json", total)
@@ -528,7 +544,7 @@ class CadastroUsuarios(object):
                 self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
             self.dialog_message_preencher_campos.show()
         else:
-            self.window_payment.show()
+            
             self.__armario = self.classe
             print("locacao", self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos)
             manager = Management()
@@ -559,8 +575,9 @@ class CadastroUsuarios(object):
                 self.label_compartimento.set_text(str(compartimento))
                 
                 self.window_payment.hide()
-                self.window_conclusao.show()
                 self.window_cadastro_usuario.hide()
+                self.window_conclusao.show()
+                
                 
                 self.id_armario = manager.localiza_id_armario(self.senha)
                 return self.id_armario
@@ -573,6 +590,25 @@ class CadastroUsuarios(object):
                 elif self.language == "en_US":
                     self.label_retorno_cadastro.set_text("chosen cabinet\n size unavailable")
                     self.dialog_retorno_cadastro.show()
+            else:
+                self.window_payment.hide()
+                self.label_retorno_erro_pagamento.set_text(self.__result[0])
+                self.window_erro_pagamentos()
+    
+    def window_erro_pagamentos(self):
+        self.window_payment.hide()
+        self.window_erro_pagamentos.show()
+    
+    def on_tente_novamente_window_erro_pagamentos(self):
+        self.window_erro_pagamentos.hide()
+        self.window_select_cartao.show()
+
+    def on_cancelar_window_erro_pagamentos(self):
+        self.window_erro_pagamentos.hide()
+        self.window_payment.hide()
+        self.window_select_cartao.hide()
+        
+
         
     
     def on_btn_limpar_entrada_numeros_button_press_event(self, widget, event):
@@ -658,6 +694,7 @@ class CadastroUsuarios(object):
                 self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
             self.dialog_message_preencher_campos.show()
         else:
+            
             self.__armario = self.classe
             print("locacao", self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos)
             manager = Management()

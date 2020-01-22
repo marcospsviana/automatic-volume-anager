@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-import sys
+import sys, os
 import asyncio
 import mysql.connector as mdb
 import datetime
@@ -176,7 +176,7 @@ class Banco(object):
         # self.__c.execute("SET FOREIGN_KEY_CHECKS = 0;")
         # se houver armário livre segue com cadastro de locação
         retorno = self.pagamento_locacao()
-        if retorno == "   APROVADA 123456   ":
+        if 'aprovada' in retorno.lower():
             __senha = self.__get_passwd()
             # senha_encode = __senha.encode(encoding='utf-8', errors='restrict')
             # self.__hash_senha = hashlib.sha3_512(senha_encode).hexdigest()
@@ -792,13 +792,13 @@ class Banco(object):
     def pagamento(self, total, senha):
         
         #__port = Portas()
-        #subprocess("docker start paygoweb")
+        subprocess.run("docker start paygoweb", shell=True)
         #subprocess("docker exec paygoweb cd paygoWeb")
         subprocess.run('docker exec paygoweb /bin/bash -c "cd paygoWeb/ && python3 venda.py"', shell=True)
         
         sleep(0.3)
         #print("informe o codigo")
-        with open('paygoWeb/comprovantes/RETORNO_TRANSACAO.json', 'r') as f:
+        with open('paygoWeb/comprovantes/retornotransacao.json', 'r') as f:
             resultado_transacao = json.load(f)
         
         
@@ -809,7 +809,8 @@ class Banco(object):
         self.__c.execute("select id_armario from tb_locacao where senha='%s'" % (__senha))
         result_id_armario = self.__c.fetchall()
         # print("curosr select id_armario data.py", self.__c.fetchone())
-        if resultado_transacao["PWINFO_RESULTMSG"] == "   APROVADA 123456   ":
+        subprocess.run("docker stop paygoweb", shell=True)
+        if 'aprovada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
             self.__c.execute(
                 "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
             self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (
@@ -819,28 +820,36 @@ class Banco(object):
             #self.port = self.select_port(result_id_armario)
             
             #self.port.exec_port(__porta[0][0], "abre")
-            return ("   APROVADA 123456   ")
+            return ("   APROVADA   ")
         else:
-            return ("houve um problema com o pagamento")
+            return (resultado_transacao["PWINFO_RESULTMSG"])
 
     def pagamento_locacao(self):
-        #subprocess("docker start paygoweb")
+        p = None
+        #subprocess.run("docker start paygoweb", shell=True)
         #subprocess("docker exec paygoweb cd paygoWeb")
-        subprocess.run('docker exec paygoweb /bin/bash -c "cd paygoWeb/ && python3 venda.py"', shell=True)
+        
+        p = subprocess.run('docker exec paygoweb /bin/bash -c "cd paygoWeb/ && python3 venda.py"', shell=True)
         #cmd = ['docker', 'exec', 'paygoweb', 'bash', '-c', 'cd paygoWeb && python3 venda.py']
         #p = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         #print(p)
         #subprocess('docker exec paygoweb bash -c "cd paygoWeb && python3 venda.py"')
-        
-        sleep(0.5)
+        while p == None:
+            print("processando...")
+            sleep(0.2)
+        #subprocess.run("docker stop paygoweb", shell=True)
         #print("informe o codigo")
-        with open('paygoWeb/comprovantes/RETORNO_TRANSACAO.json', 'r') as f:
-            resultado_transacao = json.load(f)
         
-        if resultado_transacao["PWINFO_RESULTMSG"] == "   APROVADA 123456   ":
-            return ("   APROVADA 123456   ")
+        #subprocess.run('docker exec paygoweb bash -c cd paygoWeb', shell=True)
+        f = open('paygoWeb/comprovantes/retornotransacao.json')
+        resultado_transacao = json.load(f)
+        f.close()
+        
+        
+        if 'aprovada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
+            return ("   APROVADA   ")
         else:
-            return ("houve um problema com o pagamento")
+            return (resultado_transacao["PWINFO_RESULTMSG"])
 
     @classmethod
     def select_port(self, armario):

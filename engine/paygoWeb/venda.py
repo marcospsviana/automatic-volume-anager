@@ -34,12 +34,19 @@ class Venda:
         ret2 = '' 
         with open('comprovantes/valor_venda.json', 'r') as f:
             dados = json.load(f)
-        total = dados['TOTAL']
+        self.total = dados['TOTAL']
+        print("type(total)", type(self.total))
+        print(self.total)
         if dados['LANGUAGE'] == 'pt_BR':
             language = "0"
         else:
             language = "1"
         tipo_cartao = dados['PWINFO_CARDTYPE']
+        if tipo_cartao == "CREDITO":
+            self.tipo_cartao = "1"
+        elif tipo_cartao == "DEBITO":
+            self.tipo_cartao = "2"
+        print("tipo_cartao", tipo_cartao)
         # INICIA UMA NOVA TRANSACAO
         self.pgWeb.PW_iNewTransac(E_PWOPER.PWOPER_SALE.value)
         #MANDADATORY PARAMS
@@ -50,10 +57,10 @@ class Venda:
         #self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LANGUAGE.value, language)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, "986") # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2") 
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "REDE") #ADQUIRENTE
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value,"1") # 1 - CREDITO 2 - DEBITO
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "CIELO") #ADQUIRENTE
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value,self.tipo_cartao) # 1 - CREDITO 2 - DEBITO
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_FINTYPE.value, "1") # 1 A VISTA
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, "2590")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, self.total)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_PAYMNTTYPE.value, "1") # 1 SOMENTE CARTAO
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_BOARDINGTAX.value, "00")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TIPAMOUNT.value, "00")
@@ -161,10 +168,11 @@ class Venda:
         result_json.write('\n}  \n')
         result_json.close()
 
-        with  open('comprovantes/RETORNO_TRANSACAO.json','w+') as retorno_transacao:
-            retorno_transacao.write('\n{  \n\n')
-            retorno_transacao.write('     "PWINFO_RESULTMSG" : "%s",\n'%(PWINFO_RESULTMSG))
-            retorno_transacao.write('\n}  \n')
+        retorno_transacao =  open('comprovantes/retornotransacao.json','w+')
+        retorno_transacao.write('\n{  \n')
+        retorno_transacao.write('     "PWINFO_RESULTMSG" : "%s"'%(PWINFO_RESULTMSG))
+        retorno_transacao.write('\n}  \n')
+        retorno_transacao.close()
         
 
         
