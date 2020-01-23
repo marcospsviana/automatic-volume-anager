@@ -467,8 +467,9 @@ class CadastroUsuarios(object):
         self.window_cadastro_usuario.fullscreen()
         self.window_cadastro_usuario.show()
     def on_btn_credito_button_press_event(self, event, args):
+        self.wait_payment()
         self.send_tipo_cartao("CREDITO")
-        self.window_payment.show()
+        
         self.window_select_cartao.hide()
         sleep(0.5)
         
@@ -632,7 +633,7 @@ class CadastroUsuarios(object):
         self.window_cadastro_usuario.destroy()
 
     def on_btn_confirmar_button_press_event(self, widget, event):
-        #self.wait_payment()
+        self.wait_payment()
         #self.window_select_cartao.show()
         self.select_cartao()
     def select_cartao(self):

@@ -586,3 +586,244 @@ CNPJ: 35.223.093/0001-06
 
 ==============================================
 
+
+
+\==============================================
+
+              PAYGO BY NTK              
+
+              MASTERCARD              
+           535081******9423           
+1 VIA-CLIENTE               AUT=173445
+DOC=574194    22/01/20 18:34     ONL-C
+VENDA A CREDITO
+VALOR:                   R$      10,50
+
+
+----------------------------------------
+62547 0000000131 PGREF:0000574194
+NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
+CNPJ: 35.223.093/0001-06
+
+   *** AMBIENTE DE TESTES - APP02 ***   
+
+
+
+==============================================
+
+
+
+\==============================================
+
+              PAYGO BY NTK              
+
+              MASTERCARD              
+           535081******9423           
+1 VIA-CLIENTE               AUT=174134
+DOC=574195    22/01/20 18:41     ONL-C
+VENDA A CREDITO
+VALOR:                   R$      16,80
+
+
+----------------------------------------
+62547 0000000131 PGREF:0000574195
+NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
+CNPJ: 35.223.093/0001-06
+
+   *** AMBIENTE DE TESTES - APP02 ***   
+
+
+
+==============================================
+
+
+
+\==============================================
+
+              PAYGO BY NTK              
+
+              MASTERCARD              
+           535081******9423           
+1 VIA-CLIENTE               AUT=174323
+DOC=574196    22/01/20 18:43     ONL-C
+VENDA A CREDITO
+VALOR:                   R$      16,80
+
+
+----------------------------------------
+62547 0000000131 PGREF:0000574196
+NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
+CNPJ: 35.223.093/0001-06
+
+   *** AMBIENTE DE TESTES - APP02 ***   
+
+
+
+==============================================
+
+
+
+\==============================================
+
+              PAYGO BY NTK              
+
+              MASTERCARD              
+           535081******9423           
+1 VIA-CLIENTE               AUT=175300
+DOC=574197    22/01/20 18:52     ONL-C
+VENDA A CREDITO
+VALOR:                   R$      10,50
+
+
+----------------------------------------
+62547 0000000131 PGREF:0000574197
+NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
+CNPJ: 35.223.093/0001-06
+
+   *** AMBIENTE DE TESTES - APP02 ***   
+
+
+
+==============================================
+
+
+
+\==============================================
+
+              PAYGO BY NTK              
+
+              MASTERCARD              
+           535081******9423           
+1 VIA-CLIENTE               AUT=175543
+DOC=574198    22/01/20 18:55     ONL-C
+VENDA A CREDITO
+VALOR:                   R$       8,40
+
+
+----------------------------------------
+62547 0000000131 PGREF:0000574198
+NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
+CNPJ: 35.223.093/0001-06
+
+   *** AMBIENTE DE TESTES - APP02 ***   
+
+
+
+==============================================
+
+
+
+\==============================================
+
+              PAYGO BY NTK              
+
+              MASTERCARD              
+           535081******9423           
+1 VIA-CLIENTE               AUT=181019
+DOC=574199    22/01/20 19:10     ONL-C
+VENDA A CREDITO
+VALOR:                   R$      10,50
+
+
+----------------------------------------
+62547 0000000131 PGREF:0000574199
+NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
+CNPJ: 35.223.093/0001-06
+
+   *** AMBIENTE DE TESTES - APP02 ***   
+
+
+
+==============================================
+
+
+
+\==============================================
+
+ TRANSACAO PENDENTE 
+
+==============================================
+
+
+
+\==============================================
+
+ TRANSACAO PENDENTE 
+
+==============================================
+
+
+
+\==============================================
+
+              PAYGO BY NTK              
+
+              MASTERCARD              
+           535081******9423           
+1 VIA-CLIENTE               AUT=214115
+DOC=574203    22/01/20 22:41     ONL-C
+VENDA A CREDITO
+VALOR:                   R$      16,80
+
+
+----------------------------------------
+62547 0000000131 PGREF:0000574203
+NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
+CNPJ: 35.223.093/0001-06
+
+   *** AMBIENTE DE TESTES - APP02 ***   
+
+
+
+==============================================
+
+
+
+\==============================================
+
+              PAYGO BY NTK              
+
+              MASTERCARD              
+           535081******9423           
+1 VIA-CLIENTE               AUT=233801
+DOC=574204    23/01/20 00:38     ONL-C
+VENDA A CREDITO
+VALOR:                   R$      12,60
+
+
+----------------------------------------
+62547 0000000131 PGREF:0000574204
+NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
+CNPJ: 35.223.093/0001-06
+
+   *** AMBIENTE DE TESTES - APP02 ***   
+
+
+
+==============================================
+
+
+
+\==============================================
+
+              PAYGO BY NTK              
+
+              MASTERCARD              
+           535081******9423           
+1 VIA-CLIENTE               AUT=234706
+DOC=574205    23/01/20 00:47     ONL-C
+VENDA A CREDITO
+VALOR:                   R$      10,50
+
+
+----------------------------------------
+62547 0000000131 PGREF:0000574205
+NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
+CNPJ: 35.223.093/0001-06
+
+   *** AMBIENTE DE TESTES - APP02 ***   
+
+
+
+==============================================
+

@@ -1,7 +1,3 @@
-#!/usr/bin/python3
-# -*- coding: utf-8 -*-
-
-
 import sys, os
 import asyncio
 import mysql.connector as mdb
@@ -16,7 +12,6 @@ from random import choice, sample
 import pandas as pd
 import smtplib
 import json
-import hashlib
 #from .portas import Portas
 
 
@@ -175,8 +170,14 @@ class Banco(object):
         print(loca_armario)
         # self.__c.execute("SET FOREIGN_KEY_CHECKS = 0;")
         # se houver armário livre segue com cadastro de locação
+        retorno = None
         retorno = self.pagamento_locacao()
-        if 'aprovada' in retorno.lower():
+        diretorio = os.getcwd()
+        f = open('%s/engine/paygoWeb/comprovantes/retornotransacao.json'%(diretorio), 'r')
+        resultado_transacao = json.load(f)
+        f.close()
+               
+        if 'aprovada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
             __senha = self.__get_passwd()
             # senha_encode = __senha.encode(encoding='utf-8', errors='restrict')
             # self.__hash_senha = hashlib.sha3_512(senha_encode).hexdigest()
@@ -234,8 +235,11 @@ class Banco(object):
             }
             return (locacao_json["message"], locacao_json["data_locacao"], locacao_json["hora_locacao"], locacao_json["data_locada"], locacao_json["hora_locada"], locacao_json["senha"], locacao_json["compartimento"])
             # return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, __senha, compartimento)
-        elif retorno == "houve um problema com o pagamento":
-            return loca_armario
+        else:
+            locacao_json = {
+                "message": resultado_transacao["PWINFO_RESULTMSG"]
+            }
+            return locacao_json["message"]
         self.__conn.close()
 
     def localisa_armario(self, classe):
@@ -502,7 +506,7 @@ class Banco(object):
 
         else:
             self.__locacao = self.get_locacao(senha)  # __senha)
-            if (self.__locacao['tempo_locado'][0]) >= hj:
+            if (self.__locacao['tempo_locado'][0]) > hj:
 
                 tempo_total = hj - self.__locacao['tempo_locado'][0]
                 dias_passados = tempo_total.days
@@ -594,9 +598,12 @@ class Banco(object):
         from smtplib import SMTP
         from email.mime.multipart import MIMEMultipart
         from email.mime.text import MIMEText
-        comprovante_pagamento = open('comprovantes/COMPROVANTE CLIENTE EMAIL:%s %s %s .txt'%(data.day, data.month, data.year),'r')
-        RECIBO = comprovante_pagamento.read()
+        diretorio = os.getcwd()
+        comprovante_pagamento = open('%s/engine/paygoWeb/comprovantes/COMPROVANTE CLIENTE EMAIL.txt'%(diretorio),'r')
+        
+        RECIBO = comprovante_pagamento.readlines()
         comprovante_pagamento.close()
+        
     
         msg = MIMEMultipart()
         __nome = string.capwords(nome)
@@ -826,7 +833,7 @@ class Banco(object):
 
     def pagamento_locacao(self):
         p = None
-        #subprocess.run("docker start paygoweb", shell=True)
+        subprocess.run("docker start paygoweb", shell=True)
         #subprocess("docker exec paygoweb cd paygoWeb")
         
         p = subprocess.run('docker exec paygoweb /bin/bash -c "cd paygoWeb/ && python3 venda.py"', shell=True)
@@ -837,19 +844,11 @@ class Banco(object):
         while p == None:
             print("processando...")
             sleep(0.2)
-        #subprocess.run("docker stop paygoweb", shell=True)
+        subprocess.run("docker stop paygoweb", shell=True)
         #print("informe o codigo")
         
         #subprocess.run('docker exec paygoweb bash -c cd paygoWeb', shell=True)
-        f = open('paygoWeb/comprovantes/retornotransacao.json')
-        resultado_transacao = json.load(f)
-        f.close()
-        
-        
-        if 'aprovada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
-            return ("   APROVADA   ")
-        else:
-            return (resultado_transacao["PWINFO_RESULTMSG"])
+        return True
 
     @classmethod
     def select_port(self, armario):

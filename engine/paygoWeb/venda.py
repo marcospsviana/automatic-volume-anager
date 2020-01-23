@@ -138,6 +138,15 @@ class Venda:
         PWINFO_AUTHSYST = szAux.value.decode('utf-8')
         print("PWINFO_AUTHSYST", PWINFO_AUTHSYST)
         sleep(0.3)
+        iRet = self.pgWeb.PW_iConfirmation(
+            E_PWCNF.PWCNF_CNF_AUTO.value,
+            PWINFO_REQNUM,
+            PWINFO_AUTLOCREF,
+            PWINFO_AUTEXTREF,
+            PWINFO_VIRTMERCH,
+            PWINFO_AUTHSYST
+        )
+        print("iRet PW_iConfirmation", iRet)
 
         self.pgWeb.PW_iGetResult(
                     E_PWINFO.PWINFO_RESULTMSG.value, szAux, sizeof(szAux))
@@ -156,6 +165,7 @@ class Venda:
         PWINFO_RESULTMSG = texto
             
         sleep(0.3)
+        
 
         result_json =  open('comprovantes/RESULT DATA:%s %s %s .json'%(data.day, data.month, data.year),'a+')
         result_json.write('\n{  \n')
@@ -199,32 +209,10 @@ class Venda:
         f.write("\n\n==============================================\n\n")
         f.close()
 
-        envio_email = open('comprovantes/COMPROVANTE CLIENTE EMAIL:%s %s %s .txt'%(data.day, data.month, data.year),'w+')
+        envio_email = open('comprovantes/COMPROVANTE CLIENTE EMAIL.txt','w+')
         envio_email.write(COMPROVANTE_CLIENTE)
         envio_email.close()
 
-        recebe_email = open('comprovantes/COMPROVANTE CLIENTE EMAIL:%s %s %s .txt'%(data.day, data.month, data.year),'r')
-        RECIBO = recebe_email.read()
-        recebe_email.close()
-
-        print(RECIBO)
-
-
-
-        
-
-        iRet = self.pgWeb.PW_iConfirmation(
-            E_PWCNF.PWCNF_CNF_AUTO.value,
-            PWINFO_REQNUM,
-            PWINFO_AUTLOCREF,
-            PWINFO_AUTEXTREF,
-            PWINFO_VIRTMERCH,
-            PWINFO_AUTHSYST
-        )
-        print("iRet PW_iConfirmation", iRet)
-
-         
-        
 
         return iRet
     
