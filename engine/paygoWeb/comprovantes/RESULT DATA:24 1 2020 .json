@@ -48,3 +48,153 @@
      "PWINFO_RESULTMSG" : "   APROVADA 123456   ",
 
 }  
+
+{  
+     "PWINFO_REQNUM"    : "0000701516",
+     "PWINFO_AUTLOCREF" : "574229",
+     "PWINFO_AUTEXTREF" : "574229",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+     "PWINFO_RESULTMSG" : "   APROVADA 123456   ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "0000701521",
+     "PWINFO_AUTLOCREF" : "574230",
+     "PWINFO_AUTEXTREF" : "574230",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+     "PWINFO_RESULTMSG" : "   APROVADA 123456   ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "0000701526",
+     "PWINFO_AUTLOCREF" : "574231",
+     "PWINFO_AUTEXTREF" : "574231",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+     "PWINFO_RESULTMSG" : "   APROVADA 123456   ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "0000701533",
+     "PWINFO_AUTLOCREF" : "574235",
+     "PWINFO_AUTEXTREF" : "574235",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+     "PWINFO_RESULTMSG" : "   APROVADA 123456   ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "0000701538",
+     "PWINFO_AUTLOCREF" : "574236",
+     "PWINFO_AUTEXTREF" : "574236",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+     "PWINFO_RESULTMSG" : "      PARAMETROS MANDATORIOS AUSENTES",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "0000701544",
+     "PWINFO_AUTLOCREF" : "574238",
+     "PWINFO_AUTEXTREF" : "574238",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+     "PWINFO_RESULTMSG" : "   APROVADA 123456   ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "0000701549",
+     "PWINFO_AUTLOCREF" : "574239",
+     "PWINFO_AUTEXTREF" : "574239",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+     "PWINFO_RESULTMSG" : "   APROVADA 123456   ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "0000701554",
+     "PWINFO_AUTLOCREF" : "574240",
+     "PWINFO_AUTEXTREF" : "574240",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+     "PWINFO_RESULTMSG" : "   APROVADA 123456   ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "0000701562",
+     "PWINFO_AUTLOCREF" : "574242",
+     "PWINFO_AUTEXTREF" : "574242",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+     "PWINFO_RESULTMSG" : "   APROVADA 123456   ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "0000701567",
+     "PWINFO_AUTLOCREF" : "574243",
+     "PWINFO_AUTEXTREF" : "574243",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+     "PWINFO_RESULTMSG" : "     ERRO TABELAS    ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+     "PWINFO_RESULTMSG" : "      NEGADA 20      ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+     "PWINFO_RESULTMSG" : "      NEGADA 20      ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "9",
+     "PWINFO_AUTHSYST"  : "BIN",
+     "PWINFO_RESULTMSG" : "      DNEGADA 80     ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "9",
+     "PWINFO_AUTHSYST"  : "BIN",
+     "PWINFO_RESULTMSG" : "      DNEGADA 80     ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "0000701582",
+     "PWINFO_AUTLOCREF" : "574244",
+     "PWINFO_AUTEXTREF" : "574244",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+     "PWINFO_RESULTMSG" : "     ERRO TABELAS    ",
+
+}  

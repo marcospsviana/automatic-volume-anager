@@ -13,6 +13,7 @@ import pandas as pd
 import smtplib
 import json
 #from .portas import Portas
+from .TransacsAndOps import TransacsOps as transops
 
 
 class Banco(object):
@@ -170,21 +171,24 @@ class Banco(object):
         print(loca_armario)
         # self.__c.execute("SET FOREIGN_KEY_CHECKS = 0;")
         # se houver armário livre segue com cadastro de locação
-        retorno = None
+        #retorno = None
         retorno = self.pagamento_locacao()
-        data = datetime.datetime.now()
-        diretorio = os.getcwd()
-        print("diretorio ---->", diretorio)
-        f = open('%s/engine/paygoWeb/comprovantes/retornotransacao.json'%(diretorio), 'r')
-        resultado_transacao = json.load(f)
-        f.close()
-        retorno_transacao = open('%s/engine/paygoWeb/comprovantes/retornotransacao.json'%(diretorio), 'w+')
-        retorno_transacao.write('\n{  \n')
-        retorno_transacao.write('     "DATA" : "%s %s %s %s %s",\n'%(data.day, data.month, data.year, data.hour, data.minute))
-        retorno_transacao.write('     "PWINFO_RESULTMSG" : "SEM TRANSACAO"')
-        retorno_transacao.write('\n}  \n')
-        retorno_transacao.close()
-               
+        #data = datetime.datetime.now()
+        #diretorio = os.getcwd()
+        #print("diretorio ---->", diretorio)
+        #f = open('%s/engine/paygoWeb/comprovantes/retornotransacao.json'%(diretorio), 'r')
+        #resultado_transacao = json.load(f)
+        #f.close()
+        #retorno_transacao = open('%s/engine/paygoWeb/comprovantes/retornotransacao.json'%(diretorio), 'w+')
+        #retorno_transacao.write('\n{  \n')
+        #retorno_transacao.write('     "DATA" : "%s %s %s %s %s",\n'%(data.day, data.month, data.year, data.hour, data.minute))
+        #retorno_transacao.write('     "PWINFO_RESULTMSG" : "SEM TRANSACAO"')
+        #retorno_transacao.write('\n}  \n')
+        #retorno_transacao.close()
+        
+
+        resultado_transacao = transops.retorno_transacao()
+        print("resultado_transacao", resultado_transacao)
         if 'aprovada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
             __senha = self.__get_passwd()
             # senha_encode = __senha.encode(encoding='utf-8', errors='restrict')
@@ -870,15 +874,19 @@ class Banco(object):
         result_id_armario = self.__c.fetchall()
         # print("curosr select id_armario data.py", self.__c.fetchone())
         subprocess.run("docker stop paygoweb", shell=True)
-        with open('paygoWeb/comprovantes/retornotransacao.json', 'r') as f:
-            resultado_transacao = json.load(f)
-        sleep(0.2)
-        retorno_transacao = open('paygoWeb/comprovantes/retornotransacao.json', 'w+')
-        retorno_transacao.write('\n{  \n')
-        retorno_transacao.write('     "DATA" : "%s %s %s %s %s",\n'%(data.day, data.month, data.year, data.hour, data.minute))
-        retorno_transacao.write('     "PWINFO_RESULTMSG" : "SEM TRANSACAO"')
-        retorno_transacao.write('\n}  \n')
-        retorno_transacao.close()
+        #diretorio = os.getcwd()
+        #with open('%s/engine/paygoWeb/comprovantes/retornotransacao.json'%(diretorio), 'r') as f:
+        #    resultado_transacao = json.load(f)
+        #sleep(0.2)
+        #retorno_transacao = open('%s/engine/paygoWeb/comprovantes/retornotransacao.json'%(diretorio), 'w+')
+        #retorno_transacao.write('\n{  \n')
+        #retorno_transacao.write('     "DATA" : "%s %s %s %s %s",\n'%(data.day, data.month, data.year, data.hour, data.minute))
+        #retorno_transacao.write('     "PWINFO_RESULTMSG" : "SEM TRANSACAO"')
+        #retorno_transacao.write('\n}  \n')
+        #retorno_transacao.close()
+        comp = Comprovantes()
+        resultado_transacao = comp.retorno_transacao()
+        print("resultado_transacaok", resultado_transacao)
         if 'aprovada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
             self.__c.execute(
                 "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
@@ -943,7 +951,7 @@ class Banco(object):
 
     @classmethod
     def abrir_armario(self, id_armario):
-        porta = Portas()
+        #porta = Portas()
         __id_armario = id_armario
         print("id armario em abrir armario data.py", __id_armario)
         __porta = self.select_port(__id_armario[0][0])

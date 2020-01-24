@@ -69,6 +69,8 @@ class CadastroUsuarios(object):
             #"on_btn_credito_button_press_event": self.on_btn_credito_button_press_event,
             #"on_btn_debito_button_press_event": self.on_btn_debito_button_press_event,
             #"on_btn_cancelar_button_press_event": self.on_btn_cancelar_button_press_event
+            "on_btn_tente_novamente_window_erro_pagamentos_button_press_event": self.on_btn_tente_novamente_window_erro_pagamentos_button_press_event,
+            "on_btn_cancelar_window_erro_pagamentos_button_press_event": self.on_btn_cancelar_window_erro_pagamentos_button_press_event
         })
         self.builder.add_from_file("ui/cadastro_usuario.glade")
         self.window_cadastro_usuario = self.builder.get_object("window_cadastro_usuario")
@@ -241,9 +243,9 @@ class CadastroUsuarios(object):
 
         # ======================== BOTOES window_erro_pagamentos =================
         self.btn_tente_novamente_window_erro_pagamentos = self.builder.get_object("btn_tente_novamente_window_erro_pagamentos")
-        self.btn_tente_novamente_window_erro_pagamentos.connect("button-press-event", self.on_tente_novamente_window_erro_pagamentos)
+        self.btn_tente_novamente_window_erro_pagamentos.connect("button-press-event", self.on_btn_tente_novamente_window_erro_pagamentos_button_press_event)
         self.btn_cancelar_window_erro_pagamentos = self.builder.get_object("btn_cancelar_window_erro_pagamentos")
-        self.btn_cancelar_window_erro_pagamentos.connect("button-press-event", self.on_cancelar_window_erro_pagamentos)
+        self.btn_cancelar_window_erro_pagamentos.connect("button-press-event", self.on_btn_cancelar_window_erro_pagamentos_button_press_event )
 
         # ========================= FIM BOTOES ===================================
 
@@ -604,11 +606,11 @@ class CadastroUsuarios(object):
         self.window_payment.hide()
         self.window_erro_pagamentos.show()
     
-    def on_tente_novamente_window_erro_pagamentos(self):
+    def on_btn_tente_novamente_window_erro_pagamentos_button_press_event(self, widget, event):
         self.window_erro_pagamentos.hide()
         self.window_select_cartao.show()
 
-    def on_cancelar_window_erro_pagamentos(self):
+    def on_btn_cancelar_window_erro_pagamentos_button_press_event(self, widget, event):
         self.window_erro_pagamentos.hide()
         self.window_payment.hide()
         self.window_select_cartao.hide()
@@ -744,6 +746,8 @@ class CadastroUsuarios(object):
                 elif self.language == "en_US":
                     self.label_retorno_cadastro.set_text("chosen cabinet\n size unavailable")
                     self.dialog_retorno_cadastro.show()
+            else:
+                pass
     def show_payment(self):
         self.window_payment.show()    
 
@@ -1002,7 +1006,7 @@ class CadastroUsuarios(object):
         elif self.classe == "B":
             self.valor_total = ((self.dia * TAXA_DIARIA_B) + (self.hora * TAXA_HORA_B) + self.minuto * TAXA_HORA_B)
         elif self.classe == "C":
-            self.valor_total = ((self.dia * TAXA_DIARIA_C) + (self.hora * TAXA_HORA_C) + self.minuto * TAXA_HORA_c)
+            self.valor_total = ((self.dia * TAXA_DIARIA_C) + (self.hora * TAXA_HORA_C) + self.minuto * TAXA_HORA_C)
         elif self.classe == "D":
             self.valor_total = ((self.dia * TAXA_DIARIA_D) + (self.hora * TAXA_HORA_D) + self.minuto * TAXA_HORA_D)
         

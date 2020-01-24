@@ -2369,7 +2369,15 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
   </object>
   <object class="GtkWindow" id="window_erro_pagamento">
     <property name="name">window</property>
+    <property name="width_request">600</property>
+    <property name="height_request">400</property>
     <property name="can_focus">False</property>
+    <property name="modal">True</property>
+    <property name="window_position">center-always</property>
+    <property name="default_width">600</property>
+    <property name="default_height">400</property>
+    <property name="decorated">False</property>
+    <property name="gravity">center</property>
     <child>
       <placeholder/>
     </child>
@@ -2382,6 +2390,10 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
           <object class="GtkLabel" id="label_window_erro_pagamentos">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="margin_left">20</property>
+            <property name="margin_right">20</property>
+            <property name="margin_top">20</property>
+            <property name="margin_bottom">10</property>
             <property name="label" translatable="yes">label</property>
           </object>
           <packing>
@@ -2404,6 +2416,11 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="margin_left">50</property>
+                <property name="margin_right">10</property>
+                <property name="margin_top">10</property>
+                <property name="margin_bottom">50</property>
+                <property name="hexpand">True</property>
                 <signal name="button-press-event" handler="on_btn_cancelar_window_erro_pagamentos_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -2418,6 +2435,12 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="margin_left">50</property>
+                <property name="margin_right">10</property>
+                <property name="margin_top">10</property>
+                <property name="margin_bottom">50</property>
+                <property name="hexpand">True</property>
+                <signal name="button-press-event" handler="on_btn_tente_novamente_window_erro_pagamentos_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">1</property>

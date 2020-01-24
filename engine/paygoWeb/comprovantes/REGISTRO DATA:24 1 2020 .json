@@ -58,3 +58,183 @@
      "PWINFO_AUTHSYST"  : "131",
 
 }  
+
+{  
+     "DATA HORARIO"    : "11:34",
+     "PWINFO_REQNUM"    : "0000701516",
+     "PWINFO_AUTLOCREF" : "574229",
+     "PWINFO_AUTEXTREF" : "574229",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "11:36",
+     "PWINFO_REQNUM"    : "0000701521",
+     "PWINFO_AUTLOCREF" : "574230",
+     "PWINFO_AUTEXTREF" : "574230",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "11:40",
+     "PWINFO_REQNUM"    : "0000701526",
+     "PWINFO_AUTLOCREF" : "574231",
+     "PWINFO_AUTEXTREF" : "574231",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "13:8",
+     "PWINFO_REQNUM"    : "0000701531",
+     "PWINFO_AUTLOCREF" : "574234",
+     "PWINFO_AUTEXTREF" : "574234",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "13:11",
+     "PWINFO_REQNUM"    : "0000701533",
+     "PWINFO_AUTLOCREF" : "574235",
+     "PWINFO_AUTEXTREF" : "574235",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "13:47",
+     "PWINFO_REQNUM"    : "0000701538",
+     "PWINFO_AUTLOCREF" : "574236",
+     "PWINFO_AUTEXTREF" : "574236",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "13:52",
+     "PWINFO_REQNUM"    : "0000701541",
+     "PWINFO_AUTLOCREF" : "574237",
+     "PWINFO_AUTEXTREF" : "574237",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "14:13",
+     "PWINFO_REQNUM"    : "0000701544",
+     "PWINFO_AUTLOCREF" : "574238",
+     "PWINFO_AUTEXTREF" : "574238",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "14:25",
+     "PWINFO_REQNUM"    : "0000701549",
+     "PWINFO_AUTLOCREF" : "574239",
+     "PWINFO_AUTEXTREF" : "574239",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "16:21",
+     "PWINFO_REQNUM"    : "0000701554",
+     "PWINFO_AUTLOCREF" : "574240",
+     "PWINFO_AUTEXTREF" : "574240",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "16:26",
+     "PWINFO_REQNUM"    : "0000701559",
+     "PWINFO_AUTLOCREF" : "574241",
+     "PWINFO_AUTEXTREF" : "574241",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "16:27",
+     "PWINFO_REQNUM"    : "0000701562",
+     "PWINFO_AUTLOCREF" : "574242",
+     "PWINFO_AUTEXTREF" : "574242",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "17:18",
+     "PWINFO_REQNUM"    : "0000701567",
+     "PWINFO_AUTLOCREF" : "574243",
+     "PWINFO_AUTEXTREF" : "574243",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "17:20",
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+
+}  
+
+{  
+     "DATA HORARIO"    : "17:21",
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+
+}  
+
+{  
+     "DATA HORARIO"    : "17:27",
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "9",
+     "PWINFO_AUTHSYST"  : "BIN",
+
+}  
+
+{  
+     "DATA HORARIO"    : "17:28",
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "9",
+     "PWINFO_AUTHSYST"  : "BIN",
+
+}  
+
+{  
+     "DATA HORARIO"    : "17:32",
+     "PWINFO_REQNUM"    : "0000701582",
+     "PWINFO_AUTLOCREF" : "574244",
+     "PWINFO_AUTEXTREF" : "574244",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
