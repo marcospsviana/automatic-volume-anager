@@ -69,46 +69,42 @@ class Venda:
         
         
         ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
-        
-        while ret == -2497 or ret == E_PWRET.PWRET_NOTHING.value:
-            #ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
-            ret = self.pgWeb.PW_iExecGetData(vstParam, iNumParam)
-            print("ret exectransac venda", ret)
-            
-            
-            if ret == E_PWRET.PWRET_CANCEL.value:
-                print("E_PWRET.PWRET_CANCEL")
-                self.pgWeb.PW_iPPAbort()
-                retEventLoop = self.pgWeb.PW_iPPEventLoop(
-                    self.szDspMsg, sizeof(self.szDspMsg))
-                print("retEventLoop", retEventLoop)
-                return retEventLoop
-            elif ret == E_PWRET.PWRET_HOSTTIMEOUT.value:
-                self.pgWeb.PW_iPPAbort()
-                retEventLoop = self.pgWeb.PW_iPPEventLoop(
-                    self.szDspMsg, sizeof(self.szDspMsg))
-                print("retEventLoop", retEventLoop)
-                return retEventLoop
-            elif ret == E_PWRET.PWRET_REQPARAM.value:
-                print("PWRET_REQPARAM", E_PWRET.PWRET_REQPARAM.value)
-                self.pgWeb.PW_iPPAbort()
-                retEventLoop = self.pgWeb.PW_iPPEventLoop(
-                    self.szDspMsg, sizeof(self.szDspMsg))
-                print("retEventLoop", retEventLoop)
-                return retEventLoop
-            elif ret == E_PWRET.PWRET_FROMHOSTPENDTRN.value:
-                print("PWRET_FROMHOSTPENDTRN", E_PWRET.PWRET_FROMHOSTPENDTRN.value)
-                self.confirmPendTransaction(transactionStatus=1, transactionResponse=ret)
-                retEventLoop = self.pgWeb.PW_iPPEventLoop(
-                    self.szDspMsg, sizeof(self.szDspMsg))
-                print("retEventLoop", retEventLoop)
-                return retEventLoop
-            ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
-            print("efetuando a transacao...")
-            print("ret ---->", ret)
-        
-
-        
+        PWINFO_PNDAUTHSYST = PWINFO_PNDVIRTMERCH = PWINFO_PNDREQNUM = PWINFO_PNDAUTLOCREF = PWINFO_PNDAUTEXTREF = ''
+        if ret == E_PWRET.PWRET_FROMHOSTPENDTRN.value:
+            self.pgWeb.PW_iGetResult(
+                E_PWINFO.PWINFO_PNDAUTHSYST.value, szAux, sizeof(szAux)
+            )
+            PWINFO_PNDAUTHSYST = szAux.value.decode('utf-8')
+            sleep(0.3)
+            self.pgWeb.PW_iGetResult(
+                E_PWINFO.PWINFO_PNDVIRTMERCH.value, szAux, sizeof(szAux)
+            )
+            PWINFO_PNDVIRTMERCH = szAux.value.decode('utf-8')
+            sleep(0.3)
+            self.pgWeb.PW_iGetResult(
+                E_PWINFO.PWINFO_PNDREQNUM.value, szAux, sizeof(szAux)
+            )
+            PWINFO_PNDREQNUM = szAux.value.decode('utf-8')
+            sleep(0.3)
+            self.pgWeb.PW_iGetResult(
+                E_PWINFO.PWINFO_PNDAUTLOCREF.value, szAux, sizeof(szAux)
+            )
+            PWINFO_PNDAUTLOCREF = szAux.value.decode('utf-8')
+            sleep(0.3)
+            self.pgWeb.PW_iGetResult(
+                E_PWINFO.PWINFO_PNDAUTEXTREF.value, szAux, sizeof(szAux)
+            )
+            PWINFO_PNDAUTEXTREF = szAux.value.decode('utf-8')
+            sleep(0.3)
+            iRet = self.pgWeb.PW_iConfirmation(
+            E_PWCNF.PWCNF_CNF_AUTO.value,
+            PWINFO_PNDREQNUM,
+            PWINFO_PNDAUTLOCREF,
+            PWINFO_PNDAUTEXTREF,
+            PWINFO_PNDVIRTMERCH,
+            PWINFO_PNDAUTHSYST
+            )
+            print("iRet PENDENTE PW_iConfirmation", iRet)
         PWINFO_REQNUM = PWINFO_AUTLOCREF = PWINFO_AUTEXTREF = PWINFO_VIRTMERCH = PWINFO_AUTHSYST = ''
         data = datetime.datetime.now()
         self.pgWeb.PW_iGetResult(
@@ -138,15 +134,59 @@ class Venda:
         PWINFO_AUTHSYST = szAux.value.decode('utf-8')
         print("PWINFO_AUTHSYST", PWINFO_AUTHSYST)
         sleep(0.3)
-        iRet = self.pgWeb.PW_iConfirmation(
-            E_PWCNF.PWCNF_CNF_AUTO.value,
-            PWINFO_REQNUM,
-            PWINFO_AUTLOCREF,
-            PWINFO_AUTEXTREF,
-            PWINFO_VIRTMERCH,
-            PWINFO_AUTHSYST
-        )
-        print("iRet PW_iConfirmation", iRet)
+        registro_json =  open('comprovantes/REGISTRO DATA:%s %s %s .json'%(data.day, data.month, data.year),'a+')
+        registro_json.write('\n{  \n')
+        registro_json.write('     "DATA HORARIO"    : "%s:%s",\n'%(data.hour, data.minute))
+        registro_json.write('     "PWINFO_REQNUM"    : "%s",\n'%(PWINFO_REQNUM))
+        registro_json.write('     "PWINFO_AUTLOCREF" : "%s",\n'%(PWINFO_AUTLOCREF))
+        registro_json.write('     "PWINFO_AUTEXTREF" : "%s",\n'%(PWINFO_AUTEXTREF))
+        registro_json.write('     "PWINFO_VIRTMERCH" : "%s",\n'%(PWINFO_VIRTMERCH))
+        registro_json.write('     "PWINFO_AUTHSYST"  : "%s",\n'%(PWINFO_AUTHSYST))
+        registro_json.write('\n}  \n')
+        registro_json.close()
+        
+
+        
+            
+
+        
+        while ret == -2497 or ret == E_PWRET.PWRET_NOTHING.value or ( 2100 <= ret <= 2200) :
+            #ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
+            ret = self.pgWeb.PW_iExecGetData(vstParam, iNumParam)
+            print("ret exectransac venda", ret)
+            
+            
+            if ret == E_PWRET.PWRET_CANCEL.value or ( 2100 <= ret <= 2200):
+                print("E_PWRET.PWRET_CANCEL")
+                self.pgWeb.PW_iPPAbort()
+                retEventLoop = self.pgWeb.PW_iPPEventLoop(
+                    self.szDspMsg, sizeof(self.szDspMsg))
+                print("retEventLoop", retEventLoop)
+                return retEventLoop
+
+            elif ret == E_PWRET.PWRET_HOSTTIMEOUT.value:
+                self.pgWeb.PW_iPPAbort()
+                retEventLoop = self.pgWeb.PW_iPPEventLoop(
+                    self.szDspMsg, sizeof(self.szDspMsg))
+                print("retEventLoop", retEventLoop)
+                return retEventLoop
+            elif ret == E_PWRET.PWRET_REQPARAM.value:
+                print("PWRET_REQPARAM", E_PWRET.PWRET_REQPARAM.value)
+                self.pgWeb.PW_iPPAbort()
+                retEventLoop = self.pgWeb.PW_iPPEventLoop(
+                    self.szDspMsg, sizeof(self.szDspMsg))
+                print("retEventLoop", retEventLoop)
+                return retEventLoop
+            elif ret == E_PWRET.PWRET_FROMHOSTPENDTRN.value:
+                print("PWRET_FROMHOSTPENDTRN", E_PWRET.PWRET_FROMHOSTPENDTRN.value)
+                self.confirmPendTransaction(transactionStatus=1, transactionResponse=ret)
+                retEventLoop = self.pgWeb.PW_iPPEventLoop(
+                    self.szDspMsg, sizeof(self.szDspMsg))
+                print("retEventLoop", retEventLoop)
+                return retEventLoop
+            ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
+            print("efetuando a transacao...")
+            print("ret ---->", ret)
 
         self.pgWeb.PW_iGetResult(
                     E_PWINFO.PWINFO_RESULTMSG.value, szAux, sizeof(szAux))
@@ -180,6 +220,7 @@ class Venda:
 
         retorno_transacao =  open('comprovantes/retornotransacao.json','w+')
         retorno_transacao.write('\n{  \n')
+        retorno_transacao.write('     "DATA" : "%s %s %s %s %s",\n'%(data.day, data.month, data.year, data.hour, data.minute))
         retorno_transacao.write('     "PWINFO_RESULTMSG" : "%s"'%(PWINFO_RESULTMSG))
         retorno_transacao.write('\n}  \n')
         retorno_transacao.close()
@@ -212,6 +253,16 @@ class Venda:
         envio_email = open('comprovantes/COMPROVANTE CLIENTE EMAIL.txt','w+')
         envio_email.write(COMPROVANTE_CLIENTE)
         envio_email.close()
+
+        iRet = self.pgWeb.PW_iConfirmation(
+            E_PWCNF.PWCNF_CNF_AUTO.value,
+            PWINFO_REQNUM,
+            PWINFO_AUTLOCREF,
+            PWINFO_AUTEXTREF,
+            PWINFO_VIRTMERCH,
+            PWINFO_AUTHSYST
+        )
+        print("iRet PW_iConfirmation", iRet)
 
 
         return iRet

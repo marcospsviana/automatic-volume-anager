@@ -172,10 +172,18 @@ class Banco(object):
         # se houver armário livre segue com cadastro de locação
         retorno = None
         retorno = self.pagamento_locacao()
+        data = datetime.datetime.now()
         diretorio = os.getcwd()
+        print("diretorio ---->", diretorio)
         f = open('%s/engine/paygoWeb/comprovantes/retornotransacao.json'%(diretorio), 'r')
         resultado_transacao = json.load(f)
         f.close()
+        retorno_transacao = open('%s/engine/paygoWeb/comprovantes/retornotransacao.json'%(diretorio), 'w+')
+        retorno_transacao.write('\n{  \n')
+        retorno_transacao.write('     "DATA" : "%s %s %s %s %s",\n'%(data.day, data.month, data.year, data.hour, data.minute))
+        retorno_transacao.write('     "PWINFO_RESULTMSG" : "SEM TRANSACAO"')
+        retorno_transacao.write('\n}  \n')
+        retorno_transacao.close()
                
         if 'aprovada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
             __senha = self.__get_passwd()
@@ -598,35 +606,81 @@ class Banco(object):
         from smtplib import SMTP
         from email.mime.multipart import MIMEMultipart
         from email.mime.text import MIMEText
+        RECIBO = ''
         diretorio = os.getcwd()
         comprovante_pagamento = open('%s/engine/paygoWeb/comprovantes/COMPROVANTE CLIENTE EMAIL.txt'%(diretorio),'r')
-        
-        RECIBO = comprovante_pagamento.readlines()
+        for l in comprovante_pagamento:
+            RECIBO += l + '<br>'
         comprovante_pagamento.close()
         
     
         msg = MIMEMultipart()
         __nome = string.capwords(nome)
+        css= """<style type='text/css' >
+            .flex-box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-center;
+            }
+            .body{
+
+            background: #FDCF03;
+            }
+
+            .message{
+                position: absolute;
+            }
+            .pai{
+                
+                position: relative;
+                text-align: center;
+                margin-left: 40%;
+                width: 300px;
+                height: 500px;
+                background: #ffffff;
+                margin-bottom: 10px;
+            }
+            .filho{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+            </style>"""
         if language == "pt_BR":
-            __message = """<html><body> <strong>Este e-mail foi enviado de forma automática ,não responda diretamente a este e-mail!</strong><br><br>
-        Obrigado por utilizar nossos serviços<b> %s</b>, abaixo encontra-se os seus dados de acesso para liberação do compartimento:<br><br>
-        <p>COMPARTIMENTO: <b> %s  </b>
-        <p>SENHA:<b> %s</b>
-        <p>DATA LOCAÇÃO:<b> %s %s  </b>
-        <p>DATA LIMITE:<b> %s %s</b>
-        <p>CUPOM FISCAL:  %s </b>
-        </body></html>""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao, RECIBO)
+            __message = """<html><head> %s </head> 
+            <body class='body'> 
+            <div class='message'>
+              <strong>Este e-mail foi enviado de forma automática ,não responda diretamente a este e-mail!</strong><br><br>
+                    Obrigado por utilizar nossos serviços<b> %s</b>, abaixo encontra-se os seus dados de acesso para liberação do compartimento:<br><br>
+                <p>COMPARTIMENTO: <b> %s  </b>
+                <p>SENHA:<b> %s</b>
+                <p>DATA LOCAÇÃO:<b> %s %s  </b>
+                <p>DATA LIMITE:<b> %s %s</b>
+            </div>
+        <div class='flex-box pai'>
+             <div class='filho'>%s</div>
+        </div>
+        </body></html>""" % (css, __nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao, RECIBO)
 
         elif language == "en_US":
-            __message = """<html><body> <strong>
+            __message = """<html><head> %s </head>
+            <body class='body'> <div class='message'><strong>
         This email was sent automatically,please do not reply directly to this email! </strong><br><br>
         Thanks for using our services <b>%s</b>, below is your compartment release access details:<br><br>
         <p>COMPARTMENT: <b> %s  </b>
         <p>PASSWORD: <b> %s  </b>
         <p>DATE RENT: <b> %s %s  </b>
         <p>DEADLINE:  <b> %s %s </b><br>
-        <p>RECEIPT:  %s </b>
-        </body></html>""" % (__nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao, RECIBO)
+        </div>
+        <div class='flex-box pai'>
+             <div class='filho'>%s</div>
+        </div>
+        
+        </body></html>""" % (css, __nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao, RECIBO)
 
        
         body = MIMEText(__message, 'html')
@@ -805,8 +859,7 @@ class Banco(object):
         
         sleep(0.3)
         #print("informe o codigo")
-        with open('paygoWeb/comprovantes/retornotransacao.json', 'r') as f:
-            resultado_transacao = json.load(f)
+        
         
         
         __senha = senha
@@ -817,6 +870,15 @@ class Banco(object):
         result_id_armario = self.__c.fetchall()
         # print("curosr select id_armario data.py", self.__c.fetchone())
         subprocess.run("docker stop paygoweb", shell=True)
+        with open('paygoWeb/comprovantes/retornotransacao.json', 'r') as f:
+            resultado_transacao = json.load(f)
+        sleep(0.2)
+        retorno_transacao = open('paygoWeb/comprovantes/retornotransacao.json', 'w+')
+        retorno_transacao.write('\n{  \n')
+        retorno_transacao.write('     "DATA" : "%s %s %s %s %s",\n'%(data.day, data.month, data.year, data.hour, data.minute))
+        retorno_transacao.write('     "PWINFO_RESULTMSG" : "SEM TRANSACAO"')
+        retorno_transacao.write('\n}  \n')
+        retorno_transacao.close()
         if 'aprovada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
             self.__c.execute(
                 "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
@@ -827,7 +889,7 @@ class Banco(object):
             #self.port = self.select_port(result_id_armario)
             
             #self.port.exec_port(__porta[0][0], "abre")
-            return ("   APROVADA   ")
+            return (resultado_transacao["PWINFO_RESULTMSG"])
         else:
             return (resultado_transacao["PWINFO_RESULTMSG"])
 

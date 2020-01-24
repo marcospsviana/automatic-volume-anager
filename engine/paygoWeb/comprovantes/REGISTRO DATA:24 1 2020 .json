@@ -1,0 +1,60 @@
+
+{  
+     "DATA HORARIO"    : "8:40",
+     "PWINFO_REQNUM"    : "0000701498",
+     "PWINFO_AUTLOCREF" : "574223",
+     "PWINFO_AUTEXTREF" : "574223",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}
+
+{  
+     "DATA HORARIO"    : "8:45",
+     "PWINFO_REQNUM"    : "0000701499",
+     "PWINFO_AUTLOCREF" : "574224",
+     "PWINFO_AUTEXTREF" : "574224",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "10:8",
+     "PWINFO_REQNUM"    : "0000701504",
+     "PWINFO_AUTLOCREF" : "574225",
+     "PWINFO_AUTEXTREF" : "574225",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "10:10",
+     "PWINFO_REQNUM"    : "0000701505",
+     "PWINFO_AUTLOCREF" : "574226",
+     "PWINFO_AUTEXTREF" : "574226",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "10:25",
+     "PWINFO_REQNUM"    : "0000701509",
+     "PWINFO_AUTLOCREF" : "574227",
+     "PWINFO_AUTEXTREF" : "574227",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "CIELO",
+
+}  
+
+{  
+     "DATA HORARIO"    : "10:45",
+     "PWINFO_REQNUM"    : "0000701511",
+     "PWINFO_AUTLOCREF" : "574228",
+     "PWINFO_AUTEXTREF" : "574228",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  

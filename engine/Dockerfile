@@ -1,8 +1,9 @@
 #ID DA IMAGEM UBUNTU 16.04 i386
 FROM i386/ubuntu:16.04
 
+RUN mkdir -p /home/paygo/paygoWeb
 
-COPY paygoWeb/* /paygoWeb
+COPY paygoWeb/ /home/paygo/paygoWeb
 RUN apt update && apt-get install -y --no-install-recommends apt-utils
 
 RUN apt-get install build-essential -y
@@ -16,6 +17,10 @@ RUN apt-get install libssl-dev -y
 RUN apt-get install libreadline-dev -y 
 RUN apt-get install libffi-dev wget -y
 RUN apt-get install python3 -y
+
+RUN groupadd -g 999 paygo && \
+    useradd -r -u 999 -g paygo paygo
+USER paygo
 
 #RUN if [ python --version =! "" ]; \
     #then echo "python instalado"; \
@@ -31,7 +36,7 @@ RUN apt-get install python3 -y
 
 #CRIANDO DIRETORIO QUE SERA MAPEADO 
 
-WORKDIR /paygoWeb
+WORKDIR /home/paygo/paygoWeb
 CMD /bin/bash
 
 

@@ -8,6 +8,8 @@
     <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
+    <property name="default_width">800</property>
+    <property name="default_height">600</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="gravity">center</property>
@@ -69,7 +71,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="vexpand">True</property>
-                <property name="label" translatable="yes">Após guardar todo o volume necessário, empurre a porta sem necessidade de força  até encostar na trava, depois para finalizar clique no botão abaixo com nome: fechar. 
+                <property name="label" translatable="yes">Após guardar todo o volume necessário, empurre a porta sem necessidade de força  até encostar na trava, em seguida para finalizar clique no botão abaixo com nome: fechar. 
 Observação: A responsabilidade de fechar o armário é do usuário , caso esqueça de fechá-lo a empresa não se responsabilizará por perdas!</property>
               </object>
               <packing>
@@ -2445,6 +2447,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="decorated">False</property>
+    <property name="deletable">False</property>
     <property name="gravity">static</property>
     <child>
       <placeholder/>
