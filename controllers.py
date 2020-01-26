@@ -5,8 +5,8 @@ from engine.locacao import Locacao as loc
 from engine.usuario import User as usr
 from engine.armario import Armario as arm
 from engine.cobranca import Cobranca as cb
-from engine.data import Banco
-#from engine.pyfire import FireBaseCollections
+#from DataAccessObjects import DataAccessObjectsManager as DAO
+
 
 
 class Management(object):
@@ -77,7 +77,8 @@ class Management(object):
         return self.__cobranca
 
         
-    def pagamento(self, total, senha):
+    @classmethod
+    def pagamento_extra(self, total, senha):
         self.__total  = total
         print("total controller", self.__total)
         result = cb.pagamento(self.__total, senha)

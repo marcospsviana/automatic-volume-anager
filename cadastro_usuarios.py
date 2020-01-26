@@ -10,7 +10,7 @@ from controllers import Management
 import PIL
 from PIL import Image
 from decimal import Decimal
-import threading, _threading_local
+
 
 class CadastroUsuarios(object):
     def __init__(self, *args):
@@ -475,9 +475,7 @@ class CadastroUsuarios(object):
         #self.window_payment.show()
         self.wait_payment("CREDITO")
         
-        sleep(0.5)
-        
-        
+        sleep(0.5)       
 
     def on_btn_debito_button_press_event(self, event, args):
         #self.send_tipo_cartao("DEBITO")
@@ -486,8 +484,7 @@ class CadastroUsuarios(object):
         self.wait_payment("DEBITO")
         
         sleep(0.5)
-        
-        
+         
 
     def on_btn_cancelar_button_press_event(self, event, args):
         self.window_select_cartao.hide()
@@ -551,8 +548,20 @@ class CadastroUsuarios(object):
                 self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
             self.dialog_message_preencher_campos.show()
         else:
-            
             self.__armario = self.classe
+            locacao = {
+                "NOME"              : self.__nome, 
+                "EMAIL"             : self.__email, 
+                "TELEFONE"          : self.__telefone, 
+                "QUANTIDADE_DIARIA" : self.__quantidade_diaria, 
+                "QUANTIDADE_HORAS"  : self.__quantidade_horas, 
+                "QUANTIDADE_MINUTOS": self.__quantidade_minutos, 
+                "ARMARIO"           : self.__armario, 
+                "LANGUAGE"          : self.language, 
+                "VALOR_TOTAL"       : self.valor_total
+            }
+            
+            #colocar em wait payment
             print("locacao", self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos)
             manager = Management()
             self.__result =  manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario, self.language, self.valor_total)
@@ -763,7 +772,7 @@ class CadastroUsuarios(object):
         total = total.replace('.','')
         print("total para json formatado", total)
         with open("engine/paygoWeb/comprovantes/valor_venda.json", "w+") as f:
-            f.write('\n{  \n\n')
+            f.write('\n{  \n')
             f.write('"TOTAL": "%s",  \n'%(total))
             f.write('"LANGUAGE": "%s",  \n'%(self.language))
             f.write('"PWINFO_CARDTYPE": "%s"  \n'%(tipo))

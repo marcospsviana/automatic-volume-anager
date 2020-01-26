@@ -1,59 +1,54 @@
-import sys, os
-import datetime
 import gi
-import numpy as np
-import string
-import encodings.unicode_escape
-gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk, Gdk, GLib
-from datetime import datetime, date
-from controllers import Management
-from login import Login
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk, Gdk, Gio, GdkPixbuf, GObject
+import datetime
 import time
+from time import sleep
+import calendar
+import string
+from controllers import Management
+import PIL
+from PIL import Image
+from decimal import Decimal
+import threading, _threading_local
 
 
 
 
 class WindowWaitPayment(object):
-    def __init__(self):
+    def __init__(self, args):
+        self.args = args
+        self.locacao = ''
+        self.pagamento_ext = ''
+        if "NOME" in args:
+            self.locacao = self.args
+        elif "SENHA" in args:
+            self.pagamento_ext = self.args
         self.language = "pt_BR"
         self.gtk_style()
         self.builder = Gtk.Builder()
         self.builder.add_from_file("ui/window_wait_payment.glade")
         self.builder.connect_signals({
             "gtk_main_quit": Gtk.main_quit,
-            "on_btn_principal_clicked": self.on_btn_principal_clicked,
         })
         self.main_window = self.builder.get_object("window_wait_payment")
-        self.label_horario = self.builder.get_object("label_horario")
-        self.label_data = self.builder.get_object("label_data")
-        self.btn_flag_br = self.builder.get_object("btn_flag_br")
-        self.btn_flag_usa = self.builder.get_object("btn_flag_usa")
-        self.spinner_coolbag = self.builder.get_object("spinner")
-        self.btn_flag_br.connect("clicked", self.on_change_language_br)
-        self.btn_flag_usa.connect("clicked", self.on_change_language_usa)
-        GLib.timeout_add(1000, self.hora_certa)
+        self.spinner = self.builder.get_object("spinner")
+        
+        
         #self.spinner_coolbag.start()
         self.main_window.fullscreen()
         self.main_window.show()
-        time.sleep(30)
-        self.main_window.destroy()
+        sleep(0.5)
+
+        if self.locacao == '':
+            self.main_window.show()
+            self.pagamento_extra(self.pagamento_ext)
+        elif self.pagamento_ext == '':
+            self.main_window.show()
+            self.efetuar_pagamento(self.locacao)
+        
     
-    def hora_certa(self):
-        dia = datetime.now()
-        self.label_horario.set_text(str(dia.hour)+ ":" + str(dia.minute) + ":" + str(dia.second))
-        self.label_data.set_text(str(dia.day)+"/"+str(dia.month))
-        return (self.label_data,self.label_horario)
 
-
-
-    def on_btn_principal_clicked(self, event):
-        SelectOption(self.language)
-    def on_change_language_br(self, event):
-        self.language = "pt_BR"
-    
-    def on_change_language_usa(self, event):
-        self.language = "en_US"
     
     def gtk_style(self):
         css = b"""
@@ -67,6 +62,76 @@ class WindowWaitPayment(object):
             style_provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         )
+    def efetuar_pagamento(self, locacao):
+        self.__armario = self.classe
+        print("locacao", self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos)
+        manager = Management()
+        self.__result =  manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario, self.language, self.valor_total)
+        count = 0
+        #self.__result = self.__result[0]
+        print("self.__result cadastro usuario ", self.__result[0])
+        if self.__result[0][0] == "locacao concluida com sucesso":
+            dia_inicio_locacao = self.__result[0][1]
+            print("dia_inicio cadastro usuario", dia_inicio_locacao)
+            hora_inicio_locacao = self.__result[0][2]
+            print("hora_inicio cadastro usuario", hora_inicio_locacao)
+            data_fim_locacao = self.__result[0][3]
+            print("data_fim cadastro usuario", data_fim_locacao)
+            hora_fim_locacao = self.__result[0][4]
+            print("hora_fim cadastro usuario", hora_fim_locacao)
+            self.senha = self.__result[0][5]
+            print("__senha cadastro usuario", self.senha)
+            compartimento = self.__result[0][6]
+            print("compartimento cadastro usuario", compartimento)
+            
+        
+            self.label_date_inicio_locacao.set_text(dia_inicio_locacao)
+            self.label_date_fim_locacao.set_text(data_fim_locacao)
+            self.label_hour_inicio_locacao.set_text(hora_inicio_locacao)
+            self.label_hour_fim_locacao.set_text(hora_fim_locacao)
+            self.label_senha.set_text(str(self.senha))
+            self.label_compartimento.set_text(str(compartimento))
+            
+            #self.window_payment.hide()
+            self.main_window.hide()
+            self.window_conclusao.show()
+            
+            
+            self.id_armario = manager.localiza_id_armario(self.senha)
+            return self.id_armario
+            
+            
+        elif self.__result[0] == "armario da classe escolhida indisponível":
+            if self.language == "pt_BR":
+                self.label_retorno_cadastro.set_text("tamanho de armario\n  escolhido indisponível")
+                self.dialog_retorno_cadastro.show()
+            elif self.language == "en_US":
+                self.label_retorno_cadastro.set_text("chosen cabinet\n size unavailable")
+                self.dialog_retorno_cadastro.show()
+        else:
+            #self.window_payment.hide()
+            self.label_window_erro_pagamentos.set_text(self.__result[0])
+            self.window_erro_pagamento()
+    
+    def window_erro_pagamento(self):
+        self.window_payment.hide()
+        self.window_erro_pagamentos.show()
+    
+    def on_btn_tente_novamente_window_erro_pagamentos_button_press_event(self, widget, event):
+        self.window_erro_pagamentos.hide()
+        self.window_select_cartao.show()
+
+    def on_btn_cancelar_window_erro_pagamentos_button_press_event(self, widget, event):
+        self.window_erro_pagamentos.hide()
+        self.window_payment.hide()
+        self.window_select_cartao.hide()
+    @classmethod
+    def pagamento_extra(self, pagamento_ext):
+        pagamento_extra = pagamento_ext
+        resultado = Management.pagamento_extra(pagamento_extra["VALOR_TOTAL"], pagamento_extra["SENHA"])
+        print(resultado)
+        if "aprovada" in resultado:
+            self.window_conclusao.show()
 
 if __name__ == "__main__":
     app = WindowWaitPayment()

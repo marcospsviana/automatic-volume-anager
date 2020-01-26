@@ -16,7 +16,7 @@ import json
 from .TransacsAndOps import TransacsOps as transops
 
 
-class Banco(object):
+class DataAccessObjectsManager(object):
     def __init__(self):
 
         self.data = ''
@@ -472,16 +472,16 @@ class Banco(object):
         elif __minuto > 30 and minuto <= 45:
             calculo_minuto = (3/4)
         if classe == "A":
-            valor_total = ((dias * TAXA_DIARIA_A) +
+            valor_total = ((dias * (TAXA_HORA_A * 24)) +
                            (hora * TAXA_HORA_A) + calculo_minuto * TAXA_HORA_A)
         elif classe == "B":
-            valor_total = ((dias * TAXA_DIARIA_B) +
+            valor_total = ((dias * (TAXA_HORA_B * 24)) +
                            (hora * TAXA_HORA_B) + calculo_minuto * TAXA_HORA_B)
         elif classe == "C":
-            valor_total = ((dias * TAXA_DIARIA_C) +
+            valor_total = ((dias * (TAXA_HORA_C *24)) +
                            (hora * TAXA_HORA_C) + calculo_minuto * TAXA_HORA_c)
         elif classe == "D":
-            valor_total = ((dias * TAXA_DIARIA_D) +
+            valor_total = ((dias * (TAXA_HORA_D * 24)) +
                            (hora * TAXA_HORA_D) + calculo_minuto * TAXA_HORA_D)
 
         # valor_total = ((dias *24 * 15) + (hora * TAXA) + calculo_minuto * TAXA)
@@ -884,8 +884,8 @@ class Banco(object):
         #retorno_transacao.write('     "PWINFO_RESULTMSG" : "SEM TRANSACAO"')
         #retorno_transacao.write('\n}  \n')
         #retorno_transacao.close()
-        comp = Comprovantes()
-        resultado_transacao = comp.retorno_transacao()
+        #comp = transops.retorno_transacao()
+        resultado_transacao = transops.retorno_transacao()
         print("resultado_transacaok", resultado_transacao)
         if 'aprovada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
             self.__c.execute(
@@ -949,16 +949,16 @@ class Banco(object):
         #print(result)
         return "fechado"
 
-    @classmethod
+    """"@classmethod
     def abrir_armario(self, id_armario):
         #porta = Portas()
         __id_armario = id_armario
         print("id armario em abrir armario data.py", __id_armario)
         __porta = self.select_port(__id_armario[0][0])
         print("porta select porta id_armario", __porta)
-        porta.exec_port(__porta[0][0], "abre")
+        #porta.exec_port(__porta[0][0], "abre")
 
-        return "armario liberado"
+        return "armario liberado"""
 
     @classmethod
     def localiza_id_armario(self, senha):

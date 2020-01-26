@@ -8,6 +8,7 @@ class TransacsOps(object):
         self.diretorio = diretorio
     
     
+    @classmethod
     def retorno_transacao(self):
         """ Esta função verifica o resultado da transação seja bem ou mal sucedida
         le o arquivo json que contem PWINFO_RESULTMSG a mensagem da transacao obtido da 
@@ -21,9 +22,10 @@ class TransacsOps(object):
         """
 
         data = datetime.datetime.now()
+        self.diretorio = os.getcwd()
         # LENDO O RETORNO DA TRANSACAO
         with open('%s/engine/paygoWeb/comprovantes/retornotransacao.json'%(self.diretorio), 'r') as f:
-            resultado_transacao = json.load(f)
+            self.resultado_transacao = json.load(f)
         sleep(0.2)
 
         # FIM DE LEITURA DE RETORNO
@@ -35,5 +37,6 @@ class TransacsOps(object):
         retorno.write('     "PWINFO_RESULTMSG" : "SEM TRANSACAO"')
         retorno.write('\n}  \n')
         retorno.close()
-        return resultado_transacao
+        return self.resultado_transacao
+    
     

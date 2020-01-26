@@ -1,18 +1,18 @@
-from .data import Banco
+from .DataAccessObjects import DataAccessObjectsManager as DAO
 
 class User(object):        
 
     def create_usr(nome, email, telefone):
-        __bk = Banco()
+        __DAO = DAO()
         __nome = nome
         __email = email
         __telefone = telefone
-        __bk.create_user(__nome, __email, __telefone)
+        __DAO.create_user(__nome, __email, __telefone)
     def select_usr(email, telefone):
-        __bk = Banco()
+        __DAO = DAO()
         __email = email
         __telefone = telefone
-        result = __bk.select_user(__email, __telefone)
+        result = __DAO.select_user(__email, __telefone)
         return result
 
 

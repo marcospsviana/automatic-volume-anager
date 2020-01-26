@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 import sys, os
-from .data import Banco
+from .DataAccessObjects import DataAccessObjectsManager as DAO
 import datetime
 from datetime import date, timedelta
 
@@ -22,7 +22,7 @@ class Locacao(object):
     @staticmethod
     def locacao( nome, email, telefone, dia, hora, minuto, armario, language, total):
         
-        __bk = Banco()
+        __DAO = DAO()
         __dia = dia
         __hora = hora
         __minuto = minuto
@@ -33,25 +33,25 @@ class Locacao(object):
         __telefone = str(telefone)
         __language = str(language)
         
-        __get_armario = __bk.localisa_armario(__armario)
+        __get_armario = __DAO.localisa_armario(__armario)
         if __get_armario == "nao ha armario disponivel" or __get_armario == []:
             return "armario da classe escolhida indisponível"
         
         else:
-            result = __bk.locar_armario(__nome, __email, __telefone, __dia, __hora, __minuto, __armario, __language, total)
+            result = __DAO.locar_armario(__nome, __email, __telefone, __dia, __hora, __minuto, __armario, __language, total)
             return result
         
     @classmethod
     def finalizar_pagamento(self, senha):
-        __bk = Banco()
+        __DAO = DAO()
         #__senha = senha
         #__nome = nome
-        result = __bk.finalizar_pagamento(senha)
+        result = __DAO.finalizar_pagamento(senha)
         return result
     
     """def send_email(self, nome, email, senha, compartimento, data_locacao, data_limite, hora_inicio_locacao, hora_fim_locacao, language):
-        __bk = Banco()
-        result = __bk.send_email(nome, email, senha, compartimento, data_locacao, data_limite, language)
+        __DAO = DAO()
+        result = __DAO.send_email(nome, email, senha, compartimento, data_locacao, data_limite, language)
         return result"""
 
             

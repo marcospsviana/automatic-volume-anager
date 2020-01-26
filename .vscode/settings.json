@@ -1,6 +1,7 @@
 {
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
-    "python.pythonPath": "C:\\msys64\\mingw64\\bin\\python.exe",
-    "C_Cpp.errorSquiggles": "Disabled"
+    "python.pythonPath": "/usr/bin/python3",
+    "C_Cpp.errorSquiggles": "Disabled",
+    "workbench.colorCustomizations": {}
 }

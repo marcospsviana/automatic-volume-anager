@@ -1,5 +1,5 @@
+from .DataAccessObjects import DataAccessObjectsManager as DAO
 import datetime
-from .data import Banco
 
 
 class Cobranca(object):
@@ -7,7 +7,7 @@ class Cobranca(object):
     @staticmethod
     def cobranca( dia, hora, minuto):
         
-        __bk = Banco()
+        __DAO = DAO()
         __result = ''
         data = datetime.datetime.now()
         __dia = int(dia)
@@ -17,17 +17,17 @@ class Cobranca(object):
         __futuro = data + \
             datetime.timedelta(
                 days=__dia, hours=__hora, minutes=__minuto)
-        __result = __bk.cobranca(__total, __futuro)
+        __result = __DAO.cobranca(__total, __futuro)
         print('modulo cobrança')
         return __result
 
     @staticmethod
     def pagamento(total, senha):
-        __bk = Banco()
+        __DAO = DAO()
         __total = total
         print('******* total pagamento ********')
         print(__total)
-        __result = __bk.pagamento(__total, senha)
+        __result = __DAO.pagamento(__total, senha)
         print('%------- pagamento ---------%')
         print(__result)
         if __result == "lk4thHG34=GKss0xndhe":
@@ -38,10 +38,10 @@ class Cobranca(object):
     def finalizar( senha):
         def __init__(self):
             result = ''
-            self.__bk = Banco()
+            __DAO = DAO()
             #self.__nome = nome
-            self.__senha = senha
-            result = self.__bk.finalizar(self.__senha)
+            __senha = senha
+            result = __DAO.finalizar(__senha)
             return result
 
 if __name__ == "__main__":

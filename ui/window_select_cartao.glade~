@@ -38,7 +38,6 @@
         <child>
           <object class="GtkButton" id="btn_credito">
             <property name="label" translatable="yes">CRÉDITO</property>
-            <property name="name">btn_encerrar_sessao</property>
             <property name="width_request">200</property>
             <property name="height_request">100</property>
             <property name="visible">True</property>
@@ -59,7 +58,6 @@
         <child>
           <object class="GtkButton" id="btn_debito">
             <property name="label" translatable="yes">DÉBITO</property>
-            <property name="name">btn_encerrar_sessao</property>
             <property name="width_request">200</property>
             <property name="height_request">100</property>
             <property name="visible">True</property>
@@ -81,7 +79,6 @@
         <child>
           <object class="GtkButton" id="btn_cancelar">
             <property name="label" translatable="yes">CANCELAR</property>
-            <property name="name">btn_cancelar</property>
             <property name="width_request">200</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
