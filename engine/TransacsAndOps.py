@@ -2,6 +2,9 @@ import sys, os
 import datetime
 import json
 from time import sleep
+from smtplib import SMTP
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 class TransacsOps(object):
     def __init__(self, diretorio = os.getcwd()):
@@ -38,5 +41,106 @@ class TransacsOps(object):
         retorno.write('\n}  \n')
         retorno.close()
         return self.resultado_transacao
+    
+    def send_email(self, nome, email, senha, compartimento, data_locacao, hora_inicio_locacao, data_limite,  hora_fim_locacao, language):
+        # __server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        from smtplib import SMTP
+        from email.mime.multipart import MIMEMultipart
+        from email.mime.text import MIMEText
+        RECIBO = ''
+        diretorio = os.getcwd()
+        comprovante_pagamento = open('%s/engine/paygoWeb/comprovantes/COMPROVANTE CLIENTE EMAIL.txt'%(diretorio),'r')
+        for l in comprovante_pagamento:
+            RECIBO += l + '<br>'
+        comprovante_pagamento.close()
+        
+    
+        msg = MIMEMultipart()
+        __nome = string.capwords(nome)
+        css= """<style type='text/css' >
+            .flex-box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-center;
+            }
+            .body{
+
+            background: #FDCF03;
+            }
+
+            .message{
+                position: absolute;
+            }
+            .pai{
+                
+                position: relative;
+                text-align: center;
+                margin-left: 40%;
+                width: 300px;
+                height: 500px;
+                background: #ffffff;
+                margin-bottom: 10px;
+            }
+            .filho{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+            </style>"""
+        if language == "pt_BR":
+            __message = """<html><head> %s </head> 
+            <body class='body'> 
+            <div class='message'>
+              <strong>Este e-mail foi enviado de forma automática ,não responda diretamente a este e-mail!</strong><br><br>
+                    Obrigado por utilizar nossos serviços<b> %s</b>, abaixo encontra-se os seus dados de acesso para liberação do compartimento:<br><br>
+                <p>COMPARTIMENTO: <b> %s  </b>
+                <p>SENHA:<b> %s</b>
+                <p>DATA LOCAÇÃO:<b> %s %s  </b>
+                <p>DATA LIMITE:<b> %s %s</b>
+            </div>
+        <div class='flex-box pai'>
+             <div class='filho'>%s</div>
+        </div>
+        </body></html>""" % (css, __nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao, RECIBO)
+
+        elif language == "en_US":
+            __message = """<html><head> %s </head>
+            <body class='body'> <div class='message'><strong>
+        This email was sent automatically,please do not reply directly to this email! </strong><br><br>
+        Thanks for using our services <b>%s</b>, below is your compartment release access details:<br><br>
+        <p>COMPARTMENT: <b> %s  </b>
+        <p>PASSWORD: <b> %s  </b>
+        <p>DATE RENT: <b> %s %s  </b>
+        <p>DEADLINE:  <b> %s %s </b><br>
+        </div>
+        <div class='flex-box pai'>
+             <div class='filho'>%s</div>
+        </div>
+        
+        </body></html>""" % (css, __nome, compartimento, senha, data_locacao, hora_inicio_locacao, data_limite, hora_fim_locacao, RECIBO)
+
+       
+        body = MIMEText(__message, 'html')
+                    
+
+       
+        msg['Subject'] = 'CoolBag-SafeLocker - Credentials Access'
+        msg.attach(body)
+
+        msg['From'] = 'marcospaulo.silvaviana@gmail.com'
+        msg['To'] = email
+        password = "m1cr0@t805i"
+        __server = SMTP('smtp.gmail.com:587')
+        __server.starttls()
+        __server.ehlo()
+        __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
+
+        __server.sendmail( msg['From'], msg['To'].split(","), msg.as_string())
+
+        __server.quit()
     
     

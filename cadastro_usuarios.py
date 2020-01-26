@@ -464,8 +464,6 @@ class CadastroUsuarios(object):
                                             )
         
 
-         
-
         
         self.window_cadastro_usuario.fullscreen()
         self.window_cadastro_usuario.show()
