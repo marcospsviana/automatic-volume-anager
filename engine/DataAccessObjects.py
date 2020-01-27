@@ -814,7 +814,7 @@ class DataAccessObjectsManager(object):
         print("porta select porta id_armario", __porta)
         porta.exec_port(__porta[0][0], "abre")
 
-        return "armario liberado
+        return "armario liberado"
 
     @classmethod
     def localiza_id_armario(self, senha):
