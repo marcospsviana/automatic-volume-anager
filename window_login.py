@@ -302,6 +302,7 @@ class WindowLogin(Gtk.Window):
                 self.label_tempo_extra_minutes.set_text(str(__minuto_extra))
                 self.label_valor_extra_value.set_text("R$ " + result["total"])
 
+                self.window_login.hide()
                 self.window_pagamento_extra.show()
         return (self.__senha, self.id_armario)
 
@@ -311,6 +312,7 @@ class WindowLogin(Gtk.Window):
         if retorno == "lk4thHG34=GKss0xndhe":
 
             self.wait_payment.hide()"""
+        
         self.window_select_cartao.show()
 
     def on_btn_retornar_entrada_dados_pressed(self, event):

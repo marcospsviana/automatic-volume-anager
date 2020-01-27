@@ -2,9 +2,18 @@ import sys, os
 import datetime
 import json
 from time import sleep
+import smtplib
 from smtplib import SMTP
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import string
+import subprocess
+import random
+import string
+from random import choice, sample
+import pandas as pd
+
+
 
 class TransacsOps(object):
     def __init__(self, diretorio = os.getcwd()):
@@ -42,6 +51,7 @@ class TransacsOps(object):
         retorno.close()
         return self.resultado_transacao
     
+    @classmethod
     def send_email(self, nome, email, senha, compartimento, data_locacao, hora_inicio_locacao, data_limite,  hora_fim_locacao, language):
         # __server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
         from smtplib import SMTP

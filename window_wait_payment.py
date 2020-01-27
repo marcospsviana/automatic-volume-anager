@@ -31,20 +31,20 @@ class WindowWaitPayment(object):
         self.builder.connect_signals({
             "gtk_main_quit": Gtk.main_quit,
         })
-        self.main_window = self.builder.get_object("window_wait_payment")
+        self.window_payment = self.builder.get_object("window_wait_payment")
         self.spinner = self.builder.get_object("spinner")
         
         
         #self.spinner_coolbag.start()
-        self.main_window.fullscreen()
-        self.main_window.show()
+        self.window_payment.fullscreen()
+        self.window_payment.show()
         sleep(0.5)
 
         if self.locacao == '':
-            self.main_window.show()
+            self.window_payment.show()
             self.pagamento_extra(self.pagamento_ext)
         elif self.pagamento_ext == '':
-            self.main_window.show()
+            self.window_payment.show()
             self.efetuar_pagamento(self.locacao)
         
     
@@ -63,6 +63,7 @@ class WindowWaitPayment(object):
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         )
     def efetuar_pagamento(self, locacao):
+        self.window_payment.show()
         self.__armario = self.classe
         print("locacao", self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos)
         manager = Management()
@@ -93,7 +94,7 @@ class WindowWaitPayment(object):
             self.label_compartimento.set_text(str(compartimento))
             
             #self.window_payment.hide()
-            self.main_window.hide()
+            self.window_payment.hide()
             self.window_conclusao.show()
             
             
@@ -109,7 +110,7 @@ class WindowWaitPayment(object):
                 self.label_retorno_cadastro.set_text("chosen cabinet\n size unavailable")
                 self.dialog_retorno_cadastro.show()
         else:
-            #self.window_payment.hide()
+            self.window_payment.hide()
             self.label_window_erro_pagamentos.set_text(self.__result[0])
             self.window_erro_pagamento()
     
@@ -127,10 +128,12 @@ class WindowWaitPayment(object):
         self.window_select_cartao.hide()
     @classmethod
     def pagamento_extra(self, pagamento_ext):
+        self.window_payment.show()
         pagamento_extra = pagamento_ext
         resultado = Management.pagamento_extra(pagamento_extra["VALOR_TOTAL"], pagamento_extra["SENHA"])
         print(resultado)
         if "aprovada" in resultado:
+            self.window_payment.hide()
             self.window_conclusao.show()
 
 if __name__ == "__main__":

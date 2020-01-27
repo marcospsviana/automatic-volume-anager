@@ -1,4 +1,4 @@
-import .FLAGS
+from window_wait_payment import WindowWaitPayment as WWP
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk, Gio, GdkPixbuf, GObject
@@ -184,8 +184,8 @@ class CadastroUsuarios(object):
 
         #self.btn_finalizar_sessao = self.builder.get_object("btn_finalizar_sessao")
 
-        self.btn_window_payment_wait = self.builder.get_object("btn_window_payment_wait")
-        self.btn_window_payment_wait.connect("button_press_event", self.on_btn_window_payment_wait_button_press_event)
+        #self.btn_window_payment_wait = self.builder.get_object("btn_window_payment_wait")
+        #self.btn_window_payment_wait.connect("button_press_event", self.on_btn_window_payment_wait_button_press_event)
 
         " ----------- BOTOES ENTRADA_DADOS --------------- "
         self.btn_confirmar_entrada_dados = self.builder.get_object("btn_confirmar_entrada_dados")
@@ -469,18 +469,18 @@ class CadastroUsuarios(object):
         self.window_cadastro_usuario.fullscreen()
         self.window_cadastro_usuario.show()
     def on_btn_credito_button_press_event(self, event, args):
-        #self.send_tipo_cartao("CREDITO")
         self.window_select_cartao.hide()
-        #self.window_payment.show()
-        self.wait_payment("CREDITO")
+        self.window_cadastro_usuario.hide()
+        self.window_payment.show()
+        self.send_tipo_cartao("CREDITO")
         
         sleep(0.5)       
 
     def on_btn_debito_button_press_event(self, event, args):
-        #self.send_tipo_cartao("DEBITO")
         self.window_select_cartao.hide()
-        #self.window_payment.show()
-        self.wait_payment("DEBITO")
+        self.window_cadastro_usuario.hide()
+        self.window_payment.show()
+        self.send_tipo_cartao("DEBITO")
         
         sleep(0.5)
          
@@ -561,6 +561,10 @@ class CadastroUsuarios(object):
             }
             
             #colocar em wait payment
+            self.window_payment.fullscreen()
+            self.window_payment.show()
+            self.window_cadastro_usuario.hide()
+            #WWP(locacao)
             print("locacao", self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos)
             manager = Management()
             self.__result =  manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario, self.language, self.valor_total)
@@ -589,7 +593,7 @@ class CadastroUsuarios(object):
                 self.label_senha.set_text(str(self.senha))
                 self.label_compartimento.set_text(str(compartimento))
                 
-                #self.window_payment.hide()
+                self.window_payment.hide()
                 self.window_cadastro_usuario.hide()
                 self.window_conclusao.show()
                 
@@ -606,7 +610,7 @@ class CadastroUsuarios(object):
                     self.label_retorno_cadastro.set_text("chosen cabinet\n size unavailable")
                     self.dialog_retorno_cadastro.show()
             else:
-                #self.window_payment.hide()
+                self.window_payment.hide()
                 self.label_window_erro_pagamentos.set_text(self.__result[0])
                 self.window_erro_pagamento()
     
@@ -742,7 +746,7 @@ class CadastroUsuarios(object):
                 
                 self.window_conclusao.show()
                 self.window_cadastro_usuario.hide()
-                self.window_payment.hide()
+                #self.window_payment.hide()
                 self.id_armario = manager.localiza_id_armario(self.senha)
                 return self.id_armario
                 
@@ -763,6 +767,7 @@ class CadastroUsuarios(object):
     def wait_payment(self, tipo):
         #process_threading = threading.Thread(target=self.show_payment)
         #process_threading.start()
+        self.window_payment.fullscreen()
         self.window_payment.show()
         sleep(1)
         print(tipo)

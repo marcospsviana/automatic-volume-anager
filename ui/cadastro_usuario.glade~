@@ -2376,6 +2376,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
     <property name="window_position">center-always</property>
     <property name="default_width">600</property>
     <property name="default_height">400</property>
+    <property name="decorated">False</property>
     <property name="gravity">center</property>
     <child>
       <placeholder/>

@@ -479,7 +479,7 @@ class DataAccessObjectsManager(object):
                            (hora * TAXA_HORA_B) + calculo_minuto * TAXA_HORA_B)
         elif classe == "C":
             valor_total = ((dias * (TAXA_HORA_C *24)) +
-                           (hora * TAXA_HORA_C) + calculo_minuto * TAXA_HORA_c)
+                           (hora * TAXA_HORA_C) + calculo_minuto * TAXA_HORA_C)
         elif classe == "D":
             valor_total = ((dias * (TAXA_HORA_D * 24)) +
                            (hora * TAXA_HORA_D) + calculo_minuto * TAXA_HORA_D)
