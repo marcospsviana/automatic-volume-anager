@@ -12,7 +12,7 @@ from random import choice, sample
 import pandas as pd
 import smtplib
 import json
-#from .portas import Portas
+from .portas import Portas
 from .TransacsAndOps import TransacsOps
 
 
@@ -21,7 +21,7 @@ class DataAccessObjectsManager(object):
 
         self.data = ''
         self.porta = ''
-        #self.port = Portas()
+        self.port = Portas()
         global TAXA_HORA_A, TAXA_HORA_B, TAXA_HORA_C, TAXA_HORA_D
         global TAXA_DIARIA_A, TAXA_DIARIA_B, TAXA_DIARIA_C, TAXA_DIARIA_D
         TAXA_DIARIA_A = 37.5
@@ -126,7 +126,6 @@ class DataAccessObjectsManager(object):
         self.__conn.close()
 
     def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario, language, total):
-        #self.port = Portas()
         port = ''
         dia = dia
         dia = dia.replace(".0", "")
@@ -169,23 +168,8 @@ class DataAccessObjectsManager(object):
 
         print('======= loca ramario =====')
         print(loca_armario)
-        # self.__c.execute("SET FOREIGN_KEY_CHECKS = 0;")
-        # se houver armário livre segue com cadastro de locação
-        #retorno = None
         retorno = self.pagamento_locacao()
-        #data = datetime.datetime.now()
-        #diretorio = os.getcwd()
-        #print("diretorio ---->", diretorio)
-        #f = open('%s/engine/paygoWeb/comprovantes/retornotransacao.json'%(diretorio), 'r')
-        #resultado_transacao = json.load(f)
-        #f.close()
-        #retorno_transacao = open('%s/engine/paygoWeb/comprovantes/retornotransacao.json'%(diretorio), 'w+')
-        #retorno_transacao.write('\n{  \n')
-        #retorno_transacao.write('     "DATA" : "%s %s %s %s %s",\n'%(data.day, data.month, data.year, data.hour, data.minute))
-        #retorno_transacao.write('     "PWINFO_RESULTMSG" : "SEM TRANSACAO"')
-        #retorno_transacao.write('\n}  \n')
-        #retorno_transacao.close()
-        
+            
 
         resultado_transacao = TransacsOps.retorno_transacao()
         print("resultado_transacao", resultado_transacao)
@@ -203,9 +187,6 @@ class DataAccessObjectsManager(object):
 
             self.__conn.commit()
 
-            # self.__c.execute("select data_locacao, tempo_locado, senha from tb_locacao where id_armario= %s" %(loca_armario[0]))
-            # query_select = "select senha from tb_locacao where id_armario= %s" %(loca_armario[0])
-            # data_and_passwd = pd.read_sql(query_select, self.__conn)
             compartimento_query = "select compartimento from tb_armario where id_armario = %s" % (
                 loca_armario[0])
             compartimento_select = pd.read_sql(
@@ -234,7 +215,7 @@ class DataAccessObjectsManager(object):
             print("porta selecionada", port[0][0])
 
             # HABILILAR NO RASPBERRY PI
-            #self.port.exec_port(str(port[0][0]), "abre")
+            self.port.exec_port(str(port[0][0]), "abre")
 
             locacao_json = {
                 "message": "locacao concluida com sucesso",
@@ -361,7 +342,7 @@ class DataAccessObjectsManager(object):
         self.__id = id_armario[0][0]
         print("self id armario em liberar armario", self.__id)
         port = self.select_port(self.__id)
-        #self.port.exec_port(port, "abre")
+        self.port.exec_port(port, "abre")
         return "armario liberado"
 
     def remover_armario(self, id_armario):
@@ -497,7 +478,7 @@ class DataAccessObjectsManager(object):
         return (total)
 
     def finalizar(self, senha):
-        #self.port = Portas()
+       
         taxa = 15
         result = ''
         id_armario = ''
@@ -539,7 +520,7 @@ class DataAccessObjectsManager(object):
                 result = self.cobranca_excedente(
                     dias_passados, calculo_hora, calculo_minuto, id_armario)  # (valor_total,hj)
                 porta = self.select_port(id_armario)
-                #self.port.exec_port(porta[0][0], "abre")
+                self.port.exec_port(porta[0][0], "abre")
 
                 self.__c.execute(
                     "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
@@ -674,8 +655,7 @@ class DataAccessObjectsManager(object):
 
                 porta = self.select_port(id_armario[0][0])
                 print("abrir armario data.py porta", str(porta[0][0]))
-                # self.port.exec_port(porta[0][0], "abre")
-                #self.port.exec_port(porta[0][0], "abre")
+                self.port.exec_port(porta[0][0], "abre")
                 return "armario liberado"
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'" % __senha
@@ -749,16 +729,9 @@ class DataAccessObjectsManager(object):
         return "locacao finalizada com sucesso"
 
     def pagamento(self, total, senha):
-        
-        #__port = Portas()
         subprocess.run("docker start paygoweb", shell=True)
-        #subprocess("docker exec paygoweb cd paygoWeb")
         subprocess.run('docker exec paygoweb /bin/bash -c "cd paygoWeb/ && python3 venda.py"', shell=True)
-        
         sleep(0.3)
-        #print("informe o codigo")
-        
-        
         
         __senha = senha
         self.__locacao = self.get_locacao(senha)
@@ -766,19 +739,8 @@ class DataAccessObjectsManager(object):
         # __senha_encode = senha.encode(encoding='utf-8', errors='strict')
         self.__c.execute("select id_armario from tb_locacao where senha='%s'" % (__senha))
         result_id_armario = self.__c.fetchall()
-        # print("curosr select id_armario data.py", self.__c.fetchone())
         subprocess.run("docker stop paygoweb", shell=True)
-        #diretorio = os.getcwd()
-        #with open('%s/engine/paygoWeb/comprovantes/retornotransacao.json'%(diretorio), 'r') as f:
-        #    resultado_transacao = json.load(f)
-        #sleep(0.2)
-        #retorno_transacao = open('%s/engine/paygoWeb/comprovantes/retornotransacao.json'%(diretorio), 'w+')
-        #retorno_transacao.write('\n{  \n')
-        #retorno_transacao.write('     "DATA" : "%s %s %s %s %s",\n'%(data.day, data.month, data.year, data.hour, data.minute))
-        #retorno_transacao.write('     "PWINFO_RESULTMSG" : "SEM TRANSACAO"')
-        #retorno_transacao.write('\n}  \n')
-        #retorno_transacao.close()
-        #comp = TransacsOps.retorno_transacao()
+        
         resultado_transacao = TransacsOps.retorno_transacao()
         print("resultado_transacaok", resultado_transacao)
         if 'aprovada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
@@ -788,9 +750,9 @@ class DataAccessObjectsManager(object):
                 result_id_armario[0]))
             self.__conn.commit()
             self.__conn.close()
-            #self.port = self.select_port(result_id_armario)
+            __porta = self.select_port(result_id_armario)
             
-            #self.port.exec_port(__porta[0][0], "abre")
+            self.port.exec_port(__porta[0][0], "abre")
             return (resultado_transacao["PWINFO_RESULTMSG"])
         else:
             return (resultado_transacao["PWINFO_RESULTMSG"])
@@ -843,16 +805,16 @@ class DataAccessObjectsManager(object):
         #print(result)
         return "fechado"
 
-    """"@classmethod
+    @classmethod
     def abrir_armario(self, id_armario):
-        #porta = Portas()
+        porta = Portas()
         __id_armario = id_armario
         print("id armario em abrir armario data.py", __id_armario)
         __porta = self.select_port(__id_armario[0][0])
         print("porta select porta id_armario", __porta)
-        #porta.exec_port(__porta[0][0], "abre")
+        porta.exec_port(__porta[0][0], "abre")
 
-        return "armario liberado"""
+        return "armario liberado
 
     @classmethod
     def localiza_id_armario(self, senha):
