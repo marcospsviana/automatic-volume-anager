@@ -148,3 +148,43 @@
      "PWINFO_RESULTMSG" : "   APROVADA 123456   ",
 
 }  
+
+{  
+     "PWINFO_REQNUM"    : "0000701722",
+     "PWINFO_AUTLOCREF" : "574293",
+     "PWINFO_AUTEXTREF" : "574293",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+     "PWINFO_RESULTMSG" : "     ERRO TABELAS    ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "0000701725",
+     "PWINFO_AUTLOCREF" : "574294",
+     "PWINFO_AUTEXTREF" : "574294",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+     "PWINFO_RESULTMSG" : "     ERRO TABELAS    ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "0000701728",
+     "PWINFO_AUTLOCREF" : "574295",
+     "PWINFO_AUTEXTREF" : "574295",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+     "PWINFO_RESULTMSG" : "     ERRO TABELAS    ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "0000701731",
+     "PWINFO_AUTLOCREF" : "574296",
+     "PWINFO_AUTEXTREF" : "574296",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+     "PWINFO_RESULTMSG" : "     ERRO TABELAS    ",
+
+}  

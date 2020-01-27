@@ -66,7 +66,7 @@ class Venda:
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTCAP.value, "28")
 
         # ADICIONA O PARAMETRO DO IDIOMA ESTABELECIDO NA APLICACAO
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LANGUAGE.value, language)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LANGUAGE.value, self.language)
 
         self.pgWeb.PW_iAddParam(
             E_PWINFO.PWINFO_CURRENCY.value, "986")  # MOEDA: REAL
@@ -178,7 +178,8 @@ class Venda:
             print("retorno transacao", ret)
 
             while ret == -2497 or ret == E_PWRET.PWRET_NOTHING.value or (2100 <= ret <= 2200):
-                #ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
+                
+                # PERCORRE OS DADOS E RECUPERA OS FALTANTES
                 ret = self.pgWeb.PW_iExecGetData(vstParam, iNumParam)
                 print("ret exectransac venda", ret)
 

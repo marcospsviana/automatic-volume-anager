@@ -2374,8 +2374,8 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
-    <property name="default_width">600</property>
-    <property name="default_height">400</property>
+    <property name="default_width">700</property>
+    <property name="default_height">500</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
     <child>
@@ -2388,11 +2388,12 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkLabel" id="label_window_erro_pagamentos">
+            <property name="name">label_aguarde</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="margin_left">20</property>
             <property name="margin_right">20</property>
-            <property name="margin_top">20</property>
+            <property name="margin_top">60</property>
             <property name="margin_bottom">10</property>
             <property name="label" translatable="yes">label</property>
           </object>
@@ -2403,31 +2404,21 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
           </packing>
         </child>
         <child>
-          <placeholder/>
+          <object class="GtkSeparator">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
         </child>
         <child>
           <object class="GtkGrid">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <child>
-              <object class="GtkButton" id="btn_cancelar_window_erro_pagamentos">
-                <property name="label" translatable="yes">CANCELAR</property>
-                <property name="name">btn_cancelar</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="margin_left">50</property>
-                <property name="margin_right">10</property>
-                <property name="margin_top">10</property>
-                <property name="margin_bottom">50</property>
-                <property name="hexpand">True</property>
-                <signal name="button-press-event" handler="on_btn_cancelar_window_erro_pagamentos_button_press_event" swapped="no"/>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">0</property>
-              </packing>
-            </child>
             <child>
               <object class="GtkButton" id="btn_tente_novamente_window_erro_pagamentos">
                 <property name="label" translatable="yes">TENTE NOVAMENTE</property>
@@ -2437,13 +2428,32 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <property name="receives_default">True</property>
                 <property name="margin_left">50</property>
                 <property name="margin_right">10</property>
-                <property name="margin_top">10</property>
+                <property name="margin_top">40</property>
                 <property name="margin_bottom">50</property>
                 <property name="hexpand">True</property>
                 <signal name="button-press-event" handler="on_btn_tente_novamente_window_erro_pagamentos_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_cancelar_window_erro_pagamentos">
+                <property name="label" translatable="yes">CANCELAR</property>
+                <property name="name">btn_cancelar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="margin_left">50</property>
+                <property name="margin_right">10</property>
+                <property name="margin_top">40</property>
+                <property name="margin_bottom">50</property>
+                <property name="hexpand">True</property>
+                <signal name="button-press-event" handler="on_btn_cancelar_window_erro_pagamentos_button_press_event" swapped="no"/>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
                 <property name="top_attach">0</property>
               </packing>
             </child>
@@ -2551,10 +2561,12 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
     <property name="height_request">400</property>
     <property name="can_focus">False</property>
     <property name="border_width">10</property>
+    <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
-    <property name="default_width">500</property>
-    <property name="default_height">400</property>
+    <property name="default_width">700</property>
+    <property name="default_height">500</property>
+    <property name="decorated">False</property>
     <property name="gravity">center</property>
     <child>
       <placeholder/>
