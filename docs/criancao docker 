@@ -1,0 +1,11 @@
+docker container ls -a
+
+
+
+docker export paygoweb | gzip > paygoweb.gz
+
+zcat paygoweb.gz | docker import - paygoweb
+
+
+#EXECUTAR DENTRO DO DIRETORIO /coolbag/raspcontrol/engine
+docker run -it -t -e TZ=America/Fortaleza --privileged --rm -v /paygoWeb:/paygoWeb paygoweb bash

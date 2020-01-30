@@ -1,3 +1,5 @@
+from .portas import Portas
+from .TransacsAndOps import TransacsOps
 import sys, os
 import asyncio
 import mysql.connector as mdb
@@ -12,8 +14,7 @@ from random import choice, sample
 import pandas as pd
 import smtplib
 import json
-from .portas import Portas
-from .TransacsAndOps import TransacsOps
+
 
 
 class DataAccessObjectsManager(object):
@@ -21,7 +22,7 @@ class DataAccessObjectsManager(object):
 
         self.data = ''
         self.porta = ''
-        self.port = Portas()
+        #self.port = Portas()
         global TAXA_HORA_A, TAXA_HORA_B, TAXA_HORA_C, TAXA_HORA_D
         global TAXA_DIARIA_A, TAXA_DIARIA_B, TAXA_DIARIA_C, TAXA_DIARIA_D
         TAXA_DIARIA_A = 37.5
@@ -215,7 +216,7 @@ class DataAccessObjectsManager(object):
             print("porta selecionada", port[0][0])
 
             # HABILILAR NO RASPBERRY PI
-            self.port.exec_port(str(port[0][0]), "abre")
+            #self.port.exec_port(str(port[0][0]), "abre")
 
             locacao_json = {
                 "message": "locacao concluida com sucesso",
@@ -342,7 +343,7 @@ class DataAccessObjectsManager(object):
         self.__id = id_armario[0][0]
         print("self id armario em liberar armario", self.__id)
         port = self.select_port(self.__id)
-        self.port.exec_port(port, "abre")
+        #self.port.exec_port(port, "abre")
         return "armario liberado"
 
     def remover_armario(self, id_armario):
@@ -408,7 +409,9 @@ class DataAccessObjectsManager(object):
         # envia a data limite para calculo de tempo excedente
         self.__cobranca = self.__cobranca(self.result[0][2])
         if self.__cobranca == None:
-            self.liberar_armario(senha)  # __senha)
+            # liberar no raspberry pi
+            #self.liberar_armario(senha)  # __senha)
+            return "armario liberado"
         else:
             return ('tempo excedente', self.__cobranca)
 
@@ -520,7 +523,7 @@ class DataAccessObjectsManager(object):
                 result = self.cobranca_excedente(
                     dias_passados, calculo_hora, calculo_minuto, id_armario)  # (valor_total,hj)
                 porta = self.select_port(id_armario)
-                self.port.exec_port(porta[0][0], "abre")
+                #self.port.exec_port(porta[0][0], "abre")
 
                 self.__c.execute(
                     "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
@@ -655,7 +658,7 @@ class DataAccessObjectsManager(object):
 
                 porta = self.select_port(id_armario[0][0])
                 print("abrir armario data.py porta", str(porta[0][0]))
-                self.port.exec_port(porta[0][0], "abre")
+                #self.port.exec_port(porta[0][0], "abre")
                 return "armario liberado"
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'" % __senha
@@ -752,7 +755,8 @@ class DataAccessObjectsManager(object):
             self.__conn.close()
             __porta = self.select_port(result_id_armario)
             
-            self.port.exec_port(__porta[0][0], "abre")
+            # LIBERAR NO RASPBERRY
+            #self.port.exec_port(__porta[0][0], "abre")
             return (resultado_transacao["PWINFO_RESULTMSG"])
         else:
             return (resultado_transacao["PWINFO_RESULTMSG"])
@@ -794,25 +798,22 @@ class DataAccessObjectsManager(object):
     def fechar_armario(self, id_armario):
         import serial
         self.serial = serial.Serial("/dev/ttyS0", 9600)
-        porta = Portas()
+        #porta = Portas()
         __id_armario = id_armario
         print("id armario em fechar armario data.py", __id_armario)
         __porta = self.select_port(__id_armario[0][0])
         print("porta select porta id_armario", __porta)
-        porta.exec_port(str(__porta[0][0]), "fecha")
-        #comando = str(__porta[0][0]) + ":fecha"
-        #result = self.serial.write(b'%s' % comando.encode('utf-8'))
-        #print(result)
+        #porta.exec_port(str(__porta[0][0]), "fecha")
         return "fechado"
 
     @classmethod
     def abrir_armario(self, id_armario):
-        porta = Portas()
+        #porta = Portas()
         __id_armario = id_armario
         print("id armario em abrir armario data.py", __id_armario)
         __porta = self.select_port(__id_armario[0][0])
         print("porta select porta id_armario", __porta)
-        porta.exec_port(__porta[0][0], "abre")
+        #porta.exec_port(__porta[0][0], "abre")
 
         return "armario liberado"
 

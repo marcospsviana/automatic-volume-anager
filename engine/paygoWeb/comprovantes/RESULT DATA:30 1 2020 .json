@@ -1,0 +1,60 @@
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+     "PWINFO_RESULTMSG" : "  TRANSACAO PENDENTE ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+     "PWINFO_RESULTMSG" : "  TRANSACAO PENDENTE ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "0000701804",
+     "PWINFO_AUTLOCREF" : "0000701804",
+     "PWINFO_AUTEXTREF" : "0000701804",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+     "PWINFO_RESULTMSG" : "  TRANSACAO PENDENTE ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+     "PWINFO_RESULTMSG" : "  TRANSACAO PENDENTE ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+     "PWINFO_RESULTMSG" : "     ERRO PINPAD",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+     "PWINFO_RESULTMSG" : "     ERRO PINPAD",
+
+}  

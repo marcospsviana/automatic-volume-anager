@@ -42,8 +42,9 @@ class Venda:
         self.total = dados['TOTAL']
         print("type(total)", type(self.total))
         print(self.total)
-        # VERIFICA O IDIOMA ESCOLHIDO PELO CLIENTE , APENAS PORTUGUÊS OU INGLES
-        if dados['LANGUAGE'] == 'pt_BR':
+
+        # VERIFICA O IDIOMA ESCOLHIDO PELO CLIENTE , APENAS PORTUGUES OU INGLES
+        """if dados['LANGUAGE'] == 'pt_BR':
             self.language = "0"
         else:
             self.language = "1"
@@ -52,7 +53,7 @@ class Venda:
             self.tipo_cartao = "1"
         elif tipo_cartao == "DEBITO":
             self.tipo_cartao = "2"
-        print("tipo_cartao", tipo_cartao)
+        print("tipo_cartao", tipo_cartao)"""
 
         # INICIA UMA NOVA TRANSACAO
         self.pgWeb.PW_iNewTransac(E_PWOPER.PWOPER_SALE.value)
@@ -66,64 +67,24 @@ class Venda:
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTCAP.value, "28")
 
         # ADICIONA O PARAMETRO DO IDIOMA ESTABELECIDO NA APLICACAO
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LANGUAGE.value, self.language)
+        #self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LANGUAGE.value, self.language)
 
-        self.pgWeb.PW_iAddParam(
-            E_PWINFO.PWINFO_CURRENCY.value, "986")  # MOEDA: REAL
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, "986")  # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2")
-        self.pgWeb.PW_iAddParam(
-            E_PWINFO.PWINFO_AUTHSYST.value, "CIELO")  # ADQUIRENTE
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "REDE")  # ADQUIRENTE
         # 1 - CREDITO 2 - DEBITO
-        self.pgWeb.PW_iAddParam(
-            E_PWINFO.PWINFO_CARDTYPE.value, self.tipo_cartao)
-        self.pgWeb.PW_iAddParam(
-            E_PWINFO.PWINFO_FINTYPE.value, "1")  # 1 A VISTA
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, self.total)
-        self.pgWeb.PW_iAddParam(
-            E_PWINFO.PWINFO_PAYMNTTYPE.value, "1")  # 1 SOMENTE CARTAO
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value, "1") #self.tipo_cartao)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_FINTYPE.value, "1")  # 1 A VISTA
+        #self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_INSTALLMENTS.value, "3") # QUANTIDADE DE PARCELAS
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, "1200")#self.total)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_PAYMNTTYPE.value, "1")  # 1 SOMENTE CARTAO
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_BOARDINGTAX.value, "00")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TIPAMOUNT.value, "00")
 
         ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
-        PWINFO_PNDAUTHSYST = PWINFO_PNDVIRTMERCH = PWINFO_PNDREQNUM = PWINFO_PNDAUTLOCREF = PWINFO_PNDAUTEXTREF = ''
-
-        #VERIFICA SE HÁ TRANSACAO PENDENTE E TENTA RETORNAR O PARAMETROS PENDENTES PARA CONFIRMAR A TRANSACAO PENDENTE
-        if ret == E_PWRET.PWRET_FROMHOSTPENDTRN.value:
-            self.pgWeb.PW_iGetResult(
-                E_PWINFO.PWINFO_PNDAUTHSYST.value, szAux, sizeof(szAux)
-            )
-            PWINFO_PNDAUTHSYST = szAux.value.decode('utf-8')
-            sleep(0.3)
-            self.pgWeb.PW_iGetResult(
-                E_PWINFO.PWINFO_PNDVIRTMERCH.value, szAux, sizeof(szAux)
-            )
-            PWINFO_PNDVIRTMERCH = szAux.value.decode('utf-8')
-            sleep(0.3)
-            self.pgWeb.PW_iGetResult(
-                E_PWINFO.PWINFO_PNDREQNUM.value, szAux, sizeof(szAux)
-            )
-            PWINFO_PNDREQNUM = szAux.value.decode('utf-8')
-            sleep(0.3)
-            self.pgWeb.PW_iGetResult(
-                E_PWINFO.PWINFO_PNDAUTLOCREF.value, szAux, sizeof(szAux)
-            )
-            PWINFO_PNDAUTLOCREF = szAux.value.decode('utf-8')
-            sleep(0.3)
-            self.pgWeb.PW_iGetResult(
-                E_PWINFO.PWINFO_PNDAUTEXTREF.value, szAux, sizeof(szAux)
-            )
-            PWINFO_PNDAUTEXTREF = szAux.value.decode('utf-8')
-            sleep(0.3)
-            iRet = self.pgWeb.PW_iConfirmation(
-                E_PWCNF.PWCNF_CNF_AUTO.value,
-                PWINFO_PNDREQNUM,
-                PWINFO_PNDAUTLOCREF,
-                PWINFO_PNDAUTEXTREF,
-                PWINFO_PNDVIRTMERCH,
-                PWINFO_PNDAUTHSYST
-            )
-            print("iRet PENDENTE PW_iConfirmation", iRet)
+        
         PWINFO_REQNUM = PWINFO_AUTLOCREF = PWINFO_AUTEXTREF = PWINFO_VIRTMERCH = PWINFO_AUTHSYST = ''
+        PWINFO_PNDAUTHSYST = PWINFO_PNDVIRTMERCH = PWINFO_PNDREQNUM = PWINFO_PNDAUTLOCREF = PWINFO_PNDAUTEXTREF = ''
 
         #DATA E HORA ATUAL
         data = datetime.datetime.now()
@@ -133,29 +94,29 @@ class Venda:
             E_PWINFO.PWINFO_REQNUM.value, szAux, sizeof(szAux))
         PWINFO_REQNUM = szAux.value.decode('utf-8')
         print("PWINFO_REQNUM", PWINFO_REQNUM)
-        sleep(0.3)
+        sleep(0.1)
         self.pgWeb.PW_iGetResult(
             E_PWINFO.PWINFO_AUTLOCREF.value, szAux, sizeof(szAux))
         PWINFO_AUTLOCREF = szAux.value.decode('utf-8')
         print("PWINFO_AUTLOCREF", PWINFO_AUTLOCREF)
-        sleep(0.3)
+        sleep(0.1)
         self.pgWeb.PW_iGetResult(
             E_PWINFO.PWINFO_AUTEXTREF.value, szAux, sizeof(szAux))
         PWINFO_AUTEXTREF = szAux.value.decode('utf-8')
         print("PWINFO_AUTEXTREF", PWINFO_AUTEXTREF)
         if PWINFO_AUTEXTREF == None or PWINFO_AUTEXTREF == '':
             PWINFO_AUTEXTREF = '0'
-        sleep(0.3)
+        sleep(0.1)
         self.pgWeb.PW_iGetResult(
             E_PWINFO.PWINFO_VIRTMERCH.value, szAux, sizeof(szAux))
         PWINFO_VIRTMERCH = szAux.value.decode('utf-8')
         print("PWINFO_VIRTMERCH", PWINFO_VIRTMERCH)
-        sleep(0.3)
+        sleep(0.1)
         self.pgWeb.PW_iGetResult(
             E_PWINFO.PWINFO_AUTHSYST.value, szAux, sizeof(szAux))
         PWINFO_AUTHSYST = szAux.value.decode('utf-8')
         print("PWINFO_AUTHSYST", PWINFO_AUTHSYST)
-        sleep(0.3)
+        sleep(0.1)
         registro_json = open('comprovantes/REGISTRO DATA:%s %s %s .json' %
                              (data.day, data.month, data.year), 'a+')
         registro_json.write('\n{  \n')
@@ -174,7 +135,19 @@ class Venda:
         registro_json.write('\n}  \n')
         registro_json.close()
 
-        if ret == E_PWRET.PWRET_MOREDATA.value or ret == E_PWRET.PWRET_NOTHING.value or (2100 <= ret <= 2200):
+        list_errors_pinpad = [
+                    -2100, -2101, -2102, -2103, -2104, -2105, -2106, -2107, -2108, -2109, -2110, 
+                    -2111, -2112, -2113, -2114, -2115, -2116, -2117, -2118, -2119, -2120, -2121,
+                    -2122, -2123, -2124, -2125, -2126, -2127, -2128, -2129, -2130, -2131, -2132,
+                    -2133, -2134, -2135, -2136, -2137, -2138, -2139, -2140, -2141, -2142, -2143, 
+                    -2144, -2145, -2146, -2147, -2148, -2149, -2150, -2151, -2152, -2153, -2154, 
+                    -2155, -2156, -2157, -2158, -2159, -2160, -2161, -2162, -2163, -2164, -2165, 
+                    -2166, -2167, -2168, -2169, -2170, -2171, -2172, -2173, -2174, -2175, -2176, 
+                    -2177, -2178, -2179, -2180, -2181, -2182, -2183, -2184, -2185, -2186, -2187, 
+                    -2188, -2189, -2190, -2191, -2192, -2193, -2194, -2195, -2196, -2197, -2198, 
+                    -2199, -2200]
+
+        if ret == E_PWRET.PWRET_MOREDATA.value or ret == E_PWRET.PWRET_NOTHING.value or (ret in list_errors_pinpad):
             print("retorno transacao", ret)
 
             while ret == -2497 or ret == E_PWRET.PWRET_NOTHING.value or (2100 <= ret <= 2200):
@@ -183,7 +156,8 @@ class Venda:
                 ret = self.pgWeb.PW_iExecGetData(vstParam, iNumParam)
                 print("ret exectransac venda", ret)
 
-                if ret == E_PWRET.PWRET_CANCEL.value or (2100 <= ret <= 2200):
+
+                if ret == E_PWRET.PWRET_CANCEL.value or (ret in list_errors_pinpad):
                     print("E_PWRET.PWRET_CANCEL")
                     self.pgWeb.PW_iPPAbort()
                     retEventLoop = self.pgWeb.PW_iPPEventLoop(
@@ -217,11 +191,68 @@ class Venda:
                 ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
                 print("efetuando a transacao...")
                 print("ret ---->", ret)
+                #SE HÁ TRANSACAO PENDENTE  CONFIRMAR A TRANSACAO 
+                if ret == E_PWRET.PWRET_FROMHOSTPENDTRN.value:
+                    (print("esta em pendencia"))
+                    self.pgWeb.PW_iGetResult(
+                        E_PWINFO.PWINFO_PNDAUTHSYST.value, szAux, sizeof(szAux)
+                    )
+                    PWINFO_PNDAUTHSYST = szAux.value.decode('utf-8')
+                    print("PWINFO_PNDAUTHSYST = ", PWINFO_PNDAUTHSYST)
+                    sleep(0.1)
+
+                    self.pgWeb.PW_iGetResult(
+                        E_PWINFO.PWINFO_PNDVIRTMERCH.value, szAux, sizeof(szAux)
+                    )
+                    PWINFO_PNDVIRTMERCH = szAux.value.decode('utf-8')
+                    print("PWINFO_PNDVIRTMERCH = ", PWINFO_PNDVIRTMERCH )
+                    sleep(0.1)
+
+                    self.pgWeb.PW_iGetResult(
+                        E_PWINFO.PWINFO_PNDREQNUM.value, szAux, sizeof(szAux)
+                    )
+                    PWINFO_PNDREQNUM = szAux.value.decode('utf-8')
+                    print("PWINFO_PNDREQNUM = ", PWINFO_PNDREQNUM )
+                    sleep(0.1)
+
+                    self.pgWeb.PW_iGetResult(
+                        E_PWINFO.PWINFO_PNDAUTLOCREF.value, szAux, sizeof(szAux)
+                    )
+                    PWINFO_PNDAUTLOCREF = szAux.value.decode('utf-8')
+                    print("PWINFO_PNDAUTLOCREF = ", PWINFO_PNDAUTLOCREF )
+                    sleep(0.1)
+
+                    self.pgWeb.PW_iGetResult(
+                        E_PWINFO.PWINFO_PNDAUTEXTREF.value, szAux, sizeof(szAux)
+                    )
+                    PWINFO_PNDAUTEXTREF = szAux.value.decode('utf-8')
+                    print("PWINFO_PNDAUTEXTREF = ", PWINFO_PNDAUTEXTREF )
+                    sleep(0.1)
+
+                    iPndRet = self.pgWeb.PW_iConfirmation(
+                        E_PWCNF.PWCNF_CNF_AUTO.value,
+                        PWINFO_PNDREQNUM,
+                        PWINFO_PNDAUTLOCREF,
+                        PWINFO_PNDAUTEXTREF,
+                        PWINFO_PNDVIRTMERCH,
+                        PWINFO_PNDAUTHSYST
+                    )
+                    print("iRet PENDENTE PW_iConfirmation", iPndRet)
+
+                    return iPndRet
+
         
         elif ret <= E_PWRET.PWRET_FROMHOSTPOSAUTHERR.value and ret >= E_PWRET.PWRET_INVALIDTRN.value and ret != E_PWRET.PWRET_MOREDATA.value:
             self.pgWeb.PW_iGetResult(
                 E_PWINFO.PWINFO_RESULTMSG.value, szAux, sizeof(szAux))
             PWINFO_RESULTMSG = szAux.value.decode('utf-8')
+            self.PW_iPPAbort()
+            retEventLoop = self.pgWeb.PW_iPPEventLoop(
+                        self.szDspMsg, sizeof(self.szDspMsg))
+            print("retEventLoop", retEventLoop)
+            return retEventLoop
+        
+        
 
         self.pgWeb.PW_iGetResult(
             E_PWINFO.PWINFO_RESULTMSG.value, szAux, sizeof(szAux))
@@ -239,7 +270,7 @@ class Venda:
                 texto += i
         PWINFO_RESULTMSG = texto
 
-        sleep(0.3)
+        sleep(0.1)
 
         # GUARDA AS INFORMACOES NAO SENSIVEIS DA TRANSACAO EM JSON PARA CONSULTA FUTURA
         result_json = open('comprovantes/RESULT DATA:%s %s %s .json' %(data.day, data.month, data.year), 'a+')
@@ -272,7 +303,7 @@ class Venda:
         f.write("==============================================\n\n")
         f.close()
 
-        sleep(0.3)
+        sleep(0.1)
         self.pgWeb.PW_iGetResult(
             E_PWINFO.PWINFO_RCPTCHOLDER.value, szAux, sizeof(szAux))
         print("PWINFO_RCPTMERCH", E_PWINFO.PWINFO_RCPTCHOLDER.value)
@@ -300,6 +331,8 @@ class Venda:
         print("iRet PW_iConfirmation", iRet)
 
         return iRet
+
+        
 
         # zera todos os parametros
         iRet = vstParam_11 = vstParam = iNumParam = ulEvent = szDspMsg = szAux = wait = retEventLoop = ret = ''
