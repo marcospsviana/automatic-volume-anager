@@ -263,20 +263,28 @@ class Venda:
         PWINFO_TRNORIGDATE = szAux.value.decode('utf-8')
         print("PWINFO_TRNORIGDATE", "%s%s%s"%(data.))
         sleep(0.1)"""
-        registro_rec = [{
+        registro_rec = {
                         "PWINFO_TRNORIGDATE":"%s"%(data.strptime("%s%s%s"%(data.day, data.month, data.year),"%d%m%Y").strftime("%d%m%Y")),
                         "PWINFO_REQNUM":"%s"%(PWINFO_REQNUM),
                         "PWINFO_AUTLOCREF" : "%s"%(PWINFO_AUTLOCREF),
                         "PWINFO_AUTEXTREF" : "%s"%(PWINFO_AUTEXTREF),
                         "PWINFO_VIRTMERCH" : "%s"%(PWINFO_VIRTMERCH),
                         "PWINFO_AUTHSYST"  : "%s"%(PWINFO_AUTHSYST)
-                        }]
+                        }
 
         
         diretorio = os.getcwd()
-        
-        with open(diretorio +'/comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'a+') as f:
-            json.dump(registro_rec, f)
+        #if os.path.exists(diretorio +'/comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year))
+
+        try:
+            f = open(diretorio +'/comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'a+')
+            json.dump(registro_rec, f, indent=2, separators=(",",":"))
+            f.close()
+        except FileNotFoundError:
+            f = open(diretorio +'/comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'w+')
+            json.dump(registro_rec, f, indent=2, separators=(",",":"))
+            f.close()
+
         
         """registro_json.write('\n{  \n')
         registro_json.write('     "DATA HORARIO"    : "%s:%s",\n' %

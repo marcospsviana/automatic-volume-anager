@@ -36,22 +36,41 @@ class Reimpress:
          # INICIA UMA NOVA TRANSACAO
         self.pgWeb.PW_iNewTransac(E_PWOPER.PWOPER_ADMIN.value, )
         try:
-            with open('comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'r') as f:
-                registro_json = json.load(f)
+            f = open('comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'r+')
+            registro_json = f.read()
+            registro_json = registro_json.replace("\n","")
+            registro_json = registro_json.replace(" ","")
+            registro_json = registro_json.replace("}{","},{")
+            registro_json = eval(registro_json)
+            PWINFO_TRNORIGDATE = data.strptime("%s%s%s"%(data.day, data.month, data.year),"%d%m%Y").strftime("%d%m%Y")
+            f.close()   
                             
-        except expression as identifier:
-            print(identifier)
-        finally:
+        except FileNotFoundError:
             data_anterior = data - timedelta(days=1)
-            with open('comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'r') as f:
-                registro_json = json.load(f)
-            PWINFO_TRNORIGDATE = "%s"
+            f = open('comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'r+')
+            registro_json = f.read()
+            registro_json = registro_json.replace("\n","")
+            registro_json = registro_json.replace(" ","")
+            registro_json = registro_json.replace("}{","},{")
+            registro_json = eval(registro_json)
+            PWINFO_TRNORIGDATE = data_anterior.strptime("%s%s%s"%(data_anterior.day, data_anterior.month, data_anterior.year), "%d%m%Y").strftime("%d%m%Y")
+            f.close()
+            
+        print("len registro json",len(registro_json))
         
-        PWINFO_REQNUM = registro_json[-1]["PWINFO_REQNUM"]
-        PWINFO_AUTLOCREF = registro_json[-1]["PWINFO_AUTLOCREF"]
-        PWINFO_AUTEXTREF = registro_json[-1]["PWINFO_AUTEXTREF"]
-        PWINFO_VIRTMERCH = registro_json[-1]["PWINFO_VIRTMERCH"]
-        PWINFO_AUTHSYST = registro_json[-1]["PWINFO_AUTHSYST"]
+        if type(registro_json) == dict:
+            PWINFO_REQNUM = registro_json["PWINFO_REQNUM"]
+            PWINFO_AUTLOCREF = registro_json["PWINFO_AUTLOCREF"]
+            PWINFO_AUTEXTREF = registro_json["PWINFO_AUTEXTREF"]
+            PWINFO_VIRTMERCH = registro_json["PWINFO_VIRTMERCH"]
+            PWINFO_AUTHSYST = registro_json["PWINFO_AUTHSYST"]
+        elif type(registro_json) == tuple:
+            PWINFO_REQNUM = registro_json[-1]["PWINFO_REQNUM"]
+            PWINFO_AUTLOCREF = registro_json[-1]["PWINFO_AUTLOCREF"]
+            PWINFO_AUTEXTREF = registro_json[-1]["PWINFO_AUTEXTREF"]
+            PWINFO_VIRTMERCH = registro_json[-1]["PWINFO_VIRTMERCH"]
+            PWINFO_AUTHSYST = registro_json[-1]["PWINFO_AUTHSYST"]
+
          
 
         # MANDADATORY PARAMS
@@ -62,6 +81,7 @@ class Reimpress:
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, "986")  # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_POSID.value, "62547")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGDATE.value, PWINFO_TRNORIGDATE)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_REQNUM.value, PWINFO_REQNUM)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTLOCREF.value, PWINFO_AUTLOCREF)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTEXTREF.value, PWINFO_AUTEXTREF)
