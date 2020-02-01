@@ -78,3 +78,123 @@
      "PWINFO_AUTHSYST"  : "REDE",
 
 }  
+
+{  
+     "DATA HORARIO"    : "11:59",
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+
+}  
+
+{  
+     "DATA HORARIO"    : "16:38",
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+
+}  
+
+{  
+     "DATA HORARIO"    : "16:51",
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+
+}  
+
+{  
+     "DATA HORARIO"    : "16:52",
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+
+}  
+
+{  
+     "DATA HORARIO"    : "16:58",
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+
+}  
+
+{  
+     "DATA HORARIO"    : "17:6",
+     "PWINFO_REQNUM"    : "0000701827",
+     "PWINFO_AUTLOCREF" : "574314",
+     "PWINFO_AUTEXTREF" : "574314",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "CIELO",
+
+}  
+
+{  
+     "DATA HORARIO"    : "17:7",
+     "PWINFO_REQNUM"    : "0000701829",
+     "PWINFO_AUTLOCREF" : "574315",
+     "PWINFO_AUTEXTREF" : "574315",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "CIELO",
+
+}  
+
+{  
+     "DATA HORARIO"    : "17:8",
+     "PWINFO_REQNUM"    : "0000701831",
+     "PWINFO_AUTLOCREF" : "574316",
+     "PWINFO_AUTEXTREF" : "574316",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+
+}  
+
+{  
+     "DATA HORARIO"    : "21:49",
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+
+}  
+
+{  
+     "DATA HORARIO"    : "21:56",
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+
+}  
+
+{  
+     "DATA HORARIO"    : "21:57",
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+
+}  
+
+{  
+     "DATA HORARIO"    : "22:2",
+     "PWINFO_REQNUM"    : "0000701845",
+     "PWINFO_AUTLOCREF" : "1060081",
+     "PWINFO_AUTEXTREF" : "42383",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+
+}  

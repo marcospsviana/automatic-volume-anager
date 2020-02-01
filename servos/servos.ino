@@ -5,13 +5,13 @@ Servo servo_A1;
 Servo servo_A2;
 Servo servo_A3;
 Servo servo_A4;
-Servo servo_0;
+/*Servo servo_0;
 Servo servo_1;
 Servo servo_2;
 Servo servo_3;
 Servo servo_4;
 Servo servo_5;
-Servo servo_6;
+Servo servo_6;*/
 
 int pos = 0;
 int comando = 0;
@@ -24,14 +24,11 @@ void setup() {
     servo_A2.attach(A2);
     servo_A3.attach(A3);
     servo_A4.attach(A4);
-    servo_0.attach(0);
-    servo_1.attach(1);
-    servo_2.attach(2);
-    servo_3.attach(3);
-    servo_4.attach(4);
-    servo_5.attach(5);
-    servo_6.attach(6);
+
+    // POSICIONA O SERVO NA POSICAO 0
     servo_A0.write(0);
+    servo_A1.write(0);
+    servo_A2.write(0);
 
 }
 String leStringSerial(){

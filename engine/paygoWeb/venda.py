@@ -37,11 +37,11 @@ class Venda:
         retEventLoop = ''
         ret = ''
         ret2 = ''
-        with open('comprovantes/valor_venda.json', 'r') as f:
+        """with open('comprovantes/valor_venda.json', 'r') as f:
             dados = json.load(f)
         self.total = dados['TOTAL']
         print("type(total)", type(self.total))
-        print(self.total)
+        print(self.total)"""
 
         # VERIFICA O IDIOMA ESCOLHIDO PELO CLIENTE , APENAS PORTUGUES OU INGLES
         """if dados['LANGUAGE'] == 'pt_BR':
@@ -67,7 +67,7 @@ class Venda:
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTCAP.value, "28")
 
         # ADICIONA O PARAMETRO DO IDIOMA ESTABELECIDO NA APLICACAO
-        #self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LANGUAGE.value, self.language)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LANGUAGE.value, "1") #self.language)
 
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, "986")  # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2")
@@ -83,58 +83,14 @@ class Venda:
 
         ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
         
-        PWINFO_REQNUM = PWINFO_AUTLOCREF = PWINFO_AUTEXTREF = PWINFO_VIRTMERCH = PWINFO_AUTHSYST = ''
+        PWINFO_REQNUM = PWINFO_AUTLOCREF = PWINFO_AUTEXTREF = PWINFO_VIRTMERCH = PWINFO_AUTHSYST = PWINFO_TRNORIGDATE = ''
         PWINFO_PNDAUTHSYST = PWINFO_PNDVIRTMERCH = PWINFO_PNDREQNUM = PWINFO_PNDAUTLOCREF = PWINFO_PNDAUTEXTREF = ''
 
         #DATA E HORA ATUAL
         data = datetime.datetime.now()
 
-        # OBTENDO INFORMACOES DA TRANSACAO
-        self.pgWeb.PW_iGetResult(
-            E_PWINFO.PWINFO_REQNUM.value, szAux, sizeof(szAux))
-        PWINFO_REQNUM = szAux.value.decode('utf-8')
-        print("PWINFO_REQNUM", PWINFO_REQNUM)
-        sleep(0.1)
-        self.pgWeb.PW_iGetResult(
-            E_PWINFO.PWINFO_AUTLOCREF.value, szAux, sizeof(szAux))
-        PWINFO_AUTLOCREF = szAux.value.decode('utf-8')
-        print("PWINFO_AUTLOCREF", PWINFO_AUTLOCREF)
-        sleep(0.1)
-        self.pgWeb.PW_iGetResult(
-            E_PWINFO.PWINFO_AUTEXTREF.value, szAux, sizeof(szAux))
-        PWINFO_AUTEXTREF = szAux.value.decode('utf-8')
-        print("PWINFO_AUTEXTREF", PWINFO_AUTEXTREF)
-        if PWINFO_AUTEXTREF == None or PWINFO_AUTEXTREF == '':
-            PWINFO_AUTEXTREF = '0'
-        sleep(0.1)
-        self.pgWeb.PW_iGetResult(
-            E_PWINFO.PWINFO_VIRTMERCH.value, szAux, sizeof(szAux))
-        PWINFO_VIRTMERCH = szAux.value.decode('utf-8')
-        print("PWINFO_VIRTMERCH", PWINFO_VIRTMERCH)
-        sleep(0.1)
-        self.pgWeb.PW_iGetResult(
-            E_PWINFO.PWINFO_AUTHSYST.value, szAux, sizeof(szAux))
-        PWINFO_AUTHSYST = szAux.value.decode('utf-8')
-        print("PWINFO_AUTHSYST", PWINFO_AUTHSYST)
-        sleep(0.1)
-        registro_json = open('comprovantes/REGISTRO DATA:%s %s %s .json' %
-                             (data.day, data.month, data.year), 'a+')
-        registro_json.write('\n{  \n')
-        registro_json.write('     "DATA HORARIO"    : "%s:%s",\n' %
-                            (data.hour, data.minute))
-        registro_json.write(
-            '     "PWINFO_REQNUM"    : "%s",\n' % (PWINFO_REQNUM))
-        registro_json.write(
-            '     "PWINFO_AUTLOCREF" : "%s",\n' % (PWINFO_AUTLOCREF))
-        registro_json.write(
-            '     "PWINFO_AUTEXTREF" : "%s",\n' % (PWINFO_AUTEXTREF))
-        registro_json.write(
-            '     "PWINFO_VIRTMERCH" : "%s",\n' % (PWINFO_VIRTMERCH))
-        registro_json.write(
-            '     "PWINFO_AUTHSYST"  : "%s",\n' % (PWINFO_AUTHSYST))
-        registro_json.write('\n}  \n')
-        registro_json.close()
-
+       
+        
         list_errors_pinpad = [
                     -2100, -2101, -2102, -2103, -2104, -2105, -2106, -2107, -2108, -2109, -2110, 
                     -2111, -2112, -2113, -2114, -2115, -2116, -2117, -2118, -2119, -2120, -2121,
@@ -272,6 +228,72 @@ class Venda:
 
         sleep(0.1)
 
+
+        
+        # OBTENDO INFORMACOES DA TRANSACAO
+        self.pgWeb.PW_iGetResult(
+            E_PWINFO.PWINFO_REQNUM.value, szAux, sizeof(szAux))
+        PWINFO_REQNUM = szAux.value.decode('utf-8')
+        print("PWINFO_REQNUM", PWINFO_REQNUM)
+        sleep(0.1)
+        self.pgWeb.PW_iGetResult(
+            E_PWINFO.PWINFO_AUTLOCREF.value, szAux, sizeof(szAux))
+        PWINFO_AUTLOCREF = szAux.value.decode('utf-8')
+        print("PWINFO_AUTLOCREF", PWINFO_AUTLOCREF)
+        sleep(0.1)
+        self.pgWeb.PW_iGetResult(
+            E_PWINFO.PWINFO_AUTEXTREF.value, szAux, sizeof(szAux))
+        PWINFO_AUTEXTREF = szAux.value.decode('utf-8')
+        print("PWINFO_AUTEXTREF", PWINFO_AUTEXTREF)
+        if PWINFO_AUTEXTREF == None or PWINFO_AUTEXTREF == '':
+            PWINFO_AUTEXTREF = '0'
+        sleep(0.1)
+        self.pgWeb.PW_iGetResult(
+            E_PWINFO.PWINFO_VIRTMERCH.value, szAux, sizeof(szAux))
+        PWINFO_VIRTMERCH = szAux.value.decode('utf-8')
+        print("PWINFO_VIRTMERCH", PWINFO_VIRTMERCH)
+        sleep(0.1)
+        self.pgWeb.PW_iGetResult(
+            E_PWINFO.PWINFO_AUTHSYST.value, szAux, sizeof(szAux))
+        PWINFO_AUTHSYST = szAux.value.decode('utf-8')
+        print("PWINFO_AUTHSYST", PWINFO_AUTHSYST)
+        sleep(0.1)
+        """self.pgWeb.PW_iGetResult(
+            E_PWINFO.PWINFO_TRNORIGDATE.value, szAux, sizeof(szAux))
+        PWINFO_TRNORIGDATE = szAux.value.decode('utf-8')
+        print("PWINFO_TRNORIGDATE", "%s%s%s"%(data.))
+        sleep(0.1)"""
+        registro_rec = [{
+                        "PWINFO_TRNORIGDATE":"%s"%(data.strptime("%s%s%s"%(data.day, data.month, data.year),"%d%m%Y").strftime("%d%m%Y")),
+                        "PWINFO_REQNUM":"%s"%(PWINFO_REQNUM),
+                        "PWINFO_AUTLOCREF" : "%s"%(PWINFO_AUTLOCREF),
+                        "PWINFO_AUTEXTREF" : "%s"%(PWINFO_AUTEXTREF),
+                        "PWINFO_VIRTMERCH" : "%s"%(PWINFO_VIRTMERCH),
+                        "PWINFO_AUTHSYST"  : "%s"%(PWINFO_AUTHSYST)
+                        }]
+
+        
+        diretorio = os.getcwd()
+        
+        with open(diretorio +'/comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'a+') as f:
+            json.dump(registro_rec, f)
+        
+        """registro_json.write('\n{  \n')
+        registro_json.write('     "DATA HORARIO"    : "%s:%s",\n' %
+                            (data.hour, data.minute))
+        registro_json.write(
+            '     "PWINFO_REQNUM"    : "%s",\n' % (PWINFO_REQNUM))
+        registro_json.write(
+            '     "PWINFO_AUTLOCREF" : "%s",\n' % (PWINFO_AUTLOCREF))
+        registro_json.write(
+            '     "PWINFO_AUTEXTREF" : "%s",\n' % (PWINFO_AUTEXTREF))
+        registro_json.write(
+            '     "PWINFO_VIRTMERCH" : "%s",\n' % (PWINFO_VIRTMERCH))
+        registro_json.write(
+            '     "PWINFO_AUTHSYST"  : "%s",\n' % (PWINFO_AUTHSYST))
+        registro_json.write('\n}  \n')
+        registro_json.close()"""
+
         # GUARDA AS INFORMACOES NAO SENSIVEIS DA TRANSACAO EM JSON PARA CONSULTA FUTURA
         result_json = open('comprovantes/RESULT DATA:%s %s %s .json' %(data.day, data.month, data.year), 'a+')
         result_json.write('\n{  \n')
@@ -283,6 +305,7 @@ class Venda:
         result_json.write('     "PWINFO_RESULTMSG" : "%s",\n' %(PWINFO_RESULTMSG))
         result_json.write('\n}  \n')
         result_json.close()
+
 
         # GRAVA EM JSON O RETORNO DA TRANSACAO SEJA ELA BEM OU MAL SUCEDIDA
         retorno_transacao = open('comprovantes/retornotransacao.json', 'w+')
@@ -318,6 +341,11 @@ class Venda:
         envio_email = open('comprovantes/COMPROVANTE CLIENTE EMAIL.txt', 'w+')
         envio_email.write(COMPROVANTE_CLIENTE)
         envio_email.close()
+
+        #self.pgWeb.PW_iPPAbort()
+
+        
+
 
         # CONFIRMA A TRANSACAO SEJA ELA BEM OU MAL SUCEDIDA
         iRet = self.pgWeb.PW_iConfirmation(

@@ -764,9 +764,16 @@ class PGWebLibrary:
             if vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_TYPED.value:
                 print("vstParam.identificador",vstParam[0].wIdentificador)
                 print("vstParam[i].bTipoDeDado", vstParam[i].bTipoDeDado)
+                print("vstParam[i].szMascaraDeCaptura", vstParam[i].szMascaraDeCaptura)
+                
+                print("vstParam[i].bTamanhoMinimo", vstParam[i].bTamanhoMinimo )
+                print("vstParam[i].bTamanhoMaximo", vstParam[i].bTamanhoMaximo )
                 print("PWDAT_TYPED")
-                print(E_PWDAT.PWDAT_TYPED.value)
-                break
+                ret = self.PW_iAddParam(vstParam[0].wIdentificador, "310120")
+                iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
+                print("PWINFO_BOARDINGTAX", iRet)
+                if iRet == 0:
+                    return iRet
             elif vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_CARDINF.value:
                 print("PWDAT_CARDINF")
                              
@@ -833,5 +840,50 @@ class PGWebLibrary:
                 print("PWDAT_PPCONF", iRet)
                 if iRet == 0:
                     return iRet
+            if vstParam[i].wIdentificador == E_PWINFO.PWINFO_LOCALINFO1.value:
+                        
+                ret = self.PW_iAddParam(E_PWINFO.PWINFO_LOCALINFO1.value, "REIMPRESSAO")
+                iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
+                print("PWINFO_LOCALINFO1", iRet)
+                if iRet == 0:
+                    return iRet
             
+            elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_AUTHMNGTUSER.value:
+                        
+                ret = self.PW_iAddParam(E_PWINFO.PWINFO_AUTHMNGTUSER.value, "1111")
+                iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
+                print("PWINFO_AUTHMNGTUSER", iRet)
+                if iRet == 0:
+                    return iRet
+            elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_AUTHTECHUSER.value:
+                        
+                ret = self.PW_iAddParam(E_PWINFO.PWINFO_AUTHTECHUSER.value, "314159")
+                iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
+                print("PWINFO_AUTHTECHUSER", iRet)
+                if iRet == 0:
+                    return iRet
+            
+            elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_TRNORIGDATE.value:
+                        
+                ret = self.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGDATE.value, "310120")
+                iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
+                print("PWINFO_TRNORIGDATE", iRet)
+                if iRet == 0:
+                    return iRet
+            
+            elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_BOARDINGTAX.value:
+                        
+                ret = self.PW_iAddParam(E_PWINFO.PWINFO_BOARDINGTAX.value, "00")
+                iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
+                print("PWINFO_BOARDINGTAX", iRet)
+                if iRet == 0:
+                    return iRet
+            
+            elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_TIPAMOUNT.value:
+                        
+                ret = self.PW_iAddParam(E_PWINFO.PWINFO_TIPAMOUNT.value, "00")
+                iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
+                print("PWINFO_TIPAMOUNT", iRet)
+                if iRet == 0:
+                    return iRet
             

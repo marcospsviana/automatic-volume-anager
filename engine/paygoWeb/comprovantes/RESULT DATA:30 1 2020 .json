@@ -58,3 +58,63 @@
      "PWINFO_RESULTMSG" : "     ERRO PINPAD",
 
 }  
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+     "PWINFO_RESULTMSG" : "     ERRO PINPAD",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+     "PWINFO_RESULTMSG" : " TRANSACAO AUTORIZADA",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "0000701831",
+     "PWINFO_AUTLOCREF" : "574316",
+     "PWINFO_AUTEXTREF" : "574316",
+     "PWINFO_VIRTMERCH" : "131",
+     "PWINFO_AUTHSYST"  : "131",
+     "PWINFO_RESULTMSG" : "   APROVADA 123456   ",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+     "PWINFO_RESULTMSG" : " TRANSACAO AUTORIZADA",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "",
+     "PWINFO_AUTLOCREF" : "",
+     "PWINFO_AUTEXTREF" : "0",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+     "PWINFO_RESULTMSG" : " TRANSACAO AUTORIZADA",
+
+}  
+
+{  
+     "PWINFO_REQNUM"    : "0000701845",
+     "PWINFO_AUTLOCREF" : "1060081",
+     "PWINFO_AUTEXTREF" : "42383",
+     "PWINFO_VIRTMERCH" : "1",
+     "PWINFO_AUTHSYST"  : "REDE",
+     "PWINFO_RESULTMSG" : " TRANSACAO AUTORIZADA",
+
+}  
