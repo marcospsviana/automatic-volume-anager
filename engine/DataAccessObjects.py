@@ -22,7 +22,7 @@ class DataAccessObjectsManager(object):
 
         self.data = ''
         self.porta = ''
-        #self.port = Portas()
+        self.port = Portas()
         global TAXA_HORA_A, TAXA_HORA_B, TAXA_HORA_C, TAXA_HORA_D
         global TAXA_DIARIA_A, TAXA_DIARIA_B, TAXA_DIARIA_C, TAXA_DIARIA_D
         TAXA_DIARIA_A = 37.5
@@ -216,7 +216,7 @@ class DataAccessObjectsManager(object):
             print("porta selecionada", port[0][0])
 
             # HABILILAR NO RASPBERRY PI
-            #self.port.exec_port(str(port[0][0]), "abre")
+            self.port.exec_port(str(port[0][0]), "abre")
 
             locacao_json = {
                 "message": "locacao concluida com sucesso",
@@ -339,11 +339,10 @@ class DataAccessObjectsManager(object):
         return (dados)
 
     def liberar_armario(self, id_armario):
-        #self.port = Portas()
         self.__id = id_armario[0][0]
         print("self id armario em liberar armario", self.__id)
         port = self.select_port(self.__id)
-        #self.port.exec_port(port, "abre")
+        self.port.exec_port(port, "abre")
         return "armario liberado"
 
     def remover_armario(self, id_armario):
@@ -523,7 +522,7 @@ class DataAccessObjectsManager(object):
                 result = self.cobranca_excedente(
                     dias_passados, calculo_hora, calculo_minuto, id_armario)  # (valor_total,hj)
                 porta = self.select_port(id_armario)
-                #self.port.exec_port(porta[0][0], "abre")
+                self.port.exec_port(porta[0][0], "abre")
 
                 self.__c.execute(
                     "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
@@ -621,7 +620,7 @@ class DataAccessObjectsManager(object):
 
     @classmethod
     def abrir_armario(self, senha):
-        #self.port = Portas()
+        self.port = Portas()
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __cursor = __conn.cursor(buffered=True)
@@ -658,7 +657,7 @@ class DataAccessObjectsManager(object):
 
                 porta = self.select_port(id_armario[0][0])
                 print("abrir armario data.py porta", str(porta[0][0]))
-                #self.port.exec_port(porta[0][0], "abre")
+                self.port.exec_port(porta[0][0], "abre", "ocupado")
                 return "armario liberado"
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'" % __senha
@@ -756,7 +755,7 @@ class DataAccessObjectsManager(object):
             __porta = self.select_port(result_id_armario)
             
             # LIBERAR NO RASPBERRY
-            #self.port.exec_port(__porta[0][0], "abre")
+            self.port.exec_port(__porta[0][0], "abre", "livre")
             return (resultado_transacao["PWINFO_RESULTMSG"])
         else:
             return (resultado_transacao["PWINFO_RESULTMSG"])
@@ -794,6 +793,7 @@ class DataAccessObjectsManager(object):
         __conn.close()
         return retorno_porta
 
+    #USO INTERNO APENAS PARA TESTES
     @classmethod
     def fechar_armario(self, id_armario):
         import serial

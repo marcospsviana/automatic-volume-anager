@@ -1,4 +1,4 @@
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 import time
 import serial
 
@@ -65,16 +65,17 @@ class Portas(object):
         PORT_51 = "servo_51"
 
         self.serial = serial.Serial("/dev/ttyS0", 9600)
-        GPIO.setmode(GPIO.BOARD)
-        GPIO.setup(12, GPIO.IN)
+        #GPIO.setmode(GPIO.BOARD)
+        #GPIO.setup(12, GPIO.IN)
 
         
-    def exec_port(self, port, command):
+    def exec_port(self, port, command, estado):
         self.port = str(port)
+        self.estado = str(estado)
         print("exec port em portas", self.port)
         self.command =str(command)
         print(self.command)
-        __exec = self.port + ":" + self.command+ "\n"
+        __exec = self.port + ":" + self.command+ ":"+ self.estado + "\n"
         print(__exec)
         __exec = b'%b'%(__exec.encode('utf-8'))
         result = self.serial.write(__exec)
