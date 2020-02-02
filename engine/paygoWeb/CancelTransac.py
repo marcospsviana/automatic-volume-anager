@@ -78,7 +78,7 @@ class CancelTransaction:
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, "986")  # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_POSID.value, "62547")
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, "1200")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGAMNT.value, "100")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGDATE.value, PWINFO_TRNORIGDATE)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_REQNUM.value, PWINFO_REQNUM)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTLOCREF.value, PWINFO_AUTLOCREF)
@@ -86,6 +86,8 @@ class CancelTransaction:
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_VIRTMERCH.value, PWINFO_VIRTMERCH)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, PWINFO_AUTHSYST)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LOCALINFO1.value, "CANCELAMENTO")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_BOARDINGTAX.value, "00")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TIPAMOUNT.value, "00")
 
         ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
         print("ret admin", ret)

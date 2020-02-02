@@ -54,3 +54,31 @@ CNPJ: 35.223.093/0001-06
 
 ==============================================
 
+==============================================
+
+             PAYGO BY NTK             
+         Via Estabelecimento          
+              REDE       
+
+BAR DA MARIA  
+50.713.076/0001-32              
+
+COMPR:000042514  VALOR 000000000100
+
+ESTAB:          01/02/2020-095506 
+TERM:00003261
+CARTAO: ************9423            
+AUTORIZACAO: 094787
+
+TRANSACAO AUTORIZADA MEDIANTE  
+   USO DE SENHA PESSOAL        
+
+
+--------------------------------------
+62547 0000000001 PGREF:0001060224
+NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
+CNPJ: 35.223.093/0001-06
+   *** AMBIENTE DE TESTES - APP02 ***   
+
+==============================================
+

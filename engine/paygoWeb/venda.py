@@ -276,17 +276,17 @@ class Venda:
         diretorio = os.getcwd()
         #if os.path.exists(diretorio +'/comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year))
 
-        try:
+        """try:
             f = open(diretorio +'/comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'a+')
             json.dump(registro_rec, f, indent=2, separators=(",",":"))
             f.close()
         except FileNotFoundError:
             f = open(diretorio +'/comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'w+')
             json.dump(registro_rec, f, indent=2, separators=(",",":"))
-            f.close()
+            f.close()"""
 
-        
-        """registro_json.write('\n{  \n')
+        registro_json = open(diretorio +'/comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'a+')
+        registro_json.write('\n{  \n')
         registro_json.write('     "DATA HORARIO"    : "%s:%s",\n' %
                             (data.hour, data.minute))
         registro_json.write(
@@ -300,7 +300,7 @@ class Venda:
         registro_json.write(
             '     "PWINFO_AUTHSYST"  : "%s",\n' % (PWINFO_AUTHSYST))
         registro_json.write('\n}  \n')
-        registro_json.close()"""
+        registro_json.close()
 
         # GUARDA AS INFORMACOES NAO SENSIVEIS DA TRANSACAO EM JSON PARA CONSULTA FUTURA
         result_json = open('comprovantes/RESULT DATA:%s %s %s .json' %(data.day, data.month, data.year), 'a+')
