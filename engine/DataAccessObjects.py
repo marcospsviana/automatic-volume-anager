@@ -216,7 +216,7 @@ class DataAccessObjectsManager(object):
             print("porta selecionada", port[0][0])
 
             # HABILILAR NO RASPBERRY PI
-            self.port.exec_port(str(port[0][0]), "abre")
+            self.port.exec_port(str(port[0][0]), "abre", "ocupado")
 
             locacao_json = {
                 "message": "locacao concluida com sucesso",
@@ -522,7 +522,7 @@ class DataAccessObjectsManager(object):
                 result = self.cobranca_excedente(
                     dias_passados, calculo_hora, calculo_minuto, id_armario)  # (valor_total,hj)
                 porta = self.select_port(id_armario)
-                self.port.exec_port(porta[0][0], "abre")
+                self.port.exec_port(porta[0][0], "abre", "livre")
 
                 self.__c.execute(
                     "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
