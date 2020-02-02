@@ -9,7 +9,7 @@ from ctypes import *
 
 
 
-class Reimpress:
+class CancelTransaction:
     def __init__(self):
 
         self.szDspMsg = create_string_buffer(100000)
@@ -18,9 +18,9 @@ class Reimpress:
         # INICIALIZA A BIBLIOTECA
         self.pgWeb.PW_iInit()
         # EXECUTA A FUNÇÃO VENDA
-        self.reimpress()
+        self.cancel_transac()
 
-    def reimpress(self):
+    def cancel_transac(self):
         iRet = ''
         vstParam_11 = (PW_GetData * 11)
         vstParam = vstParam_11()
@@ -33,8 +33,8 @@ class Reimpress:
         ret = ''
         ret2 = ''
         data = datetime.now()
-         # INICIA UMA NOVA TRANSACAO
-        self.pgWeb.PW_iNewTransac(E_PWOPER.PWOPER_ADMIN.value)
+        # INICIA UMA NOVA TRANSACAO
+        self.pgWeb.PW_iNewTransac(E_PWOPER.PWOPER_SALEVOID.value)
         try:
             f = open('comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'r+')
             registro_json = f.read()
@@ -70,9 +70,6 @@ class Reimpress:
             PWINFO_AUTEXTREF = registro_json[-1]["PWINFO_AUTEXTREF"]
             PWINFO_VIRTMERCH = registro_json[-1]["PWINFO_VIRTMERCH"]
             PWINFO_AUTHSYST = registro_json[-1]["PWINFO_AUTHSYST"]
-
-         
-
         # MANDADATORY PARAMS
         self.pgWeb.PW_iAddParam( E_PWINFO.PWINFO_AUTNAME.value, "COOLBAGSAFE-RENTLOCKER")
         self.pgWeb.PW_iAddParam( E_PWINFO.PWINFO_AUTVER.value, "1.0")
@@ -81,17 +78,14 @@ class Reimpress:
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, "986")  # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_POSID.value, "62547")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, "1200")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGDATE.value, PWINFO_TRNORIGDATE)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_REQNUM.value, PWINFO_REQNUM)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTLOCREF.value, PWINFO_AUTLOCREF)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTEXTREF.value, PWINFO_AUTEXTREF)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_VIRTMERCH.value, PWINFO_VIRTMERCH)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, PWINFO_AUTHSYST)
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LOCALINFO1.value, "REIMPRESSAO")
-
-        input()
-
-        
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LOCALINFO1.value, "CANCELAMENTO")
 
         ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
         print("ret admin", ret)
@@ -199,4 +193,4 @@ class Reimpress:
 
 
 if __name__ == "__main__":
-    Reimpress()
+    CancelTransaction()
