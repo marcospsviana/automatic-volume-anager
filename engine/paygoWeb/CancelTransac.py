@@ -85,7 +85,7 @@ class CancelTransaction:
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTEXTREF.value, PWINFO_AUTEXTREF)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_VIRTMERCH.value, PWINFO_VIRTMERCH)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, PWINFO_AUTHSYST)
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LOCALINFO1.value, "CANCELAMENTO")
+        #self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LOCALINFO1.value, "CANCELAMENTO")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_BOARDINGTAX.value, "00")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TIPAMOUNT.value, "00")
 
@@ -149,36 +149,6 @@ class CancelTransaction:
                 print("efetuando a transacao...")
                 print("ret ---->", ret)
                 
-        
-
-        # OBTENDO INFORMACOES DA TRANSACAO
-        self.pgWeb.PW_iGetResult(
-            E_PWINFO.PWINFO_REQNUM.value, szAux, sizeof(szAux))
-        PWINFO_REQNUM = szAux.value.decode('utf-8')
-        print("PWINFO_REQNUM", PWINFO_REQNUM)
-        sleep(0.1)
-        self.pgWeb.PW_iGetResult(
-            E_PWINFO.PWINFO_AUTLOCREF.value, szAux, sizeof(szAux))
-        PWINFO_AUTLOCREF = szAux.value.decode('utf-8')
-        print("PWINFO_AUTLOCREF", PWINFO_AUTLOCREF)
-        sleep(0.1)
-        self.pgWeb.PW_iGetResult(
-            E_PWINFO.PWINFO_AUTEXTREF.value, szAux, sizeof(szAux))
-        PWINFO_AUTEXTREF = szAux.value.decode('utf-8')
-        print("PWINFO_AUTEXTREF", PWINFO_AUTEXTREF)
-        if PWINFO_AUTEXTREF == None or PWINFO_AUTEXTREF == '':
-            PWINFO_AUTEXTREF = '0'
-        sleep(0.1)
-        self.pgWeb.PW_iGetResult(
-            E_PWINFO.PWINFO_VIRTMERCH.value, szAux, sizeof(szAux))
-        PWINFO_VIRTMERCH = szAux.value.decode('utf-8')
-        print("PWINFO_VIRTMERCH", PWINFO_VIRTMERCH)
-        sleep(0.1)
-        self.pgWeb.PW_iGetResult(
-            E_PWINFO.PWINFO_AUTHSYST.value, szAux, sizeof(szAux))
-        PWINFO_AUTHSYST = szAux.value.decode('utf-8')
-        print("PWINFO_AUTHSYST", PWINFO_AUTHSYST)
-        sleep(0.1)
 
         # CONFIRMA A TRANSACAO SEJA ELA BEM OU MAL SUCEDIDA
         iRet = self.pgWeb.PW_iConfirmation(

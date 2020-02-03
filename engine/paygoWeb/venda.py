@@ -67,7 +67,7 @@ class Venda:
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTCAP.value, "28")
 
         # ADICIONA O PARAMETRO DO IDIOMA ESTABELECIDO NA APLICACAO
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LANGUAGE.value, "1") #self.language)
+        #self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LANGUAGE.value, "1") #self.language)
 
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, "986")  # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2")

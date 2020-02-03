@@ -84,7 +84,16 @@ class Portas(object):
         self.port = b'%b'%(self.port.encode('utf-8'))
         comando = self.port + b":fecha\n" 
         self.serial.write(comando)'''
-    
+
+        
+    def exec_port_leds(self, port, estado):
+        self.port = str(port)
+        self.estado = str(estado)
+        __exec = self.port + ":"+ self.estado + "\n"
+        print(__exec)
+        __exec = b'%b'%(__exec.encode('utf-8'))
+        result = self.serial.write(__exec)
+        print(result)
     
 
 if __name__ == "__main__":

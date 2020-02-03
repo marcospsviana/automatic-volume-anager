@@ -3,24 +3,25 @@
         DEFININDO AS PORTAS LED_OPER ( OUTPUT )SERAO ESTADO DE OPERACAO QUANDO ATIVO ELAS IRAO PISCAR CONFORME A PORTA
         DESIGNADA ESTIVER EM OPERACAO ||  
         LED_STATUS ( OUTPUT ) O ESTADO EM QUE A PORTA SE ENCONTRA OCUPADO OU LIVRE, LIVRE = LOW , OCUPADO = HIGH
+        LED_STATUS_FREE O IDEM LED_STATUS MAS INVERTIDO LIVRE = HIGH, OCUPADO = LOW
         LED_SENSOR  ( INPUT ) RESPONSAVEIS POR DETECTAR SE A PORTA ESTA OU NAO FECHADA 
      ******************************************************************************************************************** */    
 #include <Arduino.h>
 #include "Servo.h"
 
-#define LED_OPER_2          2
-#define LED_STATUS_BUSY_3   3
-#define LED_STATUS_FREE_4   4
-#define LED_OPER_5          5
-#define LED_STATUS_BUSY_6   6
-#define LED_STATUS_FREE_7   7
-#define LED_OPER_8          8
-#define LED_STATUS_BUSY_9   9
-#define LED_STATUS_FREE_10  10
+#define LED_STATUS_OPER_A0   2
+#define LED_STATUS_BUSY_A0   3
+#define LED_STATUS_FREE_A0   4
+#define LED_STATUS_OPER_A1   5
+#define LED_STATUS_BUSY_A1   6
+#define LED_STATUS_FREE_A1   7
+#define LED_STATUS_OPER_A2   8
+#define LED_STATUS_BUSY_A2   9
+#define LED_STATUS_FREE_A2  10
 
-#define SENSOR_11           11
-#define SENSOR_12           12
-#define SENSOR_13           13
+#define SENSOR_A0           11
+#define SENSOR_A1           12
+#define SENSOR_A2           13
 
 
 Servo servo_A0;
@@ -45,37 +46,40 @@ void setup() {
     servo_A0.attach(A0);
     servo_A1.attach(A1);
     servo_A2.attach(A2);
-    servo_A3.attach(A3);
-    servo_A4.attach(A4);
+    //servo_A3.attach(A3);
+    //servo_A4.attach(A4);
 
     // POSICIONA O SERVO NA POSICAO 0
     servo_A0.write(0);
     servo_A1.write(0);
     servo_A2.write(0);
 
-    pinMode(2, OUTPUT);
-    pinMode(3, OUTPUT);
-    pinMode(LED_STATUS_FREE_4, OUTPUT);
-    pinMode(5, OUTPUT);
-    pinMode(6, OUTPUT);
-    pinMode(LED_STATUS_FREE_7, OUTPUT);
-    pinMode(8, OUTPUT);
-    pinMode(9, OUTPUT);
-    pinMode(LED_STATUS_FREE_10, OUTPUT);
 
-    pinMode(11, INPUT);
-    pinMode(12, INPUT);
-    pinMode(13, INPUT);
+    pinMode(LED_STATUS_OPER_A0, OUTPUT);
+    pinMode(LED_STATUS_BUSY_A0, OUTPUT);
+    pinMode(LED_STATUS_FREE_A0, OUTPUT);
+    pinMode(LED_STATUS_OPER_A1, OUTPUT);
+    pinMode(LED_STATUS_BUSY_A1, OUTPUT);
+    pinMode(LED_STATUS_FREE_A1, OUTPUT);
+    pinMode(LED_STATUS_OPER_A2, OUTPUT);
+    pinMode(LED_STATUS_BUSY_A2, OUTPUT);
+    pinMode(LED_STATUS_FREE_A2, OUTPUT);
 
-    digitalWrite(2, LOW);
-    digitalWrite(3, LOW);
-    digitalWrite(LED_STATUS_FREE_4, HIGH);
-    digitalWrite(5, LOW);
-    digitalWrite(6, LOW);
-    digitalWrite(LED_STATUS_FREE_7, HIGH);
-    digitalWrite(8, LOW);
-    digitalWrite(9, LOW);
-    digitalWrite(LED_STATUS_FREE_10, HIGH);
+    pinMode(SENSOR_A0, INPUT);
+    pinMode(SENSOR_A1, INPUT);
+    pinMode(SENSOR_A2, INPUT);
+
+    digitalWrite(LED_STATUS_OPER_A0, LOW);
+    digitalWrite(LED_STATUS_BUSY_A0, LOW);
+    digitalWrite(LED_STATUS_FREE_A0, HIGH); //LIVRE ATIVO
+    digitalWrite(LED_STATUS_OPER_A1, LOW);
+    digitalWrite(LED_STATUS_BUSY_A1, LOW);
+    digitalWrite(LED_STATUS_FREE_A1, HIGH); //LIVRE ATIVO
+    digitalWrite(LED_STATUS_OPER_A2, LOW);
+    digitalWrite(LED_STATUS_BUSY_A2, LOW);
+    digitalWrite(LED_STATUS_FREE_A2, HIGH);//LIVRE ATIVO
+    
+
 
 }
 
@@ -107,13 +111,27 @@ void loop(){
     if(Serial.available() > 0)
     {
       String recebido = leStringSerial();
-      if (recebido == "A0:abre")
+      if (recebido == "A0:abre:livre")
       {
         for(pos = 0; pos <= 180; pos += 1)
           {
             servo_A0.write(pos);
             delay(15);
           }
+        digitalWrite(LED_STATUS_FREE_A0, HIGH);
+        digitalWrite(LED_STATUS_BUSY_A0, LOW);
+        digitalWrite(LED_STATUS_OPER_A0, HIGH);
+      }
+      if (recebido == "A0:abre:ocupado")
+      {
+        for(pos = 0; pos <= 180; pos += 1)
+          {
+            servo_A0.write(pos);
+            delay(15);
+          }
+        digitalWrite(LED_STATUS_FREE_A0, LOW);
+        digitalWrite(LED_STATUS_BUSY_A0, HIGH);
+        digitalWrite(LED_STATUS_OPER_A0, HIGH);
       }
       if (recebido == "A0:fecha")
       {
@@ -122,14 +140,29 @@ void loop(){
           servo_A0.write(pos);
           delay(15);
           }
+        digitalWrite(LED_STATUS_OPER_A0, LOW);
       }
-      if(recebido == "A1:abre")
+      if(recebido == "A1:abre:livre")
       {
         for(pos = 0; pos <= 180; pos += 1)
           {
             servo_A1.write(pos);
             delay(15);
           }
+        digitalWrite(LED_STATUS_FREE_A1, HIGH);
+        digitalWrite(LED_STATUS_BUSY_A1, LOW);
+        digitalWrite(LED_STATUS_OPER_A1, HIGH);
+      }
+      if(recebido == "A1:abre:ocupado")
+      {
+        for(pos = 0; pos <= 180; pos += 1)
+          {
+            servo_A1.write(pos);
+            delay(15);
+          }
+        digitalWrite(LED_STATUS_FREE_A1, LOW);
+        digitalWrite(LED_STATUS_BUSY_A1, HIGH);
+        digitalWrite(LED_STATUS_OPER_A1, HIGH);
       }
       if (recebido == "A1:fecha")
       {
@@ -138,6 +171,7 @@ void loop(){
           servo_A1.write(pos);
           delay(15);
           }
+        digitalWrite(LED_STATUS_OPER_A1, LOW);
       }
       if(recebido == "A2:abre")
       {
@@ -154,6 +188,60 @@ void loop(){
           servo_A2.write(pos);
           delay(15);
           }
+        digitalWrite(LED_STATUS_OPER_A2, LOW);
       }
+      // ESTADOS PERSISTENTES DAS PORTAS
+      if (recebido == "A0:livre")
+      {
+        digitalWrite(LED_STATUS_FREE_A0, HIGH);
+        digitalWrite(LED_STATUS_BUSY_A0, LOW);
+      }
+      if (recebido == "A0:ocupado")
+      {
+        digitalWrite(LED_STATUS_FREE_A0, LOW);
+        digitalWrite(LED_STATUS_BUSY_A0, HIGH);
+      }
+
+      if (recebido == "A1:livre")
+      {
+        digitalWrite(LED_STATUS_FREE_A1, HIGH);
+        digitalWrite(LED_STATUS_BUSY_A1, LOW);
+      }
+      if (recebido == "A1:ocupado")
+      {
+        digitalWrite(LED_STATUS_FREE_A1, LOW);
+        digitalWrite(LED_STATUS_BUSY_A1, HIGH);
+      }
+      if (recebido == "A2:livre")
+      {
+        digitalWrite(LED_STATUS_FREE_A2, HIGH);
+        digitalWrite(LED_STATUS_BUSY_A2, LOW);
+      }
+      if (recebido == "A2:ocupado")
+      {
+        digitalWrite(LED_STATUS_FREE_A2, LOW);
+        digitalWrite(LED_STATUS_BUSY_A2, HIGH);
+      }
+      /*
+      if (recebido == "A3:livre")
+      {
+        digitalWrite(LED_STATUS_FREE_A3, HIGH);
+        digitalWrite(LED_STATUS_BUSY_A3, LOW);
+      }
+      if (recebido == "A3:ocupado")
+      {
+        digitalWrite(LED_STATUS_FREE_A3, LOW);
+        digitalWrite(LED_STATUS_BUSY_A3, HIGH);
+      }
+      if (recebido == "A4:livre")
+      {
+        digitalWrite(LED_STATUS_FREE_A4, HIGH);
+        digitalWrite(LED_STATUS_BUSY_A4, LOW);
+      }
+      if (recebido == "A4:ocupado")
+      {
+        digitalWrite(LED_STATUS_FREE_A4, LOW);
+        digitalWrite(LED_STATUS_BUSY_A4, HIGH);
+      }*/
     }
 }

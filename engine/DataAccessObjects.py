@@ -1,5 +1,5 @@
-from .portas import Portas
-from .TransacsAndOps import TransacsOps
+from portas import Portas
+from TransacsAndOps import TransacsOps
 import sys, os
 import asyncio
 import mysql.connector as mdb
@@ -14,6 +14,7 @@ from random import choice, sample
 import pandas as pd
 import smtplib
 import json
+import sqlite3
 
 
 
@@ -217,6 +218,8 @@ class DataAccessObjectsManager(object):
 
             # HABILILAR NO RASPBERRY PI
             self.port.exec_port(str(port[0][0]), "abre", "ocupado")
+            
+
 
             locacao_json = {
                 "message": "locacao concluida com sucesso",
@@ -381,7 +384,7 @@ class DataAccessObjectsManager(object):
             self.__conn.close()
             return (self.__classe, self.__coluna, self.__nivel, self.__terminal, "cadastrado com sucesso")
         else:
-            return "porta ou compartimento já utilizada confira a porta exada para o cadastro e evite problemas!"
+            return "porta ou compartimento já utilizada confira a porta exata para o cadastro e evite problemas!"
 
     def resgatar_bagagem(self, senha):
         ''' seleciona a locacao conforme a senha fornecida retornando todos os dados:
