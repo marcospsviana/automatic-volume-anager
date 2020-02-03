@@ -71,7 +71,7 @@ class Venda:
 
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, "986")  # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2")
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "REDE")  # ADQUIRENTE
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "CIELO")  # ADQUIRENTE
         # 1 - CREDITO 2 - DEBITO
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value, "1") #self.tipo_cartao)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_FINTYPE.value, "1")  # 1 A VISTA

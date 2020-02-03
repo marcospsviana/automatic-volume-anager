@@ -79,7 +79,7 @@ class CancelTransaction:
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_POSID.value, "62547")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGAMNT.value, "100")
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGDATE.value, PWINFO_TRNORIGDATE)
+        #self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGDATE.value, PWINFO_TRNORIGDATE)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_REQNUM.value, PWINFO_REQNUM)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTLOCREF.value, PWINFO_AUTLOCREF)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTEXTREF.value, PWINFO_AUTEXTREF)
@@ -159,6 +159,11 @@ class CancelTransaction:
             PWINFO_VIRTMERCH,
             PWINFO_AUTHSYST
         )
+        print("PWINFO_REQNUM", PWINFO_REQNUM)
+        print("PWINFO_AUTLOCREF", PWINFO_AUTLOCREF)    
+        print("PWINFO_AUTEXTREF",PWINFO_AUTEXTREF)
+        print("PWINFO_VIRTMERCH", PWINFO_VIRTMERCH)
+        print("PWINFO_AUTHSYST", PWINFO_AUTHSYST)
         print("iRet PW_iConfirmation", iRet)
 
         return iRet

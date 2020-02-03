@@ -195,32 +195,38 @@ void loop(){
       {
         digitalWrite(LED_STATUS_FREE_A0, HIGH);
         digitalWrite(LED_STATUS_BUSY_A0, LOW);
+        digitalWrite(LED_STATUS_OPER_A0, LOW);
       }
       if (recebido == "A0:ocupado")
       {
         digitalWrite(LED_STATUS_FREE_A0, LOW);
         digitalWrite(LED_STATUS_BUSY_A0, HIGH);
+        digitalWrite(LED_STATUS_OPER_A0, LOW);
       }
 
       if (recebido == "A1:livre")
       {
         digitalWrite(LED_STATUS_FREE_A1, HIGH);
         digitalWrite(LED_STATUS_BUSY_A1, LOW);
+        digitalWrite(LED_STATUS_OPER_A1, LOW);
       }
       if (recebido == "A1:ocupado")
       {
         digitalWrite(LED_STATUS_FREE_A1, LOW);
         digitalWrite(LED_STATUS_BUSY_A1, HIGH);
+        digitalWrite(LED_STATUS_OPER_A1, LOW);
       }
       if (recebido == "A2:livre")
       {
         digitalWrite(LED_STATUS_FREE_A2, HIGH);
         digitalWrite(LED_STATUS_BUSY_A2, LOW);
+        digitalWrite(LED_STATUS_OPER_A2, LOW);
       }
       if (recebido == "A2:ocupado")
       {
         digitalWrite(LED_STATUS_FREE_A2, LOW);
         digitalWrite(LED_STATUS_BUSY_A2, HIGH);
+        digitalWrite(LED_STATUS_OPER_A2, LOW);
       }
       /*
       if (recebido == "A3:livre")
