@@ -111,7 +111,7 @@ class Reimpress:
         if ret == E_PWRET.PWRET_MOREDATA.value or ret == E_PWRET.PWRET_NOTHING.value or (ret in list_errors_pinpad):
             print("retorno transacao", ret)
 
-            while ret == -2497 or ret == E_PWRET.PWRET_NOTHING.value or (2100 <= ret <= 2200):
+            while ret == -2497 or ret == E_PWRET.PWRET_NOTHING.value or (ret in list_errors_pinpad):
                 
                 # PERCORRE OS DADOS E RECUPERA OS FALTANTES
                 ret = self.pgWeb.PW_iExecGetData(vstParam, iNumParam)

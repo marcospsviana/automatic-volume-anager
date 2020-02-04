@@ -759,8 +759,7 @@ class PGWebLibrary:
 
         #PERCORRE TODOS OS DADOS ENQUANTO HOUVER DADO A SER CAPTURADO
         #while iRet != 0 or iRet == E_PWRET.PWRET_NOTHING.value or iRet == E_PWRET.PWRET_DISPLAY.value:
-        for i in range(0, iNumParam):
-                            
+        for i in range(0, iNumParam):               
             if vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_TYPED.value:
                 print("vstParam.identificador",vstParam[0].wIdentificador)
                 print("vstParam[i].bTipoDeDado", vstParam[i].bTipoDeDado)
@@ -769,11 +768,39 @@ class PGWebLibrary:
                 print("vstParam[i].bTamanhoMinimo", vstParam[i].bTamanhoMinimo )
                 print("vstParam[i].bTamanhoMaximo", vstParam[i].bTamanhoMaximo )
                 print("PWDAT_TYPED")
-                ret = self.PW_iAddParam(vstParam[0].wIdentificador, "310120")
+                if vstParam[i].wIdentificador == 87:
+                    ret = self.PW_iAddParam(vstParam[0].wIdentificador, "040220")
+                    iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
+                    print("PWINFO_BOARDINGTAX", iRet)
+                    if iRet == 0:
+                        return iRet
+                
+                if vstParam[i].wIdentificador == 98:
+                    ret = self.PW_iGetResult(E_PWINFO.PWINFO_TRNORIGAUTH.value, szAux, sizeof(szAux))
+                    iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
+                    print("PWINFO_BOARDINGTAX", iRet)
+                    if iRet == 0:
+                        return iRet
+                if vstParam[i].wIdentificador == 37:
+                    ret = self.PW_iAddParam(vstParam[0].wIdentificador, "100")
+                    iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
+                    print("PWOPER_RETBALINQ", iRet)
+                    if iRet == 0:
+                        return iRet
+            if vstParam[i].wIdentificador == 45:
+                print("nao sai")
+                sleep(15)
+                ret = self.PW_iAddParam(vstParam[0].wIdentificador, "00")
+                #ret = self.PW_iNewTransac(E_PWOPER.PWOPER_FINANCINQ.value)
+                #ret = self.PW_iNewTransac(vstParam[0].wIdentificador)
                 iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
-                print("PWINFO_BOARDINGTAX", iRet)
+                #print("PWOPER_FINANCINQ", iRet)
                 if iRet == 0:
                     return iRet
+                #return ret
+                #return 0
+            
+
             elif vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_CARDINF.value:
                 print("PWDAT_CARDINF")
                              

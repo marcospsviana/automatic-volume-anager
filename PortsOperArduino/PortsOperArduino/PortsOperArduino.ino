@@ -22,6 +22,7 @@
 #define SENSOR_A0           11
 #define SENSOR_A1           12
 #define SENSOR_A2           13
+bool condicao = false;
 
 
 Servo servo_A0;
@@ -82,7 +83,15 @@ void setup() {
 
 
 }
-
+void piscaLed(){
+  do 
+  {
+        digitalWrite(LED_STATUS_OPER_A0, LOW);
+        delay(1000);
+        digitalWrite(LED_STATUS_OPER_A0, HIGH);
+        delay(1000);
+  }while(condicao == true);
+}
 String leStringSerial(){
   String conteudo = "";
   char caractere;
@@ -97,7 +106,7 @@ String leStringSerial(){
       conteudo.concat(caractere);
     }
     // Aguarda buffer serial ler próximo caractere
-    delay(10);
+    delay(500);
   }
     
   Serial.print("Recebi: ");
@@ -107,6 +116,7 @@ String leStringSerial(){
 }
 
 void loop(){
+    //piscaLed();
  
     if(Serial.available() > 0)
     {
@@ -120,7 +130,7 @@ void loop(){
           }
         digitalWrite(LED_STATUS_FREE_A0, HIGH);
         digitalWrite(LED_STATUS_BUSY_A0, LOW);
-        digitalWrite(LED_STATUS_OPER_A0, HIGH);
+        condicao = true;
       }
       if (recebido == "A0:abre:ocupado")
       {
@@ -132,6 +142,8 @@ void loop(){
         digitalWrite(LED_STATUS_FREE_A0, LOW);
         digitalWrite(LED_STATUS_BUSY_A0, HIGH);
         digitalWrite(LED_STATUS_OPER_A0, HIGH);
+        condicao = true;
+        piscaLed();
       }
       if (recebido == "A0:fecha")
       {
@@ -196,6 +208,7 @@ void loop(){
         digitalWrite(LED_STATUS_FREE_A0, HIGH);
         digitalWrite(LED_STATUS_BUSY_A0, LOW);
         digitalWrite(LED_STATUS_OPER_A0, LOW);
+        condicao = false;
       }
       if (recebido == "A0:ocupado")
       {

@@ -42,7 +42,7 @@ class CancelTransaction:
             registro_json = registro_json.replace(" ","")
             registro_json = registro_json.replace("}{","},{")
             registro_json = eval(registro_json)
-            PWINFO_TRNORIGDATE = data.strptime("%s%s%s"%(data.day, data.month, data.year),"%d%m%Y").strftime("%d%m%Y")
+            PWINFO_TRNORIGDATE = data.strptime("%s%s%s"%(data.day, data.month, data.year),"%d%m%Y").strftime("%d%m%y")
             f.close()   
                             
         except FileNotFoundError:
@@ -53,23 +53,29 @@ class CancelTransaction:
             registro_json = registro_json.replace(" ","")
             registro_json = registro_json.replace("}{","},{")
             registro_json = eval(registro_json)
-            PWINFO_TRNORIGDATE = data_anterior.strptime("%s%s%s"%(data_anterior.day, data_anterior.month, data_anterior.year), "%d%m%Y").strftime("%d%m%Y")
+            PWINFO_TRNORIGDATE = data_anterior.strptime("%s%s%s"%(data_anterior.day, data_anterior.month, data_anterior.year), "%d%m%Y").strftime("%d%m%y")
             f.close()
             
         print("len registro json",len(registro_json))
         
         if type(registro_json) == dict:
-            PWINFO_REQNUM = registro_json["PWINFO_REQNUM"]
+            PWINFO_TRNORIGREQNUM = registro_json["PWINFO_REQNUM"]
+            PWINFO_TRNORIGTIME = registro_json["DATA_HORARIO"]
+            PWINFO_TRNORIGAUTH = registro_json["PWINFO_AUTHCODE"]
+            PWINFO_TRNORIGNSU = registro_json["PWINFO_AUTEXTREF"]
             PWINFO_AUTLOCREF = registro_json["PWINFO_AUTLOCREF"]
-            PWINFO_AUTEXTREF = registro_json["PWINFO_AUTEXTREF"]
             PWINFO_VIRTMERCH = registro_json["PWINFO_VIRTMERCH"]
-            PWINFO_AUTHSYST = registro_json["PWINFO_AUTHSYST"]
+            PWINFO_AUTHCODE = registro_json["PWINFO_AUTHCODE"]
+            
         elif type(registro_json) == tuple:
-            PWINFO_REQNUM = registro_json[-1]["PWINFO_REQNUM"]
+            PWINFO_TRNORIGREQNUM = registro_json[-1]["PWINFO_REQNUM"]
+            PWINFO_TRNORIGTIME = registro_json[-1]["DATA_HORARIO"]
+            PWINFO_TRNORIGAUTH = registro_json[-1]["PWINFO_AUTHCODE"]
+            PWINFO_TRNORIGNSU = registro_json[-1]["PWINFO_AUTEXTREF"]
             PWINFO_AUTLOCREF = registro_json[-1]["PWINFO_AUTLOCREF"]
-            PWINFO_AUTEXTREF = registro_json[-1]["PWINFO_AUTEXTREF"]
             PWINFO_VIRTMERCH = registro_json[-1]["PWINFO_VIRTMERCH"]
-            PWINFO_AUTHSYST = registro_json[-1]["PWINFO_AUTHSYST"]
+            
+            
         # MANDADATORY PARAMS
         self.pgWeb.PW_iAddParam( E_PWINFO.PWINFO_AUTNAME.value, "COOLBAGSAFE-RENTLOCKER")
         self.pgWeb.PW_iAddParam( E_PWINFO.PWINFO_AUTVER.value, "1.0")
@@ -79,13 +85,15 @@ class CancelTransaction:
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_POSID.value, "62547")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGAMNT.value, "100")
-        #self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGDATE.value, PWINFO_TRNORIGDATE)
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_REQNUM.value, PWINFO_REQNUM)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGDATE.value, PWINFO_TRNORIGDATE)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGTIME.value, PWINFO_TRNORIGTIME)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGNSU.value, PWINFO_TRNORIGNSU)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTLOCREF.value, PWINFO_AUTLOCREF)
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTEXTREF.value, PWINFO_AUTEXTREF)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGREQNUM.value, PWINFO_TRNORIGREQNUM)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_VIRTMERCH.value, PWINFO_VIRTMERCH)
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, PWINFO_AUTHSYST)
-        #self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LOCALINFO1.value, "CANCELAMENTO")
+        #self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, PWINFO_AUTHSYST)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHMNGTUSER.value, "1111")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHTECHUSER.value, "314159")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_BOARDINGTAX.value, "00")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TIPAMOUNT.value, "00")
 
@@ -107,7 +115,7 @@ class CancelTransaction:
         if ret == E_PWRET.PWRET_MOREDATA.value or ret == E_PWRET.PWRET_NOTHING.value or (ret in list_errors_pinpad):
             print("retorno transacao", ret)
 
-            while ret == -2497 or ret == E_PWRET.PWRET_NOTHING.value or (2100 <= ret <= 2200):
+            while ret == -2497 or ret == E_PWRET.PWRET_NOTHING.value or (ret in list_errors_pinpad):
                 
                 # PERCORRE OS DADOS E RECUPERA OS FALTANTES
                 ret = self.pgWeb.PW_iExecGetData(vstParam, iNumParam)
@@ -148,22 +156,84 @@ class CancelTransaction:
                 ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
                 print("efetuando a transacao...")
                 print("ret ---->", ret)
-                
+        self.pgWeb.PW_iGetResult(
+            E_PWINFO.PWINFO_TRNORIGAUTH.value, szAux, sizeof(szAux))
+        PWINFO_TRNORIGAUTH = szAux.value.decode('utf-8')
+        print("PWINFO_TRNORIGAUTH", PWINFO_TRNORIGAUTH)
+        sleep(0.1)
+
+        
+        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_FISCALREF.value, szAux, sizeof(szAux))
+        PWINFO_FISCALREF = szAux.value.decode('utf-8')
+        print("PWINFO_FISCALREF", PWINFO_FISCALREF)
+        sleep(0.1)
+
+        #=========================== ADICIONAIS ===========================
+
+        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_AUTMERCHID.value, szAux, sizeof(szAux))
+        PWINFO_AUTMERCHID = szAux.value.decode('utf-8')
+        print("PWINFO_AUTMERCHID", PWINFO_AUTMERCHID)
+        sleep(0.1)
+
+        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_PRODUCTID.value, szAux, sizeof(szAux))
+        PWINFO_PRODUCTID = szAux.value.decode('utf-8')
+        print("PWINFO_AUTMERCHID", PWINFO_AUTMERCHID)
+        sleep(0.1)
+
+        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_AUTHCODE.value, szAux, sizeof(szAux))
+        PWINFO_AUTHCODE = szAux.value.decode('utf-8')
+        print("PWINFO_AUTHCODE", PWINFO_AUTHCODE)
+        sleep(0.1)
+
+        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_AUTRESPCODE.value, szAux, sizeof(szAux))
+        PWINFO_AUTRESPCODE = szAux.value.decode('utf-8')
+        print("PWINFO_AUTRESPCODE", PWINFO_AUTRESPCODE)
+        sleep(0.1)
+
+        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_AUTDATETIME.value, szAux, sizeof(szAux))
+        PWINFO_AUTDATETIME = szAux.value.decode('utf-8')
+        print("PWINFO_AUTRESPCODE", PWINFO_AUTDATETIME)
+        sleep(0.1)
+
+        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_TRNORIGDATE.value, szAux, sizeof(szAux))
+        PWINFO_TRNORIGDATE = szAux.value.decode('utf-8')
+        print("PWINFO_AUTRESPCODE", PWINFO_TRNORIGDATE)
+        sleep(0.1)
+
+        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_TRNORIGNSU.value, szAux, sizeof(szAux))
+        PWINFO_TRNORIGNSU = szAux.value.decode('utf-8')
+        print("PWINFO_AUTRESPCODE", PWINFO_TRNORIGNSU)
+        sleep(0.1)
+
+        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_TRNORIGAMNT.value, szAux, sizeof(szAux))
+        PWINFO_TRNORIGAMNT = szAux.value.decode('utf-8')
+        print("PWINFO_AUTRESPCODE", PWINFO_TRNORIGAMNT)
+        sleep(0.1)
+
+        """self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_TRNORIGREQNUM.value, szAux, sizeof(szAux))
+        PWINFO_TRNORIGREQNUM = szAux.value.decode('utf-8')
+        print("PWINFO_TRNORIGREQNUM", PWINFO_TRNORIGREQNUM)
+        sleep(0.1)"""
+
+        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_TRNORIGTIME.value, szAux, sizeof(szAux))
+        PWINFO_TRNORIGTIME = szAux.value.decode('utf-8')
+        print("PWINFO_TRNORIGTIME", PWINFO_TRNORIGTIME)
+        sleep(0.1)        
 
         # CONFIRMA A TRANSACAO SEJA ELA BEM OU MAL SUCEDIDA
         iRet = self.pgWeb.PW_iConfirmation(
             E_PWCNF.PWCNF_CNF_AUTO.value,
-            PWINFO_REQNUM,
+            PWINFO_TRNORIGREQNUM,
             PWINFO_AUTLOCREF,
-            PWINFO_AUTEXTREF,
+            PWINFO_TRNORIGNSU,
             PWINFO_VIRTMERCH,
-            PWINFO_AUTHSYST
+            PWINFO_TRNORIGAUTH
         )
-        print("PWINFO_REQNUM", PWINFO_REQNUM)
+        print("PWINFO_TRNORIGREQNUM", PWINFO_TRNORIGREQNUM)
         print("PWINFO_AUTLOCREF", PWINFO_AUTLOCREF)    
-        print("PWINFO_AUTEXTREF",PWINFO_AUTEXTREF)
+        print("PWINFO_AUTEXTREF",PWINFO_TRNORIGNSU)
         print("PWINFO_VIRTMERCH", PWINFO_VIRTMERCH)
-        print("PWINFO_AUTHSYST", PWINFO_AUTHSYST)
+        print("PWINFO_TRNORIGAUTH", PWINFO_TRNORIGAUTH)
         print("iRet PW_iConfirmation", iRet)
 
         return iRet

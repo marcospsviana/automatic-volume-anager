@@ -1,1 +1,24 @@
-CIELO
+             PAYGO BY NTK             
+             Via Cliente              
+              REDE       
+
+BAR DA MARIA  
+50.713.076/0001-32              
+
+COMPR:000042640  VALOR 000000000500
+
+ESTAB:          04/02/2020-110143 
+TERM:00003261
+CARTAO: ************9423            
+AUTORIZACAO: 094787
+
+TRANSACAO AUTORIZADA MEDIANTE  
+   USO DE SENHA PESSOAL        
+
+
+--------------------------------------
+62547 0000000001 PGREF:0001060359
+NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
+CNPJ: 35.223.093/0001-06
+   *** AMBIENTE DE TESTES - APP02 ***   
+

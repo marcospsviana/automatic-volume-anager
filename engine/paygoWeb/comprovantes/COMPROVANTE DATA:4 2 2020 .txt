@@ -1,30 +1,30 @@
 ==============================================
 
- TRANSACAO PENDENTE ==============================================
+             PAYGO BY NTK             
+         Via Estabelecimento          
+              REDE       
+
+BAR DA MARIA  
+50.713.076/0001-32              
+
+COMPR:000042632  VALOR 000000000100
+
+ESTAB:          04/02/2020-084333 
+TERM:00003261
+CARTAO: ************9423            
+AUTORIZACAO: 094787
+
+TRANSACAO AUTORIZADA MEDIANTE  
+   USO DE SENHA PESSOAL        
+
+
+--------------------------------------
+62547 0000000001 PGREF:0001060350
+NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
+CNPJ: 35.223.093/0001-06
+   *** AMBIENTE DE TESTES - APP02 ***   
 
 ==============================================
-
- TRANSACAO PENDENTE ==============================================
-
-==============================================
-
- TRANSACAO PENDENTE ==============================================
-
-==============================================
-
- TRANSACAO PENDENTE ==============================================
-
-==============================================
-
-    ERRO PINPAD==============================================
-
-==============================================
-
-    ERRO PINPAD==============================================
-
-==============================================
-
-    ERRO PINPAD==============================================
 
 ==============================================
 
@@ -35,9 +35,9 @@
 BAR DA MARIA  
 50.713.076/0001-32              
 
-COMPR:000042332  VALOR 000000001200
+COMPR:000042635  VALOR 000000000100
 
-ESTAB:          30/01/2020-043835 
+ESTAB:          04/02/2020-104724 
 TERM:00003261
 CARTAO: ************9423            
 AUTORIZACAO: 094787
@@ -47,7 +47,7 @@ TRANSACAO AUTORIZADA MEDIANTE
 
 
 --------------------------------------
-62547 0000000001 PGREF:0001060024
+62547 0000000001 PGREF:0001060354
 NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
 CNPJ: 35.223.093/0001-06
    *** AMBIENTE DE TESTES - APP02 ***   
@@ -60,19 +60,20 @@ CNPJ: 35.223.093/0001-06
 
               MASTERCARD              
            535081******9423           
-2 VIA-ESTABELECIMENTO       AUT=170846
+2 VIA-ESTABELECIMENTO       AUT=104922
 010000244470001/POS=01000237
-DOC=574316    30/01/20 17:08     ONL-C
+DOC=574349    04/02/20 10:49     ONL-C
 VENDA A CREDITO
-VALOR:                   R$      12,00
+PARCELADO EMISSOR EM 3 PARCELAS
+VALOR:                   R$     250,00
 
     TRANSACAO AUTORIZADA COM SENHA    
            VIANA/MARCOS P S           
-   A0000000041010-F04253B758E5E2AD    
+   A0000000041010-E27ABC36EC2E2960    
            Credit           
 
 ----------------------------------------
-62547 0000000131 PGREF:0000574316
+62547 0000000131 PGREF:0000574349
 NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
 CNPJ: 35.223.093/0001-06
 
@@ -89,11 +90,11 @@ CNPJ: 35.223.093/0001-06
 BAR DA MARIA  
 50.713.076/0001-32              
 
-COMPR:000042379  VALOR 000000001200
+COMPR:000042637  VALOR 000000140000
 
-ESTAB:          30/01/2020-094955 
+ESTAB:          04/02/2020-105133 
 TERM:00003261
-CARTAO: ************9423            
+CARTAO: ************0524            
 AUTORIZACAO: 094787
 
 TRANSACAO AUTORIZADA MEDIANTE  
@@ -101,12 +102,16 @@ TRANSACAO AUTORIZADA MEDIANTE
 
 
 --------------------------------------
-62547 0000000001 PGREF:0001060076
+62547 0000000001 PGREF:0001060356
 NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
 CNPJ: 35.223.093/0001-06
    *** AMBIENTE DE TESTES - APP02 ***   
 
 ==============================================
+
+==============================================
+
+000002000000001==============================================
 
 ==============================================
 
@@ -117,9 +122,9 @@ CNPJ: 35.223.093/0001-06
 BAR DA MARIA  
 50.713.076/0001-32              
 
-COMPR:000042381  VALOR 000000001200
+COMPR:000042640  VALOR 000000000500
 
-ESTAB:          30/01/2020-095718 
+ESTAB:          04/02/2020-110143 
 TERM:00003261
 CARTAO: ************9423            
 AUTORIZACAO: 094787
@@ -129,35 +134,7 @@ TRANSACAO AUTORIZADA MEDIANTE
 
 
 --------------------------------------
-62547 0000000001 PGREF:0001060079
-NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
-CNPJ: 35.223.093/0001-06
-   *** AMBIENTE DE TESTES - APP02 ***   
-
-==============================================
-
-==============================================
-
-             PAYGO BY NTK             
-         Via Estabelecimento          
-              REDE       
-
-BAR DA MARIA  
-50.713.076/0001-32              
-
-COMPR:000042383  VALOR 000000001200
-
-ESTAB:          30/01/2020-100227 
-TERM:00003261
-CARTAO: ************9423            
-AUTORIZACAO: 094787
-
-TRANSACAO AUTORIZADA MEDIANTE  
-   USO DE SENHA PESSOAL        
-
-
---------------------------------------
-62547 0000000001 PGREF:0001060081
+62547 0000000001 PGREF:0001060359
 NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
 CNPJ: 35.223.093/0001-06
    *** AMBIENTE DE TESTES - APP02 ***   
