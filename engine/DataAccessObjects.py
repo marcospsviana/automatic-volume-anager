@@ -1,5 +1,5 @@
-from portas import Portas
-from TransacsAndOps import TransacsOps
+from .portas import Portas
+from .TransacsAndOps import TransacsOps
 import sys, os
 import asyncio
 import mysql.connector as mdb

@@ -19,9 +19,11 @@ class StatusLedsArduino:
         query_select = ("select porta, estado from tb_armario")
         result = pd.read_sql(query_select, __conn)
         for i in range(0, len(result)):
-            estado = result['estado'][i]
-            porta = result['porta'][i]
-            estado_porta = (porta + ":"+ estado.lower()).encode("utf-8")
+            estado = str(result['estado'][i])+":"
+            porta = str(result['porta'][i])
+            print(type(estado))
+            print(type(porta))
+            estado_porta = porta.encode("utf-8") + (estado.lower()).encode("utf-8")
             resultado = self.serial.write(b"%s"%(estado_porta))
             print(resultado)
             sleep(0.5)

@@ -15,7 +15,7 @@
    viewBox="0 0 50.800005 97.978019"
    version="1.1"
    id="svg9308"
-   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="malasx2.svg">
   <defs
      id="defs9302" />
@@ -27,13 +27,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="-526.6694"
-     inkscape:cy="98.642472"
+     inkscape:cx="-261.48748"
+     inkscape:cy="260.26688"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1366"
-     inkscape:window-height="674"
+     inkscape:window-height="744"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1" />
@@ -55,17 +55,16 @@
      id="layer1"
      transform="translate(-45.333813,-68.195983)">
     <g
-       id="g9251"
-       transform="matrix(1.0971429,0,0,1.0971429,-4.4038571,-16.142621)">
+       id="g2233">
       <rect
-         y="77.297478"
-         x="45.76017"
-         height="88.450165"
-         width="45.449368"
-         id="rect4747"
-         style="fill:#ffffff;fill-opacity:1;stroke:#4d4d4d;stroke-width:0.8527149;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+         y="67.818817"
+         x="45.333813"
+         height="98.889725"
+         width="50.781212"
+         id="rect2227"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.26458332" />
       <g
-         transform="translate(-7.3865071)"
+         transform="matrix(1.0971429,0,0,1.0971429,-12.507911,-16.142621)"
          id="g13882">
         <image
            y="89.922241"
