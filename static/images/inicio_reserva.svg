@@ -10,12 +10,12 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="58.208332mm"
-   height="149.5437mm"
-   viewBox="0 0 58.208335 149.54371"
+   width="56.972092mm"
+   height="125.80911mm"
+   viewBox="0 0 56.972095 125.80912"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="inicio_reserva.svg">
   <defs
      id="defs2" />
@@ -27,13 +27,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="-186.35434"
-     inkscape:cy="250.90084"
+     inkscape:cx="-404.40483"
+     inkscape:cy="161.42183"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1366"
-     inkscape:window-height="674"
+     inkscape:window-height="744"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1" />
@@ -45,7 +45,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -53,16 +53,16 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-79.14073,-32.673914)">
+     transform="translate(-79.75885,-32.733849)">
     <g
-       id="g9342">
+       id="g352">
       <rect
-         y="33.292034"
+         y="32.733849"
          x="79.75885"
-         height="148.30746"
+         height="125.80911"
          width="56.972092"
          id="rect4747"
-         style="fill:#ffffff;fill-opacity:1;stroke:#4d4d4d;stroke-width:1.2362411;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.13861716;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
       <image
          width="46.770821"
          height="47.194565"
@@ -80,18 +80,18 @@
          style="font-style:normal;font-weight:normal;font-size:7.80571985px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458326"
          xml:space="preserve"><tspan
            style="stroke-width:0.26458326"
-           y="103.20493"
+           y="103.00893"
            x="94.410637"
            id="tspan9286"
            sodipodi:role="line" /><tspan
            id="tspan9290"
            style="stroke-width:0.26458326"
-           y="103.20493"
+           y="103.00893"
            x="94.410637"
            sodipodi:role="line">INICIAR </tspan><tspan
            id="tspan9294"
            style="stroke-width:0.26458326"
-           y="103.20493"
+           y="103.00893"
            x="94.410637"
            sodipodi:role="line">               </tspan></text>
       <text
@@ -104,16 +104,16 @@
            sodipodi:role="line"
            id="tspan9300"
            x="92.716812"
-           y="110.05216"
+           y="109.85616"
            style="stroke-width:0.26458326" /><tspan
            sodipodi:role="line"
            x="92.716812"
-           y="110.05216"
+           y="109.85616"
            style="stroke-width:0.26458326"
            id="tspan9302">RESERVA </tspan><tspan
            sodipodi:role="line"
            x="92.716812"
-           y="110.05216"
+           y="109.85616"
            style="stroke-width:0.26458326"
            id="tspan9304">               </tspan></text>
     </g>

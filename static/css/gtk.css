@@ -130,12 +130,16 @@ color: #fff;
 #btn_encerrar{
 	background: rgb(255, 94, 0);
 }
-#btn_abrir{
-	background: url("../static/images/retirar.svg")
+#btn_abrir, #btn_concluir, #btn_medidas{
+	/*background: url("../static/images/retirar.svg")*/
+	background-color: #fff; /* url("../static/images/inicio_reserva.svg") ;*/
+	/*background-repeat: no-repeat;*/
+	border: 3px solid #000;
 }
 #btn_reservar{
-	background: url("../static/images/inicio_reserva.svg") ;
-	background-repeat: no-repeat;
+	background-color: #fff; /* url("../static/images/inicio_reserva.svg") ;*/
+	/*background-repeat: no-repeat;*/
+	border: 3px solid #000;
 }
 #label_data, #label_horario{
 	font: 2em sans-serif;

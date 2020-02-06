@@ -175,10 +175,12 @@
                 <property name="column_spacing">10</property>
                 <child>
                   <object class="GtkButton" id="btn_reservar">
+                    <property name="name">btn_reservar</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
+                    <property name="use_stock">True</property>
                     <property name="always_show_image">True</property>
                     <signal name="button-press-event" handler="on_reservar_button_press_event" swapped="no"/>
                   </object>
@@ -189,11 +191,13 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_abrir">
+                    <property name="name">btn_abrir</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="image">image_cofre</property>
+                    <property name="always_show_image">True</property>
                     <signal name="button-press-event" handler="on_abrir_cofre_button_press_event" swapped="no"/>
                   </object>
                   <packing>
@@ -203,6 +207,7 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_concluir">
+                    <property name="name">btn_concluir</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -217,6 +222,7 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_medidas">
+                    <property name="name">btn_medidas</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
