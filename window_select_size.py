@@ -89,7 +89,7 @@ class SelectSize(object):
             self.label_cameraenotebook.set_text("IDEAL PARA")
             self.btn_confirmar.set_label("CONFIRMAR")
             self.btn_retornar.set_label("TELA ANTERIOR")
-            self.btn_tamanhos_tarifas.set_label("TAMANHOS\n E TARIFAS")
+            self.btn_tamanhos_tarifas.set_label("TAMANHOS E TARIFAS")
 
         elif self.language == "en_US":
             self.label_malasx4.set_text("IDEAL FOR")

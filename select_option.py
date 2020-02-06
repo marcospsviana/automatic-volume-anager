@@ -84,8 +84,10 @@ class SelectOption(object):
     
     def hora_certa(self):
         dia = datetime.now()
-        self.label_data.set_text(str(dia.day) + "/"+ str(dia.month))
-        self.label_horario.set_text(str(dia.hour)+":"+str(dia.minute)+":"+str(dia.second))
+        dia_hora = dia.strftime("%H:%M:%S")
+        dia_data = dia.strftime("%d/%m/%Y")
+        self.label_horario.set_text(str(dia_hora))
+        self.label_data.set_text(str(dia_data))
         return (self.label_data, self.label_horario)
     
     def on_abrir_cofre_button_press_event(self, widget, event):

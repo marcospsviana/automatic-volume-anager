@@ -45,8 +45,10 @@ class RaspControl(object):
     
     def hora_certa(self):
         dia = datetime.now()
-        self.label_horario.set_text(str(dia.hour)+ ":" + str(dia.minute) + ":" + str(dia.second))
-        self.label_data.set_text(str(dia.day)+"/"+str(dia.month))
+        dia_hora = dia.strftime("%H:%M:%S")
+        dia_data = dia.strftime("%d/%m/%Y")
+        self.label_horario.set_text(str(dia_hora))
+        self.label_data.set_text(str(dia_data))
         return (self.label_data,self.label_horario)
 
 

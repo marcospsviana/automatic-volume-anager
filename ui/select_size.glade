@@ -80,6 +80,11 @@
       </object>
     </child>
   </object>
+  <object class="GtkImage" id="image1">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-missing-image</property>
+  </object>
   <object class="GtkImage" id="image_br_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -97,7 +102,7 @@
     <property name="can_focus">False</property>
     <property name="halign">center</property>
     <property name="valign">center</property>
-    <property name="pixbuf">../static/images/malasx4.svg</property>
+    <property name="pixbuf">../static/images/malasx4_no_bg.svg</property>
   </object>
   <object class="GtkImage" id="image_malax2">
     <property name="visible">True</property>
@@ -266,11 +271,16 @@
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkToggleButton" id="btn_malasx4">
+                    <property name="name">btn_toggle</property>
                     <property name="height_request">-1</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="margin_left">10</property>
+                    <property name="margin_right">5</property>
+                    <property name="margin_top">10</property>
+                    <property name="margin_bottom">10</property>
                     <property name="hexpand">False</property>
                     <property name="vexpand">False</property>
                     <property name="image">image_malasx4</property>
@@ -287,6 +297,7 @@
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_malasx4">
+                    <property name="name">label_select_size</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">IDEAL PARA</property>
@@ -317,10 +328,15 @@
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkToggleButton" id="btn_malasx2">
+                    <property name="name">btn_toggle</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="margin_left">5</property>
+                    <property name="margin_right">5</property>
+                    <property name="margin_top">10</property>
+                    <property name="margin_bottom">10</property>
                     <property name="hexpand">False</property>
                     <property name="vexpand">False</property>
                     <property name="image">image_malax2</property>
@@ -337,6 +353,7 @@
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_malasx2">
+                    <property name="name">label_select_size</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">IDEAL PARA</property>
@@ -367,10 +384,14 @@
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkToggleButton" id="btn_mochilasx2">
+                    <property name="name">btn_toggle</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="margin_left">10</property>
+                    <property name="margin_right">10</property>
+                    <property name="margin_top">10</property>
                     <property name="hexpand">False</property>
                     <property name="vexpand">False</property>
                     <property name="image">image_mochilasx2</property>
@@ -387,6 +408,7 @@
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_mochilasx2">
+                    <property name="name">label_select_size</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="margin_bottom">46</property>
@@ -404,10 +426,14 @@
                 </child>
                 <child>
                   <object class="GtkToggleButton" id="btn_cameraenotebook">
+                    <property name="name">btn_toggle</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="margin_left">10</property>
+                    <property name="margin_right">10</property>
+                    <property name="margin_bottom">10</property>
                     <property name="image">image_cameraenotebook</property>
                     <property name="relief">none</property>
                     <property name="use_underline">True</property>
@@ -422,6 +448,7 @@
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_cameraenotebook">
+                    <property name="name">label_select_size</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">IDEAL PARA</property>
@@ -460,10 +487,13 @@
               <object class="GtkButton" id="btn_confirmar">
                 <property name="label" translatable="yes">CONFIRMAR</property>
                 <property name="name">btn_confirmar</property>
+                <property name="width_request">250</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
+                <property name="margin_right">5</property>
+                <property name="margin_bottom">10</property>
                 <signal name="button-press-event" handler="on_btn_confirmar_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -474,12 +504,15 @@
             </child>
             <child>
               <object class="GtkButton" id="btn_tamanhos_tarifas">
-                <property name="label" translatable="yes">TAMANHOS 
-  E TARIFAS</property>
+                <property name="label" translatable="yes">TAMANHOS   E TARIFAS</property>
                 <property name="name">btn_confirmar</property>
+                <property name="width_request">250</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="margin_left">5</property>
+                <property name="margin_right">5</property>
+                <property name="margin_bottom">10</property>
                 <signal name="button-press-event" handler="on_btn_tamanhos_tarifas_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -490,12 +523,14 @@
             </child>
             <child>
               <object class="GtkButton" id="btn_retornar">
-                <property name="label" translatable="yes">   RETORNAR A 
-TELA ANTERIOR</property>
+                <property name="label" translatable="yes">   RETORNAR A TELA ANTERIOR</property>
                 <property name="name">btn_retornar</property>
+                <property name="width_request">250</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="margin_left">5</property>
+                <property name="margin_bottom">10</property>
                 <signal name="button-press-event" handler="on_btn_retornar_button_press_event" swapped="no"/>
               </object>
               <packing>
