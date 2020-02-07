@@ -6,6 +6,9 @@ import sys
 import json
 import datetime
 from ctypes import *
+import gi
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk, Gdk
 
 
 
@@ -19,8 +22,14 @@ class PgwInstall:
         # INICIALIZA A BIBLIOTECA
         self.pgWeb.PW_iInit()
         # EXECUTA A FUNÇÃO VENDA
-        
-        
+        self.builder = Gtk.Builder()
+        self.builder.connect_signals(
+            {
+                "gtk_main_quit": Gtk.main_quit,
+            }
+        )
+        self.window_cadastrar = self.builder.add_from_file("ui/window_cadastro.glade")
+        self.btn_cadastrar = self.builder.get_object("btn_cadastrar")
         self.install()
     
 

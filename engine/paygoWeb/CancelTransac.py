@@ -222,7 +222,7 @@ class CancelTransaction:
 
         # CONFIRMA A TRANSACAO SEJA ELA BEM OU MAL SUCEDIDA
         iRet = self.pgWeb.PW_iConfirmation(
-            E_PWCNF.PWCNF_CNF_AUTO.value,
+            E_PWCNF.PWCNF_REV_MANU_AUT.value,
             PWINFO_TRNORIGREQNUM,
             PWINFO_AUTLOCREF,
             PWINFO_TRNORIGNSU,

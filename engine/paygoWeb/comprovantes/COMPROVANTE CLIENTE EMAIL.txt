@@ -1,24 +1,26 @@
-             PAYGO BY NTK             
-             Via Cliente              
-              REDE       
+              PAYGO BY NTK              
 
-BAR DA MARIA  
-50.713.076/0001-32              
-
-COMPR:000042642  VALOR 000000000100
-
-ESTAB:          04/02/2020-114011 
-TERM:00003261
-CARTAO: ************9423            
-AUTORIZACAO: 094787
-
-TRANSACAO AUTORIZADA MEDIANTE  
-   USO DE SENHA PESSOAL        
+                 BIN                  
+            VIA - CLIENTE             
+            NTK SOLUTIONS             
+          Rua Fidencio Ramos          
+Sao Paulo                     00003261
+EC:000000080900000       TERM:80900000
 
 
---------------------------------------
-62547 0000000001 PGREF:0001060362
+           6277801393220524           
+AUT=499314     CV=000021910   DOC=786741
+DATA:0207      HORA:180057          CHIP
+                  VENDA          
+             TRANSACAO TESTE
+
+VALOR:                         700
+       CREDENCIADORA BANCOOB SA       
+
+
+----------------------------------------
+62547 0000000009 PGREF:0003499314
 NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
 CNPJ: 35.223.093/0001-06
-   *** AMBIENTE DE TESTES - APP02 ***   
 
+   *** AMBIENTE DE TESTES - APP02 ***   
