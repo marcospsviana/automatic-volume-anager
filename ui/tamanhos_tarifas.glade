@@ -115,7 +115,7 @@
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
-    <property name="default_height">600</property>
+    <property name="default_height">500</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
     <signal name="button-press-event" handler="on_window_tamanhos_tarifas_button_press_event" swapped="no"/>

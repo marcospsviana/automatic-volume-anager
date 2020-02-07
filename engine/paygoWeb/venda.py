@@ -61,11 +61,9 @@ class Venda:
         PWINFO_AUTDATETIME = "%s%s%s%s%s%s"%(data.year, data.month, data.day, data.hour, data.minute, data.second)
 
         # MANDADATORY PARAMS
-        self.pgWeb.PW_iAddParam(
-            E_PWINFO.PWINFO_AUTNAME.value, "COOLBAGSAFE-RENTLOCKER")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTNAME.value, "COOLBAGSAFE-RENTLOCKER")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTVER.value, "1.0")
-        self.pgWeb.PW_iAddParam(
-            E_PWINFO.PWINFO_AUTDEV.value, "COOLBAG-SAFE GUARDA BAGAGENS AUTOMATIZADO")
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTDEV.value, "COOLBAG-SAFE GUARDA BAGAGENS AUTOMATIZADO")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTCAP.value, "28")
 
         # ADICIONA O PARAMETRO DO IDIOMA ESTABELECIDO NA APLICACAO

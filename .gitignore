@@ -111,7 +111,7 @@ venv.bak/
 node_modules
 
 #settings and folders visual studio code
-.vscode/*
+vscode/*
 .vscode/settings.json
 .vscode/tasks.json
 .vscode/launch.json
@@ -124,11 +124,10 @@ node_modules
 .vscode\extensions.json
 *.code-workspace
 .vscode/settings.json
-.vscode/settings.json
-.vscode/
+vscode/settings.json
+vscode/
 *launch.json
 *settings.json
 
 #PGWebLib
-.pos
-Data/
+engine/paygoWeb/PGWebLib/Data/

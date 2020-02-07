@@ -1,7 +1,11 @@
-from ctypes import *
 from Interops import *
 from Enums import *
 from CustomObjects import *
+import os
+import sys
+import json
+import datetime
+from ctypes import *
 
 
 
@@ -10,19 +14,31 @@ class PgwInstall:
         self.pgWeb = PGWebLibrary()
         self.pgWeb.PW_iInit()
         
+
+        self.pgWeb = PGWebLibrary()
+        # INICIALIZA A BIBLIOTECA
+        self.pgWeb.PW_iInit()
+        # EXECUTA A FUNÇÃO VENDA
+        
+        
         self.install()
     
 
    
     def install(self):
         
-        ret = ''
+        iRet = ''
         vstParam_11 = (PW_GetData * 11)
         vstParam = vstParam_11()
-        iNumParam = 11
-        iRet=0
+        iNumParam = 10
+        ulEvent = 0
         szDspMsg = c_buffer(128)
         szAux = create_string_buffer(10000)
+        wait = ''
+        retEventLoop = ''
+        ret = ''
+        ret2 = ''
+        
         
         self.pgWeb.PW_iNewTransac(0x01)
         self.pgWeb.PW_iAddParam(0x11, "62547") #self.PWINFO_POSID
@@ -34,13 +50,8 @@ class PgwInstall:
         self.pgWeb.PW_iAddParam(0x1C, "35223093000106") #self.PWINFO_MERCHCNPJCPF)
         self.pgWeb.PW_iAddParam(0xF6, "314159") #self.PWINFO_AUTHTECHUSER)
         self.pgWeb.PW_iAddParam(0x7F01, "1") #self.PWINFO_USINGPINPAD)
-        
         self.pgWeb.PW_iAddParam(0x7F02, "0") #self.PWINFO_PPCOMMPORT)
 
-        
-        
-
-        ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
 
         
         ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
