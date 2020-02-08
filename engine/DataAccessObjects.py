@@ -735,7 +735,7 @@ class DataAccessObjectsManager(object):
 
     def pagamento(self, total, senha):
         subprocess.run("docker start paygoweb", shell=True)
-        subprocess.run('docker exec paygoweb /bin/bash -c "cd paygoWeb/ && python3 venda.py"', shell=True)
+        subprocess.run('docker exec paygoweb /bin/bash -c "cd /home/paygoWeb/ && python3 venda.py"', shell=True)
         sleep(0.3)
         
         __senha = senha

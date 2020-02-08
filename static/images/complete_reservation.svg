@@ -27,8 +27,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="-593.41674"
-     inkscape:cy="243.7898"
+     inkscape:cx="-333.15165"
+     inkscape:cy="139.55089"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -53,16 +53,9 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-17.764881,-6.5371112)">
+     transform="translate(-18.332123,-6.4991088)">
     <g
-       id="g340">
-      <rect
-         y="7.104353"
-         x="18.332123"
-         height="124.67463"
-         width="57.073849"
-         id="rect4747"
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.13448358;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+       id="g176">
       <image
          width="41.365551"
          height="47.221943"
@@ -70,49 +63,49 @@
          style="stroke-width:2.14904904;image-rendering:optimizeQuality"
          xlink:href="data:image/png;base64,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 "
          id="image4815"
-         x="26.186272"
+         x="26.753513"
          y="21.541548" />
       <text
          transform="scale(0.99550053,1.0045198)"
          id="text9288"
          y="76.968193"
-         x="27.188017"
+         x="26.627083"
          style="font-style:normal;font-weight:normal;font-size:7.80571985px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458326"
          xml:space="preserve"><tspan
            style="stroke-width:0.26458326"
            y="78.99585"
-           x="27.188017"
+           x="26.627083"
            id="tspan9286"
            sodipodi:role="line" /><tspan
            id="tspan9290"
            style="stroke-width:0.26458326"
            y="78.99585"
-           x="27.188017"
+           x="26.627083"
            sodipodi:role="line">COMPLETE </tspan><tspan
            id="tspan9294"
            style="stroke-width:0.26458326"
            y="78.99585"
-           x="27.188017"
+           x="26.627083"
            sodipodi:role="line">               </tspan></text>
       <text
          transform="scale(0.99550053,1.0045198)"
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:7.80571985px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458326"
-         x="21.829386"
+         x="20.711811"
          y="83.815437"
          id="text9306"><tspan
            sodipodi:role="line"
            id="tspan9300"
-           x="21.829386"
+           x="20.711811"
            y="85.843094"
            style="stroke-width:0.26458326" /><tspan
            sodipodi:role="line"
-           x="21.829386"
+           x="20.711811"
            y="85.843094"
            style="stroke-width:0.26458326"
            id="tspan9302">RESERVATION </tspan><tspan
            sodipodi:role="line"
-           x="21.829386"
+           x="20.711811"
            y="85.843094"
            style="stroke-width:0.26458326"
            id="tspan9304">               </tspan></text>

@@ -391,13 +391,13 @@ class Venda:
         envio_email.write(COMPROVANTE_CLIENTE)
         envio_email.close()
 
-        self.pgWeb.PW_iPPAbort()
+        #self.pgWeb.PW_iPPAbort()
 
         
 
 
         # CONFIRMA A TRANSACAO SEJA ELA BEM OU MAL SUCEDIDA
-        """iRet = self.pgWeb.PW_iConfirmation(
+        iRet = self.pgWeb.PW_iConfirmation(
             E_PWCNF.PWCNF_CNF_AUTO.value,
             PWINFO_REQNUM,
             PWINFO_AUTLOCREF,
@@ -407,7 +407,7 @@ class Venda:
         )
         print("iRet PW_iConfirmation", iRet)
 
-        return iRet"""
+        return iRet
 
         
 
