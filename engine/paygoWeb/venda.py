@@ -37,14 +37,14 @@ class Venda:
         retEventLoop = ''
         ret = ''
         ret2 = ''
-        """with open('comprovantes/valor_venda.json', 'r') as f:
+        with open('comprovantes/valor_venda.json', 'r') as f:
             dados = json.load(f)
         self.total = dados['TOTAL']
         print("type(total)", type(self.total))
-        print(self.total)"""
+        print(self.total)
 
         # VERIFICA O IDIOMA ESCOLHIDO PELO CLIENTE , APENAS PORTUGUES OU INGLES
-        """if dados['LANGUAGE'] == 'pt_BR':
+        if dados['LANGUAGE'] == 'pt_BR':
             self.language = "0"
         else:
             self.language = "1"
@@ -53,7 +53,7 @@ class Venda:
             self.tipo_cartao = "1"
         elif tipo_cartao == "DEBITO":
             self.tipo_cartao = "2"
-        print("tipo_cartao", tipo_cartao)"""
+        print("tipo_cartao", tipo_cartao)
         data = datetime.datetime.now()
 
         # INICIA UMA NOVA TRANSACAO
@@ -77,7 +77,7 @@ class Venda:
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value, "2") #self.tipo_cartao)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_FINTYPE.value, "1")  # 1 A VISTA
         #self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_INSTALLMENTS.value, "3") # QUANTIDADE DE PARCELAS
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, "700")#self.total)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, self.total) # "700")#
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_PAYMNTTYPE.value, "1")  # 1 SOMENTE CARTAO
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_BOARDINGTAX.value, "00")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TIPAMOUNT.value, "00")
