@@ -183,8 +183,7 @@ class WindowLogin(Gtk.Window):
         # ========================= FIM OPCOES CARTAO ================================
 
         self.window_payment = self.builder.get_object("window_payment_wait")
-        self.window_pagamento_extra = self.builder.get_object(
-            "window_pagamento_extra")
+        self.window_pagamento_extra = self.builder.get_object("window_pagamento_extra")
         self.window_select_cartao = self.builder.get_object("window_select_cartao")
         self.window_login = self.builder.get_object("window_login")
         self.window_login.show()
@@ -207,7 +206,7 @@ class WindowLogin(Gtk.Window):
         print("id_armario window login abrir", self.id_armario)
         if self.opcao == "abrir":
             #result = self.manager.abre_armario(self.id_armario)
-            result = self.manager.abre_armario(self.__senha)
+            result = self.manager.abre_armario(self.id_armario)
             if result == 'armario liberado':
                 self.window_login.hide()
                 self.entry_entrada_dados.set_text('')

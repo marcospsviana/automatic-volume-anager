@@ -72,9 +72,9 @@ class Venda:
 
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, "986")  # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2")
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "BIN")  # ADQUIRENTE
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "CIELO")  # ADQUIRENTE
         # 1 - CREDITO 2 - DEBITO
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value, "2") #self.tipo_cartao)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value, self.tipo_cartao)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_FINTYPE.value, "1")  # 1 A VISTA
         #self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_INSTALLMENTS.value, "3") # QUANTIDADE DE PARCELAS
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, self.total) # "700")#
@@ -397,7 +397,7 @@ class Venda:
 
 
         # CONFIRMA A TRANSACAO SEJA ELA BEM OU MAL SUCEDIDA
-        """iRet = self.pgWeb.PW_iConfirmation(
+        iRet = self.pgWeb.PW_iConfirmation(
             E_PWCNF.PWCNF_CNF_AUTO.value,
             PWINFO_REQNUM,
             PWINFO_AUTLOCREF,
@@ -407,7 +407,7 @@ class Venda:
         )
         print("iRet PW_iConfirmation", iRet)
 
-        return iRet"""
+        return iRet
 
         
 

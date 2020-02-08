@@ -46,13 +46,13 @@ class Armario:
         print('listar classe armario armario.py', classe)
         return classe
     
-    """@staticmethod
+    @staticmethod
     def liberar_armario(senha):
         __dao = DAO()
         __senha = senha
         #__nome = nome
         result = __dao.liberar_armario(__senha)
-        return result"""
+        return result
     
     @staticmethod
     def finalizar(senha):

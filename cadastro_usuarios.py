@@ -261,7 +261,8 @@ class CadastroUsuarios(object):
         for num in self.num:
             self.number = self.builder.get_object("num_%s"%(num))
             self.number.connect("clicked", self.on_entry_entrada_dados_button_press_event)
-        
+        self.btn_arroba = self.builder.get_object("btn_arroba")
+        self.btn_arroba.connect("clicked", self.on_entry_entrada_dados_button_press_event)
         self.btn_espaco = self.builder.get_object("btn_espaco")
         self.btn_espaco.connect("clicked", self.on_entry_entrada_dados_button_press_event)
         self.btn_gmail = self.builder.get_object("btn_gmail")
