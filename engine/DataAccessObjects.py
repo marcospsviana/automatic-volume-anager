@@ -809,7 +809,7 @@ class DataAccessObjectsManager(object):
         #porta.exec_port(str(__porta[0][0]), "fecha")
         return "fechado"
 
-    @classmethod
+    """@classmethod
     def abrir_armario(self, id_armario):
         #porta = Portas()
         __id_armario = id_armario
@@ -818,7 +818,7 @@ class DataAccessObjectsManager(object):
         print("porta select porta id_armario", __porta)
         #porta.exec_port(__porta[0][0], "abre")
 
-        return "armario liberado"
+        return "armario liberado"""
 
     @classmethod
     def localiza_id_armario(self, senha):

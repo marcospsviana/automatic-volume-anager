@@ -6,9 +6,7 @@ import sys
 import json
 import datetime
 from ctypes import *
-import gi
-gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, Gdk
+
 
 
 
@@ -50,7 +48,7 @@ class PgwInstall:
         
         
         self.pgWeb.PW_iNewTransac(0x01)
-        self.pgWeb.PW_iAddParam(0x11, "62547") #self.PWINFO_POSID
+        self.pgWeb.PW_iAddParam(0x11, "63156") #self.PWINFO_POSID
         self.pgWeb.PW_iAddParam(0x15, "COOLBAGSAFE-RENTLOCKER") # self.PWINFO_AUTNAME
         self.pgWeb.PW_iAddParam(0x16, "1.0") #self.PWINFO_AUTVER)
         self.pgWeb.PW_iAddParam(0x17, "COOLBAG-SAFE GUARDA BAGAGENS AUTOMATIZADO") #self.PWINFO_AUTDEV)
