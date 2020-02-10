@@ -127,7 +127,7 @@ color: #fff;
 	font-stretch: condensed;
 }
 #btn_locar{
-	background: url("../static/images/alugar.svg")
+	background: url("../static/images/alugar.svg");
 }
 #btn_encerrar{
 	background: rgb(255, 94, 0);

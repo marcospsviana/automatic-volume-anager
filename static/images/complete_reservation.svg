@@ -10,9 +10,9 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="58.208332mm"
-   height="125.80911mm"
-   viewBox="0 0 58.208332 125.80911"
+   width="53.635342mm"
+   height="64.800568mm"
+   viewBox="0 0 53.635342 64.800566"
    version="1.1"
    id="svg27592"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
@@ -27,8 +27,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="-593.41674"
-     inkscape:cy="243.7898"
+     inkscape:cx="-194.2142"
+     inkscape:cy="-10.896187"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -53,16 +53,9 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-17.764881,-6.5371112)">
+     transform="translate(-21.731165,-21.541548)">
     <g
-       id="g340">
-      <rect
-         y="7.104353"
-         x="18.332123"
-         height="124.67463"
-         width="57.073849"
-         id="rect4747"
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.13448358;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+       id="g842">
       <image
          width="41.365551"
          height="47.221943"

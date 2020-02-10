@@ -10,12 +10,12 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="58.208332mm"
-   height="150.98686mm"
-   viewBox="0 0 58.208332 150.98686"
+   width="46.770931mm"
+   height="61.421532mm"
+   viewBox="0 0 46.770931 61.421531"
    version="1.1"
    id="svg18472"
-   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="open_safe.svg">
   <defs
      id="defs18466" />
@@ -27,13 +27,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="-415.98118"
-     inkscape:cy="368.31995"
+     inkscape:cx="-345.634"
+     inkscape:cy="-57.194859"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1366"
-     inkscape:window-height="674"
+     inkscape:window-height="744"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1" />
@@ -45,7 +45,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -53,16 +53,9 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-73.705356,-64.268474)">
+     transform="translate(-79.424057,-84.012802)">
     <g
-       id="g22977">
-      <rect
-         y="64.880753"
-         x="74.317635"
-         height="149.7623"
-         width="56.983776"
-         id="rect13768"
-         style="fill:#ffffff;fill-opacity:1;stroke:#4d4d4d;stroke-width:1.2245568;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+       id="g836">
       <image
          width="46.770931"
          height="47.194523"
@@ -80,13 +73,13 @@
          style="font-style:normal;font-weight:normal;font-size:7.80571985px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458326"
          xml:space="preserve"><tspan
            style="stroke-width:0.26458326"
-           y="138.01822"
+           y="137.82222"
            x="92.490601"
            id="tspan9286"
            sodipodi:role="line" /><tspan
            id="tspan9294"
            style="stroke-width:0.26458326"
-           y="138.01822"
+           y="137.82222"
            x="92.490601"
            sodipodi:role="line">OPEN </tspan></text>
       <text
@@ -99,11 +92,11 @@
            sodipodi:role="line"
            id="tspan9300"
            x="94.242989"
-           y="144.86543"
+           y="144.66943"
            style="stroke-width:0.26458326" /><tspan
            sodipodi:role="line"
            x="94.242989"
-           y="144.86543"
+           y="144.66943"
            style="stroke-width:0.26458326"
            id="tspan9304">SAFE </tspan></text>
     </g>

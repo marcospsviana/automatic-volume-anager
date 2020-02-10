@@ -351,9 +351,10 @@ class WindowLogin(Gtk.Window):
     def send_tipo_cartao(self, tipo):
         
         print(tipo)
-        total = self.__total
-        print("total para json", total)
-        total = total.replace('.','')
+        #total = self.label_valor_extra_value.get_label()
+        print("total send tipo cartao window login", self.__total)
+        print("total para json", self.__total)
+        total = self.__total.replace('.','')
         print("total para json formatado", total)
         with open("engine/paygoWeb/comprovantes/valor_venda.json", "w+") as f:
             f.write('\n{  \n\n')
@@ -372,7 +373,11 @@ class WindowLogin(Gtk.Window):
         self.window_select_cartao.hide()
         self.window_login.hide()
         self.window_pagamento_extra.hide()
-        self.manager.pagamento_extra(self.__total, self.__senha)
+        result = self.manager.pagamento_extra(self.__total, self.__senha)
+        if 'aprovada' in result.lower():
+            self.dialog_instrucao_fecha_armario.show()
+        else:
+            print(result)
         
 
 if __name__ == "__main__":

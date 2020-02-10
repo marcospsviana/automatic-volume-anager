@@ -80,8 +80,9 @@ class Management(object):
     @classmethod
     def pagamento_extra(self, total, senha):
         self.__total  = total
+        self.__senha = senha
         print("total controller", self.__total)
-        result = cb.pagamento(self.__total, senha)
+        result = cb.pagamento(self.__total, self.__senha)
         return result
     
     def abre_armario(self, id_armario):

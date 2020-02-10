@@ -30,7 +30,7 @@ class Cobranca(object):
         __result = __DAO.pagamento(__total, senha)
         print('%------- pagamento ---------%')
         print(__result)
-        if __result == "lk4thHG34=GKss0xndhe":
+        if 'aprovada' in __result.lower():
             return 'pagamento ok'
         else:
             return __result

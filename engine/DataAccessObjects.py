@@ -372,7 +372,7 @@ class DataAccessObjectsManager(object):
         self.__compartimento = compartimento
         self.__c.execute("select porta, compartimento  from tb_armario where porta='%s' and compartimento = '%s' and estado='LIVRE'" % (
             self.__porta, self.__compartimento))
-        select_porta = self.__c.fetchone()
+        select_porta = self.__c.fetchall()
         print("select_porta", select_porta)
         if select_porta == None or select_porta == [] or select_porta == "":
 
@@ -658,7 +658,7 @@ class DataAccessObjectsManager(object):
                 # self.__conn.close()
                 id_armario = __cursor.fetchall()
 
-                porta = self.select_port(id_armario[0][0])
+                porta = self.select_port(self.__locacao["id_armario"])#id_armario[0][0])
                 print("abrir armario data.py porta", str(porta[0][0]))
                 self.port.exec_port(porta[0][0], "abre", "ocupado")
                 return "armario liberado"
@@ -735,15 +735,15 @@ class DataAccessObjectsManager(object):
 
     def pagamento(self, total, senha):
         subprocess.run("docker start paygoweb", shell=True)
-        subprocess.run('docker exec paygoweb /bin/bash -c "cd /home/paygoWeb/ && python3 venda.py"', shell=True)
+        subprocess.run('docker exec paygoweb /bin/bash -c "cd paygoWeb/ && python3 venda.py"', shell=True)
         sleep(0.3)
         
         __senha = senha
         self.__locacao = self.get_locacao(senha)
         print('self.__locacao id_armario', self.__locacao["id_armario"][0])
         # __senha_encode = senha.encode(encoding='utf-8', errors='strict')
-        self.__c.execute("select id_armario from tb_locacao where senha='%s'" % (__senha))
-        result_id_armario = self.__c.fetchall()
+        #self.__c.execute("select id_armario from tb_locacao where senha='%s'" % (__senha))
+        result_id_armario = self.__locacao["id_armario"][0]#self.__c.fetchall()
         subprocess.run("docker stop paygoweb", shell=True)
         
         resultado_transacao = TransacsOps.retorno_transacao()
@@ -756,6 +756,7 @@ class DataAccessObjectsManager(object):
             self.__conn.commit()
             self.__conn.close()
             __porta = self.select_port(result_id_armario)
+            print(__porta)
             
             # LIBERAR NO RASPBERRY
             self.port.exec_port(__porta[0][0], "abre", "livre")
@@ -793,6 +794,7 @@ class DataAccessObjectsManager(object):
         __c.execute(
             "select porta from tb_armario where id_armario='%s'" % (__armario))
         retorno_porta = __c.fetchall()
+        print("retorno_porta", retorno_porta)
         __conn.close()
         return retorno_porta
 
