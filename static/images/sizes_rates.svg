@@ -10,12 +10,12 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="220"
-   height="475.49899"
-   viewBox="0 0 58.208332 125.80911"
+   width="58.208336mm"
+   height="149.66389mm"
+   viewBox="0 0 58.208336 149.66389"
    version="1.1"
    id="svg36768"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
    sodipodi:docname="sizes_rates.svg">
   <defs
      id="defs36762">
@@ -51,17 +51,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="-323.1341"
-     inkscape:cy="158.29078"
+     inkscape:cx="-42.41981"
+     inkscape:cy="248.2908"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1366"
-     inkscape:window-height="744"
+     inkscape:window-height="674"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     units="px" />
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata36765">
     <rdf:RDF>
@@ -78,58 +77,63 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-10.205357,-64.216282)">
-    <rect
-       style="fill:none;fill-opacity:1;stroke:none;stroke-width:1.1344837;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
-       id="rect4747"
-       width="57.073849"
-       height="124.67463"
-       x="10.772599"
-       y="64.783524" />
+     transform="translate(-10.205357,-64.174006)">
     <g
-       id="g508">
+       id="g41353">
+      <rect
+         y="64.792374"
+         x="10.823725"
+         height="148.42715"
+         width="56.9716"
+         id="rect4747"
+         style="fill:#ffffff;fill-opacity:1;stroke:#4d4d4d;stroke-width:1.23673451;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
       <text
          transform="scale(0.99550053,1.0045198)"
          id="text9288"
          y="136.08696"
-         x="18.402603"
+         x="20.152426"
          style="font-style:normal;font-weight:normal;font-size:7.80571985px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458326"
          xml:space="preserve"><tspan
            style="stroke-width:0.26458326"
-           y="138.11462"
-           x="18.402603"
+           y="138.31062"
+           x="20.152426"
            id="tspan9286"
            sodipodi:role="line" /><tspan
            id="tspan9290"
            style="stroke-width:0.26458326"
-           y="138.11462"
-           x="18.402603"
+           y="138.31062"
+           x="20.152426"
            sodipodi:role="line">SIZES AND </tspan><tspan
            id="tspan9294"
            style="stroke-width:0.26458326"
-           y="138.11462"
-           x="18.402603"
+           y="138.31062"
+           x="20.152426"
            sodipodi:role="line">               </tspan></text>
       <text
          transform="scale(0.99550053,1.0045198)"
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:7.80571985px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458326"
-         x="26.854353"
+         x="25.280773"
          y="142.93417"
          id="text9306"><tspan
            sodipodi:role="line"
            id="tspan9300"
-           x="26.854353"
-           y="144.96184"
+           x="25.280773"
+           y="145.15784"
            style="stroke-width:0.26458326" /><tspan
            sodipodi:role="line"
-           x="26.854353"
-           y="144.96184"
+           x="25.280773"
+           y="145.15784"
            style="stroke-width:0.26458326"
-           id="tspan9304">RATES </tspan></text>
+           id="tspan9302">RATES </tspan><tspan
+           sodipodi:role="line"
+           x="25.280773"
+           y="145.15784"
+           style="stroke-width:0.26458326"
+           id="tspan9304">               </tspan></text>
       <g
          style="stroke-width:2.09907675"
-         transform="matrix(0.45811178,0,0,0.49541811,-6.8491708,48.289232)"
+         transform="matrix(0.45811178,0,0,0.49541811,-6.8491689,48.289232)"
          id="g13741">
         <g
            id="g4875"
