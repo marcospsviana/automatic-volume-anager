@@ -391,7 +391,7 @@ class Venda:
         envio_email.write(COMPROVANTE_CLIENTE)
         envio_email.close()
 
-        self.pgWeb.PW_iPPAbort()
+        #self.pgWeb.PW_iPPAbort()
 
         
 
