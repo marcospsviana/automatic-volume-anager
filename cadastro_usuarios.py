@@ -621,6 +621,7 @@ class CadastroUsuarios(object):
     
     def on_btn_tente_novamente_window_erro_pagamentos_button_press_event(self, widget, event):
         self.window_erro_pagamentos.hide()
+        self.window_select_cartao.fullscreen()
         self.window_select_cartao.show()
 
     def on_btn_cancelar_window_erro_pagamentos_button_press_event(self, widget, event):
@@ -666,7 +667,7 @@ class CadastroUsuarios(object):
             self.btn_credito.set_label("CREDIT")
             self.btn_debito.set_label("DEBIT")
             self.btn_cancelar_escolha.set_label("CANCEL")
-            
+        self.window_select_cartao.fullscreen()   
         self.window_select_cartao.show()   
         
     def on_btn_window_payment_wait_button_press_event(self, widget, event):

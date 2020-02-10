@@ -2388,6 +2388,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkLabel" id="label_window_erro_pagamentos">
+            <property name="name">label_aguarde</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="margin_left">20</property>
@@ -2556,15 +2557,18 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
   </object>
   <object class="GtkWindow" id="window_select_cartao">
     <property name="name">window</property>
-    <property name="width_request">600</property>
-    <property name="height_request">400</property>
+    <property name="width_request">1024</property>
+    <property name="height_request">550</property>
     <property name="can_focus">False</property>
+    <property name="has_focus">True</property>
     <property name="border_width">10</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
-    <property name="default_width">700</property>
-    <property name="default_height">500</property>
+    <property name="default_width">1024</property>
+    <property name="default_height">550</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="skip_pager_hint">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
     <child>
@@ -2577,7 +2581,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkLabel" id="label_menu">
-            <property name="name">label_aguarde</property>
+            <property name="name">label_menu</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="valign">center</property>
@@ -2593,7 +2597,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
         </child>
         <child>
           <object class="GtkButton" id="btn_credito">
-            <property name="label" translatable="yes">CRÉDITO</property>
+            <property name="label" translatable="yes">CRÉDITO </property>
             <property name="name">btn_encerrar_sessao</property>
             <property name="width_request">200</property>
             <property name="height_request">100</property>
@@ -2604,6 +2608,8 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
             <property name="margin_right">30</property>
             <property name="margin_top">20</property>
             <property name="margin_bottom">20</property>
+            <property name="image_position">right</property>
+            <property name="always_show_image">True</property>
             <signal name="button-press-event" handler="on_btn_credito_button_press_event" swapped="no"/>
           </object>
           <packing>
@@ -2614,7 +2620,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
         </child>
         <child>
           <object class="GtkButton" id="btn_debito">
-            <property name="label" translatable="yes">DÉBITO</property>
+            <property name="label" translatable="yes">DÉBITO  </property>
             <property name="name">btn_encerrar_sessao</property>
             <property name="width_request">200</property>
             <property name="height_request">100</property>
@@ -2626,6 +2632,9 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
             <property name="margin_right">30</property>
             <property name="margin_top">20</property>
             <property name="margin_bottom">20</property>
+            <property name="use_underline">True</property>
+            <property name="image_position">right</property>
+            <property name="always_show_image">True</property>
             <signal name="button-press-event" handler="on_btn_debito_button_press_event" swapped="no"/>
           </object>
           <packing>

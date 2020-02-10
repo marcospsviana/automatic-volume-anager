@@ -39,19 +39,18 @@ button{
 		background: #0b4f6f;/* rgb(8, 107, 173);*/
 		color: #d6e6ee;
 		padding: 10px;
-		border-radius: 4px;
-        border: 1px solid #fff;
+		border-radius: 2px;
+
 		 }
 #btn_retornar{  
 	font: 1.3em sans-serif;
-	background: #aa0000;
+	background: rgb(199, 75, 54);
 	color: #d6e6ee;
 	padding: 5px;
-	border-radius: 4px;
-	border: 1px solid #fff;
+	border-radius: 2px
+	
 			 }
-dialog, #window { 
-background-color: #FDCF03;
+dialog, #window { background-color: #FDCF03;
 	/*font: 32px "Noto Sans";*/
 }
 #window_locacao { 
@@ -170,38 +169,27 @@ color: #fff;
 	font: 4em sans-serif;
 	font-weight: lighter;
 }
+
 #label_menu{
     font: 2.5em sans-serif;
     font-weight: lighter;
     color: black;
 }
+
 #btn_flag{
 	border-radius: 0;
 	padding: 0;
 	margin: 0;
 }
-/*
-btn_toggle{
-
+#btn_toggle{
 	border: solid 3px #000;
 	border-radius: 5px;
 	background-color: #fff;
 }
-btn_toggle :checked{
-    
+#btn_toggle:checked{
 	background-color: #0b4f6f;;
 	border: solid 3px #fff;
 	
-}*/
-#btn_toggle{
-    border: solid 3px #000;
-	border-radius: 5px;
-	background-color: #fff;
-}
-
-#btn_toggle:checked{
-    background-color: #0b4f6f;
-	border: solid 3px #fff;
 }
 #btn_clear{
 	font: 1em sans-serif;

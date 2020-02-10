@@ -40,6 +40,7 @@ class OpcaoHoraDiaria(object):
             self.label_por_diaria.set_text("DAILY")
             self.btn_tela_hora_diaria.set_label("RETURN TO THE PREVIOUS SCREEN")
 
+        self.window_hora_diaria.fullscreen()
         self.window_hora_diaria.show()
     
     def on_btn_loc_hora_button_press_event(self, widget, event):
@@ -50,7 +51,7 @@ class OpcaoHoraDiaria(object):
     def on_btn_loc_diaria_button_press_event(self, widget, event):
         tempo_locacao = "diaria"
         CadastroUsuarios(tempo_locacao, self.classe, self.language)
-        self.window_hora_diaria.hide()
+        #self.window_hora_diaria.hide()
     
     def on_btn_tela_hora_diaria_button_press_event(self, widget, event):
         self.window_hora_diaria.hide()

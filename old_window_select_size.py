@@ -16,11 +16,11 @@ class SelectSize(object):
         self.builder.add_from_file("ui/tamanhos_tarifas.glade")
         self.builder.connect_signals({
             "gtk_main_quit": Gtk.main_quit,
-            "on_btn_malasx4_button_press_event": self.on_btn_malasx4_button_press_event,
-            "on_btn_malasx2_button_press_event": self.on_btn_malasx2_button_press_event,
-            "on_btn_mochilasx2_button_press_event": self.on_btn_mochilasx2_button_press_event,
-            "on_btn_cameraenotebook_button_press_event": self.on_btn_cameraenotebook_button_press_event,
-            #"on_btn_confirmar_button_press_event": self.on_btn_confirmar_button_press_event,
+            "on_btn_malasx4_toggled": self.on_btn_malasx4_toggled,
+            "on_btn_malasx2_toggled": self.on_btn_malasx2_toggled,
+            "on_btn_mochilasx2_toggled": self.on_btn_mochilasx2_toggled,
+            "on_btn_cameraenotebook_toggled": self.on_btn_cameraenotebook_toggled,
+            "on_btn_confirmar_button_press_event": self.on_btn_confirmar_button_press_event,
             "on_btn_tamanhos_tarifas_button_press_event": self.on_btn_tamanhos_tarifas_button_press_event,
             "on_btn_retornar_button_press_event": self.on_btn_retornar_button_press_event,
             "on_window_tamanhos_tarifas_button_press_event": self.on_btn_tamanhos_tarifas_button_press_event,
@@ -33,16 +33,16 @@ class SelectSize(object):
 
         # =============== BOTOES ====================
         self.btn_malasx4 = self.builder.get_object("btn_malasx4")
-        self.btn_malasx4.connect("button_press_event", self.on_btn_malasx4_button_press_event)
+        self.btn_malasx4.connect("toggled", self.on_btn_malasx4_toggled)
         self.btn_malasx2 = self.builder.get_object("btn_malasx2")
-        self.btn_malasx2.connect("button_press_event", self.on_btn_malasx2_button_press_event)
+        self.btn_malasx2.connect("toggled", self.on_btn_malasx2_toggled)
         self.btn_mochilasx2 = self.builder.get_object("btn_mochilasx2")
-        self.btn_mochilasx2.connect("button_press_event", self.on_btn_mochilasx2_button_press_event)
+        self.btn_mochilasx2.connect("toggled", self.on_btn_mochilasx2_toggled)
         self.btn_cameraenotebook = self.builder.get_object("btn_cameraenotebook")
-        self.btn_cameraenotebook.connect("button_press_event", self.on_btn_cameraenotebook_button_press_event)
+        self.btn_cameraenotebook.connect("toggled", self.on_btn_cameraenotebook_toggled)
         self.btn_retornar = self.builder.get_object("btn_retornar")
         self.btn_retornar.connect("button_press_event", self.on_btn_retornar_button_press_event)
-        #self.btn_confirmar = self.builder.get_object("btn_confirmar")
+        self.btn_confirmar = self.builder.get_object("btn_confirmar")
         self.btn_tamanhos_tarifas = self.builder.get_object("btn_tamanhos_tarifas")
         self.btn_tamanhos_tarifas.connect("button_press_event", self.on_btn_tamanhos_tarifas_button_press_event)
 
@@ -87,7 +87,7 @@ class SelectSize(object):
             self.label_malasx2.set_text("IDEAL PARA")
             self.label_mochilasx2.set_text("IDEAL PARA")
             self.label_cameraenotebook.set_text("IDEAL PARA")
-            #self.btn_confirmar.set_label("CONFIRMAR")
+            self.btn_confirmar.set_label("CONFIRMAR")
             self.btn_retornar.set_label("TELA ANTERIOR")
             self.btn_tamanhos_tarifas.set_label("TAMANHOS E TARIFAS")
 
@@ -96,7 +96,7 @@ class SelectSize(object):
             self.label_malasx2.set_text("IDEAL FOR")
             self.label_mochilasx2.set_text("IDEAL FOR")
             self.label_cameraenotebook.set_text("IDEAL FOR")
-            #self.btn_confirmar.set_label("CONFIRM")
+            self.btn_confirmar.set_label("CONFIRM")
             self.btn_retornar.set_label("PREVIOUS SCREEN")
             self.btn_tamanhos_tarifas.set_label("SIZES AND RATES")
        
@@ -107,16 +107,17 @@ class SelectSize(object):
     def on_btn_dialog_unavailable_button_press_event(self, widget, event):
         self.dialog_unavailable.hide()
        
-    def on_btn_malasx4_button_press_event(self, widget, event):
+    def on_btn_malasx4_toggled(self, widget):
         
-        
-        self.classe = "A"
-        #self.btn_cameraenotebook.get_active()   
+        if self.btn_malasx4.get_active():
+            self.classe = "A"
+            self.btn_cameraenotebook.get_active()
+        else:
+            self.classe = ""
         classes = self.manager.lista_armarios()
         print("classes obtidas", classes)
         if self.classe in np.array(classes):
-            OpcaoHoraDiaria(self.classe, self.language)
-            self.window_select_size.hide()
+            pass
         else:
             self.classe =""
             if self.language == "pt_BR":
@@ -129,14 +130,16 @@ class SelectSize(object):
         
         
     
-    def on_btn_malasx2_button_press_event(self, widget, event):
-        #if self.btn_malasx2.get_active():
-        self.classe = "B"
-        print(self.classe)
+    def on_btn_malasx2_toggled(self, widget):
+        if self.btn_malasx2.get_active():
+            self.classe = "B"
+            print(self.classe)
+        else:
+            self.classe =""
         classes = self.manager.lista_armarios()
+        print("classes obtidas", classes)
         if self.classe in np.array(classes):
-            OpcaoHoraDiaria(self.classe, self.language)
-            self.window_select_size.hide()
+            pass
         else:
             self.classe =""
             if self.language == "pt_BR":
@@ -148,16 +151,16 @@ class SelectSize(object):
 
         
     
-    def on_btn_mochilasx2_button_press_event(self, widget, event):
-        #if self.btn_mochilasx2.get_active():
-        self.classe = "C"
-        print(self.classe)
-        
+    def on_btn_mochilasx2_toggled(self, widget):
+        if self.btn_mochilasx2.get_active():
+            self.classe = "C"
+            print(self.classe)
+        else:
+            self.classe =""
         classes = self.manager.lista_armarios()
         print("classes obtidas", classes)
         if self.classe in np.array(classes):
-            OpcaoHoraDiaria(self.classe, self.language)
-            self.window_select_size.hide()
+            pass
         else:
             self.classe =""
             if self.language == "pt_BR":
@@ -167,15 +170,16 @@ class SelectSize(object):
             self.dialog_unavailable.show()
         
 
-    def on_btn_cameraenotebook_button_press_event(self, widget, event):
-        #if self.btn_cameraenotebook.get_active():
-        self.classe = "D"
-        print(self.classe)
+    def on_btn_cameraenotebook_toggled(self, widget):
+        if self.btn_cameraenotebook.get_active():
+            self.classe = "D"
+            print(self.classe)
+        else:
+            self.classe =""
         classes = self.manager.lista_armarios()
         print("classes obtidas", classes)
         if self.classe in np.array(classes):
-            OpcaoHoraDiaria(self.classe, self.language)
-            self.window_select_size.hide()
+            pass
         else:
             self.classe =""
             if self.language == "pt_BR":
@@ -185,13 +189,13 @@ class SelectSize(object):
             self.dialog_unavailable.show()
         
     
-    """def on_btn_confirmar_button_press_event(self, widget, event):
+    def on_btn_confirmar_button_press_event(self, widget, event):
         if self.classe == "":
             print ("É necessário escolher um tamanho de armário")
         else:
             print("classe selecionada",self.classe)
             OpcaoHoraDiaria(self.classe, self.language)
-            self.window_select_size.hide()"""
+            self.window_select_size.hide()
             
     
     def on_btn_retornar_button_press_event(self, widget, event):
@@ -208,7 +212,7 @@ class SelectSize(object):
         self.label_malasx2.set_text("IDEAL PARA")
         self.label_mochilasx2.set_text("IDEAL PARA")
         self.label_cameraenotebook.set_text("IDEAL PARA")
-        #self.btn_confirmar.set_label("CONFIRMAR")
+        self.btn_confirmar.set_label("CONFIRMAR")
         self.btn_retornar.set_label("TELA ANTERIOR")
         self.btn_tamanhos_tarifas.set_label("TAMANHOS\n E TARIFAS")
         
@@ -219,7 +223,7 @@ class SelectSize(object):
         self.label_malasx2.set_text("IDEAL FOR")
         self.label_mochilasx2.set_text("IDEAL FOR")
         self.label_cameraenotebook.set_text("IDEAL FOR")
-        #self.btn_confirmar.set_label("CONFIRM")
+        self.btn_confirmar.set_label("CONFIRM")
         self.btn_retornar.set_label("PREVIOUS SCREEN")
         self.btn_tamanhos_tarifas.set_label("SIZES AND RATES")
     
