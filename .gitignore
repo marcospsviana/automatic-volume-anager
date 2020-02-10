@@ -131,3 +131,6 @@ vscode/
 
 #PGWebLib
 engine/paygoWeb/PGWebLib/Data/
+engine/paygoWeb/PGWebLib/Data/check.pos
+engine/paygoWeb/PGWebLib/Data/file50.pos
+engine/paygoWeb/PGWebLib/Data/file51.pos

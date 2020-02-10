@@ -2,14 +2,14 @@
 
               MASTERCARD              
            535081******9423           
-1 VIA-CLIENTE               AUT=141606
-DOC=574369    08/02/20 14:16     ONL-C
+1 VIA-CLIENTE               AUT=192459
+DOC=574370    08/02/20 19:24     ONL-C
 VENDA A CREDITO
-VALOR:                   R$       3,00
+VALOR:                   R$       8,40
 
 
 ----------------------------------------
-62547 0000000131 PGREF:0000574369
+62547 0000000131 PGREF:0000574370
 NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
 CNPJ: 35.223.093/0001-06
 
