@@ -653,14 +653,14 @@ class DataAccessObjectsManager(object):
             print(self.__locacao['tempo_locado'][0])
             if (self.__locacao['tempo_locado'][0]) >= hj:
                 #import threading
-                __cursor.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (__senha,))
+                porta_armario = pd.read_sql("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (__senha,), __conn)
                 # self.__conn.commit()
                 # self.__conn.close()
-                id_armario = __cursor.fetchall()
+                #id_armario = __cursor.fetchall()
 
-                porta = self.select_port(self.__locacao["id_armario"])#id_armario[0][0])
-                print("abrir armario data.py porta", str(porta[0][0]))
-                self.port.exec_port(porta[0][0], "abre", "ocupado")
+                porta = self.select_port(porta_armario["id_armario"][0])#id_armario[0][0])
+                print("abrir armario data.py porta", str(porta))
+                self.port.exec_port(porta, "abre", "ocupado")
                 return "armario liberado"
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'" % __senha
@@ -743,7 +743,6 @@ class DataAccessObjectsManager(object):
         print('self.__locacao id_armario', self.__locacao["id_armario"][0])
         # __senha_encode = senha.encode(encoding='utf-8', errors='strict')
         #self.__c.execute("select id_armario from tb_locacao where senha='%s'" % (__senha))
-        result_id_armario = self.__locacao["id_armario"][0]#self.__c.fetchall()
         subprocess.run("docker stop paygoweb", shell=True)
         
         resultado_transacao = TransacsOps.retorno_transacao()
@@ -755,8 +754,8 @@ class DataAccessObjectsManager(object):
                 result_id_armario[0]))
             self.__conn.commit()
             self.__conn.close()
-            __porta = self.select_port(result_id_armario)
-            print(__porta)
+            __porta = self.select_port(self.__locacao["id_armario"][0])
+            print("porta em pagamento", __porta)
             
             # LIBERAR NO RASPBERRY
             self.port.exec_port(__porta[0][0], "abre", "livre")
@@ -789,14 +788,14 @@ class DataAccessObjectsManager(object):
         __conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
         __c = __conn.cursor(buffered=True)
+        #armario = pd.read_sql()
         __armario = armario
         print("__ARMARIO EM SELECT_port ", __armario)
-        __c.execute(
-            "select porta from tb_armario where id_armario='%s'" % (__armario))
-        retorno_porta = __c.fetchall()
-        print("retorno_porta", retorno_porta)
+        retorno_porta = pd.read_sql("select porta from tb_armario where id_armario='%s'" % (__armario), __conn)
+        #retorno_porta = __c.fetchall()
+        print("retorno_porta", retorno_porta["porta"][0])
         __conn.close()
-        return retorno_porta
+        return retorno_porta["porta"][0]
 
     #USO INTERNO APENAS PARA TESTES
     @classmethod

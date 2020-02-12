@@ -37,7 +37,7 @@ class Venda:
         retEventLoop = ''
         ret = ''
         ret2 = ''
-        with open('comprovantes/valor_venda.json', 'r') as f:
+        """with open('comprovantes/valor_venda.json', 'r') as f:
             dados = json.load(f)
         self.total = dados['TOTAL']
         print("type(total)", type(self.total))
@@ -53,7 +53,7 @@ class Venda:
             self.tipo_cartao = "1"
         elif tipo_cartao == "DEBITO":
             self.tipo_cartao = "2"
-        print("tipo_cartao", tipo_cartao)
+        print("tipo_cartao", tipo_cartao)"""
         data = datetime.datetime.now()
 
         # INICIA UMA NOVA TRANSACAO
@@ -72,12 +72,12 @@ class Venda:
 
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, "986")  # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2")
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "CIELO")  # ADQUIRENTE
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "REDE")  # ADQUIRENTE
         # 1 - CREDITO 2 - DEBITO
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value, self.tipo_cartao)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value, "2") #self.tipo_cartao)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_FINTYPE.value, "1")  # 1 A VISTA
         #self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_INSTALLMENTS.value, "3") # QUANTIDADE DE PARCELAS
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value, self.total) # "700")#
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TOTAMNT.value,  "700")#self.total) #
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_PAYMNTTYPE.value, "1")  # 1 SOMENTE CARTAO
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_BOARDINGTAX.value, "00")
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TIPAMOUNT.value, "00")
@@ -186,7 +186,7 @@ class Venda:
                     print("PWINFO_PNDAUTEXTREF = ", PWINFO_PNDAUTEXTREF )
                     sleep(0.1)
 
-                   
+                    self.pgWeb.PW_iNewTransac(E_PWOPER.PWOPER_SALEVOID.value)
 
                     iPndRet = self.pgWeb.PW_iConfirmation(
                         E_PWCNF.PWCNF_CNF_AUTO.value,

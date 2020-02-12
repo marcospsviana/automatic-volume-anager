@@ -156,87 +156,67 @@ class CancelTransaction:
                 ret = self.pgWeb.PW_iExecTransac(vstParam, iNumParam)
                 print("efetuando a transacao...")
                 print("ret ---->", ret)
-        self.pgWeb.PW_iGetResult(
-            E_PWINFO.PWINFO_TRNORIGAUTH.value, szAux, sizeof(szAux))
-        PWINFO_TRNORIGAUTH = szAux.value.decode('utf-8')
-        print("PWINFO_TRNORIGAUTH", PWINFO_TRNORIGAUTH)
-        sleep(0.1)
+                #SE HÁ TRANSACAO PENDENTE  CONFIRMAR A TRANSACAO 
+                if ret == E_PWRET.PWRET_FROMHOSTPENDTRN.value:
+                    (print("esta em pendencia"))
+                    self.pgWeb.PW_iGetResult(
+                        E_PWINFO.PWINFO_PNDAUTHSYST.value, szAux, sizeof(szAux)
+                    )
+                    PWINFO_PNDAUTHSYST = szAux.value.decode('utf-8')
+                    print("PWINFO_PNDAUTHSYST = ", PWINFO_PNDAUTHSYST)
+                    sleep(0.1)
+
+                    self.pgWeb.PW_iGetResult(
+                        E_PWINFO.PWINFO_PNDVIRTMERCH.value, szAux, sizeof(szAux)
+                    )
+                    PWINFO_PNDVIRTMERCH = szAux.value.decode('utf-8')
+                    print("PWINFO_PNDVIRTMERCH = ", PWINFO_PNDVIRTMERCH )
+                    sleep(0.1)
+
+                    self.pgWeb.PW_iGetResult(
+                        E_PWINFO.PWINFO_PNDREQNUM.value, szAux, sizeof(szAux)
+                    )
+                    PWINFO_PNDREQNUM = szAux.value.decode('utf-8')
+                    print("PWINFO_PNDREQNUM = ", PWINFO_PNDREQNUM )
+                    sleep(0.1)
+
+                    self.pgWeb.PW_iGetResult(
+                        E_PWINFO.PWINFO_PNDAUTLOCREF.value, szAux, sizeof(szAux)
+                    )
+                    PWINFO_PNDAUTLOCREF = szAux.value.decode('utf-8')
+                    print("PWINFO_PNDAUTLOCREF = ", PWINFO_PNDAUTLOCREF )
+                    sleep(0.1)
+
+                    self.pgWeb.PW_iGetResult(
+                        E_PWINFO.PWINFO_PNDAUTEXTREF.value, szAux, sizeof(szAux)
+                    )
+                    PWINFO_PNDAUTEXTREF = szAux.value.decode('utf-8')
+                    print("PWINFO_PNDAUTEXTREF = ", PWINFO_PNDAUTEXTREF )
+                    sleep(0.1)
+
+                   
+
+                    iPndRet = self.pgWeb.PW_iConfirmation(
+                        E_PWCNF.PWCNF_REV_MANU_AUT.value,
+                        PWINFO_PNDREQNUM,
+                        PWINFO_PNDAUTLOCREF,
+                        PWINFO_PNDAUTEXTREF,
+                        PWINFO_PNDVIRTMERCH,
+                        PWINFO_PNDAUTHSYST
+                    )
+                    print("iRet PENDENTE PW_iConfirmation", iPndRet)
+
+                    
+                    print("PWINFO_PNDREQNUM", PWINFO_PNDREQNUM)
+                    print("PWINFO_PNDAUTLOCREF", PWINFO_PNDAUTLOCREF)    
+                    print("PWINFO_PNDAUTEXTREF",PWINFO_PNDAUTEXTREF)
+                    print("PWINFO_PNDVIRTMERCH", PWINFO_PNDVIRTMERCH)
+                    print("PWINFO_PNDAUTHSYST", PWINFO_PNDAUTHSYST)
+                    print("iRet PW_iConfirmation", iPndRet)
+
+                    return iPndRet
 
         
-        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_FISCALREF.value, szAux, sizeof(szAux))
-        PWINFO_FISCALREF = szAux.value.decode('utf-8')
-        print("PWINFO_FISCALREF", PWINFO_FISCALREF)
-        sleep(0.1)
-
-        #=========================== ADICIONAIS ===========================
-
-        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_AUTMERCHID.value, szAux, sizeof(szAux))
-        PWINFO_AUTMERCHID = szAux.value.decode('utf-8')
-        print("PWINFO_AUTMERCHID", PWINFO_AUTMERCHID)
-        sleep(0.1)
-
-        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_PRODUCTID.value, szAux, sizeof(szAux))
-        PWINFO_PRODUCTID = szAux.value.decode('utf-8')
-        print("PWINFO_AUTMERCHID", PWINFO_AUTMERCHID)
-        sleep(0.1)
-
-        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_AUTHCODE.value, szAux, sizeof(szAux))
-        PWINFO_AUTHCODE = szAux.value.decode('utf-8')
-        print("PWINFO_AUTHCODE", PWINFO_AUTHCODE)
-        sleep(0.1)
-
-        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_AUTRESPCODE.value, szAux, sizeof(szAux))
-        PWINFO_AUTRESPCODE = szAux.value.decode('utf-8')
-        print("PWINFO_AUTRESPCODE", PWINFO_AUTRESPCODE)
-        sleep(0.1)
-
-        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_AUTDATETIME.value, szAux, sizeof(szAux))
-        PWINFO_AUTDATETIME = szAux.value.decode('utf-8')
-        print("PWINFO_AUTRESPCODE", PWINFO_AUTDATETIME)
-        sleep(0.1)
-
-        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_TRNORIGDATE.value, szAux, sizeof(szAux))
-        PWINFO_TRNORIGDATE = szAux.value.decode('utf-8')
-        print("PWINFO_AUTRESPCODE", PWINFO_TRNORIGDATE)
-        sleep(0.1)
-
-        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_TRNORIGNSU.value, szAux, sizeof(szAux))
-        PWINFO_TRNORIGNSU = szAux.value.decode('utf-8')
-        print("PWINFO_AUTRESPCODE", PWINFO_TRNORIGNSU)
-        sleep(0.1)
-
-        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_TRNORIGAMNT.value, szAux, sizeof(szAux))
-        PWINFO_TRNORIGAMNT = szAux.value.decode('utf-8')
-        print("PWINFO_AUTRESPCODE", PWINFO_TRNORIGAMNT)
-        sleep(0.1)
-
-        """self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_TRNORIGREQNUM.value, szAux, sizeof(szAux))
-        PWINFO_TRNORIGREQNUM = szAux.value.decode('utf-8')
-        print("PWINFO_TRNORIGREQNUM", PWINFO_TRNORIGREQNUM)
-        sleep(0.1)"""
-
-        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_TRNORIGTIME.value, szAux, sizeof(szAux))
-        PWINFO_TRNORIGTIME = szAux.value.decode('utf-8')
-        print("PWINFO_TRNORIGTIME", PWINFO_TRNORIGTIME)
-        sleep(0.1)        
-
-        # CONFIRMA A TRANSACAO SEJA ELA BEM OU MAL SUCEDIDA
-        iRet = self.pgWeb.PW_iConfirmation(
-            E_PWCNF.PWCNF_REV_MANU_AUT.value,
-            PWINFO_TRNORIGREQNUM,
-            PWINFO_AUTLOCREF,
-            PWINFO_TRNORIGNSU,
-            PWINFO_VIRTMERCH,
-            PWINFO_TRNORIGAUTH
-        )
-        print("PWINFO_TRNORIGREQNUM", PWINFO_TRNORIGREQNUM)
-        print("PWINFO_AUTLOCREF", PWINFO_AUTLOCREF)    
-        print("PWINFO_AUTEXTREF",PWINFO_TRNORIGNSU)
-        print("PWINFO_VIRTMERCH", PWINFO_VIRTMERCH)
-        print("PWINFO_TRNORIGAUTH", PWINFO_TRNORIGAUTH)
-        print("iRet PW_iConfirmation", iRet)
-
-        return iRet
 
 
 if __name__ == "__main__":

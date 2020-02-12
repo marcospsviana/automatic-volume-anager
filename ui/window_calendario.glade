@@ -1,0 +1,1138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkWindow" id="window_calendario">
+    <property name="name">window_calendario</property>
+    <property name="width_request">1000</property>
+    <property name="height_request">580</property>
+    <property name="can_focus">False</property>
+    <property name="modal">True</property>
+    <property name="default_width">1000</property>
+    <property name="default_height">550</property>
+    <property name="destroy_with_parent">True</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">40</property>
+            <property name="margin_right">40</property>
+            <property name="margin_top">20</property>
+            <property name="margin_bottom">5</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkButton" id="btn_previous_mont">
+                    <property name="label" translatable="yes">&lt;</property>
+                    <property name="name">btn_seta_date</property>
+                    <property name="width_request">100</property>
+                    <property name="height_request">50</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="margin_right">20</property>
+                    <property name="relief">none</property>
+                    <property name="always_show_image">True</property>
+                    <signal name="button-press-event" handler="on_btn_previous_mont_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_month">
+                    <property name="name">label_date</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">month</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn_next_month">
+                    <property name="label" translatable="yes">&gt;</property>
+                    <property name="name">btn_seta_date</property>
+                    <property name="width_request">100</property>
+                    <property name="height_request">50</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="margin_left">20</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_next_month_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkButton" id="btn_previous_year">
+                    <property name="label" translatable="yes">&lt;</property>
+                    <property name="name">btn_seta_date</property>
+                    <property name="width_request">100</property>
+                    <property name="height_request">50</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="margin_right">20</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_previous_year_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_year">
+                    <property name="name">label_date</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">2020</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn_next_year">
+                    <property name="label" translatable="yes">&gt;</property>
+                    <property name="name">btn_seta_date</property>
+                    <property name="width_request">100</property>
+                    <property name="height_request">50</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="margin_left">20</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_next_year_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="pack_type">end</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkGrid" id="grid_daysweek">
+            <property name="width_request">900</property>
+            <property name="height_request">40</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">20</property>
+            <property name="margin_right">20</property>
+            <property name="margin_top">5</property>
+            <property name="row_spacing">5</property>
+            <property name="column_spacing">5</property>
+            <property name="row_homogeneous">True</property>
+            <property name="column_homogeneous">True</property>
+            <child>
+              <object class="GtkLabel" id="label_domingo">
+                <property name="name">btn_calendario_dom</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Dom</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_segunda">
+                <property name="name">label_weekdays</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Seg</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_terca">
+                <property name="name">label_weekdays</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Ter</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_quarta">
+                <property name="name">label_weekdays</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Qua</property>
+              </object>
+              <packing>
+                <property name="left_attach">3</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_quinta">
+                <property name="name">label_weekdays</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Qui</property>
+              </object>
+              <packing>
+                <property name="left_attach">4</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_sexta">
+                <property name="name">label_weekdays</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Sex</property>
+              </object>
+              <packing>
+                <property name="left_attach">5</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_sabado">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Sáb</property>
+              </object>
+              <packing>
+                <property name="left_attach">6</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box_dias">
+            <property name="width_request">980</property>
+            <property name="height_request">450</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">20</property>
+            <property name="margin_right">20</property>
+            <property name="margin_top">10</property>
+            <property name="margin_bottom">10</property>
+            <property name="orientation">vertical</property>
+            <property name="spacing">5</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkGrid" id="grid0">
+                <property name="width_request">950</property>
+                <property name="height_request">20</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="row_spacing">5</property>
+                <property name="column_spacing">5</property>
+                <property name="row_homogeneous">True</property>
+                <property name="column_homogeneous">True</property>
+                <child>
+                  <object class="GtkButton" id="btn1">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn6">
+                    <property name="name">btn_calendario_sab</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">6</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn5">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">5</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn4">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">4</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn3">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn2">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn0">
+                    <property name="label" translatable="yes">20</property>
+                    <property name="name">btn_calendario_dom</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkGrid" id="grid1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="row_spacing">5</property>
+                <property name="column_spacing">5</property>
+                <property name="row_homogeneous">True</property>
+                <property name="column_homogeneous">True</property>
+                <child>
+                  <object class="GtkButton" id="btn13">
+                    <property name="name">btn_calendario_sab</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">6</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn12">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">5</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn11">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">4</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn10">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn9">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn8">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn7">
+                    <property name="name">btn_calendario_dom</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkGrid" id="grid2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="row_spacing">5</property>
+                <property name="column_spacing">5</property>
+                <property name="row_homogeneous">True</property>
+                <property name="column_homogeneous">True</property>
+                <child>
+                  <object class="GtkButton" id="btn20">
+                    <property name="name">btn_calendario_sab</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">6</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn19">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">5</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn18">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">4</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn17">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn16">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn15">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn14">
+                    <property name="name">btn_calendario_dom</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkGrid" id="grid3">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="row_spacing">5</property>
+                <property name="column_spacing">5</property>
+                <property name="row_homogeneous">True</property>
+                <property name="column_homogeneous">True</property>
+                <child>
+                  <object class="GtkButton" id="btn27">
+                    <property name="name">btn_calendario_sab</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">6</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn26">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">5</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn25">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">4</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn24">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn23">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn22">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn21">
+                    <property name="name">btn_calendario_dom</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkGrid" id="grid4">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="row_spacing">5</property>
+                <property name="column_spacing">5</property>
+                <property name="row_homogeneous">True</property>
+                <property name="column_homogeneous">True</property>
+                <child>
+                  <object class="GtkButton" id="btn28">
+                    <property name="name">btn_calendario_dom</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn34">
+                    <property name="name">btn_calendario_sab</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">6</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn33">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">5</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn32">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">4</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn31">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn30">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn29">
+                    <property name="name">btn_calendario</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">4</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkGrid" id="labels_date">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="row_homogeneous">True</property>
+            <property name="column_homogeneous">True</property>
+            <child>
+              <object class="GtkLabel" id="label_data_atual">
+                <property name="name">label_bottom_calendario</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Data Inicial Locação :</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_data_atual_value">
+                <property name="name">label_bottom_calendario</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">11/02/2020 16:30</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_valor_total">
+                <property name="name">label_bottom_calendario</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Valor Total :</property>
+              </object>
+              <packing>
+                <property name="left_attach">4</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_total_dias">
+                <property name="name">label_bottom_calendario</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Total Dias</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_total_dias_value">
+                <property name="name">label_bottom_calendario</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">15</property>
+              </object>
+              <packing>
+                <property name="left_attach">3</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_valor_total_value">
+                <property name="name">label_bottom_calendario</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">R$ 15,00</property>
+              </object>
+              <packing>
+                <property name="left_attach">5</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkButton" id="btn_cancelar">
+                <property name="label" translatable="yes">CANCELAR</property>
+                <property name="name">btn_retornar_calendario</property>
+                <property name="width_request">160</property>
+                <property name="height_request">60</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="halign">center</property>
+                <property name="margin_left">20</property>
+                <property name="margin_right">20</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">10</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="pack_type">end</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_confirmar">
+                <property name="label" translatable="yes">CONFIRMAR</property>
+                <property name="name">btn_confirmar_calendario</property>
+                <property name="width_request">160</property>
+                <property name="height_request">60</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="margin_left">20</property>
+                <property name="margin_right">20</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">10</property>
+                <property name="hexpand">False</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="pack_type">end</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
