@@ -2254,9 +2254,9 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="halign">center</property>
                 <property name="hexpand">True</property>
                 <property name="column_spacing">5</property>
+                <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="btn_um">
                     <property name="label" translatable="yes">1</property>
@@ -2316,9 +2316,9 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="halign">center</property>
                 <property name="hexpand">True</property>
                 <property name="column_spacing">5</property>
+                <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="btn_quatro">
                     <property name="label" translatable="yes">4</property>
@@ -2378,9 +2378,9 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="halign">center</property>
                 <property name="hexpand">True</property>
                 <property name="column_spacing">5</property>
+                <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="btn_sete">
                     <property name="label" translatable="yes">7</property>
@@ -2440,8 +2440,8 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="halign">center</property>
                 <property name="column_spacing">5</property>
+                <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="btn_zero">
                     <property name="label" translatable="yes">0</property>
