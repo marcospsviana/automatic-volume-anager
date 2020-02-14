@@ -103,10 +103,11 @@ background-color: #FDCF03;
 }
 #tecla_num_quantidade{
 	
-		background: #FDCF03;
-		border: rgb(9, 19, 41) solid 1px;
-		color: #000;
+		background: #000;
+		border: rgb(29, 36, 51) solid 1px;
+		color: #fff;
 		font-size: 3em ;
+		border-radius: 3px;
 }
 #tecla_num:focus{
 background: rgb(9, 19, 41);
