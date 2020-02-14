@@ -1,6 +1,7 @@
+
 *{
-	font-family: "Ubuntu Mono";
-	font-weight: lighter;
+	font-family: "Roboto Light";
+	
 }
 button{
 	/*font: 27px "arial";*/
@@ -139,7 +140,7 @@ color: #fff;
 	
 }
 #btn_locar, #btn_encerrar, #btn_abrir, #label_total{
-	font: 1em "Noto Sans";
+	font: 2em "Noto Sans";
 	color: #000000;
 	font-stretch: condensed;
 }
@@ -222,7 +223,7 @@ btn_toggle :checked{
 	/*border: solid 3px #fff;*/
 }
 #btn_clear{
-	font: 1em sans-serif;
+	font: 1.5em "Roboto mono";
 	color: #fff;
 	background: #000000;
 	border-radius: 0px;

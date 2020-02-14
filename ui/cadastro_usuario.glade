@@ -354,6 +354,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -368,6 +369,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -382,6 +384,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -396,6 +399,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">3</property>
@@ -410,6 +414,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">4</property>
@@ -424,6 +429,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">5</property>
@@ -438,6 +444,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">6</property>
@@ -452,6 +459,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">7</property>
@@ -466,6 +474,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">8</property>
@@ -480,6 +489,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">9</property>
@@ -511,6 +521,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -526,6 +537,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -542,6 +554,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -558,6 +571,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">3</property>
@@ -574,6 +588,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">4</property>
@@ -590,6 +605,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">5</property>
@@ -606,6 +622,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">6</property>
@@ -622,6 +639,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">7</property>
@@ -638,6 +656,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">8</property>
@@ -654,6 +673,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">9</property>
@@ -686,6 +706,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -702,6 +723,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -718,6 +740,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -734,6 +757,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">3</property>
@@ -750,6 +774,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">4</property>
@@ -766,6 +791,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">5</property>
@@ -782,6 +808,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">6</property>
@@ -798,6 +825,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">7</property>
@@ -813,6 +841,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">8</property>
@@ -828,6 +857,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">9</property>
@@ -860,6 +890,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">7</property>
@@ -876,6 +907,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">6</property>
@@ -892,6 +924,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">5</property>
@@ -908,6 +941,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">4</property>
@@ -924,6 +958,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">3</property>
@@ -940,6 +975,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -956,6 +992,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -971,6 +1008,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -986,6 +1024,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">8</property>
@@ -1002,6 +1041,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">9</property>
@@ -1036,6 +1076,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -1051,6 +1092,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -1066,6 +1108,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -1081,6 +1124,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">3</property>
@@ -1113,6 +1157,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="image">image1</property>
+                    <property name="relief">none</property>
                     <property name="always_show_image">True</property>
                     <signal name="button-press-event" handler="on_btn_backspace_button_press_event" swapped="no"/>
                   </object>
@@ -1132,6 +1177,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="margin_left">49</property>
                     <property name="margin_right">29</property>
                     <property name="hexpand">False</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -1252,7 +1298,6 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
-            <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="margin_right">10</property>
             <property name="hexpand">True</property>
@@ -1412,6 +1457,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="receives_default">False</property>
                 <property name="margin_left">10</property>
                 <property name="margin_right">10</property>
+                <property name="relief">none</property>
                 <signal name="button-press-event" handler="on_btn_limbar_nome_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1476,6 +1522,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="receives_default">False</property>
                 <property name="margin_left">10</property>
                 <property name="margin_right">10</property>
+                <property name="relief">none</property>
                 <signal name="button-press-event" handler="on_btn_limbar_email_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1552,6 +1599,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="receives_default">False</property>
                 <property name="margin_left">10</property>
                 <property name="margin_right">10</property>
+                <property name="relief">none</property>
                 <signal name="button-press-event" handler="on_btn_limbar_celular_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1582,13 +1630,10 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             <child>
               <object class="GtkLabel" id="label_quantidade_diaria">
                 <property name="name">label_quantidade_diaria</property>
-                <property name="width_request">15</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="halign">start</property>
                 <property name="margin_right">10</property>
-                <property name="label" translatable="yes">QUANTIDADE
- DIÁRIA</property>
+                <property name="label" translatable="yes">QUANTIDADE  DIÁRIA</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1599,11 +1644,8 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             <child>
               <object class="GtkEntry" id="entry_quantidade_diaria">
                 <property name="name">entry</property>
-                <property name="width_request">50</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="halign">start</property>
-                <property name="valign">center</property>
                 <signal name="button-press-event" handler="on_entry_quantidade_diaria_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1617,9 +1659,13 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="label" translatable="yes">LIMPAR</property>
                 <property name="name">btn_clear</property>
                 <property name="width_request">150</property>
+                <property name="height_request">40</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="receives_default">True</property>
+                <property name="receives_default">False</property>
+                <property name="margin_left">10</property>
+                <property name="margin_right">10</property>
+                <property name="relief">none</property>
                 <signal name="button-press-event" handler="on_btn_limpar_quantidade_diaria_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -1635,8 +1681,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_right">10</property>
-                <property name="label" translatable="yes">QUANTIDADE 
-     HORAS</property>
+                <property name="label" translatable="yes">QUANTIDADE  HORAS</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1719,6 +1764,8 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="name">label_total</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">10</property>
+                <property name="margin_right">10</property>
                 <property name="width_chars">1</property>
               </object>
               <packing>
@@ -1741,7 +1788,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             <property name="halign">center</property>
             <property name="margin_left">10</property>
             <property name="margin_right">10</property>
-            <property name="margin_top">10</property>
+            <property name="margin_top">30</property>
             <property name="margin_bottom">10</property>
             <property name="spacing">10</property>
             <property name="homogeneous">True</property>
@@ -1749,6 +1796,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
               <object class="GtkButton" id="btn_confirmar">
                 <property name="label" translatable="yes">CONFIRMAR</property>
                 <property name="name">btn_confirmar</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
@@ -1767,6 +1815,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
               <object class="GtkButton" id="btn_retornar">
                 <property name="label" translatable="yes">RETORNAR TELA ANTERIOR</property>
                 <property name="name">btn_retornar</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
@@ -2177,6 +2226,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -2192,6 +2242,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -2207,6 +2258,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -2236,6 +2288,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -2251,6 +2304,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -2266,6 +2320,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -2295,6 +2350,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -2310,6 +2366,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -2325,6 +2382,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -2354,6 +2412,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>

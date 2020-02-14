@@ -406,8 +406,8 @@ class CadastroUsuarios(object):
             self.label_aguarde_pagamento.set_text("AGUARDE PAGAMENTO")
             self.label_nome.set_text("NOME")
             self.label_telefone.set_text("CELULAR")
-            self.label_quantidade_diaria.set_text("QUANTIDADE\n DIÁRIA") #daily amount
-            self.label_quantidade_horas.set_text("QUANTIDADE\n HORAS") #quantity of hours
+            self.label_quantidade_diaria.set_text("QUANTIDADE DIÁRIA") #daily amount
+            self.label_quantidade_horas.set_text("QUANTIDADE HORAS") #quantity of hours
             #self.label_quantidade_minutos.set_text("QUANTIDADE\n MINUTOS") #quantity of minutes
             self.label_valor_da_locacao.set_text("VALOR DA LOCAÇÃO R$")
             self.btn_confirmar.set_label("CONFIRMAR")
@@ -446,8 +446,8 @@ class CadastroUsuarios(object):
             self.label_aguarde_pagamento.set_text("WAIT FOR PAYMENT")
             self.label_nome.set_text("NAME")
             self.label_telefone.set_text("PHONE")
-            self.label_quantidade_diaria.set_text("QUANTITY\n DAYS") 
-            self.label_quantidade_horas.set_text("QUANTITY\n HOURS") 
+            self.label_quantidade_diaria.set_text("QUANTITY DAYS") 
+            self.label_quantidade_horas.set_text("QUANTITY HOURS") 
             #self.label_quantidade_minutos.set_text("QUANTITY\n MINUTES")
             self.label_valor_da_locacao.set_text("RENTAL VALUE R$")
             self.btn_confirmar.set_label("CONFIRM")
