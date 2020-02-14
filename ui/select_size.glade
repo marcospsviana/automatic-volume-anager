@@ -88,6 +88,7 @@
   <object class="GtkImage" id="image_cameraenotebook">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="margin_left">5</property>
     <property name="pixbuf">../static/images/cameraenotebook.svg</property>
   </object>
   <object class="GtkImage" id="image_malasx4">
@@ -98,11 +99,13 @@
   <object class="GtkImage" id="image_malax2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="margin_right">10</property>
     <property name="pixbuf">../static/images/malasx2.svg</property>
   </object>
   <object class="GtkImage" id="image_mochilasx2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="margin_left">5</property>
     <property name="pixbuf">../static/images/mochilasx2.svg</property>
   </object>
   <object class="GtkImage" id="image_usa_flag">
@@ -266,6 +269,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="margin_right">10</property>
                     <property name="image">image_malasx4</property>
                     <signal name="button-press-event" handler="on_btn_malasx4_button_press_event" swapped="no"/>
                   </object>
@@ -280,6 +284,7 @@
                     <property name="name">label_select_size</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="margin_top">10</property>
                     <property name="label" translatable="yes">IDEAL PARA</property>
                     <attributes>
                       <attribute name="font-desc" value="Sans 15"/>
@@ -326,6 +331,7 @@
                     <property name="name">label_select_size</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="margin_top">10</property>
                     <property name="label" translatable="yes">IDEAL PARA</property>
                     <attributes>
                       <attribute name="font-desc" value="Sans 15"/>
@@ -407,6 +413,7 @@
                     <property name="name">label_select_size</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="margin_top">10</property>
                     <property name="label" translatable="yes">IDEAL PARA</property>
                     <attributes>
                       <attribute name="font-desc" value="Sans 15"/>
@@ -438,6 +445,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
+            <property name="margin_top">10</property>
             <property name="margin_bottom">40</property>
             <property name="spacing">5</property>
             <child>
