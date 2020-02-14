@@ -2557,7 +2557,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
   </object>
   <object class="GtkWindow" id="window_select_cartao">
     <property name="name">window</property>
-    <property name="width_request">1024</property>
+    <property name="width_request">1000</property>
     <property name="height_request">550</property>
     <property name="can_focus">False</property>
     <property name="has_focus">True</property>
@@ -2580,6 +2580,8 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
         <property name="height_request">450</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
         <property name="margin_left">40</property>
         <property name="margin_right">40</property>
         <property name="margin_top">20</property>
@@ -2588,6 +2590,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
         <child>
           <object class="GtkLabel" id="label_menu">
             <property name="name">label_menu</property>
+            <property name="width_request">400</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="valign">center</property>
@@ -2605,7 +2608,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
           <object class="GtkButton" id="btn_credito">
             <property name="label" translatable="yes">CRÉDITO </property>
             <property name="name">btn_encerrar_sessao</property>
-            <property name="width_request">200</property>
+            <property name="width_request">400</property>
             <property name="height_request">100</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -2628,7 +2631,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
           <object class="GtkButton" id="btn_debito">
             <property name="label" translatable="yes">DÉBITO  </property>
             <property name="name">btn_encerrar_sessao</property>
-            <property name="width_request">200</property>
+            <property name="width_request">400</property>
             <property name="height_request">100</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -2652,8 +2655,8 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
         <child>
           <object class="GtkButton" id="btn_cancelar_escolha">
             <property name="label" translatable="yes">CANCELAR</property>
-            <property name="name">btn_encerrar_sessao</property>
-            <property name="width_request">200</property>
+            <property name="name">btn_retornar</property>
+            <property name="width_request">400</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>

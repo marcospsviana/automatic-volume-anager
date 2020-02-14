@@ -1,0 +1,58 @@
+#window_calendario{
+	background: floralwhite;
+	font: 1.3em monospace;
+	font-weight: lighter;
+	color: rgb(9, 19, 41);
+}
+#btn_seta_date{
+	background: floralwhite;
+	color: #063f41;
+	font: 1em monospace;
+}
+#btn_confirmar_calendario, #btn_retornar_calendario{
+	font:1.2em  monospace;
+	color:floralwhite;
+	border-radius: 0;
+}
+#btn_confirmar_calendario{
+	background: #0b4f6f;
+}
+#btn_retornar_calendario{
+	background: #aa0000;
+}
+#btn_calendario{
+	color: #000;
+	font: 1.3em sans-serif;
+}
+#btn_calendario_dom, #btn_calendario_sab{
+	color: #aa0000;
+	font: 1.3em sans-serif;
+	
+}
+#btn_calendario_dom:focus{
+	background: #05878b;
+	border-radius: 100%;
+	color: floralwhite;
+}
+
+#btn_calendario_sab:focus{
+	background: #05878b;
+	border-radius: 100%;
+	color: floralwhite;
+}
+#btn_calendario:focus{
+	background: #05878b;
+	color: #fff;
+	border-radius: 100%;
+}
+
+#dia_passado{
+    background: floralwhite;
+	color: #688586;
+}
+
+#dia_selecionado{
+    background: rgba(17, 80, 80, 0.5);
+	border-radius: 100%;
+	color: white;
+}

@@ -11,7 +11,8 @@ from controllers import Management
 import PIL
 from PIL import Image
 from decimal import Decimal
-
+TAXA_HORA_A = TAXA_HORA_B = TAXA_HORA_C = TAXA_HORA_D = DDD = ''
+TAXA_DIARIA_A = TAXA_DIARIA_B = TAXA_DIARIA_C = TAXA_DIARIA_D = ''
 
 class CadastroUsuarios(object):
     def __init__(self, *args):
@@ -135,10 +136,12 @@ class CadastroUsuarios(object):
         #================== LABEL window_erro_pagamentos =========================
         self.label_window_erro_pagamentos = self.builder.get_object("label_window_erro_pagamentos")
 
-        """ ================FIM LABELS==================="""
+        self.label_menu = self.builder.get_object("label_menu")
+
+        # ================FIM LABELS===================
         self.spinner = self.builder.get_object("spinner")
 
-        """ ================= ENTRYS ===================="""
+        # ================= ENTRYS ====================
 
         self.entry_nome = self.builder.get_object("entry_nome")
         self.entry_nome.connect("button_press_event", self.on_entry_nome_button_press_event)
@@ -277,6 +280,8 @@ class CadastroUsuarios(object):
         self.btn_dash.connect("clicked", self.on_entry_entrada_dados_button_press_event)
         self.btn_under = self.builder.get_object("btn_under")
         self.btn_under.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.btn_dot_com = self.builder.get_object("btn_dot_com")
+        self.btn_dot_com.connect("clicked", self.on_entry_entrada_dados_button_press_event)
         """========== fim elementos do teclado  """
         """ ========= lista combobox ========= """
        
@@ -424,6 +429,12 @@ class CadastroUsuarios(object):
             self.label_fim_locacao_titulo.set_text("FIM DA LOCAÇÃO")
             self.label_message_envio_email.set_text("UM EMAIL COM O RECAPTULATIVO DE SUA\n RESERVA ACABA DE LHE SER ENVIADO!")
             self.button_fechar_armario.set_label("FECHAR ARMÁRIO")
+            self.btn_tente_novamente_window_erro_pagamentos.set_label("TENTE NOVAMENTE")
+            self.btn_cancelar_window_erro_pagamentos.set_label("CANCELAR")
+            self.label_menu.set_text(" SELECIONE A OPÇÃO DE PAGAMENTO ")
+            self.btn_credito.set_label("CRÉDITO")
+            self.btn_debito.set_label("DÉBITO")
+            self.btn_cancelar_escolha.set_label("CANCELAR")
             self.label_instrucao.set_text("""Após guardar todo o volume necessário, \n
                                            empurre a porta sem forçar até encostar na trava,\n 
                                            depois para finalizar clique no botão abaixo com nome: FECHAR ARMÁRIO.\n
@@ -458,6 +469,11 @@ class CadastroUsuarios(object):
             self.label_fim_locacao_titulo.set_text("FINAL DATE OF LEASE")
             self.label_message_envio_email.set_text("AN EMAIL WITH THE RECAPTULATIVE OF YOUR\n RESERVATION HAS JUST BEEN SENT!")
             self.button_fechar_armario.set_label("CLOSE CABINET")
+            self.btn_tente_novamente_window_erro_pagamentos.set_label("TRY AGAIN")
+            self.btn_cancelar_window_erro_pagamentos.set_label("CANCEL")
+            self.label_menu.set_text(" SELECT A PAYMENT OPTION ")
+            self.btn_credito.set_label("CREDIT")
+            self.btn_debito.set_label("DEBIT")
             self.label_instrucao.set_text("""After saving all the required volume,\n
                                             push the door without force until it touches the lock,\n
                                             then to finish click the button below with name: CLOSET CLOSER.\n

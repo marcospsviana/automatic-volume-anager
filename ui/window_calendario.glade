@@ -8,9 +8,12 @@
     <property name="height_request">580</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
+    <property name="window_position">center-always</property>
     <property name="default_width">1000</property>
     <property name="default_height">550</property>
     <property name="destroy_with_parent">True</property>
+    <property name="decorated">False</property>
+    <property name="gravity">center</property>
     <child>
       <placeholder/>
     </child>
@@ -179,7 +182,7 @@
                 <property name="name">btn_calendario_dom</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Dom</property>
+                <property name="label" translatable="yes">Sun</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -191,7 +194,7 @@
                 <property name="name">label_weekdays</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Seg</property>
+                <property name="label" translatable="yes">Mon</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -203,7 +206,7 @@
                 <property name="name">label_weekdays</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Ter</property>
+                <property name="label" translatable="yes">Tue</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -215,7 +218,7 @@
                 <property name="name">label_weekdays</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Qua</property>
+                <property name="label" translatable="yes">Wed</property>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -227,7 +230,7 @@
                 <property name="name">label_weekdays</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Qui</property>
+                <property name="label" translatable="yes">Thu</property>
               </object>
               <packing>
                 <property name="left_attach">4</property>
@@ -239,7 +242,7 @@
                 <property name="name">label_weekdays</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Sex</property>
+                <property name="label" translatable="yes">Fri</property>
               </object>
               <packing>
                 <property name="left_attach">5</property>
@@ -250,7 +253,7 @@
               <object class="GtkLabel" id="label_sabado">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Sáb</property>
+                <property name="label" translatable="yes">Sat</property>
               </object>
               <packing>
                 <property name="left_attach">6</property>
@@ -1003,7 +1006,6 @@
                 <property name="name">label_bottom_calendario</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Data Inicial Locação :</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -1015,7 +1017,6 @@
                 <property name="name">label_bottom_calendario</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">11/02/2020 16:30</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -1027,7 +1028,6 @@
                 <property name="name">label_bottom_calendario</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Valor Total :</property>
               </object>
               <packing>
                 <property name="left_attach">4</property>
@@ -1039,7 +1039,6 @@
                 <property name="name">label_bottom_calendario</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Total Dias</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -1051,7 +1050,6 @@
                 <property name="name">label_bottom_calendario</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">15</property>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -1063,7 +1061,6 @@
                 <property name="name">label_bottom_calendario</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">R$ 15,00</property>
               </object>
               <packing>
                 <property name="left_attach">5</property>

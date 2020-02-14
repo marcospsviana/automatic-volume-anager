@@ -1,4 +1,5 @@
 from controllers import Management
+from taxas import *
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk
@@ -80,40 +81,87 @@ class WindowCalendario:
 
 
         self.date_calendar = calendar.Calendar()
-        data = datetime.now()
+        self.data = datetime.now()
         self.weekdays = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
-        self.meses = ["Janeiro","Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
-        self.ano = data.year
-        self.label_month.set_label(str(self.meses[data.month]))
+        #self.meses = ["Janeiro","Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+        self.meses = ["January","February", "March", "April", "May","June","July","August","September","October","November", "December"]
+        self.ano = self.data.year
+        self.label_month.set_label(str(self.meses[self.data.month - 1]))
         self.label_year.set_label(str(self.ano))
         calendar.setfirstweekday(calendar.SUNDAY)
-        self.mes = calendar.monthcalendar(data.year, data.month)
+        self.mes = calendar.monthcalendar(self.data.year, self.data.month)
 
-        dias_meses = [  [self.btn0, self.btn1, self.btn2, self.btn3, self.btn4, self.btn5,self.btn6],
+        self.dias_meses = [  [self.btn0, self.btn1, self.btn2, self.btn3, self.btn4, self.btn5,self.btn6],
                         [self.btn7, self.btn8, self.btn9, self.btn10,self.btn11,self.btn12,self.btn13],
                         [self.btn14,self.btn15,self.btn16,self.btn17,self.btn18,self.btn19, self.btn20],
                         [self.btn21,self.btn22,self.btn23,self.btn24, self.btn25,self.btn26,self.btn27],
                         [self.btn28,self.btn29, self.btn30,self.btn31,self.btn32,self.btn33,self.btn34]
                     ]
-        dias_dom = [self.btn6, self.btn13, self.btn20, self.btn27, self.btn34]
+        self.dias_dom = [self.btn6, self.btn13, self.btn20, self.btn27, self.btn34]
+        self.dias_totais = [self.btn0, self.btn1, self.btn2, self.btn3, self.btn4, self.btn5,self.btn6,
+                        self.btn7, self.btn8, self.btn9, self.btn10,self.btn11,self.btn12,self.btn13,
+                        self.btn14,self.btn15,self.btn16,self.btn17,self.btn18,self.btn19, self.btn20,
+                        self.btn21,self.btn22,self.btn23,self.btn24, self.btn25,self.btn26,self.btn27,
+                        self.btn28,self.btn29, self.btn30,self.btn31,self.btn32,self.btn33,self.btn34]
+        self.dia = 0
         for i in range(len(self.mes)):
             for j,d in zip(self.mes[i], range(7)):
-                dias_meses[i][d].set_label(str(j))
-        for i in range(len(dias_meses)):
+                self.dias_meses[i][d].set_label(str(j))
+        for i in range(len(self.dias_meses)):
              for d in range(7):
-                if dias_meses[i][d].get_label() == '0':
-                    dias_meses[i][d].set_label("")
-                    dias_meses[i][d].set_sensitive(False)
-                if dias_meses[i][d].get_label() == str(data.day):
-                    print("dias messess",dias_meses[i][d].get_label())
-                    dias_meses[i][d].gtk_style("border: 1px solid #05878b")
+                if self.dias_meses[i][d].get_label() == '0':
+                    self.dias_meses[i][d].set_label("")
+                    self.dias_meses[i][d].set_sensitive(False)
+                else:
+                    self.dia = self.dias_meses[i][d].get_label()
+                if int(self.dia) <= self.data.day:
+                    print("dias messess",self.dias_meses[i][d].get_label())
+                    #self.dias_meses[i][d].gtk_style("border: 1px solid #05878b")
+                    self.dias_meses[i][d].set_sensitive(False)
+                    self.dias_meses[i][d].set_name("dia_passado")
+                
+
+
+                
+                
+
         
 
         #self.window_calendario.fullscreen()
         self.window_calendario.show()
 
-    def on_btn_button_press_event(self, event, args):
-        print("clicou")
+    def on_btn_button_press_event(self, widget, args):
+        self.widget = widget.get_label()
+        print(self.widget)
+        
+        for i in range(35):
+             #for d in range(7):
+                print("self.dias_meses[%s]"%(i), self.dias_totais[i].get_label())
+                if self.dias_totais[i].get_label() == '0':
+                    self.dias_totais[i].set_label("")
+                    self.dias_totais[i].set_sensitive(False)
+                elif (self.dias_totais[i].get_label()) >= str(self.data.day) and ((self.dias_totais[i].get_label()) < self.widget) and (self.dias_totais[i].get_sensitive()) and not(self.dias_totais[i].get_label()) < str(self.data.day):
+                    self.dias_totais[i].set_name("dia_selecionado")    
+                
+                elif int(self.dia) <= self.data.day:
+                    print("dias messess",self.dias_totais[i].get_label())
+                    #self.dias_meses[i][d].gtk_style("border: 1px solid #05878b")
+                    self.dias_totais[i].set_sensitive(False)
+                    self.dias_totais[i].set_name("dia_passado")
+                
+                elif((self.dias_totais[i].get_label() != "" and int(self.dias_totais[i].get_label()) > int(self.widget)) and \
+                ((self.dias_totais[i].get_name()) != "btn_calendario_dom" or \
+                self.dias_totais[i].get_name()) != "btn_calendario_sab") : 
+                    self.dias_totais[i].set_name("btn_calendario")
+                
+
+                
+                
+                    
+                    
+                
+
+        
     
     def on_btn_previous_mont_button_press_event(self, event, args):
         print("voltar mes")
@@ -133,7 +181,7 @@ class WindowCalendario:
     def gtk_style(self):
         css = b"""
         
-        @import url("static/css/gtk.css");
+        @import url("static/css/calendario.css");
         """
         style_provider = Gtk.CssProvider()
         style_provider.load_from_data(css)

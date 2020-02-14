@@ -1,41 +1,42 @@
-/*{
-	font: 32px "Noto Sans";
-}*/
+*{
+	font-family: "Ubuntu Mono";
+	font-weight: lighter;
+}
 button{
 	/*font: 27px "arial";*/
 	color: rgb(9, 19, 41);
 	border-radius: 10px;
 }
 #entry{
-	font: 2em sans-serif;
+	font-size: 2em ;
 	border-radius: 5px;
 }
 #label_dialogo{
 	color: #000;
-	font: 32px "Noto Sans";
+	font-size: 32px;
 }
 #combobox{
 	border-radius: 0;
 }
 #label_combobox{
-	font: 2em "Noto Sans";
+	font-size: 2em ;
 }
 
 #btn_num{ background-color: red; font-size: 22px}
 
 #btn_proximo { 
-	font: 2.5em sans-serif;
+	font-size: 2.5em ;
 		background: rgb(9, 19, 41);
 		color: #d6e6ee;
 	    }
 #btn_cancelar {  
-	font: 1.4em sans-serif;
+	font-size: 1.4em;
 		background: rgb(199, 75, 54);
 		color: #d6e6ee;
 		border-radius: 2px;
 	     }
 #btn_confirmar{  
-		font: 1.5em sans-serif;
+		font-size: 1.5em ;
 		background: #0b4f6f;/* rgb(8, 107, 173);*/
 		color: #d6e6ee;
 		padding: 10px;
@@ -44,7 +45,7 @@ button{
 		padding: 1.2em 4em;
 		 }
 #btn_retornar{  
-	font: 1.5em sans-serif;
+	font-size: 1.5em ;
 	background: #aa0000;
 	color: #d6e6ee;
 	padding: 5px;
@@ -57,7 +58,7 @@ background-color: #FDCF03;
 }
 #window_locacao { 
 	background-color: #ffe100;
-	font: 22px "Noto Sans";
+	font-size: 22px ;
 }
 
 #lbl_time { font-size: 52px }       
@@ -65,11 +66,10 @@ background-color: #FDCF03;
 #label_nome , 
 #label_email, 
 #label_celular, 
-
 #label_valor_da_locacao,
 #label_total,
 #label_entrada_dados { 
-	font: 1em sans-serif;
+	font-size: 1em ;
 	color: rgb(9, 19, 41);}
 #label_quantidade_diaria,
 #label_quantidade_horas,
@@ -79,72 +79,26 @@ background-color: #FDCF03;
 	}
 #label_senha { color: #fff }
 #btn_delete{
-	font: 1em "Noto Sans";
+	font-size: 1em ;
 	background: darkorange;
 	font-weight: bold;
 }
 #tecla{
-	font: 30px "Noto Sans";
+	font-size: 30px ;
 	
 }
 #tecla_num{
 	background: #FDCF03;
 	border: rgb(9, 19, 41) solid 1px;
 	color: #000;
-	font: 2.5em sans-serif;
+	font-size: 2.5em ;
 }
 
 #tecla_num:focus{
 background: rgb(9, 19, 41);
 color: #fff;
 }
-#window_calendario{
-	background: floralwhite;
-	font: 1.3em monospace;
-	font-weight: lighter;
-	color: rgb(9, 19, 41);
-}
-#btn_seta_date{
-	background: floralwhite;
-	color: #063f41;
-	font: 1em monospace;
-}
-#btn_confirmar_calendario, #btn_retornar_calendario{
-	font:1.6em  monospace;
-	color:floralwhite;
-	border-radius: 0;
-}
-#btn_confirmar_calendario{
-	background: #0b4f6f;
-}
-#btn_retornar_calendario{
-	background: #aa0000;
-}
-#btn_calendario{
-	color: #000;
-	font: 1.3em sans-serif;
-}
-#btn_calendario_dom, #btn_calendario_sab{
-	color: #aa0000;
-	font: 1.3em sans-serif;
-	
-}
-#btn_calendario_dom:focus{
-	background: #05878b;
-	border-radius: 100%;
-	color: floralwhite;
-}
 
-#btn_calendario_sab:focus{
-	background: #05878b;
-	border-radius: 100%;
-	color: floralwhite;
-}
-#btn_calendario:focus{
-	background: #05878b;
-	color: #fff;
-	border-radius: 100%;
-}
 #tecla_alfa{
 	background: #FDCF03;
 	border: rgb(9, 19, 41) solid 1px;
@@ -221,7 +175,7 @@ color: #fff;
 	font-weight: lighter;
 }
 #label_menu{
-    font: 2.5em sans-serif;
+    font: 3em sans-serif;
     font-weight: lighter;
     color: black;
 }

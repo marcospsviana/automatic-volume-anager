@@ -750,15 +750,14 @@ class DataAccessObjectsManager(object):
         if 'aprovada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
             self.__c.execute(
                 "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
-            self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (
-                result_id_armario[0]))
+            self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao["id_armario"][0]))
             self.__conn.commit()
             self.__conn.close()
             __porta = self.select_port(self.__locacao["id_armario"][0])
             print("porta em pagamento", __porta)
             
             # LIBERAR NO RASPBERRY
-            self.port.exec_port(__porta[0][0], "abre", "livre")
+            self.port.exec_port(__porta, "abre", "livre")
             return (resultado_transacao["PWINFO_RESULTMSG"])
         else:
             return (resultado_transacao["PWINFO_RESULTMSG"])
