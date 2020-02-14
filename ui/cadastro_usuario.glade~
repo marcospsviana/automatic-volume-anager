@@ -332,6 +332,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
         </child>
         <child>
           <object class="GtkBox">
+            <property name="width_request">900</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
@@ -1065,8 +1066,6 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="hexpand">False</property>
                 <property name="row_spacing">2</property>
                 <property name="column_spacing">5</property>
-                <property name="row_homogeneous">True</property>
-                <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="btn_gmail">
                     <property name="label" translatable="yes">@GMAIL.COM</property>
@@ -1125,6 +1124,19 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="relief">none</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">4</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn_hotmail">
+                    <property name="label" translatable="yes">@HOTMAIL.COM</property>
+                    <property name="name">tecla_alfa</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">3</property>
@@ -1603,6 +1615,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
+                <property name="halign">center</property>
                 <property name="margin_left">10</property>
                 <property name="margin_right">10</property>
                 <property name="relief">none</property>

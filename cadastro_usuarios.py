@@ -282,6 +282,8 @@ class CadastroUsuarios(object):
         self.btn_under.connect("clicked", self.on_entry_entrada_dados_button_press_event)
         self.btn_dot_com = self.builder.get_object("btn_dot_com")
         self.btn_dot_com.connect("clicked", self.on_entry_entrada_dados_button_press_event)
+        self.btn_hotmail = self.builder.get_object("btn_hotmail")
+        self.btn_hotmail.connect("clicked", self.on_entry_entrada_dados_button_press_event)
         """========== fim elementos do teclado  """
         """ ========= lista combobox ========= """
        
