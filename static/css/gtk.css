@@ -69,6 +69,7 @@ background-color: #FDCF03;
 #label_valor_da_locacao,
 #label_total,
 #label_entrada_dados,
+#label_quantidade_horas,
 #label_quantidade_diaria { 
 	font-size: 2em ;
 	color: rgb(9, 19, 41);}
@@ -77,7 +78,7 @@ background-color: #FDCF03;
 	color: rgb(9, 19, 41);
 }
 
-#label_quantidade_horas,
+
 #label_quantidade_minutos, #label_weekdays{
 		font: 1em sans-serif;
 	color: rgb(9, 19, 41);
@@ -97,6 +98,7 @@ background-color: #FDCF03;
 	border: rgb(9, 19, 41) solid 1px;
 	color: #000;
 	font-size: 2.5em ;
+	border-radius: 5px;
 }
 #tecla_num_quantidade{
 	
@@ -114,7 +116,8 @@ color: #fff;
 	background: #FDCF03;
 	border: rgb(9, 19, 41) solid 1px;
 	color: #000;
-	font: 1.5em sans-serif;
+	font: 2em sans-serif;
+	border-radius: 3px;
 }
 
 #tecla_alfa:focus{
