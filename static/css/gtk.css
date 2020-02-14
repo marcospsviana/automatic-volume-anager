@@ -129,6 +129,7 @@ color: #fff;
 	background: #fdcf03;
 	border: rgb(9, 19, 41) solid 1px;
 	color: #000;
+	border-radius: 3px;
 	font: 1.9em sans-serif;
 }
 #tecla_backspace:focus{

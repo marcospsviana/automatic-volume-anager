@@ -341,7 +341,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             <property name="spacing">5</property>
             <child>
               <object class="GtkGrid" id="grid_numbers">
-                <property name="width_request">800</property>
+                <property name="width_request">900</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
@@ -506,18 +506,19 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             </child>
             <child>
               <object class="GtkGrid">
-                <property name="width_request">800</property>
+                <property name="width_request">900</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="column_spacing">5</property>
+                <property name="row_homogeneous">True</property>
                 <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="Q">
                     <property name="label" translatable="yes">Q</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">82</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -533,7 +534,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="W">
                     <property name="label" translatable="yes">W</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">82</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -549,7 +550,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="E">
                     <property name="label" translatable="yes">E</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">82</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -566,7 +567,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="R">
                     <property name="label" translatable="yes">R</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">82</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -583,7 +584,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="T">
                     <property name="label" translatable="yes">T</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">82</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -600,7 +601,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="Y">
                     <property name="label" translatable="yes">Y</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">82</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -617,7 +618,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="U">
                     <property name="label" translatable="yes">U</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">82</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -634,7 +635,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="I">
                     <property name="label" translatable="yes">I</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">82</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -651,7 +652,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="O">
                     <property name="label" translatable="yes">O</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">82</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -668,7 +669,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="P">
                     <property name="label" translatable="yes">P</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">82</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -690,18 +691,19 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             </child>
             <child>
               <object class="GtkGrid">
-                <property name="width_request">750</property>
+                <property name="width_request">900</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="column_spacing">5</property>
+                <property name="row_homogeneous">True</property>
                 <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="A">
                     <property name="label" translatable="yes">A</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">83</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -718,7 +720,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="S">
                     <property name="label" translatable="yes">S</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">83</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -735,7 +737,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="D">
                     <property name="label" translatable="yes">D</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">83</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -752,7 +754,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="F">
                     <property name="label" translatable="yes">F</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">83</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -769,7 +771,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="G">
                     <property name="label" translatable="yes">G</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">83</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -786,7 +788,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="H">
                     <property name="label" translatable="yes">H</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">83</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -803,7 +805,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="J">
                     <property name="label" translatable="yes">J</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">83</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -820,7 +822,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="K">
                     <property name="label" translatable="yes">K</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">83</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -837,7 +839,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="L">
                     <property name="label" translatable="yes">L</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">83</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -853,7 +855,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="btn_dash">
                     <property name="label" translatable="yes">-</property>
                     <property name="name">tecla_alfa</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">83</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -874,18 +876,19 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             </child>
             <child>
               <object class="GtkGrid">
-                <property name="width_request">600</property>
+                <property name="width_request">900</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="column_spacing">5</property>
+                <property name="row_homogeneous">True</property>
                 <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="M">
                     <property name="label" translatable="yes">M</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">85</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -902,7 +905,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="N">
                     <property name="label" translatable="yes">N</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">85</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -919,7 +922,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="B">
                     <property name="label" translatable="yes">B</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">85</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -936,7 +939,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="V">
                     <property name="label" translatable="yes">V</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">85</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -953,7 +956,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="C">
                     <property name="label" translatable="yes">C</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">85</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -970,7 +973,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="X">
                     <property name="label" translatable="yes">X</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">85</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -987,7 +990,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="Z">
                     <property name="label" translatable="yes">Z</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">85</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1004,7 +1007,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="btn_dot">
                     <property name="label" translatable="yes">.</property>
                     <property name="name">tecla_alfa</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">85</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1020,7 +1023,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="btn_under">
                     <property name="label" translatable="yes">_</property>
                     <property name="name">tecla_alfa</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">85</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1036,7 +1039,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="btn_arroba">
                     <property name="label" translatable="yes">@</property>
                     <property name="name">tecla_num</property>
-                    <property name="width_request">80</property>
+                    <property name="width_request">85</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1070,7 +1073,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="btn_gmail">
                     <property name="label" translatable="yes">@GMAIL.COM</property>
                     <property name="name">tecla_alfa</property>
-                    <property name="width_request">172</property>
+                    <property name="width_request">160</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1086,7 +1089,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="btn_outlook">
                     <property name="label" translatable="yes">@OUTLOOK.COM</property>
                     <property name="name">tecla_alfa</property>
-                    <property name="width_request">170</property>
+                    <property name="width_request">160</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1103,7 +1106,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="btn_yahoo">
                     <property name="label" translatable="yes">@YAHOO.COM</property>
                     <property name="name">tecla_alfa</property>
-                    <property name="width_request">170</property>
+                    <property name="width_request">160</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1120,7 +1123,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="btn_dot_com">
                     <property name="label" translatable="yes">.COM</property>
                     <property name="name">tecla_alfa</property>
-                    <property name="width_request">150</property>
+                    <property name="width_request">135</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1137,7 +1140,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="btn_hotmail">
                     <property name="label" translatable="yes">@HOTMAIL.COM</property>
                     <property name="name">tecla_alfa</property>
-                    <property name="width_request">172</property>
+                    <property name="width_request">160</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1157,17 +1160,18 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             </child>
             <child>
               <object class="GtkGrid">
+                <property name="width_request">900</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
-                <property name="valign">center</property>
                 <property name="row_spacing">1</property>
                 <property name="column_spacing">5</property>
+                <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="btn_backspace">
                     <property name="label" translatable="yes">Backspace</property>
                     <property name="name">btn_backspace</property>
-                    <property name="width_request">200</property>
+                    <property name="width_request">240</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1187,13 +1191,12 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="btn_espaco">
                     <property name="label" translatable="yes"> </property>
                     <property name="name">tecla_alfa</property>
-                    <property name="width_request">450</property>
+                    <property name="width_request">600</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="margin_left">49</property>
-                    <property name="margin_right">29</property>
-                    <property name="hexpand">False</property>
+                    <property name="halign">center</property>
+                    <property name="margin_right">10</property>
                     <property name="relief">none</property>
                   </object>
                   <packing>
