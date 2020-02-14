@@ -88,7 +88,6 @@
   <object class="GtkImage" id="image_cameraenotebook">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="margin_left">10</property>
     <property name="pixbuf">../static/images/cameraenotebook.svg</property>
   </object>
   <object class="GtkImage" id="image_malasx4">
@@ -105,7 +104,6 @@
   <object class="GtkImage" id="image_mochilasx2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="margin_left">10</property>
     <property name="pixbuf">../static/images/mochilasx2.svg</property>
   </object>
   <object class="GtkImage" id="image_usa_flag">
@@ -318,6 +316,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="margin_right">10</property>
                     <property name="image">image_malax2</property>
                     <signal name="button-press-event" handler="on_btn_malasx2_button_press_event" swapped="no"/>
                   </object>
@@ -365,6 +364,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="margin_left">10</property>
                     <property name="image">image_mochilasx2</property>
                     <property name="use_underline">True</property>
                     <property name="always_show_image">True</property>
@@ -400,6 +400,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="margin_left">10</property>
                     <property name="image">image_cameraenotebook</property>
                     <signal name="button-press-event" handler="on_btn_cameraenotebook_button_press_event" swapped="no"/>
                   </object>

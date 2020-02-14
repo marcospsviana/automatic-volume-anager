@@ -251,6 +251,7 @@
         </child>
         <child>
           <object class="GtkBox">
+            <property name="width_request">850</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
