@@ -109,6 +109,10 @@ background-color: #FDCF03;
 		font-size: 3em ;
 		border-radius: 3px;
 }
+#tecla_num_quantidade:active{
+	color: #fff;
+	background: #aa0000;
+}
 #tecla_num:focus{
 background: rgb(9, 19, 41);
 color: #fff;
