@@ -1438,6 +1438,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="width_request">700</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">center</property>
                 <property name="hexpand">False</property>
                 <signal name="button-press-event" handler="on_entry_nome_button_press_event" swapped="no"/>
               </object>
@@ -1504,6 +1505,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="width_request">700</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">center</property>
                 <property name="hexpand">False</property>
                 <signal name="button-press-event" handler="on_entry_email_button_press_event" swapped="no"/>
               </object>
@@ -1580,9 +1582,10 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             <child>
               <object class="GtkEntry" id="entry_celular">
                 <property name="name">entry</property>
-                <property name="width_request">650</property>
+                <property name="width_request">550</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">center</property>
                 <signal name="button-press-event" handler="on_entry_celular_button_press_event" swapped="no"/>
               </object>
               <packing>
