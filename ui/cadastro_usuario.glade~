@@ -2022,27 +2022,26 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
     <child>
       <object class="GtkBox">
         <property name="width_request">1000</property>
-        <property name="height_request">500</property>
+        <property name="height_request">550</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="margin_top">15</property>
-        <property name="hexpand">True</property>
-        <property name="vexpand">True</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
-            <property name="margin_left">15</property>
-            <property name="margin_right">15</property>
-            <property name="margin_top">20</property>
+            <property name="margin_left">40</property>
+            <property name="margin_right">40</property>
+            <property name="margin_top">40</property>
             <property name="margin_bottom">5</property>
             <property name="hexpand">True</property>
             <property name="spacing">5</property>
             <child>
               <object class="GtkLabel" id="label_entrada_numeros">
                 <property name="name">label_entrada_dados</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">QUANTIDADE DIÁRIA</property>
@@ -2091,9 +2090,11 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
         </child>
         <child>
           <object class="GtkBox">
+            <property name="width_request">800</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
+            <property name="valign">center</property>
             <property name="margin_top">5</property>
             <property name="margin_bottom">5</property>
             <property name="orientation">vertical</property>
@@ -2102,12 +2103,15 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">center</property>
                 <property name="hexpand">True</property>
                 <property name="column_spacing">5</property>
                 <child>
                   <object class="GtkButton" id="btn_um">
                     <property name="label" translatable="yes">1</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_num_quantidade</property>
+                    <property name="width_request">80</property>
+                    <property name="height_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -2120,7 +2124,9 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <child>
                   <object class="GtkButton" id="btn_dois">
                     <property name="label" translatable="yes">2</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_num_quantidade</property>
+                    <property name="width_request">80</property>
+                    <property name="height_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -2133,7 +2139,9 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <child>
                   <object class="GtkButton" id="btn_tres">
                     <property name="label" translatable="yes">3</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_num_quantidade</property>
+                    <property name="width_request">80</property>
+                    <property name="height_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -2154,12 +2162,15 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">center</property>
                 <property name="hexpand">True</property>
                 <property name="column_spacing">5</property>
                 <child>
                   <object class="GtkButton" id="btn_quatro">
                     <property name="label" translatable="yes">4</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_num_quantidade</property>
+                    <property name="width_request">80</property>
+                    <property name="height_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -2172,7 +2183,9 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <child>
                   <object class="GtkButton" id="btn_cinco">
                     <property name="label" translatable="yes">5</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_num_quantidade</property>
+                    <property name="width_request">80</property>
+                    <property name="height_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -2185,7 +2198,9 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <child>
                   <object class="GtkButton" id="btn_seis">
                     <property name="label" translatable="yes">6</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_num_quantidade</property>
+                    <property name="width_request">80</property>
+                    <property name="height_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -2206,12 +2221,15 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
               <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">center</property>
                 <property name="hexpand">True</property>
                 <property name="column_spacing">5</property>
                 <child>
                   <object class="GtkButton" id="btn_sete">
                     <property name="label" translatable="yes">7</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_num_quantidade</property>
+                    <property name="width_request">80</property>
+                    <property name="height_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -2224,7 +2242,9 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <child>
                   <object class="GtkButton" id="btn_oito">
                     <property name="label" translatable="yes">8</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_num_quantidade</property>
+                    <property name="width_request">80</property>
+                    <property name="height_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -2237,7 +2257,9 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <child>
                   <object class="GtkButton" id="btn_nove">
                     <property name="label" translatable="yes">9</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_num_quantidade</property>
+                    <property name="width_request">80</property>
+                    <property name="height_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -2263,7 +2285,9 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <child>
                   <object class="GtkButton" id="btn_zero">
                     <property name="label" translatable="yes">0</property>
-                    <property name="name">tecla_num</property>
+                    <property name="name">tecla_num_quantidade</property>
+                    <property name="width_request">80</property>
+                    <property name="height_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -2333,6 +2357,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
               <object class="GtkButton" id="btn_retornar_entrada_numeros">
                 <property name="label" translatable="yes">RETORNAR TELA ANTERIOR</property>
                 <property name="name">btn_retornar</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -2347,6 +2372,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
               <object class="GtkButton" id="btn_confirmar_entrada_numero">
                 <property name="label" translatable="yes">CONFIRMAR</property>
                 <property name="name">btn_confirmar</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -2590,6 +2616,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
         <child>
           <object class="GtkLabel" id="label_menu">
             <property name="name">label_menu</property>
+            <property name="width_request">400</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="valign">center</property>

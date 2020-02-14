@@ -68,10 +68,15 @@ background-color: #FDCF03;
 #label_celular, 
 #label_valor_da_locacao,
 #label_total,
-#label_entrada_dados { 
-	font-size: 1em ;
+#label_entrada_dados,
+#label_quantidade_diaria { 
+	font-size: 2em ;
 	color: rgb(9, 19, 41);}
-#label_quantidade_diaria,
+#label_entrada_num_quantidade{
+	font-size: 2em ;
+	color: rgb(9, 19, 41);
+}
+
 #label_quantidade_horas,
 #label_quantidade_minutos, #label_weekdays{
 		font: 1em sans-serif;
@@ -93,7 +98,13 @@ background-color: #FDCF03;
 	color: #000;
 	font-size: 2.5em ;
 }
-
+#tecla_num_quantidade{
+	
+		background: #FDCF03;
+		border: rgb(9, 19, 41) solid 1px;
+		color: #000;
+		font-size: 3em ;
+}
 #tecla_num:focus{
 background: rgb(9, 19, 41);
 color: #fff;
