@@ -341,7 +341,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             <property name="spacing">5</property>
             <child>
               <object class="GtkGrid" id="grid_numbers">
-                <property name="width_request">800</property>
+                <property name="width_request">900</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
@@ -506,7 +506,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             </child>
             <child>
               <object class="GtkGrid">
-                <property name="width_request">800</property>
+                <property name="width_request">900</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
@@ -690,7 +690,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             </child>
             <child>
               <object class="GtkGrid">
-                <property name="width_request">750</property>
+                <property name="width_request">900</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
@@ -874,7 +874,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             </child>
             <child>
               <object class="GtkGrid">
-                <property name="width_request">600</property>
+                <property name="width_request">900</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
@@ -1120,7 +1120,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   <object class="GtkButton" id="btn_dot_com">
                     <property name="label" translatable="yes">.COM</property>
                     <property name="name">tecla_alfa</property>
-                    <property name="width_request">170</property>
+                    <property name="width_request">150</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
