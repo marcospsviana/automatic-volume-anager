@@ -97,22 +97,7 @@ class WindowCalendario:
         self.label_month.set_label(self.data.strftime("%B"))
         self.label_year.set_label(str(self.ano))
         calendar.setfirstweekday(calendar.SUNDAY)
-        """>>> from datetime import datetime, timedelta
-        >>> data = datetime.now()
-        >>> data
-        datetime.datetime(2020, 2, 15, 15, 7, 1, 436474)
-        >>> data2 = datetime.datetime(2020, 3, 15, 15, 7, 1, 436474)
-        Traceback (most recent call last):
-        File "<stdin>", line 1, in <module>
-        AttributeError: type object 'datetime.datetime' has no attribute 'datetime'
-        >>> data = datetime(data.year, data.month, data.day, data.hour, data.minute)
-        >>> data
-        datetime.datetime(2020, 2, 15, 15, 7)
-        >>> data2 = datetime(2020, 3, 15, 15, 7)
-        >>> dif_days = abs((data2 - data).days)
-        >>> dif_days
-        29
-        """
+        
 
 
 
@@ -141,6 +126,7 @@ class WindowCalendario:
         self.mes = calendar.monthcalendar(ano, mes)
         self.month = mes
         self.label_month.set_label(self.meses[mes])
+        self.label_year.set_label(str(ano))
 
         self.dias_meses = [ [self.btn0, self.btn1, self.btn2, self.btn3, self.btn4, self.btn5,self.btn6],
                             [self.btn7, self.btn8, self.btn9, self.btn10,self.btn11,self.btn12,self.btn13],
@@ -176,10 +162,10 @@ class WindowCalendario:
                 else:
                     self.dia = self.dias_meses[i][d].get_label()
                 
-                if self.dia == "" or (self.label_month.get_label() < self.meses[self.data.month] and int(self.dia) < self.data.day):
+                """if self.dia == "" or (self.label_month.get_label() < self.meses[self.data.month] and int(self.dia) < self.data.day):
                     print("dias messess",self.dias_meses[i][d].get_label())
                     #self.dias_meses[i][d].set_sensitive(False)
-                    self.dias_meses[i][d].set_name("dia_passado")
+                    self.dias_meses[i][d].set_name("dia_passado")"""
                 if self.label_month.get_label() != self.meses[self.data.month] and self.dias_meses[i][d] not in(self.dias_dom):
                     print("dias normais",self.dias_meses[i][d].get_label())
                     #self.dias_meses[i][d].set_sensitive(False)
@@ -193,7 +179,12 @@ class WindowCalendario:
         if self.meses_indices[self.label_month.get_label()] == self.data.month:
             self.btn_previous_mont.set_sensitive(False)
         else:
-            self.btn_previous_mont.set_sensitive(True)       
+            self.btn_previous_mont.set_sensitive(True)
+
+        if int(self.label_year.get_label()) == self.data.year:
+            self.btn_previous_year.set_sensitive(False) 
+        else:
+            self.btn_previous_year.set_sensitive(True)    
 
         
     
@@ -227,10 +218,22 @@ class WindowCalendario:
         self.set_calendario(self.ano_atual, self.mes_atual) 
     
     def on_btn_previous_year_button_press_event(self, event, args):
-        print("voltar ano")
+        self.mes_atual = self.meses_indices[self.label_month.get_label()]
+        print("self.mes_atual", self.mes_atual)
+        self.ano_atual = int(self.label_year.get_label())
+       
+        self.ano_atual = self.ano_atual - 1
+
+        self.set_calendario(self.ano_atual, self.mes_atual)
     
     def on_btn_next_year_button_press_event(self, event, args):
-        print("avancar ano")
+        self.mes_atual = self.meses_indices[self.label_month.get_label()]
+        print("self.mes_atual", self.mes_atual)
+        self.ano_atual = int(self.label_year.get_label())
+       
+        self.ano_atual = self.ano_atual + 1
+
+        self.set_calendario(self.ano_atual, self.mes_atual)
 
     def on_window_calendario_quit(self):
         self.window_calendario.destroy()
