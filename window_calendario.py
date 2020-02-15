@@ -36,6 +36,7 @@ class WindowCalendario:
         # ===================== LABELS ========================
         self.label_month = self.builder.get_object("label_month")
         self.label_year = self.builder.get_object("label_year")
+        self.label_valor_total = self.builder.get_object("label_valor_total")
 
 
         #===================== BUTTONS ========================
@@ -79,142 +80,123 @@ class WindowCalendario:
         self.btn32 = self.builder.get_object('btn32')
         self.btn33 = self.builder.get_object('btn33')
         self.btn34 = self.builder.get_object('btn34')
+        self.btn35 = self.builder.get_object('btn35')
+        self.btn36 = self.builder.get_object('btn36')
+        self.btn37 = self.builder.get_object('btn37')
+        self.btn38 = self.builder.get_object('btn38')
+        self.btn39 = self.builder.get_object('btn39')
+        self.btn40 = self.builder.get_object('btn40')
+        self.btn41 = self.builder.get_object('btn41')
 
-
-
-        self.date_calendar = calendar.Calendar()
         self.data = datetime.now()
-        self.weekdays = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
-        #self.meses = ["Janeiro","Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
-        self.meses = calendar.month_name
+        self.date_calendar = calendar.Calendar()
+        self.meses_indices = {"January": 1, "February": 2, "March": 3, "April": 4, "May": 5, "June": 6, "July": 7, "August": 8, "September": 9, "October": 10, "November": 11, "December": 12 }
+        
+        self.meses = calendar.month_name #lista dos nomes dos meses do ano mes[1] == "January"
         self.ano = self.data.year
         self.label_month.set_label(self.data.strftime("%B"))
         self.label_year.set_label(str(self.ano))
         calendar.setfirstweekday(calendar.SUNDAY)
-        self.mes = calendar.monthcalendar(self.data.year, self.data.month)
-        self.month = self.data.month
-
-        self.dias_meses = [  [self.btn0, self.btn1, self.btn2, self.btn3, self.btn4, self.btn5,self.btn6],
-                        [self.btn7, self.btn8, self.btn9, self.btn10,self.btn11,self.btn12,self.btn13],
-                        [self.btn14,self.btn15,self.btn16,self.btn17,self.btn18,self.btn19, self.btn20],
-                        [self.btn21,self.btn22,self.btn23,self.btn24, self.btn25,self.btn26,self.btn27],
-                        [self.btn28,self.btn29, self.btn30,self.btn31,self.btn32,self.btn33,self.btn34]
-                    ]
-        self.dias_dom = [self.btn6, self.btn13, self.btn20, self.btn27, self.btn34]
-        self.dias_totais = [self.btn0, self.btn1, self.btn2, self.btn3, self.btn4, self.btn5,self.btn6,
-                        self.btn7, self.btn8, self.btn9, self.btn10,self.btn11,self.btn12,self.btn13,
-                        self.btn14,self.btn15,self.btn16,self.btn17,self.btn18,self.btn19, self.btn20,
-                        self.btn21,self.btn22,self.btn23,self.btn24, self.btn25,self.btn26,self.btn27,
-                        self.btn28,self.btn29, self.btn30,self.btn31,self.btn32,self.btn33,self.btn34]
-        self.dia = 0
-        for i in range(len(self.mes)):
-            for j,d in zip(self.mes[i], range(7)):
-                self.dias_meses[i][d].set_label(str(j))
-        for i in range(len(self.dias_meses)):
-             for d in range(7):
-                if self.dias_meses[i][d].get_label() == '0':
-                    self.dias_meses[i][d].set_label("")
-                    self.dias_meses[i][d].set_sensitive(False)
-                else:
-                    self.dia = self.dias_meses[i][d].get_label()
-                if int(self.dia) <= self.data.day:
-                    print("dias messess",self.dias_meses[i][d].get_label())
-                    #self.dias_meses[i][d].gtk_style("border: 1px solid #05878b")
-                    self.dias_meses[i][d].set_sensitive(False)
-                    self.dias_meses[i][d].set_name("dia_passado")
-                
 
 
-                
-                
 
         
+        self.set_calendario(self.data.year, self.data.month)
 
         #self.window_calendario.fullscreen()
         self.window_calendario.show()
 
     def on_btn_button_press_event(self, widget, args):
         self.widget = widget.get_label()
+        taxa = 2.35
+        total = taxa * (int(self.widget) - self.data.day)
+        print("total = %.2f"%(total))
+        self.label_valor_total.set_text("%.2f"%(total))
         print(self.widget)
-        
-        for i in range(35):
-             #for d in range(7):
-                print("self.dias_meses[%s]"%(i), self.dias_totais[i].get_label())
-                if self.dias_totais[i].get_label() == '0':
-                    self.dias_totais[i].set_label("")
-                    self.dias_totais[i].set_sensitive(False)
-                elif (self.dias_totais[i].get_label()) >= str(self.data.day) and ((self.dias_totais[i].get_label()) < self.widget) and (self.dias_totais[i].get_sensitive()) and not(self.dias_totais[i].get_label()) < str(self.data.day):
-                    self.dias_totais[i].set_name("dia_selecionado")    
-                
-                elif int(self.dia) <= self.data.day:
-                    print("dias messess",self.dias_totais[i].get_label())
-                    #self.dias_meses[i][d].gtk_style("border: 1px solid #05878b")
-                    self.dias_totais[i].set_sensitive(False)
-                    self.dias_totais[i].set_name("dia_passado")
-                
-                elif((self.dias_totais[i].get_label() != "" and int(self.dias_totais[i].get_label()) > int(self.widget)) and \
-                ((self.dias_totais[i].get_name()) != "btn_calendario_dom" or \
-                self.dias_totais[i].get_name()) != "btn_calendario_sab") : 
-                    self.dias_totais[i].set_name("btn_calendario")
-                
 
-                
-                
-                    
-                    
+        
+    def set_calendario(self, ano, mes):
+        
+        self.mes = calendar.monthcalendar(ano, mes)
+        self.month = mes
+        self.label_month.set_label(self.meses[mes])
+
+        self.dias_meses = [ [self.btn0, self.btn1, self.btn2, self.btn3, self.btn4, self.btn5,self.btn6],
+                            [self.btn7, self.btn8, self.btn9, self.btn10,self.btn11,self.btn12,self.btn13],
+                            [self.btn14,self.btn15,self.btn16,self.btn17,self.btn18,self.btn19, self.btn20],
+                            [self.btn21,self.btn22,self.btn23,self.btn24, self.btn25,self.btn26,self.btn27],
+                            [self.btn28,self.btn29, self.btn30,self.btn31,self.btn32,self.btn33,self.btn34],
+                            [self.btn35,self.btn36, self.btn37,self.btn38,self.btn39,self.btn40,self.btn41]
+                    ]
+        self.dias_dom = [self.btn0, self.btn7, self.btn14, self.btn21, self.btn28, self.btn6, self.btn13, self.btn20, self.btn27, self.btn34, self.btn35, self.btn41]
+        self.dias_totais = [self.btn0, self.btn1, self.btn2, self.btn3, self.btn4, self.btn5,self.btn6,
+                            self.btn7, self.btn8, self.btn9, self.btn10,self.btn11,self.btn12,self.btn13,
+                            self.btn14,self.btn15,self.btn16,self.btn17,self.btn18,self.btn19, self.btn20,
+                            self.btn21,self.btn22,self.btn23,self.btn24, self.btn25,self.btn26,self.btn27,
+                            self.btn28,self.btn29, self.btn30,self.btn31,self.btn32,self.btn33,self.btn34,
+                            self.btn35,self.btn36, self.btn37,self.btn38,self.btn39,self.btn40,self.btn41]
+        self.dia = 0
+        for i in range(len(self.dias_meses)):
+            for d in range(len(self.dias_meses[i])):
+                self.dias_meses[i][d].set_label("")
+        for i in range(len(self.mes)):
+            for j,d in zip(self.mes[i], range(7)):
+                if self.mes[i][d] == 0 or self.mes[i][d] == None:
+                    self.dias_meses[i][d].set_label("")
+                else:
+                    self.dias_meses[i][d].set_label(str(self.mes[i][d]))
+        
+        for i in range(len(self.mes)):
+            for j,d in zip(self.mes[i], range(7)):
+                if self.dias_meses[i][d].get_label() == '0':
+                    self.dias_meses[i][d].set_label("")
+                    self.dias_meses[i][d].set_sensitive(False)
+                else:
+                    self.dia = self.dias_meses[i][d].get_label()
+                if self.dia == "" or int(self.dia) == self.data.day:
+                    self.dias_meses[i][d].set_sensitive(False)
+                if self.dia == "" or (self.label_month.get_label() < self.meses[self.data.month] and int(self.dia) < self.data.day):
+                    print("dias messess",self.dias_meses[i][d].get_label())
+                    self.dias_meses[i][d].set_sensitive(False)
+                    self.dias_meses[i][d].set_name("dia_passado")
+                if self.label_month.get_label() != self.meses[self.data.month] and self.dias_meses[i][d] not in(self.dias_dom):
+                    print("dias normais",self.dias_meses[i][d].get_label())
+                    #self.dias_meses[i][d].set_sensitive(False)
+                    self.dias_meses[i][d].set_name("btn_calendario")
+                if self.dias_meses[i][d] in(self.dias_dom):
+                    self.dias_meses[i][d].set_name("btn_calendario_dom")
                 
 
         
     
     def on_btn_previous_mont_button_press_event(self, event, args):
         
-        if self.month == 1:
-            self.month = 12
-            self.label_month.set_label(self.meses[12])
-            self.mes = calendar.monthcalendar(self.data.year, self.month)
+        self.mes_atual = self.meses_indices[self.label_month.get_label()]
+        print("self.mes_atual", self.mes_atual)
+        self.ano_atual = self.data.year
+        if self.mes_atual == 1:
+            self.mes_atual = 12
+            self.ano_atual = self.ano_atual - 1
         else:
-            self.month -= 1
-            self.label_month.set_label(self.meses[self.month])
-            self.mes = calendar.monthcalendar(self.data.year, self.month)
-        self.muda_data(self.mes, self.data.year)
-
-    def muda_data(self, mes, ano):
-        calendar.setfirstweekday(calendar.SUNDAY)
-
-        self.dias_meses = [  [self.btn0, self.btn1, self.btn2, self.btn3, self.btn4, self.btn5,self.btn6],
-                        [self.btn7, self.btn8, self.btn9, self.btn10,self.btn11,self.btn12,self.btn13],
-                        [self.btn14,self.btn15,self.btn16,self.btn17,self.btn18,self.btn19, self.btn20],
-                        [self.btn21,self.btn22,self.btn23,self.btn24, self.btn25,self.btn26,self.btn27],
-                        [self.btn28,self.btn29, self.btn30,self.btn31,self.btn32,self.btn33,self.btn34]
-                    ]
-        self.dias_dom = [self.btn6, self.btn13, self.btn20, self.btn27, self.btn34]
-        self.dias_totais = [self.btn0, self.btn1, self.btn2, self.btn3, self.btn4, self.btn5,self.btn6,
-                        self.btn7, self.btn8, self.btn9, self.btn10,self.btn11,self.btn12,self.btn13,
-                        self.btn14,self.btn15,self.btn16,self.btn17,self.btn18,self.btn19, self.btn20,
-                        self.btn21,self.btn22,self.btn23,self.btn24, self.btn25,self.btn26,self.btn27,
-                        self.btn28,self.btn29, self.btn30,self.btn31,self.btn32,self.btn33,self.btn34]
-        self.dia = 0
-        for i in range(len(self.mes)):
-            for j,d in zip(self.mes[i], range(7)):
-                self.dias_meses[i][d].set_label(str(j))
-        for i in range(len(self.dias_meses)):
-             for d in range(7):
-                if self.dias_meses[i][d].get_label() == '0':
-                    self.dias_meses[i][d].set_label("")
-                    self.dias_meses[i][d].set_sensitive(False)
-                else:
-                    self.dia = self.dias_meses[i][d].get_label()
-                if int(self.dia) <= self.data.day and self.month == mes:
-                    print("dias messess",self.dias_meses[i][d].get_label())
-                    #self.dias_meses[i][d].gtk_style("border: 1px solid #05878b")
-                    self.dias_meses[i][d].set_sensitive(False)
-                    self.dias_meses[i][d].set_name("dia_passado")
-        
-        
+            self.mes_atual =  self.mes_atual - 1
+            
+            
+        self.set_calendario(self.ano_atual, self.mes_atual) 
+       
        
     
     def on_btn_next_month_button_press_event(self, event, args):
-        print("avancar mes")
+        self.mes_atual = self.meses_indices[self.label_month.get_label()]
+        print("self.mes_atual", self.mes_atual)
+        self.ano_atual = self.data.year
+        if self.mes_atual == 12:
+            self.mes_atual = 1
+            self.ano_atual = self.ano_atual + 1
+        else:
+            self.mes_atual =  self.mes_atual + 1
+            
+            
+        self.set_calendario(self.ano_atual, self.mes_atual) 
     
     def on_btn_previous_year_button_press_event(self, event, args):
         print("voltar ano")
