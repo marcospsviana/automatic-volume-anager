@@ -166,7 +166,7 @@
         </child>
         <child>
           <object class="GtkGrid" id="grid_daysweek">
-            <property name="width_request">900</property>
+            <property name="width_request">800</property>
             <property name="height_request">40</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -269,7 +269,7 @@
         </child>
         <child>
           <object class="GtkBox" id="box_dias">
-            <property name="width_request">980</property>
+            <property name="width_request">800</property>
             <property name="height_request">450</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -1233,6 +1233,7 @@
                 <property name="margin_right">20</property>
                 <property name="margin_top">5</property>
                 <property name="margin_bottom">10</property>
+                <signal name="button-press-event" handler="on_btn_cancelar_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1255,6 +1256,7 @@
                 <property name="margin_top">5</property>
                 <property name="margin_bottom">10</property>
                 <property name="hexpand">False</property>
+                <signal name="button-press-event" handler="on_btn_confirmar_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
