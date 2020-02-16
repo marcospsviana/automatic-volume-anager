@@ -122,7 +122,7 @@ class WindowCalendario:
         
         self.set_calendario(self.data.year, self.data.month)
 
-        #self.window_calendario.fullscreen()
+        self.window_calendario.fullscreen()
         self.window_calendario.show()
     def on_btn_cancelar_button_press_event(self, widget, event):
         self.label_valor_total.set_text("")
