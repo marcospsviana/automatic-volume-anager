@@ -1,3 +1,4 @@
+from cadastro_usuarios import CadastroUsuarios
 from controllers import Management
 from taxas import *
 import gi
@@ -36,11 +37,20 @@ class WindowSelectHora:
             {
                 "gtk_main_quit"             : self.on_window_select_horas_destroy,
                 "on_btn_button_press_event" : self.on_btn_button_press_event,
+                "on_bnt_confirmar_select_horas_button_press_event": self.on_bnt_confirmar_select_horas_button_press_event,
+                "on_btn_cancelar_select_hora_button_press_event": self.on_btn_cancelar_select_hora_button_press_event,
             }
         )
 
 
         self.window_select_horas = self.builder.get_object("window_select_horas")
+
+        self.bnt_confirmar_select_horas = self.builder.get_object("bnt_confirmar_select_horas")
+        self.bnt_confirmar_select_horas.connect("button_press_event", self.on_bnt_confirmar_select_horas_button_press_event)
+        self.btn_cancelar_select_hora = self.builder.get_object("btn_cancelar_select_hora")
+        self.btn_cancelar_select_hora.connect("button_press_event", self.on_btn_cancelar_select_hora_button_press_event)
+
+
         self.btn1 = self.builder.get_object('btn1')
         self.btn2 = self.builder.get_object('btn2')
         self.btn3 = self.builder.get_object('btn3')
@@ -96,8 +106,16 @@ class WindowSelectHora:
         self.window_select_horas.show()
     def on_btn_button_press_event(self, widget,  event):
         hora = int(widget.get_label())
-        self.label_valor_total_value.set_text(str(hora * self.taxa))
-        
+        valor_total = hora * self.taxa
+        self.label_valor_total_value.set_text("%.2f"%valor_total)
+
+    def on_bnt_confirmar_select_horas_button_press_event(self, widget, event):
+        self.total = self.label_valor_total_value.get_text()
+        CadastroUsuarios(self.total , self.language)
+    
+    def on_btn_cancelar_select_hora_button_press_event(self, widget, event):
+        self.label_valor_total_value.set_text("")
+        self.window_select_horas.hide()
         
     def on_window_select_horas_destroy(self):
         self.window_select_horas.destroy()
