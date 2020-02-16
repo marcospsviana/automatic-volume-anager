@@ -1172,8 +1172,7 @@
               <object class="GtkButton" id="btn_confirmar">
                 <property name="label" translatable="yes">CONFIRMAR</property>
                 <property name="name">btn_confirmar_calendario</property>
-                <property name="width_request">160</property>
-                <property name="height_request">50</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -1191,8 +1190,7 @@
               <object class="GtkButton" id="btn_cancelar">
                 <property name="label" translatable="yes">CANCELAR</property>
                 <property name="name">btn_retornar_calendario</property>
-                <property name="width_request">160</property>
-                <property name="height_request">50</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
