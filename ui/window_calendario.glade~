@@ -5,7 +5,7 @@
   <object class="GtkWindow" id="window_calendario">
     <property name="name">window_calendario</property>
     <property name="width_request">1000</property>
-    <property name="height_request">580</property>
+    <property name="height_request">550</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
