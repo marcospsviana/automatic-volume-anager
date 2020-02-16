@@ -30,6 +30,7 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="valign">center</property>
             <property name="margin_left">40</property>
             <property name="margin_right">40</property>
             <property name="homogeneous">True</property>
@@ -1221,6 +1222,7 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="valign">center</property>
             <child>
               <object class="GtkButton" id="btn_cancelar">
                 <property name="label" translatable="yes">CANCELAR</property>
