@@ -8,6 +8,7 @@
     <property name="height_request">550</property>
     <property name="can_focus">False</property>
     <property name="valign">center</property>
+    <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="default_width">1000</property>
@@ -1146,7 +1147,7 @@
             <property name="row_homogeneous">True</property>
             <property name="column_homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="label_data_atual">
+              <object class="GtkLabel" id="label_valor_total">
                 <property name="name">label_bottom_calendario</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -1157,7 +1158,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="label_data_atual_value">
+              <object class="GtkLabel" id="label_valor_total_value">
                 <property name="name">label_bottom_calendario</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -1168,10 +1169,18 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="label_valor_total">
-                <property name="name">label_bottom_calendario</property>
+              <object class="GtkButton" id="btn_confirmar">
+                <property name="label" translatable="yes">CONFIRMAR</property>
+                <property name="name">btn_confirmar_calendario</property>
+                <property name="width_request">160</property>
+                <property name="height_request">50</property>
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="margin_left">20</property>
+                <property name="margin_right">20</property>
+                <property name="hexpand">False</property>
+                <signal name="button-press-event" handler="on_btn_confirmar_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">4</property>
@@ -1179,37 +1188,30 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="label_total_dias">
-                <property name="name">label_bottom_calendario</property>
+              <object class="GtkButton" id="btn_cancelar">
+                <property name="label" translatable="yes">CANCELAR</property>
+                <property name="name">btn_retornar_calendario</property>
+                <property name="width_request">160</property>
+                <property name="height_request">50</property>
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-              <packing>
-                <property name="left_attach">2</property>
-                <property name="top_attach">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label_total_dias_value">
-                <property name="name">label_bottom_calendario</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-              <packing>
-                <property name="left_attach">3</property>
-                <property name="top_attach">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label_valor_total_value">
-                <property name="name">label_bottom_calendario</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="margin_left">20</property>
+                <property name="margin_right">20</property>
+                <signal name="button-press-event" handler="on_btn_cancelar_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">5</property>
                 <property name="top_attach">0</property>
               </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
             </child>
           </object>
           <packing>
@@ -1224,50 +1226,10 @@
             <property name="can_focus">False</property>
             <property name="valign">center</property>
             <child>
-              <object class="GtkButton" id="btn_cancelar">
-                <property name="label" translatable="yes">CANCELAR</property>
-                <property name="name">btn_retornar_calendario</property>
-                <property name="width_request">160</property>
-                <property name="height_request">60</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="halign">center</property>
-                <property name="margin_left">20</property>
-                <property name="margin_right">20</property>
-                <property name="margin_top">5</property>
-                <property name="margin_bottom">10</property>
-                <signal name="button-press-event" handler="on_btn_cancelar_button_press_event" swapped="no"/>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="pack_type">end</property>
-                <property name="position">0</property>
-              </packing>
+              <placeholder/>
             </child>
             <child>
-              <object class="GtkButton" id="btn_confirmar">
-                <property name="label" translatable="yes">CONFIRMAR</property>
-                <property name="name">btn_confirmar_calendario</property>
-                <property name="width_request">160</property>
-                <property name="height_request">60</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="margin_left">20</property>
-                <property name="margin_right">20</property>
-                <property name="margin_top">5</property>
-                <property name="margin_bottom">10</property>
-                <property name="hexpand">False</property>
-                <signal name="button-press-event" handler="on_btn_confirmar_button_press_event" swapped="no"/>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="pack_type">end</property>
-                <property name="position">1</property>
-              </packing>
+              <placeholder/>
             </child>
           </object>
           <packing>
