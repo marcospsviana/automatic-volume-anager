@@ -1014,7 +1014,8 @@ class CadastroUsuarios(object):
             print("self ddd", self.ddd)
             self.entry_celular.set_text(str(DDD[self.ddd]) + " " +str(self.text_entrada))
             self.entry_celular.set_position(-1)
-        elif self.label_entrada_numeros.get_text() == "QUANTIDADE DIÁRIA" or self.label_entrada_numeros.get_text() == "QUANTITY DAYS":
+            self.window_entrada_numeros.hide()
+        """elif self.label_entrada_numeros.get_text() == "QUANTIDADE DIÁRIA" or self.label_entrada_numeros.get_text() == "QUANTITY DAYS":
             
             self.entry_quantidade_diaria.set_text(self.text_entrada)
             print("entry qtd diaria ===>",self.entry_quantidade_diaria.get_text())
@@ -1024,9 +1025,9 @@ class CadastroUsuarios(object):
             self.entry_quantidade_horas.set_text(self.text_entrada)
             print("entry qtd horas ===>",self.entry_quantidade_horas.get_text())
             self.entry_quantidade_horas.set_position(-1)
-        """elif self.label_entrada_numeros.get_text() == "QUANTIDADE MINUTOS":
+        elif self.label_entrada_numeros.get_text() == "QUANTIDADE MINUTOS":
             self.entry_minutos.set_text(self.text_entrada)
-            self.entry_minutos.set_position(-1)"""
+            self.entry_minutos.set_position(-1)
         
         
         self.dia = self.entry_quantidade_diaria.get_text() + ".0"
@@ -1054,7 +1055,7 @@ class CadastroUsuarios(object):
         self.label_total.set_text("%.2f"%(self.valor_total))
         print("set label para ver","%.2f"%(self.valor_total))
         self.entry_entrada_numeros.set_text("")
-        self.window_entrada_numeros.hide()
+        self.window_entrada_numeros.hide()"""
     
     def on_btn_retornar_entrada_numeros_button_press_event(self, widget, event):
         self.window_entrada_numeros.hide()
