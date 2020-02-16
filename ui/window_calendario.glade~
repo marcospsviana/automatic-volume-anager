@@ -5,8 +5,9 @@
   <object class="GtkWindow" id="window_calendario">
     <property name="name">window_calendario</property>
     <property name="width_request">1000</property>
-    <property name="height_request">450</property>
+    <property name="height_request">550</property>
     <property name="can_focus">False</property>
+    <property name="valign">center</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="default_width">1000</property>
@@ -19,8 +20,11 @@
     </child>
     <child>
       <object class="GtkBox">
+        <property name="width_request">900</property>
+        <property name="height_request">500</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="valign">center</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
@@ -28,8 +32,6 @@
             <property name="can_focus">False</property>
             <property name="margin_left">40</property>
             <property name="margin_right">40</property>
-            <property name="margin_top">20</property>
-            <property name="margin_bottom">5</property>
             <property name="homogeneous">True</property>
             <child>
               <object class="GtkBox">
