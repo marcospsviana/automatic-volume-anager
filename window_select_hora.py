@@ -12,11 +12,22 @@ from time import sleep
 
 
 class WindowSelectHora:
-    def __init__(self):
+    def __init__(self, *args):
         #teste = args
         #print("op diaria", teste)
         #self.classe = args[0]
         #self.language = args[1]
+        self.tempo_locacao = args[0]
+        self.classe = args[1][0]
+        self.language = args[2]
+        if self.classe == "A" and self.tempo_locacao == "horas":
+            self.taxa = TaxAndRates.TAXA_HORA_A.value
+        elif self.classe == "B" and self.tempo_locacao == "horas":
+            self.taxa = TaxAndRates.TAXA_HORA_B.value
+        elif self.classe == "C" and self.tempo_locacao == "horas":
+            self.taxa = TaxAndRates.TAXA_HORA_C.value
+        elif self.classe == "D" and self.tempo_locacao == "horas":
+            self.taxa = TaxAndRates.TAXA_HORA_D.value
         locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
         self.builder = Gtk.Builder()
         self.gtk_style()
@@ -85,8 +96,7 @@ class WindowSelectHora:
         self.window_select_horas.show()
     def on_btn_button_press_event(self, widget,  event):
         hora = int(widget.get_label())
-        taxa = 2.75
-        self.label_valor_total_value.set_text(str(hora * taxa))
+        self.label_valor_total_value.set_text(str(hora * self.taxa))
         
         
     def on_window_select_horas_destroy(self):

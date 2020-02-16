@@ -1007,6 +1007,7 @@
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -1024,6 +1025,7 @@
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -1041,6 +1043,7 @@
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -1058,6 +1061,7 @@
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">3</property>
@@ -1075,6 +1079,7 @@
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">4</property>
@@ -1092,6 +1097,7 @@
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">5</property>
@@ -1109,6 +1115,7 @@
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="relief">none</property>
+                    <signal name="button-press-event" handler="on_btn_button_press_event" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">6</property>

@@ -1,8 +1,10 @@
+from window_calendario import WindowCalendario
+from window_select_hora import WindowSelectHora
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk
 from datetime import datetime, date
-from cadastro_usuarios import CadastroUsuarios
+#from cadastro_usuarios import CadastroUsuarios_c
 
 class OpcaoHoraDiaria(object):
     def __init__(self, *args):
@@ -45,12 +47,14 @@ class OpcaoHoraDiaria(object):
     
     def on_btn_loc_hora_button_press_event(self, widget, event):
         tempo_locacao = "horas"
-        CadastroUsuarios(tempo_locacao, self.classe, self.language)
-        self.window_hora_diaria.hide()
+        #CadastroUsuarios(tempo_locacao, self.classe, self.language)
+        #self.window_hora_diaria.hide()
+        WindowSelectHora(tempo_locacao, self.classe, self.language)
     
     def on_btn_loc_diaria_button_press_event(self, widget, event):
         tempo_locacao = "diaria"
-        CadastroUsuarios(tempo_locacao, self.classe, self.language)
+        #CadastroUsuarios(tempo_locacao, self.classe, self.language)
+        WindowCalendario(tempo_locacao, self.classe, self.language)
         #self.window_hora_diaria.hide()
     
     def on_btn_tela_hora_diaria_button_press_event(self, widget, event):

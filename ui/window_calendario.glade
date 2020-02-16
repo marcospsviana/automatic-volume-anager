@@ -1233,6 +1233,7 @@
                 <property name="margin_right">20</property>
                 <property name="margin_top">5</property>
                 <property name="margin_bottom">10</property>
+                <signal name="button-press-event" handler="on_btn_cancelar_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1255,6 +1256,7 @@
                 <property name="margin_top">5</property>
                 <property name="margin_bottom">10</property>
                 <property name="hexpand">False</property>
+                <signal name="button-press-event" handler="on_btn_confirmar_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>

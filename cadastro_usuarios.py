@@ -16,6 +16,8 @@ TAXA_DIARIA_A = TAXA_DIARIA_B = TAXA_DIARIA_C = TAXA_DIARIA_D = ''
 
 class CadastroUsuarios(object):
     def __init__(self, *args):
+        teste = args
+        print(teste)
         global TAXA_HORA_A, TAXA_HORA_B, TAXA_HORA_C, TAXA_HORA_D, DDD
         global TAXA_DIARIA_A, TAXA_DIARIA_B, TAXA_DIARIA_C, TAXA_DIARIA_D
         self.senha = ''
@@ -30,9 +32,10 @@ class CadastroUsuarios(object):
         teste = args
         print(teste)
         self.tempo_locacao = args[0]
-        self.classe = args[1][0]
-        self.language = args[2]
-        print(self.classe)
+        
+        #self.classe = args[1][0]
+        self.language = args[1]
+        #print(self.classe)
         print(self.tempo_locacao)
         print(self.language)
         self.alfa = list(string.ascii_uppercase) # alfabeto para gerar o teclado
@@ -97,6 +100,7 @@ class CadastroUsuarios(object):
         self.label_quantidade_horas = self.builder.get_object("label_quantidade_horas")
         #self.label_quantidade_minutos = self.builder.get_object("label_quantidade_minutos")
         self.label_total = self.builder.get_object("label_total")
+        self.label_total.set_text(self.tempo_locacao)
         self.label_valor_da_locacao = self.builder.get_object("label_valor_da_locacao")
         
         self.label_senha = self.builder.get_object("label_senha")
