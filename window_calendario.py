@@ -148,8 +148,8 @@ class WindowCalendario:
         
         self.mes = calendar.monthcalendar(ano, mes)
         self.month = mes
-        self.label_month.set_label(self.meses[mes])
-        self.label_year.set_label(str(ano))
+        self.label_month.set_text(self.meses[mes])
+        self.label_year.set_text(str(ano))
 
         self.dias_meses = [ [self.btn0, self.btn1, self.btn2, self.btn3, self.btn4, self.btn5,self.btn6],
                             [self.btn7, self.btn8, self.btn9, self.btn10,self.btn11,self.btn12,self.btn13],
@@ -176,30 +176,40 @@ class WindowCalendario:
                     self.dias_meses[i][d].set_label("")
                 else:
                     self.dias_meses[i][d].set_label(str(self.mes[i][d]))
+       
         
         for i in range(len(self.mes)):
             for j,d in zip(self.mes[i], range(7)):
+                print("self.meses_indices[self.label_month.get_label()", self.meses_indices[self.label_month.get_label()])
+                print("self.data.month", self.data.month)
+                print("self.dias_meses[i][d] in self.dias_dom", self.dias_meses[i][d] in self.dias_dom)
                 if self.dias_meses[i][d].get_label() == '0':
                     self.dias_meses[i][d].set_label("")
                     self.dias_meses[i][d].set_sensitive(False)
-                else:
-                    self.dia = self.dias_meses[i][d].get_label()
                 
-                """if self.dia == "" or (self.label_month.get_label() < self.meses[self.data.month] and int(self.dia) < self.data.day):
+                elif self.dias_meses[i][d].get_label() == "" or (self.meses_indices[self.label_month.get_label()] == self.data.month and int(self.dias_meses[i][d].get_label()) < self.data.day):
                     print("dias messess",self.dias_meses[i][d].get_label())
-                    #self.dias_meses[i][d].set_sensitive(False)
-                    self.dias_meses[i][d].set_name("dia_passado")"""
-                if self.label_month.get_label() != self.meses[self.data.month] and self.dias_meses[i][d] not in(self.dias_dom):
+                    self.dias_meses[i][d].set_sensitive(False)
+                    self.dias_meses[i][d].set_name("dia_passado")
+                elif self.label_month.get_label() != self.meses[self.data.month] and self.dias_meses[i][d] not in self.dias_dom :
                     print("dias normais",self.dias_meses[i][d].get_label())
-                    #self.dias_meses[i][d].set_sensitive(False)
+                    self.dias_meses[i][d].set_sensitive(True)
                     self.dias_meses[i][d].set_name("btn_calendario")
-                if self.dias_meses[i][d] in(self.dias_dom):
+                elif self.dias_meses[i][d] in self.dias_dom and not(self.meses_indices[self.label_month.get_label()] == self.data.month and int(self.dias_meses[i][d].get_label()) < self.data.day):
                     self.dias_meses[i][d].set_name("btn_calendario_dom")
+                else:
+
+                    self.dia = self.dias_meses[i][d].get_label()
+        # caso o tamanho de meses indices seja maior que o mes corrente desativa os botões restantes que estarão vazios
+        if len(self.mes) == 5:
+            for i in self.dias_meses[5]:
+                i.set_sensitive(False)
+
         teste = self.meses_indices[self.label_month.get_label()]
         print("teste", teste)
         teste2 = self.label_month.get_label()
         print("teste2", teste2)
-        if self.meses_indices[self.label_month.get_label()] == self.data.month:
+        if self.meses_indices[self.label_month.get_label()] == self.data.month and int(self.label_year.get_label()) == self.data.year:
             self.btn_previous_mont.set_sensitive(False)
         else:
             self.btn_previous_mont.set_sensitive(True)
@@ -215,7 +225,7 @@ class WindowCalendario:
         self.label_valor_total.set_text("")
         self.mes_atual = self.meses_indices[self.label_month.get_label()]
         print("self.mes_atual", self.mes_atual)
-        self.ano_atual = self.data.year
+        self.ano_atual = int(self.label_year.get_label())
         if self.mes_atual == 1:
             self.mes_atual = 12
             self.ano_atual = self.ano_atual - 1
@@ -231,7 +241,7 @@ class WindowCalendario:
         self.label_valor_total.set_text("")
         self.mes_atual = self.meses_indices[self.label_month.get_label()]
         print("self.mes_atual", self.mes_atual)
-        self.ano_atual = self.data.year
+        self.ano_atual = int(self.label_year.get_label())
         if self.mes_atual == 12:
             self.mes_atual = 1
             self.ano_atual = self.ano_atual + 1
