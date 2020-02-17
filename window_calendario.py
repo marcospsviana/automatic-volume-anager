@@ -166,10 +166,11 @@ class WindowCalendario:
                             self.btn28,self.btn29, self.btn30,self.btn31,self.btn32,self.btn33,self.btn34,
                             self.btn35,self.btn36, self.btn37,self.btn38,self.btn39,self.btn40,self.btn41]
         self.dia = 0
-        
+        #grantindo que o botão não terá valor None
         for i in range(len(self.dias_meses)):
             for d in range(len(self.dias_meses[i])):
                 self.dias_meses[i][d].set_label("")
+                
         for i in range(len(self.mes)):
             for j,d in zip(self.mes[i], range(7)):
                 if self.mes[i][d] == 0 or self.mes[i][d] == None:
@@ -187,7 +188,7 @@ class WindowCalendario:
                     self.dias_meses[i][d].set_label("")
                     self.dias_meses[i][d].set_sensitive(False)
                 
-                elif self.dias_meses[i][d].get_label() == "" or (self.meses_indices[self.label_month.get_label()] == self.data.month and int(self.dias_meses[i][d].get_label()) < self.data.day):
+                elif self.dias_meses[i][d].get_label() == "" or (self.meses_indices[self.label_month.get_label()] == self.data.month and int(self.dias_meses[i][d].get_label()) < self.data.day and int(self.label_year.get_label()) == self.data.year ):
                     print("dias messess",self.dias_meses[i][d].get_label())
                     self.dias_meses[i][d].set_sensitive(False)
                     self.dias_meses[i][d].set_name("dia_passado")
