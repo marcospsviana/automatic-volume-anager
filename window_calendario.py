@@ -142,6 +142,27 @@ class WindowCalendario:
         print("total = %.2f"%(total))
         self.label_valor_total.set_text("%.2f"%(total))
         print(self.widget)
+        for i in range(len(self.mes)):
+            for j,d in zip(self.mes[i], range(7)):
+                if self.dias_meses[i][d].get_label() != "" and int(self.dias_meses[i][d].get_label()) >= self.data.day and int(self.dias_meses[i][d].get_label()) < int(self.widget):
+                    self.dias_meses[i][d].set_name("intervalo_selecionado")
+                elif self.dias_meses[i][d].get_label() == "" or (self.meses_indices[self.label_month.get_label()] == self.data.month and int(self.dias_meses[i][d].get_label()) < self.data.day and int(self.label_year.get_label()) == self.data.year ):
+                    print("dias messess",self.dias_meses[i][d].get_label())
+                    self.dias_meses[i][d].set_sensitive(False)
+                    self.dias_meses[i][d].set_name("dia_passado")
+                elif self.dias_meses[i][d].get_label() != "" and int(self.dias_meses[i][d].get_label()) < int(self.widget) and self.meses_indices[self.label_month.get_label()] > self.meses_indices[self.meses[self.data.month]]:
+                    self.dias_meses[i][d].set_name("intervalo_selecionado")
+               
+                elif self.label_month.get_label() != self.meses[self.data.month] and self.dias_meses[i][d] not in self.dias_dom :
+                    print("dias normais",self.dias_meses[i][d].get_label())
+                    self.dias_meses[i][d].set_sensitive(True)
+                    self.dias_meses[i][d].set_name("btn_calendario")
+                elif self.dias_meses[i][d] in self.dias_dom and not(self.meses_indices[self.label_month.get_label()] == self.data.month and int(self.dias_meses[i][d].get_label()) < self.data.day):
+                    self.dias_meses[i][d].set_name("btn_calendario_dom")
+                else:
+                    self.dias_meses[i][d].set_name("btn_calendario")
+                    self.dias_meses[i][d].set_sensitive(True)
+
 
         
     def set_calendario(self, ano, mes):

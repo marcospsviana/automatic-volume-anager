@@ -1,12 +1,19 @@
+==============================================
+
               PAYGO BY NTK              
 
               MASTERCARD              
            535081******9423           
-1 VIA-CLIENTE               AUT=125402
+2 VIA-ESTABELECIMENTO       AUT=125402
+010000244470001/POS=01000237
 DOC=574432    18/02/20 12:54     ONL-C
 VENDA A CREDITO
 VALOR:                   R$     166,92
 
+    TRANSACAO AUTORIZADA COM SENHA    
+           VIANA/MARCOS P S           
+   A0000000041010-77AA2EE9F3F8CC34    
+           Credit           
 
 ----------------------------------------
 62547 0000000131 PGREF:0000574432
@@ -14,4 +21,6 @@ NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
 CNPJ: 35.223.093/0001-06
 
    *** AMBIENTE DE TESTES - APP02 ***   
+
+==============================================
 

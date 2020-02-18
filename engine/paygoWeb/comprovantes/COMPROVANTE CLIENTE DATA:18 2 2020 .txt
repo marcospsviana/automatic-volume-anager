@@ -1,3 +1,7 @@
+
+
+\==============================================
+
               PAYGO BY NTK              
 
               MASTERCARD              
@@ -14,4 +18,8 @@ NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
 CNPJ: 35.223.093/0001-06
 
    *** AMBIENTE DE TESTES - APP02 ***   
+
+
+
+==============================================
 

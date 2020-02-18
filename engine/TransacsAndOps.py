@@ -141,13 +141,13 @@ class TransacsOps(object):
         msg['Subject'] = 'CoolBag-SafeLocker - Credentials Access'
         msg.attach(body)
 
-        msg['From'] = 'marcospaulo.silvaviana@gmail.com'
+        msg['From'] = 'coolbagsafecustomer@gmail.com'
         msg['To'] = email
-        password = "m1cr0@t805i"
+        password = "CBS@2020"
         __server = SMTP('smtp.gmail.com:587')
         __server.starttls()
         __server.ehlo()
-        __server.login("marcospaulo.silvaviana@gmail.com", "m1cr0@t805i")
+        __server.login("coolbagsafecustomer@gmail.com", "CBS@2020")
 
         __server.sendmail( msg['From'], msg['To'].split(","), msg.as_string())
 
