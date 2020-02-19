@@ -41,7 +41,7 @@ class WindowCalendario:
                 "on_btn_next_month_button_press_event"    : self.on_btn_next_month_button_press_event,
                 "on_btn_previous_year_button_press_event" : self.on_btn_previous_year_button_press_event,
                 "on_btn_next_year_button_press_event"     : self.on_btn_next_year_button_press_event,
-                "on_btn_confirmar_button_press_event"     : self.on_btn_confirmar_button_press_event,
+                #"on_btn_confirmar_button_press_event"     : self.on_btn_confirmar_button_press_event,
                 "on_btn_cancelar_button_press_event"      : self.on_btn_cancelar_button_press_event,
                 "gtk_main_quit"                           : self.on_window_calendario_quit,
             }

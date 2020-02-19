@@ -1,4 +1,4 @@
-from window_wait_payment import WindowWaitPayment as WWP
+#from window_wait_payment import WindowWaitPayment as WWP
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk, Gio, GdkPixbuf, GObject
@@ -494,7 +494,7 @@ class CadastroUsuarios(object):
     def on_btn_credito_button_press_event(self, event, args):
         self.window_select_cartao.hide()
         self.window_cadastro_usuario.hide()
-        self.window_payment.show()
+        #self.window_payment.show()
         self.send_tipo_cartao("CREDITO")
         
         sleep(0.5)       
@@ -502,7 +502,7 @@ class CadastroUsuarios(object):
     def on_btn_debito_button_press_event(self, event, args):
         self.window_select_cartao.hide()
         self.window_cadastro_usuario.hide()
-        self.window_payment.show()
+        #self.window_payment.show()
         self.send_tipo_cartao("DEBITO")
         
         sleep(0.5)
