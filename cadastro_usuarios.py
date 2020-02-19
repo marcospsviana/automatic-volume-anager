@@ -31,7 +31,7 @@ class CadastroUsuarios(object):
         TAXA_HORA_D = 0.6
         teste = args
         print(teste)
-        self.tempo_locacao = args[0]
+        self.valor_total = args[0]
         
         #self.classe = args[1][0]
         self.language = args[1]
