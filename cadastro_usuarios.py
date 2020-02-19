@@ -100,7 +100,7 @@ class CadastroUsuarios(object):
         self.label_quantidade_horas = self.builder.get_object("label_quantidade_horas")
         #self.label_quantidade_minutos = self.builder.get_object("label_quantidade_minutos")
         self.label_total = self.builder.get_object("label_total")
-        self.label_total.set_text(self.tempo_locacao)
+        self.label_total.set_text(self.valor_total)
         self.label_valor_da_locacao = self.builder.get_object("label_valor_da_locacao")
         
         self.label_senha = self.builder.get_object("label_senha")
@@ -393,7 +393,7 @@ class CadastroUsuarios(object):
         
     
 
-        if self.tempo_locacao == "diaria":
+        """if self.tempo_locacao == "diaria":
             self.label_quantidade_horas.hide()
             #self.label_quantidade_minutos.hide()
             #self.entry_minutos.hide()
@@ -406,7 +406,7 @@ class CadastroUsuarios(object):
             self.label_quantidade_diaria.hide()
             self.entry_quantidade_diaria.hide()
             self.entry_quantidade_diaria.set_text("0")
-            self.btn_limpar_quantidade_diaria.hide()
+            self.btn_limpar_quantidade_diaria.hide()"""
         
         if self.language == "pt_BR":
             self.label_aguarde_pagamento.set_text("AGUARDE PAGAMENTO")
@@ -526,11 +526,11 @@ class CadastroUsuarios(object):
             f.write('\n}  \n')
         #self.wait_payment()
         self.window_select_cartao.hide()
-        if self.tempo_locacao == "horas":
+        """if self.tempo_locacao == "horas":
                 self.entry_quantidade_diaria.set_text("0")
         elif self.tempo_locacao == "diaria":
             self.entry_quantidade_horas.set_text("0")
-            #self.entry_minutos.set_text("0")
+            #self.entry_minutos.set_text("0")"""
         
         self.__nome = self.entry_nome.get_text()
         self.__email = self.entry_email.get_text()
@@ -693,11 +693,11 @@ class CadastroUsuarios(object):
         self.window_select_cartao.show()   
         
     def on_btn_window_payment_wait_button_press_event(self, widget, event):
-        if self.tempo_locacao == "horas":
+        """if self.tempo_locacao == "horas":
                 self.entry_quantidade_diaria.set_text("0")
         elif self.tempo_locacao == "diaria":
             self.entry_quantidade_horas.set_text("0")
-            #self.entry_minutos.set_text("0")
+            #self.entry_minutos.set_text("0")"""
         
         self.__nome = self.entry_nome.get_text()
         self.__email = self.entry_email.get_text()
@@ -806,11 +806,11 @@ class CadastroUsuarios(object):
             f.write('"PWINFO_CARDTYPE": "%s"  \n'%(tipo))
             f.write('\n}  \n')
         
-        if self.tempo_locacao == "horas":
+        """if self.tempo_locacao == "horas":
                 self.entry_quantidade_diaria.set_text("0")
         elif self.tempo_locacao == "diaria":
             self.entry_quantidade_horas.set_text("0")
-            #self.entry_minutos.set_text("0")
+            #self.entry_minutos.set_text("0")"""
         
         self.__nome = self.entry_nome.get_text()
         self.__email = self.entry_email.get_text()
