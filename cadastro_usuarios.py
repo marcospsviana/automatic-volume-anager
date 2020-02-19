@@ -540,6 +540,7 @@ class CadastroUsuarios(object):
         self.__telefone = self.entry_celular.get_text()
         self.__quantidade_diaria = self.dia #self.entry_quantidade_diaria.get_text()
         self.__quantidade_minutos = self.minuto
+        self.__quantidade_horas = self.hora
         """if self.entry_quantidade_horas.get_text() == "":
             self.__quantidade_horas = "0"
         else:
