@@ -130,12 +130,12 @@ class DataAccessObjectsManager(object):
     def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario, language, total):
         port = ''
         dia = dia
-        dia = dia.replace(".0", "")
+        #dia = dia.replace(".0", "")
         self.__dia = int(dia)
-        self.__hora = int(hora.replace(".0", ""))
+        self.__hora = int(hora) #.replace(".0", ""))
         minuto = minuto
         print("minuto---*", minuto)
-        minuto = int(minuto.replace(".0", ""))
+        #minuto = int(minuto.replace(".0", ""))
         self.__total = total
         self.__minuto = minuto
         self.__armario = str(armario)

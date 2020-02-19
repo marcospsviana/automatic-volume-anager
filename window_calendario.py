@@ -16,6 +16,8 @@ class WindowCalendario:
     def __init__(self, *args):
         #op_and_language = args
         #print("op diaria", teste)
+        self.resultado_dias = 0
+        self.total_horas = 0
         self.tempo_locacao = args[0]
         self.classe = args[1][0]
         self.language = args[2]
@@ -130,7 +132,7 @@ class WindowCalendario:
         self.window_calendario.hide()
     def on_btn_confirmar_button_press_event(self, widget, event):
         self.total = self.label_valor_total_value.get_label()
-        CadastroUsuarios(self.total , self.language, self.classe)
+        CadastroUsuarios(self.total , self.language, self.classe, self.resultado_dias, self.total_horas)
 
     def on_btn_button_press_event(self, widget, args):
         self.widget = widget.get_label()
@@ -138,8 +140,8 @@ class WindowCalendario:
         mes_escolhido = self.meses_indices[self.label_month.get_label()]
         ano_escolhido = int(self.label_year.get_label())
         data2 = datetime(ano_escolhido, mes_escolhido, int(self.widget), self.data.hour, self.data.minute )
-        resultado_dias = abs((data2 - data).days)
-        total = self.taxa * resultado_dias #(int(self.widget) - self.data.day)
+        self.resultado_dias = abs((data2 - data).days)
+        total = self.taxa * self.resultado_dias #(int(self.widget) - self.data.day)
         print("total = %.2f"%(total))
         self.label_valor_total_value.set_text("%.2f"%(total))
         print(self.widget)
@@ -163,6 +165,7 @@ class WindowCalendario:
                 else:
                     self.dias_meses[i][d].set_name("btn_calendario")
                     self.dias_meses[i][d].set_sensitive(True)
+        return self.resultado_dias
 
 
         

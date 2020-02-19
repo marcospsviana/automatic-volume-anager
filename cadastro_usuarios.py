@@ -42,7 +42,9 @@ class CadastroUsuarios(object):
         self.alfa = list(string.ascii_uppercase) # alfabeto para gerar o teclado
         self.num = list(map(lambda x: x, range(10))) # números para o teclado numérico
         self.entry = ""
-        self.dia = self.hora = self.minuto = 0
+        self.dia = args[3]
+        self.hora = args[4]
+        self.minuto = 0
         self.builder = Gtk.Builder()
         self.builder.connect_signals({
             "gtk_main_quit": Gtk.main_quit,
@@ -536,13 +538,13 @@ class CadastroUsuarios(object):
         self.__nome = self.entry_nome.get_text()
         self.__email = self.entry_email.get_text()
         self.__telefone = self.entry_celular.get_text()
-        self.__quantidade_diaria = self.entry_quantidade_diaria.get_text()
-        self.__quantidade_minutos = "0"
-        if self.entry_quantidade_horas.get_text() == "":
+        self.__quantidade_diaria = self.dia #self.entry_quantidade_diaria.get_text()
+        self.__quantidade_minutos = self.minuto
+        """if self.entry_quantidade_horas.get_text() == "":
             self.__quantidade_horas = "0"
         else:
             self.__quantidade_horas = self.entry_quantidade_horas.get_text()
-        """if self.entry_minutos.get_text() == "":
+        if self.entry_minutos.get_text() == "":
             self.__quantidade_minutos = "0"
         else:
             self.__quantidade_minutos = self.entry_minutos.get_text()"""
