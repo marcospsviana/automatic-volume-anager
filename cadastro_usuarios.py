@@ -514,8 +514,8 @@ class CadastroUsuarios(object):
     def send_tipo_cartao(self, tipo):
         
         print(tipo)
-        total = "%.2f"%(self.valor_total)
-        print("total para json", total)
+        total = self.valor_total #"%.2f"%(self.valor_total)
+        #print("total para json", total)
         total = total.replace('.','')
         print("total para json formatado", total)
         with open("engine/paygoWeb/comprovantes/valor_venda.json", "w+") as f:
@@ -795,8 +795,8 @@ class CadastroUsuarios(object):
         self.window_payment.show()
         sleep(1)
         print(tipo)
-        total = "%.2f"%(self.valor_total)
-        print("total para json", total)
+        total = self.valor_total #"%.2f"%(self.valor_total)
+        #print("total para json", total)
         total = total.replace('.','')
         print("total para json formatado", total)
         with open("engine/paygoWeb/comprovantes/valor_venda.json", "w+") as f:
