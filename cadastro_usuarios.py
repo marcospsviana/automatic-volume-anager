@@ -36,7 +36,7 @@ class CadastroUsuarios(object):
         #self.classe = args[1][0]
         self.language = args[1]
         #print(self.classe)
-        print(self.tempo_locacao)
+        print(self.valor_total)
         print(self.language)
         self.alfa = list(string.ascii_uppercase) # alfabeto para gerar o teclado
         self.num = list(map(lambda x: x, range(10))) # números para o teclado numérico
