@@ -35,6 +35,7 @@ class CadastroUsuarios(object):
         
         #self.classe = args[1][0]
         self.language = args[1]
+        self.classe = args[2]
         #print(self.classe)
         print(self.valor_total)
         print(self.language)

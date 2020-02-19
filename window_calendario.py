@@ -130,7 +130,7 @@ class WindowCalendario:
         self.window_calendario.hide()
     def on_btn_confirmar_button_press_event(self, widget, event):
         self.total = self.label_valor_total_value.get_label()
-        CadastroUsuarios(self.total , self.language)
+        CadastroUsuarios(self.total , self.language, self.classe)
 
     def on_btn_button_press_event(self, widget, args):
         self.widget = widget.get_label()
