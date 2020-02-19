@@ -566,12 +566,12 @@ class CadastroUsuarios(object):
             elif self.language == "en_US":
                 self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
             self.dialog_message_preencher_campos.show()
-        elif self.__quantidade_diaria == self.__quantidade_horas: #== self.__quantidade_minutos:
+            """elif self.__quantidade_diaria == self.__quantidade_horas: #== self.__quantidade_minutos:
             if self.language == "pt_BR":
                 self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
             elif self.language == "en_US":
                 self.label_message_preencher_campos.set_text("FILL IN ALL FIELDS")
-            self.dialog_message_preencher_campos.show()
+            self.dialog_message_preencher_campos.show()"""
         else:
             self.__armario = self.classe
             locacao = {
