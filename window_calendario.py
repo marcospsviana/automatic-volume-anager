@@ -41,7 +41,7 @@ class WindowCalendario:
                 "on_btn_next_month_button_press_event"    : self.on_btn_next_month_button_press_event,
                 "on_btn_previous_year_button_press_event" : self.on_btn_previous_year_button_press_event,
                 "on_btn_next_year_button_press_event"     : self.on_btn_next_year_button_press_event,
-                #"on_btn_confirmar_button_press_event"     : self.on_btn_confirmar_button_press_event,
+                "on_btn_confirmar_button_press_event"     : self.on_btn_confirmar_button_press_event,
                 "on_btn_cancelar_button_press_event"      : self.on_btn_cancelar_button_press_event,
                 "gtk_main_quit"                           : self.on_window_calendario_quit,
             }
@@ -62,7 +62,7 @@ class WindowCalendario:
         self.btn_next_year = self.builder.get_object("btn_next_year")
 
         self.btn_confirmar = self.builder.get_object("btn_confirmar")
-        self.btn_confirmar.connect("button_press_event", self.on_btn_confirmar_button_press_event)
+        #self.btn_confirmar.connect("button_press_event", self.on_btn_confirmar_button_press_event)
 
         self.btn0 = self.builder.get_object('btn0')
         self.btn1 = self.builder.get_object('btn1')
