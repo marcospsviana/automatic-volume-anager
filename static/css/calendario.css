@@ -1,3 +1,8 @@
+
+*{
+	font-family: "Roboto Light";
+	
+}
 #window_calendario{
 	background: floralwhite;
 	font: 1.3em monospace;
@@ -59,4 +64,19 @@
 #intervalo_selecionado{
 	background: #688586;
 	color: floralwhite;
+	border-radius: 100%;
+}
+
+#label_calendario_dom{
+	font-weight: lighter;
+	color: #aa0000;
+}
+#label_calendario_sabado{
+	font-weight: lighter;
+	color: #71898a;
+}
+
+#label_weekdays{
+	font-weight: lighter;
+	color: #0b4f6f;
 }

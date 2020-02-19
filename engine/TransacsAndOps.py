@@ -1,3 +1,4 @@
+from comtele_sdk.textmessage_service import TextMessageService
 import sys, os
 import datetime
 import json
@@ -50,6 +51,11 @@ class TransacsOps(object):
         retorno.write('\n}  \n')
         retorno.close()
         return self.resultado_transacao
+    @classmethod
+    def send_sms(self, nome, senha, compartimento, data_locacao, hora_inicio_locacao, data_limite,  hora_fim_locacao, language):
+        __api_key = '664e67a9-5fdd-4718-9cc2-3bd2a54c9520'
+        textmessage_service = TextMessageService(__api_key)
+        result = textmessage_service.send('marcos', 'teste api sms para o envio de senha', ['85986771090'])
     
     @classmethod
     def send_email(self, nome, email, senha, compartimento, data_locacao, hora_inicio_locacao, data_limite,  hora_fim_locacao, language):

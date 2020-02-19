@@ -147,17 +147,17 @@ class WindowCalendario:
                 if self.dias_meses[i][d].get_label() != "" and int(self.dias_meses[i][d].get_label()) >= self.data.day and int(self.dias_meses[i][d].get_label()) < int(self.widget):
                     self.dias_meses[i][d].set_name("intervalo_selecionado")
                 elif self.dias_meses[i][d].get_label() == "" or (self.meses_indices[self.label_month.get_label()] == self.data.month and int(self.dias_meses[i][d].get_label()) < self.data.day and int(self.label_year.get_label()) == self.data.year ):
-                    print("dias messess",self.dias_meses[i][d].get_label())
+                    print("dias messess",self.dias_meses[i][d].get_label() , " button ==> ", self.dias_meses[i][d].get_name())
                     self.dias_meses[i][d].set_sensitive(False)
                     self.dias_meses[i][d].set_name("dia_passado")
                 elif self.dias_meses[i][d].get_label() != "" and int(self.dias_meses[i][d].get_label()) < int(self.widget) and self.meses_indices[self.label_month.get_label()] > self.meses_indices[self.meses[self.data.month]]:
                     self.dias_meses[i][d].set_name("intervalo_selecionado")
                
-                elif self.label_month.get_label() != self.meses[self.data.month] and self.dias_meses[i][d] not in self.dias_dom :
+                elif self.dias_meses[i][d].get_label() != "" and self.label_month.get_label() != self.meses[self.data.month] and self.dias_meses[i][d] not in self.dias_dom :
                     print("dias normais",self.dias_meses[i][d].get_label())
                     self.dias_meses[i][d].set_sensitive(True)
                     self.dias_meses[i][d].set_name("btn_calendario")
-                elif self.dias_meses[i][d] in self.dias_dom and not(self.meses_indices[self.label_month.get_label()] == self.data.month and int(self.dias_meses[i][d].get_label()) < self.data.day):
+                elif self.dias_meses[i][d].get_label() != "" and self.dias_meses[i][d] in self.dias_dom and not(self.meses_indices[self.label_month.get_label()] == self.data.month and int(self.dias_meses[i][d].get_label()) < self.data.day):
                     self.dias_meses[i][d].set_name("btn_calendario_dom")
                 else:
                     self.dias_meses[i][d].set_name("btn_calendario")
@@ -219,8 +219,10 @@ class WindowCalendario:
                     self.dias_meses[i][d].set_name("btn_calendario")
                 elif self.dias_meses[i][d] in self.dias_dom and not(self.meses_indices[self.label_month.get_label()] == self.data.month and int(self.dias_meses[i][d].get_label()) < self.data.day):
                     self.dias_meses[i][d].set_name("btn_calendario_dom")
+                    self.dias_meses[i][d].set_sensitive(True)
                 else:
-
+                    self.dias_meses[i][d].set_sensitive(True)
+                    self.dias_meses[i][d].set_name("btn_calendario")
                     self.dia = self.dias_meses[i][d].get_label()
         # caso o tamanho de meses indices seja maior que o mes corrente desativa os botões restantes que estarão vazios
         if len(self.mes) == 5:
