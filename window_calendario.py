@@ -51,6 +51,7 @@ class WindowCalendario:
         # ===================== LABELS ========================
         self.label_month = self.builder.get_object("label_month")
         self.label_year = self.builder.get_object("label_year")
+        self.label_valor_total_value = self.builder.get_object("label_valor_total_value")
         self.label_valor_total = self.builder.get_object("label_valor_total")
 
 
@@ -125,10 +126,10 @@ class WindowCalendario:
         #self.window_calendario.fullscreen()
         self.window_calendario.show()
     def on_btn_cancelar_button_press_event(self, widget, event):
-        self.label_valor_total.set_text("")
+        self.label_valor_total_value.set_text("")
         self.window_calendario.hide()
     def on_btn_confirmar_button_press_event(self, widget, event):
-        self.total = self.label_valor_total.get_label()
+        self.total = self.label_valor_total_value.get_label()
         CadastroUsuarios(self.total , self.language)
 
     def on_btn_button_press_event(self, widget, args):
@@ -140,7 +141,7 @@ class WindowCalendario:
         resultado_dias = abs((data2 - data).days)
         total = self.taxa * resultado_dias #(int(self.widget) - self.data.day)
         print("total = %.2f"%(total))
-        self.label_valor_total.set_text("%.2f"%(total))
+        self.label_valor_total_value.set_text("%.2f"%(total))
         print(self.widget)
         for i in range(len(self.mes)):
             for j,d in zip(self.mes[i], range(7)):
@@ -246,7 +247,7 @@ class WindowCalendario:
         
     
     def on_btn_previous_mont_button_press_event(self, event, args):
-        self.label_valor_total.set_text("")
+        self.label_valor_total_value.set_text("")
         self.mes_atual = self.meses_indices[self.label_month.get_label()]
         print("self.mes_atual", self.mes_atual)
         self.ano_atual = int(self.label_year.get_label())
@@ -262,7 +263,7 @@ class WindowCalendario:
        
     
     def on_btn_next_month_button_press_event(self, event, args):
-        self.label_valor_total.set_text("")
+        self.label_valor_total_value.set_text("")
         self.mes_atual = self.meses_indices[self.label_month.get_label()]
         print("self.mes_atual", self.mes_atual)
         self.ano_atual = int(self.label_year.get_label())
@@ -276,7 +277,7 @@ class WindowCalendario:
         self.set_calendario(self.ano_atual, self.mes_atual) 
     
     def on_btn_previous_year_button_press_event(self, event, args):
-        self.label_valor_total.set_text("")
+        self.label_valor_total_value.set_text("")
         self.mes_atual = self.meses_indices[self.label_month.get_label()]
         print("self.mes_atual", self.mes_atual)
         self.ano_atual = int(self.label_year.get_label())
@@ -286,7 +287,7 @@ class WindowCalendario:
         self.set_calendario(self.ano_atual, self.mes_atual)
     
     def on_btn_next_year_button_press_event(self, event, args):
-        self.label_valor_total.set_text("")
+        self.label_valor_total_value.set_text("")
         self.mes_atual = self.meses_indices[self.label_month.get_label()]
         print("self.mes_atual", self.mes_atual)
         self.ano_atual = int(self.label_year.get_label())
