@@ -2194,6 +2194,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_right">10</property>
                 <property name="label" translatable="yes">QUANTIDADE DIÁRIA</property>
               </object>
               <packing>
@@ -2208,6 +2209,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <property name="width_request">500</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="margin_right">10</property>
                 <signal name="button-press-event" handler="on_entry_entrada_numeros_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -2746,7 +2748,6 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
     <property name="name">window</property>
     <property name="width_request">1000</property>
     <property name="height_request">550</property>
-    <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="has_focus">True</property>
     <property name="border_width">10</property>

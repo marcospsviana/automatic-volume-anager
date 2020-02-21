@@ -46,9 +46,9 @@ class WindowSelectHora:
         self.window_select_horas = self.builder.get_object("window_select_horas")
 
         self.bnt_confirmar_select_horas = self.builder.get_object("bnt_confirmar_select_horas")
-        self.bnt_confirmar_select_horas.connect("button_press_event", self.on_bnt_confirmar_select_horas_button_press_event)
+        #self.bnt_confirmar_select_horas.connect("button_press_event", self.on_bnt_confirmar_select_horas_button_press_event)
         self.btn_cancelar_select_hora = self.builder.get_object("btn_cancelar_select_hora")
-        self.btn_cancelar_select_hora.connect("button_press_event", self.on_btn_cancelar_select_hora_button_press_event)
+        #self.btn_cancelar_select_hora.connect("button_press_event", self.on_btn_cancelar_select_hora_button_press_event)
 
 
         self.btn1 = self.builder.get_object('btn1')
@@ -105,13 +105,15 @@ class WindowSelectHora:
 
         self.window_select_horas.show()
     def on_btn_button_press_event(self, widget,  event):
-        hora = int(widget.get_label())
-        valor_total = hora * self.taxa
+        self.hora = int(widget.get_label())
+        valor_total = self.hora * self.taxa
         self.label_valor_total_value.set_text("%.2f"%valor_total)
+        #return self.hora
 
     def on_bnt_confirmar_select_horas_button_press_event(self, widget, event):
         self.total = self.label_valor_total_value.get_text()
-        CadastroUsuarios(self.total , self.language)
+        dia = 0
+        CadastroUsuarios(self.total , self.language, self.classe, dia, self.hora)
     
     def on_btn_cancelar_select_hora_button_press_event(self, widget, event):
         self.label_valor_total_value.set_text("")

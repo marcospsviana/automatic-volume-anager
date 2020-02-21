@@ -1,4 +1,6 @@
+from data_access_objets_db_cbs import DataAccessObjectsBase as DAO
 from .portas import Portas
+from taxas import *
 from .TransacsAndOps import TransacsOps
 import sys, os
 import asyncio
@@ -15,71 +17,47 @@ import pandas as pd
 import smtplib
 import json
 import sqlite3
-
+TAXA_HORA_A = 0     
+TAXA_HORA_B = 0
+TAXA_HORA_C = 0
+TAXA_HORA_D = 0
+TAXA_DIARIA_A = 0
+TAXA_DIARIA_B = 0
+TAXA_DIARIA_C = 0
+TAXA_DIARIA_D = 0
 
 
 class DataAccessObjectsManager(object):
     def __init__(self):
+        global TAXA_HORA_A
+        global TAXA_HORA_B
+        global TAXA_HORA_C
+        global TAXA_HORA_D
+        global TAXA_DIARIA_A
+        global TAXA_DIARIA_B
+        global TAXA_DIARIA_C
+        global TAXA_DIARIA_D
+        data_dao = ''
 
         self.data = ''
         self.porta = ''
         self.port = Portas()
-        global TAXA_HORA_A, TAXA_HORA_B, TAXA_HORA_C, TAXA_HORA_D
-        global TAXA_DIARIA_A, TAXA_DIARIA_B, TAXA_DIARIA_C, TAXA_DIARIA_D
-        TAXA_DIARIA_A = 37.5
-        TAXA_DIARIA_B = 24.5
-        TAXA_DIARIA_C = 14.5
-        TAXA_DIARIA_D = 9.0
-        TAXA_HORA_A = 2.10
-        TAXA_HORA_B = 1.56
-        TAXA_HORA_C = 1.05
-        TAXA_HORA_D = 0.6
+        
+        TAXA_DIARIA_A = TaxAndRates.TAXA_DIARIA_A.value
+        TAXA_DIARIA_B = TaxAndRates.TAXA_DIARIA_B.value
+        TAXA_DIARIA_C = TaxAndRates.TAXA_DIARIA_C.value
+        TAXA_DIARIA_D = TaxAndRates.TAXA_DIARIA_D.value
+        TAXA_HORA_A = TaxAndRates.TAXA_HORA_A.value
+        TAXA_HORA_B = TaxAndRates.TAXA_HORA_B.value
+        TAXA_HORA_C = TaxAndRates.TAXA_HORA_C.value
+        TAXA_HORA_D = TaxAndRates.TAXA_HORA_D.value
 
-        self.__conn = mdb.connect(
-            user="coolbaguser", password="m1cr0@t805i", database="coolbag")
+        
+        data_dao = DAO()
+        self.__conn = mdb.connect(host=data_dao.db_host(), user=data_dao.db_user(), password=data_dao.db_passwd(), database=data_dao.db_database())
+        #self.__c = self.__conn.cursor(buffered=True)
         self.__c = self.__conn.cursor(buffered=True)
 
-        self.__c.execute('''CREATE TABLE IF NOT EXISTS`tb_armario` (
-	       `id_armario` INT(30) NOT NULL AUTO_INCREMENT,
-	       `classe` TINYTEXT NOT NULL DEFAULT '' COLLATE 'utf8mb4_unicode_ci',
-	       `local` TINYTEXT NOT NULL DEFAULT '' COLLATE 'utf8mb4_unicode_ci',
-	       `terminal` VARCHAR(50) NOT NULL DEFAULT '' COLLATE 'utf8mb4_unicode_ci',
-	       `estado` TINYTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
-	       `nivel` TINYTEXT NULL DEFAULT '' COLLATE 'utf8mb4_unicode_ci',
-	       `numeracao` TINYTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
-	       `porta` TINYTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
-           `compartimento` TINYTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
-	       PRIMARY KEY (`id_armario`)
-           )
-           COLLATE='utf8mb4_unicode_ci'
-           ENGINE=InnoDB
-           AUTO_INCREMENT=11
-           '''
-                         )
-        self.__c.execute(''' CREATE TABLE IF NOT EXISTS `tb_usuario` (
-                            `id_usuario` INT(10)  AUTO_INCREMENT,
-                            `nome` VARCHAR(50) NULL DEFAULT NULL,
-                            `email` VARCHAR(80) NOT NULL,
-                            `telefone` TEXT NOT NULL,
-                            PRIMARY KEY (`id_usuario`)
-                            )
-                            ENGINE=InnoDB;''')
-        self.__c.execute('''CREATE TABLE IF NOT EXISTS `tb_locacao` (
-                `id_locacao` int(10) NOT NULL AUTO_INCREMENT,
-                `data_locacao` datetime NOT NULL,
-                `tempo_locado` datetime NOT NULL,
-                `tempo_corrido` time DEFAULT '00:00:00',
-                `senha` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
-                `id_armario` int(10) NOT NULL DEFAULT 0,
-                `id_usuario` int(10) NOT NULL DEFAULT 0,
-                KEY `id_locacao` (`id_locacao`),
-                KEY `FK__tb_armario` (`id_armario`),
-                KEY `FK__tb_usuario` (`id_usuario`),
-                CONSTRAINT `FK__tb_armario` FOREIGN KEY (`id_armario`) REFERENCES `tb_armario` (`id_armario`) ON DELETE CASCADE ON UPDATE CASCADE,
-                CONSTRAINT `FK__tb_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
-                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-                ''')
 
     def create_user(self, nome, email, telefone):
         """ verifica se existe um usuario já cadastrado atraves de busa pelo email
@@ -258,9 +236,10 @@ class DataAccessObjectsManager(object):
 
     @staticmethod
     def select_user(senha):
-        __conn = mdb.connect(
-            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+        data_dao = DAO()
+        __conn = mdb.connect(data_dao.db_host(), data_dao.db_user(), password=data_dao.db_passwd(), database=data_dao.db_database())
         __c = __conn.cursor(buffered=True)
+        
         # senha_encode = senha.encode(encoding='utf-8', errors='restrict')
         # senha_encode = hashlib.sha3_512(senha_encode).hexdigest()
         __password = senha  # _encode#.encode('utf-8')
@@ -319,8 +298,8 @@ class DataAccessObjectsManager(object):
 
     @staticmethod
     def get_locacao(senha):
-        __conn = mdb.connect(
-            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+        data_dao = data_dao()
+        __conn = mdb.connect(host=data_dao.db_host(), user=data_dao.db_user(), password=data_dao.db_passwd(), database=data_dao.db_database())
         __c = __conn.cursor(buffered=True)
         result = ''
         # pass_encoded = senha.encode(encoding='utf-8', errors='strict')
@@ -362,7 +341,7 @@ class DataAccessObjectsManager(object):
 
     def cadastrar_armario(self, classe, terminal, coluna, nivel, porta, compartimento):
 
-        self.__c = self.__conn.cursor(buffered=True)
+        #self.__c = self.__conn.cursor(buffered=True)
         self.__classe = classe
         self.__local = 'home'
         self.__terminal = terminal
@@ -442,8 +421,8 @@ class DataAccessObjectsManager(object):
 
     @staticmethod
     def cobranca_excedente(dias, hora, minuto, id_armario):
-        __conn = mdb.connect(
-            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+        data_dao = data_dao()
+        __conn = mdb.connect(host=data_dao.db_host(), user=data_dao.db_user(), password=data_dao.db_passwd(), database=data_dao.db_database())
         calculo_minuto = 0
         __minuto = minuto
         classe_armario = pd.read_sql(
@@ -594,8 +573,8 @@ class DataAccessObjectsManager(object):
 
     @staticmethod
     def listar_classes_armarios():
-        __conn = mdb.connect(
-            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
+        data_dao = DAO()
+        __conn = mdb.connect(host=data_dao.db_host(), user=data_dao.db_user(), password=data_dao.db_passwd(), database=data_dao.db_database())
         __c = __conn.cursor(buffered=True)
         __classes = []
         result = ''
@@ -609,24 +588,25 @@ class DataAccessObjectsManager(object):
     def seleciona_classe(self, classe):
         self.classe = classe
         print('classe recebida data', self.classe)
-        __conn = mdb.connect(
+        """__conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
-        __c = __conn.cursor(buffered=True)
-        __classes = []
+        __c = __conn.cursor(buffered=True)"""
+        #__conn = data_dao.db_conn_string
+        #__c = __conn.cursor(buffered=True)
         result = ''
-        __c.execute("select classe from tb_armario where estado = 'LIVRE' and classe = '%s'" % self.classe)
+        self.__c.execute("select classe from tb_armario where estado = 'LIVRE' and classe = '%s'" % self.classe)
         result = __c.fetchall()
         print('result data classe', result)
 
-        __conn.close()
+        self.__conn.close()
         return result
 
     @classmethod
     def abrir_armario(self, senha):
         self.port = Portas()
-        __conn = mdb.connect(
+        """__conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
-        __cursor = __conn.cursor(buffered=True)
+        __cursor = __conn.cursor(buffered=True)"""
         print('senha em data', senha)
         result = ''
         port = ''
@@ -653,7 +633,7 @@ class DataAccessObjectsManager(object):
             print(self.__locacao['tempo_locado'][0])
             if (self.__locacao['tempo_locado'][0]) >= hj:
                 #import threading
-                porta_armario = pd.read_sql("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (__senha,), __conn)
+                porta_armario = pd.read_sql("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (__senha,), self.__conn)
                 # self.__conn.commit()
                 # self.__conn.close()
                 #id_armario = __cursor.fetchall()
@@ -665,14 +645,14 @@ class DataAccessObjectsManager(object):
             else:
                 query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'" % __senha
                 query_data_limite = "select tempo_locado from tb_locacao where senha = '%s'" % __senha
-                __cursor.execute("select dayname(data_locacao) from tb_locacao where senha = '%s'" % __senha)
-                query_dia_semana_locacao = __cursor.fetchone()
-                __cursor.execute("select dayname(tempo_locado) from tb_locacao where senha = '%s'" % __senha)
-                query_dia_semana_locado = __cursor.fetchone()
-                df_data_locacao = pd.read_sql(query_data_locacao, __conn)
+                self.__c.execute("select dayname(data_locacao) from tb_locacao where senha = '%s'" % __senha)
+                query_dia_semana_locacao = self.__c.fetchone()
+                self.__c.execute("select dayname(tempo_locado) from tb_locacao where senha = '%s'" % __senha)
+                query_dia_semana_locado = self.__c.fetchone()
+                df_data_locacao = pd.read_sql(query_data_locacao, self.__conn)
                 # data em que foi feita a locacao
                 data_locacao = str(pd.to_datetime(df_data_locacao.head().values[0][0]))
-                df_data_limite = pd.read_sql(query_data_limite, __conn)
+                df_data_limite = pd.read_sql(query_data_limite, self.__conn)
                 # data e hora final da locacao
                 data_limite = str(pd.to_datetime(df_data_limite.head().values[0][0]))
                 mes_locacao = data_locacao[5:7]  # mes da locacao
@@ -712,9 +692,7 @@ class DataAccessObjectsManager(object):
                 return dados_locacao  # result, data_locacao, tempo_locado, query_dia_semana_locacao, query_dia_semana_locado, hora_locacao, hora_locado, __dia_extra, __hora_extra, __minuto_extra)
 
     def finalizar_pagamento(self, senha):
-        __conn = mdb.connect(
-            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
-        __c = __conn.cursor(buffered=True)
+        
         __senha = senha
         # __nome = nome
         # __id_user = self.select_user(__nome)
@@ -722,15 +700,15 @@ class DataAccessObjectsManager(object):
         # __senha = senha.encode(encoding='utf-8', errors='strict')
         # print('senha encode', senha)
         __senha = senha  # hashlib.sha3_512(senha).hexdigest()
-        __c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha))
-        id_armario = __c.execute(
+        self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha))
+        id_armario = self.__c.execute(
             "SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (__senha,))
         print("finaliza_pagamento id armario", id_armario)
         self.__c.execute(
             "UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (id_armario,))
-        __conn.commit()
+        self.__conn.commit()
 
-        __conn.close()
+        self.__conn.close()
         return "locacao finalizada com sucesso"
 
     def pagamento(self, total, senha):
@@ -784,16 +762,16 @@ class DataAccessObjectsManager(object):
     @classmethod
     def select_port(self, armario):
         __armario = []
-        __conn = mdb.connect(
+        """__conn = mdb.connect(
             user='coolbaguser', password='m1cr0@t805i', database='coolbag')
-        __c = __conn.cursor(buffered=True)
+        __c = __conn.cursor(buffered=True)"""
         #armario = pd.read_sql()
         __armario = armario
         print("__ARMARIO EM SELECT_port ", __armario)
-        retorno_porta = pd.read_sql("select porta from tb_armario where id_armario='%s'" % (__armario), __conn)
+        retorno_porta = pd.read_sql("select porta from tb_armario where id_armario='%s'" % (__armario), self.__conn)
         #retorno_porta = __c.fetchall()
         print("retorno_porta", retorno_porta["porta"][0])
-        __conn.close()
+        self.__conn.close()
         return retorno_porta["porta"][0]
 
     #USO INTERNO APENAS PARA TESTES
@@ -822,13 +800,10 @@ class DataAccessObjectsManager(object):
 
     @classmethod
     def localiza_id_armario(self, senha):
-        __conn = mdb.connect(
-            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
-        __c = __conn.cursor(buffered=True)
-        __c.execute("select id_armario from tb_locacao where senha = '%s'" % senha)
-        result = __c.fetchall()
+        self.__c.execute("select id_armario from tb_locacao where senha = '%s'" % senha)
+        result = self.__c.fetchall()
         return result
 
 
 if __name__ == "__main__":
-    Banco()
+    DataAccessObjectsManager()

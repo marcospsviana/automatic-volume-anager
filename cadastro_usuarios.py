@@ -647,8 +647,9 @@ class CadastroUsuarios(object):
     
     def on_btn_tente_novamente_window_erro_pagamentos_button_press_event(self, widget, event):
         self.window_erro_pagamentos.hide()
-        self.window_select_cartao.fullscreen()
-        self.window_select_cartao.show()
+        #self.window_select_cartao.fullscreen()
+        #self.window_select_cartao.show()
+        self.select_cartao()
 
     def on_btn_cancelar_window_erro_pagamentos_button_press_event(self, widget, event):
         self.window_erro_pagamentos.hide()

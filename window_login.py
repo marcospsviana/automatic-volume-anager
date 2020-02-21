@@ -256,7 +256,7 @@ class WindowLogin(Gtk.Window):
                 self.label_valor_extra_value.set_text("R$ " + result["total"])
                 if float(result["total"]) <= 0.00:
                     resultado = self.manager.finalizar(self.__senha)
-                    if resultado == 'armario liberado':
+                    if resultado == 'locacao finalizada com sucesso':
                         self.window_login.hide()
                         self.entry_entrada_dados.set_text('')
                         print('abrir')
