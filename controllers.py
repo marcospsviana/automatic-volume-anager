@@ -67,14 +67,14 @@ class Management(object):
         result = arm.liberar_armario(__senha)
         print('result controllers --->', result)
         return result
-    def calculo(self, dia, hora, minuto):
+    """def calculo(self, dia, hora, minuto):
         
         self.__dia = dia
         self.__hora = hora
         self.__minuto = minuto
         self.__cobranca =  cb.cobranca(self.__dia, self.__hora, self.__minuto)
         print('entrou em cobrança retorna total')
-        return self.__cobranca
+        return self.__cobranca"""
 
         
     @classmethod

@@ -396,12 +396,12 @@ class DataAccessObjectsManager(object):
         else:
             return ('tempo excedente', self.__cobranca)
 
-    @classmethod
-    def cobranca(self, total, data_futura):
-        """ compara duas datas retornando a diferença de tempo entre as duas
+    """@classmethod
+    def cobranca(cls, self, total, data_futura):
+        compara duas datas retornando a diferença de tempo entre as duas
             parametros: data_atual tipo datetime, tempo_locado tipo datetime
             retorno: diferença tipo datetime.timedelta convertido em minutos e calculado o preço conforme
-            taxa por minuto cobrado"""
+            taxa por minuto cobrado
 
         self.__data_atual = data_futura
         # self.__data_futura = data_futura
@@ -417,7 +417,7 @@ class DataAccessObjectsManager(object):
         # troca ponto por virgula pra formatar em moeda BR
         __total_preco = str(__total_preco.replace('.', ','))
         print('modulo data')
-        return __total_preco
+        return __total_preco"""
 
     @staticmethod
     def cobranca_excedente(dias, hora, minuto, id_armario):

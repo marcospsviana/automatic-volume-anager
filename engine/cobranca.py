@@ -4,7 +4,7 @@ import datetime
 
 class Cobranca(object):
     
-    @staticmethod
+    """@staticmethod
     def cobranca( dia, hora, minuto):
         
         __DAO = DAO()
@@ -19,7 +19,7 @@ class Cobranca(object):
                 days=__dia, hours=__hora, minutes=__minuto)
         __result = __DAO.cobranca(__total, __futuro)
         print('modulo cobrança')
-        return __result
+        return __result"""
 
     @staticmethod
     def pagamento(total, senha):
