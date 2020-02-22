@@ -21,15 +21,15 @@ class WindowCalendario:
         self.tempo_locacao = args[0]
         self.classe = args[1][0]
         self.language = args[2]
-        if self.classe == "A" and self.tempo_locacao == "diaria":
+        if self.classe == "A":
             self.taxa = TaxAndRates.TAXA_DIARIA_A.value
-        elif self.classe == "B" and self.tempo_locacao == "diaria":
+        elif self.classe == "B":
             self.taxa = TaxAndRates.TAXA_DIARIA_B.value
         
-        elif self.classe == "C" and self.tempo_locacao == "diaria":
+        elif self.classe == "C":
             self.taxa = TaxAndRates.TAXA_DIARIA_C.value
         
-        elif self.classe == "D" and self.tempo_locacao == "diaria":
+        elif self.classe == "D":
             self.taxa = TaxAndRates.TAXA_DIARIA_D.value
         
         locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
