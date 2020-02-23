@@ -134,3 +134,13 @@ engine/paygoWeb/PGWebLib/Data/
 engine/paygoWeb/PGWebLib/Data/check.pos
 engine/paygoWeb/PGWebLib/Data/file50.pos
 engine/paygoWeb/PGWebLib/Data/file51.pos
+engine/paygoWeb/comprovantes/COMPROVANTE CLIENTE DATA:23 2 2020 .txt
+engine/paygoWeb/comprovantes/COMPROVANTE CLIENTE EMAIL.txt
+engine/paygoWeb/comprovantes/COMPROVANTE DATA:23 2 2020 .txt
+engine/paygoWeb/comprovantes/REGISTRO DATA:23 2 2020 .json
+engine/paygoWeb/comprovantes/RESULT DATA:23 2 2020 .json
+engine/paygoWeb/comprovantes/retornotransacao.json
+engine/paygoWeb/comprovantes/teste.json
+engine/paygoWeb/comprovantes/teste.txt
+engine/paygoWeb/comprovantes/teste2.json
+engine/paygoWeb/comprovantes/valor_venda.json

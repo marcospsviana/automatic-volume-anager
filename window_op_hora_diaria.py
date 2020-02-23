@@ -48,14 +48,15 @@ class OpcaoHoraDiaria(object):
     def on_btn_loc_hora_button_press_event(self, widget, event):
         tempo_locacao = "horas"
         #CadastroUsuarios(tempo_locacao, self.classe, self.language)
-        #self.window_hora_diaria.hide()
+        self.window_hora_diaria.hide()
         WindowSelectHora(tempo_locacao, self.classe, self.language)
     
     def on_btn_loc_diaria_button_press_event(self, widget, event):
         tempo_locacao = "diaria"
         #CadastroUsuarios(tempo_locacao, self.classe, self.language)
+        self.window_hora_diaria.hide()
         WindowCalendario(tempo_locacao, self.classe, self.language)
-        #self.window_hora_diaria.hide()
+        
     
     def on_btn_tela_hora_diaria_button_press_event(self, widget, event):
         self.window_hora_diaria.hide()
@@ -72,6 +73,6 @@ class OpcaoHoraDiaria(object):
         self.label_por_diaria.set_text("DAILY")
         self.btn_tela_hora_diaria.set_label("RETURN TO THE\n PREVIOUS SCREEN")
 
-if __name__ == "__main__":
+"""if __name__ == "__main__":
     app = OpcaoHoraDiaria()
-    Gtk.main()
+    Gtk.main()"""

@@ -57,7 +57,7 @@
 }
 
 #dia_selecionado{
-    background: rgba(17, 80, 80, 0.5);
+    background: rgb(17, 80, 80);
 	border-radius: 100%;
 	color: white;
 }
@@ -83,4 +83,9 @@
 #label_bottom_calendario{
 	font-weight: lighter;
 	font-size: 1.2em;
+}
+#dia_corrente{
+	background: rgb(243, 128, 128);
+	color: #fff ;
+	border-radius: 100%;
 }

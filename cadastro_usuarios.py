@@ -497,7 +497,6 @@ class CadastroUsuarios(object):
     def on_btn_credito_button_press_event(self, event, args):
         self.window_select_cartao.hide()
         self.window_cadastro_usuario.hide()
-        #self.window_payment.show()
         self.send_tipo_cartao("CREDITO")
         
         sleep(0.5)       

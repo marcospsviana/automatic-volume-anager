@@ -132,6 +132,7 @@ class WindowCalendario:
         self.window_calendario.hide()
     def on_btn_confirmar_button_press_event(self, widget, event):
         self.total = self.label_valor_total_value.get_label()
+        self.on_window_calendario_quit()
         CadastroUsuarios(self.total , self.language, self.classe, self.resultado_dias, self.total_horas)
 
     def on_btn_button_press_event(self, widget, args):
@@ -147,6 +148,7 @@ class WindowCalendario:
         print(self.widget)
         for i in range(len(self.mes)):
             for j,d in zip(self.mes[i], range(7)):
+                
                 if self.dias_meses[i][d].get_label() != "" and int(self.dias_meses[i][d].get_label()) >= self.data.day and int(self.dias_meses[i][d].get_label()) < int(self.widget):
                     self.dias_meses[i][d].set_name("intervalo_selecionado")
                 elif self.dias_meses[i][d].get_label() == "" or (self.meses_indices[self.label_month.get_label()] == self.data.month and int(self.dias_meses[i][d].get_label()) < self.data.day and int(self.label_year.get_label()) == self.data.year ):
@@ -162,9 +164,17 @@ class WindowCalendario:
                     self.dias_meses[i][d].set_name("btn_calendario")
                 elif self.dias_meses[i][d].get_label() != "" and self.dias_meses[i][d] in self.dias_dom and not(self.meses_indices[self.label_month.get_label()] == self.data.month and int(self.dias_meses[i][d].get_label()) < self.data.day):
                     self.dias_meses[i][d].set_name("btn_calendario_dom")
+                elif int(self.dias_meses[i][d].get_label()) == data.day and self.meses_indices[self.label_month.get_label()] == data.month:
+                    self.dias_meses[i][d].set_name("dia_corrente")
+                    self.dias_meses[i][d].set_sensitive(False)
                 else:
                     self.dias_meses[i][d].set_name("btn_calendario")
                     self.dias_meses[i][d].set_sensitive(True)
+                
+                
+                if self.dias_meses[i][d].get_label() == self.widget:
+                    self.dias_meses[i][d].set_name("dia_selecionado")
+                
         return self.resultado_dias
 
 
@@ -175,6 +185,7 @@ class WindowCalendario:
         self.month = mes
         self.label_month.set_text(self.meses[mes])
         self.label_year.set_text(str(ano))
+        data  = datetime.now()
 
         self.dias_meses = [ [self.btn0, self.btn1, self.btn2, self.btn3, self.btn4, self.btn5,self.btn6],
                             [self.btn7, self.btn8, self.btn9, self.btn10,self.btn11,self.btn12,self.btn13],
@@ -212,6 +223,9 @@ class WindowCalendario:
                 if self.dias_meses[i][d].get_label() == '0':
                     self.dias_meses[i][d].set_label("")
                     self.dias_meses[i][d].set_sensitive(False)
+                elif self.dias_meses[i][d].get_label() != "" and int(self.dias_meses[i][d].get_label()) == data.day and self.meses_indices[self.label_month.get_label()] == data.month:
+                    self.dias_meses[i][d].set_name("dia_corrente")
+                    self.dias_meses[i][d].set_sensitive(False)
                 
                 elif self.dias_meses[i][d].get_label() == "" or (self.meses_indices[self.label_month.get_label()] == self.data.month and int(self.dias_meses[i][d].get_label()) < self.data.day and int(self.label_year.get_label()) == self.data.year ):
                     print("dias messess",self.dias_meses[i][d].get_label())
@@ -224,6 +238,7 @@ class WindowCalendario:
                 elif self.dias_meses[i][d] in self.dias_dom and not(self.meses_indices[self.label_month.get_label()] == self.data.month and int(self.dias_meses[i][d].get_label()) < self.data.day):
                     self.dias_meses[i][d].set_name("btn_calendario_dom")
                     self.dias_meses[i][d].set_sensitive(True)
+                
                 else:
                     self.dias_meses[i][d].set_sensitive(True)
                     self.dias_meses[i][d].set_name("btn_calendario")
@@ -300,7 +315,7 @@ class WindowCalendario:
         self.set_calendario(self.ano_atual, self.mes_atual)
 
     def on_window_calendario_quit(self):
-        self.window_calendario.destroy()
+        self.window_calendario.hide()
     
     def gtk_style(self):
         css = b"""

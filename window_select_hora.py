@@ -113,6 +113,7 @@ class WindowSelectHora:
     def on_bnt_confirmar_select_horas_button_press_event(self, widget, event):
         self.total = self.label_valor_total_value.get_text()
         dia = 0
+        self.window_select_horas.hide()
         CadastroUsuarios(self.total , self.language, self.classe, dia, self.hora)
     
     def on_btn_cancelar_select_hora_button_press_event(self, widget, event):
@@ -120,7 +121,7 @@ class WindowSelectHora:
         self.window_select_horas.hide()
         
     def on_window_select_horas_destroy(self):
-        self.window_select_horas.destroy()
+        self.window_select_horas.hide()
 
     def gtk_style(self):
         css = b"""

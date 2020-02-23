@@ -159,8 +159,8 @@ class DataAccessObjectsManager(object):
             # self.__hash_senha = hashlib.sha3_512(senha_encode).hexdigest()
             print("==== id_armario, id_usuario ======")
             # print(loca_armario[0], self.dados_locatario[0])
-            self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(null, '%s','%s',null,'%s',%s,%s)" % (
-                self.__data_locacao, self.__data_limite, __senha, loca_armario[0], self.dados_locatario))
+            self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario, valor_locacao) VALUES(null, '%s','%s',null,'%s',%s,%s,%s)" % (
+                self.__data_locacao, self.__data_limite, __senha, loca_armario[0], self.dados_locatario, self.__total))
 
             self.__c.execute(
                 "UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario[0]))
@@ -604,9 +604,8 @@ class DataAccessObjectsManager(object):
     @classmethod
     def abrir_armario(self, senha):
         self.port = Portas()
-        """__conn = mdb.connect(
-            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
-        __cursor = __conn.cursor(buffered=True)"""
+        self.__conn = mdb.connect(host=data_dao.db_host(), user=data_dao.db_user(), password=data_dao.db_passwd(), database=data_dao.db_database())
+        self.__c = self.__conn.cursor(buffered=True)
         print('senha em data', senha)
         result = ''
         port = ''
@@ -762,9 +761,8 @@ class DataAccessObjectsManager(object):
     @classmethod
     def select_port(self, armario):
         __armario = []
-        """__conn = mdb.connect(
-            user='coolbaguser', password='m1cr0@t805i', database='coolbag')
-        __c = __conn.cursor(buffered=True)"""
+        self.__conn = mdb.connect(host=data_dao.db_host(), user=data_dao.db_user(), password=data_dao.db_passwd(), database=data_dao.db_database())
+        
         #armario = pd.read_sql()
         __armario = armario
         print("__ARMARIO EM SELECT_port ", __armario)
@@ -800,6 +798,9 @@ class DataAccessObjectsManager(object):
 
     @classmethod
     def localiza_id_armario(self, senha):
+        self.__conn = mdb.connect(host=data_dao.db_host(), user=data_dao.db_user(), password=data_dao.db_passwd(), database=data_dao.db_database())
+        
+        self.__c = self.__conn.cursor(buffered=True)
         self.__c.execute("select id_armario from tb_locacao where senha = '%s'" % senha)
         result = self.__c.fetchall()
         return result
