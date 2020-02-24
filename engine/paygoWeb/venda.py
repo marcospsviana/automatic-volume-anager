@@ -72,7 +72,7 @@ class Venda:
 
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, "986")  # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, "2")
-        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "CIELO")  # ADQUIRENTE
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, "REDE")  # ADQUIRENTE
         # 1 - CREDITO 2 - DEBITO
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CARDTYPE.value, self.tipo_cartao) # "2") #
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_FINTYPE.value, "1")  # 1 A VISTA
@@ -102,7 +102,7 @@ class Venda:
                     -2166, -2167, -2168, -2169, -2170, -2171, -2172, -2173, -2174, -2175, -2176, 
                     -2177, -2178, -2179, -2180, -2181, -2182, -2183, -2184, -2185, -2186, -2187, 
                     -2188, -2189, -2190, -2191, -2192, -2193, -2194, -2195, -2196, -2197, -2198, 
-                    -2199, -2200]
+                    -2199, -2200, -2491]
 
         if ret == E_PWRET.PWRET_MOREDATA.value or ret == E_PWRET.PWRET_NOTHING.value or (ret in list_errors_pinpad):
             print("retorno transacao", ret)
@@ -116,6 +116,13 @@ class Venda:
 
                 if ret == E_PWRET.PWRET_CANCEL.value or (ret in list_errors_pinpad):
                     print("E_PWRET.PWRET_CANCEL")
+                    PWINFO_RESULTMSG = 'OPERACAO CANCELADA PELO USUARIO\n OPERATION CANCELED BY THE USER'.decode("utf-8")
+                    retorno_transacao = open('comprovantes/retornotransacao.json', 'w')
+                    retorno_transacao.write('\n{  \n')
+                    retorno_transacao.write('  "DATA" : "%s %s %s %s %s",\n' %(data.day, data.month, data.year, data.hour, data.minute))
+                    retorno_transacao.write('  "PWINFO_RESULTMSG" : "%s"' % (PWINFO_RESULTMSG))
+                    retorno_transacao.write('\n}  \n')
+                    retorno_transacao.close()
                     self.pgWeb.PW_iPPAbort()
                     retEventLoop = self.pgWeb.PW_iPPEventLoop(
                         self.szDspMsg, sizeof(self.szDspMsg))

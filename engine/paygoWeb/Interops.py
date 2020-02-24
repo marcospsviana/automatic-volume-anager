@@ -769,7 +769,8 @@ class PGWebLibrary:
                 print("vstParam[i].bTamanhoMaximo", vstParam[i].bTamanhoMaximo )
                 print("PWDAT_TYPED")
                 if vstParam[i].wIdentificador == 87:
-                    ret = self.PW_iAddParam(vstParam[0].wIdentificador, "040220")
+                    data = datetime.now()
+                    ret = self.PW_iAddParam(vstParam[0].wIdentificador, data.strftime("%d%m%y"))
                     iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
                     print("PWINFO_BOARDINGTAX", iRet)
                     if iRet == 0:
@@ -782,7 +783,7 @@ class PGWebLibrary:
                     if iRet == 0:
                         return iRet
                 if vstParam[i].wIdentificador == 37:
-                    ret = self.PW_iAddParam(vstParam[0].wIdentificador, "100")
+                    ret = self.PW_iAddParam(vstParam[0].wIdentificador, "489")
                     iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
                     print("PWOPER_RETBALINQ", iRet)
                     if iRet == 0:
@@ -892,7 +893,7 @@ class PGWebLibrary:
             
             elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_TRNORIGDATE.value:
                         
-                ret = self.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGDATE.value, "310120")
+                ret = self.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGDATE.value, data.strftime("%d%m%y"))
                 iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
                 print("PWINFO_TRNORIGDATE", iRet)
                 if iRet == 0:

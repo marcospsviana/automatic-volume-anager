@@ -237,7 +237,7 @@ class DataAccessObjectsManager(object):
     @staticmethod
     def select_user(senha):
         data_dao = DAO()
-        __conn = mdb.connect(data_dao.db_host(), data_dao.db_user(), password=data_dao.db_passwd(), database=data_dao.db_database())
+        __conn = mdb.connect(host=data_dao.db_host(), user=data_dao.db_user(), password=data_dao.db_passwd(), database=data_dao.db_database())
         __c = __conn.cursor(buffered=True)
         
         # senha_encode = senha.encode(encoding='utf-8', errors='restrict')
@@ -298,7 +298,7 @@ class DataAccessObjectsManager(object):
 
     @staticmethod
     def get_locacao(senha):
-        data_dao = data_dao()
+        data_dao = DAO()
         __conn = mdb.connect(host=data_dao.db_host(), user=data_dao.db_user(), password=data_dao.db_passwd(), database=data_dao.db_database())
         __c = __conn.cursor(buffered=True)
         result = ''
@@ -421,7 +421,7 @@ class DataAccessObjectsManager(object):
 
     @staticmethod
     def cobranca_excedente(dias, hora, minuto, id_armario):
-        data_dao = data_dao()
+        data_dao = DAO()
         __conn = mdb.connect(host=data_dao.db_host(), user=data_dao.db_user(), password=data_dao.db_passwd(), database=data_dao.db_database())
         calculo_minuto = 0
         __minuto = minuto
@@ -603,6 +603,7 @@ class DataAccessObjectsManager(object):
 
     @classmethod
     def abrir_armario(self, senha):
+        data_dao = DAO()
         self.port = Portas()
         self.__conn = mdb.connect(host=data_dao.db_host(), user=data_dao.db_user(), password=data_dao.db_passwd(), database=data_dao.db_database())
         self.__c = self.__conn.cursor(buffered=True)
@@ -760,6 +761,7 @@ class DataAccessObjectsManager(object):
 
     @classmethod
     def select_port(self, armario):
+        data_dao = DAO()
         __armario = []
         self.__conn = mdb.connect(host=data_dao.db_host(), user=data_dao.db_user(), password=data_dao.db_passwd(), database=data_dao.db_database())
         
@@ -798,6 +800,7 @@ class DataAccessObjectsManager(object):
 
     @classmethod
     def localiza_id_armario(self, senha):
+        data_dao = DAO()
         self.__conn = mdb.connect(host=data_dao.db_host(), user=data_dao.db_user(), password=data_dao.db_passwd(), database=data_dao.db_database())
         
         self.__c = self.__conn.cursor(buffered=True)

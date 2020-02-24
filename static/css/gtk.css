@@ -12,6 +12,10 @@ button{
 	font-size: 2em ;
 	border-radius: 5px;
 }
+#entry_entrada_numeros{
+	font-size: 2em ;
+	border-radius: 5px;
+}
 #label_dialogo{
 	color: #000;
 	font-size: 32px;
@@ -23,7 +27,7 @@ button{
 	font-size: 2em ;
 }
 
-#btn_num{ background-color: red; font-size: 22px}
+#btn_num{ background-color: #ED0D0D; font-size: 22px}
 
 #btn_proximo { 
 	font-size: 2.5em ;
@@ -32,26 +36,26 @@ button{
 	    }
 #btn_cancelar {  
 	font-size: 1.4em;
-		background: rgb(199, 75, 54);
+		background: #ED0D0D;
 		color: #d6e6ee;
 		border-radius: 2px;
 	     }
 #btn_confirmar{  
 		font-size: 1.5em ;
-		background: #0b4f6f;/* rgb(8, 107, 173);*/
+		background: #203864;/* rgb(8, 107, 173);*/
 		color: #d6e6ee;
 		padding: 10px;
 		border-radius: 4px;
-		/*border: 1px solid #fff;*/
+		border: 1px solid #fff;
 		padding: 1.2em 4em;
 		 }
 #btn_retornar{  
 	font-size: 1.5em ;
-	background: #aa0000;
+	background: #ED0D0D;
 	color: #d6e6ee;
 	padding: 5px;
 	border-radius: 4px;
-	/*border: 1px solid #fff;*/
+    border: 1px solid #fff;
 			 }
 dialog, #window { 
 background-color: #FDCF03;
@@ -103,15 +107,15 @@ background-color: #FDCF03;
 }
 #tecla_num_quantidade{
 	
-		background: #000;
+		background: #fff;
 		border: rgb(29, 36, 51) solid 1px;
-		color: #fff;
+		color: #000;
 		font-size: 3em ;
 		border-radius: 3px;
 }
 #tecla_num_quantidade:active{
 	color: #fff;
-	background: #aa0000;
+	background: #ED0D0D;
 }
 #tecla_num:focus{
 background: rgb(9, 19, 41);
@@ -154,7 +158,7 @@ color: #fff;
 	background: url("../static/images/alugar.svg");
 }
 #btn_encerrar{
-	background: rgb(255, 94, 0);
+	background: #ED0D0D;
 }
 #btn_abrir, #btn_concluir, #btn_medidas , #btn_reservar{
 	/*background: url("../static/images/retirar.svg")*/
@@ -230,13 +234,13 @@ btn_toggle :checked{
 }
 #btn_clear{
 	font: 1.5em "Roboto mono";
-	color: #fff;
-	background: #000000;
+	color: #000;
+	background: #fff;
 	border-radius: 0px;
 }
 #btn_clear:active{
 	color: #000;
-	background: red;
+	background: #ED0D0D;
 }
 #label_instrucao{
 	font: 1.5em sans-serif;
@@ -244,4 +248,106 @@ btn_toggle :checked{
 #label_select_size{
 	color: #000;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#window_calendario{
+	background: floralwhite;
+	font: 1.3em monospace;
+	font-weight: lighter;
+	color: rgb(9, 19, 41);
+}
+#btn_seta_date{
+	background: floralwhite;
+	color: #063f41;
+	font: 1em monospace;
+}
+#btn_confirmar_calendario, #btn_retornar_calendario{
+	font:1.2em  monospace;
+	color:floralwhite;
+	border-radius: 0;
+}
+#btn_confirmar_calendario{
+	background: #203864;
+}
+#btn_retornar_calendario{
+	background: #ED0D0D;
+}
+#btn_calendario{
+	color: #000;
+	font: 1.3em sans-serif;
+	border: none;
+}
+#btn_calendario_dom, #btn_calendario_sab{
+	color: #ED0D0D;
+	font: 1.3em sans-serif;
+	border: none;
+}
+#btn_calendario_dom:focus{
+	background: #05878b;
+	border-radius: 100%;
+	color: floralwhite;
+}
+
+#btn_calendario_sab:focus{
+	background: #05878b;
+	border-radius: 100%;
+	color: floralwhite;
+}
+#btn_calendario:focus{
+	background: #05878b;
+	color: #fff;
+	border-radius: 100%;
+}
+
+#dia_passado{
+    background: floralwhite;
+	color: #688586;
+}
+
+#dia_selecionado{
+    background: rgb(17, 80, 80);
+	border-radius: 100%;
+	color: white;
+}
+#intervalo_selecionado{
+	background: #688586;
+	color: floralwhite;
+	border-radius: 100%;
+}
+
+#label_calendario_dom{
+	font-weight: lighter;
+	color: #aa0000;
+}
+#label_calendario_sabado{
+	font-weight: lighter;
+	color: #71898a;
+}
+
+#label_weekdays{
+	font-weight: lighter;
+	color: #0b4f6f;
+}
+#label_bottom_calendario{
+	font-weight: lighter;
+	font-size: 1.2em;
+}
+#dia_corrente{
+	background: rgb(243, 128, 128);
+	color: #fff ;
+	border-radius: 100%;
+}
+#btn_horas{
+	color: #000;
+	font: 1.3em sans-serif;
+	border-radius: 100%;
+}
+#btn_horas:focus{
+	background: #05878b;
+	color: #fff;
+	border-radius: 100%;
+}
+#focado{
+	color: #000;
+	font: 1.3em sans-serif;
+	border-radius: 100%;
 }

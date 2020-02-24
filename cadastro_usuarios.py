@@ -1014,9 +1014,9 @@ class CadastroUsuarios(object):
     def on_btn_confirmar_entrada_numero_button_press_event(self, widget, event):
         if self.label_entrada_numeros.get_text() == "CELULAR" or self.label_entrada_numeros.get_text() == "PHONE":
             self.ddd = self.combobox_flags_ddd.get_active()
-            
+            entrada = str(self.text_entrada)
             print("self ddd", self.ddd)
-            self.entry_celular.set_text(str(DDD[self.ddd]) + " " +str(self.text_entrada))
+            self.entry_celular.set_text(str(DDD[self.ddd]) + " " + entrada )
             self.entry_celular.set_position(-1)
             self.window_entrada_numeros.hide()
         """elif self.label_entrada_numeros.get_text() == "QUANTIDADE DIÁRIA" or self.label_entrada_numeros.get_text() == "QUANTITY DAYS":
@@ -1065,8 +1065,13 @@ class CadastroUsuarios(object):
         self.window_entrada_numeros.hide()
     
     def on_entry_entrada_numeros_button_press_event(self, widget):
-        self.widget = widget
-        self.value = self.widget.get_label()
+        self.widget =  widget
+        if self.entry_entrada_numeros.get_text() == "":
+            self.value = "( " + self.widget.get_label()
+        elif len(self.entry_entrada_numeros.get_text()) == 3:
+            self.value = self.widget.get_label() + " ) "
+        else:
+            self.value = self.widget.get_label()
         self.text_entrada = self.entry_entrada_numeros.get_text() + self.value
         self.entry_entrada_numeros.set_text(self.text_entrada)
         self.entry_entrada_numeros.set_position(-1)

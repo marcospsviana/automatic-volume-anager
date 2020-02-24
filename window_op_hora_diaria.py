@@ -71,7 +71,7 @@ class OpcaoHoraDiaria(object):
         self.language = "en_US"
         self.label_por_hora.set_text("HOURLY")
         self.label_por_diaria.set_text("DAILY")
-        self.btn_tela_hora_diaria.set_label("RETURN TO THE\n PREVIOUS SCREEN")
+        self.btn_tela_hora_diaria.set_label("RETURN TO THE PREVIOUS SCREEN")
 
 """if __name__ == "__main__":
     app = OpcaoHoraDiaria()

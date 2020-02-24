@@ -94,8 +94,8 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     </child>
   </object>
   <object class="GtkDialog" id="dialog_message_preencher_campos">
-    <property name="width_request">600</property>
-    <property name="height_request">400</property>
+    <property name="width_request">400</property>
+    <property name="height_request">200</property>
     <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="destroy_with_parent">True</property>
@@ -153,6 +153,9 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
               <object class="GtkLabel" id="label_message_preencher_campos">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="margin_top">50</property>
                 <property name="label" translatable="yes">label</property>
               </object>
               <packing>
@@ -2174,7 +2177,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
         <property name="height_request">550</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="margin_top">15</property>
+        <property name="margin_top">20</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
@@ -2205,8 +2208,9 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
             </child>
             <child>
               <object class="GtkEntry" id="entry_entrada_numeros">
-                <property name="name">entry</property>
+                <property name="name">entry_entrada_numeros</property>
                 <property name="width_request">500</property>
+                <property name="height_request">40</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="margin_right">10</property>
@@ -2243,7 +2247,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
         </child>
         <child>
           <object class="GtkBox">
-            <property name="width_request">800</property>
+            <property name="width_request">300</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
@@ -2251,12 +2255,13 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
             <property name="margin_top">5</property>
             <property name="margin_bottom">5</property>
             <property name="orientation">vertical</property>
-            <property name="spacing">5</property>
+            <property name="spacing">10</property>
             <child>
               <object class="GtkGrid">
+                <property name="width_request">300</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="hexpand">True</property>
+                <property name="halign">center</property>
                 <property name="column_spacing">5</property>
                 <property name="column_homogeneous">True</property>
                 <child>
@@ -2316,9 +2321,10 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
             </child>
             <child>
               <object class="GtkGrid">
+                <property name="width_request">300</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="hexpand">True</property>
+                <property name="halign">center</property>
                 <property name="column_spacing">5</property>
                 <property name="column_homogeneous">True</property>
                 <child>
@@ -2378,9 +2384,10 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
             </child>
             <child>
               <object class="GtkGrid">
+                <property name="width_request">300</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="hexpand">True</property>
+                <property name="halign">center</property>
                 <property name="column_spacing">5</property>
                 <property name="column_homogeneous">True</property>
                 <child>
@@ -2454,6 +2461,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">center</property>
                     <property name="relief">none</property>
                   </object>
                   <packing>
@@ -2492,6 +2500,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
+            <property name="padding">8</property>
             <property name="position">1</property>
           </packing>
         </child>
@@ -2500,11 +2509,13 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
-            <property name="margin_top">5</property>
+            <property name="valign">center</property>
+            <property name="margin_top">20</property>
             <property name="margin_bottom">15</property>
             <property name="column_spacing">5</property>
             <child>
               <object class="GtkFixed">
+                <property name="width_request">100</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
@@ -2520,7 +2531,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
               <object class="GtkButton" id="btn_retornar_entrada_numeros">
                 <property name="label" translatable="yes">RETORNAR TELA ANTERIOR</property>
                 <property name="name">btn_retornar</property>
-                <property name="width_request">200</property>
+                <property name="width_request">250</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -2539,6 +2550,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="valign">center</property>
                 <signal name="button-press-event" handler="on_btn_confirmar_entrada_numero_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -2557,7 +2569,7 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
     </child>
   </object>
   <object class="GtkWindow" id="window_erro_pagamento">
-    <property name="name">window</property>
+    <property name="name">window_calendario</property>
     <property name="width_request">600</property>
     <property name="height_request">400</property>
     <property name="can_focus">False</property>
@@ -2748,7 +2760,6 @@ RESERVA ACABA DE LHE SER ENVIADO!</property>
     <property name="name">window</property>
     <property name="width_request">1000</property>
     <property name="height_request">550</property>
-    <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="has_focus">True</property>
     <property name="border_width">10</property>

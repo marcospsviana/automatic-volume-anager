@@ -30,7 +30,7 @@
     <property name="default_height">600</property>
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
-    <property name="gravity">north</property>
+    <property name="gravity">center</property>
     <child>
       <placeholder/>
     </child>

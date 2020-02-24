@@ -20,7 +20,7 @@
 	border-radius: 0;
 }
 #btn_confirmar_calendario{
-	background: #0b4f6f;
+	background: #203864;
 }
 #btn_retornar_calendario{
 	background: #aa0000;
@@ -28,11 +28,12 @@
 #btn_calendario{
 	color: #000;
 	font: 1.3em sans-serif;
+	border: none;
 }
 #btn_calendario_dom, #btn_calendario_sab{
 	color: #aa0000;
 	font: 1.3em sans-serif;
-	
+	border: none;
 }
 #btn_calendario_dom:focus{
 	background: #05878b;
@@ -87,5 +88,20 @@
 #dia_corrente{
 	background: rgb(243, 128, 128);
 	color: #fff ;
+	border-radius: 100%;
+}
+#btn_horas{
+	color: #000;
+	font: 1.3em sans-serif;
+	border-radius: 100%;
+}
+#btn_horas:focus{
+	background: #05878b;
+	color: #fff;
+	border-radius: 100%;
+}
+#focado{
+	color: #000;
+	font: 1.3em sans-serif;
 	border-radius: 100%;
 }

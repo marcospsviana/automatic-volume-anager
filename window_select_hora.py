@@ -100,6 +100,8 @@ class WindowSelectHora:
         self.btn23.connect("button_press_event", self.on_btn_button_press_event)
         self.btn24.connect("button_press_event", self.on_btn_button_press_event)
 
+        self.btn24.set_name("focado")
+
         self.label_valor_total_value = self.builder.get_object("label_valor_total_value")
 
 
