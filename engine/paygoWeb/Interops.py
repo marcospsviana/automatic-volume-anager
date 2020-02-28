@@ -783,7 +783,7 @@ class PGWebLibrary:
                     if iRet == 0:
                         return iRet
                 if vstParam[i].wIdentificador == 37:
-                    ret = self.PW_iAddParam(vstParam[0].wIdentificador, "489")
+                    ret = self.PW_iAddParam(vstParam[0].wIdentificador, "100")
                     iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
                     print("PWOPER_RETBALINQ", iRet)
                     if iRet == 0:
@@ -893,7 +893,7 @@ class PGWebLibrary:
             
             elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_TRNORIGDATE.value:
                         
-                ret = self.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGDATE.value, data.strftime("%d%m%y"))
+                ret = self.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGDATE.value, "310120")
                 iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
                 print("PWINFO_TRNORIGDATE", iRet)
                 if iRet == 0:

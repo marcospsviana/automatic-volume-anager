@@ -517,9 +517,9 @@
             </child>
             <child>
               <object class="GtkButton" id="btn24">
+                <property name="name">focado</property>
                 <property name="height_request">80</property>
-                <property name="sensitive">False</property>
-                <property name="can_focus">False</property>
+                <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
                 <property name="receives_default">True</property>
                 <property name="margin_left">5</property>

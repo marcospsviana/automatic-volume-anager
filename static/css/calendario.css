@@ -4,13 +4,13 @@
 	
 }
 #window_calendario{
-	background: floralwhite;
+	background: rgb(248, 248, 248);
 	font: 1.3em monospace;
 	font-weight: lighter;
 	color: rgb(9, 19, 41);
 }
 #btn_seta_date{
-	background: floralwhite;
+	background: rgb(248, 248, 248);
 	color: #063f41;
 	font: 1em monospace;
 }
@@ -53,7 +53,7 @@
 }
 
 #dia_passado{
-    background: floralwhite;
+    background: rgb(248, 248, 248);
 	color: #688586;
 }
 
@@ -105,3 +105,53 @@
 	font: 1.3em sans-serif;
 	border-radius: 100%;
 }
+
+
+
+#label_hora_ecolhida{
+	font-size: 1.8em;
+}
+#label_valor_total_horas, #label_periodo{
+	font-size: 3em;
+	background-color: #4473C5;
+	color: floralwhite;
+	font-weight: bolder;
+}
+
+#label_titulo{
+	font-size: 3em;
+	color: #063f41;
+	font-weight: bolder;
+}
+#label_titulo_qt_hora{
+	
+		font-size: 3.2em;
+		color: #063f41;
+		font-weight: bold;
+		transition: width 1s;
+}
+#label_titulo_passado{
+	font-size: 2.5em;
+	color: #677a7a;
+	font-weight: lighter;
+	
+}
+#btn_confirmar_calendario{  
+	font-size: 1.5em ;
+	background: #203864;/* rgb(8, 107, 173);*/
+	color: #d6e6ee;
+	padding: 2px;
+	border-radius: 4px;
+	border: 1px solid #fff;
+	padding: 10px;
+	 }
+
+#btn_retornar_calendario{  
+font-size: 1.5em ;
+background: #ED0D0D;
+color: #d6e6ee;
+padding: 2px;
+border-radius: 4px;
+border: 1px solid #fff;
+padding: 10px;
+		 }

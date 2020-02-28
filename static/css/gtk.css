@@ -12,10 +12,6 @@ button{
 	font-size: 2em ;
 	border-radius: 5px;
 }
-#entry_entrada_numeros{
-	font-size: 2em ;
-	border-radius: 5px;
-}
 #label_dialogo{
 	color: #000;
 	font-size: 32px;
@@ -27,7 +23,7 @@ button{
 	font-size: 2em ;
 }
 
-#btn_num{ background-color: #ED0D0D; font-size: 22px}
+#btn_num{ background-color: red; font-size: 22px}
 
 #btn_proximo { 
 	font-size: 2.5em ;
@@ -36,31 +32,32 @@ button{
 	    }
 #btn_cancelar {  
 	font-size: 1.4em;
-		background: #ED0D0D;
+		background: rgb(199, 75, 54);
 		color: #d6e6ee;
 		border-radius: 2px;
 	     }
 #btn_confirmar{  
 		font-size: 1.5em ;
-		background: #203864;/* rgb(8, 107, 173);*/
+		background: #0b4f6f;/* rgb(8, 107, 173);*/
 		color: #d6e6ee;
 		padding: 10px;
 		border-radius: 4px;
-		border: 1px solid #fff;
-		padding: 1.2em 4em;
+		/*border: 1px solid #fff;*/
+		padding: 10px 20px;
 		 }
 #btn_retornar{  
 	font-size: 1.5em ;
-	background: #ED0D0D;
+	background: #aa0000;
 	color: #d6e6ee;
 	padding: 5px;
 	border-radius: 4px;
-    border: 1px solid #fff;
+	/*border: 1px solid #fff;*/
 			 }
-dialog, #window { 
+#window { 
 background-color: #FDCF03;
 	/*font: 32px "Noto Sans";*/
 }
+
 #window_locacao { 
 	background-color: #ffe100;
 	font-size: 22px ;
@@ -99,7 +96,7 @@ background-color: #FDCF03;
 	
 }
 #tecla_num{
-	background: #FDCF03;
+	background: whitesmoke;
 	border: rgb(9, 19, 41) solid 1px;
 	color: #000;
 	font-size: 2.5em ;
@@ -107,15 +104,15 @@ background-color: #FDCF03;
 }
 #tecla_num_quantidade{
 	
-		background: #fff;
+		background: whitesmoke;
 		border: rgb(29, 36, 51) solid 1px;
 		color: #000;
 		font-size: 3em ;
-		border-radius: 3px;
+		border-radius: 10px;
 }
 #tecla_num_quantidade:active{
 	color: #fff;
-	background: #ED0D0D;
+	background: #aa0000;
 }
 #tecla_num:focus{
 background: rgb(9, 19, 41);
@@ -123,7 +120,7 @@ color: #fff;
 }
 
 #tecla_alfa{
-	background: #FDCF03;
+	background: whitesmoke;
 	border: rgb(9, 19, 41) solid 1px;
 	color: #000;
 	font: 1.7em sans-serif;
@@ -133,9 +130,10 @@ color: #fff;
 #tecla_alfa:focus{
 background: rgb(9, 19, 41);
 color: #fff;
+padding: 10px 20px;
 }
 #btn_backspace{
-	background: #fdcf03;
+	background: whitesmoke;
 	border: rgb(9, 19, 41) solid 1px;
 	color: #000;
 	border-radius: 3px;
@@ -158,7 +156,7 @@ color: #fff;
 	background: url("../static/images/alugar.svg");
 }
 #btn_encerrar{
-	background: #ED0D0D;
+	background: rgb(255, 94, 0);
 }
 #btn_abrir, #btn_concluir, #btn_medidas , #btn_reservar{
 	/*background: url("../static/images/retirar.svg")*/
@@ -232,15 +230,21 @@ btn_toggle :checked{
     background-color: #0b4f6f;
 	/*border: solid 3px #fff;*/
 }
+#btn_toggle_inativo{
+	border: solid 3px #000;
+	border-radius: 5px;
+	background: rgba(255, 100, 69, 1);
+}
 #btn_clear{
 	font: 1.5em "Roboto mono";
 	color: #000;
-	background: #fff;
-	border-radius: 0px;
+	background: whitesmoke;
+	border: solid #000 1px;
+	border-radius: 3px;
 }
 #btn_clear:active{
 	color: #000;
-	background: #ED0D0D;
+	background: red;
 }
 #label_instrucao{
 	font: 1.5em sans-serif;
@@ -249,7 +253,8 @@ btn_toggle :checked{
 	color: #000;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-#window_calendario{
+
+dialog, #window_calendario{
 	background: floralwhite;
 	font: 1.3em monospace;
 	font-weight: lighter;
@@ -269,7 +274,7 @@ btn_toggle :checked{
 	background: #203864;
 }
 #btn_retornar_calendario{
-	background: #ED0D0D;
+	background: #aa0000;
 }
 #btn_calendario{
 	color: #000;
@@ -277,7 +282,7 @@ btn_toggle :checked{
 	border: none;
 }
 #btn_calendario_dom, #btn_calendario_sab{
-	color: #ED0D0D;
+	color: #aa0000;
 	font: 1.3em sans-serif;
 	border: none;
 }
@@ -342,6 +347,11 @@ btn_toggle :checked{
 	border-radius: 100%;
 }
 #btn_horas:focus{
+	background: #05878b;
+	color: #fff;
+	border-radius: 100%;
+}
+#btn_horas:active{
 	background: #05878b;
 	color: #fff;
 	border-radius: 100%;
