@@ -1345,7 +1345,7 @@ class CadastroUsuarios(object):
         self.btn_limpar_horas.connect("button_press_event", self.on_btn_limpar_horas_button_press_event)
         #self.btn_limpar_minutos = self.builder.get_object("btn_limpar_minutos")
         #self.btn_limpar_minutos.connect("button_press_event", self.on_btn_limpar_minutos_button_press_event)
-        self.btn_confirmar = self.builder.get_object("btn_confirmar")
+        self.btn_confirmar = self.builder.get_object("btn_confirmar_cadastro_usuario")
         self.btn_confirmar.connect("button_press_event", self.on_btn_confirmar_button_press_event)
         self.btn_retornar = self.builder.get_object("btn_retornar")
         self.btn_retornar.connect("button_press_event", self.on_btn_retornar_button_press_event)
@@ -2082,11 +2082,13 @@ class CadastroUsuarios(object):
             self.label_entrada_dados.set_text("NOME")
         elif self.language == "en_US":
             self.label_entrada_dados.set_text("NAME")
+        self.entry_entrada_dados.set_text("")
         self.window_entrada_dados.show()
         return (self.entry, self.label_entrada_dados)
     
     def on_entry_email_button_press_event(self, widget, event):
         self.label_entrada_dados.set_text("EMAIL")
+        self.entry_entrada_dados.set_text("")
         self.window_entrada_dados.show()
         return self.entry
     
@@ -2095,7 +2097,7 @@ class CadastroUsuarios(object):
             self.label_entrada_numeros.set_text("CELULAR")
         elif self.language == "en_US":
             self.label_entrada_numeros.set_text("PHONE")
-        
+        self.entry_entrada_numeros.set_text("")
         self.window_entrada_numeros.show()
         
     
@@ -2191,10 +2193,14 @@ class CadastroUsuarios(object):
     
     def on_entry_entrada_numeros_button_press_event(self, widget):
         self.widget =  widget
-        if self.entry_entrada_numeros.get_text() == "":
-            self.value = "( " + self.widget.get_label()
-        elif len(self.entry_entrada_numeros.get_text()) == 3:
-            self.value = self.widget.get_label() + " ) "
+        self.ddd = self.combobox_flags_ddd.get_active()
+        if str(DDD[self.ddd]) == "+55":
+            if self.entry_entrada_numeros.get_text() == "":
+                self.value = "( " + self.widget.get_label()
+            elif len(self.entry_entrada_numeros.get_text()) == 3:
+                self.value = self.widget.get_label() + " ) "
+            else:
+                self.value = self.widget.get_label()
         else:
             self.value = self.widget.get_label()
         self.text_entrada = self.entry_entrada_numeros.get_text() + self.value
@@ -2297,6 +2303,7 @@ class WindowLogin(Gtk.Window):
         self.label_instrucao = self.builder.get_object("label_instrucao")
 
         self.label_window_erro_pagamentos = self.builder.get_object("label_window_erro_pagamentos")
+        self.label_window_erro_pagamentos.set_line_wrap(True)
 
         self.label_menu = self.builder.get_object("label_menu")
 

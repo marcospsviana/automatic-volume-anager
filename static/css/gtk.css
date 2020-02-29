@@ -194,7 +194,7 @@ color: #fff;
 		/*-gtk-icon-transform: rotate(359deg);*/
 }
 #label_aguarde{
-	font: 4em sans-serif;
+	font: 3em sans-serif;
 	font-weight: lighter;
 }
 #label_menu{
@@ -360,4 +360,22 @@ dialog, #window_calendario{
 	color: #000;
 	font: 1.3em sans-serif;
 	border-radius: 100%;
+}
+
+/* ELEMENTOS DA JANELA LOC HORA DIARIA */
+#btn_loc_dia{
+	background: whitesmoke;
+	padding: 1em 4em;
+	border: 6px solid #000;
+	border-radius: 2%;
+}
+#btn_loc_hora{
+	background: whitesmoke;
+	padding: 1em 4em;
+	border: 6px solid #000;
+	border-radius: 2%;
+}
+#label_hora_diaria{
+	font-size: 2em;
+	color:rgb(9, 19, 41);
 }
