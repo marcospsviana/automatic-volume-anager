@@ -159,16 +159,11 @@ color: #fff;
 	background: #ED0D0D;
 }
 #btn_abrir, #btn_concluir, #btn_medidas , #btn_reservar{
-	/*background: url("../static/images/retirar.svg")*/
-	background: #fff; /* url("../static/images/inicio_reserva.svg") ;*/
-	/*background-repeat: no-repeat;*/
-	border: 3px solid #000;
+	border: solid 10px rgb(87, 86, 86);
+	border-radius: 5px;
+	background-color: #fff;
 }
-#btn_abrir, #btn_concluir, #btn_medidas , #btn_reservar :hover{
-	background: #fff; /* url("../static/images/inicio_reserva.svg") ;*/
-	/*background-repeat: no-repeat;*/
-	border: 3px solid #000;
-}
+
 #label_data, #label_horario{
 	font: 2em sans-serif;
 	color: #000;
