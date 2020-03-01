@@ -19,6 +19,7 @@
   </object>
   <object class="GtkWindow" id="mainwindow">
     <property name="name">window</property>
+    <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="window_position">center-always</property>
     <property name="default_width">1024</property>
@@ -84,7 +85,7 @@
                     <property name="always_show_image">True</property>
                   </object>
                   <packing>
-                    <property name="left_attach">1</property>
+                    <property name="left_attach">3</property>
                     <property name="top_attach">0</property>
                   </packing>
                 </child>
@@ -97,7 +98,30 @@
                     <property name="image">image_flag_usa</property>
                   </object>
                   <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="pixbuf">../static/images/sac.svg</property>
+                  </object>
+                  <packing>
                     <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_sac">
+                    <property name="name">label_sac</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">( 85 ) 3224.1356</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
                     <property name="top_attach">0</property>
                   </packing>
                 </child>

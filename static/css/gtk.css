@@ -1,6 +1,6 @@
 
 *{
-	font-family: "Roboto Light";
+	font-family: "Roboto";
 	
 }
 button{
@@ -23,7 +23,7 @@ button{
 	font-size: 2em ;
 }
 
-#btn_num{ background-color: red; font-size: 22px}
+#btn_num{ background-color: #ED0D0D; font-size: 22px}
 
 #btn_proximo { 
 	font-size: 2.5em ;
@@ -32,7 +32,7 @@ button{
 	    }
 #btn_cancelar {  
 	font-size: 1.4em;
-		background: rgb(199, 75, 54);
+		background: #ED0D0D;
 		color: #d6e6ee;
 		border-radius: 2px;
 	     }
@@ -47,7 +47,7 @@ button{
 		 }
 #btn_retornar{  
 	font-size: 1.5em ;
-	background: #aa0000;
+	background: #ED0D0D;
 	color: #d6e6ee;
 	padding: 5px;
 	border-radius: 4px;
@@ -112,7 +112,7 @@ background-color: #FDCF03;
 }
 #tecla_num_quantidade:active{
 	color: #fff;
-	background: #aa0000;
+	background: #ED0D0D;
 }
 #tecla_num:focus{
 background: rgb(9, 19, 41);
@@ -156,7 +156,7 @@ color: #fff;
 	background: url("../static/images/alugar.svg");
 }
 #btn_encerrar{
-	background: rgb(255, 94, 0);
+	background: #ED0D0D;
 }
 #btn_abrir, #btn_concluir, #btn_medidas , #btn_reservar{
 	/*background: url("../static/images/retirar.svg")*/
@@ -221,19 +221,43 @@ btn_toggle :checked{
 	
 }*/
 #btn_toggle{
-    border: solid 3px #000;
+    border: solid 10px rgb(87, 86, 86);
 	border-radius: 5px;
 	background-color: #fff;
 }
-
+#btn_camera_note{
+	border: solid 10px rgb(87, 86, 86);
+	border-radius: 5px;
+	background-color: #fff;
+	padding: .6em 1em;
+}
+#btn_mochila{
+	border: solid 10px rgb(87, 86, 86);
+	border-radius: 5px;
+	background-color: #fff;
+	padding: 2em 1em;
+}
 #btn_toggle:checked{
     background-color: #0b4f6f;
 	/*border: solid 3px #fff;*/
 }
-#btn_toggle_inativo{
-	border: solid 3px #000;
+#btn_malasx2{
+	border: solid 10px rgb(87, 86, 86);
 	border-radius: 5px;
-	background: rgba(255, 100, 69, 1);
+	background-color: #fff;
+	padding: 2em 1em;
+}
+#btn_malasx4{
+	border: solid 10px rgb(87, 86, 86);
+	border-radius: 5px;
+	background-color: #fff;
+	padding: 2em 2em;
+}
+#btn_malasx2_inativo{
+	border: solid 10px rgb(87, 86, 86);
+	border-radius: 5px;
+	background-color: rgb(87, 86, 86);
+	padding: 2em 1em;
 }
 #btn_clear{
 	font: 1.5em "Roboto mono";
@@ -378,4 +402,13 @@ dialog, #window_calendario{
 #label_hora_diaria{
 	font-size: 2em;
 	color:rgb(9, 19, 41);
+}
+#label_titulo{
+	font-size: 4em;
+	color: #063f41;
+	font-weight: bolder;
+}
+#label_sac{
+	font-size: 2em;
+	color: #063f41;
 }

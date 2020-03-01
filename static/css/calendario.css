@@ -111,15 +111,31 @@
 #label_hora_ecolhida{
 	font-size: 1.8em;
 }
-#label_valor_total_horas, #label_periodo{
-	font-size: 3em;
+#label_valor_total_horas{
+	font-size: 2.5em;
+	background-color: #4473C5;
+	color: floralwhite;
+	font-weight: bolder;
+}
+#label_periodo{
+	font-size: 2em;
 	background-color: #4473C5;
 	color: floralwhite;
 	font-weight: bolder;
 }
 
 #label_titulo{
-	font-size: 3em;
+	font-size: 2.7em;
+	color: #063f41;
+	font-weight: bolder;
+}
+#label_titulo_secundario{
+	font-size: 2em;
+	color: #063f41;
+	font-weight: bolder;
+}
+#label_titulo_valor{
+	font-size: 2em;
 	color: #063f41;
 	font-weight: bolder;
 }

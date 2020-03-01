@@ -26,12 +26,6 @@
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/inicio_reserva.svg</property>
   </object>
-  <object class="GtkImage" id="image_precos_medidas">
-    <property name="height_request">400</property>
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/precosmedidas.svg</property>
-  </object>
   <object class="GtkImage" id="image_usa_flag">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -164,22 +158,27 @@
         </child>
         <child>
           <object class="GtkFixed">
+            <property name="width_request">900</property>
+            <property name="height_request">100</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
             <property name="margin_top">30</property>
             <child>
               <object class="GtkGrid">
-                <property name="width_request">100</property>
-                <property name="height_request">80</property>
+                <property name="width_request">800</property>
+                <property name="height_request">100</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
+                <property name="border_width">20</property>
                 <property name="column_spacing">10</property>
+                <property name="row_homogeneous">True</property>
+                <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="btn_reservar">
                     <property name="name">btn_reservar</property>
-                    <property name="width_request">150</property>
+                    <property name="width_request">250</property>
                     <property name="height_request">400</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
@@ -198,7 +197,7 @@
                 <child>
                   <object class="GtkButton" id="btn_abrir">
                     <property name="name">btn_abrir</property>
-                    <property name="width_request">150</property>
+                    <property name="width_request">250</property>
                     <property name="height_request">400</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
@@ -216,7 +215,7 @@
                 <child>
                   <object class="GtkButton" id="btn_concluir">
                     <property name="name">btn_concluir</property>
-                    <property name="width_request">150</property>
+                    <property name="width_request">250</property>
                     <property name="height_request">400</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
@@ -231,21 +230,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="btn_medidas">
-                    <property name="name">btn_medidas</property>
-                    <property name="width_request">150</property>
-                    <property name="height_request">400</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <property name="halign">center</property>
-                    <property name="image">image_precos_medidas</property>
-                    <signal name="button-press-event" handler="on_precosemedidas_button_press_event" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="left_attach">3</property>
-                    <property name="top_attach">0</property>
-                  </packing>
+                  <placeholder/>
                 </child>
               </object>
               <packing>

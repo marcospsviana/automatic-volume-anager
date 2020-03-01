@@ -28,7 +28,7 @@ DDD = ''
 
 
 
-class RaspControl(object):
+class CollBagSafe(object):
     def __init__(self):
         self.language = "pt_BR"
         self.gtk_style()
@@ -93,14 +93,14 @@ class SelectOption(object):
                 "on_reservar_button_press_event": self.on_reservar_button_press_event,
                 "on_abrir_cofre_button_press_event": self.on_abrir_cofre_button_press_event,
                 "on_btn_concluir_button_press_event": self.on_btn_concluir_button_press_event,
-                "on_precosemedidas_button_press_event": self.on_precosemedidas_button_press_event,
+                #"on_precosemedidas_button_press_event": self.on_precosemedidas_button_press_event,
             }
         )
         self.select_option = self.builder.get_object("window_select")
         self.btn_reservar = self.builder.get_object("btn_reservar")
         self.btn_abrir = self.builder.get_object("btn_abrir")
         self.btn_concluir = self.builder.get_object("btn_concluir")
-        self.btn_medidas = self.builder.get_object("btn_medidas")
+        #self.btn_medidas = self.builder.get_object("btn_medidas")
         self.label_horario = self.builder.get_object("label_horario")
         self.label_data = self.builder.get_object("label_data")
         self.btn_flag_br = self.builder.get_object("btn_flag_br")
@@ -110,7 +110,7 @@ class SelectOption(object):
         self.label_iniciar_reserva = self.builder.get_object("label_iniciar_reserva")
         self.label_concluir_reserva = self.builder.get_object("label_concluir_reserva")
         self.label_abrir_cofre = self.builder.get_object("label_abrir_cofre")
-        self.label_tamanhos_tafifas = self.builder.get_object("label_tamanhos_tafifas")
+        #self.label_tamanhos_tafifas = self.builder.get_object("label_tamanhos_tafifas")
         # =========== BUTTONS IMAGES =========================
         self.image_start_reservation = Gtk.Image()
         self.image_iniciar_reserva = Gtk.Image()
@@ -118,8 +118,8 @@ class SelectOption(object):
         self.image_open_safe = Gtk.Image()
         self.image_concluir_reserva = Gtk.Image()
         self.image_complete_reservation = Gtk.Image()
-        self.image_precos_medidas = Gtk.Image()
-        self.image_sizes_rates = Gtk.Image()
+        #self.image_precos_medidas = Gtk.Image()
+        #self.image_sizes_rates = Gtk.Image()
 
         self.image_abrir.set_from_file("static/images/cadeado.svg")
         self.image_open_safe.set_from_file("static/images/open_safe.svg")
@@ -127,20 +127,20 @@ class SelectOption(object):
         self.image_iniciar_reserva.set_from_file("static/images/inicio_reserva.svg")
         self.image_concluir_reserva.set_from_file("static/images/cartao.svg")
         self.image_complete_reservation.set_from_file("static/images/complete_reservation.svg")
-        self.image_precos_medidas.set_from_file("static/images/precosmedidas.svg")
-        self.image_sizes_rates.set_from_file("static/images/sizes_rates.svg")
+        #self.image_precos_medidas.set_from_file("static/images/precosmedidas.svg")
+        #self.image_sizes_rates.set_from_file("static/images/sizes_rates.svg")
 
         # ========== END BUTTONS IMAGES ======================
         if self.language == "pt_BR":
             self.btn_reservar.set_image(self.image_iniciar_reserva)
             self.btn_concluir.set_image(self.image_concluir_reserva)
             self.btn_abrir.set_image(self.image_abrir)
-            self.btn_medidas.set_image(self.image_precos_medidas)
+            #self.btn_medidas.set_image(self.image_precos_medidas)
         elif self.language == "en_US":
             self.btn_reservar.set_image(self.image_start_reservation)
             self.btn_concluir.set_image(self.image_complete_reservation)
             self.btn_abrir.set_image(self.image_open_safe)
-            self.btn_medidas.set_image(self.image_sizes_rates)
+            #self.btn_medidas.set_image(self.image_sizes_rates)
 
         GLib.timeout_add(1000, self.hora_certa )
             
@@ -195,7 +195,7 @@ class SelectSize(object):
         self.classe = ""
         self.builder = Gtk.Builder()
         self.builder.add_from_file("ui/select_size.glade")
-        self.builder.add_from_file("ui/tamanhos_tarifas.glade")
+        #self.builder.add_from_file("ui/tamanhos_tarifas.glade")
         self.builder.connect_signals({
             "gtk_main_quit": Gtk.main_quit,
             "on_btn_malasx4_button_press_event": self.on_btn_malasx4_button_press_event,
@@ -207,6 +207,9 @@ class SelectSize(object):
             "on_btn_retornar_button_press_event": self.on_btn_retornar_button_press_event,
             "on_window_tamanhos_tarifas_button_press_event": self.on_btn_tamanhos_tarifas_button_press_event,
             "on_btn_dialog_unavailable_button_press_event": self.on_btn_dialog_unavailable_button_press_event,
+            "on_btn_usa_button_press_event": self.on_btn_usa_button_press_event,
+            "on_btn_br_button_press_event": self.on_btn_br_button_press_event,
+
 
         
         })
@@ -231,8 +234,8 @@ class SelectSize(object):
         self.btn_usa = self.builder.get_object("btn_usa")
         self.btn_br = self.builder.get_object("btn_br")
 
-        self.btn_br.connect("clicked", self.on_change_language_br)
-        self.btn_usa.connect("clicked", self.on_change_language_usa)
+        #self.btn_br.connect("clicked", self.on_change_language_br)
+        #self.btn_usa.connect("clicked", self.on_change_language_usa)
        
         # ============= FIM BOTOES ==================
 
@@ -241,6 +244,8 @@ class SelectSize(object):
         self.label_malasx2 = self.builder.get_object("label_malasx2")
         self.label_mochilasx2 = self.builder.get_object("label_mochilasx2")
         self.label_cameraenotebook = self.builder.get_object("label_cameraenotebook")
+
+        self.label_titulo_select_size = self.builder.get_object("label_titulo_select_size")
         
         
         # ============== FIM LABELS =================
@@ -272,6 +277,7 @@ class SelectSize(object):
             #self.btn_confirmar.set_label("CONFIRMAR")
             self.btn_retornar.set_label("TELA ANTERIOR")
             self.btn_tamanhos_tarifas.set_label("TAMANHOS E TARIFAS")
+            self.label_titulo_select_size.set_text("ESCOLHA o TAMANHO do COFRE DESEJADO!")
 
         elif self.language == "en_US":
             self.label_malasx4.set_text("IDEAL FOR")
@@ -281,22 +287,35 @@ class SelectSize(object):
             #self.btn_confirmar.set_label("CONFIRM")
             self.btn_retornar.set_label("PREVIOUS SCREEN")
             self.btn_tamanhos_tarifas.set_label("SIZES AND RATES")
+            self.label_titulo_select_size.set_text("CHOOSE THE DESIRED SAFE SIZE!")
+
         classes = self.manager.lista_armarios()
         if "A" not in np.array(classes):
-            #self.btn_malasx2.set_sensitive(False)
-            self.label_malasx4.set_text("INDISPONÍVEL")
+            if self.language == "pt_BR":
+                self.label_malasx4.set_text("INDISPONÍVEL")
+            else:
+                self.label_malasx4.set_text("UNAVAILABLE")
             self.btn_malasx4.set_name("btn_toggle_inativo")
         if "B" not in np.array(classes):
-            #self.btn_malasx2.set_sensitive(False)
-            self.label_malasx2.set_text("INDISPONÍVEL")
-            self.btn_malasx2.set_name("btn_toggle_inativo")
+            if self.language == "pt_BR":
+                self.label_malasx2.set_text("INDISPONÍVEL")
+                
+            else:
+                self.label_malasx2.set_text("UNAVAILABLE")
+            self.btn_malasx2.set_name("btn_malasx2_inativo")
         if "C" not in np.array(classes):
             #self.btn_malasx2.set_sensitive(False)
-            self.label_mochilasx2.set_text("INDISPONÍVEL")
+            if self.language == "pt_BR":
+                self.label_mochilasx2.set_text("INDISPONÍVEL")
+            else:
+                self.label_mochilasx2.set_text("UNAVAILABLE")
             self.btn_mochilasx2.set_name("btn_toggle_inativo")
         if "D" not in np.array(classes):
             #self.btn_malasx2.set_sensitive(False)
-            self.label_cameraenotebook.set_text("INDISPONÍVEL")
+            if self.language == "pt_BR":
+                self.label_cameraenotebook.set_text("INDISPONÍVEL")
+            else:
+                self.label_cameraenotebook.set_text("UNAVAILABLE")
             self.btn_cameraenotebook.set_name("btn_toggle_inativo")
        
 
@@ -344,7 +363,7 @@ class SelectSize(object):
             elif self.language == "en_US":
                 self.label_message_armario_unavailable.set_text(" UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ")
             #self.dialog_unavailable.show()
-            #self.btn_malasx2.set_name("btn_toggle_inativo")
+            self.btn_malasx2.set_name("btn_malasx2_inativo")
             print("não tem")
             
 
@@ -406,26 +425,55 @@ class SelectSize(object):
     def on_btn_tamanhos_tarifas_button_press_event(self, widget, event):
         TamanhosTarifas(self.language)
     
-    def on_change_language_br(self,  event):
+    def on_btn_br_button_press_event(self,  event, arg):
         self.language = "pt_BR"
-        self.label_malasx4.set_text("IDEAL PARA")
-        self.label_malasx2.set_text("IDEAL PARA")
-        self.label_mochilasx2.set_text("IDEAL PARA")
-        self.label_cameraenotebook.set_text("IDEAL PARA")
+        if self.label_malasx4.get_label() == "UNAVAILABLE" or self.label_malasx4.get_label() == "INDISPONÍVEL":
+            self.label_malasx4.set_text("INDISPONÍVEL")
+        else:
+            self.label_malasx4.set_text("IDEAL PARA")
+        
+        if self.label_malasx2.get_label() == "UNAVAILABLE" or self.label_malasx2.get_label() == "INDISPONÍVEL":
+            self.label_malasx2.set_text("INDISPONÍVEL")
+        else:
+            self.label_malasx2.set_text("IDEAL PARA")
+        if self.label_mochilasx2.get_label() == "UNAVAILABLE" or self.label_mochilasx2.get_label() == "INDISPONÍVEL":
+            self.label_mochilasx2.set_text("INDISPONÍVEL")
+        else:
+            self.label_mochilasx2.set_text("IDEAL PARA")
+        if self.label_cameraenotebook.get_label() == "UNAVAILABLE" or self.label_cameraenotebook.get_label() == "INDISPONÍVEL":
+            self.label_cameraenotebook.set_text("INDISPONÍVEL")
+        else:
+            self.label_cameraenotebook.set_text("IDEAL PARA")
         #self.btn_confirmar.set_label("CONFIRMAR")
         self.btn_retornar.set_label("TELA ANTERIOR")
         self.btn_tamanhos_tarifas.set_label("TAMANHOS E TARIFAS")
+        self.label_titulo_select_size.set_text("ESCOLHA o TAMANHO do COFRE DESEJADO!")
         
     
-    def on_change_language_usa(self, event):
+    def on_btn_usa_button_press_event(self, event, arg):
         self.language = "en_US"
-        self.label_malasx4.set_text("IDEAL FOR")
-        self.label_malasx2.set_text("IDEAL FOR")
-        self.label_mochilasx2.set_text("IDEAL FOR")
-        self.label_cameraenotebook.set_text("IDEAL FOR")
+        print("en_US")
+        if self.label_malasx4.get_label() == "INDISPONÍVEL" or self.label_malasx4.get_label() == "UNAVAILABLE":
+            self.label_malasx4.set_text("UNAVAILABLE")
+        else:
+            self.label_malasx4.set_text("IDEAL FOR")
+        
+        if self.label_malasx2.get_label() == "INDISPONÍVEL" or self.label_malasx2.get_label() == "UNAVAILABLE":
+            self.label_malasx2.set_text("UNAVAILABLE")
+        else:
+            self.label_malasx2.set_text("IDEAL FOR")
+        if self.label_mochilasx2.get_label() == "INDISPONÍVEL" or self.label_mochilasx2.get_label() == "UNAVAILABLE":
+            self.label_mochilasx2.set_text("UNAVAILABLE")
+        else:
+            self.label_mochilasx2.set_text("IDEAL FOR")
+        if self.label_cameraenotebook.get_label() == "INDISPONÍVEL" or self.label_cameraenotebook.get_label() == "UNAVAILABLE" :
+            self.label_cameraenotebook.set_text("UNAVAILABLE")
+        else:
+            self.label_cameraenotebook.set_text("IDEAL FOR")
         #self.btn_confirmar.set_label("CONFIRM")
         self.btn_retornar.set_label("PREVIOUS SCREEN")
         self.btn_tamanhos_tarifas.set_label("SIZES AND RATES")
+        self.label_titulo_select_size.set_text("CHOOSE THE DESIRED SAFE SIZE!")
 class OpcaoHoraDiaria(object):
     def __init__(self, *args):
         teste = args
@@ -555,7 +603,7 @@ class SelectHora(object):
         self.label_data_hora_final.set_text(hora.strftime("%d/%m/%Y - %H:%M"))
 
         self.label_valor_total_horas = self.builder.get_object("label_valor_total_horas")
-        self.label_valor_total_horas.set_text(str(self.taxa))
+        self.label_valor_total_horas.set_text("R$ " + str(self.taxa))
 
 
         self.horas = {
@@ -703,7 +751,7 @@ class SelectHora(object):
         total = float(self.horas[self.label_hora_ecolhida.get_label()]) * self.taxa #+ float(total_atual)
         total = str("%.2f"%total)
         total = total.replace(".", ",")
-        self.label_valor_total_horas.set_text(total)
+        self.label_valor_total_horas.set_text("R$ " + total)
         data_final = data + timedelta(hours=int(self.horas[self.label_hora_ecolhida.get_label()]))
         self.label_data_hora_inicial.set_text(data.strftime("%d/%m/%Y - %H:%M"))
         self.label_data_hora_final.set_text(data_final.strftime("%d/%m/%Y - %H:%M"))
@@ -719,6 +767,8 @@ class SelectHora(object):
         OpcaoHoraDiaria(self.classe, self.language)
     def on_btn_confirmar_select_hora_button_press_event(self, event, arg):
         self.total = self.label_valor_total_horas.get_text()
+        self.total = self.total[3:]
+        print(self.total)
         self.hora = self.horas[self.label_hora_ecolhida.get_label()]
         dia = 0
         self.select_hora_window.hide()
@@ -2574,5 +2624,5 @@ class WindowSelectCartao:
     
 
 if __name__ == "__main__":
-    app = RaspControl()
+    app = CollBagSafe()
     Gtk.main()

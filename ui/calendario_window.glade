@@ -17,6 +17,9 @@
     <property name="width_request">1000</property>
     <property name="height_request">550</property>
     <property name="can_focus">False</property>
+    <property name="window_position">center-always</property>
+    <property name="decorated">False</property>
+    <property name="gravity">center</property>
     <child>
       <placeholder/>
     </child>
@@ -88,7 +91,8 @@
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">True</property>
+                <property name="fill">False</property>
+                <property name="padding">9</property>
                 <property name="position">0</property>
               </packing>
             </child>
@@ -99,6 +103,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
+            <property name="padding">7</property>
             <property name="position">0</property>
           </packing>
         </child>
@@ -112,6 +117,8 @@
                 <property name="height_request">40</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">50</property>
+                <property name="margin_top">20</property>
                 <property name="row_spacing">5</property>
                 <property name="column_spacing">5</property>
                 <property name="row_homogeneous">True</property>
@@ -209,7 +216,7 @@
             </child>
             <child>
               <object class="GtkLabel" id="label_valor_total">
-                <property name="name">label_titulo</property>
+                <property name="name">label_titulo_valor</property>
                 <property name="width_request">400</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -238,9 +245,13 @@
             <child>
               <object class="GtkBox" id="box_dias">
                 <property name="width_request">400</property>
+                <property name="height_request">300</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
+                <property name="valign">end</property>
+                <property name="margin_left">50</property>
+                <property name="vexpand">True</property>
                 <property name="orientation">vertical</property>
                 <property name="spacing">5</property>
                 <property name="homogeneous">True</property>
@@ -1105,137 +1116,80 @@
             </child>
             <child>
               <object class="GtkGrid">
+                <property name="width_request">400</property>
+                <property name="height_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
+                <property name="valign">start</property>
+                <property name="margin_left">100</property>
+                <property name="margin_bottom">20</property>
+                <property name="border_width">20</property>
+                <property name="row_homogeneous">True</property>
                 <child>
                   <object class="GtkLabel" id="label_valor_total_value">
                     <property name="name">label_valor_total_horas</property>
-                    <property name="width_request">200</property>
-                    <property name="height_request">80</property>
+                    <property name="width_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="halign">start</property>
                     <property name="label" translatable="yes">R$ 9,50</property>
                   </object>
                   <packing>
-                    <property name="left_attach">1</property>
+                    <property name="left_attach">0</property>
                     <property name="top_attach">0</property>
                   </packing>
                 </child>
                 <child>
                   <object class="GtkLabel">
                     <property name="name">label_titulo</property>
+                    <property name="width_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">center</property>
                     <property name="label" translatable="yes">Período do</property>
                   </object>
                   <packing>
-                    <property name="left_attach">1</property>
+                    <property name="left_attach">0</property>
                     <property name="top_attach">1</property>
                   </packing>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_data_hora_inicial">
                     <property name="name">label_periodo</property>
+                    <property name="width_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="halign">center</property>
+                    <property name="halign">start</property>
                     <property name="label" translatable="yes">14/01/2020 - 18:04</property>
                   </object>
                   <packing>
-                    <property name="left_attach">1</property>
+                    <property name="left_attach">0</property>
                     <property name="top_attach">2</property>
                   </packing>
                 </child>
                 <child>
                   <object class="GtkLabel">
                     <property name="name">label_titulo</property>
+                    <property name="width_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">center</property>
                     <property name="label" translatable="yes">até</property>
                   </object>
                   <packing>
-                    <property name="left_attach">1</property>
+                    <property name="left_attach">0</property>
                     <property name="top_attach">3</property>
                   </packing>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_data_hora_final">
                     <property name="name">label_periodo</property>
+                    <property name="width_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="halign">center</property>
+                    <property name="halign">start</property>
                     <property name="label" translatable="yes">14/01/2020 - 20:04</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">4</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="name">label_valor_total_horas</property>
-                    <property name="width_request">50</property>
-                    <property name="height_request">80</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="halign">end</property>
-                    <property name="label" translatable="yes">R$ </property>
-                    <property name="justify">right</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkSeparator">
-                    <property name="name">window_calendario</property>
-                    <property name="width_request">50</property>
-                    <property name="height_request">50</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkSeparator">
-                    <property name="name">label_valor_total_horas</property>
-                    <property name="width_request">50</property>
-                    <property name="height_request">50</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkSeparator">
-                    <property name="name">window_calendario</property>
-                    <property name="width_request">50</property>
-                    <property name="height_request">50</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">3</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkSeparator">
-                    <property name="name">label_valor_total_horas</property>
-                    <property name="width_request">50</property>
-                    <property name="height_request">50</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -1258,16 +1212,16 @@
         </child>
         <child>
           <object class="GtkBox">
-            <property name="width_request">500</property>
+            <property name="width_request">730</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
-            <property name="margin_top">20</property>
+            <property name="hexpand">True</property>
             <child>
               <object class="GtkButton" id="btn_cancelar_calendario">
                 <property name="label" translatable="yes">CANCELAR</property>
                 <property name="name">btn_retornar_calendario</property>
-                <property name="width_request">200</property>
+                <property name="width_request">300</property>
                 <property name="height_request">40</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1286,7 +1240,7 @@
               <object class="GtkButton" id="btn_confirmar_calendario">
                 <property name="label" translatable="yes">CONFIRMAR</property>
                 <property name="name">btn_confirmar_calendario</property>
-                <property name="width_request">200</property>
+                <property name="width_request">300</property>
                 <property name="height_request">40</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1298,6 +1252,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
+                <property name="pack_type">end</property>
                 <property name="position">1</property>
               </packing>
             </child>
