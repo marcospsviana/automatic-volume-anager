@@ -432,7 +432,7 @@
                   <object class="GtkButton" id="btn_cameraenotebook">
                     <property name="name">btn_camera_note</property>
                     <property name="width_request">200</property>
-                    <property name="height_request">65</property>
+                    <property name="height_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>

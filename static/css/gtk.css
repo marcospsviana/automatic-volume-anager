@@ -1,6 +1,7 @@
 
 *{
 	font-family: "Roboto";
+	font-weight: 400;
 	
 }
 button{
@@ -224,7 +225,7 @@ btn_toggle :checked{
 	border: solid 10px rgb(87, 86, 86);
 	border-radius: 5px;
 	background-color: #fff;
-	padding: .6em 1em;
+	padding: .2em 1em;
 }
 #btn_mochila{
 	border: solid 10px rgb(87, 86, 86);
@@ -383,16 +384,17 @@ dialog, #window_calendario{
 
 /* ELEMENTOS DA JANELA LOC HORA DIARIA */
 #btn_loc_dia{
-	background: whitesmoke;
+	border: solid 10px rgb(87, 86, 86);
+	border-radius: 5px;
+	background-color: whitesmoke;
 	padding: 1em 4em;
-	border: 6px solid #000;
-	border-radius: 2%;
 }
 #btn_loc_hora{
 	background: whitesmoke;
 	padding: 1em 4em;
-	border: 6px solid #000;
-	border-radius: 2%;
+	border: solid 10px rgb(87, 86, 86);
+	border-radius: 5px;
+	
 }
 #label_hora_diaria{
 	font-size: 2em;
