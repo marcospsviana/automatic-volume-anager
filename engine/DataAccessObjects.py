@@ -1,6 +1,6 @@
 from coolbagsafe_system.data_access_objets_db_cbs import DataAccessObjectsBase as DAO
 from coolbagsafe_system.portas import Portas
-from coolbagsafe.taxas import *
+from coolbagsafe_system.taxas import *
 from .TransacsAndOps import TransacsOps
 import sys, os
 import asyncio
