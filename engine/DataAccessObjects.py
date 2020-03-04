@@ -37,7 +37,7 @@ class DataAccessObjectsManager(object):
         global TAXA_DIARIA_B
         global TAXA_DIARIA_C
         global TAXA_DIARIA_D
-        data_dao = ''
+        self.data_dao = ''
 
         self.data = ''
         self.porta = ''
@@ -53,8 +53,8 @@ class DataAccessObjectsManager(object):
         TAXA_HORA_D = TaxAndRates.TAXA_HORA_D.value
 
         
-        data_dao = DAO()
-        self.__conn = mdb.connect(host=data_dao.db_host(), user=data_dao.db_user(), password=data_dao.db_passwd(), database=data_dao.db_database())
+        self.data_dao = DAO()
+        self.__conn = mdb.connect(host=self.data_dao.db_host(), user=self.data_dao.db_user(), password=self.data_dao.db_passwd(), database=self.data_dao.db_database())
         #self.__c = self.__conn.cursor(buffered=True)
         self.__c = self.__conn.cursor(buffered=True)
 
@@ -823,8 +823,8 @@ class DataAccessObjectsManager(object):
         p = None
         subprocess.run("docker start paygoweb", shell=True)
         #subprocess("docker exec paygoweb cd paygoWeb")
-        
-        p = subprocess.run('docker exec paygoweb /bin/bash -c "cd paygoWeb/ && python3 venda.py"', shell=True)
+        DAO.docker_run()
+        #p = subprocess.run('docker exec paygoweb /bin/bash -c "cd paygoWeb/ && python3 venda.py"', shell=True)
         #cmd = ['docker', 'exec', 'paygoweb', 'bash', '-c', 'cd paygoWeb && python3 venda.py']
         #p = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         #print(p)

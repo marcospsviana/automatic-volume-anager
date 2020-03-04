@@ -26,7 +26,7 @@
             </child>
             <child>
               <object class="GtkButton" id="btn_cobranca_ok">
-                <property name="label" translatable="yes">       Pagmamento     </property>
+                <property name="label" translatable="yes">       Pagamento     </property>
                 <property name="name">btn</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>

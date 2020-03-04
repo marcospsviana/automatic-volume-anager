@@ -1019,6 +1019,10 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
           <object class="GtkGrid">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="margin_left">40</property>
+            <property name="margin_right">40</property>
+            <property name="row_spacing">6</property>
+            <property name="column_spacing">20</property>
             <child>
               <object class="GtkButton" id="btn_tente_novamente_window_erro_pagamentos">
                 <property name="label" translatable="yes">TENTE NOVAMENTE</property>
