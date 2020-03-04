@@ -54,20 +54,25 @@
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkBox">
+                <property name="width_request">800</property>
+                <property name="height_request">400</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkGrid">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="halign">center</property>
                     <child>
                       <object class="GtkLabel" id="label_compartimento_titulo1">
                         <property name="name">label_entrada_dados</property>
                         <property name="width_request">200</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="halign">start</property>
+                        <property name="halign">center</property>
                         <property name="margin_top">5</property>
                         <property name="margin_bottom">5</property>
                         <property name="label" translatable="yes">SEU COMPARTIMENTO É</property>
@@ -83,7 +88,7 @@
                         <property name="width_request">200</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="halign">start</property>
+                        <property name="halign">center</property>
                         <property name="margin_top">5</property>
                         <property name="margin_bottom">5</property>
                         <property name="label" translatable="yes">FIM DA LOCAÇÃO</property>
@@ -99,7 +104,7 @@
                         <property name="width_request">200</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="halign">start</property>
+                        <property name="halign">center</property>
                         <property name="margin_top">5</property>
                         <property name="margin_bottom">5</property>
                         <property name="label" translatable="yes">INÍCIO LOCAÇÃO</property>
@@ -115,7 +120,7 @@
                         <property name="width_request">200</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="halign">start</property>
+                        <property name="halign">center</property>
                         <property name="margin_top">5</property>
                         <property name="margin_bottom">5</property>
                         <property name="label" translatable="yes">SUA SENHA DE ACESSO É</property>
@@ -398,6 +403,7 @@
                   <object class="GtkButton" id="btn_finalizar_sessao1">
                     <property name="label" translatable="yes">FINALIZAR SESSÃO</property>
                     <property name="name">btn_encerrar_sessao</property>
+                    <property name="width_request">200</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
