@@ -778,7 +778,7 @@ class DataAccessObjectsManager(object):
         return "locacao finalizada com sucesso"
 
     def pagamento(self, total, senha):
-        #subprocess.run("docker start paygoweb", shell=True)
+        subprocess.run("docker start paygoweb", shell=True)
         #subprocess.run('docker exec paygoweb /bin/bash -c "cd paygoWeb/ && python3 venda.py"', shell=True)
         sleep(0.3)
         DAO.docker_run()
