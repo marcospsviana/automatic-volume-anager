@@ -73,6 +73,8 @@
                 <property name="vexpand">True</property>
                 <property name="label" translatable="yes">Após guardar todo o volume necessário, empurre a porta sem necessidade de força  até encostar na trava, em seguida para finalizar clique no botão abaixo com nome: fechar. 
 Observação: A responsabilidade de fechar o armário é do usuário , caso esqueça de fechá-lo a empresa não se responsabilizará por perdas!</property>
+                <property name="wrap">True</property>
+                <property name="wrap_mode">word-char</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1926,8 +1928,10 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             <child>
               <object class="GtkLabel" id="label_compartimento_titulo">
                 <property name="name">label_entrada_dados</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="margin_left">5</property>
                 <property name="margin_right">5</property>
                 <property name="margin_top">5</property>
@@ -1943,6 +1947,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             <child>
               <object class="GtkLabel" id="label_compartimento">
                 <property name="name">label_informacao_final_locacao</property>
+                <property name="width_request">300</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_left">5</property>
@@ -1973,8 +1978,10 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             <child>
               <object class="GtkLabel" id="label_senha_titulo">
                 <property name="name">label_entrada_dados</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="margin_left">5</property>
                 <property name="margin_right">5</property>
                 <property name="margin_top">5</property>
@@ -1989,11 +1996,14 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             </child>
             <child>
               <object class="GtkBox">
+                <property name="width_request">300</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="hexpand">True</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkLabel" id="label_importante_memorizar">
+                    <property name="name">label_memorizar</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="hexpand">True</property>
@@ -2007,14 +2017,17 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 </child>
                 <child>
                   <object class="GtkBox">
+                    <property name="width_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="hexpand">True</property>
                     <property name="homogeneous">True</property>
                     <child>
                       <object class="GtkLabel" id="label_senha0">
+                        <property name="name">label_senha</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="margin_left">5</property>
                         <property name="label" translatable="yes">A</property>
                       </object>
                       <packing>
@@ -2025,8 +2038,10 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     </child>
                     <child>
                       <object class="GtkLabel" id="label_senha1">
+                        <property name="name">label_senha</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="margin_left">5</property>
                         <property name="label" translatable="yes">8</property>
                       </object>
                       <packing>
@@ -2037,8 +2052,10 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     </child>
                     <child>
                       <object class="GtkLabel" id="label_senha2">
+                        <property name="name">label_senha</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="margin_left">5</property>
                         <property name="label" translatable="yes">C</property>
                       </object>
                       <packing>
@@ -2049,8 +2066,10 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     </child>
                     <child>
                       <object class="GtkLabel" id="label_senha3">
+                        <property name="name">label_senha</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="margin_left">5</property>
                         <property name="label" translatable="yes">9</property>
                       </object>
                       <packing>
@@ -2088,8 +2107,10 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             <child>
               <object class="GtkLabel" id="label_inicio_locacao_titulo">
                 <property name="name">label_entrada_dados</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="margin_left">5</property>
                 <property name="margin_right">5</property>
                 <property name="margin_top">5</property>
@@ -2103,38 +2124,41 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
               </packing>
             </child>
             <child>
-              <placeholder/>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label_date_inicio_locacao">
-                <property name="name">label_informacao_final_locacao</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="margin_top">5</property>
-                <property name="margin_bottom">5</property>
-                <property name="label" translatable="yes">QUA 04/05</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">2</property>
-              </packing>
-            </child>
-            <child>
               <object class="GtkBox">
+                <property name="width_request">300</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="hexpand">True</property>
                 <property name="homogeneous">True</property>
                 <child>
-                  <placeholder/>
+                  <object class="GtkLabel" id="label_date_inicio_locacao">
+                    <property name="name">label_informacao_final_locacao</property>
+                    <property name="width_request">88</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_right">5</property>
+                    <property name="margin_top">5</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="hexpand">True</property>
+                    <property name="label" translatable="yes">QUA 04/05</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_hour_inicio_locacao">
                     <property name="name">label_informacao_final_locacao</property>
+                    <property name="width_request">88</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="margin_left">5</property>
+                    <property name="margin_right">5</property>
                     <property name="margin_top">5</property>
                     <property name="margin_bottom">5</property>
+                    <property name="hexpand">True</property>
                     <property name="label" translatable="yes">16 :</property>
                   </object>
                   <packing>
@@ -2144,13 +2168,14 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label_hour_inicio_locacao1">
+                  <object class="GtkLabel">
                     <property name="name">label_informacao_final_locacao</property>
+                    <property name="width_request">5</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="margin_top">5</property>
-                    <property name="margin_bottom">5</property>
-                    <property name="label" translatable="yes">16 :</property>
+                    <property name="margin_left">5</property>
+                    <property name="margin_right">5</property>
+                    <property name="label" translatable="yes">:</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -2158,11 +2183,29 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="position">2</property>
                   </packing>
                 </child>
+                <child>
+                  <object class="GtkLabel" id="label_hour_inicio_locacao1">
+                    <property name="name">label_informacao_final_locacao</property>
+                    <property name="width_request">88</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_left">5</property>
+                    <property name="margin_top">5</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="hexpand">True</property>
+                    <property name="label" translatable="yes">16 :</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">3</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">3</property>
+                <property name="position">1</property>
               </packing>
             </child>
           </object>
@@ -2180,8 +2223,10 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             <child>
               <object class="GtkLabel" id="label_fim_locacao_titulo">
                 <property name="name">label_entrada_dados</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="margin_top">5</property>
                 <property name="margin_bottom">5</property>
                 <property name="label" translatable="yes">FIM DA LOCAÇÃO</property>
@@ -2193,38 +2238,41 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
               </packing>
             </child>
             <child>
-              <placeholder/>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label_date_fim_locacao">
-                <property name="name">label_informacao_final_locacao</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="margin_top">5</property>
-                <property name="margin_bottom">5</property>
-                <property name="label" translatable="yes">QUI 05/05</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">2</property>
-              </packing>
-            </child>
-            <child>
               <object class="GtkBox">
+                <property name="width_request">300</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="hexpand">True</property>
                 <property name="homogeneous">True</property>
                 <child>
-                  <placeholder/>
+                  <object class="GtkLabel" id="label_date_fim_locacao">
+                    <property name="name">label_informacao_final_locacao</property>
+                    <property name="width_request">88</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_right">5</property>
+                    <property name="margin_top">5</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="hexpand">True</property>
+                    <property name="label" translatable="yes">QUI 05/05</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_hour_fim_locacao">
                     <property name="name">label_informacao_final_locacao</property>
+                    <property name="width_request">88</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="margin_left">5</property>
+                    <property name="margin_right">5</property>
                     <property name="margin_top">5</property>
                     <property name="margin_bottom">5</property>
+                    <property name="hexpand">True</property>
                     <property name="label" translatable="yes">16 :</property>
                   </object>
                   <packing>
@@ -2234,13 +2282,14 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label_hour_fim_locacao1">
+                  <object class="GtkLabel">
                     <property name="name">label_informacao_final_locacao</property>
+                    <property name="width_request">5</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="margin_top">5</property>
-                    <property name="margin_bottom">5</property>
-                    <property name="label" translatable="yes">16 :</property>
+                    <property name="margin_left">5</property>
+                    <property name="margin_right">5</property>
+                    <property name="label" translatable="yes">:</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -2248,11 +2297,29 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="position">2</property>
                   </packing>
                 </child>
+                <child>
+                  <object class="GtkLabel" id="label_hour_fim_locacao1">
+                    <property name="name">label_informacao_final_locacao</property>
+                    <property name="width_request">88</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_left">5</property>
+                    <property name="margin_top">5</property>
+                    <property name="margin_bottom">5</property>
+                    <property name="hexpand">True</property>
+                    <property name="label" translatable="yes">16 :</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">3</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">3</property>
+                <property name="position">1</property>
               </packing>
             </child>
           </object>
@@ -2805,94 +2872,6 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
         </child>
         <child>
           <placeholder/>
-        </child>
-      </object>
-    </child>
-  </object>
-  <object class="GtkDialog" id="window_payment_wait">
-    <property name="name">window</property>
-    <property name="width_request">900</property>
-    <property name="height_request">500</property>
-    <property name="can_focus">False</property>
-    <property name="resizable">False</property>
-    <property name="modal">True</property>
-    <property name="window_position">center-on-parent</property>
-    <property name="default_width">900</property>
-    <property name="default_height">500</property>
-    <property name="destroy_with_parent">True</property>
-    <property name="type_hint">dialog</property>
-    <property name="decorated">False</property>
-    <property name="deletable">False</property>
-    <property name="gravity">static</property>
-    <child>
-      <placeholder/>
-    </child>
-    <child internal-child="vbox">
-      <object class="GtkBox">
-        <property name="can_focus">False</property>
-        <property name="orientation">vertical</property>
-        <property name="spacing">2</property>
-        <child internal-child="action_area">
-          <object class="GtkButtonBox">
-            <property name="can_focus">False</property>
-            <property name="margin_bottom">15</property>
-            <property name="layout_style">end</property>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkBox">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="orientation">vertical</property>
-            <child>
-              <object class="GtkLabel" id="label_aguarde_pagamento">
-                <property name="name">label_aguarde</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">center</property>
-                <property name="margin_top">200</property>
-                <property name="label" translatable="yes">AGUARDE PAGAMENTO</property>
-                <property name="wrap">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkImage" id="spinner">
-                <property name="name">spinner</property>
-                <property name="width_request">50</property>
-                <property name="height_request">50</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="margin_top">50</property>
-                <property name="pixbuf">../static/images/spinner_coolbag.svg</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
         </child>
       </object>
     </child>

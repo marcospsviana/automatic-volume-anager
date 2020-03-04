@@ -140,30 +140,91 @@ class DataAccessObjectsManager(object):
 
         __senha = ''
 
-        self.dados_locatario = self.create_user(
-            __nome, __email, __telefone)
+        self.dados_locatario = self.create_user(__nome, __email, __telefone)
         print("dados locatario data.py locacao===>", self.dados_locatario)
         # seleciona um armario com a classe indicada e recebe seu id
         loca_armario = self.localisa_armario(self.__armario)
 
         print('======= loca ramario =====')
-        print(loca_armario)
+        print(loca_armario[0])
         retorno = self.pagamento_locacao()
             
 
         resultado_transacao = TransacsOps.retorno_transacao()
-        print("resultado_transacao", resultado_transacao)
-        if 'aprovada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
+        print("resultado_transacao", resultado_transacao["PWINFO_RESULTMSG"])
+        print("testando o valor booleano")
+        print(('autorizada' or 'aprovada') in str(resultado_transacao["PWINFO_RESULTMSG"].lower()))
+        if 'autorizada' in (resultado_transacao["PWINFO_RESULTMSG"].lower()).split():
             __senha = self.__get_passwd()
-            # senha_encode = __senha.encode(encoding='utf-8', errors='restrict')
-            # self.__hash_senha = hashlib.sha3_512(senha_encode).hexdigest()
-            print("==== id_armario, id_usuario ======")
-            # print(loca_armario[0], self.dados_locatario[0])
-            self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario, valor_locacao) VALUES(null, '%s','%s',null,'%s',%s,%s,%s)" % (
-                self.__data_locacao, self.__data_limite, __senha, loca_armario[0], self.dados_locatario, self.__total))
+            print("self.__data_locacao", self.__data_locacao)
+            print("self.__data_limite",self.__data_limite)
+            print("__senha", __senha)
+            print("loca_armario[0]", loca_armario[0])
+            print("self.dados_locatario", self.dados_locatario)
+            print("self.__total",self.__total)
+            self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario, valor_locacao) VALUES(null, '%s','%s',null,'%s',%s,%s,%s)" % (self.__data_locacao, self.__data_limite, __senha, loca_armario[0], self.dados_locatario, self.__total))
+            
 
-            self.__c.execute(
-                "UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario[0]))
+            self.__c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario[0]))
+
+            self.__conn.commit()
+
+            compartimento_query = "select compartimento from tb_armario where id_armario = %s" % (loca_armario[0])
+            compartimento_select = pd.read_sql(compartimento_query, self.__conn)
+            self.__data_locacao = str(self.__data_locacao)
+            self.__data_limite = str(self.__data_limite)
+            mes_locacao = str(self.__data_locacao[5:7])
+            dia_locacao = str(self.__data_locacao[8:10])
+            mes_locado = str(self.__data_limite[5:7])
+            dia_locado = str(self.__data_limite[8:10])
+            # senha = data_and_passwd.head().values[0]
+            # senha =
+            compartimento = compartimento_select.head().values[0]
+            hora_locacao = str(self.__data_locacao[11:16])
+            hora_locada = str(self.__data_limite[11:16])
+            data_locacao = dia_locacao + "/" + mes_locacao
+            tempo_locado = dia_locado + "/" + mes_locado
+            TransacsOps.send_email(__nome, __email, __senha,
+                            compartimento[0], data_locacao, hora_locacao, tempo_locado,  hora_locada, language)
+
+            # query_select = self.__c.fetchall()
+
+            print("result locacao", __senha)
+
+            port = self.select_port(loca_armario[0])
+            print("porta selecionada", port)
+
+            # HABILILAR NO RASPBERRY PI
+            self.port.exec_port(str(port), "abre", "ocupado")
+            
+
+
+            locacao_json = {
+                "message": "locacao concluida com sucesso",
+                "data_locacao": data_locacao,
+                "hora_locacao": hora_locacao,
+                "data_locada": tempo_locado,
+                "hora_locada": hora_locada,
+                "senha": __senha,
+                "compartimento": compartimento[0]
+            }
+            return locacao_json
+            #(locacao_json["message"], locacao_json["data_locacao"], locacao_json["hora_locacao"], locacao_json["data_locada"], locacao_json["hora_locada"], locacao_json["senha"], locacao_json["compartimento"])
+            # return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, __senha, compartimento)
+        elif 'aprovada' in (resultado_transacao["PWINFO_RESULTMSG"].lower()).split():
+            __senha = self.__get_passwd()
+            print("self.__data_locacao", self.__data_locacao)
+            print("self.__data_limite",self.__data_limite)
+            print("__senha", __senha)
+            print("loca_armario[0]", loca_armario[0])
+            print("self.dados_locatario", self.dados_locatario)
+            print("self.__total",self.__total)
+            print("type self.__total", type(self.__total))
+            self.__total = self.__total.replace(',', '.')
+            self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario, valor_locacao) VALUES(null, '%s','%s',null,'%s',%s,%s,%s)" % (self.__data_locacao, self.__data_limite, __senha, loca_armario[0], self.dados_locatario, self.__total))
+            
+
+            self.__c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario[0]))
 
             self.__conn.commit()
 
@@ -208,13 +269,11 @@ class DataAccessObjectsManager(object):
                 "senha": __senha,
                 "compartimento": compartimento[0]
             }
-            return (locacao_json["message"], locacao_json["data_locacao"], locacao_json["hora_locacao"], locacao_json["data_locada"], locacao_json["hora_locada"], locacao_json["senha"], locacao_json["compartimento"])
-            # return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, __senha, compartimento)
+            return locacao_json
         else:
-            locacao_json = {
-                "message": resultado_transacao["PWINFO_RESULTMSG"]
-            }
-            return locacao_json["message"]
+            print("falhou")
+            locacao_json_failure = {"message": resultado_transacao["PWINFO_RESULTMSG"]}
+            return locacao_json_failure["message"]
         self.__conn.close()
 
     def localisa_armario(self, classe):
@@ -504,7 +563,7 @@ class DataAccessObjectsManager(object):
                 result = self.cobranca_excedente(
                     dias_passados, calculo_hora, calculo_minuto, id_armario)  # (valor_total,hj)
                 porta = self.select_port(id_armario)
-                self.port.exec_port(porta[0][0], "abre", "livre")
+                self.port.exec_port(porta, "abre", "livre")
 
                 self.__c.execute(
                     "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
@@ -726,7 +785,7 @@ class DataAccessObjectsManager(object):
         
         resultado_transacao = TransacsOps.retorno_transacao()
         print("resultado_transacaok", resultado_transacao)
-        if 'aprovada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
+        if ('autorizada' or 'aprovada') in resultado_transacao["PWINFO_RESULTMSG"].lower():
             self.__c.execute(
                 "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
             self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao["id_armario"][0]))

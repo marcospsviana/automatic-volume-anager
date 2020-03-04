@@ -50,6 +50,7 @@ class TransacsOps(object):
         retorno.write('     "PWINFO_RESULTMSG" : "SEM TRANSACAO"')
         retorno.write('\n}  \n')
         retorno.close()
+        print("self.resultado_transacao transacops", self.resultado_transacao)
         return self.resultado_transacao
     @classmethod
     def send_sms(self, nome, senha, compartimento, data_locacao, hora_inicio_locacao, data_limite,  hora_fim_locacao, language):

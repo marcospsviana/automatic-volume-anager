@@ -159,7 +159,7 @@
         <child>
           <object class="GtkFixed">
             <property name="width_request">900</property>
-            <property name="height_request">80</property>
+            <property name="height_request">100</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
@@ -167,10 +167,11 @@
             <child>
               <object class="GtkGrid">
                 <property name="width_request">800</property>
-                <property name="height_request">80</property>
+                <property name="height_request">100</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
+                <property name="border_width">20</property>
                 <property name="column_spacing">10</property>
                 <property name="row_homogeneous">True</property>
                 <property name="column_homogeneous">True</property>

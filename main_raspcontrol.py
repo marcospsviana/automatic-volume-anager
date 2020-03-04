@@ -295,7 +295,7 @@ class SelectSize(object):
                 self.label_malasx4.set_text("INDISPONÍVEL")
             else:
                 self.label_malasx4.set_text("UNAVAILABLE")
-            self.btn_malasx4.set_name("btn_toggle_inativo")
+            self.btn_malasx4.set_name("btn_malasx4_inativo")
         if "B" not in np.array(classes):
             if self.language == "pt_BR":
                 self.label_malasx2.set_text("INDISPONÍVEL")
@@ -309,14 +309,14 @@ class SelectSize(object):
                 self.label_mochilasx2.set_text("INDISPONÍVEL")
             else:
                 self.label_mochilasx2.set_text("UNAVAILABLE")
-            self.btn_mochilasx2.set_name("btn_toggle_inativo")
+            self.btn_mochilasx2.set_name("btn_mochilasx2_inativo")
         if "D" not in np.array(classes):
             #self.btn_malasx2.set_sensitive(False)
             if self.language == "pt_BR":
                 self.label_cameraenotebook.set_text("INDISPONÍVEL")
             else:
                 self.label_cameraenotebook.set_text("UNAVAILABLE")
-            self.btn_cameraenotebook.set_name("btn_toggle_inativo")
+            self.btn_cameraenotebook.set_name("btn_cameraenotebook_inativo")
        
 
         self.window_select_size.fullscreen()
@@ -1172,7 +1172,7 @@ class CadastroUsuarios(object):
             "on_btn_finalizar_sessao_button_press_event": self.on_btn_finalizar_sessao_button_press_event,
             "on_btn_backspace_button_press_event": self.on_btn_backspace_button_press_event,
             "on_btn_limpar_entrada_numeros_button_press_event": self.on_btn_limpar_entrada_numeros_button_press_event,
-            "on_btn_window_payment_wait_button_press_event": self.on_btn_window_payment_wait_button_press_event,
+            #"on_btn_window_payment_wait_button_press_event": self.on_btn_window_payment_wait_button_press_event,
             "on_button_fechar_armario_button_press_event": self.on_button_fechar_armario_button_press_event,
             #"on_btn_credito_button_press_event": self.on_btn_credito_button_press_event,
             #"on_btn_debito_button_press_event": self.on_btn_debito_button_press_event,
@@ -1182,14 +1182,13 @@ class CadastroUsuarios(object):
         })
         self.builder.add_from_file("ui/cadastro_usuario.glade")
         self.window_cadastro_usuario = self.builder.get_object("window_cadastro_usuario")
-        self.window_payment = self.builder.get_object("window_payment_wait")
+        #self.window_payment = self.builder.get_object("window_payment_wait")
         self.window_entrada_dados = self.builder.get_object("window_entrada_dados")
         self.window_entrada_numeros = self.builder.get_object("window_entrada_numeros")
         self.window_select_cartao = self.builder.get_object("window_select_cartao")
         self.dialog_retorno_cadastro = self.builder.get_object("dialog_retorno_cadastro")
         self.dialog_message_preencher_campos = self.builder.get_object("dialog_message_preencher_campos")
-        self.dialog_instrucao_fecha_armario = self.builder.get_object(
-            "dialog_instrucao_fecha_armario")
+        self.dialog_instrucao_fecha_armario = self.builder.get_object("dialog_instrucao_fecha_armario")
         self.window_conclusao  = self.builder.get_object("window_conclusao")
         self.window_erro_pagamentos = self.builder.get_object("window_erro_pagamento")
         
@@ -1223,7 +1222,7 @@ class CadastroUsuarios(object):
         self.label_hour_fim_locacao1 = self.builder.get_object("label_hour_fim_locacao1")
         self.label_minute_fim_locacao = self.builder.get_object("label_minute_fim_locacao")
         self.label_message_envio_email = self.builder.get_object("label_message_envio_email")
-        self.label_senha = self.builder.get_object("label_senha")
+        #self.label_senha = self.builder.get_object("label_senha")
         
 
         " ----------   LABEL ENTRADA_DADOS --------------"
@@ -1243,7 +1242,7 @@ class CadastroUsuarios(object):
         self.label_inicio_locacao_titulo = self.builder.get_object("label_inicio_locacao_titulo")
         self.label_fim_locacao_titulo = self.builder.get_object("label_fim_locacao_titulo")
         " ----------------- LABEL WAIT PAYMENT ---------------------------"
-        self.label_aguarde_pagamento = self.builder.get_object("label_aguarde_pagamento")
+        #self.label_aguarde_pagamento = self.builder.get_object("label_aguarde_pagamento")
 
         #================== LABEL window_erro_pagamentos =========================
         self.label_window_erro_pagamentos = self.builder.get_object("label_window_erro_pagamentos")
@@ -1338,17 +1337,18 @@ class CadastroUsuarios(object):
         self.btn_retornar_entrada_numeros = self.builder.get_object("btn_retornar_entrada_numeros")
         self.btn_retornar_entrada_numeros.connect("button_press_event", self.on_btn_retornar_entrada_numeros_button_press_event)
 
-        """ =================== BOTÕES DIALOGOS ===================="""
+
+        # =================== BOTÕES DIALOGOS ====================
         self.btn_ok_dialog_retorno_cadastro = self.builder.get_object("btn_ok_dialog_retorno_cadastro")
         self.btn_ok_dialog_retorno_cadastro.connect("button_press_event", self.on_btn_ok_dialog_retorno_cadastro_pressed)
         self.btn_dialog_preencher_campos = self.builder.get_object("btn_dialog_preencher_campos")
         self.btn_dialog_preencher_campos.connect("button_press_event", self.on_btn_dialog_preencher_campos_pressed_event)
         self.btn_finalizar_sessao = self.builder.get_object("btn_finalizar_sessao")
         self.btn_finalizar_sessao.connect("button_press_event", self.on_btn_finalizar_sessao_button_press_event)
-        self.button_fechar_armario = self.builder.get_object(
-            "button_fechar_armario")
-        self.button_fechar_armario.connect(
-            "button_press_event", self.on_button_fechar_armario_button_press_event)
+        self.button_fechar_armario = self.builder.get_object("button_fechar_armario")
+        self.button_fechar_armario.connect("button_press_event", self.on_button_fechar_armario_button_press_event)
+
+
         # ======================== BOTOES TELA OPCAO CARTAO ======================
         self.btn_credito = self.builder.get_object("btn_credito")
         self.btn_credito.connect("button-press-event", self.on_btn_credito_button_press_event)
@@ -1549,15 +1549,16 @@ class CadastroUsuarios(object):
             self.btn_credito.set_label("CRÉDITO")
             self.btn_debito.set_label("DÉBITO")
             self.btn_cancelar_escolha.set_label("CANCELAR")
-            self.label_instrucao.set_text("""Após guardar todo o volume necessário, \n
+            self.label_instrucao.set_text("Obigado por utilizar nossos serviços! Lhe desejamos um dia incrível!")
+            """self.label_instrucao.set_text(Após guardar todo o volume necessário, \n
                                            empurre a porta sem forçar até encostar na trava,\n 
                                            depois para finalizar clique no botão abaixo com nome: FECHAR ARMÁRIO.\n
                                            Observação: A responsabilidade de fechar o armário é do usuário,\n
-                                           caso esqueça de fechá-lo a empresa não se responsabilizará por perdas!"""
-                                           )
+                                           caso esqueça de fechá-lo a empresa não se responsabilizará por perdas!
+                                           )"""
             
         elif self.language == "en_US":
-            self.label_aguarde_pagamento.set_text("WAIT FOR PAYMENT")
+            #self.label_aguarde_pagamento.set_text("WAIT FOR PAYMENT")
             self.label_nome.set_text("NAME")
             self.label_telefone.set_text("PHONE")
             self.label_quantidade_diaria.set_text("QUANTITY DAYS") 
@@ -1588,12 +1589,13 @@ class CadastroUsuarios(object):
             self.label_menu.set_text(" SELECT A PAYMENT OPTION ")
             self.btn_credito.set_label("CREDIT")
             self.btn_debito.set_label("DEBIT")
-            self.label_instrucao.set_text("""After saving all the required volume,\n
+            self.label_instrucao.set_text("Thanks for using our services. We desired an awesome day!")
+            """self.label_instrucao.set_text(After saving all the required volume,\n
                                             push the door without force until it touches the lock,\n
                                             then to finish click the button below with name: CLOSET CLOSER.\n
                                             Note: It is the responsibility of the user to close the cabinet,\n
-                                            if you forget to close it the company will not be responsible for any losses!"""
-                                            )
+                                            if you forget to close it the company will not be responsible for any losses!
+                                            )"""
         
 
         
@@ -1625,6 +1627,7 @@ class CadastroUsuarios(object):
         total = self.valor_total #"%.2f"%(self.valor_total)
         #print("total para json", total)
         total = total.replace('.','')
+        total = total.replace(',','')
         print("total para json formatado", total)
         with open("engine/paygoWeb/comprovantes/valor_venda.json", "w+") as f:
             f.write('\n{  \n\n')
@@ -1693,47 +1696,49 @@ class CadastroUsuarios(object):
             }
             
             #colocar em wait payment
-            self.window_payment.fullscreen()
-            self.window_payment.show()
+            #self.window_payment.fullscreen()
+            #self.window_payment.show()
             self.window_cadastro_usuario.hide()
             #WWP(locacao)
             print("locacao", self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos)
             manager = Management()
-            self.__result =  manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario, self.language, self.valor_total)
+            self.__result = manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario, self.language, self.valor_total)
+            
             count = 0
             #self.__result = self.__result[0]
-            print("self.__result cadastro usuario ", self.__result[0])
-            if self.__result[0][0] == "locacao concluida com sucesso":
-                dia_inicio_locacao = self.__result[0][1]
+            print("self.__result total cadastro usuario ",self.__result[0])
+            print("self.__result cadastro usuario ", self.__result[0]["message"])
+            if self.__result[0]["message"] == "locacao concluida com sucesso":
+                dia_inicio_locacao = self.__result[0]["data_locacao"]
                 print("dia_inicio cadastro usuario", dia_inicio_locacao)
-                hora_inicio_locacao = self.__result[0][2]
+                hora_inicio_locacao = self.__result[0]["hora_locacao"]
                 print("hora_inicio cadastro usuario", hora_inicio_locacao)
-                data_fim_locacao = self.__result[0][3]
+                data_fim_locacao = self.__result[0]["data_locada"]
                 print("data_fim cadastro usuario", data_fim_locacao)
-                hora_fim_locacao = self.__result[0][4]
+                hora_fim_locacao = self.__result[0]["hora_locada"]
                 print("hora_fim cadastro usuario", hora_fim_locacao)
-                self.senha = self.__result[0][5]
+                self.senha = self.__result[0]["senha"]
                 print("__senha cadastro usuario", self.senha)
-                compartimento = self.__result[0][6]
+                compartimento = self.__result[0]["compartimento"]
                 print("compartimento cadastro usuario", compartimento)
                 
             
                 self.label_date_inicio_locacao.set_text(dia_inicio_locacao)
                 self.label_date_fim_locacao.set_text(data_fim_locacao)
-                self.label_hour_inicio_locacao.set_text(hora_inicio_locacao)
-                self.label_hour_fim_locacao.set_text(hora_fim_locacao)
-                self.label_senha.set_text(str(self.senha))
+                self.label_hour_inicio_locacao.set_text(hora_inicio_locacao[:2])
+                self.label_hour_inicio_locacao1.set_text(hora_inicio_locacao[3:])
+                self.label_hour_fim_locacao.set_text(hora_fim_locacao[:2])
+                self.label_hour_fim_locacao1.set_text(hora_fim_locacao[3:])
+                self.label_senha0.set_text(self.senha[0])
+                self.label_senha1.set_text(self.senha[1])
+                self.label_senha2.set_text(self.senha[2])
+                self.label_senha3.set_text(self.senha[3])
                 self.label_compartimento.set_text(str(compartimento))
-                
-                self.window_payment.hide()
+                self.id_armario = manager.localiza_id_armario(self.senha)
+                #return self.id_armario
+                #self.window_payment.hide()
                 self.window_cadastro_usuario.hide()
                 self.window_conclusao.show()
-                
-                
-                self.id_armario = manager.localiza_id_armario(self.senha)
-                return self.id_armario
-                
-                
             elif self.__result[0] == "armario da classe escolhida indisponível":
                 if self.language == "pt_BR":
                     self.label_retorno_cadastro.set_text("tamanho de armario\n  escolhido indisponível")
@@ -1745,6 +1750,7 @@ class CadastroUsuarios(object):
                 self.window_payment.hide()
                 self.label_window_erro_pagamentos.set_text(self.__result[0])
                 self.window_erro_pagamento()
+
     
     def window_erro_pagamento(self):
         self.window_payment.hide()
@@ -1774,8 +1780,10 @@ class CadastroUsuarios(object):
         self.entry_entrada_dados.set_position(-1)
     def on_btn_finalizar_sessao_button_press_event(self, widget, event):
         self.window_conclusao.hide()
-        self.window_payment.hide()
+        #self.window_payment.hide()
         self.dialog_instrucao_fecha_armario.show()
+        time.sleep(3)
+        self.dialog_instrucao_fecha_armario.hide()
     
     def on_btn_dialog_preencher_campos_pressed_event(self, event, args):
         self.dialog_message_preencher_campos.hide()
@@ -1788,6 +1796,7 @@ class CadastroUsuarios(object):
     def on_btn_confirmar_button_press_event(self, widget, event):
         #self.wait_payment()
         #self.window_select_cartao.show()
+        self.window_cadastro_usuario.hide()
         self.select_cartao()
     def select_cartao(self):
         if self.language == "pt_BR":
@@ -1803,12 +1812,12 @@ class CadastroUsuarios(object):
         self.window_select_cartao.fullscreen()   
         self.window_select_cartao.show()   
         
-    def on_btn_window_payment_wait_button_press_event(self, widget, event):
-        """if self.tempo_locacao == "horas":
+    """def on_btn_window_payment_wait_button_press_event(self, widget, event):
+        if self.tempo_locacao == "horas":
                 self.entry_quantidade_diaria.set_text("0")
         elif self.tempo_locacao == "diaria":
             self.entry_quantidade_horas.set_text("0")
-            #self.entry_minutos.set_text("0")"""
+            #self.entry_minutos.set_text("0")
         
         self.__nome = self.entry_nome.get_text()
         self.__email = self.entry_email.get_text()
@@ -1819,10 +1828,10 @@ class CadastroUsuarios(object):
             self.__quantidade_horas = "0"
         else:
             self.__quantidade_horas = self.entry_quantidade_horas.get_text()
-        """if self.entry_minutos.get_text() == "":
+        if self.entry_minutos.get_text() == "":
             self.__quantidade_minutos = "0"
         else:
-            self.__quantidade_minutos = self.entry_minutos.get_text()"""
+            self.__quantidade_minutos = self.entry_minutos.get_text()
         if self.__nome == "":
             if self.language == "pt_BR":
                 self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
@@ -1855,7 +1864,7 @@ class CadastroUsuarios(object):
             self.__result =  manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario, self.language, self.valor_total)
             count = 0
             #self.__result = self.__result[0]
-            print("self.__result cadastro usuario ", self.__result[0])
+            print("self.__result cadastro usuario payment", self.__result[0])
             if self.__result[0][0] == "locacao concluida com sucesso":
                 dia_inicio_locacao = self.__result[0][1]
                 print("dia_inicio cadastro usuario", dia_inicio_locacao)
@@ -1894,12 +1903,11 @@ class CadastroUsuarios(object):
                     self.label_retorno_cadastro.set_text("chosen cabinet\n size unavailable")
                     self.dialog_retorno_cadastro.show()
             else:
-                pass
-    def show_payment(self):
-        self.window_payment.show()    
+                pass"""
+     
 
 
-    def wait_payment(self, tipo):
+    """def wait_payment(self, tipo):
         #process_threading = threading.Thread(target=self.show_payment)
         #process_threading.start()
         self.window_payment.fullscreen()
@@ -1908,6 +1916,7 @@ class CadastroUsuarios(object):
         print(tipo)
         total = self.valor_total #"%.2f"%(self.valor_total)
         #print("total para json", total)
+        total = total.replace(',','')
         total = total.replace('.','')
         print("total para json formatado", total)
         with open("engine/paygoWeb/comprovantes/valor_venda.json", "w+") as f:
@@ -1917,11 +1926,11 @@ class CadastroUsuarios(object):
             f.write('"PWINFO_CARDTYPE": "%s"  \n'%(tipo))
             f.write('\n}  \n')
         
-        """if self.tempo_locacao == "horas":
+        if self.tempo_locacao == "horas":
                 self.entry_quantidade_diaria.set_text("0")
         elif self.tempo_locacao == "diaria":
             self.entry_quantidade_horas.set_text("0")
-            #self.entry_minutos.set_text("0")"""
+            #self.entry_minutos.set_text("0")
         
         self.__nome = self.entry_nome.get_text()
         self.__email = self.entry_email.get_text()
@@ -1932,10 +1941,10 @@ class CadastroUsuarios(object):
             self.__quantidade_horas = "0"
         else:
             self.__quantidade_horas = self.entry_quantidade_horas.get_text()
-        """if self.entry_minutos.get_text() == "":
+        if self.entry_minutos.get_text() == "":
             self.__quantidade_minutos = "0"
         else:
-            self.__quantidade_minutos = self.entry_minutos.get_text()"""
+            self.__quantidade_minutos = self.entry_minutos.get_text()
         if self.__nome == "":
             if self.language == "pt_BR":
                 self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")
@@ -1968,7 +1977,7 @@ class CadastroUsuarios(object):
             self.__result =  manager.locacao(self.__nome, self.__email, self.__telefone, self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos, self.__armario, self.language, self.valor_total)
             count = 0
             #self.__result = self.__result[0]
-            print("self.__result cadastro usuario ", self.__result[0])
+            print("self.__result cadastro usuario wait_payment ", self.__result[0])
             if self.__result[0][0] == "locacao concluida com sucesso":
                 dia_inicio_locacao = self.__result[0][1]
                 print("dia_inicio cadastro usuario", dia_inicio_locacao)
@@ -2013,7 +2022,7 @@ class CadastroUsuarios(object):
             else:
                 self.window_payment.hide()
                 self.label_window_erro_pagamentos.set_text(self.__result[0])
-                self.window_erro_pagamento()
+                self.window_erro_pagamento()"""
     
 
     
@@ -2157,7 +2166,7 @@ class CadastroUsuarios(object):
         manager = Management()
         id_armario = manager.localiza_id_armario(self.senha)
         manager.fechar_armario(id_armario)
-        self.dialog_instrucao_fecha_armario.hide()
+        #self.dialog_instrucao_fecha_armario.hide()
 
 
 class WindowLogin(Gtk.Window):
@@ -2179,7 +2188,7 @@ class WindowLogin(Gtk.Window):
             "on_btn_retornar_entrada_dados_pressed": self.on_btn_retornar_entrada_dados_pressed,
             "on_btn_backspace_button_press_event": self.on_btn_backspace_button_press_event,
             "on_btn_efetuar_pagamento_button_press_event": self.on_btn_efetuar_pagamento_button_press_event,
-            "on_btn_window_payment_wait_button_press_event": self.on_btn_window_payment_wait_button_press_event,
+            #"on_btn_window_payment_wait_button_press_event": self.on_btn_window_payment_wait_button_press_event,
             #"on_button_fechar_armario_button_press_event": self.on_button_fechar_armario_button_press_event,
             "on_btn_tente_novamente_window_erro_pagamentos_button_press_event": self.on_btn_tente_novamente_window_erro_pagamentos_button_press_event,
             "on_btn_cancelar_window_erro_pagamentos_button_press_event": self.on_btn_cancelar_window_erro_pagamentos_button_press_event
@@ -2187,7 +2196,7 @@ class WindowLogin(Gtk.Window):
         # ================ DIALOGS ==============================
         #self.dialog_cobranca = self.builder.get_object("dialog_cobranca")
         self.dialog_senha_incorreta = self.builder.get_object("dialog_senha_incorreta")
-        self.dialog_instrucao_fecha_armario = self.builder.get_object("dialog_instrucao_fecha_armario")
+        #self.dialog_instrucao_fecha_armario = self.builder.get_object("dialog_instrucao_fecha_armario")
 
         # ======== BOTOES DO TECLADO ============================
         for alfabet in self.alfa:
@@ -2202,10 +2211,8 @@ class WindowLogin(Gtk.Window):
         # ==============================================
         # ============================== BUTTONS =========================================
 
-        self.button_fechar_armario = self.builder.get_object(
-            "button_fechar_armario")
-        self.button_fechar_armario.connect(
-            "button_press_event", self.on_button_fechar_armario_button_press_event)
+        #self.button_fechar_armario = self.builder.get_object("button_fechar_armario")
+        #self.button_fechar_armario.connect("button_press_event", self.on_button_fechar_armario_button_press_event)
 
         self.btn_efetuar_pagamento = self.builder.get_object("btn_efetuar_pagamento")
         self.btn_efetuar_pagamento.connect("button_press_event", self.on_btn_efetuar_pagamento_button_press_event)
@@ -2217,8 +2224,8 @@ class WindowLogin(Gtk.Window):
         self.btn_retornar_entrada_dados.connect("clicked", self.on_btn_retornar_entrada_dados_pressed)
         self.btn_confirmar_entrada_dados.connect("clicked", self.on_btn_confirmar_entrada_dados_pressed)
 
-        self.btn_window_payment_wait = self.builder.get_object("btn_window_payment_wait")
-        self.btn_window_payment_wait.connect("button_press_event", self.on_btn_window_payment_wait_button_press_event)
+        #self.btn_window_payment_wait = self.builder.get_object("btn_window_payment_wait")
+        #self.btn_window_payment_wait.connect("button_press_event", self.on_btn_window_payment_wait_button_press_event)
         self.btn_tentar_dialog_senha_incorreta = self.builder.get_object("btn_tentar_dialog_senha_incorreta")
         self.btn_tentar_dialog_senha_incorreta.connect("clicked", self.on_btn_tentar_dialog_senha_incorreta)
         self.btn_dialog_cancelar_senha_incorreta = self.builder.get_object("btn_dialog_cancelar_senha_incorreta")
@@ -2282,7 +2289,7 @@ class WindowLogin(Gtk.Window):
             self.btn_retornar_entrada_dados.set_label("RETORNAR TELA ANTERIOR")
             self.btn_dialog_cancelar_senha_incorreta.set_label("CANCELAR")
             self.btn_tentar_dialog_senha_incorreta.set_label("TENTAR NOVAMENTE")
-            self.button_fechar_armario.set_label("FECHAR ARMÁRIO")
+            #self.button_fechar_armario.set_label("FECHAR ARMÁRIO")
             self.btn_tente_novamente_window_erro_pagamentos.set_label("TENTE NOVAMENTE")
             self.btn_cancelar_window_erro_pagamentos.set_label("CANCELAR")
             self.label_menu.set_text(" SELECIONE A OPÇÃO DE PAGAMENTO ")
@@ -2310,7 +2317,7 @@ class WindowLogin(Gtk.Window):
             self.btn_retornar_entrada_dados.set_label("PREVIOUS SCREEN")
             self.btn_dialog_cancelar_senha_incorreta.set_label("CANCEL")
             self.btn_tentar_dialog_senha_incorreta.set_label("TRY AGAIN")
-            self.button_fechar_armario.set_label("CLOSE CABINET")
+            #self.button_fechar_armario.set_label("CLOSE CABINET")
             self.btn_tente_novamente_window_erro_pagamentos.set_label("TRY AGAIN")
             self.btn_cancelar_window_erro_pagamentos.set_label("CANCEL")
             self.label_menu.set_text(" SELECT A PAYMENT OPTION ")
@@ -2327,7 +2334,7 @@ class WindowLogin(Gtk.Window):
                                             )
         
 
-        self.window_payment = self.builder.get_object("window_payment_wait")
+        #self.window_payment = self.builder.get_object("window_payment_wait")
         self.window_pagamento_extra = self.builder.get_object("window_pagamento_extra")
         self.window_select_cartao = self.builder.get_object("window_select_cartao_login")
         self.window_erro_pagamentos = self.builder.get_object("window_erro_pagamento")
@@ -2371,7 +2378,7 @@ class WindowLogin(Gtk.Window):
                 self.window_login.hide()
                 self.entry_entrada_dados.set_text('')
                 print('abrir')
-                self.dialog_instrucao_fecha_armario.show()
+                #self.dialog_instrucao_fecha_armario.show()
             elif result == 'senha incorreta, tente novamente':
                 # self.window_login.hide()
                 self.entry_entrada_dados.set_text('')
@@ -2413,7 +2420,7 @@ class WindowLogin(Gtk.Window):
                         self.window_login.hide()
                         self.entry_entrada_dados.set_text('')
                         print('abrir')
-                        self.dialog_instrucao_fecha_armario.show() # adicionar instrucao de fim de locacao
+                        #self.dialog_instrucao_fecha_armario.show() # adicionar instrucao de fim de locacao
                 else:
                     self.window_pagamento_extra.show()
             
@@ -2424,7 +2431,7 @@ class WindowLogin(Gtk.Window):
                 self.window_login.hide()
                 self.entry_entrada_dados.set_text('')
                 print('abrir')
-                self.dialog_instrucao_fecha_armario.show()
+                #self.dialog_instrucao_fecha_armario.show()
             elif result == 'senha incorreta, tente novamente':
                 # self.window_login.hide()
                 self.entry_entrada_dados.set_text('')
@@ -2466,17 +2473,14 @@ class WindowLogin(Gtk.Window):
                 #return (self.__senha, self.id_armario)
 
     def on_btn_efetuar_pagamento_button_press_event(self, widget, event):
-        """self.window_payment.show()
-        retorno = self.manager.pagamento(self.__total, self.entry_entrada_dados.get_text())
-        if retorno == "lk4thHG34=GKss0xndhe":
-
-            self.wait_payment.hide()"""
         #self.window_select_cartao.fullscreen()
         self.window_select_cartao.show()
+        
 
     def on_btn_retornar_entrada_dados_pressed(self, event):
         self.entry_entrada_dados.set_text("")
         self.window_login.hide()
+
 
     def on_btn_backspace_button_press_event(self, widget, event):
         self.texto = self.entry_entrada_dados.get_text()
@@ -2484,11 +2488,11 @@ class WindowLogin(Gtk.Window):
         self.entry_entrada_dados.set_text(self.texto)
         self.entry_entrada_dados.set_position(-1)
 
-    def on_btn_window_payment_wait_button_press_event(self, widget, event):
-        self.window_payment.hide()
+    """def on_btn_window_payment_wait_button_press_event(self, widget, event):
+        #self.window_payment.hide()
         self.window_pagamento_extra.hide()
         self.window_login.hide()
-        self.dialog_instrucao_fecha_armario.show()
+        #self.dialog_instrucao_fecha_armario.show()"""
 
     def on_btn_tentar_dialog_senha_incorreta(self, widget):
         self.dialog_senha_incorreta.hide()
@@ -2497,15 +2501,13 @@ class WindowLogin(Gtk.Window):
         self.dialog_senha_incorreta.hide()
         self.window_login.hide()
 
-    def wait_payment(self):
-        self.window_payment.hide()
 
-    def on_button_fechar_armario_button_press_event(self, *args):
+    """def on_button_fechar_armario_button_press_event(self, *args):
         print("args button fechar window login", args)
         #manager = Management()
         #id_armario = manager.localiza_id_armario(self.__senha)
         #manager.fechar_armario(self.id_armario)
-        self.dialog_instrucao_fecha_armario.hide()
+        self.dialog_instrucao_fecha_armario.hide()"""
     
     def select_cartao(self):
         if self.language == "pt_BR":
@@ -2547,6 +2549,7 @@ class WindowLogin(Gtk.Window):
         print("total send tipo cartao window login", self.__total)
         print("total para json", self.__total)
         total = self.__total.replace('.','')
+        total = total.replace(',','')
         print("total para json formatado", total)
         with open("engine/paygoWeb/comprovantes/valor_venda.json", "w+") as f:
             f.write('\n{  \n\n')
