@@ -125,7 +125,7 @@ class SelectOption(object):
         self.image_open_safe.set_from_file("static/images/open_safe.svg")
         self.image_start_reservation.set_from_file("static/images/start_reservation.svg")
         self.image_iniciar_reserva.set_from_file("static/images/inicio_reserva.svg")
-        self.image_concluir_reserva.set_from_file("static/images/cartao.svg")
+        self.image_concluir_reserva.set_from_file("static/images/encerrar.svg")
         self.image_complete_reservation.set_from_file("static/images/complete_reservation.svg")
         #self.image_precos_medidas.set_from_file("static/images/precosmedidas.svg")
         #self.image_sizes_rates.set_from_file("static/images/sizes_rates.svg")
@@ -1189,7 +1189,7 @@ class CadastroUsuarios(object):
         self.dialog_retorno_cadastro = self.builder.get_object("dialog_retorno_cadastro")
         self.dialog_message_preencher_campos = self.builder.get_object("dialog_message_preencher_campos")
         self.dialog_instrucao_fecha_armario = self.builder.get_object("dialog_instrucao_fecha_armario")
-        self.window_conclusao  = self.builder.get_object("window_conclusao")
+        self.window_conclusao  = self.builder.get_object("dialog_conclusao")
         self.window_erro_pagamentos = self.builder.get_object("window_erro_pagamento")
         
 
@@ -1343,7 +1343,7 @@ class CadastroUsuarios(object):
         self.btn_ok_dialog_retorno_cadastro.connect("button_press_event", self.on_btn_ok_dialog_retorno_cadastro_pressed)
         self.btn_dialog_preencher_campos = self.builder.get_object("btn_dialog_preencher_campos")
         self.btn_dialog_preencher_campos.connect("button_press_event", self.on_btn_dialog_preencher_campos_pressed_event)
-        self.btn_finalizar_sessao = self.builder.get_object("btn_finalizar_sessao")
+        self.btn_finalizar_sessao = self.builder.get_object("btn_finalizar_sessao1")
         self.btn_finalizar_sessao.connect("button_press_event", self.on_btn_finalizar_sessao_button_press_event)
         self.button_fechar_armario = self.builder.get_object("button_fechar_armario")
         self.button_fechar_armario.connect("button_press_event", self.on_button_fechar_armario_button_press_event)
@@ -1707,7 +1707,7 @@ class CadastroUsuarios(object):
             count = 0
             #self.__result = self.__result[0]
             print("self.__result total cadastro usuario ",self.__result[0])
-            print("self.__result cadastro usuario ", self.__result[0]["message"])
+            #print("self.__result cadastro usuario ", self.__result[0]["message"])
             if self.__result[0]["message"] == "locacao concluida com sucesso":
                 dia_inicio_locacao = self.__result[0]["data_locacao"]
                 print("dia_inicio cadastro usuario", dia_inicio_locacao)
@@ -1782,7 +1782,7 @@ class CadastroUsuarios(object):
         self.window_conclusao.hide()
         #self.window_payment.hide()
         self.dialog_instrucao_fecha_armario.show()
-        time.sleep(3)
+        time.sleep(5.0)
         self.dialog_instrucao_fecha_armario.hide()
     
     def on_btn_dialog_preencher_campos_pressed_event(self, event, args):
@@ -2196,7 +2196,7 @@ class WindowLogin(Gtk.Window):
         # ================ DIALOGS ==============================
         #self.dialog_cobranca = self.builder.get_object("dialog_cobranca")
         self.dialog_senha_incorreta = self.builder.get_object("dialog_senha_incorreta")
-        #self.dialog_instrucao_fecha_armario = self.builder.get_object("dialog_instrucao_fecha_armario")
+        self.dialog_instrucao_fecha_armario = self.builder.get_object("dialog_instrucao_fecha_armario")
 
         # ======== BOTOES DO TECLADO ============================
         for alfabet in self.alfa:
@@ -2296,14 +2296,7 @@ class WindowLogin(Gtk.Window):
             self.btn_credito.set_label("CRÉDITO")
             self.btn_debito.set_label("DÉBITO")
             self.btn_cancelar_escolha.set_label("CANCELAR")
-            self.label_instrucao.set_label("""
-                    Após guardar todo o volume necessário,\n
-                    empurre a porta sem forçar até encostar na trava,\n
-                    depois para finalizar clique no botão abaixo com nome: FECHAR ARMÁRIO.\n
-                    Observação: A responsabilidade de fechar o armário é do usuário,\n
-                    caso esqueça de fechá-lo a empresa não se responsabilizará por perdas!
-                    """
-                                           )
+            self.label_instrucao.set_text("Obigado por utilizar nossos serviços! Lhe desejamos um dia incrível!")
 
         elif self.language == "en_US":
             self.label_dialog_senha_incorreta.set_text("WRONG PASSWORD,\n TRY AGAIN")
@@ -2324,14 +2317,7 @@ class WindowLogin(Gtk.Window):
             self.btn_credito.set_label("CREDIT")
             self.btn_debito.set_label("DEBIT")
             self.btn_cancelar_escolha.set_label("CANCEL")
-            self.label_instrucao.set_label("""
-                    After saving all the required volume,\n
-                    push the door without force until it touches the lock,\n
-                    then to finish click the button below with name: CLOSET CLOSER.\n
-                    Note: It is the responsibility of the user to close the cabinet,\n
-                    if you forget to close it the company will not be responsible for any losses!
-                    """
-                                            )
+            self.label_instrucao.set_text("Thanks for using our services. We desired an awesome day!")
         
 
         #self.window_payment = self.builder.get_object("window_payment_wait")
@@ -2342,7 +2328,7 @@ class WindowLogin(Gtk.Window):
         self.window_login.show()
 
     def window_erro_pagamento(self):
-        self.window_payment.hide()
+        #self.window_payment.hide()
         self.window_erro_pagamentos.show()
     
     def on_btn_tente_novamente_window_erro_pagamentos_button_press_event(self, widget, event):
@@ -2416,11 +2402,11 @@ class WindowLogin(Gtk.Window):
                 self.label_valor_extra_value.set_text("R$ " + result["total"])
                 if float(result["total"]) <= 0.00:
                     resultado = self.manager.finalizar(self.__senha)
-                    if resultado == 'locacao finalizada com sucesso':
+                    if resultado == "armario liberado":
                         self.window_login.hide()
                         self.entry_entrada_dados.set_text('')
                         print('abrir')
-                        #self.dialog_instrucao_fecha_armario.show() # adicionar instrucao de fim de locacao
+                        self.dialog_instrucao_fecha_armario.show() # adicionar instrucao de fim de locacao
                 else:
                     self.window_pagamento_extra.show()
             
@@ -2431,7 +2417,9 @@ class WindowLogin(Gtk.Window):
                 self.window_login.hide()
                 self.entry_entrada_dados.set_text('')
                 print('abrir')
-                #self.dialog_instrucao_fecha_armario.show()
+                self.dialog_instrucao_fecha_armario.show()
+                time.sleep(5.0)
+                self.dialog_instrucao_fecha_armario.hide()
             elif result == 'senha incorreta, tente novamente':
                 # self.window_login.hide()
                 self.entry_entrada_dados.set_text('')
@@ -2571,6 +2559,8 @@ class WindowLogin(Gtk.Window):
         result = self.manager.pagamento_extra(self.__total, self.__senha)
         if 'pagamento ok' in result.lower():
             self.dialog_instrucao_fecha_armario.show()
+            time.sleep(5.0)
+            self.dialog_instrucao_fecha_armario.hide()
         else:
             self.label_window_erro_pagamentos.set_text(result)
             self.window_erro_pagamento()

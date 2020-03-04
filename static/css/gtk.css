@@ -170,8 +170,14 @@ color: #fff;
 }
 #label_informacao_final_locacao, #label_senha{
 	font: 2.5em sans-serif;
+	background-color:#ffe100;
+	color: #000000;
+}
+#label_sep_hora{
+	font: 2.4em sans-serif;
 	background-color: #fff;
 	color: #000000;
+	padding: 1px 1px;
 }
 #label_memorizar{
 	font-size: 2.5em ;

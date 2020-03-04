@@ -1476,7 +1476,6 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <property name="margin_right">5</property>
     <property name="margin_top">5</property>
     <property name="margin_bottom">5</property>
-    <property name="border_width">10</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>

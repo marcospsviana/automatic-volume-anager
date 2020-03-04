@@ -186,6 +186,10 @@ class DataAccessObjectsManager(object):
             tempo_locado = dia_locado + "/" + mes_locado
             TransacsOps.send_email(__nome, __email, __senha,
                             compartimento[0], data_locacao, hora_locacao, tempo_locado,  hora_locada, language)
+            #try:
+            TransacsOps.send_sms(__nome, __senha, compartimento[0], data_locacao, hora_locacao, tempo_locado,  hora_locada, __telefone)
+            #except Exception:
+            #    print(Exception.value)
 
             # query_select = self.__c.fetchall()
 
@@ -247,16 +251,19 @@ class DataAccessObjectsManager(object):
             tempo_locado = dia_locado + "/" + mes_locado
             TransacsOps.send_email(__nome, __email, __senha,
                             compartimento[0], data_locacao, hora_locacao, tempo_locado,  hora_locada, language)
-
+            #try:
+            TransacsOps.send_sms(__nome, __senha, compartimento[0], data_locacao, hora_locacao, tempo_locado,  hora_locada, __telefone)
+            #except Exception:
+            #    print(Exception)
             # query_select = self.__c.fetchall()
 
             print("result locacao", __senha)
 
             port = self.select_port(loca_armario[0])
-            print("porta selecionada", port[0][0])
+            print("porta selecionada", port)
 
             # HABILILAR NO RASPBERRY PI
-            self.port.exec_port(str(port[0][0]), "abre", "ocupado")
+            self.port.exec_port(str(port), "abre", "ocupado")
             
 
 
@@ -618,14 +625,14 @@ class DataAccessObjectsManager(object):
                 dados_locacao = {
                     "total": result,
                     "data_locacao": data_locacao,
-                                "tempo_locado": tempo_locado,
-                                "dia_locacao": query_dia_semana_locacao[0],
-                                "dia_limite": query_dia_semana_locado[0],
-                                "hora_locacao": hora_locacao,
-                                "hora_locado": hora_locado,
-                                "dia_extra": __dia_extra,
-                                "hora_extra": __hora_extra,
-                                "minuto_extra": __minuto_extra
+                    "tempo_locado": tempo_locado,
+                    "dia_locacao": query_dia_semana_locacao[0],
+                    "dia_limite": query_dia_semana_locado[0],
+                    "hora_locacao": hora_locacao,
+                    "hora_locado": hora_locado,
+                    "dia_extra": __dia_extra,
+                    "hora_extra": __hora_extra,
+                    "minuto_extra": __minuto_extra
                 }
                 return dados_locacao
 
@@ -785,7 +792,7 @@ class DataAccessObjectsManager(object):
         
         resultado_transacao = TransacsOps.retorno_transacao()
         print("resultado_transacaok", resultado_transacao)
-        if ('autorizada' or 'aprovada') in resultado_transacao["PWINFO_RESULTMSG"].lower():
+        if 'autorizada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
             self.__c.execute(
                 "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
             self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao["id_armario"][0]))
@@ -796,7 +803,19 @@ class DataAccessObjectsManager(object):
             
             # LIBERAR NO RASPBERRY
             self.port.exec_port(__porta, "abre", "livre")
-            return (resultado_transacao["PWINFO_RESULTMSG"])
+            return ("pagamento ok")
+        elif 'aprovada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
+            self.__c.execute(
+                "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
+            self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao["id_armario"][0]))
+            self.__conn.commit()
+            self.__conn.close()
+            __porta = self.select_port(self.__locacao["id_armario"][0])
+            print("porta em pagamento", __porta)
+            
+            # LIBERAR NO RASPBERRY
+            self.port.exec_port(__porta, "abre", "livre")
+            return ("pagamento ok")
         else:
             return (resultado_transacao["PWINFO_RESULTMSG"])
 

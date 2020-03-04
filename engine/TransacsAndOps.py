@@ -53,10 +53,17 @@ class TransacsOps(object):
         print("self.resultado_transacao transacops", self.resultado_transacao)
         return self.resultado_transacao
     @classmethod
-    def send_sms(self, nome, senha, compartimento, data_locacao, hora_inicio_locacao, data_limite,  hora_fim_locacao, language):
+    def send_sms(self, nome, senha, compartimento, data_locacao, hora_inicio_locacao, data_limite,  hora_fim_locacao, telefone):
         __api_key = '664e67a9-5fdd-4718-9cc2-3bd2a54c9520'
+        
         textmessage_service = TextMessageService(__api_key)
-        result = textmessage_service.send('marcos', 'teste api sms para o envio de senha', ['85986771090'])
+        message = """Senha %s para liberacao..\n 
+                COMPARTIMENTO: %s\n
+                DATA LOCAÇÃO: %s %s\n
+                DATA LIMITE: %s %s\n
+                Obrigado por utilizar nossos serviços Sr(a) %s.\n
+                CoolbagSafe"""%( senha, compartimento,data_locacao, hora_inicio_locacao,data_limite, hora_fim_locacao, nome)
+        result = textmessage_service.send('CoolbagSafe', message, [str(telefone)])
     
     @classmethod
     def send_email(self, nome, email, senha, compartimento, data_locacao, hora_inicio_locacao, data_limite,  hora_fim_locacao, language):
