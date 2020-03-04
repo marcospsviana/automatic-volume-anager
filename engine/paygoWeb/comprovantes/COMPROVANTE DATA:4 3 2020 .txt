@@ -1020,3 +1020,55 @@ CNPJ: 35.223.093/0001-06
 
 ==============================================
 
+==============================================
+
+              PAYGO BY NTK              
+
+              MASTERCARD              
+           535081******9423           
+2 VIA-ESTABELECIMENTO       AUT=165902
+010000244470001/POS=01000237
+DOC=574538    04/03/20 16:59     ONL-C
+VENDA A CREDITO
+VALOR:                   R$       0,25
+
+    TRANSACAO AUTORIZADA COM SENHA    
+           VIANA/MARCOS P S           
+   A0000000041010-02E48EB699050FD9    
+           Credit           
+
+----------------------------------------
+62547 0000000131 PGREF:0000574538
+NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
+CNPJ: 35.223.093/0001-06
+
+   *** AMBIENTE DE TESTES - APP02 ***   
+
+==============================================
+
+==============================================
+
+              PAYGO BY NTK              
+
+              MASTERCARD              
+           535081******9423           
+2 VIA-ESTABELECIMENTO       AUT=170040
+010000244470001/POS=01000237
+DOC=574539    04/03/20 17:00     ONL-C
+VENDA A CREDITO
+VALOR:                   R$       7,96
+
+    TRANSACAO AUTORIZADA COM SENHA    
+           VIANA/MARCOS P S           
+   A0000000041010-B58F765B111A0805    
+           Credit           
+
+----------------------------------------
+62547 0000000131 PGREF:0000574539
+NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
+CNPJ: 35.223.093/0001-06
+
+   *** AMBIENTE DE TESTES - APP02 ***   
+
+==============================================
+

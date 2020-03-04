@@ -829,9 +829,7 @@ class DataAccessObjectsManager(object):
         #p = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         #print(p)
         #subprocess('docker exec paygoweb bash -c "cd paygoWeb && python3 venda.py"')
-        while p == None:
-            print("processando...")
-            sleep(0.2)
+        
         subprocess.run("docker stop paygoweb", shell=True)
         #print("informe o codigo")
         
