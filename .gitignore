@@ -130,6 +130,7 @@ vscode/
 *settings.json
 
 #PGWebLib
+engine/paygoWeb/comprovantes/
 engine/paygoWeb/PGWebLib/Data/
 engine/paygoWeb/PGWebLib/Data/check.pos
 engine/paygoWeb/PGWebLib/Data/file50.pos
