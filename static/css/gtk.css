@@ -74,7 +74,7 @@ background-color: #FDCF03;
 #label_entrada_dados,
 #label_quantidade_horas,
 #label_quantidade_diaria { 
-	font-size: 1.7em ;
+	font-size: 1.4em ;
 	color: rgb(9, 19, 41);}
 #label_entrada_num_quantidade{
 	font-size: 2em ;
@@ -170,7 +170,7 @@ color: #fff;
 }
 #label_informacao_final_locacao, #label_senha{
 	font: 2em sans-serif;
-	background-color:#ffe100;
+	background-color:whitesmoke;
 	color: #000000;
 }
 #label_sep_hora{
@@ -438,7 +438,7 @@ dialog, #window_calendario{
 	color: #063f41;
 }
 #label_informe_envio_email{
-	font-size: 1.7em;
+	font-size: 1.5em;
 	font-weight: lighter;
 	color: #063f41;
 }

@@ -70,9 +70,10 @@
                         <property name="width_request">200</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="halign">center</property>
+                        <property name="halign">start</property>
                         <property name="margin_top">5</property>
                         <property name="margin_bottom">5</property>
+                        <property name="hexpand">True</property>
                         <property name="label" translatable="yes">SEU COMPARTIMENTO É</property>
                       </object>
                       <packing>
@@ -86,9 +87,10 @@
                         <property name="width_request">200</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="halign">center</property>
+                        <property name="halign">start</property>
                         <property name="margin_top">5</property>
                         <property name="margin_bottom">5</property>
+                        <property name="hexpand">True</property>
                         <property name="label" translatable="yes">FIM DA LOCAÇÃO</property>
                       </object>
                       <packing>
@@ -102,9 +104,10 @@
                         <property name="width_request">200</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="halign">center</property>
+                        <property name="halign">start</property>
                         <property name="margin_top">5</property>
                         <property name="margin_bottom">5</property>
+                        <property name="hexpand">True</property>
                         <property name="label" translatable="yes">INÍCIO LOCAÇÃO</property>
                       </object>
                       <packing>
@@ -118,9 +121,10 @@
                         <property name="width_request">200</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="halign">center</property>
+                        <property name="halign">start</property>
                         <property name="margin_top">5</property>
                         <property name="margin_bottom">5</property>
+                        <property name="hexpand">True</property>
                         <property name="label" translatable="yes">SUA SENHA DE ACESSO É</property>
                       </object>
                       <packing>
@@ -248,7 +252,7 @@
                         </child>
                         <child>
                           <object class="GtkLabel">
-                            <property name="name">label_informacao_final_locacao</property>
+                            <property name="name">label_sep_digito_hora</property>
                             <property name="width_request">5</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
