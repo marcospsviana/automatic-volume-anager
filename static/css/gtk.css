@@ -429,9 +429,9 @@ dialog, #window_calendario{
 	color:rgb(9, 19, 41);
 }
 #label_titulo{
-	font-size: 4em;
+	font-size: 2.5em;
 	color: #063f41;
-	font-weight: bolder;
+	font-weight: normal;
 }
 #label_sac{
 	font-size: 2em;
