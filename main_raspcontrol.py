@@ -1343,7 +1343,7 @@ class CadastroUsuarios(object):
         self.btn_ok_dialog_retorno_cadastro.connect("button_press_event", self.on_btn_ok_dialog_retorno_cadastro_pressed)
         self.btn_dialog_preencher_campos = self.builder.get_object("btn_dialog_preencher_campos")
         self.btn_dialog_preencher_campos.connect("button_press_event", self.on_btn_dialog_preencher_campos_pressed_event)
-        self.btn_finalizar_sessao = self.builder.get_object("btn_finalizar_sessao1")
+        self.btn_finalizar_sessao = self.builder.get_object("btn_finalizar_sessao")
         self.btn_finalizar_sessao.connect("button_press_event", self.on_btn_finalizar_sessao_button_press_event)
         self.button_fechar_armario = self.builder.get_object("button_fechar_armario")
         self.button_fechar_armario.connect("button_press_event", self.on_button_fechar_armario_button_press_event)
