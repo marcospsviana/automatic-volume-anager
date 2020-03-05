@@ -92,6 +92,7 @@
   </object>
   <object class="GtkImage" id="image_malasx4">
     <property name="visible">True</property>
+    <property name="sensitive">False</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/malasx4.svg</property>
   </object>
@@ -103,6 +104,7 @@
   <object class="GtkImage" id="image_mochilasx2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="halign">center</property>
     <property name="pixbuf">../static/images/mochilasx2.svg</property>
   </object>
   <object class="GtkImage" id="image_usa_flag">
@@ -289,13 +291,17 @@
                 <child>
                   <object class="GtkButton" id="btn_malasx4">
                     <property name="name">btn_malasx4</property>
-                    <property name="width_request">400</property>
+                    <property name="width_request">350</property>
                     <property name="height_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
                     <property name="margin_right">10</property>
                     <property name="image">image_malasx4</property>
+                    <property name="image_position">bottom</property>
                     <signal name="button-press-event" handler="on_btn_malasx4_button_press_event" swapped="no"/>
                   </object>
                   <packing>
@@ -340,10 +346,11 @@
                 <child>
                   <object class="GtkButton" id="btn_malasx2">
                     <property name="name">btn_malasx2</property>
-                    <property name="width_request">200</property>
+                    <property name="width_request">175</property>
                     <property name="height_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -394,11 +401,14 @@
                 <child>
                   <object class="GtkButton" id="btn_mochilasx2">
                     <property name="name">btn_mochila</property>
-                    <property name="width_request">200</property>
+                    <property name="width_request">175</property>
                     <property name="height_request">150</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
                     <property name="image">image_mochilasx2</property>
                     <property name="use_underline">True</property>
                     <property name="always_show_image">True</property>
@@ -431,11 +441,14 @@
                 <child>
                   <object class="GtkButton" id="btn_cameraenotebook">
                     <property name="name">btn_camera_note</property>
-                    <property name="width_request">200</property>
+                    <property name="width_request">175</property>
                     <property name="height_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
                     <property name="image">image_cameraenotebook</property>
                     <signal name="button-press-event" handler="on_btn_cameraenotebook_button_press_event" swapped="no"/>
                   </object>
@@ -486,38 +499,24 @@
             <property name="valign">center</property>
             <property name="hexpand">True</property>
             <property name="spacing">20</property>
-            <child>
-              <object class="GtkButton" id="btn_tamanhos_tarifas">
-                <property name="label" translatable="yes">TAMANHOS   E TARIFAS</property>
-                <property name="name">btn_confirmar</property>
-                <property name="width_request">250</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="halign">center</property>
-                <signal name="button-press-event" handler="on_btn_tamanhos_tarifas_button_press_event" swapped="no"/>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
+            <property name="homogeneous">True</property>
             <child>
               <object class="GtkButton" id="btn_retornar">
                 <property name="label" translatable="yes">   RETORNAR A TELA ANTERIOR</property>
                 <property name="name">btn_retornar</property>
-                <property name="width_request">250</property>
+                <property name="width_request">300</property>
+                <property name="height_request">50</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="halign">center</property>
+                <property name="relief">none</property>
                 <signal name="button-press-event" handler="on_btn_retornar_button_press_event" swapped="no"/>
               </object>
               <packing>
-                <property name="expand">False</property>
+                <property name="expand">True</property>
                 <property name="fill">True</property>
-                <property name="position">1</property>
+                <property name="position">0</property>
               </packing>
             </child>
           </object>
