@@ -706,7 +706,7 @@ class SelectHora(object):
         hora -=  2
 
         self.label_hora_ecolhida.set_text(self.hora_labels[hora])
-        self.label_hora.set_state_flags(Gtk.StateFlags.INSENSITIVE, True)
+        #self.label_hora.set_state_flags(Gtk.StateFlags.INSENSITIVE, True)
         """if self.label_hora_ecolhida_up.get_label() == "23 horas":
                                     self.label_hora_ecolhida_up.set_text(self.hora_labels[0])
                                 else:
@@ -724,8 +724,9 @@ class SelectHora(object):
         total = float(self.horas[self.label_hora_ecolhida.get_label()]) * self.taxa 
         total = str("%.2f"%total)
         total = total.replace(".", ",")
+        self.label_valor_total_horas.set_text("R$ " + total)
         data_final = data + timedelta(hours=int(self.horas[self.label_hora_ecolhida.get_label()]))
-        self.label_valor_total_horas.set_text(total)
+        #self.label_valor_total_horas.set_text(total)
         self.label_data_hora_inicial.set_text(data.strftime("%d/%m/%Y - %H:%M"))
         self.label_data_hora_final.set_text(data_final.strftime("%d/%m/%Y - %H:%M"))
 
@@ -778,7 +779,9 @@ class SelectHora(object):
         CadastroUsuarios(self.total , self.language, self.classe, dia, self.hora)
     
     def gtk_style_calendario(self):
-        css = b'@import url("static/css/calendario.css");'
+        css = b"""
+        @import url("static/css/calendario.css");
+        """
         style_provider = Gtk.CssProvider()
         style_provider.load_from_data(css)
         Gtk.StyleContext.add_provider_for_screen(
@@ -942,11 +945,14 @@ class WindowCalendario:
         self.resultado_dias = abs((data2 - data).days)
         total = self.taxa * self.resultado_dias #(int(self.widget) - self.data.day)
         print("total = %.2f"%(total))
-        self.label_valor_total_value.set_text("%.2f"%(total))
+        total = str("%.2f"%total)
+        total = total.replace(".", ",")
+        self.label_valor_total_value.set_text("R$ " + total)
+        #self.label_valor_total_value.set_text("%.2f"%(total))
         self.label_data_hora_final.set_text(data2.strftime("%d/%m/%Y - %H:%M"))
         print(self.widget)
-        for i in range(len(self.mes)):
-            for j,d in zip(self.mes[i], range(7)):
+        for i in range(len(self.dias_meses)):
+            for j,d in zip(self.dias_meses[i], range(7)):
                 
                 if self.dias_meses[i][d].get_label() != "" and int(self.dias_meses[i][d].get_label()) >= self.data.day and int(self.dias_meses[i][d].get_label()) < int(self.widget):
                     self.dias_meses[i][d].set_name("intervalo_selecionado")
@@ -970,7 +976,9 @@ class WindowCalendario:
                     self.dias_meses[i][d].set_name("btn_calendario")
                     self.dias_meses[i][d].set_sensitive(True)
                 
-                
+                if self.dias_meses[i][d].get_label() == "":
+                    self.dias_meses[i][d].set_sensitive(False)
+                    self.dias_meses[i][d].set_name("dia_passado")
                 if self.dias_meses[i][d].get_label() == self.widget:
                     self.dias_meses[i][d].set_name("dia_selecionado")
                 
@@ -1005,11 +1013,15 @@ class WindowCalendario:
         for i in range(len(self.dias_meses)):
             for d in range(len(self.dias_meses[i])):
                 self.dias_meses[i][d].set_label("")
+                self.dias_meses[i][d].set_name("dia_passado")
+                self.dias_meses[i][d].set_sensitive(False)
                 
         for i in range(len(self.mes)):
             for j,d in zip(self.mes[i], range(7)):
                 if self.mes[i][d] == 0 or self.mes[i][d] == None:
                     self.dias_meses[i][d].set_label("")
+                    self.dias_meses[i][d].set_sensitive(False)
+                    self.dias_meses[i][d].set_name("dia_passado")
                 else:
                     self.dias_meses[i][d].set_label(str(self.mes[i][d]))
        
@@ -1042,6 +1054,9 @@ class WindowCalendario:
                     self.dias_meses[i][d].set_sensitive(True)
                     self.dias_meses[i][d].set_name("btn_calendario")
                     self.dia = self.dias_meses[i][d].get_label()
+                if self.dias_meses[i][d].get_label() == "":
+                    self.dias_meses[i][d].set_sensitive(False)
+                    self.dias_meses[i][d].set_name("dia_passado")
         # caso o tamanho de meses indices seja maior que o mes corrente desativa os botões restantes que estarão vazios
         if len(self.mes) == 5:
             for i in self.dias_meses[5]:

@@ -311,110 +311,13 @@ btn_toggle :checked{
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-dialog, #window_calendario{
+dialog{
 	background: floralwhite;
 	font: 1.3em monospace;
 	font-weight: lighter;
 	color: rgb(9, 19, 41);
 }
-#btn_seta_date{
-	background: whitesmoke;
-	color: #063f41;
-	font: 1em monospace;
-}
-#btn_confirmar_calendario, #btn_retornar_calendario{
-	font:1.2em  monospace;
-	color:whitesmoke;
-	border-radius: 0;
-	border: solid 0px;
-}
-#btn_confirmar_calendario{
-	background: #203864;
-	border: solid 0px;
-}
-#btn_retornar_calendario{
-	background: #aa0000;
-}
-#btn_calendario{
-	color: #000;
-	font: 1.3em sans-serif;
-	border: none;
-}
-#btn_calendario_dom, #btn_calendario_sab{
-	color: #aa0000;
-	font: 1.3em sans-serif;
-	border: none;
-}
-#btn_calendario_dom:focus{
-	background: #05878b;
-	border-radius: 100%;
-	color: floralwhite;
-}
 
-#btn_calendario_sab:focus{
-	background: #05878b;
-	border-radius: 100%;
-	color: floralwhite;
-}
-#btn_calendario:focus{
-	background: #05878b;
-	color: #fff;
-	border-radius: 100%;
-}
-
-#dia_passado{
-    background: floralwhite;
-	color: #688586;
-}
-
-#dia_selecionado{
-    background: rgb(17, 80, 80);
-	border-radius: 100%;
-	color: white;
-}
-#intervalo_selecionado{
-	background: #688586;
-	color: floralwhite;
-	border-radius: 100%;
-}
-
-#label_calendario_dom{
-	font-weight: lighter;
-	color: #aa0000;
-}
-#label_calendario_sabado{
-	font-weight: lighter;
-	color: #71898a;
-}
-
-#label_weekdays{
-	font-weight: lighter;
-	color: #0b4f6f;
-}
-#label_bottom_calendario{
-	font-weight: lighter;
-	font-size: 1.2em;
-}
-#dia_corrente{
-	background: rgb(243, 128, 128);
-	color: #fff ;
-	border-radius: 100%;
-}
-#btn_horas{
-	color: #000;
-	font: 1.3em sans-serif;
-	border-radius: 100%;
-}
-#btn_horas:focus{
-	background: #05878b;
-	color: #fff;
-	border-radius: 100%;
-}
-#btn_horas:active{
-	background: #05878b;
-	color: #fff;
-	border-radius: 100%;
-}
 #focado{
 	color: #000;
 	font: 1.3em sans-serif;
@@ -452,7 +355,4 @@ dialog, #window_calendario{
 	font-size: 1.5em;
 	font-weight: lighter;
 	color: #063f41;
-}
-Button{
-	border: none;
 }

@@ -26,14 +26,19 @@
 	background: #aa0000;
 }
 #btn_calendario{
-	color: #000;
-	font: 1.3em sans-serif;
+	background: white;
+	border-radius: 25%;
+	color: darkslategray;
 	border: none;
+	font: 1.3em sans-serif;
 }
+
 #btn_calendario_dom, #btn_calendario_sab{
 	color: #aa0000;
 	font: 1.3em sans-serif;
 	border: none;
+	background: white;
+	border-radius: 25%;
 }
 #btn_calendario_dom:focus{
 	background: #05878b;
@@ -188,7 +193,3 @@ border: 1px solid #fff;
 padding: 10px;
 		 }
 
-GtkLabel:insensitive {
-color: rgba(255,255,255,0);
-transition: 500ms ease-in-out;
-}
