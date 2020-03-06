@@ -344,7 +344,7 @@ class SelectSize(object):
             elif self.language == "en_US":
                 self.label_message_armario_unavailable.set_text(" UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ")
             #self.dialog_unavailable.show()
-            self.btn_malasx4.set_name("btn_toggle_inativo")
+            self.btn_malasx4.set_name("btn_malasx4_inativo")
 
         
         
@@ -388,7 +388,7 @@ class SelectSize(object):
             elif self.language == "en_US":
                 self.label_message_armario_unavailable.set_text(" UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ")
             #self.dialog_unavailable.show()
-            self.btn_mochilasx2.set_name("btn_toggle_inativo")
+            self.btn_mochilasx2.set_name("btn_mochilasx2_inativo")
         
 
     def on_btn_cameraenotebook_button_press_event(self, widget, event):
@@ -407,7 +407,7 @@ class SelectSize(object):
             elif self.language == "en_US":
                 self.label_message_armario_unavailable.set_text(" UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ")
             #self.dialog_unavailable.show()
-            self.btn_cameraenotebook.set_name("btn_toggle_inativo")
+            self.btn_cameraenotebook.set_name("btn_cameraenotebook_inativo")
         
     
     """def on_btn_confirmar_button_press_event(self, widget, event):

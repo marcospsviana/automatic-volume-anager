@@ -1,14 +1,14 @@
 
 *{
-	font-family: "Roboto";
-	font-weight: 400;
+	font-family: "open sans";
+	font-weight: lighter;
 	
 }
-/*button{
-	font: 27px "arial";
-	color: rgb(9, 19, 41);
-	border-radius: 10px;
-}*/
+button{
+	font: 1.7em "arial";
+	font-weight: normal;
+	
+}
 entry{
 	font-size: 2em ;
 	border-radius: 2px;
@@ -290,6 +290,7 @@ btn_toggle :checked{
 	background: rgb(87, 86, 86);
 	padding: 2em 2em;
 }
+
 
 #btn_clear{
 	font: 1.5em "Roboto mono";
