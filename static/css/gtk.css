@@ -16,8 +16,8 @@ entry{
 	background: rgba(245, 245, 245, .98);
 }
 combobox{
-	font-size: 2em ;
-	border-radius: 2px;
+	font-size: 1.7em ;
+	border-radius: 0px;
 	border:  rgba(9,19,41, .92) solid 0px ;
 	background: rgba(245, 245, 245, .98);
 }
@@ -25,9 +25,7 @@ combobox{
 	color: #000;
 	font-size: 32px;
 }
-#combobox{
-	border-radius: 0;
-}
+
 #label_combobox{
 	font-size: 2em ;
 }
@@ -244,7 +242,7 @@ btn_toggle :checked{
 	border: solid 10px rgb(87, 86, 86);
 	border-radius: 3px;
 	background: whitesmoke;
-	padding: .2em 1em;
+	padding: .2em .2em .6em .6em;
 }
 #btn_cameraenotebook_inativo{
 	border: solid 10px rgb(87, 86, 86);
