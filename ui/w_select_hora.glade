@@ -43,7 +43,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="label_valor_total">
                 <property name="name">label_titulo</property>
                 <property name="width_request">150</property>
                 <property name="visible">True</property>
@@ -159,7 +159,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="label_periodo_do">
                     <property name="name">label_titulo_secundario</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -186,7 +186,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="label_ate">
                     <property name="name">label_titulo_secundario</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>

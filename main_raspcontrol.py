@@ -603,10 +603,23 @@ class SelectHora(object):
         #self.label_minuto_ecolhido.set_text(self.data_atual.strftime("%M"))
         self.label_data_hora_inicial.set_text(self.data_atual.strftime("%d/%m/%Y - %H:%M"))
         self.label_data_hora_final.set_text(hora.strftime("%d/%m/%Y - %H:%M"))
-
+        self.label_periodo_do = self.builder.get_object("label_periodo_do")
+        self.label_definir_prazo = self.builder.get_object("label_definir_prazo")
+        self.label_valor_total = self.builder.get_object("label_valor_total")
+        self.label_ate = self.builder.get_object("label_ate")
         self.label_valor_total_horas = self.builder.get_object("label_valor_total_horas")
         self.label_valor_total_horas.set_text("R$ " + str(self.taxa))
 
+        if self.language == "pt_BR":
+            self.label_periodo_do.set_text("Período do")
+            self.label_definir_prazo.set_text("Definir o Prazo")
+            self.label_valor_total.set_text("Valor total")
+            self.label_ate.set_text("até")
+        elif self.language == "en_US":
+            self.label_periodo_do.set_text("Start Time and Date")
+            self.label_definir_prazo.set_text("Set the Time")
+            self.label_valor_total.set_text("Total price")
+            self.label_ate.set_text("End Time and Date")
 
         self.horas = {
                         "1 hora"  : 1,
@@ -633,15 +646,40 @@ class SelectHora(object):
                         "22 horas" : 22,
                         "23 horas" : 23,
                     }
-        self.hora_labels = ["1 hora" ,
-                            "2 horas",
-                            "3 horas",
-                            "4 horas",
-                            "5 horas",
-                            "6 horas",
-                            "7 horas",
-                            "8 horas",
-                            "9 horas",
+        self.horas_us = {
+                        "1 hour"  : 1,
+                        "2 hours" : 2,
+                        "3 hours" : 3,
+                        "4 hours" : 4,
+                        "5 hours" : 5,
+                        "6 hours" : 6,
+                        "7 hours" : 7,
+                        "8 hours" : 8,
+                        "9 hours" : 9,
+                        "10 hours" : 10,
+                        "11 hours" : 11,
+                        "12 hours" : 12,
+                        "13 hours" : 13,
+                        "14 hours" : 14,
+                        "15 hours" : 15,
+                        "16 hours" : 16,
+                        "17 hours" : 17,
+                        "18 hours" : 18,
+                        "19 hours" : 19,
+                        "20 hours" : 20,
+                        "21 hours" : 21,
+                        "22 hours" : 22,
+                        "23 hours" : 23,
+                    }
+        self.hora_labels = [ "1 hora" ,
+                             "2 horas",
+                             "3 horas",
+                             "4 horas",
+                             "5 horas",
+                             "6 horas",
+                             "7 horas",
+                             "8 horas",
+                             "9 horas",
                             "10 horas",
                             "11 horas",
                             "12 horas",
@@ -656,6 +694,30 @@ class SelectHora(object):
                             "21 horas",
                             "22 horas",
                             "23 horas",
+                            ]
+        self.hora_labels_us = [ "1 hour" ,
+                                "2 hours",
+                                "3 hours",
+                                "4 hours",
+                                "5 hours",
+                                "6 hours",
+                                "7 hours",
+                                "8 hours",
+                                "9 hours",
+                               "10 hours",
+                               "11 hours",
+                               "12 hours",
+                               "13 hours",
+                               "14 hours",
+                               "15 hours",
+                               "16 hours",
+                               "17 hours",
+                               "18 hours",
+                               "19 hours",
+                               "20 hours",
+                               "21 hours",
+                               "22 hours",
+                               "23 hours",
                             ]
         self.horas_ad = {   0 : "1 hora" ,
                             1  : "2 horas",
@@ -1578,7 +1640,7 @@ class CadastroUsuarios(object):
         elif self.language == "en_US":
             #self.label_aguarde_pagamento.set_text("WAIT FOR PAYMENT")
             self.label_nome.set_text("NAME")
-            self.label_telefone.set_text("PHONE")
+            self.label_telefone.set_text("PHONE ")
             self.label_quantidade_diaria.set_text("QUANTITY DAYS") 
             self.label_quantidade_horas.set_text("QUANTITY HOURS") 
             #self.label_quantidade_minutos.set_text("QUANTITY\n MINUTES")
@@ -2068,7 +2130,7 @@ class CadastroUsuarios(object):
         if self.language == "pt_BR":
             self.label_entrada_numeros.set_text("CELULAR")
         elif self.language == "en_US":
-            self.label_entrada_numeros.set_text("PHONE")
+            self.label_entrada_numeros.set_text("PHONE ")
         self.entry_entrada_numeros.set_text("")
         self.window_entrada_numeros.show()
         
@@ -2152,7 +2214,7 @@ class CadastroUsuarios(object):
         self.window_entrada_dados.hide()
     
     def on_btn_confirmar_entrada_numero_button_press_event(self, widget, event):
-        if self.label_entrada_numeros.get_text() == "CELULAR" or self.label_entrada_numeros.get_text() == "PHONE":
+        if self.label_entrada_numeros.get_text() == "CELULAR" or self.label_entrada_numeros.get_text() == "PHONE ":
             self.ddd = self.combobox_flags_ddd.get_active()
             
             print("self ddd", self.ddd)
