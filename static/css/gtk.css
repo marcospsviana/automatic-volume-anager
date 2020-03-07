@@ -255,14 +255,14 @@ btn_toggle :checked{
 	border-radius: 3px;
 	background: whitesmoke;
 	padding: 2em 1em;
-	padding-bottom: 0;
+	padding-bottom: 0.1;
 }
 #btn_mochilasx2_inativo{
 	border: solid 10px rgb(87, 86, 86);
 	border-radius: 3px;
 	background: rgb(87, 86, 86);
 	padding: 2em 1em;
-	padding-bottom: 0;
+	padding-bottom: 0.1;
 }
 
 #btn_malasx2{
