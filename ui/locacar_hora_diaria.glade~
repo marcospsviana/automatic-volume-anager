@@ -15,6 +15,8 @@
   <object class="GtkImage" id="image_hora">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="halign">center</property>
+    <property name="valign">center</property>
     <property name="pixbuf">../static/images/loc_hora.svg</property>
   </object>
   <object class="GtkImage" id="image_usa_flag">
@@ -24,13 +26,13 @@
   </object>
   <object class="GtkWindow" id="window_op_hora_diaria">
     <property name="name">window</property>
-    <property name="width_request">1000</property>
+    <property name="width_request">900</property>
     <property name="height_request">550</property>
     <property name="can_focus">False</property>
     <property name="halign">center</property>
     <property name="valign">center</property>
     <property name="window_position">center-always</property>
-    <property name="default_width">1000</property>
+    <property name="default_width">900</property>
     <property name="default_height">550</property>
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
@@ -166,6 +168,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
+            <property name="valign">center</property>
             <property name="spacing">10</property>
             <child>
               <object class="GtkButton" id="btn_loc_hora">
@@ -175,6 +178,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="halign">center</property>
+                <property name="valign">center</property>
                 <property name="image">image_hora</property>
                 <property name="relief">none</property>
                 <property name="image_position">top</property>
@@ -194,7 +198,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="halign">center</property>
                 <property name="image">image_diaria</property>
                 <property name="relief">none</property>
                 <property name="image_position">top</property>
@@ -210,8 +213,8 @@
           </object>
           <packing>
             <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="padding">4</property>
+            <property name="fill">False</property>
+            <property name="padding">6</property>
             <property name="position">2</property>
           </packing>
         </child>
