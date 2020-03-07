@@ -402,7 +402,7 @@
                   <object class="GtkButton" id="btn_mochilasx2">
                     <property name="name">btn_mochila</property>
                     <property name="width_request">175</property>
-                    <property name="height_request">150</property>
+                    <property name="height_request">140</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="focus_on_click">False</property>
@@ -448,7 +448,7 @@
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
-                    <property name="valign">center</property>
+                    <property name="valign">start</property>
                     <property name="image">image_cameraenotebook</property>
                     <signal name="button-press-event" handler="on_btn_cameraenotebook_button_press_event" swapped="no"/>
                   </object>

@@ -242,7 +242,7 @@ btn_toggle :checked{
 	border: solid 10px rgb(87, 86, 86);
 	border-radius: 3px;
 	background: whitesmoke;
-	padding: .2em .2em .6em .6em;
+	padding: .2em .2em .2em .2em;
 }
 #btn_cameraenotebook_inativo{
 	border: solid 10px rgb(87, 86, 86);
@@ -273,7 +273,7 @@ btn_toggle :checked{
 	border: solid 10px rgb(87, 86, 86);
 	border-radius: 3px;
 	background: #fff;
-	padding: 2em 2em;
+	padding: 2em 2em 1em 1em;
 }
 #btn_malasx2_inativo{
 	border: solid 10px rgb(87, 86, 86);
@@ -286,7 +286,7 @@ btn_toggle :checked{
 	border: solid 10px rgb(87, 86, 86);
 	border-radius: 3px;
 	background: rgb(87, 86, 86);
-	padding: 2em 2em;
+	padding: 2em 2em 1em 1em;
 }
 
 
@@ -327,11 +327,11 @@ dialog{
 	border: solid 10px rgb(87, 86, 86);
 	border-radius: 5px;
 	background-color: whitesmoke;
-	padding: 1em 4em;
+	padding: 1em 2em 1em 2em;
 }
 #btn_loc_hora{
 	background: whitesmoke;
-	padding: 1em 4em;
+	padding: 1em 2em 1em 2em;
 	border: solid 10px rgb(87, 86, 86);
 	border-radius: 5px;
 	

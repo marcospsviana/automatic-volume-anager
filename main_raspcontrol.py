@@ -512,7 +512,7 @@ class OpcaoHoraDiaria(object):
             self.label_por_diaria.set_text("DAILY")
             self.btn_tela_hora_diaria.set_label("RETURN TO THE PREVIOUS SCREEN")
 
-        self.window_hora_diaria.fullscreen()
+        #self.window_hora_diaria.fullscreen()
         self.window_hora_diaria.show()
     
     def on_btn_loc_hora_button_press_event(self, widget, event):
