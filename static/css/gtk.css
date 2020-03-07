@@ -247,7 +247,7 @@ btn_toggle :checked{
 #btn_cameraenotebook_inativo{
 	border: solid 10px rgb(87, 86, 86);
 	border-radius: 3px;
-	background-color: rgb(87, 86, 86);
+	background: rgb(87, 86, 86);
 	padding: .2em 1em;
 }
 #btn_mochila{
