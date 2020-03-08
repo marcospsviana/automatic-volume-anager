@@ -38,19 +38,23 @@ combobox{
 		color: #d6e6ee;
 	    }
 #btn_cancelar {  
-	font-size: 1.4em;
+	font-size: 1.7em;
 		background: #ED0D0D;
 		color: #d6e6ee;
 		border-radius: 2px;
+		padding-right: 15px;
+		padding-left: 15px;
 	     }
 #btn_confirmar{  
-		font-size: 1.5em ;
+		font-size: 1.7em ;
 		background: #0b4f6f;/* rgb(8, 107, 173);*/
 		color: #d6e6ee;
 		padding: 10px;
 		border-radius: 2px;
-		/*border: 1px solid #fff;*/
+
 		padding: 10px 20px;
+		padding-left: 15px;
+		padding-right: 15px;
 		 }
 #btn_retornar{  
 	font-size: 1.5em ;
@@ -337,6 +341,16 @@ dialog{
 	border: solid 10px rgb(87, 86, 86);
 	border-radius: 5px;
 	
+}
+#btn_tela_hora_diaria{
+	background-color: #ED0D0D;
+	color: whitesmoke;
+	font-size: 1.7em;
+	padding-top: 10;
+	padding-bottom: 10;
+	padding-right: 15;
+	margin-bottom: 15px;
+	border: none;
 }
 #label_hora_diaria{
 	font-size: 2em;

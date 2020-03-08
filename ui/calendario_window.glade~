@@ -126,6 +126,8 @@
                 <child>
                   <object class="GtkLabel" id="label_domingo">
                     <property name="name">label_calendario_dom</property>
+                    <property name="width_request">60</property>
+                    <property name="height_request">-1</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Sun</property>
@@ -138,6 +140,7 @@
                 <child>
                   <object class="GtkLabel" id="label_segunda">
                     <property name="name">label_weekdays</property>
+                    <property name="width_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Mon</property>
@@ -150,6 +153,7 @@
                 <child>
                   <object class="GtkLabel" id="label_terca">
                     <property name="name">label_weekdays</property>
+                    <property name="width_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Tue</property>
@@ -162,6 +166,7 @@
                 <child>
                   <object class="GtkLabel" id="label_quarta">
                     <property name="name">label_weekdays</property>
+                    <property name="width_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Wed</property>
@@ -174,6 +179,7 @@
                 <child>
                   <object class="GtkLabel" id="label_quinta">
                     <property name="name">label_weekdays</property>
+                    <property name="width_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Thu</property>
@@ -186,6 +192,7 @@
                 <child>
                   <object class="GtkLabel" id="label_sexta">
                     <property name="name">label_weekdays</property>
+                    <property name="width_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Fri</property>
@@ -198,6 +205,7 @@
                 <child>
                   <object class="GtkLabel" id="label_sabado">
                     <property name="name">label_calendario_sabado</property>
+                    <property name="width_request">60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Sat</property>
@@ -267,6 +275,8 @@
                     <child>
                       <object class="GtkButton" id="btn1">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -283,6 +293,8 @@
                     <child>
                       <object class="GtkButton" id="btn6">
                         <property name="name">btn_calendario_sab</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -299,6 +311,8 @@
                     <child>
                       <object class="GtkButton" id="btn5">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -315,6 +329,8 @@
                     <child>
                       <object class="GtkButton" id="btn4">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -331,6 +347,8 @@
                     <child>
                       <object class="GtkButton" id="btn3">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -347,6 +365,8 @@
                     <child>
                       <object class="GtkButton" id="btn2">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -364,6 +384,8 @@
                       <object class="GtkButton" id="btn0">
                         <property name="label" translatable="yes">20</property>
                         <property name="name">btn_calendario_dom</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -397,6 +419,8 @@
                     <child>
                       <object class="GtkButton" id="btn13">
                         <property name="name">btn_calendario_sab</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -413,6 +437,8 @@
                     <child>
                       <object class="GtkButton" id="btn12">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -429,6 +455,8 @@
                     <child>
                       <object class="GtkButton" id="btn11">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -445,6 +473,8 @@
                     <child>
                       <object class="GtkButton" id="btn10">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -461,6 +491,8 @@
                     <child>
                       <object class="GtkButton" id="btn9">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -477,6 +509,8 @@
                     <child>
                       <object class="GtkButton" id="btn8">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -493,6 +527,8 @@
                     <child>
                       <object class="GtkButton" id="btn7">
                         <property name="name">btn_calendario_dom</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -526,6 +562,8 @@
                     <child>
                       <object class="GtkButton" id="btn20">
                         <property name="name">btn_calendario_sab</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -542,6 +580,8 @@
                     <child>
                       <object class="GtkButton" id="btn19">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -558,6 +598,8 @@
                     <child>
                       <object class="GtkButton" id="btn18">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -574,6 +616,8 @@
                     <child>
                       <object class="GtkButton" id="btn17">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -590,6 +634,8 @@
                     <child>
                       <object class="GtkButton" id="btn16">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -606,6 +652,8 @@
                     <child>
                       <object class="GtkButton" id="btn15">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -622,6 +670,8 @@
                     <child>
                       <object class="GtkButton" id="btn14">
                         <property name="name">btn_calendario_dom</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -655,6 +705,8 @@
                     <child>
                       <object class="GtkButton" id="btn27">
                         <property name="name">btn_calendario_sab</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -671,6 +723,8 @@
                     <child>
                       <object class="GtkButton" id="btn26">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -687,6 +741,8 @@
                     <child>
                       <object class="GtkButton" id="btn25">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -703,6 +759,8 @@
                     <child>
                       <object class="GtkButton" id="btn24">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -719,6 +777,8 @@
                     <child>
                       <object class="GtkButton" id="btn23">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -735,6 +795,8 @@
                     <child>
                       <object class="GtkButton" id="btn22">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -751,6 +813,8 @@
                     <child>
                       <object class="GtkButton" id="btn21">
                         <property name="name">btn_calendario_dom</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -784,6 +848,8 @@
                     <child>
                       <object class="GtkButton" id="btn28">
                         <property name="name">btn_calendario_dom</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -800,6 +866,8 @@
                     <child>
                       <object class="GtkButton" id="btn34">
                         <property name="name">btn_calendario_sab</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -816,6 +884,8 @@
                     <child>
                       <object class="GtkButton" id="btn33">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -832,6 +902,8 @@
                     <child>
                       <object class="GtkButton" id="btn32">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -848,6 +920,8 @@
                     <child>
                       <object class="GtkButton" id="btn31">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -864,6 +938,8 @@
                     <child>
                       <object class="GtkButton" id="btn30">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -880,6 +956,8 @@
                     <child>
                       <object class="GtkButton" id="btn29">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -911,6 +989,8 @@
                     <child>
                       <object class="GtkButton" id="btn35">
                         <property name="name">btn_calendario_dom</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -927,6 +1007,8 @@
                     <child>
                       <object class="GtkButton" id="btn36">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -943,6 +1025,8 @@
                     <child>
                       <object class="GtkButton" id="btn37">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -959,6 +1043,8 @@
                     <child>
                       <object class="GtkButton" id="btn38">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -975,6 +1061,8 @@
                     <child>
                       <object class="GtkButton" id="btn39">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -991,6 +1079,8 @@
                     <child>
                       <object class="GtkButton" id="btn40">
                         <property name="name">btn_calendario</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -1007,6 +1097,8 @@
                     <child>
                       <object class="GtkButton" id="btn41">
                         <property name="name">btn_calendario_sab</property>
+                        <property name="width_request">60</property>
+                        <property name="height_request">60</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -1048,7 +1140,7 @@
                 <property name="row_homogeneous">True</property>
                 <child>
                   <object class="GtkLabel" id="label_valor_total_value">
-                    <property name="name">label_valor_total_horas</property>
+                    <property name="name">label_valor_total_horas_calendario</property>
                     <property name="width_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -1062,7 +1154,7 @@
                 </child>
                 <child>
                   <object class="GtkLabel">
-                    <property name="name">label_titulo</property>
+                    <property name="name">label_titulo_calendario</property>
                     <property name="width_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -1076,7 +1168,7 @@
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_data_hora_inicial">
-                    <property name="name">label_periodo</property>
+                    <property name="name">label_periodo_calendario</property>
                     <property name="width_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -1090,7 +1182,7 @@
                 </child>
                 <child>
                   <object class="GtkLabel">
-                    <property name="name">label_titulo</property>
+                    <property name="name">label_titulo_calendario</property>
                     <property name="width_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -1104,7 +1196,7 @@
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_data_hora_final">
-                    <property name="name">label_periodo</property>
+                    <property name="name">label_periodo_calendario</property>
                     <property name="width_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>

@@ -1481,7 +1481,7 @@ class CadastroUsuarios(object):
        
         
         self.combobox_flags_ddd = self.builder.get_object("combobox_flags_ddd")
-        self.combobox_flags_ddd.set_wrap_width(12)
+        self.combobox_flags_ddd.set_wrap_width(8)
         
         self.list_flag_ddd = Gtk.ListStore(GdkPixbuf.Pixbuf, str)
         FLAG_BR = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/brasil.png", 32, 50)

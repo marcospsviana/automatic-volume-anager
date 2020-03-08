@@ -1134,13 +1134,13 @@
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">start</property>
-                <property name="margin_left">100</property>
+                <property name="margin_left">50</property>
                 <property name="margin_bottom">20</property>
                 <property name="border_width">20</property>
                 <property name="row_homogeneous">True</property>
                 <child>
                   <object class="GtkLabel" id="label_valor_total_value">
-                    <property name="name">label_valor_total_horas</property>
+                    <property name="name">label_valor_total_horas_calendario</property>
                     <property name="width_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -1154,7 +1154,7 @@
                 </child>
                 <child>
                   <object class="GtkLabel">
-                    <property name="name">label_titulo</property>
+                    <property name="name">label_titulo_calendario</property>
                     <property name="width_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -1168,7 +1168,7 @@
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_data_hora_inicial">
-                    <property name="name">label_periodo</property>
+                    <property name="name">label_periodo_calendario</property>
                     <property name="width_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -1182,7 +1182,7 @@
                 </child>
                 <child>
                   <object class="GtkLabel">
-                    <property name="name">label_titulo</property>
+                    <property name="name">label_titulo_calendario</property>
                     <property name="width_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -1196,7 +1196,7 @@
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_data_hora_final">
-                    <property name="name">label_periodo</property>
+                    <property name="name">label_periodo_calendario</property>
                     <property name="width_request">300</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>

@@ -26,16 +26,16 @@
   </object>
   <object class="GtkWindow" id="window_op_hora_diaria">
     <property name="name">window</property>
-    <property name="width_request">900</property>
-    <property name="height_request">550</property>
+    <property name="width_request">1024</property>
+    <property name="height_request">600</property>
     <property name="visible">True</property>
     <property name="can_focus">True</property>
     <property name="halign">center</property>
     <property name="valign">center</property>
     <property name="resizable">False</property>
     <property name="window_position">center-always</property>
-    <property name="default_width">900</property>
-    <property name="default_height">550</property>
+    <property name="default_width">1000</property>
+    <property name="default_height">600</property>
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
@@ -50,6 +50,7 @@
         <property name="can_focus">False</property>
         <property name="halign">center</property>
         <property name="valign">center</property>
+        <property name="margin_bottom">20</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
@@ -166,9 +167,6 @@
           </packing>
         </child>
         <child>
-          <placeholder/>
-        </child>
-        <child>
           <object class="GtkBox">
             <property name="width_request">800</property>
             <property name="visible">True</property>
@@ -223,7 +221,7 @@
             <property name="expand">False</property>
             <property name="fill">False</property>
             <property name="padding">6</property>
-            <property name="position">2</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
@@ -269,26 +267,15 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">3</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkFixed">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="margin_top">20</property>
-          </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="position">4</property>
+            <property name="position">2</property>
           </packing>
         </child>
         <child>
           <object class="GtkButton" id="btn_tela_hora_diaria">
             <property name="label" translatable="yes">RETORNAR TELA ANTERIOR</property>
-            <property name="name">btn_retornar</property>
+            <property name="name">btn_tela_hora_diaria</property>
             <property name="width_request">400</property>
+            <property name="height_request">50</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
@@ -298,9 +285,10 @@
             <signal name="button-press-event" handler="on_btn_tela_hora_diaria_button_press_event" swapped="no"/>
           </object>
           <packing>
-            <property name="expand">False</property>
+            <property name="expand">True</property>
             <property name="fill">True</property>
-            <property name="position">5</property>
+            <property name="padding">5</property>
+            <property name="position">3</property>
           </packing>
         </child>
       </object>
