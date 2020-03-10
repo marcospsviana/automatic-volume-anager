@@ -596,10 +596,7 @@ class SelectHora(object):
         hora = self.data_atual + timedelta(hours=1)
         self.hora_acrescida = [hora.hour , self.data_atual.minute]
         #self.label_hora_ecolhida_up.set_text("2 horas")
-        self.btn_aumenta_hora.set_label("23 horas")
-        self.label_hora_ecolhida.set_text("1 hora")
-        #self.label_hora_ecolhida_down.set_text("23 horas")
-        self.btn_diminui_hora.set_label("2 horas")
+       
         #self.label_minuto_ecolhido.set_text(self.data_atual.strftime("%M"))
         self.label_data_hora_inicial.set_text(self.data_atual.strftime("%d/%m/%Y - %H:%M"))
         self.label_data_hora_final.set_text(hora.strftime("%d/%m/%Y - %H:%M"))
@@ -615,63 +612,46 @@ class SelectHora(object):
             self.label_definir_prazo.set_text("Definir o Prazo")
             self.label_valor_total.set_text("Valor total")
             self.label_ate.set_text("até")
+            self.btn_retornar_select_hora.set_label("TELA ANTERIOR")
+            self.btn_confirmar_select_hora.set_label("CONFIRMAR")
         elif self.language == "en_US":
             self.label_periodo_do.set_text("Start Time and Date")
             self.label_definir_prazo.set_text("Set the Time")
             self.label_valor_total.set_text("Total price")
             self.label_ate.set_text("End Time and Date")
-
-        self.horas = {
-                        "1 hora"  : 1,
-                        "2 horas" : 2,
-                        "3 horas" : 3,
-                        "4 horas" : 4,
-                        "5 horas" : 5,
-                        "6 horas" : 6,
-                        "7 horas" : 7,
-                        "8 horas" : 8,
-                        "9 horas" : 9,
-                        "10 horas" : 10,
-                        "11 horas" : 11,
-                        "12 horas" : 12,
-                        "13 horas" : 13,
-                        "14 horas" : 14,
-                        "15 horas" : 15,
-                        "16 horas" : 16,
-                        "17 horas" : 17,
-                        "18 horas" : 18,
-                        "19 horas" : 19,
-                        "20 horas" : 20,
-                        "21 horas" : 21,
-                        "22 horas" : 22,
-                        "23 horas" : 23,
-                    }
-        self.horas_us = {
-                        "1 hour"  : 1,
-                        "2 hours" : 2,
-                        "3 hours" : 3,
-                        "4 hours" : 4,
-                        "5 hours" : 5,
-                        "6 hours" : 6,
-                        "7 hours" : 7,
-                        "8 hours" : 8,
-                        "9 hours" : 9,
-                        "10 hours" : 10,
-                        "11 hours" : 11,
-                        "12 hours" : 12,
-                        "13 hours" : 13,
-                        "14 hours" : 14,
-                        "15 hours" : 15,
-                        "16 hours" : 16,
-                        "17 hours" : 17,
-                        "18 hours" : 18,
-                        "19 hours" : 19,
-                        "20 hours" : 20,
-                        "21 hours" : 21,
-                        "22 hours" : 22,
-                        "23 hours" : 23,
-                    }
-        self.hora_labels = [ "1 hora" ,
+            self.btn_retornar_select_hora.set_label("PREVIOUS SCREEN")
+            self.btn_confirmar_select_hora.set_label("CONFIRM")
+        if self.language == "pt_BR":
+            self.btn_aumenta_hora.set_label("23 horas")
+            self.label_hora_ecolhida.set_text("1 hora")
+            #self.label_hora_ecolhida_down.set_text("23 horas")
+            self.btn_diminui_hora.set_label("2 horas")
+            self.horas = {
+                            "1 hora"  : 1,
+                            "2 horas" : 2,
+                            "3 horas" : 3,
+                            "4 horas" : 4,
+                            "5 horas" : 5,
+                            "6 horas" : 6,
+                            "7 horas" : 7,
+                            "8 horas" : 8,
+                            "9 horas" : 9,
+                            "10 horas" : 10,
+                            "11 horas" : 11,
+                            "12 horas" : 12,
+                            "13 horas" : 13,
+                            "14 horas" : 14,
+                            "15 horas" : 15,
+                            "16 horas" : 16,
+                            "17 horas" : 17,
+                            "18 horas" : 18,
+                            "19 horas" : 19,
+                            "20 horas" : 20,
+                            "21 horas" : 21,
+                            "22 horas" : 22,
+                            "23 horas" : 23,
+                        }
+            self.hora_labels = [ "1 hora" ,
                              "2 horas",
                              "3 horas",
                              "4 horas",
@@ -695,58 +675,114 @@ class SelectHora(object):
                             "22 horas",
                             "23 horas",
                             ]
-        self.hora_labels_us = [ "1 hour" ,
-                                "2 hours",
-                                "3 hours",
-                                "4 hours",
-                                "5 hours",
-                                "6 hours",
-                                "7 hours",
-                                "8 hours",
-                                "9 hours",
-                               "10 hours",
-                               "11 hours",
-                               "12 hours",
-                               "13 hours",
-                               "14 hours",
-                               "15 hours",
-                               "16 hours",
-                               "17 hours",
-                               "18 hours",
-                               "19 hours",
-                               "20 hours",
-                               "21 hours",
-                               "22 hours",
-                               "23 hours",
-                            ]
-        self.horas_ad = {   0 : "1 hora" ,
-                            1  : "2 horas",
-                            2  : "3 horas",
-                            3  : "4 horas",
-                            4  : "5 horas",
-                            5  : "6 horas",
-                            6  : "7 horas",
-                            7  : "8 horas",
-                            8  : "9 horas",
-                            9  : "10 horas",
-                            10 : "11 horas",
-                            11 : "12 horas",
-                            12 : "13 horas",
-                            13 : "14 horas",
-                            14 : "15 horas",
-                            15 : "16 horas",
-                            16 : "17 horas",
-                            17 : "18 horas",
-                            18 : "19 horas",
-                            19 : "20 horas",
-                            20 : "21 horas",
-                            21 : "22 horas",
-                            22 : "23 horas",
-                            }
-        store = Gtk.ListStore(str)
+            self.horas_ad = {   0 : "1 hora" ,
+                        1  : "2 horas",
+                        2  : "3 horas",
+                        3  : "4 horas",
+                        4  : "5 horas",
+                        5  : "6 horas",
+                        6  : "7 horas",
+                        7  : "8 horas",
+                        8  : "9 horas",
+                        9  : "10 horas",
+                        10 : "11 horas",
+                        11 : "12 horas",
+                        12 : "13 horas",
+                        13 : "14 horas",
+                        14 : "15 horas",
+                        15 : "16 horas",
+                        16 : "17 horas",
+                        17 : "18 horas",
+                        18 : "19 horas",
+                        19 : "20 horas",
+                        20 : "21 horas",
+                        21 : "22 horas",
+                        22 : "23 horas",
+                        }
+        elif self.language == "en_US":
+            self.btn_aumenta_hora.set_label("23 hours")
+            self.label_hora_ecolhida.set_text("1 hour")
+            #self.label_hora_ecolhida_down.set_text("23 horas")
+            self.btn_diminui_hora.set_label("2 hours")
+            self.horas = {
+                            "1 hour"  : 1,
+                            "2 hours" : 2,
+                            "3 hours" : 3,
+                            "4 hours" : 4,
+                            "5 hours" : 5,
+                            "6 hours" : 6,
+                            "7 hours" : 7,
+                            "8 hours" : 8,
+                            "9 hours" : 9,
+                            "10 hours" : 10,
+                            "11 hours" : 11,
+                            "12 hours" : 12,
+                            "13 hours" : 13,
+                            "14 hours" : 14,
+                            "15 hours" : 15,
+                            "16 hours" : 16,
+                            "17 hours" : 17,
+                            "18 hours" : 18,
+                            "19 hours" : 19,
+                            "20 hours" : 20,
+                            "21 hours" : 21,
+                            "22 hours" : 22,
+                            "23 hours" : 23,
+                        }
+        
+            self.hora_labels = [ "1 hour" ,
+                                    "2 hours",
+                                    "3 hours",
+                                    "4 hours",
+                                    "5 hours",
+                                    "6 hours",
+                                    "7 hours",
+                                    "8 hours",
+                                    "9 hours",
+                                "10 hours",
+                                "11 hours",
+                                "12 hours",
+                                "13 hours",
+                                "14 hours",
+                                "15 hours",
+                                "16 hours",
+                                "17 hours",
+                                "18 hours",
+                                "19 hours",
+                                "20 hours",
+                                "21 hours",
+                                "22 hours",
+                                "23 hours",
+                                ]
+            self.horas_ad = {   0 : "1 hour" ,
+                         1  : "2 hours",
+                         2  : "3 hours",
+                         3  : "4 hours",
+                         4  : "5 hours",
+                         5  : "6 hours",
+                         6  : "7 hours",
+                         7  : "8 hours",
+                         8  : "9 hours",
+                        9  : "10 hours",
+                        10 : "11 hours",
+                        11 : "12 hours",
+                        12 : "13 hours",
+                        13 : "14 hours",
+                        14 : "15 hours",
+                        15 : "16 hours",
+                        16 : "17 hours",
+                        17 : "18 hours",
+                        18 : "19 hours",
+                        19 : "20 hours",
+                        20 : "21 hours",
+                        21 : "22 hours",
+                        22 : "23 hours",
+                        }
+        
+        """store = Gtk.ListStore(str)
         dados_horas = [["1 hora"]  , ["2 horas"] ,["3 horas"] ,["4 horas"] ,["5 horas"] , ["6 horas"] , ["7 horas"] , ["8 horas"] , ["9 horas"] ,
         ["10 horas"], ["11 horas"], ["12 horas"], ["13 horas"], ["14 horas"], ["15 horas"], ["16 horas"], ["17 horas"], ["18 horas"],
-        ["19 horas"], ["20 horas"], ["21 horas"], ["22 horas"], ["23 horas"],]
+        ["19 horas"], ["20 horas"], ["21 horas"], ["22 horas"], ["23 horas"],]"""
 
 
         self.select_hora_window.show()
@@ -766,31 +802,22 @@ class SelectHora(object):
                                     hora = 0
                                 else:"""
         hora -=  2
-
-        self.label_hora_ecolhida.set_text(self.hora_labels[hora])
-        #self.label_hora.set_state_flags(Gtk.StateFlags.INSENSITIVE, True)
-        """if self.label_hora_ecolhida_up.get_label() == "23 horas":
-                                    self.label_hora_ecolhida_up.set_text(self.hora_labels[0])
-                                else:
-                                    self.label_hora_ecolhida_up.set_text(self.hora_labels[hora + 1])"""
-        #if self.btn_aumenta_hora.get_label() == "23 horas":
-        #self.btn_aumenta_hora.set_label(self.hora_labels[0])
-        #else:
+        
+        self.label_hora_ecolhida.set_text(self.hora_labels[hora])       
         self.btn_aumenta_hora.set_label(self.hora_labels[hora -1])
-
-        #self.label_hora_ecolhida_down.set_text(self.hora_labels[hora - 1])
         self.btn_diminui_hora.set_label(self.hora_labels[hora + 1])
-
         total_atual = self.label_valor_total_horas.get_label()
         total_atual = total_atual.replace(",",".")
         total = float(self.horas[self.label_hora_ecolhida.get_label()]) * self.taxa 
         total = str("%.2f"%total)
         total = total.replace(".", ",")
         self.label_valor_total_horas.set_text("R$ " + total)
+        
         data_final = data + timedelta(hours=int(self.horas[self.label_hora_ecolhida.get_label()]))
-        #self.label_valor_total_horas.set_text(total)
         self.label_data_hora_inicial.set_text(data.strftime("%d/%m/%Y - %H:%M"))
         self.label_data_hora_final.set_text(data_final.strftime("%d/%m/%Y - %H:%M"))
+
+        
 
     def on_btn_diminui_hora_button_press_event(self, event, arg):
         data = datetime.now()
@@ -807,7 +834,7 @@ class SelectHora(object):
         self.label_hora_ecolhida.set_text(self.horas_ad[hora])
         #self.label_hora_ecolhida_up.set_text(self.hora_labels[hora + 1])
         #self.label_hora_ecolhida_down.set_text(self.hora_labels[hora - 1])
-        if self.label_hora_ecolhida.get_label() == "23 horas":
+        if self.label_hora_ecolhida.get_label() == "23 horas" or self.label_hora_ecolhida.get_label() == "23 hours":
             self.btn_diminui_hora.set_label(self.hora_labels[0])
             self.btn_aumenta_hora.set_label(self.hora_labels[hora - 1])
         else:
@@ -898,6 +925,8 @@ class WindowCalendario:
 
         self.label_data_hora_inicial = self.builder.get_object("label_data_hora_inicial")
         self.label_data_hora_final = self.builder.get_object("label_data_hora_final")
+        self.label_ate = self.builder.get_object("label_ate")
+        self.label_periodo_do = self.builder.get_object("label_periodo_do")
 
 
         #===================== BUTTONS ========================
@@ -964,6 +993,21 @@ class WindowCalendario:
         self.label_data_hora_inicial.set_text(self.data.strftime("%d/%m/%Y - %H:%M"))
         self.label_data_hora_final.set_text(self.data.strftime("%d/%m/%Y - %H:%M"))
         calendar.setfirstweekday(calendar.SUNDAY)
+        if self.language == "pt_BR":
+            self.label_periodo_do.set_text("Período do")
+            #self.label_definir_prazo.set_text("Definir o Prazo")
+            self.label_valor_total.set_text("Valor total")
+            self.label_ate.set_text("até")
+            self.btn_cancelar_calendario.set_label("TELA ANTERIOR")
+            self.btn_confirmar_calendario.set_label("CONFIRMAR")
+            
+        elif self.language == "en_US":
+            self.label_periodo_do.set_text("Start Time and Date")
+            #self.label_definir_prazo.set_text("Set the Time")
+            self.label_valor_total.set_text("Total price")
+            self.label_ate.set_text("End Time and Date")
+            self.btn_cancelar_calendario.set_label("PREVIOUS SCREEN")
+            self.btn_confirmar_calendario.set_label("CONFIRM")
 
         self.dias_meses = [ [self.btn0, self.btn1, self.btn2, self.btn3, self.btn4, self.btn5,self.btn6],
                             [self.btn7, self.btn8, self.btn9, self.btn10,self.btn11,self.btn12,self.btn13],
@@ -1481,7 +1525,7 @@ class CadastroUsuarios(object):
        
         
         self.combobox_flags_ddd = self.builder.get_object("combobox_flags_ddd")
-        self.combobox_flags_ddd.set_wrap_width(8)
+        self.combobox_flags_ddd.set_wrap_width(6)
         
         self.list_flag_ddd = Gtk.ListStore(GdkPixbuf.Pixbuf, str)
         FLAG_BR = GdkPixbuf.Pixbuf.new_from_file_at_size("static/images/flags_ddd/brasil.png", 32, 50)

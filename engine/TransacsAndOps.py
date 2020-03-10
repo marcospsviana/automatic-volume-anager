@@ -115,6 +115,39 @@ class TransacsOps(object):
             }
 
             </style>"""
+        HTML_NOVO = """<!-- Emails use the XHTML Strict doctype -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <!-- The character set should be utf-8 -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width"/>
+  <!-- Link to the email's CSS, which will be inlined into the email -->
+  <link rel="stylesheet" href="assets/css/foundation-emails.css">
+  <style>
+    <!-- Your CSS to inline should be added here -->
+  </style>
+</head>
+
+<body>
+  <!-- Wrapper for the body of the email -->
+  <table class="body" data-made-with-foundation>
+    <tr>
+      <!-- The class, align, and <center> tag center the container -->
+      <td class="float-center" align="center" valign="top">
+        <center>
+          <strong>Este e-mail foi enviado de forma automática ,não responda diretamente a este e-mail!</strong><br><br>
+                    Obrigado por utilizar nossos serviços<b> %s</b>, abaixo encontra-se os seus dados de acesso para liberação do compartimento:<br><br>
+                <p>COMPARTIMENTO: <b> %s  </b>
+                <p>SENHA:<b> %s</b>
+                <p>DATA LOCAÇÃO:<b> %s %s  </b>
+                <p>DATA LIMITE:<b> %s %s</b>
+        </center>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>"""
         if language == "pt_BR":
             __message = """<html><head> %s </head> 
             <body class='body'> 

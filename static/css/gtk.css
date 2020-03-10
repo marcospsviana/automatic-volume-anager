@@ -7,17 +7,18 @@
 button{
 	font: 1.7em "arial";
 	font-weight: normal;
-	
+	border-radius: 5px;
 }
 entry{
 	font-size: 2em ;
-	border-radius: 2px;
+	border-radius: 5px;
 	border:  rgba(9,19,41, .92) solid 0px ;
 	background: rgba(245, 245, 245, .98);
+	border-bottom:  rgba(9,19,41, .9) solid 1px ;;
 }
 combobox{
 	
-	border-radius: 0px;
+	border-radius: 5px;
 	border:  rgba(9,19,41, .92) solid 0px ;
 	background: rgba(245, 245, 245, .98);
 }
