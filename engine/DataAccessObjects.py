@@ -329,7 +329,7 @@ class DataAccessObjectsManager(object):
         __password = []
         self.__pass2 = ''
         __alfabet = list(string.ascii_uppercase)
-        __num = list(range(10))
+        __num = list(range(1,10))
         for n in __num:
             __alfabet.append(n)
 

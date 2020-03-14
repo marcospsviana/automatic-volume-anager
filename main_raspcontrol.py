@@ -2307,7 +2307,7 @@ class WindowLogin(Gtk.Window):
         # alfabeto para gerar o teclado
         self.alfa = list(string.ascii_uppercase)
         # números para o teclado numérico
-        self.num = list(map(lambda x: x, range(10)))
+        self.num = list(map(lambda x: x, range(1,10)))
         self.builder.connect_signals({
             "on_btn_retornar_entrada_dados_pressed": self.on_btn_retornar_entrada_dados_pressed,
             "on_btn_backspace_button_press_event": self.on_btn_backspace_button_press_event,

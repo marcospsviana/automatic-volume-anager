@@ -451,19 +451,6 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                     <property name="top_attach">0</property>
                   </packing>
                 </child>
-                <child>
-                  <object class="GtkButton" id="num_0">
-                    <property name="label" translatable="yes">0</property>
-                    <property name="name">tecla_num</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">9</property>
-                    <property name="top_attach">0</property>
-                  </packing>
-                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
