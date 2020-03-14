@@ -55,7 +55,6 @@ class TransacsOps(object):
     @classmethod
     def send_sms(self, nome, senha, compartimento, data_locacao, hora_inicio_locacao, data_limite,  hora_fim_locacao, telefone):
         __api_key = '664e67a9-5fdd-4718-9cc2-3bd2a54c9520'
-        
         textmessage_service = TextMessageService(__api_key)
         message = """Senha %s para liberacao..\n 
                 COMPARTIMENTO: %s\n
