@@ -1,138 +1,0 @@
-
-
-\==============================================
-
-   QUANTIDADE DE  PARCELAS INVALIDA
-
-==============================================
-
-
-
-\==============================================
-
-     LIGAR PARA         AUTORIZACAO     
-
-==============================================
-
-
-
-\==============================================
-
-     LIGAR PARA         AUTORIZACAO     
-
-==============================================
-
-
-
-\==============================================
-
-             PAYGO BY NTK             
-             Via Cliente              
-              REDE       
-
-BAR DA MARIA  
-50.713.076/0001-32              
-
-COMPR:000042219  VALOR 000000001200
-
-ESTAB:          29/01/2020-033636 
-TERM:00003261
-CARTAO: ************9423            
-AUTORIZACAO: 094787
-
-TRANSACAO AUTORIZADA MEDIANTE  
-   USO DE SENHA PESSOAL        
-
-
---------------------------------------
-62547 0000000001 PGREF:0001059894
-NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
-CNPJ: 35.223.093/0001-06
-   *** AMBIENTE DE TESTES - APP02 ***   
-
-
-
-==============================================
-
-
-
-\==============================================
-
- TRANSACAO PENDENTE 
-
-==============================================
-
-
-
-\==============================================
-
- TRANSACAO PENDENTE 
-
-==============================================
-
-
-
-\==============================================
-
- TRANSACAO PENDENTE 
-
-==============================================
-
-
-
-\==============================================
-
-              PAYGO BY NTK              
-
-              MASTERCARD              
-           535081******9423           
-1 VIA-CLIENTE               AUT=155020
-DOC=574313    29/01/20 15:50     ONL-C
-VENDA A CREDITO
-PARCELADO EMISSOR EM 3 PARCELAS
-VALOR:                   R$     250,00
-
-
-----------------------------------------
-62547 0000000131 PGREF:0000574313
-NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
-CNPJ: 35.223.093/0001-06
-
-   *** AMBIENTE DE TESTES - APP02 ***   
-
-
-
-==============================================
-
-
-
-\==============================================
-
-             PAYGO BY NTK             
-             Via Cliente              
-              REDE       
-
-BAR DA MARIA  
-50.713.076/0001-32              
-
-COMPR:000042225  VALOR 000000001200
-
-ESTAB:          29/01/2020-035412 
-TERM:00003261
-CARTAO: ************9423            
-AUTORIZACAO: 094787
-
-TRANSACAO AUTORIZADA MEDIANTE  
-   USO DE SENHA PESSOAL        
-
-
---------------------------------------
-62547 0000000001 PGREF:0001059902
-NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
-CNPJ: 35.223.093/0001-06
-   *** AMBIENTE DE TESTES - APP02 ***   
-
-
-
-==============================================
-

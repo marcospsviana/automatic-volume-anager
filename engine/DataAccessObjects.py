@@ -1,4 +1,5 @@
 from coolbagsafe_system.data_access_objets_db_cbs import DataAccessObjectsBase as DAO
+#from coolbagsafe_system.data_access_objets_db_nuvem import DataAccessObjectsNuvem as DAON
 from coolbagsafe_system.portas import Portas
 from coolbagsafe_system.taxas import *
 from .TransacsAndOps import TransacsOps
@@ -51,12 +52,20 @@ class DataAccessObjectsManager(object):
         TAXA_HORA_B = TaxAndRates.TAXA_HORA_B.value
         TAXA_HORA_C = TaxAndRates.TAXA_HORA_C.value
         TAXA_HORA_D = TaxAndRates.TAXA_HORA_D.value
+        TAXA_MINUTO_A = TaxAndRates.TAXA_MINUTO_A.value
+        TAXA_MINUTO_B = TaxAndRates.TAXA_MINUTO_B.value
+        TAXA_MINUTO_C = TaxAndRates.TAXA_MINUTO_C.value
+        TAXA_MINUTO_D = TaxAndRates.TAXA_MINUTO_D.value
 
         
         self.data_dao = DAO()
         self.__conn = mdb.connect(host=self.data_dao.db_host(), user=self.data_dao.db_user(), password=self.data_dao.db_passwd(), database=self.data_dao.db_database())
         #self.__c = self.__conn.cursor(buffered=True)
         self.__c = self.__conn.cursor(buffered=True)
+        #self.data_dao_nuvem = DAON()
+        #self.__conn_nuvem = mdb.connect(host=self.data_dao_nuvem.db_host(), user=self.data_dao_nuvem.db_user(), password=self.data_dao_nuvem.db_passwd(), database=self.data_dao_nuvem.db_database())
+        #self.__c = self.__conn.cursor(buffered=True)
+        #self.__cursor. = self.__conn_nuvem.cursor(buffered=True)
 
 
     def create_user(self, nome, email, telefone):
@@ -75,6 +84,25 @@ class DataAccessObjectsManager(object):
         self.__c.execute(
             "SELECT * from tb_usuario where email= '%s' OR telefone= '%s'" % (__email, __telefone))
         self.select = self.__c.fetchall()
+        __telefone = __telefone.replace("(","")
+        __telefone = __telefone.replace(")","")
+        __telefone = __telefone.replace("+","")
+        __telefone = __telefone.replace(" ","")
+
+        print("__telefone", __telefone)
+        #query = open("/opt/paygoWeb/query.sql", "+w")
+        #query.write("INSERT INTO tb_usuario (id_usuario, nome, email, telefone) VALUES (null,'%s', '%s', '%s');"%(str(__nome), str(__email), str(__telefone)))
+        #query.close() 
+        query =   """INSERT INTO tb_usuario VALUES (%s,%s, %s, %s)"""
+        tuple_insert = (0, __nome, __email, __telefone)
+
+        #subprocess.run('docker start mariadb_king', shell=True)
+        #DAO.docker_statment(__nome, __email, __telefone)
+        #subprocess.run('docker run mariadb_king -rm sh -c "%s"'%query, shell=True)
+        subprocess.run("docker exec mariadb_king  sh -c '%s %s'"%(query, tuple_insert), shell=True)
+        
+        #subprocess.run("""docker run --rm mariadb mysql --user='coolbagsaf_add1' --password='m1cr0@t805i' --host='mysql.coolbagsafe.kinghost.net' coolbagsafe -e INSERT INTO tb_usuario (id_usuario, nome, email, telefone) VALUES (null, '%s', '%s', '%s'); """%(__nome, __email, __telefone), shell=True)
+        
 
         if self.select == [] or self.select == None:
             consulta = ''
@@ -87,12 +115,14 @@ class DataAccessObjectsManager(object):
             consulta = self.__c.fetchall()
             print("-----CONSULTA ID USUARIO-----")
             print(consulta)
+            
             return consulta
 
         elif self.select[0][2] != __email and self.select[0][3] == __telefone:
                 self.__c.execute("UPDATE tb_usuario SET email = '%s' WHERE id_usuario = %s" % (
                     __email, self.select[0][0]))
                 self.__conn.commit()
+                
 
                 return self.select[0][0]  # id_usuario
         elif self.select[0][2] == __email and self.select[0][3] != __telefone:
@@ -141,6 +171,7 @@ class DataAccessObjectsManager(object):
         __senha = ''
 
         self.dados_locatario = self.create_user(__nome, __email, __telefone)
+        #self.data_dao_nuvem.create_user(__nome, __email,  __telefone)
         print("dados locatario data.py locacao===>", self.dados_locatario)
         # seleciona um armario com a classe indicada e recebe seu id
         loca_armario = self.localisa_armario(self.__armario)
@@ -162,11 +193,16 @@ class DataAccessObjectsManager(object):
             print("loca_armario[0]", loca_armario[0])
             print("self.dados_locatario", self.dados_locatario)
             print("self.__total",self.__total)
+            
+
             self.__c.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario, valor_locacao) VALUES(null, '%s','%s',null,'%s',%s,%s,%s)" % (self.__data_locacao, self.__data_limite, __senha, loca_armario[0], self.dados_locatario, self.__total))
             
 
             self.__c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario[0]))
 
+            self.__conn.commit()
+            self.__c.execute("INSERT INTO tb_locacao_persistence(id_locacao_persistence, data_locacao,tempo_locado,tempo_corrido,id_armario,id_usuario, valor_locacao) VALUES(null, '%s','%s',null,'%s',%s,%s,%s)" % (self.__data_locacao, self.__data_limite, loca_armario[0], self.dados_locatario, self.__total))
+            
             self.__conn.commit()
 
             compartimento_query = "select compartimento from tb_armario where id_armario = %s" % (loca_armario[0])
@@ -210,8 +246,19 @@ class DataAccessObjectsManager(object):
                 "data_locada": tempo_locado,
                 "hora_locada": hora_locada,
                 "senha": __senha,
-                "compartimento": compartimento[0]
+                "compartimento": compartimento[0], 
+                
             }
+            query_statment = "INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario, valor_locacao) VALUES(null, '%s','%s',null,'%s',%s,%s,%s)"% (self.__data_locacao, self.__data_limite, __senha, loca_armario[0], self.dados_locatario, self.__total)
+            query_statment_persistence = "INSERT INTO tb_locacao_persistence(LAST_INSERT_ID(), data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario, valor_locacao) VALUES(LAST_INSERT_ID(), '%s','%s',null,'%s',%s,%s,%s)"%(self.__data_locacao, self.__data_limite, __senha, loca_armario[0], self.dados_locatario, self.__total)
+            #subprocess.run('docker start mariadb_king', shell=True)
+            #DAO.docker_statment(query_statment)
+            #sleep(1)
+            #DAO.docker_statment(query_statment_persistence)
+            #sleep(1)
+            #subprocess.run('docker stop mariadb_king', shell=True)
+
+            #self.data_dao_nuvem.insert_locacao(self.__data_locacao, self.__data_limite, __senha, loca_armario[0], self.dados_locatario, self.__total)
             return locacao_json
             #(locacao_json["message"], locacao_json["data_locacao"], locacao_json["hora_locacao"], locacao_json["data_locada"], locacao_json["hora_locada"], locacao_json["senha"], locacao_json["compartimento"])
             # return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, __senha, compartimento)
@@ -230,6 +277,9 @@ class DataAccessObjectsManager(object):
 
             self.__c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario[0]))
 
+            self.__conn.commit()
+            self.__c.execute("INSERT INTO tb_locacao_persistence(id_locacao_persistence, data_locacao,tempo_locado,tempo_corrido,id_armario,id_usuario, valor_locacao) VALUES(null, '%s','%s',null,'%s',%s,%s,%s)" % (self.__data_locacao, self.__data_limite, loca_armario[0], self.dados_locatario, self.__total))
+            
             self.__conn.commit()
 
             compartimento_query = "select compartimento from tb_armario where id_armario = %s" % (
@@ -276,6 +326,7 @@ class DataAccessObjectsManager(object):
                 "senha": __senha,
                 "compartimento": compartimento[0]
             }
+            #self.data_dao_nuvem.insert_locacao(self.__data_locacao, self.__data_limite, __senha, loca_armario[0], self.dados_locatario, self.__total)
             return locacao_json
         else:
             print("falhou")
@@ -376,7 +427,7 @@ class DataAccessObjectsManager(object):
         # print(__senha)
         # __c.execute("SELECT id_armario, id_locacao, tempo_locado, data_locacao from tb_locacao where senha = '%s' AND id_usuario = %s" %(__senha,__id_user[0]))
         dados = pd.read_sql(
-            "SELECT id_armario, id_locacao, tempo_locado, data_locacao from tb_locacao where senha = '%s'" % (__senha), __conn)
+            "SELECT id_armario, id_locacao, tempo_locado, data_locacao, classe from tb_locacao where senha = '%s'" % (__senha), __conn)
         # for reg in __c.next_proc_resultset():
         # __result = __c.fetchall()
         # print("888888 ---- result")
@@ -427,6 +478,7 @@ class DataAccessObjectsManager(object):
             result = self.__c.fetchone()
             self.__conn.commit()
             self.__conn.close()
+            #self.data_dao_nuvem(self.__classe, self.__terminal, self.__coluna, self.__nivel, self.__porta, self.__compartimento)
             return (self.__classe, self.__coluna, self.__nivel, self.__terminal, "cadastrado com sucesso")
         else:
             return "porta ou compartimento já utilizada confira a porta exata para o cadastro e evite problemas!"
@@ -529,26 +581,46 @@ class DataAccessObjectsManager(object):
 
     def finalizar(self, senha):
        
-        taxa = 15
         result = ''
         id_armario = ''
+        
 
         hj = datetime.datetime.now()
         hj = datetime.datetime(hj.year, hj.month, hj.day,
                                hj.hour, hj.minute, hj.second)
-        # hj = hj + datetime.timedelta(minutes=+10)
+        
         hj = pd.to_datetime(hj)
-        # senha = senha.encode(encoding='utf-8', errors='strict')
-        __senha = senha  # hashlib.sha3_512(senha).hexdigest()
-        # __senha = __senha.encode('utf-8')
+        
+        __senha = senha  
+        self.__locacao = self.get_locacao(senha)
+        classe_armario = pd.read_sql(
+            "select classe from tb_armario where id_armario = %s" % self.__locacao["id_armario"][0], __conn)
+        classe = str(classe_armario['classe'][0])
+        if c in classe == "A":
+            taxa_minuto = TAXA_MINUTO_A
+            taxa_dia = TAXA_DIARIA_A
+            taxa_hora = TAXA_HORA_A
+        elif c in classe == "B":
+            taxa_minuto = TAXA_MINUTO_B
+            taxa_dia = TAXA_DIARIA_B
+            taxa_hora = TAXA_HORA_B
+        elif c in classe == "C":
+            taxa_minuto = TAXA_MINUTO_C
+            taxa_dia = TAXA_DIARIA_C
+            taxa_hora = TAXA_HORA_C
+        elif c in classe == "D":
+            taxa_minuto = TAXA_MINUTO_D
+            taxa_dia = TAXA_DIARIA_D
+            taxa_hora = TAXA_HORA_D
 
         print('senha e nome finalizar', __senha)
         self.__id_user = self.select_user(senha)  # __senha)
+        
         if self.__id_user == 'senha incorreta, tente novamente':
             return 'senha incorreta, tente novamente'
 
         else:
-            self.__locacao = self.get_locacao(senha)  # __senha)
+            
             if (self.__locacao['tempo_locado'][0]) > hj:
 
                 tempo_total = hj - self.__locacao['tempo_locado'][0]
@@ -564,9 +636,9 @@ class DataAccessObjectsManager(object):
                     calculo_minuto = (3/4)
                 id_armario = self.__locacao['id_armario'][0]
                 print(" ID ARMARIO", id_armario)
-                valor_total = int((dias_passados * 24 * 60) * 50)
-                valor_total = int(valor_total + (calculo_minuto * taxa))
-                valor_total = int(valor_total + calculo_hora * 15)
+                valor_total = int((dias_passados) * taxa_dia)
+                valor_total = int(valor_total + (calculo_minuto * taxa_minuto))
+                valor_total = int(valor_total + calculo_hora * taxa_hora)
                 result = self.cobranca_excedente(
                     dias_passados, calculo_hora, calculo_minuto, id_armario)  # (valor_total,hj)
                 porta = self.select_port(id_armario)
@@ -579,6 +651,7 @@ class DataAccessObjectsManager(object):
                 self.__conn.commit()
 
                 self.__conn.close()
+                #self.data_dao_nuvem.finalizar(__senha, id_armario)
                 return "armario liberado"
 
             else:
@@ -798,11 +871,17 @@ class DataAccessObjectsManager(object):
             self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao["id_armario"][0]))
             self.__conn.commit()
             self.__conn.close()
+            statment = "UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = %s" % (self.__locacao["id_armario"][0])
+            subprocess.run('docker start mariadb_king', shell=True)
+            DAO.docker_statment(statment)
+            sleep(1)
+            subprocess.run('docker stop mariadb_king', shell=True)
             __porta = self.select_port(self.__locacao["id_armario"][0])
             print("porta em pagamento", __porta)
             
             # LIBERAR NO RASPBERRY
             self.port.exec_port(__porta, "abre", "livre")
+            #self.data_dao_nuvem.finalizar(__senha, id_armario)
             return ("pagamento ok")
         elif 'aprovada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
             self.__c.execute(
@@ -815,6 +894,7 @@ class DataAccessObjectsManager(object):
             
             # LIBERAR NO RASPBERRY
             self.port.exec_port(__porta, "abre", "livre")
+            self.data_dao_nuvem.finalizar(__senha, id_armario)
             return ("pagamento ok")
         else:
             return (resultado_transacao["PWINFO_RESULTMSG"])
@@ -829,7 +909,7 @@ class DataAccessObjectsManager(object):
         #p = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         #print(p)
         #subprocess('docker exec paygoweb bash -c "cd paygoWeb && python3 venda.py"')
-        
+        sleep(2)
         subprocess.run("docker stop paygoweb", shell=True)
         #print("informe o codigo")
         

@@ -1,18 +1,19 @@
 import sys, os
 import mysql.connector as mdb
+import pandas as pd
 
 
 class DataAccessObjectsBase(object):
     def __init__(self):
-        super(DataAccessObjectsBase, self).__init__()
+        #super(DataAccessObjectsBase, self).__init__()
         self.__host = "localhost"
-        self.__user = "coolbaguser"
+        self.__user = "root"
         self.__database = "coolbag"
-        self.__passwd = "m1cr0@t805i"
+        self.__passwd = "microat8051"
     
 
-        self.__CONN = mdb.connect(host = self.__host, user = self.__user, passwd = self.__passwd, database = self.__database)
-        self.__cursor = self.__CONN.cursor(buffered=True)
+        self.__conn = mdb.connect(host = self.__host, user = self.__user, passwd = self.__passwd, database = self.__database)
+        self.__cursor = self.__conn.cursor(buffered=True)
 
         self.__cursor.execute('''CREATE TABLE IF NOT EXISTS`tb_armario` (
                 `id_armario` INT(30) NOT NULL AUTO_INCREMENT,
@@ -55,7 +56,21 @@ class DataAccessObjectsBase(object):
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
                         ''')
-        self.__CONN.close()
+        self.__cursor.execute('''CREATE TABLE IF NOT EXISTS `tb_locacao_persistence` (
+                        `id_locacao_persistence` int(10) NOT NULL AUTO_INCREMENT,
+                        `data_locacao` datetime NOT NULL,
+                        `tempo_locado` datetime NOT NULL,
+                        `tempo_corrido` time DEFAULT '00:00:00',
+                        `id_armario` int(10) NOT NULL DEFAULT '0',
+                        `id_usuario` int(10) NOT NULL DEFAULT '0',
+                        `valor_locacao` double NOT NULL DEFAULT '0',
+                        KEY `id_locacao_persistence` (`id_locacao_persistence`),
+                        KEY `FK__tb_armario` (`id_armario`),
+                        KEY `FK__tb_usuario` (`id_usuario`),
+                        CONSTRAINT `FK_PERSISTENCE__tb_armario` FOREIGN KEY (`id_armario`) REFERENCES `tb_armario` (`id_armario`) ON DELETE CASCADE ON UPDATE CASCADE,
+                        CONSTRAINT `FK_PERSISTENCE__tb_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
+                        ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;''')
+        self.__conn.close()
 
     
     def db_passwd(self):
@@ -72,8 +87,7 @@ class DataAccessObjectsBase(object):
     def db_database(self):
         return self.__database
 
-    
-
+        
     
 
 

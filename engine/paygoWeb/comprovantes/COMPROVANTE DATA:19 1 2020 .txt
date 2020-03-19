@@ -1,166 +1,0 @@
-==============================================
-
-              PAYGO BY NTK              
-
-              MASTERCARD              
-           544731******7399           
-2 VIA-ESTABELECIMENTO       AUT=002802
-010000244470001/POS=01000237
-DOC=574140    19/01/20 01:28     ONL-C
-VENDA A CREDITO
-VALOR:                   R$      29,90
-
-    TRANSACAO AUTORIZADA COM SENHA    
-         SAMARA L T DE SOUSA          
-   A0000000041010-B5FB001CDC223EA8    
-           Credito           
-
-----------------------------------------
-62547 0000000131 PGREF:0000574140
-NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
-CNPJ: 35.223.093/0001-06
-
-   *** AMBIENTE DE TESTES - APP02 ***   
-
-==============================================
-
-==============================================
-
-              PAYGO BY NTK              
-
-              MASTERCARD              
-           544731******7399           
-2 VIA-ESTABELECIMENTO       AUT=003536
-010000244470001/POS=01000237
-DOC=574141    19/01/20 01:35     ONL-C
-VENDA A CREDITO
-VALOR:                   R$      29,90
-
-    TRANSACAO AUTORIZADA COM SENHA    
-         SAMARA L T DE SOUSA          
-   A0000000041010-59ECA5E5C3904034    
-           Credito           
-
-----------------------------------------
-62547 0000000131 PGREF:0000574141
-NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
-CNPJ: 35.223.093/0001-06
-
-   *** AMBIENTE DE TESTES - APP02 ***   
-
-==============================================
-
-==============================================
-
-              PAYGO BY NTK              
-
-              MASTERCARD              
-           544731******7399           
-2 VIA-ESTABELECIMENTO       AUT=003836
-010000244470001/POS=01000237
-DOC=574142    19/01/20 01:38     ONL-C
-VENDA A CREDITO
-VALOR:                   R$      34,90
-
-    TRANSACAO AUTORIZADA COM SENHA    
-         SAMARA L T DE SOUSA          
-   A0000000041010-38AEAAB91C52FB52    
-           Credito           
-
-----------------------------------------
-62547 0000000131 PGREF:0000574142
-NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
-CNPJ: 35.223.093/0001-06
-
-   *** AMBIENTE DE TESTES - APP02 ***   
-
-==============================================
-
-==============================================
-
-              PAYGO BY NTK              
-
-              MASTERCARD              
-           544731******7399           
-2 VIA-ESTABELECIMENTO       AUT=004712
-010000244470001/POS=01000237
-DOC=574143    19/01/20 01:47     ONL-C
-VENDA A CREDITO
-VALOR:                   R$      34,90
-
-    TRANSACAO AUTORIZADA COM SENHA    
-         SAMARA L T DE SOUSA          
-   A0000000041010-88295D8BA5D6A70F    
-           Credito           
-
-----------------------------------------
-62547 0000000131 PGREF:0000574143
-NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
-CNPJ: 35.223.093/0001-06
-
-   *** AMBIENTE DE TESTES - APP02 ***   
-
-==============================================
-
-==============================================
-
-              PAYGO BY NTK              
-
-              MASTERCARD              
-           544731******7399           
-2 VIA-ESTABELECIMENTO       AUT=004959
-010000244470001/POS=01000237
-DOC=574144    19/01/20 01:49     ONL-C
-VENDA A CREDITO
-VALOR:                   R$      35,90
-
-    TRANSACAO AUTORIZADA COM SENHA    
-         SAMARA L T DE SOUSA          
-   A0000000041010-3A118168B664964A    
-           Credito           
-
-----------------------------------------
-62547 0000000131 PGREF:0000574144
-NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
-CNPJ: 35.223.093/0001-06
-
-   *** AMBIENTE DE TESTES - APP02 ***   
-
-==============================================
-
-==============================================
-
-CIELO==============================================
-
-==============================================
-
-ERRO DE COMUNICACAO(MENSAGEM INVALIDA)==============================================
-
-==============================================
-
-ERRO DE COMUNICACAO(MENSAGEM INVALIDA)==============================================
-
-==============================================
-
-ERRO DE COMUNICACAO(MENSAGEM INVALIDA)==============================================
-
-==============================================
-
-ERRO DE COMUNICACAO(MENSAGEM INVALIDA)==============================================
-
-==============================================
-
-  PONTO DE CAPTURA    NAO INSTALADO==============================================
-
-==============================================
-
-  PONTO DE CAPTURA    NAO INSTALADO==============================================
-
-==============================================
-
-  PONTO DE CAPTURA    NAO INSTALADO==============================================
-
-==============================================
-
-  PONTO DE CAPTURA    NAO INSTALADO==============================================
-

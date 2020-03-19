@@ -1,68 +1,0 @@
-==============================================
-
-     NEGADA 90      ==============================================
-
-==============================================
-
-              PAYGO BY NTK              
-
-              MASTERCARD              
-           544731******7399           
-2 VIA-ESTABELECIMENTO       AUT=110623
-010000244470001/POS=01000237
-DOC=574162    21/01/20 12:06     ONL-C
-VENDA A CREDITO
-VALOR:                   R$      25,90
-
-    TRANSACAO AUTORIZADA COM SENHA    
-         SAMARA L T DE SOUSA          
-   A0000000041010-0140FA2D6FA0C7C0    
-           Credito           
-
-----------------------------------------
-62547 0000000131 PGREF:0000574162
-NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
-CNPJ: 35.223.093/0001-06
-
-   *** AMBIENTE DE TESTES - APP02 ***   
-
-==============================================
-
-==============================================
-
-ERRO DE COMUNICACAO(MENSAGEM INVALIDA)==============================================
-
-==============================================
-
-ERRO DE COMUNICACAO(MENSAGEM INVALIDA)==============================================
-
-==============================================
-
-ERRO DE COMUNICACAO(MENSAGEM INVALIDA)==============================================
-
-==============================================
-
-              PAYGO BY NTK              
-
-              MASTERCARD              
-           535081******9423           
-2 VIA-ESTABELECIMENTO       AUT=182657
-010000244470001/POS=01000237
-DOC=574165    21/01/20 19:26     ONL-C
-VENDA A CREDITO
-VALOR:                   R$      25,90
-
-    TRANSACAO AUTORIZADA COM SENHA    
-           VIANA/MARCOS P S           
-   A0000000041010-95ED5E645DA0C014    
-           Credit           
-
-----------------------------------------
-62547 0000000131 PGREF:0000574165
-NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
-CNPJ: 35.223.093/0001-06
-
-   *** AMBIENTE DE TESTES - APP02 ***   
-
-==============================================
-

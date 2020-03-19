@@ -1,21 +1,18 @@
 
 
 *{
-	font-family: "Inconsolata";
-	font-weight: lighter;
-	
+	font-family: "sans-serif";
 }
 button{
-	font: 1.7em "arial";
+	font: 1.7em "Ubuntu";
 	font-weight: normal;
 	border-radius: 5px;
 }
 entry{
 	font-size: 2em ;
-	border-radius: 5px;
-	border:  rgba(9,19,41, .92) solid 0px ;
-	background: rgba(245, 245, 245, .98);
-	border-bottom:  rgba(9,19,41, .9) solid 1px ;;
+	border-radius: 3px;
+	border:  none;
+	background: rgba(245, 245, 245, .98);	
 }
 combobox{
 	
@@ -345,7 +342,7 @@ dialog{
 	
 }
 #btn_tela_hora_diaria{
-	background-color: #ED0D0D;
+	background: #ED0D0D;
 	color: whitesmoke;
 	font-size: 1.7em;
 	padding-top: 10;

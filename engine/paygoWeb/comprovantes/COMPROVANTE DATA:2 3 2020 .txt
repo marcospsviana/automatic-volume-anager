@@ -1,26 +1,0 @@
-==============================================
-
-              PAYGO BY NTK              
-
-              MASTERCARD              
-           535081******9423           
-2 VIA-ESTABELECIMENTO       AUT=200046
-010000244470001/POS=01000237
-DOC=574481    02/03/20 20:00     ONL-C
-VENDA A CREDITO
-VALOR:                   R$     644,78
-
-    TRANSACAO AUTORIZADA COM SENHA    
-           VIANA/MARCOS P S           
-   A0000000041010-51CCC8636A8332E2    
-           Credit           
-
-----------------------------------------
-62547 0000000131 PGREF:0000574481
-NOME FANTASIA: COOLBAG-SAFE GUARDABAGAGENS AUTOMATIZADO
-CNPJ: 35.223.093/0001-06
-
-   *** AMBIENTE DE TESTES - APP02 ***   
-
-==============================================
-

@@ -1641,7 +1641,7 @@ class CadastroUsuarios(object):
             self.btn_limpar_quantidade_diaria.hide()"""
         
         if self.language == "pt_BR":
-            self.label_aguarde_pagamento.set_text("AGUARDE PAGAMENTO")
+            #self.label_aguarde_pagamento.set_text("AGUARDE PAGAMENTO")
             self.label_nome.set_text("NOME")
             self.label_telefone.set_text("CELULAR")
             self.label_quantidade_diaria.set_text("QUANTIDADE DIÁRIA") #daily amount
@@ -1753,7 +1753,7 @@ class CadastroUsuarios(object):
         total = total.replace('.','')
         total = total.replace(',','')
         print("total para json formatado", total)
-        with open("engine/paygoWeb/comprovantes/valor_venda.json", "w+") as f:
+        with open("/opt/paygoWeb/comprovantes/valor_venda.json", "w+") as f:
             f.write('\n{  \n\n')
             f.write('"TOTAL": "%s",  \n'%(total))
             f.write('"LANGUAGE": "%s",  \n'%(self.language))
@@ -2307,7 +2307,7 @@ class WindowLogin(Gtk.Window):
         # alfabeto para gerar o teclado
         self.alfa = list(string.ascii_uppercase)
         # números para o teclado numérico
-        self.num = list(map(lambda x: x, range(10)))
+        self.num = list(map(lambda x: x, range(1,10)))
         self.builder.connect_signals({
             "on_btn_retornar_entrada_dados_pressed": self.on_btn_retornar_entrada_dados_pressed,
             "on_btn_backspace_button_press_event": self.on_btn_backspace_button_press_event,
@@ -2663,7 +2663,7 @@ class WindowLogin(Gtk.Window):
         total = self.__total.replace('.','')
         total = total.replace(',','')
         print("total para json formatado", total)
-        with open("engine/paygoWeb/comprovantes/valor_venda.json", "w+") as f:
+        with open("/opt/paygoWeb/comprovantes/valor_venda.json", "w+") as f:
             f.write('\n{  \n\n')
             f.write('"TOTAL": "%s",  \n'%(total))
             f.write('"LANGUAGE": "%s",  \n'%(self.language))

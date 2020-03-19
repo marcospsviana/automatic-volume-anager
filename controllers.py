@@ -20,7 +20,7 @@ class Management(object):
         self.__cobranca = ''
         self.__nome, self.__email, self.__telefone, self.__armario, self.__language, self.__total = nome, email, telefone, armario, language, total
         self.__dia, self.__hora, self.__minuto = dia, hora, minuto
-        self.__rec = self.cad_user(self.__nome, self.__email, self.__telefone)
+        #self.__rec = self.cad_user(self.__nome, self.__email, self.__telefone)
         result = loc.locacao(self.__nome, self.__email, self.__telefone, self.__dia, self.__hora, self.__minuto, self.__armario, self.__language, self.__total)
                
         return (result, self.__cobranca)
