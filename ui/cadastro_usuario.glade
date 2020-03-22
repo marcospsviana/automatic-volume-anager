@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.22.2 -->
 <interface>
   <requires lib="gtk+" version="3.18"/>
   <object class="GtkDialog" id="dialog_conclusao">
@@ -18,7 +18,7 @@
     <property name="type_hint">normal</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child internal-child="vbox">
@@ -456,7 +456,7 @@
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="gravity">center</property>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child internal-child="vbox">
@@ -556,7 +556,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="decorated">False</property>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child internal-child="vbox">
@@ -650,7 +650,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="decorated">False</property>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child internal-child="vbox">
@@ -738,7 +738,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child>
@@ -1692,6 +1692,9 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="position">5</property>
               </packing>
             </child>
+            <child>
+              <placeholder/>
+            </child>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -1701,6 +1704,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
         </child>
         <child>
           <object class="GtkBox">
+            <property name="width_request">500</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
@@ -1708,15 +1712,14 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             <property name="spacing">20</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkButton" id="btn_confirmar_entrada_dados">
-                <property name="label" translatable="yes">CONFIRMAR</property>
-                <property name="name">btn_confirmar</property>
-                <property name="width_request">250</property>
+              <object class="GtkButton" id="btn_retornar_entrada_dados">
+                <property name="label" translatable="yes">TELA ANTERIOR</property>
+                <property name="name">btn_retornar</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="hexpand">True</property>
-                <signal name="button-press-event" handler="on_btn_confirmar_entrada_dados_button_press_event" swapped="no"/>
+                <signal name="button-press-event" handler="on_btn_retornar_entrada_dados_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1725,14 +1728,15 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btn_retornar_entrada_dados">
-                <property name="label" translatable="yes">RETORNAR TELA ANTERIOR</property>
-                <property name="name">btn_retornar</property>
-                <property name="width_request">250</property>
+              <object class="GtkButton" id="btn_confirmar_entrada_dados">
+                <property name="label" translatable="yes">CONFIRMAR</property>
+                <property name="name">btn_confirmar</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <signal name="button-press-event" handler="on_btn_retornar_entrada_dados_button_press_event" swapped="no"/>
+                <property name="hexpand">True</property>
+                <signal name="button-press-event" handler="on_btn_confirmar_entrada_dados_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1780,7 +1784,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child>
@@ -2294,6 +2298,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
         </child>
         <child>
           <object class="GtkBox">
+            <property name="width_request">500</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
@@ -2304,17 +2309,14 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             <property name="spacing">10</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkButton" id="btn_confirmar_cadastro_usuario">
-                <property name="label" translatable="yes">CONFIRMAR</property>
-                <property name="name">btn_confirmar</property>
-                <property name="width_request">250</property>
+              <object class="GtkButton" id="btn_retornar">
+                <property name="label" translatable="yes">TELA ANTERIOR</property>
+                <property name="name">btn_retornar</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
-                <property name="margin_left">19</property>
-                <property name="margin_right">21</property>
-                <property name="hexpand">True</property>
-                <signal name="button-press-event" handler="on_btn_confirmar_button_press_event" swapped="no"/>
+                <signal name="button-press-event" handler="on_btn_retornar_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -2323,14 +2325,17 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btn_retornar">
-                <property name="label" translatable="yes">RETORNAR TELA ANTERIOR</property>
-                <property name="name">btn_retornar</property>
-                <property name="width_request">250</property>
+              <object class="GtkButton" id="btn_confirmar_cadastro_usuario">
+                <property name="label" translatable="yes">CONFIRMAR</property>
+                <property name="name">btn_confirmar</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
-                <signal name="button-press-event" handler="on_btn_retornar_button_press_event" swapped="no"/>
+                <property name="margin_left">19</property>
+                <property name="margin_right">21</property>
+                <property name="hexpand">True</property>
+                <signal name="button-press-event" handler="on_btn_confirmar_button_press_event" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -2360,7 +2365,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child>
@@ -2779,7 +2784,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <property name="default_height">500</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child>
@@ -2878,7 +2883,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.22.2 -->
 <interface>
   <requires lib="gtk+" version="3.18"/>
   <object class="GtkImage" id="image_flag_br">
@@ -15,7 +15,7 @@
   <object class="GtkImage" id="principal_image">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/coolbag_inicial.svg</property>
+    <property name="pixbuf">../static/images/telaprincipal.png</property>
   </object>
   <object class="GtkWindow" id="mainwindow">
     <property name="name">window</property>
@@ -26,7 +26,7 @@
     <property name="default_height">600</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child>
@@ -73,15 +73,17 @@
                 <property name="margin_right">15</property>
                 <property name="margin_top">15</property>
                 <property name="margin_bottom">5</property>
-                <property name="row_spacing">6</property>
-                <property name="column_spacing">30</property>
+                <property name="row_spacing">1</property>
+                <property name="column_spacing">20</property>
                 <child>
                   <object class="GtkButton" id="btn_flag_br">
+                    <property name="label" translatable="yes">   </property>
                     <property name="name">btn_flag</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="image">image_flag_br</property>
+                    <property name="relief">none</property>
                     <property name="always_show_image">True</property>
                   </object>
                   <packing>
@@ -91,11 +93,13 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_flag_usa">
+                    <property name="label" translatable="yes">   </property>
                     <property name="name">btn_flag</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="image">image_flag_usa</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -106,6 +110,8 @@
                   <object class="GtkImage">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="halign">end</property>
+                    <property name="margin_left">4</property>
                     <property name="pixbuf">../static/images/sac2.svg</property>
                   </object>
                   <packing>
@@ -116,9 +122,12 @@
                 <child>
                   <object class="GtkLabel" id="label_sac">
                     <property name="name">label_sac</property>
+                    <property name="width_request">-1</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">( 85 ) 3224.1356</property>
+                    <property name="halign">start</property>
+                    <property name="margin_right">6</property>
+                    <property name="label" translatable="yes">(85) 3224.1356</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -145,7 +154,7 @@
           <object class="GtkButton" id="btn_principal">
             <property name="name">btn_principal</property>
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
+            <property name="can_focus">False</property>
             <property name="receives_default">True</property>
             <property name="hexpand">True</property>
             <property name="vexpand">True</property>

@@ -17,7 +17,7 @@
     <property name="height_request">400</property>
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/cartao.svg</property>
+    <property name="pixbuf">../static/images/encerrar.svg</property>
   </object>
   <object class="GtkImage" id="image_iniciar_reserva">
     <property name="width_request">150</property>
@@ -228,9 +228,6 @@
                     <property name="left_attach">2</property>
                     <property name="top_attach">0</property>
                   </packing>
-                </child>
-                <child>
-                  <placeholder/>
                 </child>
               </object>
               <packing>

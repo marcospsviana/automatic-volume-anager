@@ -506,11 +506,11 @@ class OpcaoHoraDiaria(object):
         if self.language == "pt_BR":
             self.label_por_hora.set_text("POR HORA")
             self.label_por_diaria.set_text("POR DIÁRIA")
-            self.btn_tela_hora_diaria.set_label("RETORNAR TELA ANTERIOR")
+            self.btn_tela_hora_diaria.set_label("TELA ANTERIOR")
         elif self.language == "en_US":
             self.label_por_hora.set_text("HOURLY")
             self.label_por_diaria.set_text("DAILY")
-            self.btn_tela_hora_diaria.set_label("RETURN TO THE PREVIOUS SCREEN")
+            self.btn_tela_hora_diaria.set_label("PREVIOUS SCREEN")
 
         #self.window_hora_diaria.fullscreen()
         self.window_hora_diaria.show()
@@ -536,13 +536,13 @@ class OpcaoHoraDiaria(object):
         self.language = "pt_BR"
         self.label_por_hora.set_text("POR HORA")
         self.label_por_diaria.set_text("POR DIÁRIA")
-        self.btn_tela_hora_diaria.set_label("RETORNAR TELA ANTERIOR")
+        self.btn_tela_hora_diaria.set_label("TELA ANTERIOR")
     
     def on_change_language_usa(self, event):
         self.language = "en_US"
         self.label_por_hora.set_text("HOURLY")
         self.label_por_diaria.set_text("DAILY")
-        self.btn_tela_hora_diaria.set_label("RETURN TO THE PREVIOUS SCREEN")
+        self.btn_tela_hora_diaria.set_label("PREVIOUS SCREEN")
 
 
 
@@ -2410,7 +2410,7 @@ class WindowLogin(Gtk.Window):
             self.label_entrada_dados.set_text("SENHA")
             self.btn_efetuar_pagamento.set_label("EFETUAR PAGAMENTO")
             self.btn_confirmar_entrada_dados.set_label("CONFIRMAR")
-            self.btn_retornar_entrada_dados.set_label("RETORNAR TELA ANTERIOR")
+            self.btn_retornar_entrada_dados.set_label("TELA ANTERIOR")
             self.btn_dialog_cancelar_senha_incorreta.set_label("CANCELAR")
             self.btn_tentar_dialog_senha_incorreta.set_label("TENTAR NOVAMENTE")
             #self.button_fechar_armario.set_label("FECHAR ARMÁRIO")

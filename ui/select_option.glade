@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.22.2 -->
 <interface>
   <requires lib="gtk+" version="3.18"/>
   <object class="GtkImage" id="image_br_flag">
@@ -40,7 +40,7 @@
     <property name="default_height">600</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child>
@@ -173,8 +173,6 @@
                 <property name="halign">center</property>
                 <property name="border_width">20</property>
                 <property name="column_spacing">10</property>
-                <property name="row_homogeneous">True</property>
-                <property name="column_homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="btn_reservar">
                     <property name="name">btn_reservar</property>
@@ -232,7 +230,7 @@
               </object>
               <packing>
                 <property name="x">43</property>
-                <property name="y">45</property>
+                <property name="y">14</property>
               </packing>
             </child>
           </object>

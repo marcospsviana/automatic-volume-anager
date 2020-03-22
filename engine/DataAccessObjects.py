@@ -93,13 +93,26 @@ class DataAccessObjectsManager(object):
         #query = open("/opt/paygoWeb/query.sql", "+w")
         #query.write("INSERT INTO tb_usuario (id_usuario, nome, email, telefone) VALUES (null,'%s', '%s', '%s');"%(str(__nome), str(__email), str(__telefone)))
         #query.close() 
-        query =   """INSERT INTO tb_usuario VALUES (%s,%s, %s, %s)"""
-        tuple_insert = (0, __nome, __email, __telefone)
+        #subprocess.run('docker start mariadb_king', shell=True)
+        self.__c.execute("SELECT * from tb_usuario")     #"""SELECT * FROM from tb_usuario"""
+        query =   self.__c.fetchall()
+        #tuple_insert = (0, __nome, __email, __telefone)
+        from coolbagsafe_system.data_access_objets_db_nuvem import DataAccessObjectsNuvem as DAON
+        ddao = DAON()
+        conexao = mdb.connect(host=ddao.dbn_host(), user=ddao.dbn_user(), password=ddao.dbn_passwd(), database=ddao.dbn_database())
+        dbn_cursor = conexao.cursor(buffered=True)
+        """for q in query:
+            print("q ---->", q)
+            dbn_cursor.execute(INSERT INTO tb_usuario VALUES('%s', '%s', '%s', '%s')%(q[0], str(q[1]),str(q[2]),str(q[3])))
+            conexao.commit()
+        
+        conexao.close()"""
+        
 
         #subprocess.run('docker start mariadb_king', shell=True)
         #DAO.docker_statment(__nome, __email, __telefone)
         #subprocess.run('docker run mariadb_king -rm sh -c "%s"'%query, shell=True)
-        subprocess.run("docker exec mariadb_king  sh -c '%s %s'"%(query, tuple_insert), shell=True)
+        #subprocess.run("docker exec mariadb_king  sh -c 'INSERT INTO tb_usuario %s'"%(query), shell=True)
         
         #subprocess.run("""docker run --rm mariadb mysql --user='coolbagsaf_add1' --password='m1cr0@t805i' --host='mysql.coolbagsafe.kinghost.net' coolbagsafe -e INSERT INTO tb_usuario (id_usuario, nome, email, telefone) VALUES (null, '%s', '%s', '%s'); """%(__nome, __email, __telefone), shell=True)
         
@@ -115,7 +128,12 @@ class DataAccessObjectsManager(object):
             consulta = self.__c.fetchall()
             print("-----CONSULTA ID USUARIO-----")
             print(consulta)
-            
+            self.__c.execute("select * from tb_usuario where id_usuario=LAST_INSERT_ID()")
+            q = self.__c.fetchall()
+            print("query ====>", q)
+            dbn_cursor.execute(""" INSERT INTO tb_usuario VALUES('%s', '%s', '%s', '%s')"""%(q[0][0], str(q[0][1]),str(q[0][2]),str(q[0][3])))
+            conexao.commit()
+            conexao.close()
             return consulta
 
         elif self.select[0][2] != __email and self.select[0][3] == __telefone:
