@@ -133,6 +133,12 @@
 }
 
 #label_titulo{
+	font-size: 2em;
+	color: #063f41;
+	font-weight: lighter;
+	
+}
+#label_titulo_mes{
 	font-size: 2.3em;
 	color: #063f41;
 	font-weight: lighter;
