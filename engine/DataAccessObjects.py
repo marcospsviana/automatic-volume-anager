@@ -58,14 +58,18 @@ class DataAccessObjectsManager(object):
         TAXA_MINUTO_D = TaxAndRates.TAXA_MINUTO_D.value
 
         
+        """self.ddao = DAON()
+        self.conexao = mdb.connect(host=self.ddao.dbn_host(), user=self.ddao.dbn_user(), password=self.ddao.dbn_passwd(), database=self.ddao.dbn_database())
+        self.dbn_cursor = self.conexao.cursor(buffered=True)"""
         self.data_dao = DAO()
+
         self.__conn = mdb.connect(host=self.data_dao.db_host(), user=self.data_dao.db_user(), password=self.data_dao.db_passwd(), database=self.data_dao.db_database())
         #self.__c = self.__conn.cursor(buffered=True)
         self.__c = self.__conn.cursor(buffered=True)
-        #self.data_dao_nuvem = DAON()
-        #self.__conn_nuvem = mdb.connect(host=self.data_dao_nuvem.db_host(), user=self.data_dao_nuvem.db_user(), password=self.data_dao_nuvem.db_passwd(), database=self.data_dao_nuvem.db_database())
+        #self.ddao = DAON()
+        #self.__conn_nuvem = mdb.connect(host=self.ddao.db_host(), user=self.ddao.db_user(), password=self.ddao.db_passwd(), database=self.ddao.db_database())
         #self.__c = self.__conn.cursor(buffered=True)
-        #self.__cursor. = self.__conn_nuvem.cursor(buffered=True)
+        #self.dbn_cursor = self.__conn_nuvem.cursor(buffered=True)
 
 
     def create_user(self, nome, email, telefone):
@@ -97,16 +101,8 @@ class DataAccessObjectsManager(object):
         self.__c.execute("SELECT * from tb_usuario")     #"""SELECT * FROM from tb_usuario"""
         query =   self.__c.fetchall()
         #tuple_insert = (0, __nome, __email, __telefone)
-        from coolbagsafe_system.data_access_objets_db_nuvem import DataAccessObjectsNuvem as DAON
-        ddao = DAON()
-        conexao = mdb.connect(host=ddao.dbn_host(), user=ddao.dbn_user(), password=ddao.dbn_passwd(), database=ddao.dbn_database())
-        dbn_cursor = conexao.cursor(buffered=True)
-        """for q in query:
-            print("q ---->", q)
-            dbn_cursor.execute(INSERT INTO tb_usuario VALUES('%s', '%s', '%s', '%s')%(q[0], str(q[1]),str(q[2]),str(q[3])))
-            conexao.commit()
         
-        conexao.close()"""
+       
         
 
         #subprocess.run('docker start mariadb_king', shell=True)
@@ -131,9 +127,9 @@ class DataAccessObjectsManager(object):
             self.__c.execute("select * from tb_usuario where id_usuario=LAST_INSERT_ID()")
             q = self.__c.fetchall()
             print("query ====>", q)
-            dbn_cursor.execute(""" INSERT INTO tb_usuario VALUES('%s', '%s', '%s', '%s')"""%(q[0][0], str(q[0][1]),str(q[0][2]),str(q[0][3])))
-            conexao.commit()
-            conexao.close()
+            #self.dbn_cursor.execute(""" INSERT INTO tb_usuario VALUES('%s', '%s', '%s', '%s')"""%(q[0][0], str(q[0][1]),str(q[0][2]),str(q[0][3])))
+            """self.conexao.commit()
+            self.conexao.close()"""
             return consulta
 
         elif self.select[0][2] != __email and self.select[0][3] == __telefone:
@@ -189,7 +185,7 @@ class DataAccessObjectsManager(object):
         __senha = ''
 
         self.dados_locatario = self.create_user(__nome, __email, __telefone)
-        #self.data_dao_nuvem.create_user(__nome, __email,  __telefone)
+        #self.ddao.create_user(__nome, __email,  __telefone)
         print("dados locatario data.py locacao===>", self.dados_locatario)
         # seleciona um armario com a classe indicada e recebe seu id
         loca_armario = self.localisa_armario(self.__armario)
@@ -276,7 +272,7 @@ class DataAccessObjectsManager(object):
             #sleep(1)
             #subprocess.run('docker stop mariadb_king', shell=True)
 
-            #self.data_dao_nuvem.insert_locacao(self.__data_locacao, self.__data_limite, __senha, loca_armario[0], self.dados_locatario, self.__total)
+            #self.ddao.insert_locacao(self.__data_locacao, self.__data_limite, __senha, loca_armario[0], self.dados_locatario, self.__total)
             return locacao_json
             #(locacao_json["message"], locacao_json["data_locacao"], locacao_json["hora_locacao"], locacao_json["data_locada"], locacao_json["hora_locada"], locacao_json["senha"], locacao_json["compartimento"])
             # return ("locacao concluida com sucesso", data_locacao, hora_locacao, tempo_locado, hora_locada, __senha, compartimento)
@@ -344,7 +340,7 @@ class DataAccessObjectsManager(object):
                 "senha": __senha,
                 "compartimento": compartimento[0]
             }
-            #self.data_dao_nuvem.insert_locacao(self.__data_locacao, self.__data_limite, __senha, loca_armario[0], self.dados_locatario, self.__total)
+            #self.ddao.insert_locacao(self.__data_locacao, self.__data_limite, __senha, loca_armario[0], self.dados_locatario, self.__total)
             return locacao_json
         else:
             print("falhou")
@@ -496,7 +492,7 @@ class DataAccessObjectsManager(object):
             result = self.__c.fetchone()
             self.__conn.commit()
             self.__conn.close()
-            #self.data_dao_nuvem(self.__classe, self.__terminal, self.__coluna, self.__nivel, self.__porta, self.__compartimento)
+            #self.ddao(self.__classe, self.__terminal, self.__coluna, self.__nivel, self.__porta, self.__compartimento)
             return (self.__classe, self.__coluna, self.__nivel, self.__terminal, "cadastrado com sucesso")
         else:
             return "porta ou compartimento já utilizada confira a porta exata para o cadastro e evite problemas!"
@@ -669,7 +665,7 @@ class DataAccessObjectsManager(object):
                 self.__conn.commit()
 
                 self.__conn.close()
-                #self.data_dao_nuvem.finalizar(__senha, id_armario)
+                #self.ddao.finalizar(__senha, id_armario)
                 return "armario liberado"
 
             else:
@@ -899,7 +895,7 @@ class DataAccessObjectsManager(object):
             
             # LIBERAR NO RASPBERRY
             self.port.exec_port(__porta, "abre", "livre")
-            #self.data_dao_nuvem.finalizar(__senha, id_armario)
+            #self.ddao.finalizar(__senha, id_armario)
             return ("pagamento ok")
         elif 'aprovada' in resultado_transacao["PWINFO_RESULTMSG"].lower():
             self.__c.execute(
@@ -912,7 +908,7 @@ class DataAccessObjectsManager(object):
             
             # LIBERAR NO RASPBERRY
             self.port.exec_port(__porta, "abre", "livre")
-            self.data_dao_nuvem.finalizar(__senha, id_armario)
+            self.ddao.finalizar(__senha, id_armario)
             return ("pagamento ok")
         else:
             return (resultado_transacao["PWINFO_RESULTMSG"])

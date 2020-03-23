@@ -85,6 +85,7 @@
 #label_weekdays{
 	font-weight: lighter;
 	color: #0b4f6f;
+	font-size: 1em;
 }
 #label_bottom_calendario{
 	font-weight: lighter;
@@ -132,9 +133,12 @@
 }
 
 #label_titulo{
-	font-size: 2.7em;
+	font-size: 2.3em;
 	color: #063f41;
-	font-weight: bolder;
+	font-weight: lighter;
+	border-bottom: 1px;
+	border-style: solid;
+	border-image: linear-gradient(to right, floralwhite, rgb(11, 83, 117),floralwhite) 1;
 }
 #label_valor_total_horas_calendario{
 	font-size: 2.5em;
@@ -144,7 +148,7 @@
 	padding-right: .5em;
 }
 #label_periodo_calendario{
-	font-size: 2em;
+	font-size: 1.6em;
 	background-color: #4473C5;
 	color: floralwhite;
 	font-weight: bolder;
@@ -153,7 +157,7 @@
 }
 
 #label_titulo_calendario{
-	font-size: 2.7em;
+	font-size: 2.3em;
 	color: #063f41;
 	font-weight: bolder;
 }

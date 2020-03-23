@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.22.2 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkImage" id="image_seta_left">
@@ -20,7 +20,7 @@
     <property name="window_position">center-always</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child>
@@ -33,19 +33,22 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="hexpand">True</property>
             <child>
               <object class="GtkBox">
-                <property name="width_request">400</property>
+                <property name="width_request">500</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="hexpand">False</property>
                 <child>
                   <object class="GtkButton" id="btn_previous_mont">
                     <property name="name">btn_seta_date</property>
-                    <property name="width_request">100</property>
+                    <property name="width_request">150</property>
                     <property name="height_request">50</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">start</property>
                     <property name="image">image_seta_left</property>
                     <property name="relief">none</property>
                     <property name="always_show_image">True</property>
@@ -60,6 +63,7 @@
                 <child>
                   <object class="GtkLabel" id="label_month">
                     <property name="name">label_titulo</property>
+                    <property name="width_request">200</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">month</property>
@@ -73,11 +77,12 @@
                 <child>
                   <object class="GtkButton" id="btn_next_month">
                     <property name="name">btn_seta_date</property>
-                    <property name="width_request">100</property>
+                    <property name="width_request">150</property>
                     <property name="height_request">50</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">end</property>
                     <property name="image">image_seta_right</property>
                     <property name="relief">none</property>
                     <signal name="button-press-event" handler="on_btn_next_month_button_press_event" swapped="no"/>
@@ -1153,7 +1158,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="label_periodo_do">
                     <property name="name">label_titulo_calendario</property>
                     <property name="width_request">300</property>
                     <property name="visible">True</property>

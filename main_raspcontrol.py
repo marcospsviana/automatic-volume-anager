@@ -2402,7 +2402,7 @@ class WindowLogin(Gtk.Window):
         # ================== SET LANGUAGE ===================================
 
         if self.language == "pt_BR":
-            self.label_dialog_senha_incorreta.set_text("SENHA INCORRETA,\n TENTE NOVAMENTE")
+            self.label_dialog_senha_incorreta.set_text(" SENHA INCORRETA\nTENTE NOVAMENTE")
             self.label_locacao_inicial.set_text("LOCAÇÃO INICIAL")
             self.label_locacao_encerrada.set_text("LOCAÇÃO ENCERRADA ÀS")
             self.label_tempo_extra.set_text("TEMPO EXTRA")
@@ -2423,7 +2423,7 @@ class WindowLogin(Gtk.Window):
             self.label_instrucao.set_text("Obigado por utilizar nossos serviços! Lhe desejamos um dia incrível!")
 
         elif self.language == "en_US":
-            self.label_dialog_senha_incorreta.set_text("WRONG PASSWORD,\n TRY AGAIN")
+            self.label_dialog_senha_incorreta.set_text("WRONG PASSWORD\n  TRY AGAIN")
             self.label_locacao_inicial.set_text("START DATE OF LEASE")
             self.label_locacao_encerrada.set_text("FINAL DATE OF LEASE")
             self.label_tempo_extra.set_text("TIME OVER")
@@ -2492,6 +2492,7 @@ class WindowLogin(Gtk.Window):
             elif result == 'senha incorreta, tente novamente':
                 # self.window_login.hide()
                 self.entry_entrada_dados.set_text('')
+                self.dialog_senha_incorreta.fullscreen()
                 self.dialog_senha_incorreta.show()
 
             else:
@@ -2547,6 +2548,7 @@ class WindowLogin(Gtk.Window):
             elif result == 'senha incorreta, tente novamente':
                 # self.window_login.hide()
                 self.entry_entrada_dados.set_text('')
+                self.dialog_senha_incorreta.fullscreen()
                 self.dialog_senha_incorreta.show()
 
             else:
