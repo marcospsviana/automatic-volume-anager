@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.22.2 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+  <object class="GtkImage" id="image1">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../static/images/seta_down.svg</property>
+  </object>
+  <object class="GtkImage" id="image2">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../static/images/seta_up.svg</property>
+  </object>
+  <object class="GtkImage" id="image3">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../static/images/seta_down.svg</property>
+  </object>
+  <object class="GtkImage" id="image4">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../static/images/seta_up.svg</property>
+  </object>
   <object class="GtkWindow" id="w_select_hora">
     <property name="name">window_calendario</property>
     <property name="width_request">1024</property>
@@ -12,7 +32,7 @@
     <property name="default_height">400</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child>
@@ -82,6 +102,25 @@
                 <property name="orientation">vertical</property>
                 <property name="homogeneous">True</property>
                 <child>
+                  <object class="GtkButton" id="btn_diminui_hora1">
+                    <property name="name">label_titulo_passado</property>
+                    <property name="width_request">200</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
+                    <property name="receives_default">False</property>
+                    <property name="halign">center</property>
+                    <property name="image">image4</property>
+                    <property name="relief">none</property>
+                    <property name="always_show_image">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
                   <object class="GtkButton" id="btn_diminui_hora">
                     <property name="name">label_titulo_passado</property>
                     <property name="width_request">200</property>
@@ -91,12 +130,13 @@
                     <property name="receives_default">False</property>
                     <property name="halign">center</property>
                     <property name="relief">none</property>
+                    <property name="always_show_image">True</property>
                     <signal name="button-press-event" handler="on_btn_diminui_hora_button_press_event" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">0</property>
+                    <property name="position">1</property>
                   </packing>
                 </child>
                 <child>
@@ -113,7 +153,7 @@
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">1</property>
+                    <property name="position">2</property>
                   </packing>
                 </child>
                 <child>
@@ -126,13 +166,31 @@
                     <property name="receives_default">False</property>
                     <property name="halign">center</property>
                     <property name="relief">none</property>
-                    <property name="always_show_image">True</property>
                     <signal name="button-press-event" handler="on_btn_aumenta_hora_button_press_event" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
-                    <property name="position">2</property>
+                    <property name="position">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn_aumenta_hora1">
+                    <property name="name">label_titulo_passado</property>
+                    <property name="width_request">200</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="focus_on_click">False</property>
+                    <property name="receives_default">False</property>
+                    <property name="halign">center</property>
+                    <property name="image">image3</property>
+                    <property name="relief">none</property>
+                    <property name="always_show_image">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="position">4</property>
                   </packing>
                 </child>
               </object>
@@ -242,11 +300,11 @@
               <object class="GtkButton" id="btn_retornar_select_hora">
                 <property name="label" translatable="yes">CANCELAR</property>
                 <property name="name">btn_retornar_calendario</property>
-                <property name="width_request">400</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="halign">center</property>
+                <property name="halign">end</property>
                 <signal name="button-press-event" handler="on_btn_retornar_select_hora_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -259,11 +317,11 @@
               <object class="GtkButton" id="btn_confirmar_select_hora">
                 <property name="label" translatable="yes">CONFIRMAR</property>
                 <property name="name">btn_confirmar_calendario</property>
-                <property name="width_request">400</property>
+                <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="halign">center</property>
+                <property name="halign">start</property>
                 <signal name="button-press-event" handler="on_btn_confirmar_select_hora_button_press_event" swapped="no"/>
               </object>
               <packing>
