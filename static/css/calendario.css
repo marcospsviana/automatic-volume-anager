@@ -191,21 +191,8 @@
 	background: rgb(250, 250, 250);
 	border: none;
 }
-#label_titulo_passado:hover{
-	font-size: 2.5em;
-	color: #677a7a;
-	font-weight: lighter;
-	background: rgb(248, 248, 248);
-	border: none;
-	
-}
-#label_titulo_passado:focus{
-	font-size: 2.5em;
-	color: #677a7a;
-	font-weight: lighter;
-	background: rgb(248, 248, 248);
-	border: none;
-}
+
+
 #btn_confirmar_calendario{  
 	font-size: 1.3em ;
 	background: #203864;/* rgb(8, 107, 173);*/
