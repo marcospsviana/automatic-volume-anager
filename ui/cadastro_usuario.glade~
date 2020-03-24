@@ -2386,10 +2386,9 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <child>
       <object class="GtkBox">
         <property name="width_request">1000</property>
-        <property name="height_request">450</property>
+        <property name="height_request">550</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="valign">center</property>
         <property name="margin_top">15</property>
         <property name="orientation">vertical</property>
         <child>
@@ -2727,14 +2726,13 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
           </packing>
         </child>
         <child>
-          <object class="GtkGrid">
+          <object class="GtkBox">
             <property name="width_request">620</property>
+            <property name="height_request">50</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
-            <property name="margin_top">20</property>
-            <property name="margin_bottom">15</property>
-            <property name="column_spacing">5</property>
+            <property name="valign">center</property>
             <child>
               <object class="GtkButton" id="btn_confirmar_entrada_numero">
                 <property name="label" translatable="yes">CONFIRMAR</property>
@@ -2744,11 +2742,13 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="halign">start</property>
                 <signal name="button-press-event" handler="on_btn_confirmar_entrada_numero_button_press_event" swapped="no"/>
               </object>
               <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">0</property>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
               </packing>
             </child>
             <child>
@@ -2760,19 +2760,43 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="halign">end</property>
                 <signal name="button-press-event" handler="on_btn_retornar_entrada_numeros_button_press_event" swapped="no"/>
               </object>
               <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">0</property>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
               </packing>
             </child>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="padding">10</property>
             <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkGrid">
+            <property name="width_request">620</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <property name="margin_top">20</property>
+            <property name="margin_bottom">15</property>
+            <property name="column_spacing">5</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="padding">10</property>
+            <property name="position">3</property>
           </packing>
         </child>
       </object>
