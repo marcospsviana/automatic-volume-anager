@@ -163,9 +163,9 @@
 }
 
 #label_titulo_calendario{
-	font-size: 2.3em;
+	font-size: 2em;
 	color: #063f41;
-	font-weight: bolder;
+	font-weight: normal;
 }
 #label_titulo_secundario{
 	font-size: 2em;
@@ -215,3 +215,7 @@ padding: 10px;
 font-weight: normal;
 		 }
 
+*{
+	font-family: "Calibri";
+	font-weight: lighter;
+}

@@ -1,7 +1,7 @@
 
 
 *{
-	font-family: "sans-serif";
+	font-family: "Calibri";
 }
 button{
 	font: 1.7em "Ubuntu";
@@ -156,21 +156,19 @@ color: #fff;
 	font: 30px "Noto Sans";
 	
 }
-#btn_locar, #btn_encerrar, #btn_abrir, #label_total{
+#btn_locar, #btn_encerrar, #label_total{
 	font: 2em "Noto Sans";
 	color: #000000;
 	font-stretch: normal;
 }
-#btn_locar{
-	background: url("../static/images/alugar.svg");
-}
+
 #btn_encerrar{
 	background: #ED0D0D;
 }
 #btn_abrir, #btn_concluir, #btn_medidas , #btn_reservar{
 	border: solid 9px rgb(87, 86, 86);
 	border-radius: 5px;
-	background-color: #fff;
+	background:white;
 }
 
 #label_data, #label_horario{

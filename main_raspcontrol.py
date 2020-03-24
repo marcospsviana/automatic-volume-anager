@@ -123,10 +123,10 @@ class SelectOption(object):
 
         self.image_abrir.set_from_file("static/images/cadeado.svg")
         self.image_open_safe.set_from_file("static/images/open_safe.svg")
-        self.image_start_reservation.set_from_file("static/images/start_reservation.svg")
-        self.image_iniciar_reserva.set_from_file("static/images/inicio_reserva.svg")
-        self.image_concluir_reserva.set_from_file("static/images/encerrar.svg")
-        self.image_complete_reservation.set_from_file("static/images/complete_reservation.svg")
+        self.image_start_reservation.set_from_file("static/images/reserve.svg")
+        self.image_iniciar_reserva.set_from_file("static/images/reservar.svg")
+        self.image_concluir_reserva.set_from_file("static/images/concluir_reserva.svg")
+        self.image_complete_reservation.set_from_file("static/images/finalize_location.svg")
         #self.image_precos_medidas.set_from_file("static/images/precosmedidas.svg")
         #self.image_sizes_rates.set_from_file("static/images/sizes_rates.svg")
 
@@ -615,10 +615,10 @@ class SelectHora(object):
             self.btn_retornar_select_hora.set_label("TELA ANTERIOR")
             self.btn_confirmar_select_hora.set_label("CONFIRMAR")
         elif self.language == "en_US":
-            self.label_periodo_do.set_text("Start Time and Date")
+            self.label_periodo_do.set_text("Start Time")
             self.label_definir_prazo.set_text("Set the Time")
             self.label_valor_total.set_text("Total price")
-            self.label_ate.set_text("End Time and Date")
+            self.label_ate.set_text("End Time")
             self.btn_retornar_select_hora.set_label("PREVIOUS SCREEN")
             self.btn_confirmar_select_hora.set_label("CONFIRM")
         if self.language == "pt_BR":
@@ -1002,10 +1002,10 @@ class WindowCalendario:
             self.btn_confirmar_calendario.set_label("CONFIRMAR")
             
         elif self.language == "en_US":
-            self.label_periodo_do.set_text("Start Time and Date")
+            self.label_periodo_do.set_text("Start Time")
             #self.label_definir_prazo.set_text("Set the Time")
             self.label_valor_total.set_text("Total price")
-            self.label_ate.set_text("End Time and Date")
+            self.label_ate.set_text("End Time")
             self.btn_cancelar_calendario.set_label("PREVIOUS SCREEN")
             self.btn_confirmar_calendario.set_label("CONFIRM")
 

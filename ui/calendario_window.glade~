@@ -62,7 +62,7 @@
                 </child>
                 <child>
                   <object class="GtkLabel" id="label_month">
-                    <property name="name">label_titulo</property>
+                    <property name="name">label_titulo_mes</property>
                     <property name="width_request">200</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -1230,7 +1230,7 @@
         </child>
         <child>
           <object class="GtkBox">
-            <property name="width_request">730</property>
+            <property name="width_request">620</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>

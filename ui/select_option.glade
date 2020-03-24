@@ -8,23 +8,19 @@
     <property name="pixbuf">../static/images/brasilpq.svg</property>
   </object>
   <object class="GtkImage" id="image_cofre">
-    <property name="height_request">400</property>
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/cadeado.svg</property>
   </object>
   <object class="GtkImage" id="image_concluir_reserva">
-    <property name="height_request">400</property>
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/encerrar.svg</property>
+    <property name="pixbuf">../static/images/concluir_reserva.svg</property>
   </object>
   <object class="GtkImage" id="image_iniciar_reserva">
-    <property name="width_request">150</property>
-    <property name="height_request">400</property>
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/inicio_reserva.svg</property>
+    <property name="pixbuf">../static/images/reservar.svg</property>
   </object>
   <object class="GtkImage" id="image_usa_flag">
     <property name="visible">True</property>
@@ -159,7 +155,7 @@
         <child>
           <object class="GtkFixed">
             <property name="width_request">900</property>
-            <property name="height_request">100</property>
+            <property name="height_request">450</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
@@ -183,7 +179,8 @@
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
-                    <property name="use_stock">True</property>
+                    <property name="image">image_iniciar_reserva</property>
+                    <property name="relief">none</property>
                     <property name="always_show_image">True</property>
                     <signal name="button-press-event" handler="on_reservar_button_press_event" swapped="no"/>
                   </object>
@@ -235,8 +232,9 @@
             </child>
           </object>
           <packing>
-            <property name="expand">False</property>
+            <property name="expand">True</property>
             <property name="fill">True</property>
+            <property name="pack_type">end</property>
             <property name="position">1</property>
           </packing>
         </child>
