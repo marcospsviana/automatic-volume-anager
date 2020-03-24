@@ -76,30 +76,30 @@
        ry="3.1166842e-06" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.75555611px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="110.83186"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.93333244px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="118.44483"
        y="117.78244"
        id="text2111"><tspan
          sodipodi:role="line"
          id="tspan2109"
-         x="110.83186"
+         x="118.44483"
          y="117.78244"
-         style="font-size:19.75555611px;stroke-width:0.26458332">Toque na tela</tspan></text>
+         style="font-size:16.93333244px;stroke-width:0.26458332">Toque na tela</tspan></text>
     <text
        id="text2119"
        y="157.31682"
-       x="96.811005"
+       x="106.42696"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.75555611px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
-         style="font-size:19.75555611px;stroke-width:0.26458332"
+         style="font-size:16.93333244px;stroke-width:0.26458332"
          y="157.31682"
-         x="96.811005"
+         x="106.42696"
          id="tspan2117"
          sodipodi:role="line">Touch the screen</tspan></text>
     <path
        inkscape:connector-curvature="0"
        id="path2155"
-       d="m 236.10688,132.58663 c -143.968433,0 -143.968433,0 -143.968433,0"
+       d="m 236.10688,132.58663 c -143.968435,0 -143.968435,0 -143.968435,0"
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#f9f9f9;stroke-width:1.61841106;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
   </g>
 </svg>
