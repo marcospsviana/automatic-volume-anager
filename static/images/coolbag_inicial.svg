@@ -7,7 +7,6 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="270.93329mm"
@@ -19,18 +18,6 @@
    sodipodi:docname="coolbag_inicial.svg">
   <defs
      id="defs9491">
-    <linearGradient
-       id="linearGradient2127-9"
-       inkscape:collect="always">
-      <stop
-         id="stop2136"
-         offset="0"
-         style="stop-color:#f9f9f9;stop-opacity:1;" />
-      <stop
-         id="stop2138"
-         offset="1"
-         style="stop-color:#f9f9f9;stop-opacity:0;" />
-    </linearGradient>
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath14035">
@@ -42,46 +29,6 @@
          x="-311.95538"
          y="64.998215" />
     </clipPath>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient2127-9"
-       id="linearGradient2147"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.47471909,0,0,1,134.82941,4.2333335)"
-       x1="184.34137"
-       y1="125.06226"
-       x2="262.72501"
-       y2="125.44024" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient2127-9"
-       id="linearGradient2151"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(-0.47471909,0,0,1,203.97457,4.2333335)"
-       x1="158.42029"
-       y1="125.81824"
-       x2="262.72501"
-       y2="125.44024" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient2127-9"
-       id="linearGradient2173"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.47471909,0,0,1,134.82941,4.2333335)"
-       x1="184.34137"
-       y1="125.06226"
-       x2="262.72501"
-       y2="125.44024" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient2127-9"
-       id="linearGradient2175"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(-0.47471909,0,0,1,203.97457,4.2333335)"
-       x1="158.42029"
-       y1="125.81824"
-       x2="262.72501"
-       y2="125.44024" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -90,9 +37,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="898.87779"
-     inkscape:cy="-21.768919"
+     inkscape:zoom="0.49497474"
+     inkscape:cx="427.0191"
+     inkscape:cy="272.27085"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -119,7 +66,7 @@
      id="layer1"
      transform="translate(-33.942297,-64.998213)">
     <g
-       id="g2219">
+       id="g3473">
       <rect
          ry="3.0979534e-06"
          y="65.571861"
@@ -130,12 +77,12 @@
          style="opacity:1;fill:#fdcf03;fill-opacity:1;stroke:none;stroke-width:7.06500006;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers" />
       <text
          id="text2111"
-         y="115.28399"
+         y="115.28398"
          x="116.95895"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.75555611px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
          xml:space="preserve"><tspan
            style="font-size:19.75555611px;stroke-width:0.26458332"
-           y="115.28399"
+           y="115.28398"
            x="116.95895"
            id="tspan2109"
            sodipodi:role="line">Toque na tela</tspan></text>
@@ -143,31 +90,16 @@
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.75555611px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
          x="102.9381"
-         y="152.70172"
+         y="154.81836"
          id="text2119"><tspan
            sodipodi:role="line"
            id="tspan2117"
            x="102.9381"
-           y="152.70172"
+           y="154.81836"
            style="font-size:19.75555611px;stroke-width:0.26458332">Touch the screen</tspan></text>
       <path
-         style="opacity:1;fill:none;stroke:url(#linearGradient2173);stroke-width:1.28199995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         d="m 169.21289,129.6736 c 90.3371,0 90.3371,0 90.3371,0"
-         id="path2145"
-         inkscape:connector-curvature="0" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path2149"
-         d="m 169.59109,129.6736 c -90.33698,0 -90.33698,0 -90.33698,0"
-         style="opacity:1;fill:none;stroke:url(#linearGradient2175);stroke-width:1.28199995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path2153"
-         d="m 169.21289,129.6736 c 90.3371,0 90.3371,0 90.3371,0"
-         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient2147);stroke-width:1.28199995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <path
-         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient2151);stroke-width:1.28199995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         d="m 169.59109,129.6736 c -90.33698,0 -90.33698,0 -90.33698,0"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#f9f9f9;stroke-width:1.82153642;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         d="m 261.43725,130.08817 c -182.374994,0 -182.374994,0 -182.374994,0"
          id="path2155"
          inkscape:connector-curvature="0" />
     </g>
