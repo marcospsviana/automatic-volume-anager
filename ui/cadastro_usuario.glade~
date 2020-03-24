@@ -2752,6 +2752,20 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
               </packing>
             </child>
             <child>
+              <object class="GtkSeparator">
+                <property name="name">window</property>
+                <property name="width_request">20</property>
+                <property name="height_request">50</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkButton" id="btn_retornar_entrada_numeros">
                 <property name="label" translatable="yes">RETORNAR TELA ANTERIOR</property>
                 <property name="name">btn_retornar</property>
@@ -2766,7 +2780,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">1</property>
+                <property name="position">2</property>
               </packing>
             </child>
           </object>
