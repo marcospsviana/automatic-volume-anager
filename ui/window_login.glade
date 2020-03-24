@@ -946,7 +946,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
         </child>
         <child>
           <object class="GtkBox">
-            <property name="width_request">500</property>
+            <property name="width_request">620</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
@@ -956,7 +956,8 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
               <object class="GtkButton" id="btn_retornar_entrada_dados">
                 <property name="label" translatable="yes">TELA ANTERIOR</property>
                 <property name="name">btn_retornar</property>
-                <property name="width_request">200</property>
+                <property name="width_request">250</property>
+                <property name="height_request">40</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>
@@ -973,7 +974,8 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
               <object class="GtkButton" id="btn_confirmar_entrada_dados">
                 <property name="label" translatable="yes">CONFIRMAR</property>
                 <property name="name">btn_confirmar</property>
-                <property name="width_request">200</property>
+                <property name="width_request">300</property>
+                <property name="height_request">40</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="focus_on_click">False</property>

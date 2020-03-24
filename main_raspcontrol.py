@@ -622,7 +622,7 @@ class SelectHora(object):
             self.btn_retornar_select_hora.set_label("PREVIOUS SCREEN")
             self.btn_confirmar_select_hora.set_label("CONFIRM")
         if self.language == "pt_BR":
-            self.btn_aumenta_hora.set_label("23 horas")
+            #self.btn_aumenta_hora.set_label("23 horas")
             self.label_hora_ecolhida.set_text("1 hora")
             #self.label_hora_ecolhida_down.set_text("23 horas")
             #self.btn_diminui_hora.set_label("2 horas")
@@ -700,7 +700,7 @@ class SelectHora(object):
                         22 : "23 horas",
                         }
         elif self.language == "en_US":
-            self.btn_aumenta_hora.set_label("23 hours")
+            #self.btn_aumenta_hora.set_label("23 hours")
             self.label_hora_ecolhida.set_text("1 hour")
             #self.label_hora_ecolhida_down.set_text("23 horas")
             #self.btn_diminui_hora.set_label("2 hours")
@@ -804,7 +804,7 @@ class SelectHora(object):
         hora -=  2
         
         self.label_hora_ecolhida.set_text(self.hora_labels[hora])       
-        self.btn_aumenta_hora.set_label(self.hora_labels[hora -1])
+        #self.btn_aumenta_hora.set_label(self.hora_labels[hora -1])
         #self.btn_diminui_hora.set_label(self.hora_labels[hora + 1])
         total_atual = self.label_valor_total_horas.get_label()
         total_atual = total_atual.replace(",",".")
@@ -834,12 +834,12 @@ class SelectHora(object):
         self.label_hora_ecolhida.set_text(self.horas_ad[hora])
         #self.label_hora_ecolhida_up.set_text(self.hora_labels[hora + 1])
         #self.label_hora_ecolhida_down.set_text(self.hora_labels[hora - 1])
-        if self.label_hora_ecolhida.get_label() == "23 horas" or self.label_hora_ecolhida.get_label() == "23 hours":
+        #if self.label_hora_ecolhida.get_label() == "23 horas" or self.label_hora_ecolhida.get_label() == "23 hours":
             #self.btn_diminui_hora.set_label(self.hora_labels[0])
-            self.btn_aumenta_hora.set_label(self.hora_labels[hora - 1])
-        else:
+            #self.btn_aumenta_hora.set_label(self.hora_labels[hora - 1])
+        #else:
             #self.btn_diminui_hora.set_label(self.hora_labels[hora + 1])
-            self.btn_aumenta_hora.set_label(self.hora_labels[hora - 1])
+            #self.btn_aumenta_hora.set_label(self.hora_labels[hora - 1])
 
         total = float(self.horas[self.label_hora_ecolhida.get_label()]) * self.taxa #+ float(total_atual)
         total = str("%.2f"%total)
