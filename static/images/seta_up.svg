@@ -9,12 +9,12 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="26.458334mm"
-   height="12.560965mm"
-   viewBox="0 0 26.458333 12.560965"
+   width="33.988575mm"
+   height="12.606091mm"
+   viewBox="0 0 33.988573 12.606092"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
    sodipodi:docname="seta_up.svg">
   <defs
      id="defs2" />
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="-927.19494"
-     inkscape:cy="-291.75962"
+     inkscape:zoom="2.8"
+     inkscape:cx="102.81458"
+     inkscape:cy="26.429998"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -36,14 +36,20 @@
      inkscape:measure-start="152.568,891.429"
      inkscape:measure-end="641.139,891.429"
      inkscape:window-width="1366"
-     inkscape:window-height="744"
+     inkscape:window-height="705"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="1">
+     inkscape:window-maximized="1"
+     inkscape:snap-global="true">
     <sodipodi:guide
-       position="25.088338,-14.450682"
+       position="28.587615,-14.367843"
        orientation="1,0"
        id="guide819"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="16.203847,-0.20045175"
+       orientation="0,1"
+       id="guide2189"
        inkscape:locked="false" />
   </sodipodi:namedview>
   <metadata
@@ -54,7 +60,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -62,7 +68,7 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-78.778603,-89.315734)">
+     transform="translate(-75.279327,-89.353446)">
     <rect
        style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect815"
@@ -71,10 +77,18 @@
        x="31.75"
        y="61.142857" />
     <path
-       style="fill:none;stroke:#808080;stroke-width:1.73259139;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 79.654233,101.00228 91.790973,90.454874 104.36117,101.00228"
-       id="path817"
+       style="opacity:1;fill:#4473c5;fill-opacity:1;stroke:#4d4d4d;stroke-width:1.50083053;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
+       inkscape:transform-center-x="1.145925"
+       inkscape:transform-center-y="0.16654929"
+       d="M 107.34884,101.16533 H 92.43332 77.517797 l 7.607947,-5.53205 7.607947,-5.532049 7.307579,5.532049 z"
+       id="path869"
+       inkscape:connector-curvature="0" />
+    <path
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccc" />
+       id="path2294"
+       d="M 107.34884,101.16533 H 92.43332 77.517797 l 7.607947,-5.53205 7.607947,-5.532049 7.307579,5.532049 z"
+       inkscape:transform-center-y="0.16654929"
+       inkscape:transform-center-x="1.145925"
+       style="opacity:1;fill:#4473c5;fill-opacity:1;stroke:#4d4d4d;stroke-width:1.50083053;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers" />
   </g>
 </svg>

@@ -77,11 +77,13 @@
                 <property name="column_spacing">20</property>
                 <child>
                   <object class="GtkButton" id="btn_flag_br">
+                    <property name="label" translatable="yes">   </property>
                     <property name="name">btn_flag</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="image">image_flag_br</property>
+                    <property name="relief">none</property>
                     <property name="always_show_image">True</property>
                   </object>
                   <packing>
@@ -91,11 +93,13 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_flag_usa">
+                    <property name="label" translatable="yes">   </property>
                     <property name="name">btn_flag</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="image">image_flag_usa</property>
+                    <property name="relief">none</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
