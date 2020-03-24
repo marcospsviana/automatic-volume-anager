@@ -171,8 +171,10 @@
                   <object class="GtkLabel" id="label_valor_total_horas">
                     <property name="name">label_valor_total_horas</property>
                     <property name="width_request">300</property>
+                    <property name="height_request">40</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="valign">center</property>
                     <property name="label" translatable="yes">R$ 9,50</property>
                   </object>
                   <packing>
@@ -196,8 +198,10 @@
                   <object class="GtkLabel" id="label_data_hora_inicial">
                     <property name="name">label_periodo</property>
                     <property name="width_request">300</property>
+                    <property name="height_request">40</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="valign">center</property>
                     <property name="label" translatable="yes">14/01/2020 - 18:04</property>
                   </object>
                   <packing>
@@ -222,8 +226,10 @@
                   <object class="GtkLabel" id="label_data_hora_final">
                     <property name="name">label_periodo</property>
                     <property name="width_request">300</property>
+                    <property name="height_request">40</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="valign">center</property>
                     <property name="label" translatable="yes">14/01/2020 - 20:04</property>
                   </object>
                   <packing>
@@ -256,7 +262,7 @@
             <child>
               <object class="GtkButton" id="btn_retornar_select_hora">
                 <property name="label" translatable="yes">CANCELAR</property>
-                <property name="name">btn_retornar_calendario</property>
+                <property name="name">btn_retornar</property>
                 <property name="width_request">300</property>
                 <property name="height_request">40</property>
                 <property name="visible">True</property>
@@ -288,7 +294,7 @@
             <child>
               <object class="GtkButton" id="btn_confirmar_select_hora">
                 <property name="label" translatable="yes">CONFIRMAR</property>
-                <property name="name">btn_confirmar_calendario</property>
+                <property name="name">btn_confirmar</property>
                 <property name="width_request">300</property>
                 <property name="height_request">40</property>
                 <property name="visible">True</property>
