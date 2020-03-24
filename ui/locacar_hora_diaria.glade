@@ -50,7 +50,7 @@
         <property name="can_focus">False</property>
         <property name="halign">center</property>
         <property name="valign">center</property>
-        <property name="margin_bottom">20</property>
+        <property name="margin_bottom">15</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
@@ -204,6 +204,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="valign">center</property>
                 <property name="hexpand">True</property>
                 <property name="image">image_diaria</property>
                 <property name="relief">none</property>
