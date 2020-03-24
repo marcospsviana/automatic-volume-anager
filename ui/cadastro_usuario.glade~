@@ -415,7 +415,8 @@
                   <object class="GtkButton" id="btn_finalizar_sessao">
                     <property name="label" translatable="yes">FINALIZAR SESSÃO</property>
                     <property name="name">btn_encerrar_sessao</property>
-                    <property name="width_request">200</property>
+                    <property name="width_request">300</property>
+                    <property name="height_request">50</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -575,7 +576,8 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
               <object class="GtkButton" id="btn_dialog_preencher_campos">
                 <property name="label" translatable="yes">OK</property>
                 <property name="name">btn_confirmar</property>
-                <property name="width_request">200</property>
+                <property name="width_request">300</property>
+                <property name="height_request">50</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -670,6 +672,8 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
               <object class="GtkButton" id="btn_ok_dialog_retorno_cadastro">
                 <property name="label" translatable="yes">ok</property>
                 <property name="name">btn_confirmar</property>
+                <property name="width_request">300</property>
+                <property name="height_request">50</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -1719,7 +1723,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="label" translatable="yes">TELA ANTERIOR</property>
                 <property name="name">btn_retornar</property>
                 <property name="width_request">300</property>
-                <property name="height_request">40</property>
+                <property name="height_request">50</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -1736,7 +1740,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="label" translatable="yes">CONFIRMAR</property>
                 <property name="name">btn_confirmar</property>
                 <property name="width_request">300</property>
-                <property name="height_request">40</property>
+                <property name="height_request">50</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -2322,7 +2326,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="label" translatable="yes">TELA ANTERIOR</property>
                 <property name="name">btn_retornar</property>
                 <property name="width_request">300</property>
-                <property name="height_request">40</property>
+                <property name="height_request">50</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
@@ -2339,7 +2343,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="label" translatable="yes">CONFIRMAR</property>
                 <property name="name">btn_confirmar</property>
                 <property name="width_request">300</property>
-                <property name="height_request">40</property>
+                <property name="height_request">50</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
@@ -2726,6 +2730,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
         </child>
         <child>
           <object class="GtkGrid">
+            <property name="width_request">620</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
@@ -2733,15 +2738,18 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             <property name="margin_bottom">15</property>
             <property name="column_spacing">5</property>
             <child>
-              <object class="GtkFixed">
+              <object class="GtkButton" id="btn_confirmar_entrada_numero">
+                <property name="label" translatable="yes">CONFIRMAR</property>
+                <property name="name">btn_confirmar</property>
+                <property name="width_request">300</property>
+                <property name="height_request">50</property>
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">center</property>
-                <property name="margin_left">5</property>
-                <property name="margin_right">5</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="button-press-event" handler="on_btn_confirmar_entrada_numero_button_press_event" swapped="no"/>
               </object>
               <packing>
-                <property name="left_attach">1</property>
+                <property name="left_attach">0</property>
                 <property name="top_attach">0</property>
               </packing>
             </child>
@@ -2757,23 +2765,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <signal name="button-press-event" handler="on_btn_retornar_entrada_numeros_button_press_event" swapped="no"/>
               </object>
               <packing>
-                <property name="left_attach">2</property>
-                <property name="top_attach">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="btn_confirmar_entrada_numero">
-                <property name="label" translatable="yes">CONFIRMAR</property>
-                <property name="name">btn_confirmar</property>
-                <property name="width_request">300</property>
-                <property name="height_request">50</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <signal name="button-press-event" handler="on_btn_confirmar_entrada_numero_button_press_event" swapped="no"/>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
+                <property name="left_attach">1</property>
                 <property name="top_attach">0</property>
               </packing>
             </child>
@@ -2846,7 +2838,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="label" translatable="yes">TENTE NOVAMENTE</property>
                 <property name="name">btn_confirmar</property>
                 <property name="width_request">300</property>
-                <property name="height_request">40</property>
+                <property name="height_request">50</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -2866,7 +2858,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="label" translatable="yes">CANCELAR</property>
                 <property name="name">btn_cancelar</property>
                 <property name="width_request">300</property>
-                <property name="height_request">40</property>
+                <property name="height_request">50</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
