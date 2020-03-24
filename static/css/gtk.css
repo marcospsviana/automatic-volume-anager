@@ -37,7 +37,7 @@ combobox{
 		color: #d6e6ee;
 	    }
 #btn_cancelar {  
-	font-size: 1.7em;
+	font-size: 1.5em;
 		background: #ED0D0D;
 		color: #d6e6ee;
 		border-radius: 2px;
@@ -45,7 +45,7 @@ combobox{
 		padding-left: 15px;
 	     }
 #btn_confirmar{  
-		font-size: 1.7em ;
+		font-size: 1.5em ;
 		background: #0b4f6f;/* rgb(8, 107, 173);*/
 		color: #d6e6ee;
 		padding: 10px;
