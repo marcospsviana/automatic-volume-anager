@@ -38,7 +38,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497474"
-     inkscape:cx="1029.8033"
+     inkscape:cx="335.88314"
      inkscape:cy="275.26405"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -74,36 +74,32 @@
        x="34.476833"
        y="64.77681"
        ry="3.1166842e-06" />
-    <g
-       id="g840"
-       transform="translate(0,2.4984611)">
-      <text
-         id="text2111"
-         y="115.28398"
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.75555611px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="110.83186"
+       y="117.78244"
+       id="text2111"><tspan
+         sodipodi:role="line"
+         id="tspan2109"
          x="110.83186"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.75555611px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         xml:space="preserve"><tspan
-           style="font-size:19.75555611px;stroke-width:0.26458332"
-           y="115.28398"
-           x="110.83186"
-           id="tspan2109"
-           sodipodi:role="line">Toque na tela</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.75555611px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         y="117.78244"
+         style="font-size:19.75555611px;stroke-width:0.26458332">Toque na tela</tspan></text>
+    <text
+       id="text2119"
+       y="157.31682"
+       x="96.811005"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.75555611px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-size:19.75555611px;stroke-width:0.26458332"
+         y="157.31682"
          x="96.811005"
-         y="154.81836"
-         id="text2119"><tspan
-           sodipodi:role="line"
-           id="tspan2117"
-           x="96.811005"
-           y="154.81836"
-           style="font-size:19.75555611px;stroke-width:0.26458332">Touch the screen</tspan></text>
-      <path
-         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#f9f9f9;stroke-width:1.71125638;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
-         d="m 244.603,130.08817 c -160.960674,0 -160.960674,0 -160.960674,0"
-         id="path2155"
-         inkscape:connector-curvature="0" />
-    </g>
+         id="tspan2117"
+         sodipodi:role="line">Touch the screen</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path2155"
+       d="m 236.10688,132.58663 c -143.968433,0 -143.968433,0 -143.968433,0"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#f9f9f9;stroke-width:1.61841106;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
   </g>
 </svg>
