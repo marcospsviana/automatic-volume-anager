@@ -276,7 +276,7 @@
             <property name="label" translatable="yes">RETORNAR TELA ANTERIOR</property>
             <property name="name">btn_tela_hora_diaria</property>
             <property name="width_request">400</property>
-            <property name="height_request">40</property>
+            <property name="height_request">50</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
