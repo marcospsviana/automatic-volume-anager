@@ -95,7 +95,7 @@
                 <property name="homogeneous">True</property>
                 <child>
                   <object class="GtkButton" id="btn_diminui_hora">
-                    <property name="name">label_titulo_passado</property>
+                    <property name="name">window_calendario</property>
                     <property name="width_request">200</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -133,7 +133,7 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_aumenta_hora">
-                    <property name="name">label_titulo_passado</property>
+                    <property name="name">window_calendario</property>
                     <property name="width_request">200</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -262,7 +262,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="halign">end</property>
+                <property name="halign">start</property>
+                <property name="valign">center</property>
                 <signal name="button-press-event" handler="on_btn_retornar_select_hora_button_press_event" swapped="no"/>
               </object>
               <packing>
@@ -293,7 +294,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="halign">start</property>
+                <property name="halign">end</property>
+                <property name="valign">center</property>
                 <signal name="button-press-event" handler="on_btn_confirmar_select_hora_button_press_event" swapped="no"/>
               </object>
               <packing>
