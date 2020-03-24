@@ -234,6 +234,7 @@
                 <property name="name">label_hora_diaria</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">center</property>
                 <property name="label" translatable="yes">POR HORA</property>
                 <attributes>
                   <attribute name="font-desc" value="Sans 20"/>

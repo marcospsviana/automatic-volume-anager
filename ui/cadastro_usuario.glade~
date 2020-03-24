@@ -2477,7 +2477,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                         <property name="label" translatable="yes">1</property>
                         <property name="name">tecla_num_quantidade</property>
                         <property name="width_request">80</property>
-                        <property name="height_request">40</property>
+                        <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -2493,7 +2493,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                         <property name="label" translatable="yes">2</property>
                         <property name="name">tecla_num_quantidade</property>
                         <property name="width_request">80</property>
-                        <property name="height_request">60</property>
+                        <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -2509,7 +2509,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                         <property name="label" translatable="yes">3</property>
                         <property name="name">tecla_num_quantidade</property>
                         <property name="width_request">80</property>
-                        <property name="height_request">60</property>
+                        <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -2541,7 +2541,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                         <property name="label" translatable="yes">4</property>
                         <property name="name">tecla_num_quantidade</property>
                         <property name="width_request">80</property>
-                        <property name="height_request">40</property>
+                        <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -2557,7 +2557,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                         <property name="label" translatable="yes">5</property>
                         <property name="name">tecla_num_quantidade</property>
                         <property name="width_request">80</property>
-                        <property name="height_request">60</property>
+                        <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -2573,7 +2573,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                         <property name="label" translatable="yes">6</property>
                         <property name="name">tecla_num_quantidade</property>
                         <property name="width_request">80</property>
-                        <property name="height_request">60</property>
+                        <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -2606,7 +2606,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                         <property name="label" translatable="yes">7</property>
                         <property name="name">tecla_num_quantidade</property>
                         <property name="width_request">80</property>
-                        <property name="height_request">40</property>
+                        <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -2622,7 +2622,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                         <property name="label" translatable="yes">8</property>
                         <property name="name">tecla_num_quantidade</property>
                         <property name="width_request">80</property>
-                        <property name="height_request">60</property>
+                        <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -2638,7 +2638,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                         <property name="label" translatable="yes">9</property>
                         <property name="name">tecla_num_quantidade</property>
                         <property name="width_request">80</property>
-                        <property name="height_request">60</property>
+                        <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -2701,6 +2701,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="label" translatable="yes">LIMPAR</property>
                 <property name="name">btn_clear</property>
                 <property name="width_request">120</property>
+                <property name="height_request">215</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -2749,7 +2750,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="label" translatable="yes">RETORNAR TELA ANTERIOR</property>
                 <property name="name">btn_retornar</property>
                 <property name="width_request">300</property>
-                <property name="height_request">40</property>
+                <property name="height_request">50</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -2765,7 +2766,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                 <property name="label" translatable="yes">CONFIRMAR</property>
                 <property name="name">btn_confirmar</property>
                 <property name="width_request">300</property>
-                <property name="height_request">40</property>
+                <property name="height_request">50</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
