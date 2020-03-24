@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="259.29166mm"
+   width="238.125mm"
    height="132.29167mm"
-   viewBox="0 0 259.29166 132.29167"
+   viewBox="0 0 238.125 132.29167"
    version="1.1"
    id="svg9497"
    inkscape:version="0.92.4 5da689c313, 2019-01-14"
@@ -38,8 +38,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497474"
-     inkscape:cx="335.88314"
-     inkscape:cy="275.26405"
+     inkscape:cx="455.88276"
+     inkscape:cy="279.30466"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -65,41 +65,38 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-34.476833,-64.77681)">
-    <rect
-       style="opacity:1;fill:#fdcf03;fill-opacity:1;stroke:none;stroke-width:6.92458677;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
+     transform="translate(-34.476833,-65.845888)">
+    <path
        id="rect2107"
-       width="259.29166"
-       height="132.29167"
-       x="34.476833"
-       y="64.77681"
-       ry="3.1166842e-06" />
+       style="opacity:1;fill:#fdcf03;fill-opacity:1;stroke:none;stroke-width:6.63593483;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
+       d="M 34.476835,65.845888 H 272.60183 c 0,0 0,10e-7 0,3e-6 V 198.13756 c 0,0 0,0 0,0 H 34.476835 c 0,0 -2e-6,0 -2e-6,0 V 65.845891 c 0,-2e-6 2e-6,-3e-6 2e-6,-3e-6 z"
+       inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.93333244px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="118.44483"
+       x="107.8615"
        y="117.78244"
        id="text2111"><tspan
          sodipodi:role="line"
          id="tspan2109"
-         x="118.44483"
+         x="107.8615"
          y="117.78244"
          style="font-size:16.93333244px;stroke-width:0.26458332">Toque na tela</tspan></text>
     <text
        id="text2119"
        y="157.31682"
-       x="106.42696"
+       x="95.843636"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.75555611px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          style="font-size:16.93333244px;stroke-width:0.26458332"
          y="157.31682"
-         x="106.42696"
+         x="95.843636"
          id="tspan2117"
          sodipodi:role="line">Touch the screen</tspan></text>
     <path
        inkscape:connector-curvature="0"
        id="path2155"
-       d="m 236.10688,132.58663 c -143.968435,0 -143.968435,0 -143.968435,0"
+       d="m 225.52355,132.58663 c -143.968436,0 -143.968436,0 -143.968436,0"
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#f9f9f9;stroke-width:1.61841106;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
   </g>
 </svg>
