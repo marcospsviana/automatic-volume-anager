@@ -2481,11 +2481,12 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                       <object class="GtkButton" id="btn_um">
                         <property name="label" translatable="yes">1</property>
                         <property name="name">tecla_num_quantidade</property>
-                        <property name="width_request">80</property>
+                        <property name="width_request">100</property>
                         <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="halign">center</property>
                         <property name="relief">none</property>
                       </object>
                       <packing>
@@ -2497,11 +2498,12 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                       <object class="GtkButton" id="btn_dois">
                         <property name="label" translatable="yes">2</property>
                         <property name="name">tecla_num_quantidade</property>
-                        <property name="width_request">80</property>
+                        <property name="width_request">100</property>
                         <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="halign">center</property>
                         <property name="relief">none</property>
                       </object>
                       <packing>
@@ -2513,11 +2515,12 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                       <object class="GtkButton" id="btn_tres">
                         <property name="label" translatable="yes">3</property>
                         <property name="name">tecla_num_quantidade</property>
-                        <property name="width_request">80</property>
+                        <property name="width_request">100</property>
                         <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="halign">center</property>
                         <property name="relief">none</property>
                       </object>
                       <packing>
@@ -2545,11 +2548,12 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                       <object class="GtkButton" id="btn_quatro">
                         <property name="label" translatable="yes">4</property>
                         <property name="name">tecla_num_quantidade</property>
-                        <property name="width_request">80</property>
+                        <property name="width_request">100</property>
                         <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="halign">center</property>
                         <property name="relief">none</property>
                       </object>
                       <packing>
@@ -2561,11 +2565,12 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                       <object class="GtkButton" id="btn_cinco">
                         <property name="label" translatable="yes">5</property>
                         <property name="name">tecla_num_quantidade</property>
-                        <property name="width_request">80</property>
+                        <property name="width_request">100</property>
                         <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="halign">center</property>
                         <property name="relief">none</property>
                       </object>
                       <packing>
@@ -2577,11 +2582,12 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                       <object class="GtkButton" id="btn_seis">
                         <property name="label" translatable="yes">6</property>
                         <property name="name">tecla_num_quantidade</property>
-                        <property name="width_request">80</property>
+                        <property name="width_request">100</property>
                         <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="halign">center</property>
                         <property name="relief">none</property>
                       </object>
                       <packing>
@@ -2610,11 +2616,12 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                       <object class="GtkButton" id="btn_sete">
                         <property name="label" translatable="yes">7</property>
                         <property name="name">tecla_num_quantidade</property>
-                        <property name="width_request">80</property>
+                        <property name="width_request">100</property>
                         <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="halign">center</property>
                         <property name="relief">none</property>
                       </object>
                       <packing>
@@ -2626,11 +2633,12 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                       <object class="GtkButton" id="btn_oito">
                         <property name="label" translatable="yes">8</property>
                         <property name="name">tecla_num_quantidade</property>
-                        <property name="width_request">80</property>
+                        <property name="width_request">100</property>
                         <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="halign">center</property>
                         <property name="relief">none</property>
                       </object>
                       <packing>
@@ -2642,11 +2650,12 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
                       <object class="GtkButton" id="btn_nove">
                         <property name="label" translatable="yes">9</property>
                         <property name="name">tecla_num_quantidade</property>
-                        <property name="width_request">80</property>
+                        <property name="width_request">100</property>
                         <property name="height_request">50</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="halign">center</property>
                         <property name="relief">none</property>
                       </object>
                       <packing>
