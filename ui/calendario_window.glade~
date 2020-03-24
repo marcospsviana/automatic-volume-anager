@@ -1263,7 +1263,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="margin_left">100</property>
                 <property name="hexpand">False</property>
                 <signal name="button-press-event" handler="on_btn_confirmar_calendario_button_press_event" swapped="no"/>
               </object>
@@ -1276,6 +1275,7 @@
             </child>
             <child>
               <object class="GtkSeparator">
+                <property name="name">window_calendario</property>
                 <property name="width_request">20</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
