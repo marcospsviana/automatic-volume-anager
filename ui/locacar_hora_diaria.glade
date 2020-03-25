@@ -62,9 +62,10 @@
             <property name="margin_bottom">15</property>
             <child>
               <object class="GtkLabel" id="label_horario">
-                <property name="name">label_hora</property>
+                <property name="name">label_horario</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">20</property>
                 <property name="label" translatable="yes"> </property>
               </object>
               <packing>
@@ -78,6 +79,7 @@
                 <property name="name">label_data</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">15</property>
                 <property name="label" translatable="yes">    </property>
               </object>
               <packing>

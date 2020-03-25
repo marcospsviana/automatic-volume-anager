@@ -54,7 +54,7 @@
                 <property name="name">label_horario</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_left">8</property>
+                <property name="margin_left">15</property>
               </object>
               <packing>
                 <property name="expand">False</property>

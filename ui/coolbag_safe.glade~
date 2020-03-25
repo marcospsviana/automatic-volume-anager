@@ -44,7 +44,7 @@
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
-            <property name="width_request">900</property>
+            <property name="width_request">980</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>

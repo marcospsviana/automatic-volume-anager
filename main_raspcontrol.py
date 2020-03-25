@@ -247,7 +247,8 @@ class SelectSize(object):
 
         self.label_titulo_select_size = self.builder.get_object("label_titulo_select_size")
         
-        
+        self.label_horario = self.builder.get_object("label_horario")
+        self.label_data = self.builder.get_object("label_data")
         # ============== FIM LABELS =================
         """# ============== TELA TAMANHO E TARIFAS =====
         self.window_tamanhos_tarifas = self.builder.get_object("window_tamanhos_tarifas")
@@ -505,6 +506,8 @@ class OpcaoHoraDiaria(object):
             }
         )
         
+        self.label_horario = self.builder.get_object("label_horario")
+        self.label_data = self.builder.get_object("label_data")
         self.label_por_hora = self.builder.get_object("label_por_hora")
         self.label_por_diaria = self.builder.get_object("label_por_diaria")
         self.btn_tela_hora_diaria = self.builder.get_object("btn_tela_hora_diaria")
