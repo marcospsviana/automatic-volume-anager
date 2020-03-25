@@ -2088,7 +2088,7 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
             </child>
             <child>
               <object class="GtkComboBox" id="combobox_flags_ddd">
-                <property name="width_request">100</property>
+                <property name="width_request">95</property>
                 <property name="height_request">50</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
