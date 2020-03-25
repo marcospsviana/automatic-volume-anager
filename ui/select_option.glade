@@ -22,11 +22,6 @@
     <property name="can_focus">False</property>
     <property name="pixbuf">../static/images/reservar.svg</property>
   </object>
-  <object class="GtkImage" id="image_usa_flag">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/usa.svg</property>
-  </object>
   <object class="GtkWindow" id="window_select">
     <property name="name">window</property>
     <property name="can_focus">False</property>
@@ -43,7 +38,6 @@
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="halign">center</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox">
@@ -112,7 +106,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="image">image_usa_flag</property>
                     <property name="relief">none</property>
                     <property name="image_position">top</property>
                     <property name="always_show_image">True</property>
@@ -168,6 +161,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
+                <property name="margin_right">34</property>
                 <property name="column_spacing">10</property>
                 <child>
                   <object class="GtkButton" id="btn_reservar">
@@ -239,26 +233,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
-          </packing>
+          <placeholder/>
         </child>
       </object>
     </child>
+  </object>
+  <object class="GtkImage" id="image_usa_flag">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../static/images/usa.svg</property>
   </object>
 </interface>
