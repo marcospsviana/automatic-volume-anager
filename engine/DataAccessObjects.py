@@ -441,11 +441,13 @@ class DataAccessObjectsManager(object):
         # print(__senha)
         # __c.execute("SELECT id_armario, id_locacao, tempo_locado, data_locacao from tb_locacao where senha = '%s' AND id_usuario = %s" %(__senha,__id_user[0]))
         dados = pd.read_sql(
-            "SELECT id_armario, id_locacao, tempo_locado, data_locacao, classe from tb_locacao where senha = '%s'" % (__senha), __conn)
+            "SELECT * from tb_locacao where senha = '%s'" % (__senha), __conn)
         # for reg in __c.next_proc_resultset():
         # __result = __c.fetchall()
         # print("888888 ---- result")
         # print(__result)
+        if dados == "Empty DataFrame":
+            dados = "senha incorreta, tente novamente"
         print("dados get_locacao", dados)
 
         __conn.close()
@@ -606,6 +608,9 @@ class DataAccessObjectsManager(object):
         hj = pd.to_datetime(hj)
         
         __senha = senha  
+        self.__id_user = self.select_user(__senha)  # __senha)
+        if self.__id_user == 'senha incorreta, tente novamente':
+            return 'senha incorreta, tente novamente'
         self.__locacao = self.get_locacao(senha)
         classe_armario = pd.read_sql(
             "select classe from tb_armario where id_armario = %s" % self.__locacao["id_armario"][0], __conn)
