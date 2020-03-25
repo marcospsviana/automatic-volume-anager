@@ -9,12 +9,12 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="47.205521mm"
-   height="16.084602mm"
-   viewBox="0 0 47.205525 16.084602"
+   width="39.644367mm"
+   height="12.77mm"
+   viewBox="0 0 39.644371 12.769999"
    version="1.1"
    id="svg9308"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
    sodipodi:docname="cameraenotebook.svg">
   <defs
      id="defs9302" />
@@ -26,13 +26,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="34.341875"
-     inkscape:cy="-54.632385"
+     inkscape:cx="69.809426"
+     inkscape:cy="-26.150271"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1366"
-     inkscape:window-height="744"
+     inkscape:window-height="705"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1" />
@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -52,9 +52,10 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-47.46367,-100.73428)">
+     transform="translate(-51.235791,-100.89399)">
     <g
-       id="g1974">
+       id="g1974"
+       transform="matrix(0.7009033,0,0,0.7009033,21.247279,31.037126)">
       <path
          inkscape:connector-curvature="0"
          id="path1210"
