@@ -319,10 +319,20 @@ class SelectSize(object):
             else:
                 self.label_cameraenotebook.set_text("UNAVAILABLE")
             self.btn_cameraenotebook.set_name("btn_cameraenotebook_inativo")
+        
+        GLib.timeout_add(1000, self.hora_certa )
        
 
         self.window_select_size.fullscreen()
         self.window_select_size.show()
+    
+    def hora_certa(self):
+        dia = datetime.now()
+        dia_hora = dia.strftime("%H:%M:%S")
+        dia_data = dia.strftime("%d/%m/%Y")
+        self.label_horario.set_text(str(dia_hora))
+        self.label_data.set_text(str(dia_data))
+        return (self.label_data,self.label_horario)
 
     def on_btn_dialog_unavailable_button_press_event(self, widget, event):
         self.dialog_unavailable.hide()
@@ -513,7 +523,16 @@ class OpcaoHoraDiaria(object):
             self.btn_tela_hora_diaria.set_label("PREVIOUS SCREEN")
 
         #self.window_hora_diaria.fullscreen()
+        GLib.timeout_add(1000, self.hora_certa )
         self.window_hora_diaria.show()
+    
+    def hora_certa(self):
+        dia = datetime.now()
+        dia_hora = dia.strftime("%H:%M:%S")
+        dia_data = dia.strftime("%d/%m/%Y")
+        self.label_horario.set_text(str(dia_hora))
+        self.label_data.set_text(str(dia_data))
+        return (self.label_data,self.label_horario)
     
     def on_btn_loc_hora_button_press_event(self, widget, event):
         tempo_locacao = "horas"
