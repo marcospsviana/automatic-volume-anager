@@ -364,3 +364,7 @@ dialog{
 	font-weight: lighter;
 	color: #063f41;
 }
+*{
+	font-family: "Calibri";
+	font-weight: normal;
+}
