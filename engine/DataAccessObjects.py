@@ -608,7 +608,7 @@ class DataAccessObjectsManager(object):
         hj = pd.to_datetime(hj)
         
         __senha = senha  
-        self.__id_user = self.select_user(__senha)  # __senha)
+        self.__id_user = self.select_user(__senha)
         if self.__id_user == 'senha incorreta, tente novamente':
             return 'senha incorreta, tente novamente'
         self.__locacao = self.get_locacao(senha)
