@@ -252,8 +252,7 @@ btn_toggle :checked{
 	border: solid 10px rgb(87, 86, 86);
 	border-radius: 3px;
 	background: whitesmoke;
-	padding: 2em 1em;
-	padding-bottom: 0.1em;
+	
 }
 #btn_mochilasx2_inativo{
 	border: solid 10px rgb(87, 86, 86);
