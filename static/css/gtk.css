@@ -368,6 +368,6 @@ dialog{
 	font-family: "Calibri";
 	font-weight: normal;
 }
-button{
+Button, Label{
 	font-size: 2em;
 }
