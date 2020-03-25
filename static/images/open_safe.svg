@@ -63,8 +63,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="-48.386658"
-     inkscape:cy="25.266314"
+     inkscape:cx="-45.394918"
+     inkscape:cy="149.98276"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -104,49 +104,48 @@
      id="layer1"
      transform="translate(8.5229561,-83.922444)">
     <g
-       id="g7518">
+       id="g2972"
+       transform="matrix(1.3619277,0,0,1.3619277,-109.38561,-31.690605)">
       <g
-         transform="matrix(1.3619277,0,0,1.3619277,-109.38561,-31.690605)"
-         id="g2972">
-        <g
-           transform="translate(-6.164689)"
-           id="g3685">
-          <text
-             transform="scale(0.99550053,1.0045198)"
-             id="text9288-7"
-             y="135.79456"
-             x="91.080177"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.80571985px;line-height:0;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458326"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.26458326"
-               y="137.74599"
-               x="91.080177"
-               id="tspan9286-1"
-               sodipodi:role="line" /><tspan
-               id="tspan9294-1"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.26458326"
-               y="137.74599"
-               x="91.080177"
-               sodipodi:role="line">OPEN THE</tspan></text>
-          <text
-             transform="scale(0.99550053,1.0045198)"
-             xml:space="preserve"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.80571985px;line-height:0;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458326"
-             x="99.352791"
-             y="142.64177"
-             id="text9306-5"><tspan
-               sodipodi:role="line"
-               id="tspan9300-9"
-               x="99.352791"
-               y="144.5932"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.26458326" /><tspan
-               sodipodi:role="line"
-               x="99.352791"
-               y="144.5932"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.26458326"
-               id="tspan9304-7">SAFE </tspan></text>
-        </g>
-      </g>
+         id="g3685"
+         transform="translate(-6.164689)" />
+    </g>
+    <g
+       id="g2102">
+      <text
+         transform="matrix(1.3557997,0,0,1.3680833,-117.78147,-31.690604)"
+         id="text9288-7"
+         y="136.56815"
+         x="92.677719"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.03261757px;line-height:0;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458326"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.03261757px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.26458326"
+           y="138.32629"
+           x="92.677719"
+           id="tspan9286-1"
+           sodipodi:role="line" /><tspan
+           id="tspan9294-1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.03261757px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.26458326"
+           y="138.32629"
+           x="92.677719"
+           sodipodi:role="line">OPEN THE</tspan></text>
+      <text
+         transform="matrix(1.3557997,0,0,1.3680833,-117.78147,-31.690604)"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.03261757px;line-height:0;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458326"
+         x="100.13099"
+         y="142.64177"
+         id="text9306-5"><tspan
+           sodipodi:role="line"
+           id="tspan9300-9"
+           x="100.13099"
+           y="144.39992"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.03261757px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.26458326" /><tspan
+           sodipodi:role="line"
+           x="100.13099"
+           y="144.39992"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.03261757px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.26458326"
+           id="tspan9304-7">SAFE </tspan></text>
       <rect
          ry="3.0979511e-06"
          rx="0"

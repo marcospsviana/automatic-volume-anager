@@ -15,7 +15,7 @@
   <object class="GtkImage" id="image_concluir_reserva">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../static/images/encerrar.svg</property>
+    <property name="pixbuf">../static/images/concluir_reserva.svg</property>
   </object>
   <object class="GtkImage" id="image_iniciar_reserva">
     <property name="visible">True</property>
