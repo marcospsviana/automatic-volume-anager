@@ -420,7 +420,6 @@
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
-                    <property name="valign">center</property>
                     <property name="image">image_mochilasx2</property>
                     <property name="use_underline">True</property>
                     <property name="always_show_image">True</property>
@@ -460,7 +459,6 @@
                     <property name="focus_on_click">False</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
-                    <property name="valign">start</property>
                     <property name="image">image_cameraenotebook</property>
                     <signal name="button-press-event" handler="on_btn_cameraenotebook_button_press_event" swapped="no"/>
                   </object>
