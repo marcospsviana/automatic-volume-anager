@@ -88,6 +88,8 @@
   <object class="GtkImage" id="image_cameraenotebook">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="halign">center</property>
+    <property name="valign">center</property>
     <property name="pixbuf">../static/images/cameraenotebook.svg</property>
   </object>
   <object class="GtkImage" id="image_malasx4">
@@ -105,6 +107,7 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="halign">center</property>
+    <property name="valign">center</property>
     <property name="pixbuf">../static/images/mochilasx2.svg</property>
   </object>
   <object class="GtkImage" id="image_usa_flag">
