@@ -15,4 +15,6 @@ docker run -it -t -e TZ=America/Fortaleza --privileged --name paygoweb -v /usr/l
 
 
 #CRIACAO DOCKER MARIADB COM CONEXAO KINGHOST
-docker run -it --name mariadb_king  mariadb mysql --user='userdb' --password='password' --host='mysql.coolbagsafe.kinghost.net' BANCO
+#docker run -it --name mariadb_king  mariadb mysql --user='userdb' --password='password' --host='mysql.coolbagsafe.kinghost.net' BANCO
+docker run -i --name ubuntu --volume=/usr/lib/python3.8/site-packages/coolbagsafe_system:/coolbagsafe_system 4e5021d210f6 /bin/bash
+

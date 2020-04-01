@@ -14,8 +14,7 @@ class DataAccessObjectsNuvem(object):
         self.__conn = mdb.connect(host = self.__host, user = self.__user, passwd = self.__passwd, database = self.__database)
         self.__cursor = self.__conn.cursor(buffered=True)
 
-        self.__cursor.execute('''CREATE TABLE IF NOT EXISTS`tb_armario` (
-                `id_armario` INT(30) NOT NULL AUTO_INCREMENT,
+        self.__cursor.execute('''CREATE TABLE IF NOT EXISTS `coolbagsafe`.`tb_armario` ( `id_armario` VARCHAR(15) NOT NULL,
                 `classe` TINYTEXT NOT NULL DEFAULT '' COLLATE 'utf8mb4_unicode_ci',
                 `local` TINYTEXT NOT NULL DEFAULT '' COLLATE 'utf8mb4_unicode_ci',
                 `terminal` VARCHAR(50) NOT NULL DEFAULT '' COLLATE 'utf8mb4_unicode_ci',
@@ -26,21 +25,19 @@ class DataAccessObjectsNuvem(object):
                 `compartimento` TINYTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
                 PRIMARY KEY (`id_armario`)
                 )
-                COLLATE='utf8mb4_unicode_ci'
-                ENGINE=InnoDB
-                AUTO_INCREMENT=11
+                ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;
                 '''
                                 )
-        self.__cursor.execute(''' CREATE TABLE IF NOT EXISTS `tb_usuario` (
-                                    `id_usuario` INT(10)  AUTO_INCREMENT,
-                                    `nome` VARCHAR(50) NULL DEFAULT NULL,
+        self.__cursor.execute(''' CREATE TABLE IF NOT EXISTS `coolbagsafe`.`tb_usuario` (
+                                    `id_usuario` VARCHAR(15)  NOT NULL,
+                                    `nome` VARCHAR(50) NULL DEFAULT '',
                                     `email` VARCHAR(80) NOT NULL,
                                     `telefone` TEXT NOT NULL,
                                     PRIMARY KEY (`id_usuario`)
                                     )
-                                    ENGINE=InnoDB;''')
-        self.__cursor.execute('''CREATE TABLE IF NOT EXISTS `tb_locacao` (
-                        `id_locacao` int(10) NOT NULL AUTO_INCREMENT,
+                                    ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;''')
+        self.__cursor.execute('''CREATE TABLE IF NOT EXISTS `coolbagsafe`.`tb_locacao` (
+                        `id_locacao` VARCHAR(15) NOT NULL,
                         `data_locacao` datetime NOT NULL,
                         `tempo_locado` datetime NOT NULL,
                         `tempo_corrido` time DEFAULT '00:00:00',
@@ -52,11 +49,11 @@ class DataAccessObjectsNuvem(object):
                         KEY `FK__tb_usuario` (`id_usuario`),
                         CONSTRAINT `FK__tb_armario` FOREIGN KEY (`id_armario`) REFERENCES `tb_armario` (`id_armario`) ON DELETE CASCADE ON UPDATE CASCADE,
                         CONSTRAINT `FK__tb_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
-                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+                        ) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;
 
                         ''')
         self.__cursor.execute('''CREATE TABLE IF NOT EXISTS `tb_locacao_persistence` (
-                        `id_locacao_persistence` int(10) NOT NULL AUTO_INCREMENT,
+                        `id_locacao_persistence` VARCHAR(15) NOT NULL,
                         `data_locacao` datetime NOT NULL,
                         `tempo_locado` datetime NOT NULL,
                         `tempo_corrido` time DEFAULT '00:00:00',
@@ -68,7 +65,7 @@ class DataAccessObjectsNuvem(object):
                         KEY `FK__tb_usuario` (`id_usuario`),
                         CONSTRAINT `FK_PERSISTENCE__tb_armario` FOREIGN KEY (`id_armario`) REFERENCES `tb_armario` (`id_armario`) ON DELETE CASCADE ON UPDATE CASCADE,
                         CONSTRAINT `FK_PERSISTENCE__tb_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
-                        ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;''')
+                        ) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;''')
 
         self.__conn.close()
 
