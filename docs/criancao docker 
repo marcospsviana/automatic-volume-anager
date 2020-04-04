@@ -1,3 +1,5 @@
+docker pull 32bit/ubuntu
+
 docker container ls -a
 
 

@@ -72,7 +72,7 @@ class TransacsOps(object):
         from email.mime.text import MIMEText
         RECIBO = ''
         #diretorio = os.getcwd()
-        comprovante_pagamento = open('/opt/paygoWeb/comprovantes/COMPROVANTE CLIENTE EMAIL.txt'%(diretorio),'r')
+        comprovante_pagamento = open('/opt/paygoWeb/comprovantes/COMPROVANTE CLIENTE EMAIL.txt','r')
         for l in comprovante_pagamento:
             RECIBO += l + '<br>'
         comprovante_pagamento.close()

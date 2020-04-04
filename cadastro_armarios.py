@@ -34,7 +34,7 @@ class MainWindowCad():
         self.NIVEIS = ["SUPERIOR", "INFERIOR", "SUPERIOR DIREITA",
             "SUPERIOR ESQUERDA", "INFERIOR DIREITA", "INFERIOR ESQUERDA"]
         self.COLUNAS = list(map(lambda x: x, range(1, 17)))
-        self.TERMINAIS = ["OTHON PALACE HOTEL", "PORTO FUTURO HOTEL"]
+        self.TERMINAIS = ['',"CBS",]
         self.PORTAS = list(map(lambda x: x, range(1, 101)))
         PORTAS_ALFA = ["A0", "A1", "A2", "A3", "A4"]
         for ports, i in zip(PORTAS_ALFA, range(len(PORTAS_ALFA))):
@@ -78,7 +78,9 @@ class MainWindowCad():
             'D50'
             ]
 
-        
+        self.terminais = Gtk.ListStore(str)
+        for t in self.TERMINAIS:
+            self.terminais.append([t])
         for c in self.CLASSES:
             for p in self.PORTAS:
                 self.REGISTROS.append(c+str(p))
@@ -102,6 +104,7 @@ class MainWindowCad():
         self.combobox_portas = builder.get_object("combobox_portas")
         self.combobox_portas.set_wrap_width(10)
         self.combobox_portas.set_model(self.portas_arduino)
+        self.combo_terminal.set_model(self.terminais)
 
         # self.combobox_numeracao.connect("changed", self.on_change_combobox_numeracao)
         self.window_cad.show()

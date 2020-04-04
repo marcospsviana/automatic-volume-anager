@@ -1774,6 +1774,9 @@ class CadastroUsuarios(object):
         #print("total para json", total)
         total = total.replace('.','')
         total = total.replace(',','')
+        total = total.replace('R$ ', '')
+        total = total.replace("R$  ", '')
+        total = total.replace('R$', '')
         print("total para json formatado", total)
         with open("/opt/paygoWeb/comprovantes/valor_venda.json", "w+") as f:
             f.write('\n{  \n\n')
@@ -1854,7 +1857,7 @@ class CadastroUsuarios(object):
             #self.__result = self.__result[0]
             print("self.__result total cadastro usuario ",self.__result[0])
             #print("self.__result cadastro usuario ", self.__result[0]["message"])
-            if self.__result[0]["message"] == "locacao concluida com sucesso":
+            if self.__result[0]['message'] == "locacao concluida com sucesso":
                 dia_inicio_locacao = self.__result[0]["data_locacao"]
                 print("dia_inicio cadastro usuario", dia_inicio_locacao)
                 hora_inicio_locacao = self.__result[0]["hora_locacao"]
@@ -1885,7 +1888,7 @@ class CadastroUsuarios(object):
                 #self.window_payment.hide()
                 self.window_cadastro_usuario.hide()
                 self.window_conclusao.show()
-            elif self.__result[0] == "armario da classe escolhida indisponível":
+            elif self.__result[0]['message'] == "armario da classe escolhida indisponível":
                 if self.language == "pt_BR":
                     self.label_retorno_cadastro.set_text("tamanho de armario\n  escolhido indisponível")
                     self.dialog_retorno_cadastro.show()
@@ -1893,13 +1896,13 @@ class CadastroUsuarios(object):
                     self.label_retorno_cadastro.set_text("chosen cabinet\n size unavailable")
                     self.dialog_retorno_cadastro.show()
             else:
-                self.window_payment.hide()
-                self.label_window_erro_pagamentos.set_text(self.__result[0])
+                #self.window_payment.hide()
+                self.label_window_erro_pagamentos.set_text(self.__result[0]['message'])
                 self.window_erro_pagamento()
 
     
     def window_erro_pagamento(self):
-        self.window_payment.hide()
+        #self.window_payment.hide()
         self.window_erro_pagamentos.show()
     
     def on_btn_tente_novamente_window_erro_pagamentos_button_press_event(self, widget, event):
@@ -1910,7 +1913,7 @@ class CadastroUsuarios(object):
 
     def on_btn_cancelar_window_erro_pagamentos_button_press_event(self, widget, event):
         self.window_erro_pagamentos.hide()
-        self.window_payment.hide()
+        #self.window_payment.hide()
         self.window_select_cartao.hide()
         
 
@@ -2484,7 +2487,7 @@ class WindowLogin(Gtk.Window):
 
     def on_btn_cancelar_window_erro_pagamentos_button_press_event(self, widget, event):
         self.window_erro_pagamentos.hide()
-        self.window_payment.hide()
+        #self.window_payment.hide()
         self.window_select_cartao.hide()
 
     def on_entry_button_press_event(self, widget):
@@ -2686,6 +2689,9 @@ class WindowLogin(Gtk.Window):
         print("total para json", self.__total)
         total = self.__total.replace('.','')
         total = total.replace(',','')
+        total = total.replace('R$ ', '')
+        total = total.replace("R$  ", '')
+        total = total.replace('R$', '')
         print("total para json formatado", total)
         with open("/opt/paygoWeb/comprovantes/valor_venda.json", "w+") as f:
             f.write('\n{  \n\n')
