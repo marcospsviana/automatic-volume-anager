@@ -1328,7 +1328,7 @@ class CadastroUsuarios(object):
         })
         self.builder.add_from_file("ui/cadastro_usuario.glade")
         self.window_cadastro_usuario = self.builder.get_object("window_cadastro_usuario")
-        #self.window_payment = self.builder.get_object("window_payment_wait")
+        self.window_payment = self.builder.get_object("window_wait_payment")
         self.window_entrada_dados = self.builder.get_object("window_entrada_dados")
         self.window_entrada_numeros = self.builder.get_object("window_entrada_numeros")
         self.window_select_cartao = self.builder.get_object("window_select_cartao")
@@ -1747,9 +1747,20 @@ class CadastroUsuarios(object):
         
         self.window_cadastro_usuario.fullscreen()
         self.window_cadastro_usuario.show()
+    
+    """def window_payment_show(self):
+        self.window_payment.show()"""
+        
     def on_btn_credito_button_press_event(self, event, args):
         self.window_select_cartao.hide()
         self.window_cadastro_usuario.hide()
+        from multiprocessing import Process, Lock
+        import window_wait_payment as waits
+        p = Process(target= waits)#subprocess.run('./window-paiment'))
+        p.start()
+        #p.join()
+        
+        
         self.send_tipo_cartao("CREDITO")
         
         sleep(0.5)       
@@ -1758,6 +1769,7 @@ class CadastroUsuarios(object):
         self.window_select_cartao.hide()
         self.window_cadastro_usuario.hide()
         #self.window_payment.show()
+        
         self.send_tipo_cartao("DEBITO")
         
         sleep(0.5)
@@ -1847,6 +1859,9 @@ class CadastroUsuarios(object):
             #colocar em wait payment
             #self.window_payment.fullscreen()
             #self.window_payment.show()
+            
+            
+            
             self.window_cadastro_usuario.hide()
             #WWP(locacao)
             print("locacao", self.__quantidade_diaria, self.__quantidade_horas, self.__quantidade_minutos)
@@ -1858,6 +1873,7 @@ class CadastroUsuarios(object):
             print("self.__result total cadastro usuario ",self.__result[0])
             #print("self.__result cadastro usuario ", self.__result[0]["message"])
             if self.__result[0]['message'] == "locacao concluida com sucesso":
+
                 dia_inicio_locacao = self.__result[0]["data_locacao"]
                 print("dia_inicio cadastro usuario", dia_inicio_locacao)
                 hora_inicio_locacao = self.__result[0]["hora_locacao"]
@@ -1945,8 +1961,10 @@ class CadastroUsuarios(object):
     def on_btn_confirmar_button_press_event(self, widget, event):
         #self.wait_payment()
         #self.window_select_cartao.show()
-        self.window_cadastro_usuario.hide()
+        
         self.select_cartao()
+
+
     def select_cartao(self):
         if self.language == "pt_BR":
             
@@ -2632,6 +2650,9 @@ class WindowLogin(Gtk.Window):
         self.window_pagamento_extra.hide()
         self.window_login.hide()
         #self.dialog_instrucao_fecha_armario.show()"""
+            
+    def window_payment_show(self):
+        self.windown_payment.show()
 
     def on_btn_tentar_dialog_senha_incorreta(self, widget):
         self.dialog_senha_incorreta.hide()
@@ -2665,6 +2686,13 @@ class WindowLogin(Gtk.Window):
         #self.send_tipo_cartao("CREDITO")
         self.window_select_cartao.hide()
         #self.window_payment.show()
+        import subprocess
+        self.window_cadastro_usuario.hide()
+        #from multiprocessing import Process, Lock
+        #p = Process(target= self.window_payment.show())#subprocess.run('./window-paiment'))
+        #p.start()
+        #p.join()
+        
         self.send_tipo_cartao("CREDITO")
         
         sleep(0.5)       

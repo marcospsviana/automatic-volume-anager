@@ -1,0 +1,1 @@
+INSERT INTO tb_usuario (id_usuario, nome, email, telefone) VALUES (null,'s', 's@gmail.com', '558598752737');

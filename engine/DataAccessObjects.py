@@ -237,7 +237,7 @@ class DataAccessObjectsManager(object):
                 lista_persist += random.choice(alfanum)
             print(lista_persist)
 
-            self.__c.execute("INSERT INTO tb_locacao_persistence(id_locacao_persistence, data_locacao,tempo_locado,tempo_corrido,id_armario,id_usuario, valor_locacao) VALUES('%s', '%s','%s',null,'%s','%s','%s','%s')" % (lista_persist, self.__data_locacao, self.__data_limite, loca_armario[0], self.dados_locatario, self.__total))
+            self.__c.execute("INSERT INTO tb_locacao_persistence(id_locacao_persistence, data_locacao,tempo_locado,tempo_corrido,id_armario,id_usuario, valor_locacao) VALUES('%s', '%s','%s',null,'%s','%s','%s','%s', '%s')" % (lista_persist, self.__data_locacao, self.__data_limite, loca_armario[0], self.dados_locatario, self.__total, self.__armario))
             
             self.__conn.commit()
 
@@ -317,7 +317,7 @@ class DataAccessObjectsManager(object):
                 lista_persist += random.choice(alfanum)
             print(lista)
 
-            self.__c.execute("INSERT INTO tb_locacao_persistence(id_locacao_persistence, data_locacao,tempo_locado,tempo_corrido,id_armario,id_usuario, valor_locacao) VALUES('%s', '%s','%s',null,'%s','%s','%s')" % (lista_persist, self.__data_locacao, self.__data_limite, loca_armario[0], self.dados_locatario, self.__total))
+            self.__c.execute("INSERT INTO tb_locacao_persistence(id_locacao_persistence, data_locacao,tempo_locado,tempo_corrido,id_armario,id_usuario, valor_locacao) VALUES('%s', '%s','%s',null,'%s','%s','%s', '%s')" % (lista_persist, self.__data_locacao, self.__data_limite, loca_armario[0], self.dados_locatario, self.__total, self.__armario))
             
             self.__conn.commit()
             dao = DAON()

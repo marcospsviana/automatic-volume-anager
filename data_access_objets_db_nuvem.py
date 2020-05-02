@@ -63,9 +63,10 @@ class DataAccessObjectsNuvem(object):
                         `id_armario` NVARCHAR(30) NOT NULL,
                         `id_usuario` NVARCHAR(30) NOT NULL,
                         `valor_locacao` double NOT NULL DEFAULT '0',
+                        `classe` tinytext DEFAULT '',
                         KEY `id_armario_persistence` (`id_armario_persistence`),
-                        KEY `FK__tb_armario` (`id_armario`),
-                        KEY `FK__tb_usuario` (`id_usuario`),
+                        KEY `FK_PERSISTENCE__tb_armario` (`id_armario`),
+                        KEY `FK_PERSISTENCE__tb_usuario` (`id_usuario`),
                         CONSTRAINT `FK_PERSISTENCE__tb_armario` FOREIGN KEY (`id_armario`) REFERENCES `tb_armario` (`id_armario`) ON DELETE CASCADE ON UPDATE CASCADE,
                         CONSTRAINT `FK_PERSISTENCE__tb_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
                         ) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;''')
@@ -128,14 +129,14 @@ class DataAccessObjectsNuvem(object):
         print(classe_armario)
         
 
-    #locar_armario(self, nome, email, telefone, dia, hora, minuto, armario, language, total)
+    
     def insert_locacao(self, id_locacao, __data_locacao, __data_limite, __senha, loca_armario, dados_locatario, __total):
-        self.__cursor.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES(%s, %s,%s,null,%s,%s,%s,%s)" % (__data_locacao, __data_limite, __senha, loca_armario, dados_locatario))
+        self.__cursor.execute("INSERT INTO tb_locacao(id_locacao, data_locacao,tempo_locado,tempo_corrido,senha,id_armario,id_usuario) VALUES('%s', '%s','%s',null,'%s','%s','%s')" % (id_locacao, __data_locacao, __data_limite, __senha, loca_armario, dados_locatario))
             
-        self.__cursor.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = %s" % (loca_armario))
+        self.__cursor.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = '%s'" % (loca_armario))
 
         self.__conn.commit()
-        self.__cursor.execute("INSERT INTO tb_locacao_persistence(id_locacao_persistence, data_locacao,tempo_locado,tempo_corrido,id_armario,id_usuario, valor_locacao) VALUES(%s, '%s','%s',null,'%s',%s,%s,%s)" % (id_locacao, self.__data_locacao, self.__data_limite, loca_armario[0], self.dados_locatario, self.__total))
+        self.__cursor.execute("INSERT INTO tb_locacao_persistence(id_locacao_persistence, data_locacao,tempo_locado,tempo_corrido,id_armario,id_usuario, valor_locacao) VALUES('%s', '%s','%s',null,'%s','%s','%s')" % (id_locacao, __data_locacao, __data_limite, loca_armario, dados_locatario, __total))
             
         self.__conn.commit()
     
@@ -158,7 +159,7 @@ class DataAccessObjectsNuvem(object):
 
             self.__compartimento = compartimento
             self.__cursor.execute("INSERT INTO tb_armario ( id_armario, classe, terminal, local, estado, nivel, porta, compartimento )" +
-                             "VALUES (%s,%s,%s,%s, 'LIVRE', %s, %s, %s)", (self.__id_armario, self.__classe, self.__terminal, self.__coluna, self.__nivel, self.__porta, self.__compartimento))
+                             "VALUES ('%s','%s','%s','%s', 'LIVRE', '%s', '%s', '%s')", (self.__id_armario, self.__classe, self.__terminal, self.__coluna, self.__nivel, self.__porta, self.__compartimento))
             result = self.__cursor.fetchone()
             self.__conn.commit()
             self.__conn.close()
@@ -175,25 +176,25 @@ class DataAccessObjectsNuvem(object):
         result = self.__c.fetchall()
         if result == 'LIVRE':
             self.__c.execute(
-                "DELETE FROM tb_armario where id_armario = %s " % (self.__id))
+                "DELETE FROM tb_armario where id_armario = '%s' " % (self.__id))
         else:
             return "não é possível remover armario, verifique se o mesmo não está em uso"
     
-    @classmethod
-    def finalizar(self, valor_locacao, senha, id_armario):
+    @staticmethod
+    def finalizar(valor_locacao, senha, id_armario):
         __host = "mysql.coolbagsafe.kinghost.net"
         __user = "coolbagsaf_add1"
         __database = "coolbagsafe"
         __passwd = "m1cr0@t805i"
         __conn = mdb.connect(host = __host, user = __user, password = __passwd, database = __database)
         __cursor = __conn.cursor(buffered=True)
-        __c.execute(
+        __cursor.execute(
             "DELETE FROM tb_locacao WHERE senha = '%s'" % (senha,))
 
-        __c.execute(
+        __cursor.execute(
             "UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (id_armario,))
         
-        __c.execute(
+        __cursor.execute(
                     "UPDATE tb_locacao_persistence set valor_locacao = '%s' WHERE id_armario = '%s'" % (valor_locacao, id_armario,))
         __conn.commit()
 

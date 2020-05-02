@@ -1,0 +1,1 @@
+ALTER TABLE `coolbag`.`tb_locacao_persistence` ADD COLUMN `classe` TINYTEXT NULL DEFAULT '' AFTER `valor_locacao`;
