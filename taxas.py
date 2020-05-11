@@ -13,4 +13,3 @@ class TaxAndRates(enum.Enum):
     TAXA_MINUTO_B = 0.06
     TAXA_MINUTO_C = 0.04
     TAXA_MINUTO_D = 0.02
-    
