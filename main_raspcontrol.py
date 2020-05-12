@@ -27,6 +27,7 @@ DDD = ''
 
 class CollBagSafe(object):
     def __init__(self):
+        #idioma padrao pt_BR
         self.language = "pt_BR"
         self.gtk_style()
         self.builder = Gtk.Builder()
@@ -49,6 +50,8 @@ class CollBagSafe(object):
         self.main_window.show()
     
     def hora_certa(self):
+        """atualiza a hora e data na tela setando as respectivas labels
+        """
         dia = datetime.now()
         dia_hora = dia.strftime("%H:%M:%S")
         dia_data = dia.strftime("%d/%m/%Y")
