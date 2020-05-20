@@ -1,6 +1,7 @@
 from .DataAccessObjects import DataAccessObjectsManager as DAO
 
-class User(object):        
+class User(object):
+    __slots__ = ["__nome", "__email", "__telefone"]   
 
     def create_usr(nome, email, telefone):
         __DAO = DAO()

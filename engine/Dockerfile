@@ -1,26 +1,26 @@
 #ID DA IMAGEM UBUNTU 16.04 i386
 FROM i386/ubuntu:16.04
 
-RUN mkdir -p /home/paygo/paygoWeb
 
-COPY paygoWeb/ /home/paygo/paygoWeb
-RUN apt update && apt-get install -y --no-install-recommends apt-utils
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 
-RUN apt-get install build-essential -y
+#RUN apt-get install build-essential -y
 
 #BIBLIOTECAS IMPORTANTES
-RUN apt-get install zlib1g-dev -y
-RUN apt-get install libncurses5-dev -y
-RUN apt-get install libgdbm-dev -y
-RUN apt-get install libnss3-dev -y
-RUN apt-get install libssl-dev -y 
-RUN apt-get install libreadline-dev -y 
-RUN apt-get install libffi-dev wget -y
+#RUN apt-get install zlib1g-dev -y
+#RUN apt-get install libncurses5-dev -y
+#RUN apt-get install libgdbm-dev -y
+#RUN apt-get install libnss3-dev -y
+#RUN apt-get install libssl-dev -y 
+#RUN apt-get-get install libreadline-dev -y 
+#RUN apt-get-get install libffi-dev wget -y
+RUN apt-get install libssl1.0.0
+#RUN apt-get install nano
 RUN apt-get install python3 -y
 
-RUN groupadd -g 999 paygo && \
-    useradd -r -u 999 -g paygo paygo
-USER paygo
+#RUN groupadd -g 1000 marcos && \
+#    useradd -r -u 1000 -g marcos marcos
+#USER marcos
 
 #RUN if [ python --version =! "" ]; \
     #then echo "python instalado"; \
@@ -36,7 +36,9 @@ USER paygo
 
 #CRIANDO DIRETORIO QUE SERA MAPEADO 
 
-WORKDIR /home/paygo/paygoWeb
+#WORKDIR /home/marcos/paygoWeb
+WORKDIR /paygoWeb
+COPY paygoWeb/ /paygoWeb
 CMD /bin/bash
 
 
