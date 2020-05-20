@@ -452,9 +452,7 @@ class DataAccessObjectsManager(object):
 
         return self.__pass2
 
-    def __send_passwd(self, passwd):
-        pass  # self.passwd = passwd
-
+  
     @staticmethod
     def get_locacao(senha):
         data_dao = DAO()
@@ -531,36 +529,6 @@ class DataAccessObjectsManager(object):
         else:
             return "porta ou compartimento já utilizada confira a porta exata para o cadastro e evite problemas!"
 
-    def resgatar_bagagem(self, senha):
-        ''' seleciona a locacao conforme a senha fornecida retornando todos os dados:
-        id_locacao , id_usuario, id_armario: type int
-        data_limite : type datetime
-        libera armario após ser confirmado e verificar que não haja saldo devedor
-        saldo devedor calculo: data atual datetime - tempo_locado datetime
-
-        if finalizar == True:
-            pass'''
-
-        # __email = email
-        # __telefone = telefone
-        # pass_encoded = senha.encode(encoding='utf-8', errors='strict')
-        __senha = senha  # hashlib.sha3_512(pass_encoded).hexdigest()
-        # __senha = __senha.encode('utf-8')
-
-        self.__c.execute(
-            "SELECT * FROM tb_locacao where senha = '%s'" % (__senha))
-        self.__result = self.__c.fetchall()
-        print('resgatar_bagagem result---->', self.__result)
-        print(self.__result[0])
-        return self.__result[0]
-        # envia a data limite para calculo de tempo excedente
-        self.__cobranca = self.__cobranca(self.result[0][2])
-        if self.__cobranca == None:
-            # liberar no raspberry pi
-            #self.liberar_armario(senha)  # __senha)
-            return "armario liberado"
-        else:
-            return ('tempo excedente', self.__cobranca)
 
     """@classmethod
     def cobranca(cls, self, total, data_futura):
