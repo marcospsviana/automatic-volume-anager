@@ -26,6 +26,22 @@ class Venda:
         retorno PWRET_MOREDATA a aplicacao chama a funcao PW_iExecGetData para percorrer todos os 
         parametros e verificar qual parametro está faltando fazendo  o tratamento do mesmo conforme
         documentacao PayGoWeb"""
+        # os dados ativos abaixo serao removidos apos ativacao de pagamento normal em producao
+        # VERIFICA O IDIOMA ESCOLHIDO PELO CLIENTE , APENAS PORTUGUES OU INGLES
+        if dados['LANGUAGE'] == 'pt_BR':
+            self.language = "0"
+        else:
+            self.language = "1"
+        tipo_cartao = dados['PWINFO_CARDTYPE']
+        if tipo_cartao == "CREDITO":
+            self.tipo_cartao = "1"
+        elif tipo_cartao == "DEBITO":
+            self.tipo_cartao = "2"
+        print("tipo_cartao", tipo_cartao)
+        data = datetime.datetime.now()
+
+        #todos os dados abaixo estarao desabilitados temporariamente
+        """
         iRet = ''
         vstParam_11 = (PW_GetData * 11)
         vstParam = vstParam_11()
@@ -325,7 +341,7 @@ class Venda:
         
         diretorio = os.getcwd()
         #if os.path.exists(diretorio +'/comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year))
-
+        """
         """try:
             f = open(diretorio +'/comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'a+')
             json.dump(registro_rec, f, indent=2, separators=(",",":"))
@@ -333,7 +349,7 @@ class Venda:
         except FileNotFoundError:
             f = open(diretorio +'/comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'w+')
             json.dump(registro_rec, f, indent=2, separators=(",",":"))
-            f.close()"""
+            f.close()""""""
 
         registro_json = open('comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'a+')
         registro_json.write('\n{  \n')
@@ -420,7 +436,7 @@ class Venda:
 
         # zera todos os parametros
         iRet = vstParam_11 = vstParam = iNumParam = ulEvent = szDspMsg = szAux = wait = retEventLoop = ret = ''
-        PWINFO_REQNUM = PWINFO_AUTLOCREF = PWINFO_AUTEXTREF = PWINFO_VIRTMERCH = PWINFO_AUTHSYST
+        PWINFO_REQNUM = PWINFO_AUTLOCREF = PWINFO_AUTEXTREF = PWINFO_VIRTMERCH = PWINFO_AUTHSYST """
 
 
 if __name__ == "__main__":

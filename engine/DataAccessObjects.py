@@ -939,7 +939,8 @@ class DataAccessObjectsManager(object):
 
     def pagamento_locacao(self):
         p = None
-        subprocess.run("docker start paygo", shell=True)
+        #processo desabilitado no momento somente será habilitado na ativaçao do serviço em modo de produção
+        """subprocess.run("docker start paygo", shell=True)
         #subprocess("docker exec paygo cd paygo")
         DAO.docker_run()
         
@@ -948,7 +949,7 @@ class DataAccessObjectsManager(object):
         #print("informe o codigo")
         
         #subprocess.run('docker exec paygo bash -c cd paygo', shell=True)
-        return True
+        return True"""
 
     @classmethod
     def select_port(self, armario):
