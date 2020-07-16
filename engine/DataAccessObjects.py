@@ -596,17 +596,18 @@ class DataAccessObjectsManager(object):
         return (total)
 
     def finalizar(self, senha):
-       """
-       ===========================================================================
-       || Recebe a solicitação para finalizar a locação                         ||
-       || verifica se há tempo excedente , caso haja calcula o tempo excedente  ||
-       || atraves da consulta ao banco seleciona o tipo de classe alugada e     ||
-       || consulta a taxa de locacao atraves de TaxAndRates para o valor devido || 
-       || input: senha                                                          ||
-       || return: valor excedente or libera armario                             ||
-       ===========================================================================
+        
+        """
+        ===========================================================================
+        || Recebe a solicitação para finalizar a locação                         ||
+        || verifica se há tempo excedente , caso haja calcula o tempo excedente  ||
+        || atraves da consulta ao banco seleciona o tipo de classe alugada e     ||
+        || consulta a taxa de locacao atraves de TaxAndRates para o valor devido || 
+        || input: senha                                                          ||
+        || return: valor excedente or libera armario                             ||
+        ===========================================================================
 
-       """
+        """
         result = ''
         id_armario = ''
         
