@@ -26,7 +26,7 @@ class Venda:
         retorno PWRET_MOREDATA a aplicacao chama a funcao PW_iExecGetData para percorrer todos os 
         parametros e verificar qual parametro está faltando fazendo  o tratamento do mesmo conforme
         documentacao PayGoWeb"""
-        # os dados ativos abaixo serao removidos apos ativacao de pagamento normal em producao
+        # *********************os dados ativos abaixo serao removidos apos ativacao de pagamento normal em producao ***********************
         # VERIFICA O IDIOMA ESCOLHIDO PELO CLIENTE , APENAS PORTUGUES OU INGLES
         if dados['LANGUAGE'] == 'pt_BR':
             self.language = "0"
@@ -39,6 +39,16 @@ class Venda:
             self.tipo_cartao = "2"
         print("tipo_cartao", tipo_cartao)
         data = datetime.datetime.now()
+
+        # GRAVA EM JSON O RETORNO DA TRANSACAO SEJA ELA BEM OU MAL SUCEDIDA
+        retorno_transacao = open('comprovantes/retornotransacao.json', 'w+')
+        retorno_transacao.write('\n{  \n')
+        retorno_transacao.write('  "DATA" : "%s %s %s %s %s",\n' % (data.day, data.month, data.year, data.hour, data.minute))
+        retorno_transacao.write('  "PWINFO_RESULTMSG" : "APROVADA"' )
+        retorno_transacao.write('\n}  \n')
+        retorno_transacao.close()
+
+        #******************************************* FIM DADOS PROVISORIOS ****************************************************************
 
         #todos os dados abaixo estarao desabilitados temporariamente
         """

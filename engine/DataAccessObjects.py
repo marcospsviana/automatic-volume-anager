@@ -889,8 +889,8 @@ class DataAccessObjectsManager(object):
         return "locacao finalizada com sucesso"
 
     def pagamento(self, total, senha):
-        subprocess.run("docker start paygo", shell=True)
-        #subprocess.run('docker exec paygo /bin/bash -c "cd paygo/ && python3 venda.py"', shell=True)
+        subprocess.run("docker start paygoweb", shell=True)
+        #subprocess.run('docker exec paygoweb /bin/bash -c "cd paygoweb/ && python3 venda.py"', shell=True)
         sleep(0.3)
         DAO.docker_run()
         
@@ -899,7 +899,7 @@ class DataAccessObjectsManager(object):
         print('self.__locacao id_armario', self.__locacao["id_armario"][0])
         # __senha_encode = senha.encode(encoding='utf-8', errors='strict')
         #self.__c.execute("select id_armario from tb_locacao where senha='%s'" % (__senha))
-        subprocess.run("docker stop paygo", shell=True)
+        subprocess.run("docker stop paygoweb", shell=True)
         
         resultado_transacao = TransacsOps.retorno_transacao()
         print("resultado_transacaok", resultado_transacao)
@@ -940,16 +940,16 @@ class DataAccessObjectsManager(object):
     def pagamento_locacao(self):
         p = None
         #processo desabilitado no momento somente será habilitado na ativaçao do serviço em modo de produção
-        """subprocess.run("docker start paygo", shell=True)
-        #subprocess("docker exec paygo cd paygo")
+        subprocess.run("docker start paygoweb", shell=True)
+        #subprocess("docker exec paygoweb cd paygoweb")
         DAO.docker_run()
         
         sleep(2)
-        subprocess.run("docker stop paygo", shell=True)
+        subprocess.run("docker stop paygoweb", shell=True)
         #print("informe o codigo")
         
-        #subprocess.run('docker exec paygo bash -c cd paygo', shell=True)
-        return True"""
+        #subprocess.run('docker exec paygoweb bash -c cd paygoweb', shell=True)
+        return True
 
     @classmethod
     def select_port(self, armario):
