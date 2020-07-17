@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.2 -->
+<!-- Generated with glade 3.36.0 -->
 <interface>
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk+" version="3.22"/>
   <object class="GtkAdjustment" id="adjustment1">
-    <property name="lower">136.58000000000001</property>
-    <property name="upper">248.44999999999999</property>
-    <property name="value">521.59000000000003</property>
+    <property name="lower">136,58000000000001250555</property>
+    <property name="upper">248,44999999999998863132</property>
+    <property name="value">521,59000000000003183231</property>
     <property name="step_increment">1</property>
-    <property name="page_increment">10.140000000000001</property>
-    <property name="page_size">124.56999999508261</property>
+    <property name="page_increment">10,14000000000000056843</property>
+    <property name="page_size">124,56999999508261112169</property>
   </object>
   <object class="GtkDialog" id="dialog_conclusao">
     <property name="name">window</property>
@@ -26,9 +26,6 @@
     <property name="type_hint">normal</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can_focus">False</property>
@@ -453,6 +450,9 @@
         </child>
       </object>
     </child>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
   </object>
   <object class="GtkDialog" id="dialog_instrucao_fecha_armario">
     <property name="width_request">800</property>
@@ -465,9 +465,6 @@
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="gravity">center</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can_focus">False</property>
@@ -548,6 +545,9 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
         </child>
       </object>
     </child>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
   </object>
   <object class="GtkDialog" id="dialog_message_preencher_campos">
     <property name="name">dialog</property>
@@ -560,14 +560,13 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <property name="margin_bottom">10</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>
+    <property name="window_position">center-always</property>
     <property name="default_width">400</property>
     <property name="default_height">200</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="decorated">False</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
+    <property name="gravity">center</property>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can_focus">False</property>
@@ -648,6 +647,9 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
         </child>
       </object>
     </child>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
   </object>
   <object class="GtkDialog" id="dialog_retorno_cadastro">
     <property name="width_request">600</property>
@@ -660,9 +662,6 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="decorated">False</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can_focus">False</property>
@@ -729,6 +728,9 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
         </child>
       </object>
     </child>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
   </object>
   <object class="GtkImage" id="image1">
     <property name="visible">True</property>
@@ -750,9 +752,6 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
     <child>
       <object class="GtkBox">
         <property name="width_request">1000</property>
@@ -1770,6 +1769,9 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
         </child>
       </object>
     </child>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
   </object>
   <object class="GtkImage" id="image_br_flag">
     <property name="visible">True</property>
@@ -1801,9 +1803,6 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
     <child>
       <object class="GtkBox">
         <property name="width_request">900</property>
@@ -2394,6 +2393,9 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
         </child>
       </object>
     </child>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
   </object>
   <object class="GtkTextBuffer" id="textbuffer1"/>
   <object class="GtkTextBuffer" id="textbuffer2">
@@ -2402,9 +2404,6 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
   <object class="GtkWindow">
     <property name="can_focus">False</property>
     <property name="has_resize_grip">True</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
     <child>
       <object class="GtkBox">
         <property name="visible">True</property>
@@ -2471,7 +2470,34 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
           </packing>
         </child>
         <child>
-          <placeholder/>
+          <object class="GtkFrame">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">none</property>
+            <child>
+              <object class="GtkAlignment">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="left_padding">12</property>
+                <child>
+                  <placeholder/>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">__glade_unnamed_70</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+          </packing>
         </child>
         <child>
           <placeholder/>
@@ -2493,6 +2519,9 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
         </child>
       </object>
     </child>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
   </object>
   <object class="GtkWindow" id="window_entrada_numeros">
     <property name="name">window</property>
@@ -2506,9 +2535,6 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
     <child>
       <object class="GtkBox">
         <property name="width_request">1000</property>
@@ -2930,6 +2956,9 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
         </child>
       </object>
     </child>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
   </object>
   <object class="GtkWindow" id="window_erro_pagamento">
     <property name="name">window_calendario</property>
@@ -2945,9 +2974,6 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <property name="default_height">500</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
     <child>
       <object class="GtkBox">
         <property name="width_request">500</property>
@@ -3036,6 +3062,9 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
         </child>
       </object>
     </child>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
   </object>
   <object class="GtkWindow" id="window_select_cartao">
     <property name="name">window</property>
@@ -3052,9 +3081,6 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <property name="destroy_with_parent">True</property>
     <property name="decorated">False</property>
     <property name="gravity">center</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
     <child>
       <object class="GtkBox">
         <property name="width_request">600</property>
@@ -3156,6 +3182,9 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
         </child>
       </object>
     </child>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
   </object>
   <object class="GtkWindow" id="window_wait_payment">
     <property name="name">window</property>
@@ -3169,9 +3198,6 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
     <property name="default_height">600</property>
     <property name="focus_on_map">False</property>
     <property name="gravity">center</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
     <child>
       <object class="GtkBox">
         <property name="width_request">500</property>
@@ -3211,6 +3237,9 @@ Observação: A responsabilidade de fechar o armário é do usuário , caso esqu
           </packing>
         </child>
       </object>
+    </child>
+    <child type="titlebar">
+      <placeholder/>
     </child>
   </object>
 </interface>

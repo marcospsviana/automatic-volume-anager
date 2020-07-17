@@ -17,6 +17,8 @@ int pos = 0;
 int comando = 0;
 int servoport = 0;
 
+const int pin9 = 9;
+
 void setup() {
     Serial.begin(9600);
     servo_A0.attach(A0);
@@ -29,6 +31,12 @@ void setup() {
     servo_A0.write(0);
     servo_A1.write(0);
     servo_A2.write(0);
+
+    // SETANDO PINOS DE ENTRADA
+    pinMode(pin9, INPUT);
+    
+
+    //SETANDO PINOS DE SAÍDA
 
 }
 String leStringSerial(){
@@ -57,6 +65,12 @@ String leStringSerial(){
 
 
 void loop(){
+  int valuePort = digitalRead(pin9);
+  if(valuePort == HIGH){
+    for(pos = 180; pos >= 0; pos -= 1){
+        servo_A0.write(pos);
+        delay(15);
+  }}
  
     if(Serial.available() > 0){
       String recebido = leStringSerial();
