@@ -1,7 +1,7 @@
-from controllers import Management
-from gi.repository import Gtk, Gdk
 import gi
 gi.require_version('Gtk', '3.0')
+from controllers import Management
+from gi.repository import Gtk, Gdk
 
 
 class MainWindowCad():
