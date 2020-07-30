@@ -64,7 +64,7 @@ class Portas(object):
         PORT_50 = "servo_50"
         PORT_51 = "servo_51"
 
-        self.serial = serial.Serial("/dev/ttyS0", 9600) #("/dev/ttyUSB0", 9600)
+        self.serial = serial.Serial ("/dev/ttyUSB1", 9600)# ("/dev/ttyS0", 9600)
         #GPIO.setmode(GPIO.BOARD)
         #GPIO.setup(12, GPIO.IN)
 

@@ -17,17 +17,27 @@ class WindowControleMotor:
         self.window.set_title("CONTROLE MOTOR")
         self.btn_abrir = self.builder.get_object("btn_abrir")
         self.btn_fechar = self.builder.get_object("btn_fechar")
+        self.btn_abrir_ocupado = self.builder.get_object("btn_abrir_ocupado")
+        self.btn_fechar_ocupado = self.builder.get_object("btn_fechar_ocupado")
 
         self.btn_abrir.connect("button-press-event", self.on_btn_abrir_pressed)
         self.btn_fechar.connect("button-press-event", self.on_btn_fechar_pressed)
+        self.btn_abrir_ocupado.connect("button-press-event", self.on_btn_abrir_ocupado_pressed)
+        self.btn_fechar_ocupado.connect("button-press-event", self.on_btn_fechar_ocupado_pressed)
         self.window.show()
     
     def on_btn_abrir_pressed(self, event, args):
-        self.p.exec_port("A0", "abre", "aberto")
+        self.p.exec_port("A0", "abre", "livre")
 
     def on_btn_fechar_pressed(self, event, args):
-        self.p.exec_port("A0", "fecha", "fechado")
-        
+        self.p.exec_port("A0", "fecha", "livre")
+    
+    def on_btn_abrir_ocupado_pressed(self, event, args):
+        self.p.exec_port("A0", "abre", "ocupado")
+
+    def on_btn_fechar_ocupado_pressed(self, event, args):
+        self.p.exec_port("A0", "fecha", "ocupado")
+    
 
 
 

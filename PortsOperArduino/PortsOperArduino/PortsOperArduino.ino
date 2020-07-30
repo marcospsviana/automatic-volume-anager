@@ -75,7 +75,7 @@ void setup() {
 
     digitalWrite(LED_STATUS_OPER_A0, LOW);
     digitalWrite(LED_STATUS_BUSY_A0, LOW);
-    digitalWrite(LED_STATUS_FREE_A0, HIGH); //LIVRE ATIVO
+    digitalWrite(LED_STATUS_FREE_A0, LOW); //LIVRE ATIVO
     digitalWrite(LED_STATUS_OPER_A1, LOW);
     digitalWrite(LED_STATUS_BUSY_A1, LOW);
     digitalWrite(LED_STATUS_FREE_A1, HIGH); //LIVRE ATIVO
@@ -143,7 +143,7 @@ String leStringSerial(){
 }
 
 void loop(){
-    piscaLed();
+    //piscaLed();
     
  
     if(Serial.available() > 0)
@@ -167,105 +167,32 @@ void loop(){
             servo_A0.write(pos);
             delay(15);
           }
+        digitalWrite(LED_STATUS_OPER_A0, HIGH);
         digitalWrite(LED_STATUS_FREE_A0, LOW);
         digitalWrite(LED_STATUS_BUSY_A0, HIGH);
         
       }
-      if (recebido == "A0:fecha")
+      if (recebido == "A0:fecha:livre")
       {
         for(pos = 180; pos >= 0; pos -= 1)
           {
           servo_A0.write(pos);
           delay(15);
           }
-        
-      }
-      if(recebido == "A1:abre:livre")
-      {
-        for(pos = 0; pos <= 180; pos += 1)
-          {
-            servo_A1.write(pos);
-            delay(15);
-          }
-        digitalWrite(LED_STATUS_FREE_A1, HIGH);
-        digitalWrite(LED_STATUS_BUSY_A1, LOW);
-        
-      }
-      if(recebido == "A1:abre:ocupado")
-      {
-        for(pos = 0; pos <= 180; pos += 1)
-          {
-            servo_A1.write(pos);
-            delay(15);
-          }
-        digitalWrite(LED_STATUS_FREE_A1, LOW);
-        digitalWrite(LED_STATUS_BUSY_A1, HIGH);
-        
-      }
-      if (recebido == "A1:fecha")
-      {
-        for(pos = 180; pos >= 0; pos -= 1)
-          {
-          servo_A1.write(pos);
-          delay(15);
-          }
-        digitalWrite(LED_STATUS_OPER_A1, LOW);
-      }
-      if(recebido == "A2:abre")
-      {
-        for(pos = 0; pos <= 180; pos += 1)
-          {
-            servo_A2.write(pos);
-            delay(15);
-          }
-      }
-      if (recebido == "A2:fecha")
-      {
-        for(pos = 180; pos >= 0; pos -= 1)
-          {
-          servo_A2.write(pos);
-          delay(15);
-          }
-        digitalWrite(LED_STATUS_OPER_A2, LOW);
-      }
-      // ESTADOS PERSISTENTES DAS PORTAS
-      if (recebido == "A0:livre")
-      {
         digitalWrite(LED_STATUS_FREE_A0, HIGH);
         digitalWrite(LED_STATUS_BUSY_A0, LOW);
-        
       }
-      if (recebido == "A0:ocupado")
+      if (recebido == "A0:fecha:ocupado")
       {
+        for(pos = 180; pos >= 0; pos -= 1)
+          {
+          servo_A0.write(pos);
+          delay(15);
+          }
         digitalWrite(LED_STATUS_FREE_A0, LOW);
         digitalWrite(LED_STATUS_BUSY_A0, HIGH);
-       
       }
-
-      if (recebido == "A1:livre")
-      {
-        digitalWrite(LED_STATUS_FREE_A1, HIGH);
-        digitalWrite(LED_STATUS_BUSY_A1, LOW);
-       
-      }
-      if (recebido == "A1:ocupado")
-      {
-        digitalWrite(LED_STATUS_FREE_A1, LOW);
-        digitalWrite(LED_STATUS_BUSY_A1, HIGH);
-       
-      }
-      if (recebido == "A2:livre")
-      {
-        digitalWrite(LED_STATUS_FREE_A2, HIGH);
-        digitalWrite(LED_STATUS_BUSY_A2, LOW);
-        
-      }
-      if (recebido == "A2:ocupado")
-      {
-        digitalWrite(LED_STATUS_FREE_A2, LOW);
-        digitalWrite(LED_STATUS_BUSY_A2, HIGH);
-       
-      }
+     
       /*
       if (recebido == "A3:livre")
       {

@@ -46,7 +46,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="btn_fechar">
             <property name="label" translatable="yes">FECHAR PORTA</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
