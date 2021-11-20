@@ -1,0 +1,11 @@
+comtele_sdk
+configobj
+httplib2
+numpy
+pandas
+Pillow
+pycairo
+pycodestyle
+pycrypto
+PyInstaller
+pyserial
