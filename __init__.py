@@ -1,4 +1,6 @@
-from raspcontrol.cadastro_usuarios import CadastroUsuarios
+from cadastro_usuarios import CadastroUsuarios
+from portas import Portas
+from taxas import *
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk, Gio, GdkPixbuf, GObject
@@ -6,8 +8,8 @@ from gi.repository import Gtk, Gdk, Gio, GdkPixbuf, GObject
 import os
 import locale
 import gettext
-
-__all__ = ["engine", "controllers", "gui", "raspcontrol"]
+BASE_DIR = os.path('raspcontrol')
+__all__ = ["engine", "controllers", "ui"]
 
 current_locale, encoding = locale.getdefaultlocale()
 locale_path = "../raspcontrol/locale" + current_locale + "/LC_MESSAGES/"

@@ -9,3 +9,5 @@ pycodestyle
 pycrypto
 PyInstaller
 pyserial
+mysql-connector
+requests
