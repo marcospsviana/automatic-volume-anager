@@ -1,14 +1,16 @@
-from coolbagsafe_system.data_access_objets_db_cbs import DataAccessObjectsBase as DAO
-from coolbagsafe_system.data_access_objets_db_nuvem import DataAccessObjectsNuvem as DAON
-from coolbagsafe_system.portas import Portas
-from coolbagsafe_system.taxas import *
+# from coolbagsafe_system.data_access_objets_db_cbs import DataAccessObjectsBase as DAO
+from data_access_objets_db_cbs import DataAccessObjectsBase as DAO
+from data_access_objets_db_nuvem import DataAccessObjectsNuvem as DAON
+from .portas import Portas
+from taxas import *
 from .TransacsAndOps import TransacsOps
-import sys, os
-import asyncio
+
+# import sys, os
+# import asyncio
 import mysql.connector as mdb
 import datetime
-from datetime import date, timedelta, time
-import time
+# from datetime import date, timedelta, time
+# import time
 from time import sleep
 import subprocess
 import random
