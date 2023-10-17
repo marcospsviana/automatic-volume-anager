@@ -1,4 +1,4 @@
-Control and manager cloters with screen in GTK PyGObject and arduino
+Control and manage volumes with screen in GTK PyGObject and Arduino
 
 #### problems and solutions
 ```bash
