@@ -24,6 +24,10 @@ pyinstaller = "*"
 pyinstaller-hooks-contrib = "*"
 
 [dev-packages]
+isort = "*"
+pytest = "*"
+flake8 = "*"
+blue = "*"
 
 [requires]
 python_version = "3.11"
