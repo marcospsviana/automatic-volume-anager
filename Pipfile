@@ -1,0 +1,29 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+altgraph = "*"
+comtele-sdk = "*"
+configobj = "*"
+httplib2 = "*"
+numpy = "*"
+pandas = "*"
+pillow = "*"
+pyparsing = "*"
+pyserial = "*"
+python-decouple = "*"
+python-dateutil = "*"
+pytz = "*"
+six = "*"
+pycairo = "*"
+pycodestyle = "*"
+pycryptodome = "*"
+pyinstaller = "*"
+pyinstaller-hooks-contrib = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
