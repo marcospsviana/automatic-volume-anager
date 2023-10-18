@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "039a9f47f28de2da810139ef89ad9f3d765001573c42130eb44cffd34447117a"
+            "sha256": "e64d65e2e97d99865720d4aa2ba8616dc5b838ed6110f227562af2536fdc91d0"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -259,6 +259,14 @@
             "index": "pypi",
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
             "version": "==3.19.0"
+        },
+        "pygobject": {
+            "hashes": [
+                "sha256:481437b05af0a66b7c366ea052710eb3aacbb979d22d30b797f7ec29347ab1e6"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.8' and python_version < '4'",
+            "version": "==3.46.0"
         },
         "pyinstaller": {
             "hashes": [
