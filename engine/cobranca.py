@@ -1,9 +1,10 @@
-from .DataAccessObjects import DataAccessObjectsManager as DAO
 import datetime
+
+from .DataAccessObjects import DataAccessObjectsManager as DAO
 
 
 class Cobranca(object):
-    
+
     """@staticmethod
     def cobranca( dia, hora, minuto):
         
@@ -35,14 +36,15 @@ class Cobranca(object):
         else:
             return __result
 
-    def finalizar( senha):
+    def finalizar(senha):
         def __init__(self):
             result = ''
             __DAO = DAO()
-            #self.__nome = nome
+            # self.__nome = nome
             __senha = senha
             result = __DAO.finalizar(__senha)
             return result
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     Cobranca()

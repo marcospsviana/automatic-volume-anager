@@ -1,12 +1,12 @@
-from Interops import *
-from Enums import *
-from CustomObjects import *
+import datetime
+import json
 import os
 import sys
-import json
-import datetime
 from ctypes import *
 
+from CustomObjects import *
+from Enums import *
+from Interops import *
 
 
 class Venda:
@@ -21,36 +21,39 @@ class Venda:
         self.venda()
 
     def venda(self):
-        """Função responsavel por efetuar a transacao adicionando os parametros obrigatorios com a 
-        funcao PW_iAddParam e aguardando o retorno do PIN PAD, caso haja parametros faltantes com 
-        retorno PWRET_MOREDATA a aplicacao chama a funcao PW_iExecGetData para percorrer todos os 
+        """Função responsavel por efetuar a transacao adicionando os parametros obrigatorios com a
+        funcao PW_iAddParam e aguardando o retorno do PIN PAD, caso haja parametros faltantes com
+        retorno PWRET_MOREDATA a aplicacao chama a funcao PW_iExecGetData para percorrer todos os
         parametros e verificar qual parametro está faltando fazendo  o tratamento do mesmo conforme
         documentacao PayGoWeb"""
         # *********************os dados ativos abaixo serao removidos apos ativacao de pagamento normal em producao ***********************
         # VERIFICA O IDIOMA ESCOLHIDO PELO CLIENTE , APENAS PORTUGUES OU INGLES
         if dados['LANGUAGE'] == 'pt_BR':
-            self.language = "0"
+            self.language = '0'
         else:
-            self.language = "1"
+            self.language = '1'
         tipo_cartao = dados['PWINFO_CARDTYPE']
-        if tipo_cartao == "CREDITO":
-            self.tipo_cartao = "1"
-        elif tipo_cartao == "DEBITO":
-            self.tipo_cartao = "2"
-        print("tipo_cartao", tipo_cartao)
+        if tipo_cartao == 'CREDITO':
+            self.tipo_cartao = '1'
+        elif tipo_cartao == 'DEBITO':
+            self.tipo_cartao = '2'
+        print('tipo_cartao', tipo_cartao)
         data = datetime.datetime.now()
 
         # GRAVA EM JSON O RETORNO DA TRANSACAO SEJA ELA BEM OU MAL SUCEDIDA
         retorno_transacao = open('comprovantes/retornotransacao.json', 'w+')
         retorno_transacao.write('\n{  \n')
-        retorno_transacao.write('  "DATA" : "%s %s %s %s %s",\n' % (data.day, data.month, data.year, data.hour, data.minute))
-        retorno_transacao.write('  "PWINFO_RESULTMSG" : "APROVADA"' )
+        retorno_transacao.write(
+            '  "DATA" : "%s %s %s %s %s",\n'
+            % (data.day, data.month, data.year, data.hour, data.minute)
+        )
+        retorno_transacao.write('  "PWINFO_RESULTMSG" : "APROVADA"')
         retorno_transacao.write('\n}  \n')
         retorno_transacao.close()
 
-        #******************************************* FIM DADOS PROVISORIOS ****************************************************************
+        # ******************************************* FIM DADOS PROVISORIOS ****************************************************************
 
-        #todos os dados abaixo estarao desabilitados temporariamente
+        # todos os dados abaixo estarao desabilitados temporariamente
         """
         iRet = ''
         vstParam_11 = (PW_GetData * 11)
@@ -359,7 +362,7 @@ class Venda:
         except FileNotFoundError:
             f = open(diretorio +'/comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'w+')
             json.dump(registro_rec, f, indent=2, separators=(",",":"))
-            f.close()""""""
+            f.close()""" """
 
         registro_json = open('comprovantes/REGISTRO DATA:%s %s %s .json' %(data.day, data.month, data.year), 'a+')
         registro_json.write('\n{  \n')
@@ -449,5 +452,5 @@ class Venda:
         PWINFO_REQNUM = PWINFO_AUTLOCREF = PWINFO_AUTEXTREF = PWINFO_VIRTMERCH = PWINFO_AUTHSYST """
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     Venda()

@@ -1,5 +1,6 @@
 import enum
 
+
 class TaxAndRates(enum.Enum):
     TAXA_DIARIA_A = 37.5
     TAXA_DIARIA_B = 24.5

@@ -23,6 +23,8 @@ pycryptodome = "*"
 pyinstaller = "*"
 pyinstaller-hooks-contrib = "*"
 pygobject = "*"
+mysql-connector-python = "*"
+"rpi.gpio" = "*"
 
 [dev-packages]
 isort = "*"
