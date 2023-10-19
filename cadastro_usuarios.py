@@ -6,12 +6,12 @@ from termo import Term
 import string
 import time
 
+gi.require_version('Gtk', '3.0')
+gi.require_version('Gdk', '3.0')
 from gi.repository import Gdk, GdkPixbuf, Gio, GLib, GObject, Gtk
 
 from controllers import Management
 from formatters.formmatter import Formatter
-gi.require_version('Gtk', '3.0')
-gi.require_version('Gdk', '3.0')
 
 
 class CadastroUsuarios:
