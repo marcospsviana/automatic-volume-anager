@@ -2,7 +2,7 @@ import os
 
 import gi
 
-import op_hora_diaria
+import window_op_hora_diaria
 from cadastro_usuarios import CadastroUsuarios
 from taxas import *
 
@@ -282,7 +282,7 @@ class WindowCalendario:
     def on_btn_cancelar_calendario_button_press_event(self, widget, event):
         self.label_valor_total_value.set_text('')
         self.calendario_window.hide()
-        op_hora_diaria.OpcaoHoraDiaria(self.classe, self.language)
+        window_op_hora_diaria.OpcaoHoraDiaria(self.classe, self.language)
 
     def on_btn_confirmar_calendario_button_press_event(self, widget, event):
         self.total = self.label_valor_total_value.get_label()

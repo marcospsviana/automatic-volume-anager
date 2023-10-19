@@ -2,7 +2,7 @@ import os
 
 import gi
 
-import op_hora_diaria
+import window_op_hora_diaria
 from cadastro_usuarios import CadastroUsuarios
 from taxas import *
 
@@ -331,7 +331,7 @@ class SelectHora(object):
     def on_btn_retornar_select_hora_button_press_event(self, event, arg):
         # self.label_valor_total_value.set_text("")
         self.select_hora_window.hide()
-        op_hora_diaria.OpcaoHoraDiaria(self.classe, self.language)
+        window_op_hora_diaria.OpcaoHoraDiaria(self.classe, self.language)
 
     def on_btn_confirmar_select_hora_button_press_event(self, event, arg):
         self.total = self.label_valor_total_horas.get_text()

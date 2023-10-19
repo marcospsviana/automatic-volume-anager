@@ -1,7 +1,7 @@
 import gi
 
 from controllers import Management
-from op_hora_diaria import OpcaoHoraDiaria
+from window_op_hora_diaria import OpcaoHoraDiaria
 
 from datetime import datetime
 
