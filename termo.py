@@ -1,12 +1,12 @@
 import gi
 
-from gi.repository import Gdk, Gtk
 
 from gi.repository import WebKit2
 
 gi.require_version('WebKit2', '4.1')
 gi.require_version('Gtk', '3.0')
 gi.require_version('Gdk', '3.0')
+from gi.repository import Gdk, Gtk
 
 class Term:
     def __init__(self):

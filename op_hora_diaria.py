@@ -1,5 +1,4 @@
 import gi
-from gi.repository import Gdk, GdkPixbuf, Gio, GLib, GObject, Gtk
 
 import select_size
 from controllers import Management
@@ -9,6 +8,7 @@ from datetime import datetime
 
 gi.require_version('Gtk', '3.0')
 gi.require_version('Gdk', '3.0')
+from gi.repository import Gdk, GdkPixbuf, Gio, GLib, GObject, Gtk
 
 
 class OpcaoHoraDiaria(object):

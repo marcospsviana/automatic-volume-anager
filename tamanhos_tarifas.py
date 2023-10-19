@@ -1,12 +1,12 @@
 import gi
 import numpy as np
-from gi.repository import Gdk, GLib, Gtk
 from window_op_hora_diaria import OpcaoHoraDiaria
 
 from controllers import Management
 
 gi.require_version('Gtk', '3.0')
 gi.require_version('Gdk', '3.0')
+from gi.repository import Gdk, GLib, Gtk
 
 
 class TamanhosTarifas(object):

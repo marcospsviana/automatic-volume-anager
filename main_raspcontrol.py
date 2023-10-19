@@ -16,7 +16,6 @@ from datetime import date, datetime, timedelta
 from decimal import Decimal
 
 import PIL
-from gi.repository import Gdk, GdkPixbuf, Gio, GLib, GObject, Gtk
 from PIL import Image
 
 # from login import Login
@@ -26,6 +25,7 @@ from select_option import SelectOption
 from taxas import *
 gi.require_version('Gtk', '3.0')
 gi.require_version('Gdk', '3.0')
+from gi.repository import Gdk, GdkPixbuf, Gio, GLib, GObject, Gtk
 
 DDD = ''
 

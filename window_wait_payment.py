@@ -4,12 +4,12 @@ import time
 from decimal import Decimal
 
 import PIL
-from gi.repository import Gdk, GdkPixbuf, Gio, GObject, Gtk
 from PIL import Image
 
 from controllers import Management
 gi.require_version('Gtk', '3.0')
 gi.require_version('Gdk', '3.0')
+from gi.repository import Gdk, GdkPixbuf, Gio, GObject, Gtk
 
 
 class WindowWaitPayment(object):
