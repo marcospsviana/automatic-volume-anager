@@ -43,10 +43,7 @@ class Venda:
         # GRAVA EM JSON O RETORNO DA TRANSACAO SEJA ELA BEM OU MAL SUCEDIDA
         retorno_transacao = open('comprovantes/retornotransacao.json', 'w+')
         retorno_transacao.write('\n{  \n')
-        retorno_transacao.write(
-            '  "DATA" : "%s %s %s %s %s",\n'
-            % (data.day, data.month, data.year, data.hour, data.minute)
-        )
+        retorno_transacao.write('  "DATA" : "%s %s %s %s %s",\n' % (data.day, data.month, data.year, data.hour, data.minute))
         retorno_transacao.write('  "PWINFO_RESULTMSG" : "APROVADA"')
         retorno_transacao.write('\n}  \n')
         retorno_transacao.close()

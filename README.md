@@ -1,4 +1,6 @@
-Control and manage volumes with screen in GTK PyGObject and Arduino
+## Controle e gerenciamento de Armarios em GTK PyGObject, RaspberryPi e Arduino
+
+Este é um projeto desenvolvido em python com GTK, aplicado em um raspberrypi com Ubuntu
 
 #### problems and solutions
 ~~~

@@ -537,9 +537,7 @@ class PGWebLibrary:
     #                                 de erro pode ser obtida através da função PW_iGetResult (PWINFO_RESULTMSG).
     #
     # =========================================================================================================
-    def PW_iPPGetUserData(
-        self, uiMessageId, bMinLen, bMaxLen, iToutSec, pszData
-    ):
+    def PW_iPPGetUserData(self, uiMessageId, bMinLen, bMaxLen, iToutSec, pszData):
         self.PW_iPPGetUserDataObj = self.PGWebLib_dll.PW_iPPGetUserData
         self.PW_iPPGetUserDataObj.restype = c_short
         self.PW_iPPGetUserDataObj.argtypes = [
@@ -653,9 +651,7 @@ class PGWebLibrary:
     #
     # ===========================================================================
     def PW_iPPPositiveConfirmation(self, uiIndex):
-        self.PW_iPPPositiveConfirmationObj = (
-            self.PGWebLib_dll.PW_iPPPositiveConfirmation
-        )
+        self.PW_iPPPositiveConfirmationObj = self.PGWebLib_dll.PW_iPPPositiveConfirmation
         self.PW_iPPPositiveConfirmationObj.restype = c_short
         self.PW_iPPPositiveConfirmationObj.argtypes = [c_uint16]
         ret = self.PW_iPPPositiveConfirmationObj(c_uint16(uiIndex))
@@ -680,12 +676,8 @@ class PGWebLibrary:
     # @@@@
     #
     # ===========================================================================
-    def PW_iTransactionInquiry(
-        self, pszXmlRequest, pszXmlResponse, ulXmlResponseLen
-    ):
-        self.PW_iTransactionInquiryObj = (
-            self.PGWebLib_dll.PW_iTransactionInquiry
-        )
+    def PW_iTransactionInquiry(self, pszXmlRequest, pszXmlResponse, ulXmlResponseLen):
+        self.PW_iTransactionInquiryObj = self.PGWebLib_dll.PW_iTransactionInquiry
         self.PW_iTransactionInquiryObj.restype = c_short
         self.PW_iTransactionInquiryObj.argtypes = [c_byte, c_byte, c_byte]
         ret = self.PW_iTransactionInquiryObj(
@@ -751,9 +743,7 @@ class PGWebLibrary:
             POINTER((PW_Operations * 11)),
             POINTER(c_short),
         ]
-        ret = self.PW_iGetOperationscObj(
-            byref(vstParam), byref(c_short(piNumOperations))
-        )
+        ret = self.PW_iGetOperationscObj(byref(vstParam), byref(c_short(piNumOperations)))
         return ret
 
     # fim de PW_iGetOperations
@@ -784,9 +774,7 @@ class PGWebLibrary:
     # @@@
     #
     # =========================================================================================================
-    def PW_iPPGetPINBlock(
-        self, bKeyID, pszWorkingKey, bMaxLen, iToutSec, pszPrompt, pszData
-    ):
+    def PW_iPPGetPINBlock(self, bKeyID, pszWorkingKey, bMaxLen, iToutSec, pszPrompt, pszData):
         self.PW_iPPGetPINBlockObj = self.PGWebLib_dll.PW_iPPGetPINBlock
         self.PW_iPPGetPINBlockObj.restype = c_short
         self.PW_iPPGetPINBlockObj.argtypes = [
@@ -843,18 +831,14 @@ class PGWebLibrary:
                 print('PWDAT_TYPED')
                 if vstParam[i].wIdentificador == 87:
                     data = datetime.now()
-                    ret = self.PW_iAddParam(
-                        vstParam[0].wIdentificador, data.strftime('%d%m%y')
-                    )
+                    ret = self.PW_iAddParam(vstParam[0].wIdentificador, data.strftime('%d%m%y'))
                     iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
                     print('PWINFO_BOARDINGTAX', iRet)
                     if iRet == 0:
                         return iRet
 
                 if vstParam[i].wIdentificador == 98:
-                    ret = self.PW_iGetResult(
-                        E_PWINFO.PWINFO_TRNORIGAUTH.value, szAux, sizeof(szAux)
-                    )
+                    ret = self.PW_iGetResult(E_PWINFO.PWINFO_TRNORIGAUTH.value, szAux, sizeof(szAux))
                     iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
                     print('PWINFO_BOARDINGTAX', iRet)
                     if iRet == 0:
@@ -881,10 +865,7 @@ class PGWebLibrary:
             elif vstParam[i].bTipoDeDado == E_PWDAT.PWDAT_CARDINF.value:
                 print('PWDAT_CARDINF')
 
-                if (
-                    vstParam[i].ulTipoEntradaCartao == 2
-                    or vstParam[i].ulTipoEntradaCartao == 3
-                ):
+                if vstParam[i].ulTipoEntradaCartao == 2 or vstParam[i].ulTipoEntradaCartao == 3:
                     print(
                         'vstParam[i].ulTipoEntradaCartao',
                         vstParam[i].ulTipoEntradaCartao,
@@ -952,58 +933,38 @@ class PGWebLibrary:
                     return iRet
             if vstParam[i].wIdentificador == E_PWINFO.PWINFO_LOCALINFO1.value:
 
-                ret = self.PW_iAddParam(
-                    E_PWINFO.PWINFO_LOCALINFO1.value, 'REIMPRESSAO'
-                )
+                ret = self.PW_iAddParam(E_PWINFO.PWINFO_LOCALINFO1.value, 'REIMPRESSAO')
                 iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
                 print('PWINFO_LOCALINFO1', iRet)
                 if iRet == 0:
                     return iRet
 
-            elif (
-                vstParam[i].wIdentificador
-                == E_PWINFO.PWINFO_AUTHMNGTUSER.value
-            ):
+            elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_AUTHMNGTUSER.value:
 
-                ret = self.PW_iAddParam(
-                    E_PWINFO.PWINFO_AUTHMNGTUSER.value, '1111'
-                )
+                ret = self.PW_iAddParam(E_PWINFO.PWINFO_AUTHMNGTUSER.value, '1111')
                 iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
                 print('PWINFO_AUTHMNGTUSER', iRet)
                 if iRet == 0:
                     return iRet
-            elif (
-                vstParam[i].wIdentificador
-                == E_PWINFO.PWINFO_AUTHTECHUSER.value
-            ):
+            elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_AUTHTECHUSER.value:
 
-                ret = self.PW_iAddParam(
-                    E_PWINFO.PWINFO_AUTHTECHUSER.value, '314159'
-                )
+                ret = self.PW_iAddParam(E_PWINFO.PWINFO_AUTHTECHUSER.value, '314159')
                 iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
                 print('PWINFO_AUTHTECHUSER', iRet)
                 if iRet == 0:
                     return iRet
 
-            elif (
-                vstParam[i].wIdentificador == E_PWINFO.PWINFO_TRNORIGDATE.value
-            ):
+            elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_TRNORIGDATE.value:
 
-                ret = self.PW_iAddParam(
-                    E_PWINFO.PWINFO_TRNORIGDATE.value, '310120'
-                )
+                ret = self.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGDATE.value, '310120')
                 iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
                 print('PWINFO_TRNORIGDATE', iRet)
                 if iRet == 0:
                     return iRet
 
-            elif (
-                vstParam[i].wIdentificador == E_PWINFO.PWINFO_BOARDINGTAX.value
-            ):
+            elif vstParam[i].wIdentificador == E_PWINFO.PWINFO_BOARDINGTAX.value:
 
-                ret = self.PW_iAddParam(
-                    E_PWINFO.PWINFO_BOARDINGTAX.value, '00'
-                )
+                ret = self.PW_iAddParam(E_PWINFO.PWINFO_BOARDINGTAX.value, '00')
                 iRet = self.PW_iPPEventLoop(szDspMsg, sizeof(szDspMsg))
                 print('PWINFO_BOARDINGTAX', iRet)
                 if iRet == 0:

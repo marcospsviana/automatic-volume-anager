@@ -10,8 +10,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from random import choice, sample
 from smtplib import SMTP
-from time import sleep
-
+import time
 import pandas as pd
 from comtele_sdk.textmessage_service import TextMessageService
 
@@ -36,23 +35,16 @@ class TransacsOps(object):
         data = datetime.datetime.now()
         # self.diretorio = os.getcwd()
         # LENDO O RETORNO DA TRANSACAO
-        with open(
-            '/opt/paygoWeb/comprovantes/retornotransacao.json', 'r'
-        ) as f:
+        with open('/opt/paygoWeb/comprovantes/retornotransacao.json', 'r') as f:
             self.resultado_transacao = json.load(f)
-        sleep(0.2)
+        time.sleep(0.2)
 
         # FIM DE LEITURA DE RETORNO
 
         # SETANDO RETORNO PARA NÃO FICAR COM O ÚLTIMO DADO DE TRANSAÇÃO PARA A PROXIMA CONSULTA
-        retorno = open(
-            '/opt/paygoWeb/comprovantes/retornotransacao.json', 'w+'
-        )
+        retorno = open('/opt/paygoWeb/comprovantes/retornotransacao.json', 'w+')
         retorno.write('\n{  \n')
-        retorno.write(
-            '     "DATA" : "%s %s %s %s %s",\n'
-            % (data.day, data.month, data.year, data.hour, data.minute)
-        )
+        retorno.write('     "DATA" : "%s %s %s %s %s",\n' % (data.day, data.month, data.year, data.hour, data.minute))
         retorno.write('     "PWINFO_RESULTMSG" : "SEM TRANSACAO"')
         retorno.write('\n}  \n')
         retorno.close()
@@ -87,9 +79,7 @@ class TransacsOps(object):
             hora_fim_locacao,
             nome,
         )
-        result = textmessage_service.send(
-            'CoolbagSafe', message, [str(telefone)]
-        )
+        result = textmessage_service.send('CoolbagSafe', message, [str(telefone)])
 
     @classmethod
     def send_email(
@@ -111,9 +101,7 @@ class TransacsOps(object):
 
         RECIBO = ''
         # diretorio = os.getcwd()
-        comprovante_pagamento = open(
-            '/opt/paygoWeb/comprovantes/COMPROVANTE CLIENTE EMAIL.txt', 'r'
-        )
+        comprovante_pagamento = open('/opt/paygoWeb/comprovantes/COMPROVANTE CLIENTE EMAIL.txt', 'r')
         for l in comprovante_pagamento:
             RECIBO += l + '<br>'
         comprovante_pagamento.close()

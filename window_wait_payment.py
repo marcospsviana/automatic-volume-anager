@@ -7,7 +7,6 @@ import string
 import threading
 import time
 from decimal import Decimal
-from time import sleep
 
 import _threading_local
 import PIL
@@ -38,7 +37,7 @@ class WindowWaitPayment(object):
         # self.spinner.start()
         self.window_payment.fullscreen()
         self.window_payment.show()
-        sleep(0.5)
+        time.sleep(0.5)
 
     def gtk_style(self):
         css = b"""

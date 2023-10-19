@@ -32,49 +32,25 @@ class TamanhosTarifas(object):
             }
         )
         # janela principal
-        self.window_tamanhos_tarifas = self.builder.get_object(
-            'window_tamanhos_tarifas'
-        )
+        self.window_tamanhos_tarifas = self.builder.get_object('window_tamanhos_tarifas')
 
         # =============== BOTOES ====================
 
-        self.btn_retornar_tarifas = self.builder.get_object(
-            'btn_retornar_tarifas'
-        )
+        self.btn_retornar_tarifas = self.builder.get_object('btn_retornar_tarifas')
         self.btn_retornar_tarifas.connect(
             'button_press_event',
             self.on_btn_retornar_tarifas_button_press_event,
         )
-        self.btn_confirmar_tarifas = self.builder.get_object(
-            'btn_confirmar_tarifas'
-        )
-        self.btn_confirmar_tarifas.connect(
-            'button_press_event', self.on_btn_confirmar_button_press_event
-        )
-        self.btn_malasx4_tarifas = self.builder.get_object(
-            'btn_malasx4_tarifas'
-        )
-        self.btn_malasx4_tarifas.connect(
-            'toggled', self.on_btn_malasx4_tarifas_toggled
-        )
-        self.btn_malasx2_tarifas = self.builder.get_object(
-            'btn_malasx2_tarifas'
-        )
-        self.btn_malasx2_tarifas.connect(
-            'toggled', self.on_btn_malasx2_tarifas_toggled
-        )
-        self.btn_mochilasx2_tarifas = self.builder.get_object(
-            'btn_mochilasx2_tarifas'
-        )
-        self.btn_mochilasx2_tarifas.connect(
-            'toggled', self.on_btn_mochilasx2_tarifas_toggled
-        )
-        self.btn_cameraenotebook_tarifas = self.builder.get_object(
-            'btn_cameraenotebook_tarifas'
-        )
-        self.btn_cameraenotebook_tarifas.connect(
-            'toggled', self.on_btn_cameraenotebook_tarifas_toggled
-        )
+        self.btn_confirmar_tarifas = self.builder.get_object('btn_confirmar_tarifas')
+        self.btn_confirmar_tarifas.connect('button_press_event', self.on_btn_confirmar_button_press_event)
+        self.btn_malasx4_tarifas = self.builder.get_object('btn_malasx4_tarifas')
+        self.btn_malasx4_tarifas.connect('toggled', self.on_btn_malasx4_tarifas_toggled)
+        self.btn_malasx2_tarifas = self.builder.get_object('btn_malasx2_tarifas')
+        self.btn_malasx2_tarifas.connect('toggled', self.on_btn_malasx2_tarifas_toggled)
+        self.btn_mochilasx2_tarifas = self.builder.get_object('btn_mochilasx2_tarifas')
+        self.btn_mochilasx2_tarifas.connect('toggled', self.on_btn_mochilasx2_tarifas_toggled)
+        self.btn_cameraenotebook_tarifas = self.builder.get_object('btn_cameraenotebook_tarifas')
+        self.btn_cameraenotebook_tarifas.connect('toggled', self.on_btn_cameraenotebook_tarifas_toggled)
 
         self.btn_usa = self.builder.get_object('btn_usa')
         self.btn_br = self.builder.get_object('btn_br')
@@ -82,9 +58,7 @@ class TamanhosTarifas(object):
         self.btn_br.connect('clicked', self.on_change_language_br)
         self.btn_usa.connect('clicked', self.on_change_language_usa)
 
-        self.btn_dialog_unavailable = self.builder.get_object(
-            'btn_dialog_unavailable'
-        )
+        self.btn_dialog_unavailable = self.builder.get_object('btn_dialog_unavailable')
         self.btn_dialog_unavailable.connect(
             'button_press_event',
             self.on_btn_dialog_unavailable_button_press_event,
@@ -93,25 +67,13 @@ class TamanhosTarifas(object):
         # ============= FIM BOTOES ==================
 
         # ============== LABELS ======================
-        self.label_tamanhos_tarifas_malasx4 = self.builder.get_object(
-            'label_tamanhos_tarifas_malasx4'
-        )
-        self.label_tamanhos_tarifas_malasx2 = self.builder.get_object(
-            'label_tamanhos_tarifas_malasx2'
-        )
-        self.label_tamanhos_tarifas_mochilasx2 = self.builder.get_object(
-            'label_tamanhos_tarifas_mochilasx2'
-        )
-        self.label_tamanhos_tarifas_cameraenotebook = self.builder.get_object(
-            'label_tamanhos_tarifas_cameraenotebook'
-        )
-        self.label_titulo_tamanhos_tarifas = self.builder.get_object(
-            'label_titulo_tamanhos_tarifas'
-        )
+        self.label_tamanhos_tarifas_malasx4 = self.builder.get_object('label_tamanhos_tarifas_malasx4')
+        self.label_tamanhos_tarifas_malasx2 = self.builder.get_object('label_tamanhos_tarifas_malasx2')
+        self.label_tamanhos_tarifas_mochilasx2 = self.builder.get_object('label_tamanhos_tarifas_mochilasx2')
+        self.label_tamanhos_tarifas_cameraenotebook = self.builder.get_object('label_tamanhos_tarifas_cameraenotebook')
+        self.label_titulo_tamanhos_tarifas = self.builder.get_object('label_titulo_tamanhos_tarifas')
 
-        self.label_message_armario_unavailable = self.builder.get_object(
-            'label_message_armario_unavailable'
-        )
+        self.label_message_armario_unavailable = self.builder.get_object('label_message_armario_unavailable')
         # ============== FIM LABELS =================
 
         # =============== DIALOGS ====================
@@ -137,9 +99,7 @@ class TamanhosTarifas(object):
             self.label_titulo_tamanhos_tarifas.set_text('SIZES AND RATES')
             self.btn_retornar_tarifas.set_label('PREVIOUS SCREEN')
             self.btn_confirmar_tarifas.set_label('CONFIRM')
-            self.label_message_armario_unavailable.set_text(
-                'CABINET SIZE UNAVAILABLE AT THE TIME,\n PLEASE CHOOSE ANOTHER!'
-            )
+            self.label_message_armario_unavailable.set_text('CABINET SIZE UNAVAILABLE AT THE TIME,\n PLEASE CHOOSE ANOTHER!')
 
         self.window_tamanhos_tarifas.fullscreen()
         self.window_tamanhos_tarifas.show()
@@ -160,13 +120,9 @@ class TamanhosTarifas(object):
         else:
             self.classe = ''
             if self.language == 'pt_BR':
-                self.label_message_armario_unavailable.set_text(
-                    ' INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! '
-                )
+                self.label_message_armario_unavailable.set_text(' INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! ')
             elif self.language == 'en_US':
-                self.label_message_armario_unavailable.set_text(
-                    ' UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! '
-                )
+                self.label_message_armario_unavailable.set_text(' UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ')
             self.dialog_unavailable.show()
 
     def on_btn_malasx2_tarifas_toggled(self, widget):
@@ -181,13 +137,9 @@ class TamanhosTarifas(object):
         else:
             self.classe = ''
             if self.language == 'pt_BR':
-                self.label_message_armario_unavailable.set_text(
-                    ' INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! '
-                )
+                self.label_message_armario_unavailable.set_text(' INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! ')
             elif self.language == 'en_US':
-                self.label_message_armario_unavailable.set_text(
-                    ' UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! '
-                )
+                self.label_message_armario_unavailable.set_text(' UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ')
             self.dialog_unavailable.show()
 
     def on_btn_mochilasx2_tarifas_toggled(self, widget):
@@ -203,13 +155,9 @@ class TamanhosTarifas(object):
         else:
             self.classe = ''
             if self.language == 'pt_BR':
-                self.label_message_armario_unavailable.set_text(
-                    ' INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! '
-                )
+                self.label_message_armario_unavailable.set_text(' INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! ')
             elif self.language == 'en_US':
-                self.label_message_armario_unavailable.set_text(
-                    ' UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! '
-                )
+                self.label_message_armario_unavailable.set_text(' UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ')
             self.dialog_unavailable.show()
 
     def on_btn_cameraenotebook_tarifas_toggled(self, widget):
@@ -225,13 +173,9 @@ class TamanhosTarifas(object):
         else:
             self.classe = ''
             if self.language == 'pt_BR':
-                self.label_message_armario_unavailable.set_text(
-                    ' INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! '
-                )
+                self.label_message_armario_unavailable.set_text(' INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! ')
             elif self.language == 'en_US':
-                self.label_message_armario_unavailable.set_text(
-                    ' UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! '
-                )
+                self.label_message_armario_unavailable.set_text(' UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ')
             self.dialog_unavailable.show()
 
     def on_btn_confirmar_button_press_event(self, widget, event):

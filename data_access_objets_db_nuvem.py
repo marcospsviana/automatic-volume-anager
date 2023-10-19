@@ -167,10 +167,7 @@ class DataAccessObjectsNuvem(object):
             )
         )
 
-        self.__cursor.execute(
-            "UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = '%s'"
-            % (loca_armario)
-        )
+        self.__cursor.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = '%s'" % (loca_armario))
 
         self.__conn.commit()
         self.__cursor.execute(
@@ -187,9 +184,7 @@ class DataAccessObjectsNuvem(object):
 
         self.__conn.commit()
 
-    def cadastrar_armario(
-        self, id_armario, classe, terminal, coluna, nivel, porta, compartimento
-    ):
+    def cadastrar_armario(self, id_armario, classe, terminal, coluna, nivel, porta, compartimento):
 
         # self.__c = self.__conn.cursor(buffered=True)
         self.__id_armario = id_armario
@@ -247,15 +242,10 @@ class DataAccessObjectsNuvem(object):
     def remover_armario(self, id_armario):
 
         self.__id = id_armario
-        self.__c.execute(
-            "SELECT estado  from tb_armario where id_armario = '%s'"
-            % (self.__id)
-        )
+        self.__c.execute("SELECT estado  from tb_armario where id_armario = '%s'" % (self.__id))
         result = self.__c.fetchall()
         if result == 'LIVRE':
-            self.__c.execute(
-                "DELETE FROM tb_armario where id_armario = '%s' " % (self.__id)
-            )
+            self.__c.execute("DELETE FROM tb_armario where id_armario = '%s' " % (self.__id))
         else:
             return 'não é possível remover armario, verifique se o mesmo não está em uso'
 
@@ -265,18 +255,11 @@ class DataAccessObjectsNuvem(object):
         __user = 'coolbagsaf_add1'
         __database = 'coolbagsafe'
         __passwd = 'm1cr0@t805i'
-        __conn = mdb.connect(
-            host=__host, user=__user, password=__passwd, database=__database
-        )
+        __conn = mdb.connect(host=__host, user=__user, password=__passwd, database=__database)
         __cursor = __conn.cursor(buffered=True)
-        __cursor.execute(
-            "DELETE FROM tb_locacao WHERE senha = '%s'" % (senha,)
-        )
+        __cursor.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (senha,))
 
-        __cursor.execute(
-            "UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'"
-            % (id_armario,)
-        )
+        __cursor.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (id_armario,))
 
         __cursor.execute(
             "UPDATE tb_locacao_persistence set valor_locacao = '%s' WHERE id_armario = '%s'"

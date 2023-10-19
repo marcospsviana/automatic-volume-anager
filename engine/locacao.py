@@ -21,9 +21,7 @@ class Locacao(object):
     obtendo o tempo total em segundos da diferença de data_atual - data_locacao"""
 
     @staticmethod
-    def locacao(
-        nome, email, telefone, dia, hora, minuto, armario, language, total
-    ):
+    def locacao(nome, email, telefone, dia, hora, minuto, armario, language, total):
 
         __DAO = DAO()
         __dia = dia

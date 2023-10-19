@@ -30,9 +30,7 @@ class MainWindowCad:
 
         self.btn_cadastrar = builder.get_object('btn_cadastrar_armario')
         self.lbl_resultado = builder.get_object('lbl_resultado')
-        self.btn_cadastrar.connect(
-            'clicked', self.on_btn_cadastrar_armario_button_press_event
-        )
+        self.btn_cadastrar.connect('clicked', self.on_btn_cadastrar_armario_button_press_event)
         self.CLASSES = ['A', 'B', 'C', 'D']
         self.NIVEIS = [
             'SUPERIOR',
@@ -274,9 +272,7 @@ class MainWindowCad:
 
         """self.combobox_numeracao= builder.get_object("combobox_numeracao")
         self.combobox_numeracao.set_model(self.registros)"""
-        self.combobox_compartimentos = builder.get_object(
-            'combobox_compartimentos'
-        )
+        self.combobox_compartimentos = builder.get_object('combobox_compartimentos')
         self.combobox_compartimentos.set_wrap_width(10)
         self.combobox_compartimentos.set_model(self.compartimentos)
         self.combobox_portas = builder.get_object('combobox_portas')
@@ -289,16 +285,12 @@ class MainWindowCad:
 
     def on_btn_cadastrar_armario_button_press_event(self, event):
 
-        self.classe = self.CLASSES[
-            self.combo_classe.get_active()
-        ]   # obter o conteú e não o indice da lista do combobox
+        self.classe = self.CLASSES[self.combo_classe.get_active()]   # obter o conteú e não o indice da lista do combobox
         print(self.classe)
         self.nivel = self.NIVEIS[self.combo_nivel.get_active()]
         self.coluna = self.COLUNAS[self.combo_coluna.get_active()]
         self.terminal = self.TERMINAIS[self.combo_terminal.get_active()]
-        compartimentos = self.COMPARTIMENTOS[
-            self.combobox_compartimentos.get_active()
-        ]
+        compartimentos = self.COMPARTIMENTOS[self.combobox_compartimentos.get_active()]
         portas_arduino = self.PORTAS[self.combobox_portas.get_active()]
         print(self.classe, self.nivel, self.coluna, self.terminal)
         manager = Management()

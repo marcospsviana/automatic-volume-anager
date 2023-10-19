@@ -60,9 +60,7 @@ class Management(object):
         self.__telefone = telefone
         usr.create_usr(self.__nome, self.__email, self.__telefone)
 
-    def cad_armarios(
-        self, classe, terminal, coluna, nivel, porta, compartimento
-    ):
+    def cad_armarios(self, classe, terminal, coluna, nivel, porta, compartimento):
 
         __classe = str(classe)
         __terminal = str(terminal)
@@ -70,9 +68,7 @@ class Management(object):
         __coluna = str(coluna)
         __compartimento = str(compartimento)
         __porta = str(porta)
-        result = arm.cad_armario(
-            __classe, __terminal, __coluna, __nivel, __porta, __compartimento
-        )
+        result = arm.cad_armario(__classe, __terminal, __coluna, __nivel, __porta, __compartimento)
         return result
 
     def localiza_id_armario(self, senha):
