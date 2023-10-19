@@ -1,15 +1,16 @@
 import gi
-from portas import Portas
+from engine.portas import Portas
 
 from cadastro_usuarios import CadastroUsuarios
 from taxas import *
 
-gi.require_version('Gtk', '3.0')
 import gettext
 import locale
 import os
 
 from gi.repository import Gdk, GdkPixbuf, Gio, GObject, Gtk
+gi.require_version('Gtk', '3.0')
+gi.require_version('Gdk', '3.0')
 
 BASE_DIR = os.path('raspcontrol')
 __all__ = ['engine', 'controllers', 'ui']

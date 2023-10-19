@@ -2,10 +2,11 @@ import gi
 
 from controllers import Management
 
-gi.require_version('Gtk', '3.0')
 import string
 
 from gi.repository import Gdk, GdkPixbuf, Gio, GLib, GObject, Gtk
+gi.require_version('Gtk', '3.0')
+gi.require_version('Gdk', '3.0')
 
 
 class WindowLogin(Gtk.Window):

@@ -4,10 +4,11 @@ from controllers import Management
 from select_size import SelectSize
 from window_login import WindowLogin
 
-gi.require_version('Gtk', '3.0')
 from datetime import datetime, timedelta
 
 from gi.repository import Gdk, GdkPixbuf, GLib, GObject, Gtk
+gi.require_version('Gtk', '3.0')
+gi.require_version('Gdk', '3.0')
 
 
 class SelectOption(object):

@@ -3,13 +3,15 @@ import gi
 import op_hora_diaria
 from termo import Term
 
-gi.require_version('Gtk', '3.0')
 import string
 import time
 
 from gi.repository import Gdk, GdkPixbuf, Gio, GLib, GObject, Gtk
 
 from controllers import Management
+from formatters.formmatter import Formatter
+gi.require_version('Gtk', '3.0')
+gi.require_version('Gdk', '3.0')
 
 
 class CadastroUsuarios:
@@ -634,24 +636,25 @@ class CadastroUsuarios:
             self.__quantidade_minutos = "0"
         else:
             self.__quantidade_minutos = self.entry_minutos.get_text()"""
-        if self.__nome == '':
-            if self.language == 'pt_BR':
-                self.label_message_preencher_campos.set_text('PREENCHA TODOS OS CAMPOS')
-            elif self.language == 'en_US':
-                self.label_message_preencher_campos.set_text('FILL IN ALL FIELDS')
+        if self.__nome == '' or self.__email == '' or self.__telefone == '':
+            self.label_message_preencher_campos.set_text(Formatter.formmatt_text_label_language(self.language, 'all_fields'))
+            # if self.language == 'pt_BR':
+            #     self.label_message_preencher_campos.set_text('PREENCHA TODOS OS CAMPOS')
+            # elif self.language == 'en_US':
+            #     self.label_message_preencher_campos.set_text('FILL IN ALL FIELDS')
             self.dialog_message_preencher_campos.show()
-        elif self.__email == '':
-            if self.language == 'pt_BR':
-                self.label_message_preencher_campos.set_text('PREENCHA TODOS OS CAMPOS')
-            elif self.language == 'en_US':
-                self.label_message_preencher_campos.set_text('FILL IN ALL FIELDS')
-            self.dialog_message_preencher_campos.show()
-        elif self.__telefone == '':
-            if self.language == 'pt_BR':
-                self.label_message_preencher_campos.set_text('PREENCHA TODOS OS CAMPOS')
-            elif self.language == 'en_US':
-                self.label_message_preencher_campos.set_text('FILL IN ALL FIELDS')
-            self.dialog_message_preencher_campos.show()
+            # elif self.__email == '':
+            #     if self.language == 'pt_BR':
+            #         self.label_message_preencher_campos.set_text('PREENCHA TODOS OS CAMPOS')
+            #     elif self.language == 'en_US':
+            #         self.label_message_preencher_campos.set_text('FILL IN ALL FIELDS')
+            #     self.dialog_message_preencher_campos.show()
+            # elif self.__telefone == '':
+            #     if self.language == 'pt_BR':
+            #         self.label_message_preencher_campos.set_text('PREENCHA TODOS OS CAMPOS')
+            #     elif self.language == 'en_US':
+            #         self.label_message_preencher_campos.set_text('FILL IN ALL FIELDS')
+            #     self.dialog_message_preencher_campos.show()
             """elif self.__quantidade_diaria == self.__quantidade_horas: #== self.__quantidade_minutos:
             if self.language == "pt_BR":
                 self.label_message_preencher_campos.set_text("PREENCHA TODOS OS CAMPOS")

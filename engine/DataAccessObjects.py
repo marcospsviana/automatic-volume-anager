@@ -166,18 +166,7 @@ class DataAccessObjectsManager(object):
 
         self.__conn.close()
 
-    def locar_armario(
-        self,
-        nome,
-        email,
-        telefone,
-        dia,
-        hora,
-        minuto,
-        armario,
-        language,
-        total,
-    ):
+    def locar_armario(self, nome, email, telefone, dia, hora, minuto, armario, language, total):
         port = ''
         dia = dia
         # dia = dia.replace(".0", "")

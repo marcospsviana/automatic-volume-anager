@@ -4,12 +4,12 @@ from cadastro_usuarios import CadastroUsuarios
 from controllers import Management
 from taxas import *
 
-gi.require_version('Gtk', '3.0')
 import locale
 from datetime import datetime, timedelta
 
 from gi.repository import Gdk, Gtk
-
+gi.require_version('Gtk', '3.0')
+gi.require_version('Gdk', '3.0')
 
 class WindowSelectHora:
     def __init__(self, *args):
