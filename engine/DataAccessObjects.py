@@ -9,11 +9,8 @@ import subprocess
 from random import choice, sample
 
 # from datetime import date, timedelta, time
-# import time
-from time import sleep
+import time
 
-# import sys, os
-# import asyncio
 import mysql.connector as mdb
 import pandas as pd
 
@@ -105,14 +102,9 @@ class DataAccessObjectsManager(object):
         __telefone = __telefone.replace(' ', '')
 
         print('__telefone', __telefone)
-        query_select_user = (
-            "SELECT * from tb_usuario where email= '%s' OR telefone= '%s'"
-            % (__email, __telefone)
-        )
+        query_select_user = "SELECT * from tb_usuario where email= '%s' OR telefone= '%s'" % (__email, __telefone)
         # self.__c.execute("SELECT * from tb_usuario where email= '%s' OR telefone= '%s'" % (__email, __telefone))
-        self.select = pd.read_sql(
-            query_select_user, self.__conn
-        )  # self.__c.fetchall()
+        self.select = pd.read_sql(query_select_user, self.__conn)  # self.__c.fetchall()
         print('self.select em create user', self.select)
 
         if self.select.empty:
@@ -205,20 +197,14 @@ class DataAccessObjectsManager(object):
         print(self.__data_locacao)
         # datetime.datetime(self.adiciona.year, self.adiciona.month, self.adiciona.day, self.__data_locacao.hour, self.__data_locacao.minute)
         self.__futuro = self.__data_locacao
-        self.__futuro = self.__futuro + datetime.timedelta(
-            days=self.__dia
-        )  # adiciona dias
+        self.__futuro = self.__futuro + datetime.timedelta(days=self.__dia)  # adiciona dias
         # adiciona horas ao tempo atual
         self.__futuro = self.__futuro + datetime.timedelta(hours=self.__hora)
-        self.__futuro = self.__futuro + datetime.timedelta(
-            minutes=self.__minuto
-        )  # adiciona minutos
+        self.__futuro = self.__futuro + datetime.timedelta(minutes=self.__minuto)  # adiciona minutos
         # registra a data limite para a não cobrança de taxa extra
         self.__data_limite = self.__futuro
 
-        self.__data_limite = self.__data_limite + datetime.timedelta(
-            minutes=10
-        )  # adiciona 10 minutos de tolerancia
+        self.__data_limite = self.__data_limite + datetime.timedelta(minutes=10)  # adiciona 10 minutos de tolerancia
         print('data limite para salvar no banco', self.__data_limite)
 
         __senha = ''
@@ -236,15 +222,8 @@ class DataAccessObjectsManager(object):
         resultado_transacao = TransacsOps.retorno_transacao()
         print('resultado_transacao', resultado_transacao['PWINFO_RESULTMSG'])
         print('testando o valor booleano')
-        print(
-            'autorizada'
-            or 'aprovada'
-            in str(resultado_transacao['PWINFO_RESULTMSG'].lower())
-        )
-        if (
-            'autorizada'
-            in (resultado_transacao['PWINFO_RESULTMSG'].lower()).split()
-        ):
+        print('autorizada' or 'aprovada' in str(resultado_transacao['PWINFO_RESULTMSG'].lower()))
+        if 'autorizada' in (resultado_transacao['PWINFO_RESULTMSG'].lower()).split():
             __senha = self.__get_passwd()
             print('self.__data_locacao', self.__data_locacao)
             print('self.__data_limite', self.__data_limite)
@@ -270,10 +249,7 @@ class DataAccessObjectsManager(object):
                 )
             )
 
-            self.__c.execute(
-                "UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = '%s'"
-                % (loca_armario[0])
-            )
+            self.__c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = '%s'" % (loca_armario[0]))
 
             self.__conn.commit()
             dao = DAON()
@@ -307,13 +283,8 @@ class DataAccessObjectsManager(object):
 
             self.__conn.commit()
 
-            compartimento_query = (
-                "select compartimento from tb_armario where id_armario = '%s'"
-                % (loca_armario[0])
-            )
-            compartimento_select = pd.read_sql(
-                compartimento_query, self.__conn
-            )
+            compartimento_query = "select compartimento from tb_armario where id_armario = '%s'" % (loca_armario[0])
+            compartimento_select = pd.read_sql(compartimento_query, self.__conn)
             self.__data_locacao = str(self.__data_locacao)
             self.__data_limite = str(self.__data_limite)
             mes_locacao = str(self.__data_locacao[5:7])
@@ -374,10 +345,7 @@ class DataAccessObjectsManager(object):
 
             return locacao_json
 
-        elif (
-            'aprovada'
-            in (resultado_transacao['PWINFO_RESULTMSG'].lower()).split()
-        ):
+        elif 'aprovada' in (resultado_transacao['PWINFO_RESULTMSG'].lower()).split():
             __senha = self.__get_passwd()
             print('self.__data_locacao', self.__data_locacao)
             print('self.__data_limite', self.__data_limite)
@@ -406,10 +374,7 @@ class DataAccessObjectsManager(object):
                 )
             )
 
-            self.__c.execute(
-                "UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = '%s'"
-                % (loca_armario[0])
-            )
+            self.__c.execute("UPDATE tb_armario SET estado = 'OCUPADO' where id_armario = '%s'" % (loca_armario[0]))
 
             self.__conn.commit()
             lista_persist = 'CBS_LOCPERSIST'
@@ -442,13 +407,8 @@ class DataAccessObjectsManager(object):
                 self.__total,
             )
 
-            compartimento_query = (
-                "select compartimento from tb_armario where id_armario = '%s'"
-                % (loca_armario[0])
-            )
-            compartimento_select = pd.read_sql(
-                compartimento_query, self.__conn
-            )
+            compartimento_query = "select compartimento from tb_armario where id_armario = '%s'" % (loca_armario[0])
+            compartimento_select = pd.read_sql(compartimento_query, self.__conn)
             self.__data_locacao = str(self.__data_locacao)
             self.__data_limite = str(self.__data_limite)
             mes_locacao = str(self.__data_locacao[5:7])
@@ -510,9 +470,7 @@ class DataAccessObjectsManager(object):
 
         else:
             print('falhou')
-            locacao_json_failure = {
-                'message': resultado_transacao['PWINFO_RESULTMSG']
-            }
+            locacao_json_failure = {'message': resultado_transacao['PWINFO_RESULTMSG']}
             return locacao_json_failure
         self.__conn.close()
 
@@ -551,11 +509,7 @@ class DataAccessObjectsManager(object):
         __password = senha  # _encode#.encode('utf-8')
 
         print('nome ou mail select user', __password)
-        query = (
-            "SELECT id_usuario FROM tb_locacao where senha = '"
-            + __password
-            + "'"
-        )
+        query = "SELECT id_usuario FROM tb_locacao where senha = '" + __password + "'"
         id_user = pd.read_sql(query, __conn)
         # query = __c.fetchall()
 
@@ -621,9 +575,7 @@ class DataAccessObjectsManager(object):
         # print('*** id usuario *** ', __id_user[0])
         # print(__senha)
         # __c.execute("SELECT id_armario, id_locacao, tempo_locado, data_locacao from tb_locacao where senha = '%s' AND id_usuario = '%s'" %(__senha,__id_user[0]))
-        dados = pd.read_sql(
-            "SELECT * from tb_locacao where senha = '%s'" % (__senha), __conn
-        )
+        dados = pd.read_sql("SELECT * from tb_locacao where senha = '%s'" % (__senha), __conn)
         # for reg in __c.next_proc_resultset():
         # __result = __c.fetchall()
         # print("888888 ---- result")
@@ -645,21 +597,14 @@ class DataAccessObjectsManager(object):
     def remover_armario(self, id_armario):
 
         self.__id = id_armario
-        self.__c.execute(
-            "SELECT estado  from tb_armario where id_armario = '%s'"
-            % (self.__id)
-        )
+        self.__c.execute("SELECT estado  from tb_armario where id_armario = '%s'" % (self.__id))
         result = self.__c.fetchall()
         if result == 'LIVRE':
-            self.__c.execute(
-                "DELETE FROM tb_armario where id_armario = '%s' " % (self.__id)
-            )
+            self.__c.execute("DELETE FROM tb_armario where id_armario = '%s' " % (self.__id))
         else:
             return 'não é possível remover armario, verifique se o mesmo não está em uso'
 
-    def cadastrar_armario(
-        self, classe, terminal, coluna, nivel, porta, compartimento
-    ):
+    def cadastrar_armario(self, classe, terminal, coluna, nivel, porta, compartimento):
 
         alfanum = string.digits + string.ascii_letters
         self.__classe = classe
@@ -744,8 +689,7 @@ class DataAccessObjectsManager(object):
         calculo_minuto = 0
         __minuto = minuto
         classe_armario = pd.read_sql(
-            "select classe from tb_armario where id_armario = '%s'"
-            % id_armario,
+            "select classe from tb_armario where id_armario = '%s'" % id_armario,
             __conn,
         )
         classe = str(classe_armario['classe'][0])
@@ -758,29 +702,13 @@ class DataAccessObjectsManager(object):
         elif __minuto > 30 and minuto <= 45:
             calculo_minuto = 3 / 4
         if classe == 'A':
-            valor_total = (
-                (dias * (TAXA_HORA_A * 24))
-                + (hora * TAXA_HORA_A)
-                + calculo_minuto * TAXA_HORA_A
-            )
+            valor_total = (dias * (TAXA_HORA_A * 24)) + (hora * TAXA_HORA_A) + calculo_minuto * TAXA_HORA_A
         elif classe == 'B':
-            valor_total = (
-                (dias * (TAXA_HORA_B * 24))
-                + (hora * TAXA_HORA_B)
-                + calculo_minuto * TAXA_HORA_B
-            )
+            valor_total = (dias * (TAXA_HORA_B * 24)) + (hora * TAXA_HORA_B) + calculo_minuto * TAXA_HORA_B
         elif classe == 'C':
-            valor_total = (
-                (dias * (TAXA_HORA_C * 24))
-                + (hora * TAXA_HORA_C)
-                + calculo_minuto * TAXA_HORA_C
-            )
+            valor_total = (dias * (TAXA_HORA_C * 24)) + (hora * TAXA_HORA_C) + calculo_minuto * TAXA_HORA_C
         elif classe == 'D':
-            valor_total = (
-                (dias * (TAXA_HORA_D * 24))
-                + (hora * TAXA_HORA_D)
-                + calculo_minuto * TAXA_HORA_D
-            )
+            valor_total = (dias * (TAXA_HORA_D * 24)) + (hora * TAXA_HORA_D) + calculo_minuto * TAXA_HORA_D
 
         # valor_total = ((dias *24 * 15) + (hora * TAXA) + calculo_minuto * TAXA)
         message = "tempo excedido cobrança de R$ : '%s'" % valor_total
@@ -811,9 +739,7 @@ class DataAccessObjectsManager(object):
         id_armario = ''
 
         hj = datetime.datetime.now()
-        hj = datetime.datetime(
-            hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second
-        )
+        hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
 
         hj = pd.to_datetime(hj)
 
@@ -823,8 +749,7 @@ class DataAccessObjectsManager(object):
             return 'senha incorreta, tente novamente'
         self.__locacao = self.get_locacao(senha)
         classe_armario = pd.read_sql(
-            "select classe from tb_armario where id_armario = '%s'"
-            % self.__locacao['id_armario'][0],
+            "select classe from tb_armario where id_armario = '%s'" % self.__locacao['id_armario'][0],
             self.__conn,
         )
         classe = str(classe_armario['classe'][0])
@@ -871,15 +796,10 @@ class DataAccessObjectsManager(object):
                 valor_total = int((dias_passados) * taxa_dia)
                 valor_total = int(valor_total + (calculo_minuto * taxa_minuto))
                 valor_total = int(valor_total + calculo_hora * taxa_hora)
-                result = self.cobranca_excedente(
-                    dias_passados, calculo_hora, calculo_minuto, id_armario
-                )  # (valor_total,hj)
+                result = self.cobranca_excedente(dias_passados, calculo_hora, calculo_minuto, id_armario)  # (valor_total,hj)
                 porta = self.select_port(id_armario)
                 self.port.exec_port(porta, 'abre', 'livre')
-                self.__c.execute(
-                    "SELECT valor_locacao from tb_locacao_persistence where id_usuario = '%s'"
-                    % (self.__id_user)
-                )
+                self.__c.execute("SELECT valor_locacao from tb_locacao_persistence where id_usuario = '%s'" % (self.__id_user))
                 valor_locacao_persist = self.__c.fetchone()
                 print('valor_locacao_persist --->', valor_locacao_persist)
                 """if valor_locacao_persist != None:
@@ -887,13 +807,8 @@ class DataAccessObjectsManager(object):
                     self.__c.execute(
                     "UPDATE tb_locacao_persistence set valor_locacao = '%s' WHERE id_armario = '%s'" % (valor_locacao, id_armario,))"""
 
-                self.__c.execute(
-                    "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,)
-                )
-                self.__c.execute(
-                    "UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'"
-                    % (id_armario,)
-                )
+                self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
+                self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (id_armario,))
 
                 self.__conn.commit()
 
@@ -903,34 +818,18 @@ class DataAccessObjectsManager(object):
                 return 'armario liberado'
 
             else:
-                query_data_locacao = (
-                    "select data_locacao from tb_locacao where senha = '%s'"
-                    % __senha
-                )
-                query_data_limite = (
-                    "select tempo_locado from tb_locacao where senha = '%s'"
-                    % __senha
-                )
-                self.__c.execute(
-                    "select dayname(data_locacao) from tb_locacao where senha = '%s'"
-                    % __senha
-                )
+                query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'" % __senha
+                query_data_limite = "select tempo_locado from tb_locacao where senha = '%s'" % __senha
+                self.__c.execute("select dayname(data_locacao) from tb_locacao where senha = '%s'" % __senha)
                 query_dia_semana_locacao = self.__c.fetchone()
-                self.__c.execute(
-                    "select dayname(tempo_locado) from tb_locacao where senha = '%s'"
-                    % __senha
-                )
+                self.__c.execute("select dayname(tempo_locado) from tb_locacao where senha = '%s'" % __senha)
                 query_dia_semana_locado = self.__c.fetchone()
                 df_data_locacao = pd.read_sql(query_data_locacao, self.__conn)
                 # data em que foi feita a locacao
-                data_locacao = str(
-                    pd.to_datetime(df_data_locacao.head().values[0][0])
-                )
+                data_locacao = str(pd.to_datetime(df_data_locacao.head().values[0][0]))
                 df_data_limite = pd.read_sql(query_data_limite, self.__conn)
                 # data e hora final da locacao
-                data_limite = str(
-                    pd.to_datetime(df_data_limite.head().values[0][0])
-                )
+                data_limite = str(pd.to_datetime(df_data_limite.head().values[0][0]))
                 mes_locacao = data_locacao[5:7]  # mes da locacao
                 dia_locacao = data_locacao[8:10]  # dia da locacao
                 hora_locacao = data_locacao[11:16]
@@ -953,9 +852,7 @@ class DataAccessObjectsManager(object):
                 tempo = (tempo.days * 24 * 60) + (tempo.seconds / 60)
                 print('-------> %s' % tempo)
                 __id_armario = self.__locacao['id_armario'][0]
-                result = self.cobranca_excedente(
-                    __dia_extra, __hora_extra, __minuto_extra, __id_armario
-                )
+                result = self.cobranca_excedente(__dia_extra, __hora_extra, __minuto_extra, __id_armario)
                 dados_locacao = {
                     'total': result,
                     'data_locacao': data_locacao,
@@ -998,10 +895,7 @@ class DataAccessObjectsManager(object):
         # __conn = data_dao.db_conn_string
         # __c = __conn.cursor(buffered=True)
         result = ''
-        self.__c.execute(
-            "select classe from tb_armario where estado = 'LIVRE' and classe = '%s'"
-            % self.classe
-        )
+        self.__c.execute("select classe from tb_armario where estado = 'LIVRE' and classe = '%s'" % self.classe)
         result = __c.fetchall()
         print('result data classe', result)
 
@@ -1025,9 +919,7 @@ class DataAccessObjectsManager(object):
 
         taxa = 15
         hj = datetime.datetime.now()
-        hj = datetime.datetime(
-            hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second
-        )
+        hj = datetime.datetime(hj.year, hj.month, hj.day, hj.hour, hj.minute, hj.second)
         # __cursor.execute("SELECT senha FROM tb_locacao WHERE id_armario = '%s'"%(id_armario))
 
         # __senha = senha.encode(encoding='utf-8', errors='strict')
@@ -1047,49 +939,30 @@ class DataAccessObjectsManager(object):
             if (self.__locacao['tempo_locado'][0]) >= hj:
                 # import threading
                 porta_armario = pd.read_sql(
-                    "SELECT id_armario FROM tb_locacao WHERE senha = '%s'"
-                    % (__senha,),
+                    "SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (__senha,),
                     self.__conn,
                 )
                 # self.__conn.commit()
                 # self.__conn.close()
                 # id_armario = __cursor.fetchall()
 
-                porta = self.select_port(
-                    porta_armario['id_armario'][0]
-                )  # id_armario[0][0])
+                porta = self.select_port(porta_armario['id_armario'][0])  # id_armario[0][0])
                 print('abrir armario data.py porta', str(porta))
                 self.port.exec_port(porta, 'abre', 'ocupado')
                 return 'armario liberado'
             else:
-                query_data_locacao = (
-                    "select data_locacao from tb_locacao where senha = '%s'"
-                    % __senha
-                )
-                query_data_limite = (
-                    "select tempo_locado from tb_locacao where senha = '%s'"
-                    % __senha
-                )
-                self.__c.execute(
-                    "select dayname(data_locacao) from tb_locacao where senha = '%s'"
-                    % __senha
-                )
+                query_data_locacao = "select data_locacao from tb_locacao where senha = '%s'" % __senha
+                query_data_limite = "select tempo_locado from tb_locacao where senha = '%s'" % __senha
+                self.__c.execute("select dayname(data_locacao) from tb_locacao where senha = '%s'" % __senha)
                 query_dia_semana_locacao = self.__c.fetchone()
-                self.__c.execute(
-                    "select dayname(tempo_locado) from tb_locacao where senha = '%s'"
-                    % __senha
-                )
+                self.__c.execute("select dayname(tempo_locado) from tb_locacao where senha = '%s'" % __senha)
                 query_dia_semana_locado = self.__c.fetchone()
                 df_data_locacao = pd.read_sql(query_data_locacao, self.__conn)
                 # data em que foi feita a locacao
-                data_locacao = str(
-                    pd.to_datetime(df_data_locacao.head().values[0][0])
-                )
+                data_locacao = str(pd.to_datetime(df_data_locacao.head().values[0][0]))
                 df_data_limite = pd.read_sql(query_data_limite, self.__conn)
                 # data e hora final da locacao
-                data_limite = str(
-                    pd.to_datetime(df_data_limite.head().values[0][0])
-                )
+                data_limite = str(pd.to_datetime(df_data_limite.head().values[0][0]))
                 mes_locacao = data_locacao[5:7]  # mes da locacao
                 dia_locacao = data_locacao[8:10]  # dia da locacao
                 hora_locacao = data_locacao[11:16]
@@ -1106,9 +979,7 @@ class DataAccessObjectsManager(object):
                 # hj.hour - self.__locacao[0][2].hour
                 __hora_extra = tempo.seconds // 3600
                 minuto = tempo.seconds / 3600
-                __minuto_extra = (
-                    tempo.seconds % 3600
-                ) // 60  # hj.minute - self.__locacao[0][2].minute
+                __minuto_extra = (tempo.seconds % 3600) // 60  # hj.minute - self.__locacao[0][2].minute
 
                 tempo = (tempo.days * 24 * 60) + (tempo.seconds / 60)
                 print('-------> %s' % tempo)
@@ -1141,17 +1012,10 @@ class DataAccessObjectsManager(object):
         # __senha = senha.encode(encoding='utf-8', errors='strict')
         # print('senha encode', senha)
         __senha = senha  # hashlib.sha3_512(senha).hexdigest()
-        self.__c.execute(
-            "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha)
-        )
-        id_armario = self.__c.execute(
-            "SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (__senha,)
-        )
+        self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha))
+        id_armario = self.__c.execute("SELECT id_armario FROM tb_locacao WHERE senha = '%s'" % (__senha,))
         print('finaliza_pagamento id armario', id_armario)
-        self.__c.execute(
-            "UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'"
-            % (id_armario,)
-        )
+        self.__c.execute("UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (id_armario,))
         self.__conn.commit()
 
         self.__conn.close()
@@ -1160,7 +1024,7 @@ class DataAccessObjectsManager(object):
     def pagamento(self, total, senha):
         subprocess.run('docker start paygoweb', shell=True)
         # subprocess.run('docker exec paygoweb /bin/bash -c "cd paygoweb/ && python3 venda.py"', shell=True)
-        sleep(0.3)
+        time.sleep(0.3)
         DAO.docker_run()
 
         __senha = senha
@@ -1173,22 +1037,16 @@ class DataAccessObjectsManager(object):
         resultado_transacao = TransacsOps.retorno_transacao()
         print('resultado_transacaok', resultado_transacao)
         if 'autorizada' in resultado_transacao['PWINFO_RESULTMSG'].lower():
+            self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
             self.__c.execute(
-                "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,)
-            )
-            self.__c.execute(
-                "UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'"
-                % (self.__locacao['id_armario'][0])
+                "UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (self.__locacao['id_armario'][0])
             )
             self.__conn.commit()
             self.__conn.close()
-            statment = (
-                "UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'"
-                % (self.__locacao['id_armario'][0])
-            )
+            statment = "UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (self.__locacao['id_armario'][0])
             subprocess.run('docker start mariadb_king', shell=True)
             DAO.docker_statment(statment)
-            sleep(1)
+            time.sleep(1)
             subprocess.run('docker stop mariadb_king', shell=True)
             __porta = self.select_port(self.__locacao['id_armario'][0])
             print('porta em pagamento', __porta)
@@ -1198,12 +1056,9 @@ class DataAccessObjectsManager(object):
             # self.ddao.finalizar(__senha, id_armario)
             return 'pagamento ok'
         elif 'aprovada' in resultado_transacao['PWINFO_RESULTMSG'].lower():
+            self.__c.execute("DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,))
             self.__c.execute(
-                "DELETE FROM tb_locacao WHERE senha = '%s'" % (__senha,)
-            )
-            self.__c.execute(
-                "UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'"
-                % (self.__locacao['id_armario'][0])
+                "UPDATE tb_armario set estado = 'LIVRE' WHERE id_armario = '%s'" % (self.__locacao['id_armario'][0])
             )
             self.__conn.commit()
             self.__conn.close()
@@ -1224,7 +1079,7 @@ class DataAccessObjectsManager(object):
         # subprocess("docker exec paygoweb cd paygoweb")
         DAO.docker_run()
 
-        sleep(2)
+        time.sleep(2)
         subprocess.run('docker stop paygoweb', shell=True)
         # print("informe o codigo")
 
@@ -1290,9 +1145,7 @@ class DataAccessObjectsManager(object):
         )
 
         self.__c = self.__conn.cursor(buffered=True)
-        self.__c.execute(
-            "select id_armario from tb_locacao where senha = '%s'" % senha
-        )
+        self.__c.execute("select id_armario from tb_locacao where senha = '%s'" % senha)
         result = self.__c.fetchall()
         return result
 

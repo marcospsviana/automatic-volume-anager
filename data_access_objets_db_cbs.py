@@ -110,10 +110,7 @@ class DataAccessObjectsBase(object):
         __nome = str(nome).lower()
         __email = str(email).lower()
         __telefone = str(telefone)
-        self.__cursor.execute(
-            "SELECT * from tb_usuario where email= '%s' OR telefone= '%s'"
-            % (__email, __telefone)
-        )
+        self.__cursor.execute("SELECT * from tb_usuario where email= '%s' OR telefone= '%s'" % (__email, __telefone))
         self.select = self.__cursor.fetchall()
 
         if self.select == [] or self.select == None:
@@ -137,17 +134,13 @@ class DataAccessObjectsBase(object):
             return consulta
 
         elif self.select[0][2] != __email and self.select[0][3] == __telefone:
-            self.__cursor.execute(
-                "UPDATE tb_usuario SET email = '%s' WHERE id_usuario = %s"
-                % (__email, self.select[0][0])
-            )
+            self.__cursor.execute("UPDATE tb_usuario SET email = '%s' WHERE id_usuario = %s" % (__email, self.select[0][0]))
             self.__conn.commit()
 
             return self.select[0][0]  # id_usuario
         elif self.select[0][2] == __email and self.select[0][3] != __telefone:
             self.__cursor.execute(
-                "UPDATE tb_usuario SET telefone = '%s' WHERE id_usuario = %s"
-                % (__telefone, self.select[0][0])
+                "UPDATE tb_usuario SET telefone = '%s' WHERE id_usuario = %s" % (__telefone, self.select[0][0])
             )
             self.__conn.commit()
             return self.select[0][0]

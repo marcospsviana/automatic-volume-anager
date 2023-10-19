@@ -6,9 +6,7 @@ from .DataAccessObjects import DataAccessObjectsManager as DAO
 
 class Armario:
     @classmethod
-    def cad_armario(
-        self, classe, terminal, coluna, nivel, porta, compartimento
-    ):
+    def cad_armario(self, classe, terminal, coluna, nivel, porta, compartimento):
 
         __dao = DAO()
         __classe = classe
@@ -17,9 +15,7 @@ class Armario:
         __nivel = nivel
         __porta = porta
         __compartimento = compartimento
-        result = __dao.cadastrar_armario(
-            __classe, __terminal, __coluna, __nivel, __porta, __compartimento
-        )
+        result = __dao.cadastrar_armario(__classe, __terminal, __coluna, __nivel, __porta, __compartimento)
         return result
 
     @classmethod

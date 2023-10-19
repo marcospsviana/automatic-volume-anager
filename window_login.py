@@ -36,12 +36,8 @@ class WindowLogin(Gtk.Window):
         )
         # ================ DIALOGS ==============================
         # self.dialog_cobranca = self.builder.get_object("dialog_cobranca")
-        self.dialog_senha_incorreta = self.builder.get_object(
-            'dialog_senha_incorreta'
-        )
-        self.dialog_instrucao_fecha_armario = self.builder.get_object(
-            'dialog_instrucao_fecha_armario'
-        )
+        self.dialog_senha_incorreta = self.builder.get_object('dialog_senha_incorreta')
+        self.dialog_instrucao_fecha_armario = self.builder.get_object('dialog_instrucao_fecha_armario')
 
         # ======== BOTOES DO TECLADO ============================
         for alfabet in self.alfa:
@@ -59,121 +55,61 @@ class WindowLogin(Gtk.Window):
         # self.button_fechar_armario = self.builder.get_object("button_fechar_armario")
         # self.button_fechar_armario.connect("button_press_event", self.on_button_fechar_armario_button_press_event)
 
-        self.btn_efetuar_pagamento = self.builder.get_object(
-            'btn_efetuar_pagamento'
-        )
+        self.btn_efetuar_pagamento = self.builder.get_object('btn_efetuar_pagamento')
         self.btn_efetuar_pagamento.connect(
             'button_press_event',
             self.on_btn_efetuar_pagamento_button_press_event,
         )
-        self.btn_encerrar_sessao = self.builder.get_object(
-            'btn_encerrar_sessao'
-        )
+        self.btn_encerrar_sessao = self.builder.get_object('btn_encerrar_sessao')
 
-        self.entry_entrada_dados = self.builder.get_object(
-            'entry_entrada_dados'
-        )
-        self.btn_confirmar_entrada_dados = self.builder.get_object(
-            'btn_confirmar_entrada_dados'
-        )
-        self.btn_retornar_entrada_dados = self.builder.get_object(
-            'btn_retornar_entrada_dados'
-        )
-        self.btn_retornar_entrada_dados.connect(
-            'clicked', self.on_btn_retornar_entrada_dados_pressed
-        )
-        self.btn_confirmar_entrada_dados.connect(
-            'clicked', self.on_btn_confirmar_entrada_dados_pressed
-        )
+        self.entry_entrada_dados = self.builder.get_object('entry_entrada_dados')
+        self.btn_confirmar_entrada_dados = self.builder.get_object('btn_confirmar_entrada_dados')
+        self.btn_retornar_entrada_dados = self.builder.get_object('btn_retornar_entrada_dados')
+        self.btn_retornar_entrada_dados.connect('clicked', self.on_btn_retornar_entrada_dados_pressed)
+        self.btn_confirmar_entrada_dados.connect('clicked', self.on_btn_confirmar_entrada_dados_pressed)
 
         # self.btn_window_payment_wait = self.builder.get_object("btn_window_payment_wait")
         # self.btn_window_payment_wait.connect("button_press_event", self.on_btn_window_payment_wait_button_press_event)
-        self.btn_tentar_dialog_senha_incorreta = self.builder.get_object(
-            'btn_tentar_dialog_senha_incorreta'
-        )
-        self.btn_tentar_dialog_senha_incorreta.connect(
-            'clicked', self.on_btn_tentar_dialog_senha_incorreta
-        )
-        self.btn_dialog_cancelar_senha_incorreta = self.builder.get_object(
-            'btn_dialog_cancelar_senha_incorreta'
-        )
-        self.btn_dialog_cancelar_senha_incorreta.connect(
-            'clicked', self.on_btn_dialog_cancelar_senha_incorreta
-        )
+        self.btn_tentar_dialog_senha_incorreta = self.builder.get_object('btn_tentar_dialog_senha_incorreta')
+        self.btn_tentar_dialog_senha_incorreta.connect('clicked', self.on_btn_tentar_dialog_senha_incorreta)
+        self.btn_dialog_cancelar_senha_incorreta = self.builder.get_object('btn_dialog_cancelar_senha_incorreta')
+        self.btn_dialog_cancelar_senha_incorreta.connect('clicked', self.on_btn_dialog_cancelar_senha_incorreta)
 
         # ========= LABELS =========================
         self.lbl_message = self.builder.get_object('lbl_message')
-        self.label_dialog_senha_incorreta = self.builder.get_object(
-            'label_dialog_senha_incorreta'
-        )
-        self.label_locacao_inicial = self.builder.get_object(
-            'label_locacao_inicial'
-        )
-        self.label_data_locacao_inicial = self.builder.get_object(
-            'label_data_locacao_inicial'
-        )
-        self.label_hour_locacao_inicial = self.builder.get_object(
-            'label_hour_locacao_inicial'
-        )
-        self.label_locacao_encerrada = self.builder.get_object(
-            'label_locacao_encerrada'
-        )
-        self.label_data_locacao_encerrada = self.builder.get_object(
-            'label_data_locacao_encerrada'
-        )
-        self.label_hour_locacao_encerrada = self.builder.get_object(
-            'label_hour_locacao_encerrada'
-        )
+        self.label_dialog_senha_incorreta = self.builder.get_object('label_dialog_senha_incorreta')
+        self.label_locacao_inicial = self.builder.get_object('label_locacao_inicial')
+        self.label_data_locacao_inicial = self.builder.get_object('label_data_locacao_inicial')
+        self.label_hour_locacao_inicial = self.builder.get_object('label_hour_locacao_inicial')
+        self.label_locacao_encerrada = self.builder.get_object('label_locacao_encerrada')
+        self.label_data_locacao_encerrada = self.builder.get_object('label_data_locacao_encerrada')
+        self.label_hour_locacao_encerrada = self.builder.get_object('label_hour_locacao_encerrada')
         self.label_tempo_extra = self.builder.get_object('label_tempo_extra')
-        self.label_tempo_extra_days = self.builder.get_object(
-            'label_tempo_extra_days'
-        )
-        self.label_tempo_extra_hours = self.builder.get_object(
-            'label_tempo_extra_hours'
-        )
-        self.label_tempo_extra_minutes = self.builder.get_object(
-            'label_tempo_extra_minutes'
-        )
+        self.label_tempo_extra_days = self.builder.get_object('label_tempo_extra_days')
+        self.label_tempo_extra_hours = self.builder.get_object('label_tempo_extra_hours')
+        self.label_tempo_extra_minutes = self.builder.get_object('label_tempo_extra_minutes')
         self.label_valor_extra = self.builder.get_object('label_valor_extra')
-        self.label_valor_extra_value = self.builder.get_object(
-            'label_valor_extra_value'
-        )
-        self.label_tempo_extra_days = self.builder.get_object(
-            'label_tempo_extra_days'
-        )
-        self.label_tempo_extra_hours = self.builder.get_object(
-            'label_tempo_extra_hours'
-        )
-        self.label_tempo_extra_minutes = self.builder.get_object(
-            'label_tempo_extra_minutes'
-        )
+        self.label_valor_extra_value = self.builder.get_object('label_valor_extra_value')
+        self.label_tempo_extra_days = self.builder.get_object('label_tempo_extra_days')
+        self.label_tempo_extra_hours = self.builder.get_object('label_tempo_extra_hours')
+        self.label_tempo_extra_minutes = self.builder.get_object('label_tempo_extra_minutes')
 
-        self.label_entrada_dados = self.builder.get_object(
-            'label_entrada_dados'
-        )
+        self.label_entrada_dados = self.builder.get_object('label_entrada_dados')
 
         self.label_instrucao = self.builder.get_object('label_instrucao')
 
-        self.label_window_erro_pagamentos = self.builder.get_object(
-            'label_window_erro_pagamentos'
-        )
+        self.label_window_erro_pagamentos = self.builder.get_object('label_window_erro_pagamentos')
         self.label_window_erro_pagamentos.set_line_wrap(True)
 
         self.label_menu = self.builder.get_object('label_menu')
 
         # ======================== BOTOES window_erro_pagamentos =================
-        self.btn_tente_novamente_window_erro_pagamentos = (
-            self.builder.get_object(
-                'btn_tente_novamente_window_erro_pagamentos'
-            )
-        )
+        self.btn_tente_novamente_window_erro_pagamentos = self.builder.get_object('btn_tente_novamente_window_erro_pagamentos')
         self.btn_tente_novamente_window_erro_pagamentos.connect(
             'button-press-event',
             self.on_btn_tente_novamente_window_erro_pagamentos_button_press_event,
         )
-        self.btn_cancelar_window_erro_pagamentos = self.builder.get_object(
-            'btn_cancelar_window_erro_pagamentos'
-        )
+        self.btn_cancelar_window_erro_pagamentos = self.builder.get_object('btn_cancelar_window_erro_pagamentos')
         self.btn_cancelar_window_erro_pagamentos.connect(
             'button-press-event',
             self.on_btn_cancelar_window_erro_pagamentos_button_press_event,
@@ -181,28 +117,18 @@ class WindowLogin(Gtk.Window):
 
         # ======================== BOTOES TELA OPCAO CARTAO ======================
         self.btn_credito = self.builder.get_object('btn_credito')
-        self.btn_credito.connect(
-            'button-press-event', self.on_btn_credito_button_press_event
-        )
+        self.btn_credito.connect('button-press-event', self.on_btn_credito_button_press_event)
         self.btn_debito = self.builder.get_object('btn_debito')
-        self.btn_debito.connect(
-            'button-press-event', self.on_btn_debito_button_press_event
-        )
-        self.btn_cancelar_escolha = self.builder.get_object(
-            'btn_cancelar_escolha'
-        )
-        self.btn_cancelar_escolha.connect(
-            'button-press-event', self.on_btn_cancelar_button_press_event
-        )
+        self.btn_debito.connect('button-press-event', self.on_btn_debito_button_press_event)
+        self.btn_cancelar_escolha = self.builder.get_object('btn_cancelar_escolha')
+        self.btn_cancelar_escolha.connect('button-press-event', self.on_btn_cancelar_button_press_event)
 
         # ========================= FIM OPCOES CARTAO ================================
 
         # ================== SET LANGUAGE ===================================
 
         if self.language == 'pt_BR':
-            self.label_dialog_senha_incorreta.set_text(
-                ' SENHA INCORRETA\nTENTE NOVAMENTE'
-            )
+            self.label_dialog_senha_incorreta.set_text(' SENHA INCORRETA\nTENTE NOVAMENTE')
             self.label_locacao_inicial.set_text('LOCAÇÃO INICIAL')
             self.label_locacao_encerrada.set_text('LOCAÇÃO ENCERRADA ÀS')
             self.label_tempo_extra.set_text('TEMPO EXTRA')
@@ -212,26 +138,18 @@ class WindowLogin(Gtk.Window):
             self.btn_confirmar_entrada_dados.set_label('CONFIRMAR')
             self.btn_retornar_entrada_dados.set_label('TELA ANTERIOR')
             self.btn_dialog_cancelar_senha_incorreta.set_label('CANCELAR')
-            self.btn_tentar_dialog_senha_incorreta.set_label(
-                'TENTAR NOVAMENTE'
-            )
+            self.btn_tentar_dialog_senha_incorreta.set_label('TENTAR NOVAMENTE')
             # self.button_fechar_armario.set_label("FECHAR ARMÁRIO")
-            self.btn_tente_novamente_window_erro_pagamentos.set_label(
-                'TENTE NOVAMENTE'
-            )
+            self.btn_tente_novamente_window_erro_pagamentos.set_label('TENTE NOVAMENTE')
             self.btn_cancelar_window_erro_pagamentos.set_label('CANCELAR')
             self.label_menu.set_text(' SELECIONE A OPÇÃO DE PAGAMENTO ')
             self.btn_credito.set_label('CRÉDITO')
             self.btn_debito.set_label('DÉBITO')
             self.btn_cancelar_escolha.set_label('CANCELAR')
-            self.label_instrucao.set_text(
-                'Obigado por utilizar nossos serviços! Lhe desejamos um dia incrível!'
-            )
+            self.label_instrucao.set_text('Obigado por utilizar nossos serviços! Lhe desejamos um dia incrível!')
 
         elif self.language == 'en_US':
-            self.label_dialog_senha_incorreta.set_text(
-                'WRONG PASSWORD\n  TRY AGAIN'
-            )
+            self.label_dialog_senha_incorreta.set_text('WRONG PASSWORD\n  TRY AGAIN')
             self.label_locacao_inicial.set_text('START DATE OF LEASE')
             self.label_locacao_encerrada.set_text('FINAL DATE OF LEASE')
             self.label_tempo_extra.set_text('TIME OVER')
@@ -243,28 +161,18 @@ class WindowLogin(Gtk.Window):
             self.btn_dialog_cancelar_senha_incorreta.set_label('CANCEL')
             self.btn_tentar_dialog_senha_incorreta.set_label('TRY AGAIN')
             # self.button_fechar_armario.set_label("CLOSE CABINET")
-            self.btn_tente_novamente_window_erro_pagamentos.set_label(
-                'TRY AGAIN'
-            )
+            self.btn_tente_novamente_window_erro_pagamentos.set_label('TRY AGAIN')
             self.btn_cancelar_window_erro_pagamentos.set_label('CANCEL')
             self.label_menu.set_text(' SELECT A PAYMENT OPTION ')
             self.btn_credito.set_label('CREDIT')
             self.btn_debito.set_label('DEBIT')
             self.btn_cancelar_escolha.set_label('CANCEL')
-            self.label_instrucao.set_text(
-                'Thanks for using our services. We desired an awesome day!'
-            )
+            self.label_instrucao.set_text('Thanks for using our services. We desired an awesome day!')
 
         # self.window_payment = self.builder.get_object("window_payment_wait")
-        self.window_pagamento_extra = self.builder.get_object(
-            'window_pagamento_extra'
-        )
-        self.window_select_cartao = self.builder.get_object(
-            'window_select_cartao_login'
-        )
-        self.window_erro_pagamentos = self.builder.get_object(
-            'window_erro_pagamento'
-        )
+        self.window_pagamento_extra = self.builder.get_object('window_pagamento_extra')
+        self.window_select_cartao = self.builder.get_object('window_select_cartao_login')
+        self.window_erro_pagamentos = self.builder.get_object('window_erro_pagamento')
         self.window_login = self.builder.get_object('window_login')
         self.window_login.show()
 
@@ -272,16 +180,12 @@ class WindowLogin(Gtk.Window):
         # self.window_payment.hide()
         self.window_erro_pagamentos.show()
 
-    def on_btn_tente_novamente_window_erro_pagamentos_button_press_event(
-        self, widget, event
-    ):
+    def on_btn_tente_novamente_window_erro_pagamentos_button_press_event(self, widget, event):
         self.window_erro_pagamentos.hide()
         # self.window_select_cartao.fullscreen()
         self.window_select_cartao.show()
 
-    def on_btn_cancelar_window_erro_pagamentos_button_press_event(
-        self, widget, event
-    ):
+    def on_btn_cancelar_window_erro_pagamentos_button_press_event(self, widget, event):
         self.window_erro_pagamentos.hide()
         # self.window_payment.hide()
         self.window_select_cartao.hide()

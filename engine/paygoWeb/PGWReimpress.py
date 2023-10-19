@@ -37,8 +37,7 @@ class Reimpress:
         self.pgWeb.PW_iNewTransac(E_PWOPER.PWOPER_ADMIN.value)
         try:
             f = open(
-                'comprovantes/REGISTRO DATA:%s %s %s .json'
-                % (data.day, data.month, data.year),
+                'comprovantes/REGISTRO DATA:%s %s %s .json' % (data.day, data.month, data.year),
                 'r+',
             )
             registro_json = f.read()
@@ -46,16 +45,13 @@ class Reimpress:
             registro_json = registro_json.replace(' ', '')
             registro_json = registro_json.replace('}{', '},{')
             registro_json = eval(registro_json)
-            PWINFO_TRNORIGDATE = data.strptime(
-                '%s%s%s' % (data.day, data.month, data.year), '%d%m%Y'
-            ).strftime('%d%m%Y')
+            PWINFO_TRNORIGDATE = data.strptime('%s%s%s' % (data.day, data.month, data.year), '%d%m%Y').strftime('%d%m%Y')
             f.close()
 
         except FileNotFoundError:
             data_anterior = data - timedelta(days=1)
             f = open(
-                'comprovantes/REGISTRO DATA:%s %s %s .json'
-                % (data.day, data.month, data.year),
+                'comprovantes/REGISTRO DATA:%s %s %s .json' % (data.day, data.month, data.year),
                 'r+',
             )
             registro_json = f.read()
@@ -64,8 +60,7 @@ class Reimpress:
             registro_json = registro_json.replace('}{', '},{')
             registro_json = eval(registro_json)
             PWINFO_TRNORIGDATE = data_anterior.strptime(
-                '%s%s%s'
-                % (data_anterior.day, data_anterior.month, data_anterior.year),
+                '%s%s%s' % (data_anterior.day, data_anterior.month, data_anterior.year),
                 '%d%m%Y',
             ).strftime('%d%m%Y')
             f.close()
@@ -86,39 +81,23 @@ class Reimpress:
             PWINFO_AUTHSYST = registro_json[-1]['PWINFO_AUTHSYST']
 
         # MANDADATORY PARAMS
-        self.pgWeb.PW_iAddParam(
-            E_PWINFO.PWINFO_AUTNAME.value, 'COOLBAGSAFE-RENTLOCKER'
-        )
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTNAME.value, 'COOLBAGSAFE-RENTLOCKER')
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTVER.value, '1.0')
         self.pgWeb.PW_iAddParam(
             E_PWINFO.PWINFO_AUTDEV.value,
             'COOLBAG-SAFE GUARDA BAGAGENS AUTOMATIZADO',
         )
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTCAP.value, '28')
-        self.pgWeb.PW_iAddParam(
-            E_PWINFO.PWINFO_CURRENCY.value, '986'
-        )  # MOEDA: REAL
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURRENCY.value, '986')  # MOEDA: REAL
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_CURREXP.value, '2')
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_POSID.value, '62547')
-        self.pgWeb.PW_iAddParam(
-            E_PWINFO.PWINFO_TRNORIGDATE.value, PWINFO_TRNORIGDATE
-        )
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_TRNORIGDATE.value, PWINFO_TRNORIGDATE)
         self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_REQNUM.value, PWINFO_REQNUM)
-        self.pgWeb.PW_iAddParam(
-            E_PWINFO.PWINFO_AUTLOCREF.value, PWINFO_AUTLOCREF
-        )
-        self.pgWeb.PW_iAddParam(
-            E_PWINFO.PWINFO_AUTEXTREF.value, PWINFO_AUTEXTREF
-        )
-        self.pgWeb.PW_iAddParam(
-            E_PWINFO.PWINFO_VIRTMERCH.value, PWINFO_VIRTMERCH
-        )
-        self.pgWeb.PW_iAddParam(
-            E_PWINFO.PWINFO_AUTHSYST.value, PWINFO_AUTHSYST
-        )
-        self.pgWeb.PW_iAddParam(
-            E_PWINFO.PWINFO_LOCALINFO1.value, 'REIMPRESSAO'
-        )
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTLOCREF.value, PWINFO_AUTLOCREF)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTEXTREF.value, PWINFO_AUTEXTREF)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_VIRTMERCH.value, PWINFO_VIRTMERCH)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_AUTHSYST.value, PWINFO_AUTHSYST)
+        self.pgWeb.PW_iAddParam(E_PWINFO.PWINFO_LOCALINFO1.value, 'REIMPRESSAO')
 
         input()
 
@@ -228,47 +207,31 @@ class Reimpress:
             -2199,
             -2200,
         ]
-        if (
-            ret == E_PWRET.PWRET_MOREDATA.value
-            or ret == E_PWRET.PWRET_NOTHING.value
-            or (ret in list_errors_pinpad)
-        ):
+        if ret == E_PWRET.PWRET_MOREDATA.value or ret == E_PWRET.PWRET_NOTHING.value or (ret in list_errors_pinpad):
             print('retorno transacao', ret)
 
-            while (
-                ret == -2497
-                or ret == E_PWRET.PWRET_NOTHING.value
-                or (ret in list_errors_pinpad)
-            ):
+            while ret == -2497 or ret == E_PWRET.PWRET_NOTHING.value or (ret in list_errors_pinpad):
 
                 # PERCORRE OS DADOS E RECUPERA OS FALTANTES
                 ret = self.pgWeb.PW_iExecGetData(vstParam, iNumParam)
                 print('ret exectransac venda', ret)
 
-                if ret == E_PWRET.PWRET_CANCEL.value or (
-                    ret in list_errors_pinpad
-                ):
+                if ret == E_PWRET.PWRET_CANCEL.value or (ret in list_errors_pinpad):
                     print('E_PWRET.PWRET_CANCEL')
                     self.pgWeb.PW_iPPAbort()
-                    retEventLoop = self.pgWeb.PW_iPPEventLoop(
-                        self.szDspMsg, sizeof(self.szDspMsg)
-                    )
+                    retEventLoop = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
                     print('retEventLoop', retEventLoop)
                     return retEventLoop
 
                 elif ret == E_PWRET.PWRET_HOSTTIMEOUT.value:
                     self.pgWeb.PW_iPPAbort()
-                    retEventLoop = self.pgWeb.PW_iPPEventLoop(
-                        self.szDspMsg, sizeof(self.szDspMsg)
-                    )
+                    retEventLoop = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
                     print('retEventLoop', retEventLoop)
                     return retEventLoop
                 elif ret == E_PWRET.PWRET_REQPARAM.value:
                     print('PWRET_REQPARAM', E_PWRET.PWRET_REQPARAM.value)
                     self.pgWeb.PW_iPPAbort()
-                    retEventLoop = self.pgWeb.PW_iPPEventLoop(
-                        self.szDspMsg, sizeof(self.szDspMsg)
-                    )
+                    retEventLoop = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
                     print('retEventLoop', retEventLoop)
                     return retEventLoop
                 elif ret == E_PWRET.PWRET_FROMHOSTPENDTRN.value:
@@ -276,12 +239,8 @@ class Reimpress:
                         'PWRET_FROMHOSTPENDTRN',
                         E_PWRET.PWRET_FROMHOSTPENDTRN.value,
                     )
-                    self.confirmPendTransaction(
-                        transactionStatus=1, transactionResponse=ret
-                    )
-                    retEventLoop = self.pgWeb.PW_iPPEventLoop(
-                        self.szDspMsg, sizeof(self.szDspMsg)
-                    )
+                    self.confirmPendTransaction(transactionStatus=1, transactionResponse=ret)
+                    retEventLoop = self.pgWeb.PW_iPPEventLoop(self.szDspMsg, sizeof(self.szDspMsg))
                     print('retEventLoop', retEventLoop)
                     return retEventLoop
 
@@ -290,35 +249,25 @@ class Reimpress:
                 print('ret ---->', ret)
 
         # OBTENDO INFORMACOES DA TRANSACAO
-        self.pgWeb.PW_iGetResult(
-            E_PWINFO.PWINFO_REQNUM.value, szAux, sizeof(szAux)
-        )
+        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_REQNUM.value, szAux, sizeof(szAux))
         PWINFO_REQNUM = szAux.value.decode('utf-8')
         print('PWINFO_REQNUM', PWINFO_REQNUM)
         sleep(0.1)
-        self.pgWeb.PW_iGetResult(
-            E_PWINFO.PWINFO_AUTLOCREF.value, szAux, sizeof(szAux)
-        )
+        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_AUTLOCREF.value, szAux, sizeof(szAux))
         PWINFO_AUTLOCREF = szAux.value.decode('utf-8')
         print('PWINFO_AUTLOCREF', PWINFO_AUTLOCREF)
         sleep(0.1)
-        self.pgWeb.PW_iGetResult(
-            E_PWINFO.PWINFO_AUTEXTREF.value, szAux, sizeof(szAux)
-        )
+        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_AUTEXTREF.value, szAux, sizeof(szAux))
         PWINFO_AUTEXTREF = szAux.value.decode('utf-8')
         print('PWINFO_AUTEXTREF', PWINFO_AUTEXTREF)
         if PWINFO_AUTEXTREF == None or PWINFO_AUTEXTREF == '':
             PWINFO_AUTEXTREF = '0'
         sleep(0.1)
-        self.pgWeb.PW_iGetResult(
-            E_PWINFO.PWINFO_VIRTMERCH.value, szAux, sizeof(szAux)
-        )
+        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_VIRTMERCH.value, szAux, sizeof(szAux))
         PWINFO_VIRTMERCH = szAux.value.decode('utf-8')
         print('PWINFO_VIRTMERCH', PWINFO_VIRTMERCH)
         sleep(0.1)
-        self.pgWeb.PW_iGetResult(
-            E_PWINFO.PWINFO_AUTHSYST.value, szAux, sizeof(szAux)
-        )
+        self.pgWeb.PW_iGetResult(E_PWINFO.PWINFO_AUTHSYST.value, szAux, sizeof(szAux))
         PWINFO_AUTHSYST = szAux.value.decode('utf-8')
         print('PWINFO_AUTHSYST', PWINFO_AUTHSYST)
         sleep(0.1)

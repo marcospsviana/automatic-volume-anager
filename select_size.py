@@ -45,9 +45,7 @@ class SelectSize(object):
         # self.btn_malasx2.connect("button_press_event", self.on_btn_malasx2_button_press_event)
         self.btn_mochilasx2 = self.builder.get_object('btn_mochilasx2')
         # self.btn_mochilasx2.connect("button_press_event", self.on_btn_mochilasx2_button_press_event)
-        self.btn_cameraenotebook = self.builder.get_object(
-            'btn_cameraenotebook'
-        )
+        self.btn_cameraenotebook = self.builder.get_object('btn_cameraenotebook')
         # self.btn_cameraenotebook.connect("button_press_event", self.on_btn_cameraenotebook_button_press_event)
         self.btn_retornar = self.builder.get_object('btn_retornar')
         # self.btn_retornar.connect("button_press_event", self.on_btn_retornar_button_press_event)
@@ -67,13 +65,9 @@ class SelectSize(object):
         self.label_malasx4 = self.builder.get_object('label_malasx4')
         self.label_malasx2 = self.builder.get_object('label_malasx2')
         self.label_mochilasx2 = self.builder.get_object('label_mochilasx2')
-        self.label_cameraenotebook = self.builder.get_object(
-            'label_cameraenotebook'
-        )
+        self.label_cameraenotebook = self.builder.get_object('label_cameraenotebook')
 
-        self.label_titulo_select_size = self.builder.get_object(
-            'label_titulo_select_size'
-        )
+        self.label_titulo_select_size = self.builder.get_object('label_titulo_select_size')
 
         self.label_horario = self.builder.get_object('label_horario')
         self.label_data = self.builder.get_object('label_data')
@@ -94,12 +88,8 @@ class SelectSize(object):
 
         # WINDOW DIALOG UNAVAILABLE
         self.dialog_unavailable = self.builder.get_object('dialog_unavailable')
-        self.label_message_armario_unavailable = self.builder.get_object(
-            'label_message_armario_unavailable'
-        )
-        self.btn_dialog_unavailable = self.builder.get_object(
-            'btn_dialog_unavailable'
-        )
+        self.label_message_armario_unavailable = self.builder.get_object('label_message_armario_unavailable')
+        self.btn_dialog_unavailable = self.builder.get_object('btn_dialog_unavailable')
         self.btn_dialog_unavailable.connect(
             'button_press_event',
             self.on_btn_dialog_unavailable_button_press_event,
@@ -113,9 +103,7 @@ class SelectSize(object):
             # self.btn_confirmar.set_label("CONFIRMAR")
             self.btn_retornar.set_label('TELA ANTERIOR')
             # self.btn_tamanhos_tarifas.set_label("TAMANHOS E TARIFAS")
-            self.label_titulo_select_size.set_text(
-                'ESCOLHA o TAMANHO do COFRE DESEJADO!'
-            )
+            self.label_titulo_select_size.set_text('ESCOLHA o TAMANHO do COFRE DESEJADO!')
 
         elif self.language == 'en_US':
             self.label_malasx4.set_text('IDEAL FOR')
@@ -125,9 +113,7 @@ class SelectSize(object):
             # self.btn_confirmar.set_label("CONFIRM")
             self.btn_retornar.set_label('PREVIOUS SCREEN')
             # self.btn_tamanhos_tarifas.set_label("SIZES AND RATES")
-            self.label_titulo_select_size.set_text(
-                'CHOOSE THE DESIRED SAFE SIZE!'
-            )
+            self.label_titulo_select_size.set_text('CHOOSE THE DESIRED SAFE SIZE!')
 
         classes = self.manager.lista_armarios()
         if 'A' not in np.array(classes):
@@ -188,13 +174,9 @@ class SelectSize(object):
         else:
             self.classe = ''
             if self.language == 'pt_BR':
-                self.label_message_armario_unavailable.set_text(
-                    ' INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! '
-                )
+                self.label_message_armario_unavailable.set_text(' INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! ')
             elif self.language == 'en_US':
-                self.label_message_armario_unavailable.set_text(
-                    ' UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! '
-                )
+                self.label_message_armario_unavailable.set_text(' UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ')
             # self.dialog_unavailable.show()
             self.btn_malasx4.set_name('btn_malasx4_inativo')
 
@@ -209,13 +191,9 @@ class SelectSize(object):
         else:
             self.classe = ''
             if self.language == 'pt_BR':
-                self.label_message_armario_unavailable.set_text(
-                    ' INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! '
-                )
+                self.label_message_armario_unavailable.set_text(' INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! ')
             elif self.language == 'en_US':
-                self.label_message_armario_unavailable.set_text(
-                    ' UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! '
-                )
+                self.label_message_armario_unavailable.set_text(' UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ')
             # self.dialog_unavailable.show()
             self.btn_malasx2.set_name('btn_malasx2_inativo')
             print('não tem')
@@ -233,13 +211,9 @@ class SelectSize(object):
         else:
             self.classe = ''
             if self.language == 'pt_BR':
-                self.label_message_armario_unavailable.set_text(
-                    ' INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! '
-                )
+                self.label_message_armario_unavailable.set_text(' INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! ')
             elif self.language == 'en_US':
-                self.label_message_armario_unavailable.set_text(
-                    ' UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! '
-                )
+                self.label_message_armario_unavailable.set_text(' UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ')
             # self.dialog_unavailable.show()
             self.btn_mochilasx2.set_name('btn_mochilasx2_inativo')
 
@@ -255,13 +229,9 @@ class SelectSize(object):
         else:
             self.classe = ''
             if self.language == 'pt_BR':
-                self.label_message_armario_unavailable.set_text(
-                    ' INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! '
-                )
+                self.label_message_armario_unavailable.set_text(' INDISPONÍVEL, POR FAVOR ESCOLHA OUTRO TAMANHO! ')
             elif self.language == 'en_US':
-                self.label_message_armario_unavailable.set_text(
-                    ' UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! '
-                )
+                self.label_message_armario_unavailable.set_text(' UNAVAILABLE, PLEASE SELECT ANOTHER SIZE! ')
             # self.dialog_unavailable.show()
             self.btn_cameraenotebook.set_name('btn_cameraenotebook_inativo')
 
@@ -281,71 +251,45 @@ class SelectSize(object):
 
     def on_btn_br_button_press_event(self, event, arg):
         self.language = 'pt_BR'
-        if (
-            self.label_malasx4.get_label() == 'UNAVAILABLE'
-            or self.label_malasx4.get_label() == 'INDISPONÍVEL'
-        ):
+        if self.label_malasx4.get_label() == 'UNAVAILABLE' or self.label_malasx4.get_label() == 'INDISPONÍVEL':
             self.label_malasx4.set_text('INDISPONÍVEL')
         else:
             self.label_malasx4.set_text('IDEAL PARA')
 
-        if (
-            self.label_malasx2.get_label() == 'UNAVAILABLE'
-            or self.label_malasx2.get_label() == 'INDISPONÍVEL'
-        ):
+        if self.label_malasx2.get_label() == 'UNAVAILABLE' or self.label_malasx2.get_label() == 'INDISPONÍVEL':
             self.label_malasx2.set_text('INDISPONÍVEL')
         else:
             self.label_malasx2.set_text('IDEAL PARA')
-        if (
-            self.label_mochilasx2.get_label() == 'UNAVAILABLE'
-            or self.label_mochilasx2.get_label() == 'INDISPONÍVEL'
-        ):
+        if self.label_mochilasx2.get_label() == 'UNAVAILABLE' or self.label_mochilasx2.get_label() == 'INDISPONÍVEL':
             self.label_mochilasx2.set_text('INDISPONÍVEL')
         else:
             self.label_mochilasx2.set_text('IDEAL PARA')
-        if (
-            self.label_cameraenotebook.get_label() == 'UNAVAILABLE'
-            or self.label_cameraenotebook.get_label() == 'INDISPONÍVEL'
-        ):
+        if self.label_cameraenotebook.get_label() == 'UNAVAILABLE' or self.label_cameraenotebook.get_label() == 'INDISPONÍVEL':
             self.label_cameraenotebook.set_text('INDISPONÍVEL')
         else:
             self.label_cameraenotebook.set_text('IDEAL PARA')
         # self.btn_confirmar.set_label("CONFIRMAR")
         self.btn_retornar.set_label('TELA ANTERIOR')
         # self.btn_tamanhos_tarifas.set_label("TAMANHOS E TARIFAS")
-        self.label_titulo_select_size.set_text(
-            'ESCOLHA o TAMANHO do COFRE DESEJADO!'
-        )
+        self.label_titulo_select_size.set_text('ESCOLHA o TAMANHO do COFRE DESEJADO!')
 
     def on_btn_usa_button_press_event(self, event, arg):
         self.language = 'en_US'
         print('en_US')
-        if (
-            self.label_malasx4.get_label() == 'INDISPONÍVEL'
-            or self.label_malasx4.get_label() == 'UNAVAILABLE'
-        ):
+        if self.label_malasx4.get_label() == 'INDISPONÍVEL' or self.label_malasx4.get_label() == 'UNAVAILABLE':
             self.label_malasx4.set_text('UNAVAILABLE')
         else:
             self.label_malasx4.set_text('IDEAL FOR')
 
-        if (
-            self.label_malasx2.get_label() == 'INDISPONÍVEL'
-            or self.label_malasx2.get_label() == 'UNAVAILABLE'
-        ):
+        if self.label_malasx2.get_label() == 'INDISPONÍVEL' or self.label_malasx2.get_label() == 'UNAVAILABLE':
             self.label_malasx2.set_text('UNAVAILABLE')
         else:
             self.label_malasx2.set_text('IDEAL FOR')
-        if (
-            self.label_mochilasx2.get_label() == 'INDISPONÍVEL'
-            or self.label_mochilasx2.get_label() == 'UNAVAILABLE'
-        ):
+        if self.label_mochilasx2.get_label() == 'INDISPONÍVEL' or self.label_mochilasx2.get_label() == 'UNAVAILABLE':
             self.label_mochilasx2.set_text('UNAVAILABLE')
         else:
             self.label_mochilasx2.set_text('IDEAL FOR')
-        if (
-            self.label_cameraenotebook.get_label() == 'INDISPONÍVEL'
-            or self.label_cameraenotebook.get_label() == 'UNAVAILABLE'
-        ):
+        if self.label_cameraenotebook.get_label() == 'INDISPONÍVEL' or self.label_cameraenotebook.get_label() == 'UNAVAILABLE':
             self.label_cameraenotebook.set_text('UNAVAILABLE')
         else:
             self.label_cameraenotebook.set_text('IDEAL FOR')

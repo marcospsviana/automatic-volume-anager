@@ -5,22 +5,14 @@ from controllers import Management
 from taxas import *
 
 gi.require_version('Gtk', '3.0')
-import calendar
 import locale
-import string
-import time
 from datetime import datetime, timedelta
-from time import sleep
 
 from gi.repository import Gdk, Gtk
 
 
 class WindowSelectHora:
     def __init__(self, *args):
-        # teste = args
-        # print("op diaria", teste)
-        # self.classe = args[0]
-        # self.language = args[1]
         self.tempo_locacao = args[0]
         self.classe = args[1][0]
         self.language = args[2]
@@ -45,17 +37,11 @@ class WindowSelectHora:
             }
         )
 
-        self.window_select_horas = self.builder.get_object(
-            'window_select_horas'
-        )
+        self.window_select_horas = self.builder.get_object('window_select_horas')
 
-        self.bnt_confirmar_select_horas = self.builder.get_object(
-            'bnt_confirmar_select_horas'
-        )
+        self.bnt_confirmar_select_horas = self.builder.get_object('bnt_confirmar_select_horas')
         # self.bnt_confirmar_select_horas.connect("button_press_event", self.on_bnt_confirmar_select_horas_button_press_event)
-        self.btn_cancelar_select_hora = self.builder.get_object(
-            'btn_cancelar_select_hora'
-        )
+        self.btn_cancelar_select_hora = self.builder.get_object('btn_cancelar_select_hora')
         # self.btn_cancelar_select_hora.connect("button_press_event", self.on_btn_cancelar_select_hora_button_press_event)
 
         self.btn1 = self.builder.get_object('btn1')
@@ -91,57 +77,25 @@ class WindowSelectHora:
         self.btn7.connect('button_press_event', self.on_btn_button_press_event)
         self.btn8.connect('button_press_event', self.on_btn_button_press_event)
         self.btn9.connect('button_press_event', self.on_btn_button_press_event)
-        self.btn10.connect(
-            'button_press_event', self.on_btn_button_press_event
-        )
-        self.btn11.connect(
-            'button_press_event', self.on_btn_button_press_event
-        )
-        self.btn12.connect(
-            'button_press_event', self.on_btn_button_press_event
-        )
-        self.btn13.connect(
-            'button_press_event', self.on_btn_button_press_event
-        )
-        self.btn14.connect(
-            'button_press_event', self.on_btn_button_press_event
-        )
-        self.btn15.connect(
-            'button_press_event', self.on_btn_button_press_event
-        )
-        self.btn16.connect(
-            'button_press_event', self.on_btn_button_press_event
-        )
-        self.btn17.connect(
-            'button_press_event', self.on_btn_button_press_event
-        )
-        self.btn18.connect(
-            'button_press_event', self.on_btn_button_press_event
-        )
-        self.btn19.connect(
-            'button_press_event', self.on_btn_button_press_event
-        )
-        self.btn20.connect(
-            'button_press_event', self.on_btn_button_press_event
-        )
-        self.btn21.connect(
-            'button_press_event', self.on_btn_button_press_event
-        )
-        self.btn22.connect(
-            'button_press_event', self.on_btn_button_press_event
-        )
-        self.btn23.connect(
-            'button_press_event', self.on_btn_button_press_event
-        )
-        self.btn24.connect(
-            'button_press_event', self.on_btn_button_press_event
-        )
+        self.btn10.connect('button_press_event', self.on_btn_button_press_event)
+        self.btn11.connect('button_press_event', self.on_btn_button_press_event)
+        self.btn12.connect('button_press_event', self.on_btn_button_press_event)
+        self.btn13.connect('button_press_event', self.on_btn_button_press_event)
+        self.btn14.connect('button_press_event', self.on_btn_button_press_event)
+        self.btn15.connect('button_press_event', self.on_btn_button_press_event)
+        self.btn16.connect('button_press_event', self.on_btn_button_press_event)
+        self.btn17.connect('button_press_event', self.on_btn_button_press_event)
+        self.btn18.connect('button_press_event', self.on_btn_button_press_event)
+        self.btn19.connect('button_press_event', self.on_btn_button_press_event)
+        self.btn20.connect('button_press_event', self.on_btn_button_press_event)
+        self.btn21.connect('button_press_event', self.on_btn_button_press_event)
+        self.btn22.connect('button_press_event', self.on_btn_button_press_event)
+        self.btn23.connect('button_press_event', self.on_btn_button_press_event)
+        self.btn24.connect('button_press_event', self.on_btn_button_press_event)
 
         self.btn24.set_name('focado')
 
-        self.label_valor_total_value = self.builder.get_object(
-            'label_valor_total_value'
-        )
+        self.label_valor_total_value = self.builder.get_object('label_valor_total_value')
 
         self.window_select_horas.show()
 
@@ -155,9 +109,7 @@ class WindowSelectHora:
         self.total = self.label_valor_total_value.get_text()
         dia = 0
         self.window_select_horas.hide()
-        CadastroUsuarios(
-            self.total, self.language, self.classe, dia, self.hora
-        )
+        CadastroUsuarios(self.total, self.language, self.classe, dia, self.hora)
 
     def on_btn_cancelar_select_hora_button_press_event(self, widget, event):
         self.label_valor_total_value.set_text('')

@@ -1,14 +1,13 @@
 import gi
+from gi.repository import Gdk, GdkPixbuf, Gio, GLib, GObject, Gtk
 
 import select_size
 from controllers import Management
 from select_diaria import WindowCalendario
 from select_hora import SelectHora
+from datetime import datetime
 
 gi.require_version('Gtk', '3.0')
-from datetime import datetime, timedelta
-
-from gi.repository import Gdk, GdkPixbuf, Gio, GLib, GObject, Gtk
 
 
 class OpcaoHoraDiaria(object):
@@ -19,9 +18,7 @@ class OpcaoHoraDiaria(object):
         self.language = args[1]
         self.builder = Gtk.Builder()
         self.builder.add_from_file('ui/locacar_hora_diaria.glade')
-        self.window_hora_diaria = self.builder.get_object(
-            'window_op_hora_diaria'
-        )
+        self.window_hora_diaria = self.builder.get_object('window_op_hora_diaria')
         self.list_store_flags = self.builder.get_object('list_store_flags')
         self.builder.connect_signals(
             {
@@ -36,9 +33,7 @@ class OpcaoHoraDiaria(object):
         self.label_data = self.builder.get_object('label_data')
         self.label_por_hora = self.builder.get_object('label_por_hora')
         self.label_por_diaria = self.builder.get_object('label_por_diaria')
-        self.btn_tela_hora_diaria = self.builder.get_object(
-            'btn_tela_hora_diaria'
-        )
+        self.btn_tela_hora_diaria = self.builder.get_object('btn_tela_hora_diaria')
         self.btn_usa = self.builder.get_object('btn_usa')
         self.btn_br = self.builder.get_object('btn_br')
 

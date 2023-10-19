@@ -35,12 +35,8 @@ class SelectOption(object):
         self.btn_flag_usa = self.builder.get_object('btn_flag_usa')
         self.btn_flag_br.connect('clicked', self.on_change_language_br)
         self.btn_flag_usa.connect('clicked', self.on_change_language_usa)
-        self.label_iniciar_reserva = self.builder.get_object(
-            'label_iniciar_reserva'
-        )
-        self.label_concluir_reserva = self.builder.get_object(
-            'label_concluir_reserva'
-        )
+        self.label_iniciar_reserva = self.builder.get_object('label_iniciar_reserva')
+        self.label_concluir_reserva = self.builder.get_object('label_concluir_reserva')
         self.label_abrir_cofre = self.builder.get_object('label_abrir_cofre')
         # self.label_tamanhos_tafifas = self.builder.get_object("label_tamanhos_tafifas")
         # =========== BUTTONS IMAGES =========================
@@ -57,12 +53,8 @@ class SelectOption(object):
         self.image_open_safe.set_from_file('static/images/open_safe.svg')
         self.image_start_reservation.set_from_file('static/images/reserve.svg')
         self.image_iniciar_reserva.set_from_file('static/images/reservar.svg')
-        self.image_concluir_reserva.set_from_file(
-            'static/images/concluir_reserva.svg'
-        )
-        self.image_complete_reservation.set_from_file(
-            'static/images/finalize_location.svg'
-        )
+        self.image_concluir_reserva.set_from_file('static/images/concluir_reserva.svg')
+        self.image_complete_reservation.set_from_file('static/images/finalize_location.svg')
         # self.image_precos_medidas.set_from_file("static/images/precosmedidas.svg")
         # self.image_sizes_rates.set_from_file("static/images/sizes_rates.svg")
 

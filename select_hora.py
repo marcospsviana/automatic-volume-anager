@@ -52,26 +52,16 @@ class SelectHora(object):
         self.btn_aumenta_hora = self.builder.get_object('btn_aumenta_hora')
         self.btn_diminui_minuto = self.builder.get_object('btn_diminui_minuto')
         self.btn_aumenta_minuto = self.builder.get_object('btn_aumenta_minuto')
-        self.btn_retornar_select_hora = self.builder.get_object(
-            'btn_retornar_select_hora'
-        )
-        self.btn_confirmar_select_hora = self.builder.get_object(
-            'btn_confirmar_select_hora'
-        )
+        self.btn_retornar_select_hora = self.builder.get_object('btn_retornar_select_hora')
+        self.btn_confirmar_select_hora = self.builder.get_object('btn_confirmar_select_hora')
 
-        self.label_hora_ecolhida = self.builder.get_object(
-            'label_hora_ecolhida'
-        )
+        self.label_hora_ecolhida = self.builder.get_object('label_hora_ecolhida')
         # self.label_hora_ecolhida_up = self.builder.get_object("label_hora_ecolhida_up")
         # s#elf.label_hora_ecolhida_down = self.builder.get_object("label_hora_ecolhida_down")
         # self.label_minuto_ecolhido = self.builder.get_object("label_minuto_ecolhido")
         # self.gtk_treeview_lista_horas = self.builder.get_object("gtk_treeview_lista_horas")
-        self.label_data_hora_inicial = self.builder.get_object(
-            'label_data_hora_inicial'
-        )
-        self.label_data_hora_final = self.builder.get_object(
-            'label_data_hora_final'
-        )
+        self.label_data_hora_inicial = self.builder.get_object('label_data_hora_inicial')
+        self.label_data_hora_final = self.builder.get_object('label_data_hora_final')
 
         self.data_atual = datetime.now()
         hora = self.data_atual + timedelta(hours=1)
@@ -79,19 +69,13 @@ class SelectHora(object):
         # self.label_hora_ecolhida_up.set_text("2 horas")
 
         # self.label_minuto_ecolhido.set_text(self.data_atual.strftime("%M"))
-        self.label_data_hora_inicial.set_text(
-            self.data_atual.strftime('%d/%m/%Y - %H:%M')
-        )
+        self.label_data_hora_inicial.set_text(self.data_atual.strftime('%d/%m/%Y - %H:%M'))
         self.label_data_hora_final.set_text(hora.strftime('%d/%m/%Y - %H:%M'))
         self.label_periodo_do = self.builder.get_object('label_periodo_do')
-        self.label_definir_prazo = self.builder.get_object(
-            'label_definir_prazo'
-        )
+        self.label_definir_prazo = self.builder.get_object('label_definir_prazo')
         self.label_valor_total = self.builder.get_object('label_valor_total')
         self.label_ate = self.builder.get_object('label_ate')
-        self.label_valor_total_horas = self.builder.get_object(
-            'label_valor_total_horas'
-        )
+        self.label_valor_total_horas = self.builder.get_object('label_valor_total_horas')
         self.label_valor_total_horas.set_text('R$ ' + str(self.taxa))
 
         if self.language == 'pt_BR':
@@ -298,22 +282,14 @@ class SelectHora(object):
         # self.btn_diminui_hora.set_label(self.hora_labels[hora + 1])
         total_atual = self.label_valor_total_horas.get_label()
         total_atual = total_atual.replace(',', '.')
-        total = (
-            float(self.horas[self.label_hora_ecolhida.get_label()]) * self.taxa
-        )
+        total = float(self.horas[self.label_hora_ecolhida.get_label()]) * self.taxa
         total = str('%.2f' % total)
         total = total.replace('.', ',')
         self.label_valor_total_horas.set_text('R$ ' + total)
 
-        data_final = data + timedelta(
-            hours=int(self.horas[self.label_hora_ecolhida.get_label()])
-        )
-        self.label_data_hora_inicial.set_text(
-            data.strftime('%d/%m/%Y - %H:%M')
-        )
-        self.label_data_hora_final.set_text(
-            data_final.strftime('%d/%m/%Y - %H:%M')
-        )
+        data_final = data + timedelta(hours=int(self.horas[self.label_hora_ecolhida.get_label()]))
+        self.label_data_hora_inicial.set_text(data.strftime('%d/%m/%Y - %H:%M'))
+        self.label_data_hora_final.set_text(data_final.strftime('%d/%m/%Y - %H:%M'))
 
     def on_btn_diminui_hora_button_press_event(self, event, arg):
         data = datetime.now()
@@ -337,21 +313,13 @@ class SelectHora(object):
         # self.btn_diminui_hora.set_label(self.hora_labels[hora + 1])
         # self.btn_aumenta_hora.set_label(self.hora_labels[hora - 1])
 
-        total = (
-            float(self.horas[self.label_hora_ecolhida.get_label()]) * self.taxa
-        )   # + float(total_atual)
+        total = float(self.horas[self.label_hora_ecolhida.get_label()]) * self.taxa   # + float(total_atual)
         total = str('%.2f' % total)
         total = total.replace('.', ',')
         self.label_valor_total_horas.set_text('R$ ' + total)
-        data_final = data + timedelta(
-            hours=int(self.horas[self.label_hora_ecolhida.get_label()])
-        )
-        self.label_data_hora_inicial.set_text(
-            data.strftime('%d/%m/%Y - %H:%M')
-        )
-        self.label_data_hora_final.set_text(
-            data_final.strftime('%d/%m/%Y - %H:%M')
-        )
+        data_final = data + timedelta(hours=int(self.horas[self.label_hora_ecolhida.get_label()]))
+        self.label_data_hora_inicial.set_text(data.strftime('%d/%m/%Y - %H:%M'))
+        self.label_data_hora_final.set_text(data_final.strftime('%d/%m/%Y - %H:%M'))
 
     def on_btn_diminui_minuto_button_press_event(self, event, arg):
         pass
@@ -371,9 +339,7 @@ class SelectHora(object):
         self.hora = self.horas[self.label_hora_ecolhida.get_label()]
         dia = 0
         self.select_hora_window.hide()
-        CadastroUsuarios(
-            self.total, self.language, self.classe, dia, self.hora
-        )
+        CadastroUsuarios(self.total, self.language, self.classe, dia, self.hora)
 
     def gtk_style_calendario(self):
         css = b"""

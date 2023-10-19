@@ -1,9 +1,10 @@
+import time
 import gi
 
-gi.require_version('Gtk', '3.0')
 from gi.repository import Gdk, GdkPixbuf, Gio, GLib, GObject, Gtk
-
 from controllers import Management
+
+gi.require_version('Gtk', '3.0')
 
 
 class WindowSelectCartao:
@@ -19,34 +20,30 @@ class WindowSelectCartao:
             }
         )
         self.btn_credito = self.build.get_object('btn_credito')
-        self.btn_credito.connect(
-            'button-press-event', self.on_btn_credito_button_press_event
-        )
+        self.btn_credito.connect('button-press-event', self.on_btn_credito_button_press_event)
         self.btn_debito = self.build.get_object('btn_debito')
         # self.btn_debito.connect("button-press-event", self.on_btn_debito_button_press_event)
         self.btn_cancelar = self.build.get_object('btn_cancelar')
         # self.btn_cancelar.connect("button-press-event", self.on_btn_cancelar_button_press_event)
         self.tipo_cartao = ''
 
-        self.window_select_cartao = self.build.get_object(
-            'window_select_cartao'
-        )
+        self.window_select_cartao = self.build.get_object('window_select_cartao')
         self.window_select_cartao.show()
 
     def on_btn_credito_button_press_event(self, event, args):
         # print("1")
         self.send_tipo_cartao('CREDITO')
-        sleep(0.5)
+        time.sleep(0.5)
 
     def on_btn_debito_button_press_event(self, event, args):
         # print("2")
         self.send_tipo_cartao('DEBITO')
-        sleep(0.5)
+        time.sleep(0.5)
 
     def on_btn_cancelar_button_press_event(self, event, args):
         # print("CANCELA")
         self.send_tipo_cartao(0x13)
-        sleep(0.5)
+        time.sleep(0.5)
         self.window_select_cartao.destroy()
 
     def send_tipo_cartao(self, tipo):

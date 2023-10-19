@@ -18,7 +18,6 @@ python-dateutil = "*"
 pytz = "*"
 six = "*"
 pycairo = "*"
-pycodestyle = "*"
 pycryptodome = "*"
 pyinstaller = "*"
 pyinstaller-hooks-contrib = "*"
@@ -29,8 +28,9 @@ mysql-connector-python = "*"
 [dev-packages]
 isort = "*"
 pytest = "*"
-flake8 = "*"
 blue = "*"
+flake8 = "*"
+black = "*"
 
 [requires]
 python_version = "3.11"

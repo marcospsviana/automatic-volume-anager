@@ -18,9 +18,7 @@ class Term:
 
         str_uri = open('templates/term.html', 'r')
         self.web = WebKit2.WebView()
-        self.web.load_uri(
-            'file:///home/marcos/coolbag/raspcontrol/templates/term.html'
-        )
+        self.web.load_uri('file:///home/marcos/coolbag/raspcontrol/templates/term.html')
         self.web.show()
         self.window.add(self.web)
         self.window.show_all()
