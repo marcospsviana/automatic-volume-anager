@@ -3,11 +3,12 @@ import gi
 from controllers import Management
 from op_hora_diaria import OpcaoHoraDiaria
 
-gi.require_version('Gtk', '3.0')
-from datetime import datetime, timedelta
+from datetime import datetime
 
 import numpy as np
 from gi.repository import Gdk, GdkPixbuf, Gio, GLib, GObject, Gtk
+gi.require_version('Gtk', '3.0')
+gi.require_version('Gdk', '3.0')
 
 
 class SelectSize(object):

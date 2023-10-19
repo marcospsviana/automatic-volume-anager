@@ -7,7 +7,6 @@ import sys
 
 import gi
 
-gi.require_version('Gtk', '3.0')
 import calendar
 import encodings.unicode_escape
 import locale
@@ -25,6 +24,8 @@ from PIL import Image
 # from locar import Locar
 from select_option import SelectOption
 from taxas import *
+gi.require_version('Gtk', '3.0')
+gi.require_version('Gdk', '3.0')
 
 DDD = ''
 
