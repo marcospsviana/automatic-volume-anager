@@ -1,6 +1,6 @@
 import gi
 
-import op_hora_diaria
+import window_op_hora_diaria
 from termo import Term
 
 import string
@@ -1010,7 +1010,7 @@ class CadastroUsuarios:
 
     def on_btn_retornar_button_press_event(self, widget, event):
         self.window_cadastro_usuario.hide()
-        op_hora_diaria.OpcaoHoraDiaria(self.classe, self.language)
+        window_op_hora_diaria.OpcaoHoraDiaria(self.classe, self.language)
 
     def on_entry_nome_button_press_event(self, widget, event):
         if self.language == 'pt_BR':
